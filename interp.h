@@ -1,5 +1,5 @@
-#ifndef _INTERP_H
-#define _INTERP_H
+#ifndef UROBORO_INTERP_H
+#define UROBORO_INTERP_H
 
 #include "common.h"
 

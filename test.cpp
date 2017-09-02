@@ -23,8 +23,6 @@ void print_real(real x) {
 int main(int argc, char const *argv[]) {
 
 	set_output_prec(8);
-	print_real(degrees(10));
-
 
 	return 0;
 }

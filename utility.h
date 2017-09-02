@@ -1,5 +1,5 @@
-#ifndef _UROBORO_UTILITY_H
-#define _UROBORO_UTILITY_H
+#ifndef UROBORO_UTILITY_H
+#define UROBORO_UTILITY_H
 #include <iostream>
 #include <ctime>
 #include "mat.h"

@@ -1,5 +1,5 @@
-#ifndef _MAT_H
-#define _MAT_H
+#ifndef UROBORO_MAT_H
+#define UROBORO_MAT_H
 #include "vec.h"
 
 namespace uroboro {

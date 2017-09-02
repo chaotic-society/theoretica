@@ -1,5 +1,5 @@
-#ifndef _MML_H
-#define _MML_H
+#ifndef UROBORO_MML_H
+#define UROBORO_MML_H
 
 #include "common.h"
 #include "vec.h"

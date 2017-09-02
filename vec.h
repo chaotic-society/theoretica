@@ -1,5 +1,5 @@
-#ifndef _VEC_H
-#define _VEC_H
+#ifndef UROBORO_VEC_H
+#define UROBORO_VEC_H
 #include "common.h"
 
 namespace uroboro {
