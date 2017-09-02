@@ -48,6 +48,16 @@ namespace uroboro {
 				z -= other.z;
 			}
 
+			inline vec4 operator+(vec4 other) {
+				return vec4(x + other.x, y + other.y, z + other.z, w);
+			}
+
+			inline void operator+=(vec4 other) {
+				x += other.x;
+				y += other.y;
+				z += other.z;
+			}
+
 			inline bool operator<(vec4 other) {
 				return sqrmagnitude() < other.sqrmagnitude();
 			}
@@ -69,6 +79,11 @@ namespace uroboro {
 				x /= mag;
 				y /= mag;
 				z /= mag;
+			}
+
+			inline vec4 normalized() {
+				real mag = magnitude();
+				return vec4(x / mag, y / mag, z / mag);
 			}
 
 			inline vec4 cross(vec4 other) {

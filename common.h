@@ -1,15 +1,13 @@
 #ifndef _UROBORO_COMMON_H
 #define _UROBORO_COMMON_H
 
-#ifdef MML_REAL_DOUBLE
-using real = double;
-#else
-using real = float;
-#endif
+#include "constants.h"
+#include <cstdint>
 
 namespace uroboro {
 
 
+	// Calculate the square root of x using x86 Assembly instructions
 	inline real sqrt(real x) {
 
 		#ifdef MSVC_ASM
@@ -26,28 +24,24 @@ namespace uroboro {
 	}
 
 
+	// Approximate e^x using power series
 	inline real exp(real x) {
 
-		real sqrx = x * x;
-		real sqrx2 = sqrx * sqrx;
+		real x2 = x * x;
+		real x4 = x2 * x2;
 
 		return 1.f + x
-		+ (sqrx / 2.f)
-		+ (sqrx * x / 6.f)
-		+ (sqrx2 / 24.f)
-		+ (sqrx2 * x / 120.f)
-		+ (sqrx2 * sqrx / 720.f)
-		+ (sqrx2 * sqrx * x / 5040.f)
-		+ (sqrx2 * sqrx2 / 40320.f);
+		+ (x2 / 2.f)
+		+ (x2 * x / 6.f)
+		+ (x4 / 24.f)
+		+ (x4 * x / 120.f)
+		+ (x4 * x2 / 720.f)
+		+ (x4 * x2 * x / 5040.f)
+		+ (x4 * x4 / 40320.f);
 	}
 
 
-	inline real ln(real x) {
-
-		return 0;
-	}
-
-
+	// Calculate x^n (where n is natural) using iteration
 	inline real pow(real x, int n) {
 
 		real res;
@@ -69,12 +63,95 @@ namespace uroboro {
 	}
 
 
-	inline real pow(real x, real n) {
+	// Calculate the natural logarithm of x
+	// NOTE: Not so precise for numbers bigger than 20
+	// Use log(real, unsigned int) for better precision
+	inline real log(real x) {
 
-		return ln(n * exp(x));
+		real precalc_x = (x - 1) / (x + 1);
+		real x2 = precalc_x * precalc_x;
+		real x3 = precalc_x * precalc_x * precalc_x;
+		real x4 = x2 * x2;
+
+		real result = precalc_x +
+						(x3 / 3.f) +
+						(x3 * x2 / 5.f) +
+						(x3 * x4 / 7.f) +
+						(x4 * x4 * precalc_x / 9.f) +
+						(x4 * x4 * x2 * precalc_x / 11.f) +
+						(x4 * x4 * x4 * precalc_x / 13.f) +
+						(x4 * x4 * x4 * x3 / 15.f) +
+						(x4 * x4 * x4 * x4 * precalc_x / 17.f);
+
+		return result * 2;
+	}
+
+	// Calculate the binary logarithm of x
+	inline real log2(real x) {
+
+		return log(x) / 0.69314718056f;
 	}
 
 
+	// Calculate the common logarithm of x
+	inline real log10(real x) {
+
+		// This function doesn't use a constant for log(10)
+		// because it wasn't precise enough
+		return log(x) / log(10);
+	}
+
+
+	// Calculate the natural logarithm of x
+	inline real log(real x, unsigned int iterations) {
+
+		real precalc_x = (x - 1) / (x + 1);
+		real result = 0;
+
+		for (int i = 0; i < 7; ++i)
+			result += pow(precalc_x, (2 * i) + 1) / (i * 2.f + 1);
+
+		return result * 2;
+	}
+
+
+	// Calculate the binary logarithm of x
+	inline real log2(real x, unsigned int iterations) {
+
+		return log(x, iterations) / 0.69314718056f;
+	}
+
+
+	// Calculate the common logarithm of x
+	inline real log10(real x, unsigned int iterations) {
+
+		// This function doesn't use a constant for log(10)
+		// because it wasn't precise enough
+		return log(x, iterations) / log(10);
+	}
+
+
+	// Calculate x^n (where n has decimals)
+	// WARNING: This function is considerably slower than pow(int, int)
+	// WARNING: This function currently works only for inputs lower than 20
+	inline real powf(real x, real n) {
+
+		return log(n * exp(x));
+	}
+
+
+	// Calculate x! using iteration
+	inline unsigned int fact(unsigned int x) {
+
+		unsigned int res = 1;
+		for (int i = x; i > 1; --i)
+			res *= i;
+
+		return res;
+	}
+
+
+	// Calculate sin(x) using x86 Assembly instructions
 	inline real sin(real x) {
 
 		#ifdef MSVC_ASM
@@ -91,6 +168,7 @@ namespace uroboro {
 	}
 
 
+	// Calculate cos(x) using
 	inline real cos(real x) {
 
 		#ifdef MSVC_ASM
@@ -107,80 +185,55 @@ namespace uroboro {
 	}
 
 
+	// Calculate tangent of x
 	inline real tan(real x) {
 
-		real cos = x;
-		#ifdef MSVC_ASM
-		__asm {
-			fld x
-			fsin
-			fst x
-			fld cos
-			fcos
-			fst cos
-		}
-		#else
-		asm("fsin" : "+t"(x));
-		asm("fcos" : "+t"(cos));
-		#endif
-
-		return x / cos;
+		return sin(x) / cos(x);
 	}
 
 
+	// Calculate the cotangent of x
 	inline real cot(real x) {
 
-		real cos = x;
-		#ifdef MSVC_ASM
-		__asm {
-			fld x
-			fsin
-			fst x
-			fld cos
-			fcos
-			fst cos
-		}
-		#else
-		asm("fsin" : "+t"(x));
-		asm("fcos" : "+t"(cos));
-		#endif
-
-		return cos / x;
+		return cos(x) / sin(x);
 	}
 
 
+	// Calculate asin(x) with x in range -1/+1 using Taylor series
 	inline real asin(real x) {
-
-		real sqrx = x * x;
-		real sqrx2 = sqrx * sqrx;
-
-		return x
-		+ (sqrx * x / 6.f)
-		+ (sqrx2 * x * 3.f / 40.f)
-		+ (sqrx2 * sqrx * x * 5.f / 112.f)
-		+ (sqrx2 * sqrx2 * x * 35.f / 1152.f);
+#ifdef UROBORO_DOUBLE_PRECISION
+		return -(-0.69813170079773212 * x * x - 0.87266462599716477) * x;
+#else
+		return -(-0.6981317f * x * x - 0.8726646f) * x;
+#endif
 	}
 
 
+	// Calculate acos(x) with x in range -1/+1
 	inline real acos(real x) {
-
-		return 0;
+#ifdef UROBORO_DOUBLE_PRECISION
+		return (-0.69813170079773212 * x * x - 0.87266462599716477) * x + 1.5707963267948966;
+#else
+		return (-0.69813170079773212 * x * x - 0.87266462599716477) * x + PI2;
+#endif
 	}
 
 
+	// Calculate atan(x) with x in range -1/+1 using Taylor series
 	inline real atan(real x) {
 
-		real sqrx = x * x;
-		real sqrx2 = sqrx * sqrx;
+		real x2 = x * x;
+		real x4 = x2 * x2;
 
 		return x
-		- (sqrx * x / 3.f)
-		+ (sqrx2 * x / 5.f)
-		- (sqrx2 * sqrx * x / 7.f)
-		+ (sqrx2 * sqrx2 * sqrx * x / 11.f);
+		- (x2 * x / 3.f)
+		+ (x4 * x / 5.f)
+		- (x4 * x2 * x / 7.f)
+		+ (x4 * x4 * x2 * x / 11.f);
 	}
 
 
+	// Calculate the absolute value of x with x86 Assembly instructions
 	inline real abs(real x) {
 
 		#ifdef MSVC_ASM
@@ -193,8 +246,70 @@ namespace uroboro {
 		asm("fabs" : "+t"(x));
 		#endif
 
-
 		return x;
+	}
+
+
+	// Clamp x between a and b
+	inline real clamp(real x, real a, real b) {
+		return x > b ? b : (x < a ? a : x);
+	}
+
+
+	// Return the biggest number between x and y
+	inline real max(real x, real y) {
+		return x > y ? x : y;
+	}
+
+
+	// Return the smallest number between x and y
+	inline real min(real x, real y) {
+		return x > y ? y : x;
+	}
+
+
+	// Convert degrees to radians
+	inline real radians(real degrees) {
+		return degrees * DEG2RAD;
+	}
+
+
+	// Convert radians to degrees
+	inline real degrees(real radians) {
+		return radians * RAD2DEG;
+	}
+
+
+	// Return x + y * z
+	// NOTE: This functions uses assembly instructions to speed up calculations
+	// inline real fma(real x, real y, real z) {
+	//
+	// }
+
+
+	// Fast implementation of memzero using 64-bit integers
+	inline void fastmemzero(char* buffer, size_t size) {
+
+		for (int i = 0; i < int(size / 8.f); ++i) {
+			((int64_t*) buffer)[i] = 0;
+		}
+
+		for (int i = 0; i < size % 8; ++i) {
+			((int64_t*) buffer)[i] = 0;
+		}
+	}
+
+
+	// Fast implementation of memcpy using 64-bit integers
+	inline void fastmemcpy(char* dest, char* src, size_t size) {
+
+		for (int i = 0; i < int(size / 8.f); ++i) {
+			((int64_t*) dest)[i] = ((int64_t*) src)[i];
+		}
+
+		for (int i = 0; i < size % 8; ++i) {
+			((int64_t*) dest)[i] = ((int64_t*) src)[i];
+		}
 	}
 
 
