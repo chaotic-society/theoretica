@@ -72,16 +72,19 @@ namespace uroboro {
 		real x2 = precalc_x * precalc_x;
 		real x3 = precalc_x * precalc_x * precalc_x;
 		real x4 = x2 * x2;
+		real x8 = x4 * x4;
 
 		real result = precalc_x +
 						(x3 / 3.f) +
 						(x3 * x2 / 5.f) +
 						(x3 * x4 / 7.f) +
-						(x4 * x4 * precalc_x / 9.f) +
-						(x4 * x4 * x2 * precalc_x / 11.f) +
-						(x4 * x4 * x4 * precalc_x / 13.f) +
-						(x4 * x4 * x4 * x3 / 15.f) +
-						(x4 * x4 * x4 * x4 * precalc_x / 17.f);
+						(x8 * precalc_x / 9.f) +
+						(x8 * x2 * precalc_x / 11.f) +
+						(x8 * x4 * precalc_x / 13.f) +
+						(x8 * x4 * x3 / 15.f) +
+						(x8 * x8 * precalc_x / 17.f) +
+						(x8 * x8 * x3 / 19.f) +
+						(x8 * x8 * x4 * precalc_x / 21.f);
 
 		return result * 2;
 	}
@@ -89,7 +92,7 @@ namespace uroboro {
 	// Calculate the binary logarithm of x
 	inline real log2(real x) {
 
-		return log(x) / 0.69314718056f;
+		return log(x) / log(2);
 	}
 
 
