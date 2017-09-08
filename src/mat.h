@@ -9,7 +9,9 @@ namespace uroboro {
 		public:
 			real data[4][4] = { {0.f}, {0.f}, {0.f}, {0.f} }; //4x4
 
-			inline mat4() {}
+			inline mat4() {
+				identity();
+			}
 
 			inline mat4(real i) {
 				data[0][0] = i;
@@ -126,7 +128,13 @@ namespace uroboro {
 			}
 
 			inline vec4 transform(vec4 vector) {
-				return vec4((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + data[3][0],
+				return vec4((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + (data[3][0] * vector.w),
+							(data[0][1] * vector.x) + (data[1][1] * vector.y) + (data[2][1] * vector.z) + (data[3][1] * vector.w),
+							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + (data[3][2] * vector.w));
+			}
+
+			inline vec3 transform(vec3 vector) {
+				return vec3((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + data[3][0],
 							(data[0][1] * vector.x) + (data[1][1] * vector.y) + (data[2][1] * vector.z) + data[3][1],
 							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + data[3][2]);
 			}
@@ -137,12 +145,24 @@ namespace uroboro {
 				data[3][2] += translation.z;
 			}
 
-			inline void rotate(real radians, vec4 rotation) {
+			inline void translate(vec3 translation) {
+				data[3][0] += translation.x;
+				data[3][1] += translation.y;
+				data[3][2] += translation.z;
+			}
+
+			inline void rotate(real radians, vec3 rotation) {
 			}
 
 			//inline void rotate(quat rotation) {}
 
 			inline void scale(vec4 scale) {
+				data[0][0] *= scale.x;
+				data[1][1] *= scale.y;
+				data[2][2] *= scale.z;
+			}
+
+			inline void scale(vec3 scale) {
 				data[0][0] *= scale.x;
 				data[1][1] *= scale.y;
 				data[2][2] *= scale.z;
@@ -155,9 +175,11 @@ namespace uroboro {
 			//inline void operator=(const quat &quaternion) {}
 
 			inline vec4 operator*(vec4 vector) {
-				return vec4((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + data[3][0],
-							(data[0][1] * vector.x) + (data[1][1] * vector.y) + (data[2][1] * vector.z) + data[3][1],
-							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + data[3][2]);
+				return transform(vector);
+			}
+
+			inline vec3 operator*(vec3 vector) {
+				return transform(vector);
 			}
 
 			inline mat4 operator*(const mat4 &other) {
@@ -182,6 +204,46 @@ namespace uroboro {
 			// }
 
 	};
+
+
+	mat4 perspective(float left, float right, float bottom, float top, float near, float far) {
+
+		mat4 result = mat4();
+
+		result.data[0][0]  = 2 * near / (right - left);
+		result.data[0][2]  = (right + left) / (right - left);
+		result.data[1][1]  = 2 * near / (top - bottom);
+		result.data[1][2]  = (top + bottom) / (top - bottom);
+		result.data[2][2] = -(far + near) / (far - near);
+		result.data[2][3] = -(2 * far * near) / (far - near);
+		result.data[3][2] = -1;
+		result.data[3][3] = 0;
+
+		return result;
+	}
+
+
+	mat4 perspective(real fov, real aspect, real near, real far) {
+
+		real height = near * tan(radians(fov / 2.f));
+		real width = height * aspect;
+
+		return perspective(-width, width, -height, height, near, far);
+	}
+
+	mat4 ortho(real left, real right, real bottom, real top, real near, real far) {
+
+		mat4 result = mat4();
+
+		result.data[0][0]  = 2 / (right - left);
+		result.data[0][3]  = -(right + left) / (right - left);
+		result.data[1][1]  = 2 / (top - bottom);
+		result.data[1][3]  = -(top + bottom) / (top - bottom);
+		result.data[2][2] = -2 / (far - near);
+		result.data[2][3] = -(far + near) / (far - near);
+
+		return result;
+	}
 
 }
 

@@ -26,7 +26,7 @@ namespace uroboro {
 				z *= scalar;
 			}
 
-			inline void operator=(vec4 &other) {
+			inline void operator=(vec4 const& other) {
 				x = other.x;
 				y = other.y;
 				z = other.z;
@@ -124,7 +124,7 @@ namespace uroboro {
 				z *= scalar;
 			}
 
-			inline void operator=(vec3 &other) {
+			inline void operator=(vec3 const& other) {
 				x = other.x;
 				y = other.y;
 				z = other.z;
@@ -194,6 +194,18 @@ namespace uroboro {
 			inline real dot(vec3 other) {
 				return (other.x * x) + (other.y * y) + (other.z * z);
 			}
+
+		};
+
+		class vec2 {
+			public:
+
+				real x;
+				real y;
+
+				inline vec2(real x, real y) : x(x), y(y) {}
+
+				inline vec2() : x(0), y(0) {}
 
 		};
 
