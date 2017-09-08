@@ -206,7 +206,7 @@ namespace uroboro {
 	};
 
 
-	mat4 perspective(float left, float right, float bottom, float top, float near, float far) {
+	inline mat4 perspective(float left, float right, float bottom, float top, float near, float far) {
 
 		mat4 result = mat4();
 
@@ -223,7 +223,7 @@ namespace uroboro {
 	}
 
 
-	mat4 perspective(real fov, real aspect, real near, real far) {
+	inline mat4 perspective(real fov, real aspect, real near, real far) {
 
 		real height = near * tan(radians(fov / 2.f));
 		real width = height * aspect;
@@ -231,7 +231,7 @@ namespace uroboro {
 		return perspective(-width, width, -height, height, near, far);
 	}
 
-	mat4 ortho(real left, real right, real bottom, real top, real near, real far) {
+	inline mat4 ortho(real left, real right, real bottom, real top, real near, real far) {
 
 		mat4 result = mat4();
 
