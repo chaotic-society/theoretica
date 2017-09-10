@@ -162,6 +162,19 @@ int main(int argc, char const *argv[]) {
 
 		TEST_TOL(v3.x, 0);
 
+		v3 = vec3(10, 15, 20);
+		v3.normalize();
+
+		TEST_TOL(v3.magnitude, 1);
+
+		v3 = vec3();
+		m.translate(vec3(10, 0, 0));
+		v3 = m * v3;
+
+		TEST_TOL(v3.x, 10);
+		TEST_TOL(v3.y, 0);
+		TEST_TOL(v3.z, 0);
+
 	TEST_END();
 
 
