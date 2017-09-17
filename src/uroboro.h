@@ -6,4 +6,6 @@
 #include "mat.h"
 #include "interp.h"
 
+using umath = uroboro;
+
 #endif

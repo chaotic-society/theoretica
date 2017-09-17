@@ -150,6 +150,12 @@ namespace uroboro {
 							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + data[3][2]);
 			}
 
+			inline void translate(float x, float y, float z) {
+				data[3][0] += x;
+				data[3][1] += y;
+				data[3][2] += z;
+			}
+
 			inline void translate(vec4 translation) {
 				data[3][0] += translation.x;
 				data[3][1] += translation.y;
@@ -166,6 +172,12 @@ namespace uroboro {
 			}
 
 			//inline void rotate(quat rotation) {}
+
+			inline void scale(float x, float y, float z) {
+				data[0][0] *= x;
+				data[1][1] *= y;
+				data[2][2] *= z;
+			}
 
 			inline void scale(vec4 scale) {
 				data[0][0] *= scale.x;
@@ -200,6 +212,30 @@ namespace uroboro {
 
 			//inline void operator=(const quat &quaternion) {}
 
+			inline mat4 operator*(real scalar) {
+
+				mat4 result;
+
+				result.data[0][0] = data[0][0] * scalar;
+				result.data[0][1] = data[0][1] * scalar;
+				result.data[0][2] = data[0][2] * scalar;
+				result.data[0][3] = data[0][3] * scalar;
+				result.data[1][0] = data[1][0] * scalar;
+				result.data[1][1] = data[1][1] * scalar;
+				result.data[1][2] = data[1][2] * scalar;
+				result.data[1][3] = data[1][3] * scalar;
+				result.data[2][0] = data[2][0] * scalar;
+				result.data[2][1] = data[2][1] * scalar;
+				result.data[2][2] = data[2][2] * scalar;
+				result.data[2][3] = data[2][3] * scalar;
+				result.data[3][0] = data[3][0] * scalar;
+				result.data[3][1] = data[3][1] * scalar;
+				result.data[3][2] = data[3][2] * scalar;
+				result.data[3][3] = data[3][3] * scalar;
+
+				return result;
+			}
+
 			inline vec4 operator*(vec4 vector) {
 				return transform(vector);
 			}
@@ -225,6 +261,30 @@ namespace uroboro {
 				);
 			}
 
+			inline mat4 operator+(real scalar) {
+
+				mat4 result;
+
+				result.data[0][0] = data[0][0] + scalar;
+				result.data[0][1] = data[0][1] + scalar;
+				result.data[0][2] = data[0][2] + scalar;
+				result.data[0][3] = data[0][3] + scalar;
+				result.data[1][0] = data[1][0] + scalar;
+				result.data[1][1] = data[1][1] + scalar;
+				result.data[1][2] = data[1][2] + scalar;
+				result.data[1][3] = data[1][3] + scalar;
+				result.data[2][0] = data[2][0] + scalar;
+				result.data[2][1] = data[2][1] + scalar;
+				result.data[2][2] = data[2][2] + scalar;
+				result.data[2][3] = data[2][3] + scalar;
+				result.data[3][0] = data[3][0] + scalar;
+				result.data[3][1] = data[3][1] + scalar;
+				result.data[3][2] = data[3][2] + scalar;
+				result.data[3][3] = data[3][3] + scalar;
+
+				return result;
+			}
+
 			// inline real& operator[](unsigned int i) {
 			// 	return data[i];
 			// }
@@ -232,7 +292,79 @@ namespace uroboro {
 	};
 
 
-	inline mat4 perspective(float left, float right, float bottom, float top, float near, float far) {
+	inline mat4 translation(real x, real y, real z) {
+
+		mat4 result = mat4();
+
+		result.data[0][3] = x;
+		result.data[1][3] = y;
+		result.data[2][3] = z;
+
+		return result;
+	}
+
+	inline mat4 translation(vec4 translation) {
+
+		mat4 result = mat4();
+
+		result.data[0][3] = translation.x;
+		result.data[1][3] = translation.y;
+		result.data[2][3] = translation.z;
+
+		return result;
+	}
+
+	inline mat4 translation(vec3 translation) {
+
+		mat4 result = mat4();
+
+		result.data[0][3] = translation.x;
+		result.data[1][3] = translation.y;
+		result.data[2][3] = translation.z;
+
+		return result;
+	}
+
+	//inline mat4 rotation() {}
+
+	inline mat4 scale(real x, real y, real z) {
+
+		mat4 result = mat4();
+
+		result.data[0][0] = x;
+		result.data[1][1] = y;
+		result.data[2][2] = z;
+
+		return result;
+	}
+
+	inline mat4 scale(vec4 scale) {
+
+		mat4 result = mat4();
+
+		result.data[0][0] = scale.x;
+		result.data[1][1] = scale.y;
+		result.data[2][2] = scale.z;
+
+		return result;
+	}
+
+	inline mat4 scale(vec3 scale) {
+
+		mat4 result = mat4();
+
+		result.data[0][0] = scale.x;
+		result.data[1][1] = scale.y;
+		result.data[2][2] = scale.z;
+
+		return result;
+	}
+
+	inline mat4 identity() {
+		return mat4(1.f);
+	}
+
+	inline mat4 perspective(real left, real right, real bottom, real top, real near, real far) {
 
 		mat4 result = mat4();
 
@@ -247,7 +379,6 @@ namespace uroboro {
 
 		return result;
 	}
-
 
 	inline mat4 perspective(real fov, real aspect, real near, real far) {
 
@@ -270,6 +401,7 @@ namespace uroboro {
 
 		return result;
 	}
+
 
 }
 
