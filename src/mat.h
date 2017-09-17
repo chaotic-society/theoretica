@@ -45,10 +45,21 @@ namespace uroboro {
 			inline ~mat4() {}
 
 			inline void identity() {
-				fastmemzero((char*) data, 16);
 				data[0][0] = 1;
+				data[0][1] = 0;
+				data[0][2] = 0;
+				data[0][3] = 0;
+				data[1][0] = 0;
 				data[1][1] = 1;
+				data[1][2] = 0;
+				data[1][3] = 0;
+				data[2][0] = 0;
+				data[2][1] = 0;
 				data[2][2] = 1;
+				data[2][3] = 0;
+				data[3][0] = 0;
+				data[3][1] = 0;
+				data[3][2] = 0;
 				data[3][3] = 1;
 			}
 
@@ -169,7 +180,22 @@ namespace uroboro {
 			}
 
 			inline void operator=(const mat4 &other) {
-				fastmemcpy((char*) data, (char*) other.data, 16);
+				data[0][0] = other.data[0][0];
+				data[0][1] = other.data[0][1];
+				data[0][2] = other.data[0][2];
+				data[0][3] = other.data[0][3];
+				data[1][0] = other.data[1][0];
+				data[1][1] = other.data[1][1];
+				data[1][2] = other.data[1][2];
+				data[1][3] = other.data[1][3];
+				data[2][0] = other.data[2][0];
+				data[2][1] = other.data[2][1];
+				data[2][2] = other.data[2][2];
+				data[2][3] = other.data[2][3];
+				data[3][0] = other.data[3][0];
+				data[3][1] = other.data[3][1];
+				data[3][2] = other.data[3][2];
+				data[3][3] = other.data[3][3];
 			}
 
 			//inline void operator=(const quat &quaternion) {}
