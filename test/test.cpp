@@ -1,4 +1,5 @@
 #include "lightcpptest.h"
+#define UROBORO_DOUBLE_PRECISION
 #include "uroboro.h"
 #include "utility.h"
 #include <sstream>
@@ -22,6 +23,7 @@ bool good_enough(real a, real b) {
 }
 
 void vec3_misc() {}
+
 
 
 int main(int argc, char const *argv[]) {
@@ -78,7 +80,7 @@ int main(int argc, char const *argv[]) {
 	TEST_BEGIN_VOID(powf);
 
 		// powf is safe only for x in range 0-1
-		TEST_TOL(powf(1.f, 0.5f), 1.f);
+		TEST_TOL(powf(2.f, 0.5f), 1.41421356237);
 
 	TEST_END();
 
@@ -165,7 +167,7 @@ int main(int argc, char const *argv[]) {
 		v3 = vec3(10, 15, 20);
 		v3.normalize();
 
-		TEST_TOL(v3.magnitude, 1);
+		TEST_TOL(v3.magnitude(), 1);
 
 		v3 = vec3();
 		m.translate(vec3(10, 0, 0));

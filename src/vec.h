@@ -207,6 +207,77 @@ namespace uroboro {
 
 				inline vec2() : x(0), y(0) {}
 
+				inline real operator*(vec2 other) {
+					return (x * other.x) + (y * other.y);
+				}
+
+				inline void operator*=(real scalar) {
+					x *= scalar;
+					y *= scalar;
+				}
+
+				inline void operator=(vec2 const& other) {
+					x = other.x;
+					y = other.y;
+				}
+
+				inline bool operator==(vec2 other) {
+					return (x == other.x) && (y == other.y);
+				}
+
+				inline vec2 operator-(vec2 other) {
+					return vec2(x - other.x, y - other.y);
+				}
+
+				inline void operator-=(vec2 other) {
+					x -= other.x;
+					y -= other.y;
+				}
+
+				inline vec2 operator+(vec2 other) {
+					return vec2(x + other.x, y + other.y);
+				}
+
+				inline void operator+=(vec2 other) {
+					x += other.x;
+					y += other.y;
+				}
+
+				inline bool operator<(vec2 other) {
+					return sqrmagnitude() < other.sqrmagnitude();
+				}
+
+				inline bool operator>(vec2 other) {
+					return sqrmagnitude() > other.sqrmagnitude();
+				}
+
+				inline real magnitude() {
+					return sqrt((x * x) + (y * y));
+				}
+
+				inline real sqrmagnitude() {
+					return (x * x) + (y * y);
+				}
+
+				inline void normalize() {
+					real mag = magnitude();
+					x /= mag;
+					y /= mag;
+				}
+
+				inline vec2 normalized() {
+					real mag = magnitude();
+					return vec2(x / mag, y / mag);
+				}
+
+				inline real cross(vec2 other) {
+					return x * other.y - y * other.x;
+				}
+
+				inline real dot(vec2 other) {
+					return (other.x * x) + (other.y * y);
+				}
+
 		};
 
 

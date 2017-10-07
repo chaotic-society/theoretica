@@ -6,6 +6,8 @@
 #include "mat.h"
 #include "interp.h"
 
-using umath = uroboro;
+#ifndef UROBORO_NO_NAMESPACE
+namespace umath = uroboro;
+#endif
 
 #endif

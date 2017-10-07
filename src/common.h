@@ -99,8 +99,6 @@ namespace uroboro {
 	// Calculate the common logarithm of x
 	inline real log10(real x) {
 
-		// This function doesn't use a constant for log(10)
-		// because it wasn't precise enough
 		return log(x) / log(10);
 	}
 
@@ -139,7 +137,7 @@ namespace uroboro {
 	// WARNING: This function currently works only for inputs lower than 20
 	inline real powf(real x, real n) {
 
-		return log(n * exp(x));
+		return exp(n * log(x));
 	}
 
 
