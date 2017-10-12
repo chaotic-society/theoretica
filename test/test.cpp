@@ -16,7 +16,7 @@
 
 using namespace uroboro;
 
-constexpr real TOLERANCE = 0.01;
+constexpr real TOLERANCE = 0.001;
 
 bool good_enough(real a, real b) {
 	return abs(b - a) < TOLERANCE;
@@ -93,6 +93,16 @@ int main(int argc, char const *argv[]) {
 
 	TEST_END();
 
+	// sin_0_to_pi is imprecise on the borders (near 0.1 and near 0.9)
+	TEST_BEGIN_VOID(sin_0_to_pi);
+
+		TEST_TOL(sin_0_to_pi(0.5f), sin(0.5f));
+		TEST_TOL(sin_0_to_pi(0.75f), sin(0.75f));
+		TEST_TOL(sin_0_to_pi(0.99f), sin(0.99f));
+		TEST_TOL(sin_0_to_pi(0.1f), sin(0.1f));
+
+	TEST_END();
+
 
 	TEST_BEGIN_VOID(cos);
 
@@ -112,7 +122,7 @@ int main(int argc, char const *argv[]) {
 
 	TEST_BEGIN_VOID(asin);
 
-		// After 0.9 gets less precise
+		// After 0.9 gets a lot less precise
 		TEST_TOL(asin(0.5f), 0.5235987756);
 		TEST_TOL(asin(0.9f), 1.119769515);
 

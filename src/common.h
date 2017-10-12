@@ -24,6 +24,7 @@ namespace uroboro {
 	}
 
 
+	// UNSAFE
 	// Approximate e^x using power series
 	inline real exp(real x) {
 
@@ -96,6 +97,7 @@ namespace uroboro {
 	}
 
 
+	// UNSAFE
 	// Calculate the common logarithm of x
 	inline real log10(real x) {
 
@@ -168,6 +170,15 @@ namespace uroboro {
 		return x;
 	}
 
+	// Bhaskara sin(x) approximation
+	// Works only between 0 and pi
+	inline real sin_0_to_pi(real x) {
+
+		// Work in progress, need input reduction
+
+		return ((16 * x) * (PI - x)) /
+				((5 * PI * PI) - ((4 * x) * (PI - x)));
+	}
 
 	// Calculate cos(x) using
 	inline real cos(real x) {
@@ -202,24 +213,28 @@ namespace uroboro {
 
 	// Calculate asin(x) with x in range -1/+1 using Taylor series
 	inline real asin(real x) {
-#ifdef UROBORO_DOUBLE_PRECISION
-		return -(-0.69813170079773212 * x * x - 0.87266462599716477) * x;
-#else
-		return -(-0.6981317f * x * x - 0.8726646f) * x;
-#endif
+
+		real x2 = x * x;
+		real x4 = x2 * x2;
+
+		real res = 	 x +
+					(x2 * x * (1.f / 6.f)) +
+					(x4 * x * (3.f / 40.f)) +
+					(x4 * x2 * x * (15.f / 336.f)) +
+					(x4 * x4 * x * (105.f / 3456.f));
+
+		return res;
 	}
 
 
 	// Calculate acos(x) with x in range -1/+1
 	inline real acos(real x) {
-#ifdef UROBORO_DOUBLE_PRECISION
-		return (-0.69813170079773212 * x * x - 0.87266462599716477) * x + 1.5707963267948966;
-#else
-		return (-0.69813170079773212 * x * x - 0.87266462599716477) * x + PI2;
-#endif
+
+		return -asin(x) + (PI_PREC / 2.0);
 	}
 
 
+	// UNSAFE
 	// Calculate atan(x) with x in range -1/+1 using Taylor series
 	inline real atan(real x) {
 
@@ -230,7 +245,8 @@ namespace uroboro {
 		- (x2 * x / 3.f)
 		+ (x4 * x / 5.f)
 		- (x4 * x2 * x / 7.f)
-		+ (x4 * x4 * x2 * x / 11.f);
+		+ (x4 * x4 * x / 9.f)
+		- (x4 * x4 * x2 / 11.f);
 	}
 
 
