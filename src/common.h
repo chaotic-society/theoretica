@@ -14,13 +14,13 @@ namespace uroboro {
 		__asm {
 			fld x
 			fsqrt
-			fst x
 		}
+		//Let msvc insert the function out portion to avoid
+		//needless pops and stores on the FP stack.
 		#else
 		asm("fsqrt" : "+t"(x));
-		#endif
-
 		return x;
+		#endif
 	}
 
 
@@ -161,13 +161,11 @@ namespace uroboro {
 		__asm {
 			fld x
 			fsin
-			fst x
 		}
 		#else
 		asm("fsin" : "+t"(x));
-		#endif
-
 		return x;
+		#endif
 	}
 
 	// Bhaskara sin(x) approximation
@@ -187,13 +185,11 @@ namespace uroboro {
 		__asm {
 			fld x
 			fcos
-			fst x
 		}
 		#else
 		asm("fcos" : "+t"(x));
-		#endif
-
 		return x;
+		#endif
 	}
 
 
@@ -257,13 +253,11 @@ namespace uroboro {
 		__asm {
 			fld x
 			fabs
-			fst x
 		}
 		#else
 		asm("fabs" : "+t"(x));
-		#endif
-
 		return x;
+		#endif
 	}
 
 
