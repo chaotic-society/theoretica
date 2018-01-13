@@ -20,6 +20,10 @@ namespace uroboro {
 				return (x * other.x) + (y * other.y) + (z * other.z);
 			}
 
+			inline vec4 operator*(real scalar) {
+				return vec4(x * scalar, y * scalar, z * scalar, w * scalar);
+			}
+
 			inline void operator*=(real scalar) {
 				x *= scalar;
 				y *= scalar;
@@ -124,6 +128,10 @@ namespace uroboro {
 				z *= scalar;
 			}
 
+			inline vec3 operator*(real scalar) {
+				return vec3(x * scalar, y * scalar, z * scalar);
+			}
+
 			inline void operator=(vec3 const& other) {
 				x = other.x;
 				y = other.y;
@@ -209,6 +217,10 @@ namespace uroboro {
 
 				inline real operator*(vec2 other) {
 					return (x * other.x) + (y * other.y);
+				}
+
+				inline vec2 operator*(real scalar) {
+					return vec2(x * scalar, y * scalar);
 				}
 
 				inline void operator*=(real scalar) {
