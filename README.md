@@ -1,12 +1,8 @@
 # Uroboro
-A math library for videogames in C++, header-only and for x86 platforms.
-Includes common math functions approximations, vector and matrix calculations.
+A header-only math library for videogames in C++, with x86 Assembly enhancements.
+Includes approximations of common math functions, vector and matrix calculations.
 
-This library is meant to be used with `<cmath>`, as most functions are approximations and should be used
-in specific contexts where speed is crucial.
-
-### State of development
-The project is being developed, most functions are stable and have been tested.
+Matrices are column-first, for use with OpenGL.
 
 ### How to use
-The library is really easy to use, just include `uroboro.h` and you will be able to use vec4 and mat4 classes.
+Include `uroboro.h` and you will be able to use vec<N> and mat<N, M> classes.

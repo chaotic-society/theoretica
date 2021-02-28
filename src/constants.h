@@ -1,16 +1,9 @@
 #ifndef UROBORO_CONSTANTS_H
 #define UROBORO_CONSTANTS_H
 
-#ifdef UROBORO_DOUBLE_PRECISION
 using real = double;
-#else
-using real = float;
-#endif
 
 namespace uroboro {
-
-	// PI constant
-	constexpr real PI = 3.141593f;
 
 	// PI constant
 	constexpr double PI_PREC = 3.141592653589793238462643;
@@ -33,10 +26,10 @@ namespace uroboro {
 	// Euler constant.
 	constexpr real E = 2.718282f;
 
-	// Logarithms 2 of Euler constant.
+	// Logarithms base 2 of Euler constant.
 	constexpr real LOG2E = 1.442695f;
 
-	// Logarithm 10 of Euler constant.
+	// Logarithm base 10 of Euler constant.
 	constexpr real LOG10E = 0.434295f;
 
 	// Natural logarithm of 2.

@@ -1,10 +1,10 @@
-#ifndef UROBORO_MML_H
-#define UROBORO_MML_H
+#ifndef UROBORO_H
+#define UROBORO_H
 
-#include "common.h"
-#include "vec.h"
-#include "mat.h"
-#include "interp.h"
+#include "./common.h"
+#include "./vec.h"
+#include "./mat.h"
+#include "./interpolation.h"
 
 #ifndef UROBORO_NO_NAMESPACE
 namespace umath = uroboro;

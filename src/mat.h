@@ -1,407 +1,188 @@
-#ifndef UROBORO_MAT_H
-#define UROBORO_MAT_H
+#ifndef UROBORO_MATRIX_H
+#define UROBORO_MATRIX_H
+
+#include "constants.h"
 #include "vec.h"
 
 namespace uroboro {
 
-	class mat4 {
-
+	// N is the number of columns
+	// K is the number or rows
+	// (column-first order is used for OpenGL)
+	template<unsigned int N, unsigned int K>
+	class mat {
 		public:
-			real data[4][4] = { {0.f}, {0.f}, {0.f}, {0.f} }; //4x4
 
-			inline mat4() {
-				identity();
+		const unsigned int size = N * K;
+		const unsigned int column_size = N;
+		const unsigned int row_size = K;
+
+		real data[N][K];
+
+		mat() {
+			make_null();
+		}
+
+		mat(const mat<N, K>& other) {
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] = other.data[i][l];
+				}
+			}
+		}
+
+		mat(real diagonal) {
+			make_null();
+			int diag_n = min(N, K);
+			for (int i = 0; i < diag_n; ++i) {
+				data[i][i] = diagonal;
+			}
+		}
+
+		~mat() {}
+
+		inline vec<K> get_column(int l) {
+			vec<K> column;
+			for (int i = 0; i < K; ++i) {
+				column.data[i] = data[l][i];
+			}
+			return column;
+		}
+
+		inline vec<K> operator[](int l) {
+			return get_column(l);
+		}
+
+		inline vec<N> get_row(int l) {
+			vec<N> row;
+			for (int i = 0; i < N; ++i) {
+				row.data[i] = data[i][l];
+			}
+			return row;
+		}
+
+		inline void set_column(unsigned int l, const vec<K>& column) {
+			for (int i = 0; i < K; ++i) {
+				data[l][i] = column.data[i];
+			}
+		}
+
+		inline void set_row(unsigned int l, const vec<N>& row) {
+			for (int i = 0; i < N; ++i) {
+				data[i][l] = row.data[i];
+			}
+		}
+
+		inline void make_null() {
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] = 0;
+				}
+			}
+		}
+
+		inline mat<N, K> operator+(const mat<N, K>& other) {
+			mat<N, K> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[i][l] = data[i][l] + other.data[i][l];
+				}
+			}
+			return res;
+		}
+
+		inline mat<N, K> operator-(const mat<N, K>& other) {
+			mat<N, K> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[i][l] = data[i][l] - other.data[i][l];
+				}
+			}
+			return res;
+		}
+
+		inline mat<N, K> operator*(real scalar) {
+			mat<N, K> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[i][l] = data[i][l] * scalar;
+				}
+			}
+			return res;
+		}
+
+		inline vec<K> transform(const vec<N>& v) {
+			vec<K> res;
+			for (int i = 0; i < K; ++i) {
+				res[i] = 0;
+				for (int l = 0; l < N; ++l) {
+					res[i] += data[i][l] * v.data[l];
+				}
+			}
+			return res;
+		}
+
+		inline vec<K> operator*(const vec<N>& v) {
+			return transform(v);
+		}
+
+		// inline void transpose() {
+		// 	mat<N, N> res;
+		// 	for (int i = 0; i < N; ++i) {
+		// 		for (int l = 0; l < K; ++l) {
+		// 			res.data[l][i] = data[i][l];
+		// 		}
+		// 	}
+		// 	mat(res);
+		// }
+
+		inline mat<K, N> transposed() {
+			mat<K, N> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[l][i] = data[i][l];
+				}
+			}
+			return res;
+		}
+
+		inline real dot(const vec<N>& v1, const vec<N>& v2) {
+
+			vec<N> o = transform(v2);
+			real result = 0;
+
+			for (int i = 0; i < N; ++i) {
+				result += v1.data[i] * o.data[i];
 			}
 
-			inline mat4(real i) {
-				data[0][0] = i;
-				data[1][1] = i;
-				data[2][2] = i;
-				data[3][3] = i;
+			return result;
+		}
+
+		inline real& at(unsigned int column, unsigned int row) {
+			return data[column][row];
+		}
+
+		inline real get(unsigned int column, unsigned int row) {
+			return data[column][row];
+		}
+
+		inline real set(real a, unsigned int column, unsigned int row) {
+			data[column][row] = a;
+		}
+
+		inline bool operator==(const mat<N, K>& other) {
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					if(data[i][l] != other.data[i][l])
+						return false;
+				}
 			}
 
-			inline mat4(real a, real b, real c, real d,
-						real e, real f, real g, real h,
-						real i, real j, real k, real l,
-						real m, real n, real o, real p) {
-				data[0][0] = a;
-				data[1][0] = b;
-				data[2][0] = c;
-				data[3][0] = d;
-				data[0][1] = e;
-				data[1][1] = f;
-				data[2][1] = g;
-				data[3][1] = h;
-				data[0][2] = i;
-				data[1][2] = j;
-				data[2][2] = k;
-				data[3][2] = l;
-				data[0][3] = m;
-				data[1][3] = n;
-				data[2][3] = o;
-				data[3][3] = p;
-			}
-
-			inline ~mat4() {}
-
-			inline void identity() {
-				data[0][0] = 1;
-				data[0][1] = 0;
-				data[0][2] = 0;
-				data[0][3] = 0;
-				data[1][0] = 0;
-				data[1][1] = 1;
-				data[1][2] = 0;
-				data[1][3] = 0;
-				data[2][0] = 0;
-				data[2][1] = 0;
-				data[2][2] = 1;
-				data[2][3] = 0;
-				data[3][0] = 0;
-				data[3][1] = 0;
-				data[3][2] = 0;
-				data[3][3] = 1;
-			}
-
-			inline void invert() {
-
-			    const real det = data[0][2] * data[1][1] * data[2][0]
-			                    + data[0][1] * data[1][2] * data[2][0]
-			                    - data[0][2] * data[1][0] * data[2][1]
-			                    - data[0][0] * data[1][2] * data[2][1]
-			                    - data[0][1] * data[1][0] * data[2][2]
-			                    + data[0][0] * data[1][1] * data[2][2];
-
-			    if(det == 0.f) return;
-			    const real invdet = 1.f/det;
-
-			    data[0][0] = (-data[1][2] * data[2][1] + data[1][1] * data[2][2]) * invdet;
-			    data[0][1] = (data[0][2] * data[2][1] - data[0][1] * data[2][2]) * invdet;
-			    data[0][2] = (-data[0][2] * data[1][1] + data[0][1] * data[1][2] * data[3][3]) * invdet;
-			    data[1][0] = (data[1][2] * data[2][0] - data[1][0] * data[2][2]) * invdet;
-			    data[1][1] = (-data[0][2] * data[2][0] + data[0][0] * data[2][2]) * invdet;
-			    data[1][2] = (data[0][2] * data[1][0] - data[0][0] * data[1][2] * data[3][3]) * invdet;
-			    data[2][0] = (-data[1][1] * data[2][0] + data[1][0] * data[2][1] * data[3][3]) * invdet;
-			    data[2][1] = (data[0][1] * data[2][0] - data[0][0] * data[2][1] * data[3][3]) * invdet;
-			    data[2][2] = (-data[0][1] * data[1][0] + data[0][0] * data[1][1] * data[3][3]) * invdet;
-			    data[3][0] = (data[1][2] * data[2][1] * data[3][0]
-	                        - data[1][1] * data[2][2] * data[3][0]
-	                        - data[1][2] * data[2][0] * data[3][1]
-	                        + data[1][0] * data[2][2] * data[3][1]
-	                        + data[1][1] * data[2][0] * data[3][2]
-	                        - data[1][0] * data[2][1] * data[3][2]) * invdet;
-			    data[3][1] = (data[0][2] * data[2][1] * data[3][0]
-	                        - data[0][1] * data[2][2] * data[3][0]
-	                        - data[0][2] * data[2][0] * data[3][1]
-	                        + data[0][0] * data[2][2] * data[3][1]
-	                        + data[0][1] * data[2][0] * data[3][2]
-	                        - data[0][0] * data[2][1] * data[3][2]) * invdet;
-			    data[3][2] = (data[0][2] * data[1][1] * data[3][0]
-	                        - data[0][1] * data[1][2] * data[3][0]
-	                        - data[0][2] * data[1][0] * data[3][1]
-	                        + data[0][0] * data[1][2] * data[3][1]
-	                        + data[0][1] * data[1][0] * data[3][2]
-	                        - data[0][0] * data[1][1] * data[3][2]) * invdet;
-			}
-
-			inline void transpose() {
-				real buffer[16];
-				buffer[0] = data[0][0];
-				buffer[1] = data[1][0];
-				buffer[2] = data[2][0];
-				buffer[3] = data[3][0];
-				buffer[4] = data[0][1];
-				buffer[5] = data[1][1];
-				buffer[6] = data[2][1];
-				buffer[7] = data[3][1];
-				buffer[8] = data[0][2];
-				buffer[9] = data[1][2];
-				buffer[10] = data[2][2];
-				buffer[11] = data[3][2];
-				buffer[12] = data[0][3];
-				buffer[13] = data[1][3];
-				buffer[14] = data[2][3];
-				buffer[15] = data[3][3];
-
-				data[0][1] = buffer[1];
-				data[0][2] = buffer[2];
-				data[0][3] = buffer[3];
-				data[1][0] = buffer[4];
-				data[1][1] = buffer[5];
-				data[1][2] = buffer[6];
-				data[1][3] = buffer[7];
-				data[2][0] = buffer[8];
-				data[2][1] = buffer[9];
-				data[2][3] = buffer[11];
-				data[3][0] = buffer[12];
-				data[3][1] = buffer[13];
-				data[3][2] = buffer[14];
-			}
-
-			inline vec4 transform(vec4 vector) {
-				return vec4((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + (data[3][0] * vector.w),
-							(data[0][1] * vector.x) + (data[1][1] * vector.y) + (data[2][1] * vector.z) + (data[3][1] * vector.w),
-							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + (data[3][2] * vector.w));
-			}
-
-			inline vec3 transform(vec3 vector) {
-				return vec3((data[0][0] * vector.x) + (data[1][0] * vector.y) + (data[2][0] * vector.z) + data[3][0],
-							(data[0][1] * vector.x) + (data[1][1] * vector.y) + (data[2][1] * vector.z) + data[3][1],
-							(data[0][2] * vector.x) + (data[1][2] * vector.y) + (data[2][2] * vector.z) + data[3][2]);
-			}
-
-			inline void translate(float x, float y, float z) {
-				data[3][0] += x;
-				data[3][1] += y;
-				data[3][2] += z;
-			}
-
-			inline void translate(vec4 translation) {
-				data[3][0] += translation.x;
-				data[3][1] += translation.y;
-				data[3][2] += translation.z;
-			}
-
-			inline void translate(vec3 translation) {
-				data[3][0] += translation.x;
-				data[3][1] += translation.y;
-				data[3][2] += translation.z;
-			}
-
-			inline void rotate(real radians, vec3 rotation) {
-			}
-
-			//inline void rotate(quat rotation) {}
-
-			inline void scale(float x, float y, float z) {
-				data[0][0] *= x;
-				data[1][1] *= y;
-				data[2][2] *= z;
-			}
-
-			inline void scale(vec4 scale) {
-				data[0][0] *= scale.x;
-				data[1][1] *= scale.y;
-				data[2][2] *= scale.z;
-			}
-
-			inline void scale(vec3 scale) {
-				data[0][0] *= scale.x;
-				data[1][1] *= scale.y;
-				data[2][2] *= scale.z;
-			}
-
-			inline void operator=(const mat4 &other) {
-				data[0][0] = other.data[0][0];
-				data[0][1] = other.data[0][1];
-				data[0][2] = other.data[0][2];
-				data[0][3] = other.data[0][3];
-				data[1][0] = other.data[1][0];
-				data[1][1] = other.data[1][1];
-				data[1][2] = other.data[1][2];
-				data[1][3] = other.data[1][3];
-				data[2][0] = other.data[2][0];
-				data[2][1] = other.data[2][1];
-				data[2][2] = other.data[2][2];
-				data[2][3] = other.data[2][3];
-				data[3][0] = other.data[3][0];
-				data[3][1] = other.data[3][1];
-				data[3][2] = other.data[3][2];
-				data[3][3] = other.data[3][3];
-			}
-
-			//inline void operator=(const quat &quaternion) {}
-
-			inline mat4 operator*(real scalar) {
-
-				mat4 result;
-
-				result.data[0][0] = data[0][0] * scalar;
-				result.data[0][1] = data[0][1] * scalar;
-				result.data[0][2] = data[0][2] * scalar;
-				result.data[0][3] = data[0][3] * scalar;
-				result.data[1][0] = data[1][0] * scalar;
-				result.data[1][1] = data[1][1] * scalar;
-				result.data[1][2] = data[1][2] * scalar;
-				result.data[1][3] = data[1][3] * scalar;
-				result.data[2][0] = data[2][0] * scalar;
-				result.data[2][1] = data[2][1] * scalar;
-				result.data[2][2] = data[2][2] * scalar;
-				result.data[2][3] = data[2][3] * scalar;
-				result.data[3][0] = data[3][0] * scalar;
-				result.data[3][1] = data[3][1] * scalar;
-				result.data[3][2] = data[3][2] * scalar;
-				result.data[3][3] = data[3][3] * scalar;
-
-				return result;
-			}
-
-			inline vec4 operator*(vec4 vector) {
-				return transform(vector);
-			}
-
-			inline vec3 operator*(vec3 vector) {
-				return transform(vector);
-			}
-
-			inline mat4 operator*(const mat4 &other) {
-				return mat4(other.data[0][0] * data[0][0] + other.data[0][1] * data[1][0] + other.data[0][2] * data[2][0],
-							other.data[1][0] * data[0][0] + other.data[1][1] * data[1][0] + other.data[1][2] * data[2][0],
-							other.data[2][0] * data[0][0] + other.data[2][1] * data[1][0] + other.data[2][2] * data[2][0],
-							other.data[3][0] * data[0][0] + other.data[3][1] * data[1][0] + other.data[3][2] * data[2][0] + data[3][0],
-							other.data[0][0] * data[0][1] + other.data[0][1] * data[1][1] + other.data[0][2] * data[2][1],
-							other.data[1][0] * data[0][1] + other.data[1][1] * data[1][1] + other.data[1][2] * data[2][1],
-							other.data[2][0] * data[0][1] + other.data[2][1] * data[1][1] + other.data[2][2] * data[2][1],
-							other.data[3][0] * data[0][1] + other.data[3][1] * data[1][1] + other.data[3][2] * data[2][1] + data[3][1],
-							other.data[0][0] * data[0][2] + other.data[0][1] * data[1][2] + other.data[0][2] * data[2][2],
-							other.data[1][0] * data[0][2] + other.data[1][1] * data[1][2] + other.data[1][2] * data[2][2],
-							other.data[2][0] * data[0][2] + other.data[2][1] * data[1][2] + other.data[2][2] * data[2][2],
-							other.data[3][0] * data[0][2] + other.data[3][1] * data[1][2] + other.data[3][2] * data[2][2] + data[3][2],
-							0, 0, 0, 1
-				);
-			}
-
-			inline mat4 operator+(real scalar) {
-
-				mat4 result;
-
-				result.data[0][0] = data[0][0] + scalar;
-				result.data[0][1] = data[0][1] + scalar;
-				result.data[0][2] = data[0][2] + scalar;
-				result.data[0][3] = data[0][3] + scalar;
-				result.data[1][0] = data[1][0] + scalar;
-				result.data[1][1] = data[1][1] + scalar;
-				result.data[1][2] = data[1][2] + scalar;
-				result.data[1][3] = data[1][3] + scalar;
-				result.data[2][0] = data[2][0] + scalar;
-				result.data[2][1] = data[2][1] + scalar;
-				result.data[2][2] = data[2][2] + scalar;
-				result.data[2][3] = data[2][3] + scalar;
-				result.data[3][0] = data[3][0] + scalar;
-				result.data[3][1] = data[3][1] + scalar;
-				result.data[3][2] = data[3][2] + scalar;
-				result.data[3][3] = data[3][3] + scalar;
-
-				return result;
-			}
-
-			// inline real& operator[](unsigned int i) {
-			// 	return data[i];
-			// }
+			return true;
+		}
 
 	};
-
-
-	inline mat4 translation(real x, real y, real z) {
-
-		mat4 result = mat4();
-
-		result.data[0][3] = x;
-		result.data[1][3] = y;
-		result.data[2][3] = z;
-
-		return result;
-	}
-
-	inline mat4 translation(vec4 translation) {
-
-		mat4 result = mat4();
-
-		result.data[0][3] = translation.x;
-		result.data[1][3] = translation.y;
-		result.data[2][3] = translation.z;
-
-		return result;
-	}
-
-	inline mat4 translation(vec3 translation) {
-
-		mat4 result = mat4();
-
-		result.data[0][3] = translation.x;
-		result.data[1][3] = translation.y;
-		result.data[2][3] = translation.z;
-
-		return result;
-	}
-
-	//inline mat4 rotation() {}
-
-	inline mat4 scale(real x, real y, real z) {
-
-		mat4 result = mat4();
-
-		result.data[0][0] = x;
-		result.data[1][1] = y;
-		result.data[2][2] = z;
-
-		return result;
-	}
-
-	inline mat4 scale(vec4 scale) {
-
-		mat4 result = mat4();
-
-		result.data[0][0] = scale.x;
-		result.data[1][1] = scale.y;
-		result.data[2][2] = scale.z;
-
-		return result;
-	}
-
-	inline mat4 scale(vec3 scale) {
-
-		mat4 result = mat4();
-
-		result.data[0][0] = scale.x;
-		result.data[1][1] = scale.y;
-		result.data[2][2] = scale.z;
-
-		return result;
-	}
-
-	inline mat4 identity() {
-		return mat4(1.f);
-	}
-
-	inline mat4 perspective(real left, real right, real bottom, real top, real near, real far) {
-
-		mat4 result = mat4();
-
-		result.data[0][0]  = 2 * near / (right - left);
-		result.data[0][2]  = (right + left) / (right - left);
-		result.data[1][1]  = 2 * near / (top - bottom);
-		result.data[1][2]  = (top + bottom) / (top - bottom);
-		result.data[2][2] = -(far + near) / (far - near);
-		result.data[2][3] = -(2 * far * near) / (far - near);
-		result.data[3][2] = -1;
-		result.data[3][3] = 0;
-
-		return result;
-	}
-
-	inline mat4 perspective(real fov, real aspect, real near, real far) {
-
-		real height = near * tan(radians(fov / 2.f));
-		real width = height * aspect;
-
-		return perspective(-width, width, -height, height, near, far);
-	}
-
-	inline mat4 ortho(real left, real right, real bottom, real top, real near, real far) {
-
-		mat4 result = mat4();
-
-		result.data[0][0]  = 2 / (right - left);
-		result.data[0][3]  = -(right + left) / (right - left);
-		result.data[1][1]  = 2 / (top - bottom);
-		result.data[1][3]  = -(top + bottom) / (top - bottom);
-		result.data[2][2] = -2 / (far - near);
-		result.data[2][3] = -(far + near) / (far - near);
-
-		return result;
-	}
-
 
 }
 
