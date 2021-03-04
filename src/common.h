@@ -1,7 +1,7 @@
 #ifndef UROBORO_COMMON_H
 #define UROBORO_COMMON_H
 
-#include "constants.h"
+#include "./constants.h"
 #include <cstdint>
 
 namespace uroboro {

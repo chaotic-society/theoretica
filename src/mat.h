@@ -1,8 +1,8 @@
 #ifndef UROBORO_MATRIX_H
 #define UROBORO_MATRIX_H
 
-#include "constants.h"
-#include "vec.h"
+#include "./constants.h"
+#include "./vec.h"
 
 namespace uroboro {
 
@@ -179,6 +179,35 @@ namespace uroboro {
 				}
 			}
 
+			return true;
+		}
+
+		inline bool is_square() {
+			return N == K;
+		}
+
+		inline bool is_diagonal() {
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					if(i != l && data[i][l] != 0)
+						return false;
+				}
+			}
+			return true;
+		}
+
+		inline bool is_symmetric() {
+
+			if(!is_square())
+				return false;
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					if(i != l && data[i][l] != data[l][i])
+						return false;
+				}
+			}
 			return true;
 		}
 

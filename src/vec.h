@@ -2,7 +2,7 @@
 #define UROBORO_VECTOR_H
 
 #include <array>
-#include "common.h"
+#include "./common.h"
 
 namespace uroboro {
 
