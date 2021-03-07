@@ -6,6 +6,7 @@
 
 namespace uroboro {
 
+	// KxN matrix implementation
 	// N is the number of columns
 	// K is the number or rows
 	// (column-first order is used for OpenGL)
@@ -31,6 +32,15 @@ namespace uroboro {
 			}
 		}
 
+		inline mat<N, K>& operator=(const mat<N, K>& other) {
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] = other.data[i][l];
+				}
+			}
+			return *this;
+		}
+
 		mat(real diagonal) {
 			make_null();
 			int diag_n = min(N, K);
@@ -41,7 +51,7 @@ namespace uroboro {
 
 		~mat() {}
 
-		inline vec<K> get_column(int l) {
+		inline vec<K> get_column(int l) const {
 			vec<K> column;
 			for (int i = 0; i < K; ++i) {
 				column.data[i] = data[l][i];
@@ -49,11 +59,11 @@ namespace uroboro {
 			return column;
 		}
 
-		inline vec<K> operator[](int l) {
+		inline vec<K> operator[](int l) const {
 			return get_column(l);
 		}
 
-		inline vec<N> get_row(int l) {
+		inline vec<N> get_row(int l) const {
 			vec<N> row;
 			for (int i = 0; i < N; ++i) {
 				row.data[i] = data[i][l];
@@ -81,7 +91,7 @@ namespace uroboro {
 			}
 		}
 
-		inline mat<N, K> operator+(const mat<N, K>& other) {
+		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -91,7 +101,7 @@ namespace uroboro {
 			return res;
 		}
 
-		inline mat<N, K> operator-(const mat<N, K>& other) {
+		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -101,7 +111,8 @@ namespace uroboro {
 			return res;
 		}
 
-		inline mat<N, K> operator*(real scalar) {
+		// Scalar multiplication
+		inline mat<N, K> operator*(real scalar) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -111,7 +122,8 @@ namespace uroboro {
 			return res;
 		}
 
-		inline vec<K> transform(const vec<N>& v) {
+		// Transform a vector v by the matrix
+		inline vec<K> transform(const vec<N>& v) const {
 			vec<K> res;
 			for (int i = 0; i < K; ++i) {
 				res[i] = 0;
@@ -122,21 +134,39 @@ namespace uroboro {
 			return res;
 		}
 
-		inline vec<K> operator*(const vec<N>& v) {
+		inline vec<K> operator*(const vec<N>& v) const {
 			return transform(v);
 		}
 
-		// inline void transpose() {
-		// 	mat<N, N> res;
-		// 	for (int i = 0; i < N; ++i) {
-		// 		for (int l = 0; l < K; ++l) {
-		// 			res.data[l][i] = data[i][l];
-		// 		}
-		// 	}
-		// 	mat(res);
+		// inline mat<K, N> transform(const mat<K, N>& b) const {
 		// }
 
-		inline mat<K, N> transposed() {
+		inline mat<N, K> operator*(const mat<K, N>& b) const {
+			return transform(b);
+		}
+
+		// operator += -= *= /= ...
+
+		inline void transpose() {
+			if(!is_square())
+				// throw
+				return;
+
+			mat<K, N> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[l][i] = data[i][l];
+				}
+			}
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] = res.data[i][l];
+				}
+			}
+		}
+
+		inline mat<K, N> transposed() const {
 			mat<K, N> res;
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -146,7 +176,7 @@ namespace uroboro {
 			return res;
 		}
 
-		inline real dot(const vec<N>& v1, const vec<N>& v2) {
+		inline real dot(const vec<N>& v1, const vec<N>& v2) const {
 
 			vec<N> o = transform(v2);
 			real result = 0;
@@ -158,11 +188,13 @@ namespace uroboro {
 			return result;
 		}
 
+		// Access element at <column, row>
 		inline real& at(unsigned int column, unsigned int row) {
 			return data[column][row];
 		}
 
-		inline real get(unsigned int column, unsigned int row) {
+		// Getters and setters
+		inline real get(unsigned int column, unsigned int row) const {
 			return data[column][row];
 		}
 
@@ -170,7 +202,7 @@ namespace uroboro {
 			data[column][row] = a;
 		}
 
-		inline bool operator==(const mat<N, K>& other) {
+		inline bool operator==(const mat<N, K>& other) const {
 
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -182,11 +214,12 @@ namespace uroboro {
 			return true;
 		}
 
-		inline bool is_square() {
+		// Matrix types
+		inline bool is_square() const {
 			return N == K;
 		}
 
-		inline bool is_diagonal() {
+		inline bool is_diagonal() const {
 
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -197,7 +230,7 @@ namespace uroboro {
 			return true;
 		}
 
-		inline bool is_symmetric() {
+		inline bool is_symmetric() const {
 
 			if(!is_square())
 				return false;
@@ -212,6 +245,11 @@ namespace uroboro {
 		}
 
 	};
+
+	// Square matrices types
+	using mat2 = mat<2, 2>;
+	using mat3 = mat<3, 3>;
+	using mat4 = mat<4, 4>;
 
 }
 

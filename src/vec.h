@@ -14,18 +14,28 @@ namespace uroboro {
 
 		real data[N];
 
+		// Default constructor (all zeros)
 		inline vec() {
 			for (unsigned int i = 0; i < N; ++i) {
 				data[i] = 0;
 			}
 		}
 
+		// Copy constructors
 		inline vec(const vec<N>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 		}
 
+		inline vec<N>& operator=(const vec<N>& other) {
+			for (int i = 0; i < N; ++i) {
+				data[i] = other.data[i];
+			}
+			return *this;
+		}
+
+		// Construct using std::array
 		inline vec(const std::array<real, N>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.at(i);
@@ -34,7 +44,10 @@ namespace uroboro {
 
 		inline ~vec() {}
 
-		inline vec<N> operator+(const vec<N>& other) {
+		// Operators
+
+		// Vector sum (v + w = (v.x + w.x, ...))
+		inline vec<N> operator+(const vec<N>& other) const {
 			vec<N> result;
 
 			for (int i = 0; i < N; ++i) {
@@ -44,7 +57,7 @@ namespace uroboro {
 			return result;
 		}
 
-		inline vec<N> operator-(const vec<N>& other) {
+		inline vec<N> operator-(const vec<N>& other) const {
 			vec<N> result;
 
 			for (int i = 0; i < N; ++i) {
@@ -54,7 +67,8 @@ namespace uroboro {
 			return result;
 		}
 
-		inline vec<N> operator*(real scalar) {
+		// Scalar multiplication (av = (v.x * a, ...))
+		inline vec<N> operator*(real scalar) const {
 			vec<N> result;
 
 			for (int i = 0; i < N; ++i) {
@@ -64,7 +78,8 @@ namespace uroboro {
 			return result;
 		}
 
-		inline real dot(const vec<N>& other) {
+		// Dot product between vectors (v * w = v.x * w.x + ...)
+		inline real dot(const vec<N>& other) const {
 
 			real result = 0;
 
@@ -75,7 +90,26 @@ namespace uroboro {
 			return result;
 		}
 
-		inline real magnitude() {
+		inline real operator*(const vec<N>& other) const {
+			return dot(other);
+		}
+
+		// Cross product between vectors
+		inline vec<N - 1> cross(const vec<N>& other) const {
+
+			vec<N - 1> res;
+
+			// General cross product algorithm
+			// ...
+
+			return res;
+		}
+
+		// operator += -= *= /= ...
+
+
+		// Magnitude of vector (sqrt(v * v))
+		inline real magnitude() const {
 			real m = 0;
 			for (int i = 0; i < N; ++i) {
 				m += data[i] * data[i];
@@ -87,7 +121,7 @@ namespace uroboro {
 			return magnitude();
 		}
 
-		inline real square_magnitude() {
+		inline real square_magnitude() const {
 			real m = 0;
 			for (int i = 0; i < N; ++i) {
 				m += data[i] * data[i];
@@ -95,14 +129,25 @@ namespace uroboro {
 			return m;
 		}
 
-		inline real square_lenght() {
+		inline real square_lenght() const {
 			return square_magnitude();
 		}
 
+		// Access i-th component
 		inline real& operator[](int i) {
 			return data[i];
 		}
 
+		// Getters and setters
+		inline real get(int i) {
+			return data[i];
+		}
+
+		inline void set(int i, real x) {
+			data[i] = x;
+		}
+
+		// Normalization (v / |v|)
 		inline void normalize() {
 			real m = magnitude();
 
@@ -114,7 +159,7 @@ namespace uroboro {
 			}
 		}
 
-		inline vec<N> normalized() {
+		inline vec<N> normalized() const {
 			vec<N> result = vec<N>();
 			real m = magnitude();
 
@@ -128,7 +173,7 @@ namespace uroboro {
 			return result;
 		}
 
-		inline bool operator==(const vec<N>& other) {
+		inline bool operator==(const vec<N>& other) const {
 			for (int i = 0; i < N; ++i) {
 				if(data[i] != other[i])
 					return false;
@@ -138,6 +183,11 @@ namespace uroboro {
 		}
 
 	};
+
+	// Common vector types
+	using vec2 = vec<2>;
+	using vec3 = vec<3>;
+	using vec4 = vec<4>;
 
 }
 

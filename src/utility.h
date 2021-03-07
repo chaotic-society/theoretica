@@ -2,6 +2,10 @@
 #define UROBORO_UTILITY_H
 #include <iostream>
 
+#include "./vec.h"
+#include "./mat.h"
+#include "./complex.h"
+
 namespace uroboro {
 
 	template<unsigned int N>
@@ -24,6 +28,23 @@ namespace uroboro {
 		}
 
 		std::cout << std::endl;
+	}
+
+	void print_complex(complex z) {
+
+		std::cout << "(" << z.a;
+		if(z.b == 1)
+			std::cout << " + i)";
+		else if(z.b >= 0)
+			std::cout << " + " << z.b << ")";
+		else
+			std::cout << " - " << z.b << ")";
+
+		std::cout << std::endl;
+	}
+
+	void print_complex_alg(complex z) {
+		std::cout << "(" << z.a << ", " << z.b << ")" << std::endl;
 	}
 
 }
