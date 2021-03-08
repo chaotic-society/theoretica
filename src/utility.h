@@ -3,8 +3,12 @@
 #include <iostream>
 
 #include "./vec.h"
+#include "./vec_buff.h"
 #include "./mat.h"
 #include "./complex.h"
+#include "./quat.h"
+#include "./statistics.h"
+
 
 namespace uroboro {
 
@@ -45,6 +49,19 @@ namespace uroboro {
 
 	void print_complex_alg(complex z) {
 		std::cout << "(" << z.a << ", " << z.b << ")" << std::endl;
+	}
+
+	void print_quat(quat q) {
+		std::cout << "(" << q.a << ", " << q.v[0] << ", " <<
+				q.v[1] << ", " << q.v[2] << ")" << std::endl;
+	}
+
+	void print_sample_stats(const vec_buff& X) {
+		std::cout << "N = " << X.size() << std::endl;
+		std::cout << "Mean: " << mean(X) << std::endl;
+		std::cout << "Variance: " << sample_variance(X) << std::endl;
+		std::cout << "Standard Deviation: " << sample_standard_deviation(X) << std::endl;
+		std::cout << "Mean Standard Deviation: " << mean_standard_deviation(X) << std::endl;
 	}
 
 }

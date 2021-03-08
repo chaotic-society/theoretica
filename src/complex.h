@@ -101,6 +101,11 @@ namespace  uroboro {
 				b = v.data[1];
 			}
 
+
+			inline static complex rotor(real rad) {
+				return complex(uroboro::cos(rad), uroboro::sin(rad));
+			}
+
 	};
 
 }

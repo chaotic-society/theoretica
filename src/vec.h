@@ -78,6 +78,16 @@ namespace uroboro {
 			return result;
 		}
 
+		inline vec<N> operator/(real scalar) const {
+			vec<N> result;
+
+			for (int i = 0; i < N; ++i) {
+				result.data[i] = data[i] / scalar;
+			}
+
+			return result;
+		}
+
 		// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline real dot(const vec<N>& other) const {
 
@@ -95,15 +105,22 @@ namespace uroboro {
 		}
 
 		// Cross product between vectors
-		inline vec<N - 1> cross(const vec<N>& other) const {
+		inline vec<3> cross(const vec<3>& other) const {
 
-			vec<N - 1> res;
+			if(N != 3)
+				//throw ...
+				return vec<3>();
 
-			// General cross product algorithm
-			// ...
+			vec<3> res;
+
+			res.data[0] = data[1] * other.data[2] - data[2] * other.data[1];
+			res.data[1] = data[2] * other.data[0] - data[0] * other.data[2];
+			res.data[2] = data[0] * other.data[1] - data[1] * other.data[0];
 
 			return res;
 		}
+
+		// wedge product (generalized cross product) ...
 
 		// operator += -= *= /= ...
 
@@ -138,6 +155,10 @@ namespace uroboro {
 			return data[i];
 		}
 
+		inline real& at(int i) {
+			return data[i];
+		}
+
 		// Getters and setters
 		inline real get(int i) {
 			return data[i];
@@ -164,6 +185,7 @@ namespace uroboro {
 			real m = magnitude();
 
 			if(m == 0)
+				// throw ...
 				return result;
 
 			for (int i = 0; i < N; ++i) {
