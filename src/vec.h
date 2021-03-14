@@ -2,6 +2,7 @@
 #define UROBORO_VECTOR_H
 
 #include <array>
+#include <algorithm>
 #include "./common.h"
 
 namespace uroboro {
@@ -10,16 +11,12 @@ namespace uroboro {
 	class vec {
 		public:
 
-		const unsigned int size = N;
+		static const unsigned int size = N;
 
 		real data[N];
 
 		// Default constructor (all zeros)
-		inline vec() {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = 0;
-			}
-		}
+		inline vec() : data() {}
 
 		// Copy constructors
 		inline vec(const vec<N>& other) {
@@ -33,6 +30,22 @@ namespace uroboro {
 				data[i] = other.data[i];
 			}
 			return *this;
+		}
+
+		inline vec<N>& operator=(const std::array<real, N>& other) {
+			for (int i = 0; i < N; ++i) {
+				data[i] = other[i];
+			}
+			return *this;
+		}
+
+		inline vec(std::initializer_list<real> l) {
+
+			if(l.size() != N)
+				// throw ...
+				return;
+
+			std::copy(l.begin(), l.end(), &data[0]);
 		}
 
 		// Construct using std::array

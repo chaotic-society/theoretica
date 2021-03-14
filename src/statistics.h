@@ -8,6 +8,7 @@
 
 namespace uroboro {
 
+	// Calculate the mean of a set of values
 	template<unsigned int N>
 	inline real mean(const vec<N>& dataset) {
 		real sum = 0;
@@ -25,6 +26,9 @@ namespace uroboro {
 		return sum / (real) dataset.size();
 	}
 
+
+	// Calculate the weighted mean of a set of values
+	// <dataset> and <weights> must have the same size
 	template<unsigned int N>
 	inline real weighted_mean(const vec<N>& dataset, const vec<N>& weights) {
 		real sum = 0;
@@ -51,6 +55,8 @@ namespace uroboro {
 		return sum / weight_sum;
 	}
 
+
+	// Calculate the variance of a population
 	template<unsigned int N>
 	inline real variance(const vec<N>& dataset) {
 		real sum = 0;
@@ -74,6 +80,9 @@ namespace uroboro {
 		return sum / (real) dataset.size();
 	}
 
+
+	// Calculate the variance of a sample
+	// This function uses Bessel correction
 	template<unsigned int N>
 	inline real sample_variance(const vec<N>& dataset) {
 		real sum = 0;
@@ -97,6 +106,8 @@ namespace uroboro {
 		return sum / (real) (dataset.size() - 1);
 	}
 
+
+	// Calculate the standard deviation of a population
 	template<unsigned int N>
 	inline real standard_deviation(const vec<N>& dataset) {
 		return uroboro::sqrt(variance(dataset));
@@ -106,6 +117,8 @@ namespace uroboro {
 		return uroboro::sqrt(variance(dataset));
 	}
 
+
+	// Calculate the standard deviation of a sample
 	template<unsigned int N>
 	inline real sample_standard_deviation(const vec<N>& dataset) {
 		return uroboro::sqrt(sample_variance(dataset));
@@ -115,6 +128,9 @@ namespace uroboro {
 		return uroboro::sqrt(sample_variance(dataset));
 	}
 
+
+	// Calculate the standard deviation on the mean of a set of measures
+	// Bessel correction is used in the calculation of variance
 	template<unsigned int N>
 	inline real mean_standard_deviation(const vec<N>& dataset) {
 		return uroboro::sqrt(sample_variance(dataset)) / uroboro::sqrt(dataset.size());
@@ -124,6 +140,8 @@ namespace uroboro {
 		return uroboro::sqrt(sample_variance(dataset)) / uroboro::sqrt(dataset.size());
 	}
 
+
+	// Calculate the covariance of two sets of measures
 	template<unsigned int N>
 	inline real covariance(const vec<N>& X, const vec<N>& Y) {
 		real sum = 0;
@@ -150,6 +168,9 @@ namespace uroboro {
 		return sum / (real) X.size();
 	}
 
+
+	// Calculate the covariance between two sets of sample measures
+	// This function uses Bessel correction
 	template<unsigned int N>
 	inline real sample_covariance(const vec<N>& X, const vec<N>& Y) {
 		real sum = 0;

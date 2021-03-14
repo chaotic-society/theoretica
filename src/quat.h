@@ -15,17 +15,17 @@ namespace uroboro {
 			real a;
 			vec3 v;
 
-			quat() {
+			inline quat() {
 				a = 0;
 				v = vec3();
 			}
 
-			quat(real a, const vec3& v) {
+			inline quat(real a, const vec3& v) {
 				this->a = a;
 				this->v = v;
 			}
 
-			quat(const quat& other) {
+			inline quat(const quat& other) {
 				a = other.a;
 				v = other.v;
 			}
@@ -36,14 +36,22 @@ namespace uroboro {
 				return *this;
 			}
 
-			quat(real a, real b, real c, real d) {
+			inline quat& operator=(const std::array<real, 4>& v) {
+				a = v[0];
+				this->v.data[0] = v[0];
+				this->v.data[1] = v[1];
+				this->v.data[2] = v[2];
+				return *this;
+			}
+
+			inline quat(real a, real b, real c, real d) {
 				this-> a = a;
 				v.data[0] = b;
 				v.data[1] = c;
 				v.data[2] = d;
 			}
 
-			~quat() {}
+			inline ~quat() {}
 
 			inline real norm() const {
 				return uroboro::sqrt(a * a + v.square_magnitude());

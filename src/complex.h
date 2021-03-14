@@ -3,6 +3,7 @@
 
 #include "./common.h"
 #include "./vec.h"
+#include <array>
 
 namespace  uroboro {
 
@@ -25,6 +26,18 @@ namespace  uroboro {
 			complex(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
+			}
+
+			inline complex& operator=(const vec2& v) {
+				a = v.data[0];
+				b = v.data[1];
+				return *this;
+			}
+
+			inline complex& operator=(const std::array<real, 2>& v) {
+				a = v[0];
+				b = v[1];
+				return *this;
 			}
 
 			~complex() {}

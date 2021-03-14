@@ -5,19 +5,20 @@ using namespace umath;
 
 int main(int argc, char const *argv[]) {
 
-	vec3 v = vec3({1, 0, 0});
-	print_vec(quat::rotate(v, PI * 2, vec3({0, 1, 0})));
+	vec3 v = {1, 2, 3};
+	print_vec(v);
+	print_vec(quat::rotate(v, PI, {0, 1, 0}));
 
+	quat q = {1, 0, 0, 1};
 
-	complex z = complex(1, 0);
-	complex w = complex(0, 1);
+	complex z = {1, 0};
+	complex w = {0, 1};
 	print_complex_alg(z);
 	print_complex_alg(w);
 	print_complex_alg(z * w);
 
-
-	auto vec1 = vec4({1, 3, 1, 2});
-	auto vec2 = vec4({-1, 2, 1, 0});
+	vec4 vec1 = {1, 3, 1, 2};
+	vec4 vec2 = {-1, 2, 1, 0};
 
 	auto mat1 = mat4(2);
 	mat1.at(1, 2) = 3;

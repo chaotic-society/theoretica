@@ -14,17 +14,17 @@ namespace uroboro {
 	class mat {
 		public:
 
-		const unsigned int size = N * K;
-		const unsigned int column_size = N;
-		const unsigned int row_size = K;
+		static const unsigned int size = N * K;
+		static const unsigned int column_size = N;
+		static const unsigned int row_size = K;
 
 		real data[N][K];
 
-		mat() {
+		inline mat() {
 			make_null();
 		}
 
-		mat(const mat<N, K>& other) {
+		inline mat(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
 					data[i][l] = other.data[i][l];
@@ -41,7 +41,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		mat(real diagonal) {
+		inline mat(real diagonal) {
 			make_null();
 			int diag_n = min(N, K);
 			for (int i = 0; i < diag_n; ++i) {
@@ -49,7 +49,7 @@ namespace uroboro {
 			}
 		}
 
-		~mat() {}
+		inline ~mat() {}
 
 		inline vec<K> get_column(int l) const {
 			vec<K> column;
@@ -137,6 +137,8 @@ namespace uroboro {
 		inline vec<K> operator*(const vec<N>& v) const {
 			return transform(v);
 		}
+
+
 
 		// inline mat<K, N> transform(const mat<K, N>& b) const {
 		// }
