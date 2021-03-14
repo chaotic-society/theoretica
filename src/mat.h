@@ -138,13 +138,23 @@ namespace uroboro {
 			return transform(v);
 		}
 
+		template<unsigned int M>
+		inline mat<K, M> transform(const mat<M, N>& B) const {
 
+			mat<K, M> res;
 
-		// inline mat<K, N> transform(const mat<K, N>& b) const {
-		// }
+			for (int i = 0; i < M; ++i) {
+				for (int j = 0; j < K; ++j) {
+					res.at(j, i) = get_row(j) * B.get_column(i);
+				}
+			}
 
-		inline mat<N, K> operator*(const mat<K, N>& b) const {
-			return transform(b);
+			return res;
+		}
+
+		template<unsigned int M>
+		inline mat<K, M> operator*(const mat<M, N>& B) const {
+			return transform(B);
 		}
 
 		// operator += -= *= /= ...
@@ -244,6 +254,15 @@ namespace uroboro {
 				}
 			}
 			return true;
+		}
+
+
+		static mat<N, K> identity() {
+			return mat<N, K>(1.0);
+		}
+
+		static mat<N, K> diagonal(real diag) {
+			return mat<N, K>(diag);
 		}
 
 	};

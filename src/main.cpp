@@ -20,18 +20,15 @@ int main(int argc, char const *argv[]) {
 	vec4 vec1 = {1, 3, 1, 2};
 	vec4 vec2 = {-1, 2, 1, 0};
 
-	auto mat1 = mat4(2);
-	mat1.at(1, 2) = 3;
-	mat1.at(2, 1) = 5;
-	print_mat(mat1);
-	print_mat(mat1.transposed());
+	auto m1 = mat4(2);
+	auto m2 = mat<3, 4>(3);
+	m1.at(1, 2) = 3;
+	m1.at(2, 1) = 5;
+	print_mat(m1);
+	print_mat(m1.transposed());
+	print_mat(m1 * m2);
 
-	std::cout << mat1.is_square() << std::endl;
-	std::cout << mat1.is_symmetric() << std::endl;
-	std::cout << mat1.is_diagonal() << std::endl;
-	mat1.transpose();
-	print_mat(mat1);
-
+	print_mat(mat4::identity() * mat4::diagonal(2.0));
 
 	vec_buff X = {1, 1.2, 0.9};
 	vec_buff Y = {10.1, 11.7, 9.2};
