@@ -61,7 +61,9 @@ namespace uroboro {
 		std::cout << "Mean: " << mean(X) << std::endl;
 		std::cout << "Variance: " << sample_variance(X) << std::endl;
 		std::cout << "Standard Deviation: " << sample_standard_deviation(X) << std::endl;
+		std::cout << "Relative Error: " << sample_std_relative_error(X) * 100 << "%" << std::endl;
 		std::cout << "Mean Standard Deviation: " << mean_standard_deviation(X) << std::endl;
+		std::cout << "Chi-Square (Sigma): " << chi_square_sigma(X) << std::endl;
 	}
 
 }

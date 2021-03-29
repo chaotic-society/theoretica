@@ -6,6 +6,12 @@
 
 namespace uroboro {
 
+	//Calculate x^2
+	inline real square(real x) {
+		return x * x;
+	}
+
+
 	// Calculate the square root of x using x86 Assembly instructions
 	inline real sqrt(real x) {
 

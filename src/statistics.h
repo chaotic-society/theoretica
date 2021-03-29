@@ -8,6 +8,7 @@
 
 namespace uroboro {
 
+
 	// Calculate the mean of a set of values
 	template<unsigned int N>
 	inline real mean(const vec<N>& dataset) {
@@ -195,6 +196,77 @@ namespace uroboro {
 			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
 		}
 		return sum / (real) (X.size() - 1);
+	}
+
+
+	// Calculate the relative error on a sample measure
+	// using standard deviation
+	inline real sample_std_relative_error(const vec_buff& X) {
+		return sample_standard_deviation(X) / uroboro::abs(mean(X));
+	}
+
+
+	// Normal distribution chi-square with 4 intervals
+	inline real chi_square_sigma(const vec_buff& X) {
+
+		unsigned int N = X.size();
+
+		unsigned int Ok_1 = 0;
+		unsigned int Ok_2 = 0;
+		unsigned int Ok_3 = 0;
+		unsigned int Ok_4 = 0;
+
+		real M = mean(X);
+		real sigma = sample_standard_deviation(X);
+
+		for (auto x : X) {
+			if(x < M - sigma)
+				Ok_1++;
+			else if((x > M - sigma) && (x < M))
+				Ok_2++;
+			else if((x > M) && (x < M + sigma))
+				Ok_3++;
+			else if(x > M + sigma)
+				Ok_4++;
+		}
+
+		// (Ok - Ek)^2 / Ek
+		real chi_2 = ((Ok_1 - (N * 0.16)) * (Ok_1 - (N * 0.16))) / (N * 0.16);
+		chi_2 += ((Ok_2 - (N * 0.34)) * (Ok_2 - (N * 0.34))) / (N * 0.34);
+		chi_2 += ((Ok_3 - (N * 0.34)) * (Ok_3 - (N * 0.34))) / (N * 0.34);
+		chi_2 += ((Ok_4 - (N * 0.16)) * (Ok_4 - (N * 0.16))) / (N * 0.16);
+
+		return chi_2;
+	}
+
+
+	// Calculate the coefficient of linearization
+	real linearization_coefficient(const vec_buff& x, const vec_buff& y) {
+
+		real sum_prod = 0;
+		real sum_square = 0;
+
+		real x_m = mean(x);
+		real y_m = mean(y);
+		for (int i = 0; i < x.size(); ++i) {
+			sum_prod += x[i] * y[i];
+			sum_square += x[i] * x[i];
+		}
+
+		return sum_prod / sum_square;
+	}
+
+
+	// Calculate the chi-square of a linearization
+	real linearization_chi_square(const vec_buff& x, const vec_buff& y, real B) {
+
+		real chi_square = 0;
+
+		for (int i = 0; i < x.size(); ++i) {
+			chi_square += y[i] - (B * x[i]);
+		}
+
+		return chi_square / sample_variance(y);
 	}
 
 }

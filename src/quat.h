@@ -7,8 +7,8 @@
 namespace uroboro {
 
 	// Quaternion implementation
-	// In the form a + bi + cj + dk
-	// As a + v [real + vec<3>]
+	// In the form (a + bi + cj + dk)
+	// As (a + v) [real + vec<3>]
 	class quat {
 		public:
 
