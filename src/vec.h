@@ -1,9 +1,9 @@
 #ifndef UROBORO_VECTOR_H
 #define UROBORO_VECTOR_H
-
 #include <array>
-#include <algorithm>
+
 #include "./common.h"
+#include "./vec_buff.h"
 
 namespace uroboro {
 
@@ -151,6 +151,7 @@ namespace uroboro {
 			return magnitude();
 		}
 
+		// Square magnitude of vector (v * v)
 		inline real square_magnitude() const {
 			real m = 0;
 			for (int i = 0; i < N; ++i) {
@@ -186,6 +187,7 @@ namespace uroboro {
 			real m = magnitude();
 
 			if(m == 0)
+				// throw ...
 				return;
 
 			for (int i = 0; i < N; ++i) {
@@ -215,6 +217,13 @@ namespace uroboro {
 			}
 
 			return true;
+		}
+
+		inline vec_buff to_vec_buff() {
+			vec_buff res;
+			for (int i = 0; i < N; ++i)
+				res.push_back(data[i]);
+			return res;
 		}
 
 	};

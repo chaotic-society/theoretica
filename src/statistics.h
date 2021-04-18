@@ -6,154 +6,166 @@
 #include "./vec_buff.h"
 #include "./common.h"
 
+#include "./approximation.h"
+
 namespace uroboro {
 
 
 	// Calculate the mean of a set of values
-	template<unsigned int N>
-	inline real mean(const vec<N>& dataset) {
-		real sum = 0;
-		for (int i = 0; i < N; ++i) {
-			sum += dataset.data[i];
-		}
-		return sum / (real) N;
-	}
+	inline real mean(const vec_buff& data) {
 
-	inline real mean(const vec_buff& dataset) {
+		if(!data.size())
+			//throw...
+			return 0;
+
 		real sum = 0;
-		for (auto i : dataset) {
-			sum += i;
+		for (auto x : data) {
+			sum += x;
 		}
-		return sum / (real) dataset.size();
+		return sum / (real) data.size();
 	}
 
 
 	// Calculate the weighted mean of a set of values
-	// <dataset> and <weights> must have the same size
-	template<unsigned int N>
-	inline real weighted_mean(const vec<N>& dataset, const vec<N>& weights) {
-		real sum = 0;
-		real weight_sum = 0;
-		for (int i = 0; i < N; ++i) {
-			sum += dataset.data[i] * weights.data[i];
-			weight_sum += weights.data[i];
-		}
-		return sum / weight_sum;
-	}
+	// <data> and <weights> must have the same size
+	inline real weighted_mean(const vec_buff& data, const vec_buff& weights) {
 
-	inline real weighted_mean(const vec_buff& dataset, const vec_buff& weights) {
-
-		if(dataset.size() != weights.size())
+		if(data.size() != weights.size())
 			// throw ...
 			return 0;
 
 		real sum = 0;
 		real weight_sum = 0;
-		for (int i = 0; i < dataset.size(); ++i) {
-			sum += dataset[i] * weights[i];
+		for (int i = 0; i < data.size(); ++i) {
+			sum += data[i] * weights[i];
 			weight_sum += weights[i];
 		}
 		return sum / weight_sum;
 	}
 
 
-	// Calculate the variance of a population
-	template<unsigned int N>
-	inline real variance(const vec<N>& dataset) {
-		real sum = 0;
-		real Xm = mean(dataset);
-		real diff = 0;
-		for (int i = 0; i < N; ++i) {
-			diff = dataset.data[i] - Xm;
-			sum += diff * diff;
+	// Total sum of squares (TSS)
+	// Calculated as sum(square(x_i - x_mean))
+	inline real total_sum_squares(const vec_buff& X) {
+
+		real tss = 0;
+		real x_m = mean(X);
+		for (auto x : X) {
+			tss += square(x - x_m);
 		}
-		return sum / (real) N;
+
+		return tss;
 	}
 
-	inline real variance(const vec_buff& dataset) {
+	// Total sum of squares (TSS)
+	// Calculated as sum(square(x_i - x_mean))
+	inline real tss(const vec_buff& X) {
+		return total_sum_squares(X);
+	}
+
+
+	// Calculate the variance of a population
+	inline real variance(const vec_buff& data) {
+
+		if(!data.size())
+			//throw...
+			return 0;
+
 		real sum = 0;
-		real Xm = mean(dataset);
+		real Xm = mean(data);
 		real diff = 0;
-		for (auto i : dataset) {
-			diff = i - Xm;
+		for (auto x : data) {
+			diff = x - Xm;
 			sum += diff * diff;
 		}
-		return sum / (real) dataset.size();
+		return sum / (real) data.size();
 	}
 
 
 	// Calculate the variance of a sample
 	// This function uses Bessel correction
-	template<unsigned int N>
-	inline real sample_variance(const vec<N>& dataset) {
-		real sum = 0;
-		real Xm = mean(dataset);
-		real diff = 0;
-		for (int i = 0; i < N; ++i) {
-			diff = dataset.data[i] - Xm;
-			sum += diff * diff;
-		}
-		return sum / ((real) N - 1);
-	}
+	inline real sample_variance(const vec_buff& data) {
 
-	inline real sample_variance(const vec_buff& dataset) {
+		if(!data.size())
+			//throw...
+			return 0;
+
 		real sum = 0;
-		real Xm = mean(dataset);
+		real Xm = mean(data);
 		real diff = 0;
-		for (auto i : dataset) {
-			diff = i - Xm;
+		for (auto x : data) {
+			diff = x - Xm;
 			sum += diff * diff;
 		}
-		return sum / (real) (dataset.size() - 1);
+		return sum / (real) (data.size() - 1);
 	}
 
 
 	// Calculate the standard deviation of a population
-	template<unsigned int N>
-	inline real standard_deviation(const vec<N>& dataset) {
-		return uroboro::sqrt(variance(dataset));
+	inline real standard_deviation(const vec_buff& data) {
+		return uroboro::sqrt(variance(data));
 	}
 
-	inline real standard_deviation(const vec_buff& dataset) {
-		return uroboro::sqrt(variance(dataset));
+
+	// Calculate the standard deviation of a population
+	inline real stdev(const vec_buff& data) {
+		return standard_deviation(data);
 	}
 
 
 	// Calculate the standard deviation of a sample
-	template<unsigned int N>
-	inline real sample_standard_deviation(const vec<N>& dataset) {
-		return uroboro::sqrt(sample_variance(dataset));
+	inline real sample_standard_deviation(const vec_buff& data) {
+		return uroboro::sqrt(sample_variance(data));
 	}
 
-	inline real sample_standard_deviation(const vec_buff& dataset) {
-		return uroboro::sqrt(sample_variance(dataset));
+
+	// Calculate the standard deviation of a sample
+	inline real smpl_stdev(const vec_buff& data) {
+		return sample_standard_deviation(data);
+	}
+
+
+	// Calculate the relative error on a population measure
+	// using standard deviation
+	inline real standard_relative_error(const vec_buff& X) {
+		return standard_deviation(X) / uroboro::abs(mean(X));
+	}
+
+
+	// Calculate the relative error on a sample measure
+	// using standard deviation
+	inline real sample_standard_relative_error(const vec_buff& X) {
+		return sample_standard_deviation(X) / uroboro::abs(mean(X));
+	}
+
+
+	// Calculate the standard deviation on the mean of a set of values
+	inline real mean_standard_deviation(const vec_buff& data) {
+		return uroboro::sqrt(variance(data)) / uroboro::sqrt(data.size());
+	}
+
+
+	// Calculate the standard deviation on the mean of a set of values
+	inline real stdom(const vec_buff& data) {
+		return mean_standard_deviation(data);
 	}
 
 
 	// Calculate the standard deviation on the mean of a set of measures
 	// Bessel correction is used in the calculation of variance
-	template<unsigned int N>
-	inline real mean_standard_deviation(const vec<N>& dataset) {
-		return uroboro::sqrt(sample_variance(dataset)) / uroboro::sqrt(dataset.size());
+	inline real sample_mean_standard_deviation(const vec_buff& data) {
+		return uroboro::sqrt(sample_variance(data)) / uroboro::sqrt(data.size());
 	}
 
-	inline real mean_standard_deviation(const vec_buff& dataset) {
-		return uroboro::sqrt(sample_variance(dataset)) / uroboro::sqrt(dataset.size());
+
+	// Calculate the standard deviation on the mean of a set of measures
+	// Bessel correction is used in the calculation of variance
+	inline real smpl_stdom(const vec_buff& data) {
+		return sample_mean_standard_deviation(data);
 	}
 
 
 	// Calculate the covariance of two sets of measures
-	template<unsigned int N>
-	inline real covariance(const vec<N>& X, const vec<N>& Y) {
-		real sum = 0;
-		real X_mean = mean(X);
-		real Y_mean = mean(Y);
-		for (int i = 0; i < N; ++i) {
-			sum += (X.data[i] - X_mean) * (Y.data[i] - Y_mean);
-		}
-		return sum / (real) N;
-	}
-
 	inline real covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size())
@@ -172,17 +184,6 @@ namespace uroboro {
 
 	// Calculate the covariance between two sets of sample measures
 	// This function uses Bessel correction
-	template<unsigned int N>
-	inline real sample_covariance(const vec<N>& X, const vec<N>& Y) {
-		real sum = 0;
-		real X_mean = mean(X);
-		real Y_mean = mean(Y);
-		for (int i = 0; i < N; ++i) {
-			sum += (X.data[i] - X_mean) * (Y.data[i] - Y_mean);
-		}
-		return sum / (real) (N - 1);
-	}
-
 	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size())
@@ -199,15 +200,51 @@ namespace uroboro {
 	}
 
 
-	// Calculate the relative error on a sample measure
-	// using standard deviation
-	inline real sample_std_relative_error(const vec_buff& X) {
-		return sample_standard_deviation(X) / uroboro::abs(mean(X));
+	// Pearson's correlation coefficient r for a population
+	inline real correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
+		return covariance(X, Y) / (stdev(X) * stdev(Y));
 	}
 
 
-	// Normal distribution chi-square with 4 intervals
+	// Pearson's correlation coefficient r for a sample
+	inline real sample_correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
+		return sample_covariance(X, Y) / (smpl_stdev(X) * smpl_stdev(Y));
+	}
+
+
+	// Gaussian Distribution function
+	inline real gaussian_distribution(real x, real X, real sigma) {
+
+		return (1.0 / (sigma *
+			uroboro::sqrt(2 * PI))) * uroboro::exp_approx(-square(x - X) / (2 * square(sigma)));
+	}
+
+
+	// Gaussian Distribution function calculated on a sample of measures
+	inline real gaussian_distribution(real x, const vec_buff& data) {
+
+		real X = mean(data);
+		real sigma = sample_mean_standard_deviation(data);
+
+		return (1.0 / (sigma *
+			uroboro::sqrt(2 * PI))) * uroboro::exp_approx(-square(x - X) / (2 * square(sigma)));
+	}
+
+
+	// TO-DO
+
+	// gaussian distribution probability inside t*sigma
+
+	// erf
+
+
+	// Normal distribution chi-square with 4 intervals calculated
+	// on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
+
+		if(!X.size())
+			//throw...
+			return 0;
 
 		unsigned int N = X.size();
 
@@ -240,34 +277,116 @@ namespace uroboro {
 	}
 
 
-	// Calculate the coefficient of linearization
-	real linearization_coefficient(const vec_buff& x, const vec_buff& y) {
+	// Calculate the intercept of the minimum squares linearization of X and Y
+	inline real least_squares_linear_intercept(const vec_buff& X, const vec_buff& Y) {
 
-		real sum_prod = 0;
-		real sum_square = 0;
+		if(X.size() != Y.size())
+			// throw...
+			return 0;
 
-		real x_m = mean(x);
-		real y_m = mean(y);
-		for (int i = 0; i < x.size(); ++i) {
-			sum_prod += x[i] * y[i];
-			sum_square += x[i] * x[i];
-		}
+		real Delta = X.size() * product_sum(X, X) - square(sum(X));
+		real A = (product_sum(X, X) * sum(Y) - sum(X) * product_sum(X, Y)) / Delta;
 
-		return sum_prod / sum_square;
+		return A;
 	}
 
 
-	// Calculate the chi-square of a linearization
-	real linearization_chi_square(const vec_buff& x, const vec_buff& y, real B) {
+	// Calculate the intercept of the minimum squares linearization of X and Y
+	inline real lst_sqrs_lin_intercept(const vec_buff& X, const vec_buff& Y) {
+		return least_squares_linear_intercept(X, Y);
+	}
 
-		real chi_square = 0;
 
-		for (int i = 0; i < x.size(); ++i) {
-			chi_square += y[i] - (B * x[i]);
+	// Calculate the slope of the minimum squares linearization of X and Y
+	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
+
+		if(X.size() != Y.size())
+			// throw...
+			return 0;
+
+		real Delta = X.size() * product_sum(X, X) - square(sum(X));
+		real B = (X.size() * product_sum(X, Y) - sum(X) * sum(Y)) / Delta;
+
+		return B;
+	}
+
+
+	// Calculate the slope of the minimum squares linearization of X and Y
+	inline real lst_sqrs_lin_slope(const vec_buff& X, const vec_buff& Y) {
+		return least_squares_linear_slope(X, Y);
+	}
+
+
+	// Calculate the error of the minimum squares linearization of a sample
+	real least_squares_linear_error(const vec_buff& X, const vec_buff& Y,
+		real intercept, real slope) {
+
+		if(X.size() != Y.size())
+			// throw...
+			return 0;
+
+		real err = 0;
+
+		for (int i = 0; i < X.size(); ++i) {
+			err += square(Y[i] - intercept - slope * X[i]);
 		}
 
-		return chi_square / sample_variance(y);
+		return uroboro::sqrt(err / (real) (X.size() - 2));
 	}
+
+
+	// Calculate the error of the minimum squares linearization of a sample
+	inline real lst_sqrs_lin_error(const vec_buff& X, const vec_buff& Y,
+		real intercept, real slope) {
+		return least_squares_linear_error(X, Y, intercept, slope);
+	}
+
+
+	// Calculate the intercept of the weighted minimum squares linearization of X and Y
+	inline real least_squares_weighted_linear_intercept(const vec_buff& X,
+		const vec_buff& Y, const vec_buff& W) {
+
+		if(X.size() != Y.size() || X.size() != W.size())
+			// throw...
+			return 0;
+
+		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
+
+		real A = (product_sum(X, X, W) * product_sum(Y, W) -
+			product_sum(X, W) * product_sum(X, Y, W)) / Delta;
+
+		return A;
+	}
+
+
+	// Calculate the intercept of the weighted minimum squares linearization of X and Y
+	inline real lst_sqrs_weight_lin_intercept(const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		return least_squares_weighted_linear_intercept(X, Y, W);
+	}
+
+
+	// Calculate the slope of the weighted minimum squares linearization of X and Y
+	inline real least_squares_weighted_linear_slope(const vec_buff& X,
+		const vec_buff& Y, const vec_buff& W) {
+
+		if(X.size() != Y.size() || X.size() != W.size())
+			// throw...
+			return 0;
+
+		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
+
+		real B = (sum(W) * product_sum(X, Y, W) -
+			product_sum(X, W) * product_sum(Y, W)) / Delta;
+
+		return B;
+	}
+
+
+	// Calculate the slope of the weighted minimum squares linearization of X and Y
+	inline real lst_sqrs_weight_lin_slope(const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		return least_squares_weighted_linear_slope(X, Y, W);
+	}
+
 
 }
 
