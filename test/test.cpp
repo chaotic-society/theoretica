@@ -1,22 +1,14 @@
 #include "lightcpptest.h"
-#define UROBORO_DOUBLE_PRECISION
-#include "uroboro.h"
-#include "utility.h"
-#include <sstream>
 
-#define TEST_TOL(a, b) if(!good_enough(a, b)) {	\
-	std::ostringstream stream; \
-	stream << "Expected value: " << b << "\n\t\tFunction returned: " << a << "\n"; \
-	TEST_ERROR(stream.str()); }
+#define UROBORO_INCLUDE_ALL
+#include "../src/uroboro.h"
+#include "../src/utility.h"
 
-#define TEST_TOL_D(desc, a, b) if(!good_enough(a, b)) {	\
-	std::ostringstream stream; \
-	stream << desc << "Expected value: " << b << "\n\t\tFunction returned: " << a << "\n"; \
-	TEST_ERROR(stream.str()); }
 
 using namespace uroboro;
 
 constexpr real TOLERANCE = 0.001;
+
 
 bool good_enough(real a, real b) {
 	return abs(b - a) < TOLERANCE;
@@ -32,7 +24,7 @@ int main(int argc, char const *argv[]) {
 
 	TEST_BEGIN_MODULE(uroboro);
 
-	set_output_prec(8);
+	// set_output_prec(8);
 
 	TEST_BEGIN_VOID(sqrt);
 
@@ -42,15 +34,15 @@ int main(int argc, char const *argv[]) {
 	TEST_END();
 
 
-	TEST_BEGIN_OVERLOAD_VOID(log, real, real);
+	TEST_BEGIN_VOID(ln);
 
-		TEST_TOL(log(E), 1);
-		TEST_TOL(log(E * E), 2);
+		TEST_TOL(ln(E), 1);
+		TEST_TOL(ln(E * E), 2);
 
 	TEST_END();
 
 
-	TEST_BEGIN_OVERLOAD_VOID(log2, real, real);
+	TEST_BEGIN_VOID(log2);
 
 		TEST_TOL(log2(2), 1);
 		TEST_TOL(log2(4), 2);
@@ -59,9 +51,8 @@ int main(int argc, char const *argv[]) {
 	TEST_END();
 
 
-	TEST_BEGIN_OVERLOAD_VOID(log10, real, real);
+	TEST_BEGIN_VOID(log10);
 
-		// log10 is safe only for x in range 0-20
 		TEST_TOL(log10(10), 1.f);
 		TEST_TOL(log10(100), 2.f);
 		TEST_TOL(log10(1000), 3.f);
@@ -69,18 +60,17 @@ int main(int argc, char const *argv[]) {
 	TEST_END();
 
 
-	TEST_BEGIN_VOID(exp);
+	TEST_BEGIN_VOID(exp_approx);
 
-		TEST_TOL(exp(2), E * E);
-		TEST_TOL(exp(1), E);
+		TEST_TOL(exp_approx(2), E * E);
+		TEST_TOL(exp_approx(1), E);
 
 	TEST_END();
 
 
-	TEST_BEGIN_VOID(powf);
+	TEST_BEGIN_VOID(powf_approx);
 
-		// powf is safe only for x in range 0-1
-		TEST_TOL(powf(2.f, 0.5f), 1.41421356237);
+		TEST_TOL(powf_approx(2.f, 0.5f), SQRT2);
 
 	TEST_END();
 
@@ -90,16 +80,6 @@ int main(int argc, char const *argv[]) {
 		// sin, cos and tan are precise
 		TEST_TOL(sin(0.5f), 0.4794255386);
 		TEST_TOL(sin(3), 0.14112000806);
-
-	TEST_END();
-
-	// sin_0_to_pi is imprecise on the borders (near 0.1 and near 0.9)
-	TEST_BEGIN_VOID(sin_0_to_pi);
-
-		TEST_TOL(sin_0_to_pi(0.5f), sin(0.5f));
-		TEST_TOL(sin_0_to_pi(0.75f), sin(0.75f));
-		TEST_TOL(sin_0_to_pi(0.99f), sin(0.99f));
-		TEST_TOL(sin_0_to_pi(0.1f), sin(0.1f));
 
 	TEST_END();
 
@@ -120,31 +100,31 @@ int main(int argc, char const *argv[]) {
 	TEST_END();
 
 
-	TEST_BEGIN_VOID(asin);
+	// TEST_BEGIN_VOID(asin);
 
-		// After 0.9 gets a lot less precise
-		TEST_TOL(asin(0.5f), 0.5235987756);
-		TEST_TOL(asin(0.9f), 1.119769515);
+	// 	// After 0.9 gets a lot less precise
+	// 	TEST_TOL(asin(0.5f), 0.5235987756);
+	// 	TEST_TOL(asin(0.9f), 1.119769515);
 
-	TEST_END();
-
-
-	TEST_BEGIN_VOID(acos);
-
-		// After 0.9 gets less precise
-		TEST_TOL(acos(0.5f), 1.0471975512);
-		TEST_TOL(acos(0.9f), 0.4510268118);
-
-	TEST_END();
+	// TEST_END();
 
 
-	TEST_BEGIN_VOID(atan);
+	// TEST_BEGIN_VOID(acos);
 
-		// atan is really imprecise
-		TEST_TOL(atan(0.5f), 0.54630248984);
-		TEST_TOL(atan(0.9f), 0.78037308007);
+	// 	// After 0.9 gets less precise
+	// 	TEST_TOL(acos(0.5f), 1.0471975512);
+	// 	TEST_TOL(acos(0.9f), 0.4510268118);
 
-	TEST_END();
+	// TEST_END();
+
+
+	// TEST_BEGIN_VOID(atan);
+
+	// 	// atan is really imprecise
+	// 	TEST_TOL(atan(0.5f), 0.54630248984);
+	// 	TEST_TOL(atan(0.9f), 0.78037308007);
+
+	// TEST_END();
 
 
 	TEST_BEGIN_VOID(degrees);
@@ -164,28 +144,17 @@ int main(int argc, char const *argv[]) {
 	// Trick test framework with fake function
 	TEST_BEGIN_VOID(vec3_misc);
 
-		vec3 v3 = vec3();
-		vec4 v4 = vec4();
-		mat4 m = mat4();
+		vec3 v3 = {10, 15, 20};
+		vec4 v4 = {1, 2, 3, 4};
+		mat4 m = mat4::diagonal(2);
 
-		TEST_TOL(v3.x, 0);
+		v4 = m * v4;
 
-		v3 = m * v3;
+		TEST_TOL(v4[0], 2);
 
-		TEST_TOL(v3.x, 0);
-
-		v3 = vec3(10, 15, 20);
 		v3.normalize();
 
 		TEST_TOL(v3.magnitude(), 1);
-
-		v3 = vec3();
-		m.translate(vec3(10, 0, 0));
-		v3 = m * v3;
-
-		TEST_TOL(v3.x, 10);
-		TEST_TOL(v3.y, 0);
-		TEST_TOL(v3.z, 0);
 
 	TEST_END();
 

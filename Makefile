@@ -1,7 +1,15 @@
-default_target: all
+default_target: example
 
-all:
-	g++ src/main.cpp -O2 -o ./main
+.PHONY: all example test labcalc
+
+all: example test labcalc
+
+example:
+	g++ src/example.cpp -O2 -o ./example
+
+test:
+	g++ test/test.cpp -o test/test
+	./test/test
 
 labcalc:
 	g++ tools/labcalc.cpp -O2 -I./src/ -o ./labcalc

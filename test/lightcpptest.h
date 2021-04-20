@@ -25,6 +25,7 @@ SOFTWARE.
 #ifndef LIGHTCPPTEST_H
 #define LIGHTCPPTEST_H
 #include <iostream>
+#include <sstream>
 
 
 #define TEST_STARTUP()	unsigned int final_result = 0;	\
@@ -142,6 +143,18 @@ inline Function<ReturnType> _extract_retype(ReturnType(*func_ptr)(Parameters...)
 #define TEST_ERROR(description) { std::cout << "\tTest failed:\n\t\t" << std::string(description) << "\n" << std::endl;	\
 								final_result++;				\
 								function_final_result++; }
+
+
+#define TEST_TOL(a, b) if(!good_enough(a, b)) {	\
+	std::ostringstream stream; \
+	stream << "Expected value: " << b << "\n\t\tFunction returned: " << a << "\n"; \
+	TEST_ERROR(stream.str()); }
+
+
+#define TEST_TOL_D(desc, a, b) if(!good_enough(a, b)) {	\
+	std::ostringstream stream; \
+	stream << desc << "Expected value: " << b << "\n\t\tFunction returned: " << a << "\n"; \
+	TEST_ERROR(stream.str()); }
 
 
 #endif

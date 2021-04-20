@@ -14,6 +14,7 @@ int main(int argc, char const *argv[]) {
 	complex z = {1, 0};
 	complex w = {0, 1};
 	complex r = complex::rotor(PI);
+
 	print_complex(z);
 	print_complex(w);
 	print_complex(z * w);
@@ -22,6 +23,7 @@ int main(int argc, char const *argv[]) {
 	// Dot product and cross product between vectors
 	vec3 v1 = {1, 3, 1};
 	vec3 v2 = {-1, 2, 1};
+
 	std::cout << v1 * v2 << std::endl;
 	print_vec(v1.cross(v2));
 
@@ -30,6 +32,7 @@ int main(int argc, char const *argv[]) {
 	auto m2 = mat<3, 4>(3);
 	m1.at(1, 2) = 3;
 	m1.at(2, 1) = 5;
+
 	print_mat(m1);
 	print_mat(m1.transposed());
 	print_mat(m1 * m2);
