@@ -32,12 +32,13 @@ namespace uroboro {
 			return *this;
 		}
 
-		inline vec<N>& operator=(const std::array<real, N>& other) {
-			for (int i = 0; i < N; ++i) {
-				data[i] = other[i];
-			}
-			return *this;
-		}
+		// Ambiguous
+		// inline vec<N>& operator=(const std::array<real, N>& other) {
+		// 	for (int i = 0; i < N; ++i) {
+		// 		data[i] = other[i];
+		// 	}
+		// 	return *this;
+		// }
 
 		inline vec(std::initializer_list<real> l) {
 
@@ -174,7 +175,7 @@ namespace uroboro {
 		}
 
 		// Getters and setters
-		inline real get(int i) {
+		inline real get(int i) const {
 			return data[i];
 		}
 

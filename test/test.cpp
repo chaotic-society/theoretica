@@ -7,7 +7,7 @@
 
 using namespace uroboro;
 
-constexpr real TOLERANCE = 0.001;
+constexpr real TOLERANCE = 0.000001;
 
 
 bool good_enough(real a, real b) {

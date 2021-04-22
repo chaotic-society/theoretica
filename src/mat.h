@@ -2,6 +2,7 @@
 #define UROBORO_MATRIX_H
 
 #include "./constants.h"
+#include "./common.h"
 #include "./vec.h"
 
 namespace uroboro {
@@ -263,6 +264,72 @@ namespace uroboro {
 
 		static mat<N, K> diagonal(real diag) {
 			return mat<N, K>(diag);
+		}
+
+
+		static mat<4, 4> rotation_4x4(real theta, const vec<3>& axis) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			real Rx = axis.get(0);
+			real Ry = axis.get(1);
+			real Rz = axis.get(2);
+
+			real cm1 = (1 - c);
+
+			mat<4, 4> m;
+
+			m.at(0, 0) = c + square(Rx) * cm1;
+			m.at(1, 0) = Rx * Ry * cm1 - Rz * s;
+			m.at(2, 0) = Rx * Rz * cm1 - Ry * s;
+			m.at(3, 0) = 0;
+
+			m.at(0, 1) = Ry * Rx * cm1 + Rz * s;
+			m.at(1, 1) = c + square(Ry) * cm1;
+			m.at(2, 1) = Ry * Rz * cm1 - Rx * s;
+			m.at(3, 1) = 0;
+
+			m.at(0, 2) = Rz * Rx * cm1 - Ry * s;
+			m.at(1, 2) = Rz * Ry * cm1 + Rx * s;
+			m.at(2, 2) = c + square(Rz) * cm1;
+			m.at(3, 2) = 0;
+
+			m.at(0, 3) = 0;
+			m.at(1, 3) = 0;
+			m.at(2, 3) = 0;
+			m.at(3, 3) = 1;
+
+			return m;
+		}
+
+
+		static mat<3, 3> rotation_3x3(real theta, const vec<3>& axis) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			real Rx = axis.get(0);
+			real Ry = axis.get(1);
+			real Rz = axis.get(2);
+
+			real cm1 = (1 - c);
+
+			mat<3, 3> m;
+
+			m.at(0, 0) = c + square(Rx) * cm1;
+			m.at(1, 0) = Rx * Ry * cm1 - Rz * s;
+			m.at(2, 0) = Rx * Rz * cm1 - Ry * s;
+
+			m.at(0, 1) = Ry * Rx * cm1 + Rz * s;
+			m.at(1, 1) = c + square(Ry) * cm1;
+			m.at(2, 1) = Ry * Rz * cm1 - Rx * s;
+
+			m.at(0, 2) = Rz * Rx * cm1 - Ry * s;
+			m.at(1, 2) = Rz * Ry * cm1 + Rx * s;
+			m.at(2, 2) = c + square(Rz) * cm1;
+
+			return m;
 		}
 
 	};

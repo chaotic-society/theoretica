@@ -17,7 +17,7 @@ namespace uroboro {
 		real x_fract = uroboro::abs(x - x_int);
 
 		// Calculate e^x as e^int(x) * e^fract(x)
-		// Where e^fract(x) is calculated as 2^(fract(x) / 2ln2)
+		// Where e^fract(x) is calculated as 2^(fract(x) / ln2)
 		return pow(E, x_int) * square(f2xm1(x_fract / (2 * LN2)) + 1);
 	}
 

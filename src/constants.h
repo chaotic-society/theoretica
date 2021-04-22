@@ -1,7 +1,13 @@
 #ifndef UROBORO_CONSTANTS_H
 #define UROBORO_CONSTANTS_H
 
+#ifdef UROBORO_LONG_DOUBLE_PREC
+using real = long double;
+#elif defined(UROBORO_FLOAT_PREC)
+using real = float;
+#else
 using real = double;
+#endif
 
 namespace uroboro {
 
