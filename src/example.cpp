@@ -1,10 +1,17 @@
 #define UROBORO_INCLUDE_ALL
 #include "uroboro.h"
 
+#include "./integration.h"
+#include "./derivation.h"
+
 using namespace umath;
 
 
 int main(int argc, char const *argv[]) {
+
+
+	// Derivative approximation
+	std::cout << derivate_approx_base(sin, 2 * PI) << std::endl;
 
 
 	// Quaternion rotation of a vector
@@ -13,7 +20,7 @@ int main(int argc, char const *argv[]) {
 	print_vec(quat::rotate(v, PI, {0, 1, 0}));
 
 
-	// Complex multiplication and rotation
+	// Complex product and rotation
 	complex z = {1, 0};
 	complex w = {0, 1};
 	complex r = complex::rotor(PI);
@@ -57,12 +64,15 @@ int main(int argc, char const *argv[]) {
 	vec_buff Y = {10.1, 11.7, 9.2, 8.1, 6.9};
 
 	std::cout << sample_covariance(X, Y) << std::endl;
+	std::cout << sample_correlation_coefficient(X, Y) << std::endl;
+
 	std::cout << smpl_stdev(X) << std::endl;
 	std::cout << sample_standard_relative_error(X) << std::endl;
 	std::cout << smpl_stdev(Y) << std::endl;
 	std::cout << sample_standard_relative_error(Y) << std::endl;
 	std::cout << smpl_stdom(X) << std::endl;
 	std::cout << smpl_stdom(Y) << std::endl;
+
 	std::cout << lst_sqrs_lin_intercept(X, Y) << std::endl;
 	std::cout << lst_sqrs_lin_slope(X, Y) << std::endl;
 

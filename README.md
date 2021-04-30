@@ -6,3 +6,6 @@ Matrices are column-first, for use with OpenGL.
 
 ### How to use
 Include `uroboro.h` and you will be able to use vec\<N\> and mat<N, K> classes.
+
+### Examples
+The file `example.cpp` gives example usage of the library.
