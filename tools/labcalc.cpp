@@ -28,9 +28,7 @@ int main(int argc, char const *argv[]) {
 
 	std::cout << "\nInsert each value and press Enter (END to stop insertion)\n";
 
-	vec_buff X;
-	vec_buff Y;
-	vec_buff W;
+	vec_buff X, Y, W;
 
 	std::cout << "Insert X values:" << std::endl;
 	insert_data(X, "");
@@ -50,16 +48,6 @@ int main(int argc, char const *argv[]) {
 		print_sample_stats(X);
 	}
 
-	// if(n_records > 1) {
-	// 	std::cout << "\nStats for Y:" << std::endl;
-	// 	print_sample_stats(Y);
-	// }
-
-	// if(n_records > 2) {
-	// 	std::cout << "\nStats for W:" << std::endl;
-	// 	print_sample_stats(W);
-	// }
-
 
 	if(n_records > 1) {
 
@@ -77,10 +65,15 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Minimum Squares Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << "\n";
 		std::cout << std::endl;
-
 	}
 
+
 	if(n_records == 3) {
+
+		// Calculate weights as 1 / sigma^2
+		for (int i = 0; i < W.size(); ++i) {
+			W[i] = 1.0 / square(W[i]);
+		}
 
 		real intercept = least_squares_weighted_linear_intercept(X, Y, W);
 		real slope = least_squares_weighted_linear_slope(X, Y, W);
@@ -90,11 +83,7 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Weighted Minimum Squares Slope: " << slope << std::endl;
 		std::cout << "Weighted Minimum Squares Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << std::endl;
-
 		std::cout << std::endl;
-	}
-
-	if(n_records > 1) {
 
 		for (int i = 0; i < X.size(); ++i) {
 			X[i] = uroboro::ln(X[i]);
@@ -104,8 +93,8 @@ int main(int argc, char const *argv[]) {
 			Y[i] = uroboro::ln(Y[i]);
 		}
 
-		real intercept = least_squares_weighted_linear_intercept(X, Y, W);
-		real slope = least_squares_weighted_linear_slope(X, Y, W);
+		intercept = least_squares_weighted_linear_intercept(X, Y, W);
+		slope = least_squares_weighted_linear_slope(X, Y, W);
 
 		std::cout << "WEIGHTED MINIMUM SQUARES LOGARITHM LINEARIZATION:\n";
 		std::cout << "ln(y) = A + Bln(x)" << std::endl;
