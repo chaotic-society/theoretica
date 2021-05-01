@@ -6,7 +6,6 @@
 #include "./vec_buff.h"
 #include "./common.h"
 
-#include "./approximation.h"
 
 namespace uroboro {
 
@@ -44,9 +43,40 @@ namespace uroboro {
 	}
 
 
+	// Propagate error of a sum of values
+	// as sqrt(sigma_x^2 + sigma_y^2 + ...)
+	inline real propagate_sum(const vec_buff& sigma) {
+
+		return uroboro::sqrt(sum_squares(sigma));
+	}
+
+
+	// Propagate error of a product (or quotient) of values
+	// as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...)
+	// The result is the propagated relative error
+	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
+
+		if(sigma.size() != mean.size())
+			// throw...
+			return 0;
+
+		// Calculate sum of squares of (i_sigma / i_mean)
+		real sum = 0;
+		for (int i = 0; i < sigma.size(); ++i) {
+			sum += square(sigma[i] / mean[i]);
+		}
+
+		return uroboro::sqrt(sum);
+	}
+
+
 	// Total sum of squares (TSS)
 	// Calculated as sum(square(x_i - x_mean))
 	inline real total_sum_squares(const vec_buff& X) {
+
+		if(!X.size())
+			//throw...
+			return 0;
 
 		real tss = 0;
 		real x_m = mean(X);
@@ -71,14 +101,7 @@ namespace uroboro {
 			//throw...
 			return 0;
 
-		real sum = 0;
-		real Xm = mean(data);
-		real diff = 0;
-		for (auto x : data) {
-			diff = x - Xm;
-			sum += diff * diff;
-		}
-		return sum / (real) data.size();
+		return total_sum_squares(data) / (real) data.size();
 	}
 
 
@@ -90,14 +113,8 @@ namespace uroboro {
 			//throw...
 			return 0;
 
-		real sum = 0;
-		real Xm = mean(data);
-		real diff = 0;
-		for (auto x : data) {
-			diff = x - Xm;
-			sum += diff * diff;
-		}
-		return sum / (real) (data.size() - 1);
+		// Bessel correction (N - 1)
+		return total_sum_squares(data) / (real) (data.size() - 1);
 	}
 
 
@@ -196,11 +213,13 @@ namespace uroboro {
 		for (int i = 0; i < X.size(); ++i) {
 			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
 		}
+
+		// Bessel correction (N - 1)
 		return sum / (real) (X.size() - 1);
 	}
 
 
-	// Pearson's correlation coefficient r for a population
+	// Pearson's correlation coefficient R for a population
 	inline real correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
 		return covariance(X, Y) / (stdev(X) * stdev(Y));
 	}
@@ -216,37 +235,33 @@ namespace uroboro {
 	inline real gaussian_distribution(real x, real X, real sigma) {
 
 		return (1.0 / (sigma *
-			uroboro::sqrt(2 * PI))) * uroboro::exp_approx(-square(x - X) / (2 * square(sigma)));
+			uroboro::sqrt(2 * PI))) * uroboro::exp(-square(x - X) / (2 * square(sigma)));
 	}
 
 
 	// Gaussian Distribution function calculated on a sample of measures
 	inline real gaussian_distribution(real x, const vec_buff& data) {
 
-		real X = mean(data);
-		real sigma = sample_mean_standard_deviation(data);
-
-		return (1.0 / (sigma *
-			uroboro::sqrt(2 * PI))) * uroboro::exp_approx(-square(x - X) / (2 * square(sigma)));
+		return gaussian_distribution(
+			x, mean(data),
+			sample_mean_standard_deviation(data));
 	}
 
 
 	// TO-DO
-
-	// gaussian distribution probability inside t*sigma
-
+	// gaussian distribution probability inside (t * sigma)
 	// erf
 
 
-	// Normal distribution chi-square with 4 intervals calculated
-	// on a sample of measures
+	// Normal distribution chi-square with 4 intervals
+	// calculated on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
 
 		if(!X.size())
 			//throw...
 			return 0;
 
-		unsigned int N = X.size();
+		const unsigned int N = X.size();
 
 		unsigned int Ok_1 = 0;
 		unsigned int Ok_2 = 0;
@@ -267,7 +282,8 @@ namespace uroboro {
 				Ok_4++;
 		}
 
-		// (Ok - Ek)^2 / Ek
+		// Sum of (Ok - Ek)^2 / Ek
+		// where Ek = N * Pk
 		real chi_2 = ((Ok_1 - (N * 0.16)) * (Ok_1 - (N * 0.16))) / (N * 0.16);
 		chi_2 += ((Ok_2 - (N * 0.34)) * (Ok_2 - (N * 0.34))) / (N * 0.34);
 		chi_2 += ((Ok_3 - (N * 0.34)) * (Ok_3 - (N * 0.34))) / (N * 0.34);
@@ -326,11 +342,11 @@ namespace uroboro {
 			return 0;
 
 		real err = 0;
-
 		for (int i = 0; i < X.size(); ++i) {
 			err += square(Y[i] - intercept - slope * X[i]);
 		}
 
+		// Correction by degrees of freedom (N - 2)
 		return uroboro::sqrt(err / (real) (X.size() - 2));
 	}
 
