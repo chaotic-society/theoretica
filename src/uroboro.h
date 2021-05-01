@@ -12,7 +12,6 @@
 #include "./utility.h"
 #include "./interpolation.h"
 #include "./statistics.h"
-#include "./approximation.h"
 #endif
 
 #ifndef UROBORO_NO_NAMESPACE

@@ -33,16 +33,16 @@ namespace uroboro {
 	constexpr real SQRTPI = 1.772454;
 
 	// Euler constant.
-	constexpr real E = 2.718282;
+	constexpr real E = 2.718281828459045235360287;
 
 	// Logarithm base 2 of Euler constant.
-	constexpr real LOG2E = 1.44269504089;
+	constexpr real LOG2E = 1.44269504088896338700465;
 
 	// Logarithm base 2 of 10.
 	constexpr real LOG210 = 3.32192809489;
 
 	// Logarithm base 10 of Euler constant.
-	constexpr real LOG10E = 0.434295;
+	constexpr real LOG10E = 0.434294481903;
 
 	// Natural logarithm of 2.
 	constexpr real LN2 = 0.69314718056;

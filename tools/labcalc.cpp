@@ -51,6 +51,11 @@ int main(int argc, char const *argv[]) {
 
 	if(n_records > 1) {
 
+		if(X.size() != Y.size() || X.size() != W.size()) {
+			std::cout << "ERROR: Data sets must have the same size" << std::endl;
+			exit(1);
+		}
+
 		std::cout << "Covariance: " << sample_covariance(X, Y) << "\n";
 		std::cout << "Correlation Coefficient: " <<
 			sample_correlation_coefficient(X, Y) << "\n\n";
@@ -105,7 +110,6 @@ int main(int argc, char const *argv[]) {
 		std::cout << std::endl;
 
 	}
-
 
 	std::cout << "Press Enter to exit..." << std::endl;
 	std::cin.get();

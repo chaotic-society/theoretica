@@ -60,10 +60,10 @@ int main(int argc, char const *argv[]) {
 	TEST_END();
 
 
-	TEST_BEGIN_VOID(exp_approx);
+	TEST_BEGIN_VOID(exp);
 
-		TEST_TOL(exp_approx(2), E * E);
-		TEST_TOL(exp_approx(1), E);
+		TEST_TOL(exp(2), E * E);
+		TEST_TOL(exp(1), E);
 
 	TEST_END();
 

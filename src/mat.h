@@ -189,6 +189,8 @@ namespace uroboro {
 			return res;
 		}
 
+		// Calculate the dot product between v1 and v2
+		// using this matrix as the product matrix
 		inline real dot(const vec<N>& v1, const vec<N>& v2) const {
 
 			vec<N> o = transform(v2);
