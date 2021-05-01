@@ -49,7 +49,7 @@ Declare a matrix using the `mat<N, K>` type (where `N` is the number of columns 
 ```c
 mat4 A = mat4::identity(); // A is a 4x4 identity matrix
 mat3 B = mat3::diagonal(3.0); // B is a 3x3 diagonal matrix
-mat3 C = mat4::rotation_3x3(PI, u); // C is a 4x4 rotation matrix around the given axis
+mat3 C = mat4::rotation_3x3(PI, u); // C is a 3x3 rotation matrix around the given axis
 
 vec3 l = B * v;
 vec3 t = C * w;
@@ -59,7 +59,7 @@ vec3 t = C * w;
 Declare a complex number using the `complex` class.
 ```c
 complex z1 = {1, 1};
-complex z2 = complex::rotor(TAU); // z2 is a complex rotor
+complex z2 = complex::rotor(TAU); // A complex rotor
 
 complex z3 = z1 * z2; // Complex multiplication
 complex z4 = z1.conjugate(); // Complex conjugate
@@ -76,7 +76,7 @@ quat p_n = p.normalized(); // Return the normalized quaternion
 // Return a quaternion representing a rotation around an arbitrary axis
 quat r = quat::rotation(PI, v);
 
-// Rotate a vector around an arbitrary axis
+// Rotate a vector around an arbitrary axis using quaternions
 vec3 v_1 = quat::rotate(w, PI / 2.0, v);
 ```
 
@@ -101,5 +101,7 @@ real slope = lst_sqrs_lin_slope(X, Y);
 
 real intercept2 = lst_sqrs_weight_lin_intercept(X, Y);
 real slope2 = lst_sqrs_weight_lin_slope(X, Y);
+
+real r = sample_correlation_coefficient(X, Y);
 
 ```
