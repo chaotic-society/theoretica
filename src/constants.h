@@ -51,10 +51,10 @@ namespace uroboro {
 	constexpr real LN10 = 2.30258509299;
 
 	// Multiply a number by this constant to change it to radians.
-	constexpr real DEG2RAD = 0.0174533;
+	constexpr real DEG2RAD = 0.0174532925199433;
 
 	// Multiply a number by this constant to change it to degrees.
-	constexpr real RAD2DEG = 57.2958;
+	constexpr real RAD2DEG = 57.29577951308232;
 
 	// Square root of 2.
 	constexpr real SQRT2 = 1.41421356237;

@@ -129,14 +129,18 @@ int main(int argc, char const *argv[]) {
 
 	TEST_BEGIN_VOID(degrees);
 
-		TEST_TOL(degrees(50), 2864.789f);
+		TEST_TOL(degrees(PI), 180);
+		TEST_TOL(degrees(PI / 2.0), 90);
+		TEST_TOL(degrees(PI / 4.0), 45);
 
 	TEST_END();
 
 
-	TEST_BEGIN_VOID(degrees);
+	TEST_BEGIN_VOID(radians);
 
-		TEST_TOL(radians(50), 0.8726646f);
+		TEST_TOL(radians(180), PI);
+		TEST_TOL(radians(90), PI / 2.0);
+		TEST_TOL(radians(45), PI / 4.0);
 
 	TEST_END();
 

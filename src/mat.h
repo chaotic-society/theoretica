@@ -213,7 +213,7 @@ namespace uroboro {
 			return data[column][row];
 		}
 
-		inline real set(real a, unsigned int column, unsigned int row) {
+		inline void set(real a, unsigned int column, unsigned int row) {
 			data[column][row] = a;
 		}
 
