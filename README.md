@@ -1,3 +1,4 @@
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 # Uroboro
 A header-only math library for videogames, simulations and graphics in C++, with x86 Assembly enhancements.
 Includes approximations of common math functions, vector and matrix calculations (see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for more).
