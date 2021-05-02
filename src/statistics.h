@@ -13,15 +13,8 @@ namespace uroboro {
 	// Calculate the mean of a set of values
 	inline real mean(const vec_buff& data) {
 
-		if(!data.size())
-			//throw...
-			return 0;
-
-		real sum = 0;
-		for (auto x : data) {
-			sum += x;
-		}
-		return sum / (real) data.size();
+		// Sum of x_i / N
+		return sum(data) / (real) data.size();
 	}
 
 
@@ -29,17 +22,8 @@ namespace uroboro {
 	// <data> and <weights> must have the same size
 	inline real weighted_mean(const vec_buff& data, const vec_buff& weights) {
 
-		if(data.size() != weights.size())
-			// throw ...
-			return 0;
-
-		real sum = 0;
-		real weight_sum = 0;
-		for (int i = 0; i < data.size(); ++i) {
-			sum += data[i] * weights[i];
-			weight_sum += weights[i];
-		}
-		return sum / weight_sum;
+		// Sum of x_i * w_i / Sum of w_i
+		return product_sum(data, weights) / sum(weights);
 	}
 
 
@@ -63,7 +47,7 @@ namespace uroboro {
 		// Calculate sum of squares of (i_sigma / i_mean)
 		real sum = 0;
 		for (int i = 0; i < sigma.size(); ++i) {
-			sum += square(sigma[i] / mean[i]);
+			sum += square(sigma[i] / uroboro::abs(mean[i]));
 		}
 
 		return uroboro::sqrt(sum);

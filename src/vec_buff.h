@@ -2,7 +2,7 @@
 #define UROBORO_VEC_BUFF_H
 #include <vector>
 
-#include "./common.h"
+#include "./constants.h"
 
 namespace uroboro {
 

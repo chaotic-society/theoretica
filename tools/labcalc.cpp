@@ -9,11 +9,16 @@ using namespace uroboro;
 
 int main(int argc, char const *argv[]) {
 
-	std::cout << "How many records to insert? (1, 2 or 3)" << std::endl;
-	std::string line;
-	std::getline(std::cin, line);
+	std::cout << "1:\tInsert 1 record" << std::endl;
+	std::cout << "2:\tInsert 2 records" << std::endl;
+	std::cout << "3:\tInsert 3 records" << std::endl;
+	std::cout << "4:\tPropagate sum" << std::endl;
+	std::cout << "5:\tPropagate product (or quotient)" << std::endl;
 
+	std::string line;
 	size_t n_records;
+
+	std::getline(std::cin, line);
 
 	if(line == "1")
 		n_records = 1;
@@ -21,21 +26,43 @@ int main(int argc, char const *argv[]) {
 		n_records	= 2;
 	else if(line == "3")
 		n_records	= 3;
+	else if(line == "4")
+		n_records	= 4;
+	else if(line == "5")
+		n_records	= 5;
 	else {
 		std::cout << "Insertion error\n";
 		exit(1);
 	}
 
-	std::cout << "\nInsert each value and press Enter (END to stop insertion)\n";
+	if(n_records > 5) {
+		std::cout << "Insertion error" << std::endl;
+		exit(1);
+	}
+
+	std::cout << "\nInsert each value and press Enter (END to stop insertion)" << std::endl;
 
 	vec_buff X, Y, W;
 
 	std::cout << "Insert X values:" << std::endl;
 	insert_data(X, "");
 
+	if(n_records == 4) {
+		std::cout << "Propagated error: " << propagate_sum(X) << std::endl;
+		std::cout << "(X values used as stdev of variables)" << std::endl;
+		exit(0);
+	}
+
 	if(n_records > 1) {
 		std::cout << "Insert Y values:" << std::endl;
 		insert_data(Y, "");
+	}
+
+	if(n_records == 5) {
+		std::cout << "Propagated error: " << propagate_product(X, Y) << std::endl;
+		std::cout << "(X values used as stdev of variables)" << std::endl;
+		std::cout << "(Y values used as mean of variables)" << std::endl;
+		exit(0);
 	}
 
 	if(n_records > 2) {
@@ -51,7 +78,7 @@ int main(int argc, char const *argv[]) {
 
 	if(n_records > 1) {
 
-		if(X.size() != Y.size() || X.size() != W.size()) {
+		if(X.size() != Y.size()) {
 			std::cout << "ERROR: Data sets must have the same size" << std::endl;
 			exit(1);
 		}
@@ -74,6 +101,11 @@ int main(int argc, char const *argv[]) {
 
 
 	if(n_records == 3) {
+
+		if(X.size() != W.size()) {
+			std::cout << "ERROR: Data sets must have the same size" << std::endl;
+			exit(1);
+		}
 
 		// Calculate weights as 1 / sigma^2
 		for (int i = 0; i < W.size(); ++i) {
