@@ -50,6 +50,7 @@ int main(int argc, char const *argv[]) {
 	print_mat(m1 * m2);
 
 	print_mat(mat4::identity() * mat4::diagonal(2.0));
+	print_mat(mat4::translation(vec3({1, 2, 3})));
 
 
 	// Matrix rotation around an arbitrary axis

@@ -260,16 +260,39 @@ namespace uroboro {
 		}
 
 
-		static mat<N, K> identity() {
+		inline static mat<N, K> identity() {
 			return mat<N, K>(1.0);
 		}
 
-		static mat<N, K> diagonal(real diag) {
+		inline static mat<N, K> diagonal(real diag) {
 			return mat<N, K>(diag);
 		}
 
 
-		static mat<4, 4> rotation_4x4(real theta, const vec<3>& axis) {
+		inline static mat<4, 4> translation(vec3 t) {
+
+			mat<4, 4> m = mat<4, 4>(1.0);
+
+			m.at(3, 0) = t[0];
+			m.at(3, 1) = t[1];
+			m.at(3, 2) = t[2];
+
+			return m;
+		}
+
+		inline static mat<4, 4> translation(real x, real y, real z) {
+
+			mat<4, 4> m = mat<4, 4>(1.0);
+
+			m.at(3, 0) = x;
+			m.at(3, 1) = y;
+			m.at(3, 2) = z;
+
+			return m;
+		}
+
+
+		inline static mat<4, 4> rotation_4x4(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
@@ -306,7 +329,7 @@ namespace uroboro {
 		}
 
 
-		static mat<3, 3> rotation_3x3(real theta, const vec<3>& axis) {
+		inline static mat<3, 3> rotation_3x3(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
@@ -333,6 +356,11 @@ namespace uroboro {
 
 			return m;
 		}
+
+
+		// static mat<N, K> shear(real scale) {
+		// 	return diagonal(scale);
+		// }
 
 	};
 
