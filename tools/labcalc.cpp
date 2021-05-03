@@ -83,9 +83,11 @@ int main(int argc, char const *argv[]) {
 			exit(1);
 		}
 
+		real r = sample_correlation_coefficient(X, Y);
+
 		std::cout << "Covariance: " << sample_covariance(X, Y) << "\n";
-		std::cout << "Correlation Coefficient: " <<
-			sample_correlation_coefficient(X, Y) << "\n\n";
+		std::cout << "Correlation Coefficient: " << r << "\n";
+		std::cout << "r-Squared: " << square(r) << "\n\n";
 
 		real intercept = least_squares_linear_intercept(X, Y);
 		real slope = least_squares_linear_slope(X, Y);
@@ -107,9 +109,11 @@ int main(int argc, char const *argv[]) {
 			exit(1);
 		}
 
+		vec_buff sigma = W;
+
 		// Calculate weights as 1 / sigma^2
 		for (int i = 0; i < W.size(); ++i) {
-			W[i] = 1.0 / square(W[i]);
+			W[i] = 1.0 / square(sigma[i]);
 		}
 
 		real intercept = least_squares_weighted_linear_intercept(X, Y, W);
@@ -121,6 +125,14 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Weighted Minimum Squares Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << std::endl;
 		std::cout << std::endl;
+
+		std::cout << "CHI-SQUARE on WEIGHTED LINEARIZATION: " <<
+			chi_square_linearization(X, Y, sigma, intercept, slope) << std::endl;
+
+		std::cout << "REDUCED CHI-SQUARE on WEIGHTED LINEARIZATION: " <<
+			reduced_chi_square_linearization(X, Y, sigma, intercept, slope) << std::endl;
+		std::cout << std::endl;
+
 
 		for (int i = 0; i < X.size(); ++i) {
 			X[i] = uroboro::ln(X[i]);
@@ -140,6 +152,11 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Weighted Minimum Squares Log Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << std::endl;
 		std::cout << std::endl;
+
+		std::cout << "Log Covariance: " << sample_covariance(X, Y) << std::endl;
+
+		std::cout << "Log Correlation Coefficient: " <<
+			sample_correlation_coefficient(X, Y) << std::endl;
 
 	}
 

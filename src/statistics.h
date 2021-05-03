@@ -342,6 +342,32 @@ namespace uroboro {
 	}
 
 
+	// Calculate the chi-square on a linearization
+	real chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+		real intercept, real slope) {
+
+		if(X.size() != Y.size() || X.size() != sigma.size())
+			// throw...
+			return 0;
+
+		real chi_squared = 0;
+		for (int i = 0; i < X.size(); ++i) {
+			chi_squared += square((Y[i] - intercept - slope * X[i]) / sigma[i]);
+		}
+
+		return chi_squared;
+	}
+
+
+	// Calculate the reduced chi-squared on a linearization
+	real reduced_chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+		real intercept, real slope) {
+
+		return chi_square_linearization(X, Y, sigma, intercept, slope)
+			/ (real) (Y.size() - 2);
+	}
+
+
 	// Calculate the intercept of the weighted minimum squares linearization of X and Y
 	inline real least_squares_weighted_linear_intercept(const vec_buff& X,
 		const vec_buff& Y, const vec_buff& W) {

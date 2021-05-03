@@ -38,6 +38,8 @@ int main(int argc, char const *argv[]) {
 
 		TEST_TOL(ln(E), 1);
 		TEST_TOL(ln(E * E), 2);
+		TEST_TOL(ln(E * E * E), 3);
+		TEST_TOL(ln(E * E * E * E), 4);
 
 	TEST_END();
 
