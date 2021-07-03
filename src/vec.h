@@ -9,38 +9,33 @@ namespace uroboro {
 
 	template<unsigned int N>
 	class vec {
+
 		public:
 
-		static const unsigned int size = N;
+		static constexpr unsigned int size = N;
 
 		real data[N];
 
-		// Default constructor (all zeros)
-		inline vec() : data() {}
 
-		// Copy constructors
-		inline vec(const vec<N>& other) {
+		vec() = default;
+
+		// Copy constructor
+		vec(const vec<N>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 		}
 
-		inline vec<N>& operator=(const vec<N>& other) {
+		// Copy from other
+		vec<N>& operator=(const vec<N>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 			return *this;
 		}
 
-		// Ambiguous
-		// inline vec<N>& operator=(const std::array<real, N>& other) {
-		// 	for (int i = 0; i < N; ++i) {
-		// 		data[i] = other[i];
-		// 	}
-		// 	return *this;
-		// }
-
-		inline vec(std::initializer_list<real> l) {
+		// Initialize from a list, e.g. {1, 2, 3}
+		vec(std::initializer_list<real> l) {
 
 			if(l.size() != N)
 				// throw ...
@@ -49,14 +44,7 @@ namespace uroboro {
 			std::copy(l.begin(), l.end(), &data[0]);
 		}
 
-		// Construct using std::array
-		inline vec(const std::array<real, N>& other) {
-			for (int i = 0; i < N; ++i) {
-				data[i] = other.at(i);
-			}
-		}
-
-		inline ~vec() {}
+		~vec() = default;
 
 		// Operators
 
@@ -136,15 +124,39 @@ namespace uroboro {
 
 		// wedge product (generalized cross product) ...
 
-		// operator += -= *= /= ...
+
+		inline void operator+=(const vec<N>& other) {
+
+			for (int i = 0; i < N; ++i)
+				data[i] += other.data[i];
+		}
+
+		inline void operator-=(const vec<N>& other) {
+
+			for (int i = 0; i < N; ++i)
+				data[i] -= other.data[i];
+		}
+
+		inline void operator*=(real scalar) {
+
+			for (int i = 0; i < N; ++i)
+				data[i] *= scalar;
+		}
+
+		inline void operator/=(real scalar) {
+
+			for (int i = 0; i < N; ++i)
+				data[i] /= scalar;
+		}
 
 
 		// Magnitude of vector (sqrt(v * v))
 		inline real magnitude() const {
+
 			real m = 0;
-			for (int i = 0; i < N; ++i) {
+			for (int i = 0; i < N; ++i)
 				m += data[i] * data[i];
-			}
+
 			return sqrt(m);
 		}
 
@@ -204,9 +216,8 @@ namespace uroboro {
 				// throw ...
 				return result;
 
-			for (int i = 0; i < N; ++i) {
+			for (int i = 0; i < N; ++i)
 				result[i] = data[i] / m;
-			}
 
 			return result;
 		}
@@ -220,6 +231,7 @@ namespace uroboro {
 			return true;
 		}
 
+		// Convert a vec<N> to a vec_buff
 		inline vec_buff to_vec_buff() {
 			vec_buff res;
 			for (int i = 0; i < N; ++i)

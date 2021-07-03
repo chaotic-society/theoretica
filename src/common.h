@@ -231,6 +231,17 @@ namespace uroboro {
 	}
 
 
+	// Calculate n!
+	inline long long fact(unsigned int n) {
+
+		long long res = 1;
+		for (int i = n; i > 1; --i)
+			res *= i;
+
+		return res;
+	}
+
+
 	// Clamp x between a and b
 	inline real clamp(real x, real a, real b) {
 		return x > b ? b : (x < a ? a : x);

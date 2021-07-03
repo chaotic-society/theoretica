@@ -10,10 +10,6 @@ using namespace umath;
 int main(int argc, char const *argv[]) {
 
 
-	// Derivative approximation
-	std::cout << derivate_approx_base(sin, 2 * PI) << std::endl;
-
-
 	// Quaternion rotation of a vector
 	vec3 v = {1, 2, 3};
 	print_vec(v);

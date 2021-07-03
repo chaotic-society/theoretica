@@ -363,6 +363,7 @@ namespace uroboro {
 	real reduced_chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
 
+		// Divide by degrees of freedom (N - 2)
 		return chi_square_linearization(X, Y, sigma, intercept, slope)
 			/ (real) (Y.size() - 2);
 	}

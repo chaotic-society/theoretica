@@ -230,10 +230,13 @@ namespace uroboro {
 		}
 
 		// Matrix types
+
+		// Return whether the matrix is square
 		inline bool is_square() const {
 			return N == K;
 		}
 
+		// Return whether the matrix is diagonal
 		inline bool is_diagonal() const {
 
 			for (int i = 0; i < N; ++i) {
@@ -245,6 +248,7 @@ namespace uroboro {
 			return true;
 		}
 
+		// Return whether the matrix is symmetric
 		inline bool is_symmetric() const {
 
 			if(!is_square())
@@ -259,16 +263,17 @@ namespace uroboro {
 			return true;
 		}
 
-
+		// Get the identity matrix
 		inline static mat<N, K> identity() {
 			return mat<N, K>(1.0);
 		}
 
+		// Get a diagonal matrix
 		inline static mat<N, K> diagonal(real diag) {
 			return mat<N, K>(diag);
 		}
 
-
+		// Get a matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(vec3 t) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -280,6 +285,7 @@ namespace uroboro {
 			return m;
 		}
 
+		// Get a matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(real x, real y, real z) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -291,7 +297,112 @@ namespace uroboro {
 			return m;
 		}
 
+		// Get a matrix which rotates <theta> radians around the x axis
+		inline static mat<4, 4> rotation_x_4x4(real theta) {
 
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<4, 4> res = mat<4, 4>();
+			res.at(0, 0) = 1;
+			res.at(1, 1) = c;
+			res.at(2, 2) = c;
+			res.at(3, 3) = 1;
+
+			res.at(2, 1) = -s;
+			res.at(1, 2) = s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the x axis
+		inline static mat<3, 3> rotation_x_3x3(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<3, 3> res = mat<3, 3>();
+			res.at(0, 0) = 1;
+			res.at(1, 1) = c;
+			res.at(2, 2) = c;
+
+			res.at(2, 1) = -s;
+			res.at(1, 2) = s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the y axis
+		inline static mat<4, 4> rotation_y_4x4(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<4, 4> res = mat<4, 4>();
+			res.at(0, 0) = c;
+			res.at(1, 1) = 1;
+			res.at(2, 2) = c;
+			res.at(3, 3) = 1;
+
+			res.at(2, 0) = s;
+			res.at(0, 2) = -s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the y axis
+		inline static mat<3, 3> rotation_y_3x3(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<3, 3> res = mat<3, 3>();
+			res.at(0, 0) = c;
+			res.at(1, 1) = 1;
+			res.at(2, 2) = c;
+
+			res.at(2, 0) = s;
+			res.at(0, 2) = -s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the z axis
+		inline static mat<4, 4> rotation_z_4x4(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<4, 4> res = mat<4, 4>();
+			res.at(0, 0) = c;
+			res.at(1, 1) = c;
+			res.at(2, 2) = 1;
+			res.at(3, 3) = 1;
+
+			res.at(1, 0) = -s;
+			res.at(0, 1) = s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the z axis
+		inline static mat<3, 3> rotation_z_3x3(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<3, 3> res = mat<3, 3>();
+			res.at(0, 0) = c;
+			res.at(1, 1) = c;
+			res.at(2, 2) = 1;
+
+			res.at(1, 0) = -s;
+			res.at(0, 1) = s;
+
+			return res;
+		}
+
+		// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<4, 4> rotation_4x4(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
@@ -329,6 +440,7 @@ namespace uroboro {
 		}
 
 
+		// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<3, 3> rotation_3x3(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
@@ -358,9 +470,33 @@ namespace uroboro {
 		}
 
 
-		// static mat<N, K> shear(real scale) {
-		// 	return diagonal(scale);
-		// }
+		// Get a scaling matrix by factors <x>, <y> and <z>
+		inline static mat<4, 4> scaling_4x4(real x, real y, real z) {
+
+			mat<4, 4> res;
+			res.make_null();
+
+			res.at(0, 0) = x;
+			res.at(1, 1) = y;
+			res.at(2, 2) = z;
+			res.at(3, 3) = 1;
+
+			return res;
+		}
+
+
+		// Get a scaling matrix by factors <x>, <y> and <z>
+		inline static mat<3, 3> scaling_3x3(real x, real y, real z) {
+
+			mat<3, 3> res;
+			res.make_null();
+
+			res.at(0, 0) = x;
+			res.at(1, 1) = y;
+			res.at(2, 2) = z;
+
+			return res;
+		}
 
 	};
 

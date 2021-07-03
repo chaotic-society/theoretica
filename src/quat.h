@@ -53,6 +53,7 @@ namespace uroboro {
 
 			inline ~quat() {}
 
+			// Get the norm of the quaternion
 			inline real norm() const {
 				return uroboro::sqrt(a * a + v.square_magnitude());
 			}
@@ -61,6 +62,7 @@ namespace uroboro {
 				return a * a + v.square_magnitude();
 			}
 
+			// Return the conjugate of the quaternion
 			inline quat conjugate() const {
 				return quat(-a, v * -1);
 			}
@@ -92,19 +94,86 @@ namespace uroboro {
 				return operator*(other.inverse());
 			}
 
+			// Normalize the quaternion
 			inline void normalize() {
 				real n = norm();
 				a /= n;
 				v = v / n;
 			}
 
+			// Return the normalized quaternion
 			inline quat normalized() const {
 				real n = norm();
 				return quat(a / n, v / n);
 			}
 
+			// Return the inverse of the quaternion
 			inline quat inverse() const {
 				return conjugate() / square_norm();
+			}
+
+			// Obtain a vector containing the quaternion
+			inline vec4 to_vec4() const {
+				return vec4({a, v.get(0), v.get(1), v.get(2)});
+			}
+
+			// Convert the quaternion to a 4x4 matrix
+			inline mat4 to_mat4() const {
+
+				real x = v.get(0);
+				real y = v.get(1);
+				real z = v.get(2);
+				real w = a;
+
+				mat4 res;
+
+				res.at(0, 0) = 1 - (2 * square(y) + 2 * square(z));
+				res.at(1, 0) = 2 * x * y + 2 * z * w;
+				res.at(2, 0) = 2 * x * z - 2 * y * w;
+				res.at(3, 0) = 0;
+
+				res.at(0, 1) = 2 * x * y - 2 * z * w;
+				res.at(1, 1) = 1 - (2 * square(x) + 2 * square(z));
+				res.at(2, 1) = 2 * y * z + 2 * x * w;
+				res.at(3, 1) = 0;
+
+				res.at(0, 2) = 2 * x * z + 2 * y * w;
+				res.at(1, 2) = 2 * y * z - 2 * x * w;
+				res.at(2, 2) = 1 - (2 * square(x) + 2 * square(y));
+				res.at(3, 2) = 0;
+
+				res.at(0, 3) = 0;
+				res.at(1, 3) = 0;
+				res.at(2, 3) = 0;
+				res.at(3, 3) = 1;
+
+
+				return res;
+			}
+
+			// Convert the quaternion to a 3x3 matrix
+			inline mat3 to_mat3() const {
+
+				real x = v.get(0);
+				real y = v.get(1);
+				real z = v.get(2);
+				real w = a;
+
+				mat3 res;
+
+				res.at(0, 0) = 1 - (2 * square(y) + 2 * square(z));
+				res.at(1, 0) = 2 * x * y + 2 * z * w;
+				res.at(2, 0) = 2 * x * z - 2 * y * w;
+
+				res.at(0, 1) = 2 * x * y - 2 * z * w;
+				res.at(1, 1) = 1 - (2 * square(x) + 2 * square(z));
+				res.at(2, 1) = 2 * y * z + 2 * x * w;
+
+				res.at(0, 2) = 2 * x * z + 2 * y * w;
+				res.at(1, 2) = 2 * y * z - 2 * x * w;
+				res.at(2, 2) = 1 - (2 * square(x) + 2 * square(y));
+
+				return res;
 			}
 
 			// Transform a 3D vector
