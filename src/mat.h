@@ -303,7 +303,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<4, 4> res = mat<4, 4>();
+			mat<4, 4> res = mat<4, 4>(1.0);
 			res.at(0, 0) = 1;
 			res.at(1, 1) = c;
 			res.at(2, 2) = c;
@@ -321,7 +321,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<3, 3> res = mat<3, 3>();
+			mat<3, 3> res = mat<3, 3>(1.0);
 			res.at(0, 0) = 1;
 			res.at(1, 1) = c;
 			res.at(2, 2) = c;
@@ -338,7 +338,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<4, 4> res = mat<4, 4>();
+			mat<4, 4> res = mat<4, 4>(1.0);
 			res.at(0, 0) = c;
 			res.at(1, 1) = 1;
 			res.at(2, 2) = c;
@@ -356,7 +356,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<3, 3> res = mat<3, 3>();
+			mat<3, 3> res = mat<3, 3>(1.0);
 			res.at(0, 0) = c;
 			res.at(1, 1) = 1;
 			res.at(2, 2) = c;
@@ -373,7 +373,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<4, 4> res = mat<4, 4>();
+			mat<4, 4> res = mat<4, 4>(1.0);
 			res.at(0, 0) = c;
 			res.at(1, 1) = c;
 			res.at(2, 2) = 1;
@@ -391,7 +391,7 @@ namespace uroboro {
 			real s = uroboro::sin(theta);
 			real c = uroboro::cos(theta);
 
-			mat<3, 3> res = mat<3, 3>();
+			mat<3, 3> res = mat<3, 3>(1.0);
 			res.at(0, 0) = c;
 			res.at(1, 1) = c;
 			res.at(2, 2) = 1;
@@ -494,6 +494,18 @@ namespace uroboro {
 			res.at(0, 0) = x;
 			res.at(1, 1) = y;
 			res.at(2, 2) = z;
+
+			return res;
+		}
+
+		// Get a scaling matrix by <v> factors
+		template<unsigned int M>
+		inline static mat<N,K> scaling(vec<M> v) {
+
+			mat<N, K> res = mat<N, K>(1.0);
+
+			for (int i = 0; i < min(min(M, N), K); ++i)
+				res.at(i, i) = v.get(i);
 
 			return res;
 		}

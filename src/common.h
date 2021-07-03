@@ -242,6 +242,21 @@ namespace uroboro {
 	}
 
 
+	inline long long binomial_coeff(unsigned int n, unsigned int m) {
+
+		if(n < m)
+			// throw...
+			return 0;
+
+		long long res = 1;
+
+		for (int i = n; i > m; --i)
+			res *= i;
+
+		return res / fact(n - m);
+	}
+
+
 	// Clamp x between a and b
 	inline real clamp(real x, real a, real b) {
 		return x > b ? b : (x < a ? a : x);

@@ -9,7 +9,6 @@ using namespace umath;
 
 int main(int argc, char const *argv[]) {
 
-
 	// Quaternion rotation of a vector
 	vec3 v = {1, 2, 3};
 	print_vec(v);
@@ -72,6 +71,9 @@ int main(int argc, char const *argv[]) {
 
 	std::cout << lst_sqrs_lin_intercept(X, Y) << std::endl;
 	std::cout << lst_sqrs_lin_slope(X, Y) << std::endl;
+
+	std::cout << gaussian_distribution(1.0, 1.0, 0.02) << std::endl;
+	std::cout << binomial_distribution(0, 4, 0.5) << std::endl;
 
 	return 0;
 }

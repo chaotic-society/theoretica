@@ -232,6 +232,12 @@ namespace uroboro {
 	}
 
 
+	inline real binomial_distribution(unsigned int nu, unsigned int n, real p) {
+		return binomial_coeff(n, nu) *
+			uroboro::pow(p, nu) * uroboro::pow(1 - p, n - nu);
+	}
+
+
 	// TO-DO
 	// gaussian distribution probability inside (t * sigma)
 	// erf
