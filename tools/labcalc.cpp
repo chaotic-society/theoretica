@@ -83,6 +83,11 @@ int main(int argc, char const *argv[]) {
 			exit(1);
 		}
 
+		vec_buff weights = Y;
+		for (int i = 0; i < weights.size(); ++i) {
+			weights[i] = 1.0 / square(weights[i]);
+		}
+
 		real r = sample_correlation_coefficient(X, Y);
 
 		std::cout << "Covariance: " << sample_covariance(X, Y) << "\n";
@@ -98,6 +103,10 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Minimum Squares Slope: " << slope << "\n";
 		std::cout << "Minimum Squares Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << "\n";
+		std::cout << std::endl;
+
+		std::cout << "Weighted mean: " << weighted_mean(X, weights) << std::endl;
+		std::cout << "Weighted mean sigma: " << (1.0 / sqrt(sum(weights))) << std::endl;
 		std::cout << std::endl;
 	}
 
