@@ -31,12 +31,12 @@ int main(int argc, char const *argv[]) {
 	else if(line == "5")
 		n_records	= 5;
 	else {
-		std::cout << "Insertion error\n";
+		std::cout << "Input error\n";
 		exit(1);
 	}
 
 	if(n_records > 5) {
-		std::cout << "Insertion error" << std::endl;
+		std::cout << "Input error" << std::endl;
 		exit(1);
 	}
 
@@ -134,6 +134,12 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Weighted Minimum Squares Error: " <<
 			least_squares_linear_error(X, Y, intercept, slope) << std::endl;
 		std::cout << std::endl;
+
+		std::cout << "Minimum Squares Sigma A (sigma_y = w[0]): " <<
+			least_squares_linear_sigma_A(X, Y, sigma[0]) << std::endl;
+
+		std::cout << "Minimum Squares Sigma B (sigma_y = w[0]): " <<
+			least_squares_linear_sigma_B(X, Y, sigma[0]) << "\n" << std::endl;
 
 		std::cout << "CHI-SQUARE on WEIGHTED LINEARIZATION: " <<
 			chi_square_linearization(X, Y, sigma, intercept, slope) << std::endl;

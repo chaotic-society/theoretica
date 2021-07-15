@@ -290,8 +290,8 @@ namespace uroboro {
 			// throw...
 			return 0;
 
-		real Delta = X.size() * product_sum(X, X) - square(sum(X));
-		real A = (product_sum(X, X) * sum(Y) - sum(X) * product_sum(X, Y)) / Delta;
+		real Delta = X.size() * sum_squares(X) - square(sum(X));
+		real A = (sum_squares(X) * sum(Y) - sum(X) * product_sum(X, Y)) / Delta;
 
 		return A;
 	}
@@ -303,6 +303,14 @@ namespace uroboro {
 	}
 
 
+	// Calculate the error on the intercept (A)
+	inline real least_squares_linear_sigma_A(const vec_buff& X, const vec_buff& Y, real sigma_y) {
+
+		real Delta = X.size() * sum_squares(X) - square(sum(X));
+		return uroboro::sqrt(sum_squares(X) / Delta) * uroboro::abs(sigma_y);
+	}
+
+
 	// Calculate the slope of the minimum squares linearization of X and Y
 	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
 
@@ -310,7 +318,7 @@ namespace uroboro {
 			// throw...
 			return 0;
 
-		real Delta = X.size() * product_sum(X, X) - square(sum(X));
+		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		real B = (X.size() * product_sum(X, Y) - sum(X) * sum(Y)) / Delta;
 
 		return B;
@@ -320,6 +328,14 @@ namespace uroboro {
 	// Calculate the slope of the minimum squares linearization of X and Y
 	inline real lst_sqrs_lin_slope(const vec_buff& X, const vec_buff& Y) {
 		return least_squares_linear_slope(X, Y);
+	}
+
+
+	// Calculate the error on the slope coefficient (B)
+	inline real least_squares_linear_sigma_B(const vec_buff& X, const vec_buff& Y, real sigma_y) {
+
+		real Delta = X.size() * sum_squares(X) - square(sum(X));
+		return uroboro::sqrt(X.size() / Delta) * uroboro::abs(sigma_y);
 	}
 
 
