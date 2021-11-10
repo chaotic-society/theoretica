@@ -94,6 +94,8 @@ namespace uroboro {
 				return operator*(other.inverse());
 			}
 
+			// TO-DO +=, *= ... operators
+
 			// Normalize the quaternion
 			inline void normalize() {
 				real n = norm();

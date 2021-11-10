@@ -215,34 +215,6 @@ namespace uroboro {
 	}
 
 
-	// Gaussian Distribution function
-	inline real gaussian_distribution(real x, real X, real sigma) {
-
-		return (1.0 / (sigma *
-			uroboro::sqrt(2 * PI))) * uroboro::exp(-square(x - X) / (2 * square(sigma)));
-	}
-
-
-	// Gaussian Distribution function calculated on a sample of measures
-	inline real gaussian_distribution(real x, const vec_buff& data) {
-
-		return gaussian_distribution(
-			x, mean(data),
-			sample_mean_standard_deviation(data));
-	}
-
-
-	inline real binomial_distribution(unsigned int nu, unsigned int n, real p) {
-		return binomial_coeff(n, nu) *
-			uroboro::pow(p, nu) * uroboro::pow(1 - p, n - nu);
-	}
-
-
-	// TO-DO
-	// gaussian distribution probability inside (t * sigma)
-	// erf
-
-
 	// Normal distribution chi-square with 4 intervals
 	// calculated on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
@@ -340,7 +312,7 @@ namespace uroboro {
 
 
 	// Calculate the error of the minimum squares linearization of a sample
-	real least_squares_linear_error(const vec_buff& X, const vec_buff& Y,
+	inline real least_squares_linear_error(const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
 
 		if(X.size() != Y.size())
@@ -365,7 +337,7 @@ namespace uroboro {
 
 
 	// Calculate the chi-square on a linearization
-	real chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+	inline real chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
 
 		if(X.size() != Y.size() || X.size() != sigma.size())
@@ -382,7 +354,7 @@ namespace uroboro {
 
 
 	// Calculate the reduced chi-squared on a linearization
-	real reduced_chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+	inline real reduced_chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
 
 		// Divide by degrees of freedom (N - 2)

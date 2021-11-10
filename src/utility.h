@@ -10,6 +10,7 @@
 #include "./complex.h"
 #include "./quat.h"
 #include "./statistics.h"
+#include "./polynomial.h"
 
 
 namespace uroboro {
@@ -42,9 +43,9 @@ namespace uroboro {
 		if(z.b == 1)
 			std::cout << " + i)";
 		else if(z.b >= 0)
-			std::cout << " + " << z.b << ")";
+			std::cout << " + " << z.b << "i)";
 		else
-			std::cout << " - " << z.b << ")";
+			std::cout << " - " << abs(z.b) << "i)";
 
 		std::cout << std::endl;
 	}
@@ -62,6 +63,30 @@ namespace uroboro {
 		for(int i = 0; i < v.size(); i++) {
 			std::cout << v[i] << std::endl;
 		}
+	}
+
+	void print_vec_buff_row(const vec_buff& v) {
+		std::cout << "{ ";
+		for(int i = 0; i < v.size(); i++) {
+			std::cout << v[i];
+
+			if(i != v.size() - 1)
+				std::cout << ", ";
+		}
+		std::cout << " }" << std::endl;
+	}
+
+	void print_polynomial(polynomial p) {
+
+		for (int i = 0; i < p.size(); ++i) {
+			if(i) {
+				std::cout << (p[i] >= 0 ? " + " : " - ") << uroboro::abs(p[i]) << "x^" << i;
+			} else {
+				std::cout << p[i];
+			}	
+		}
+
+		std::cout << std::endl;
 	}
 
 	void insert_data(vec_buff& data, std::string terminator) {

@@ -122,7 +122,8 @@ namespace uroboro {
 			return res;
 		}
 
-		// wedge product (generalized cross product) ...
+
+		// TO-DO wedge product (generalized cross product) ...
 
 
 		inline void operator+=(const vec<N>& other) {
@@ -233,9 +234,11 @@ namespace uroboro {
 
 		// Convert a vec<N> to a vec_buff
 		inline vec_buff to_vec_buff() {
+			
 			vec_buff res;
 			for (int i = 0; i < N; ++i)
 				res.push_back(data[i]);
+
 			return res;
 		}
 
