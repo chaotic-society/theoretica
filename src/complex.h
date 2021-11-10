@@ -13,15 +13,9 @@ namespace  uroboro {
 			real a; // Real part
 			real b; // Imaginary part
 
-			complex() {
-				a = 0;
-				b = 0;
-			}
+			complex() : a(0), b(0) {}
 
-			complex(real r, real i) {
-				a = r;
-				b = i;
-			}
+			complex(real r, real i) : a(r), b(i) {}
 
 			complex(const vec2& v) {
 				a = v.data[0];
@@ -74,26 +68,46 @@ namespace  uroboro {
 				return conjugate() / square_modulus();
 			}
 
+			inline real arg() const {
+
+				if(b == 0)
+					return 0;
+
+				return atan2(b, a);
+			}
+
 			inline complex operator+(const complex& other) const {
 				return complex(a + other.a, b + other.b);
+			}
+
+			inline complex operator+(real r) const {
+				return complex(a + r, b);
 			}
 
 			inline complex operator-(const complex& other) const {
 				return complex(a - other.a, b - other.b);
 			}
 
+			inline complex operator-(real r) const {
+				return complex(a - r, b);
+			}
+
 			inline complex operator*(const complex& other) const {
 				return complex((a * other.a) - (b * other.b), (a * other.b) + (b * other.a));
 			}
 
-			inline complex operator/(real r) const {
-				return complex(a / r, b / r);
+			inline complex operator*(real r) const {
+				return complex(a * r, b * r);
 			}
 
 			inline complex operator/(const complex& other) const {
 				real m = other.square_modulus();
 				return complex((a * other.a + b * other.b) / m,
 								(b * other.a - a * other.b) / m);
+			}
+
+			inline complex operator/(real r) const {
+				return complex(a / r, b / r);
 			}
 
 			// operator += -= *= /= ...
