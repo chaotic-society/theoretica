@@ -21,8 +21,7 @@ namespace uroboro {
 		// Gaussian distribution function calculated on a sample of measures
 		inline real gaussian(real x, const vec_buff& data) {
 
-			return gaussian_distribution(
-				x, mean(data),
+			return gaussian(x, mean(data),
 				sample_mean_standard_deviation(data));
 		}
 
