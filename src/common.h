@@ -2,7 +2,6 @@
 #define UROBORO_COMMON_H
 
 #include "./constants.h"
-#include <cstdint>
 
 namespace uroboro {
 
@@ -35,73 +34,6 @@ namespace uroboro {
 	}
 
 
-	// Calculate sin(x) using x86 Assembly instructions
-	inline real sin(real x) {
-
-		#ifdef MSVC_ASM
-		__asm {
-			fld x
-			fsin
-		}
-		#else
-		asm("fsin" : "+t"(x));
-		#endif
-
-		return x;
-	}
-
-	// Calculate cos(x) using x86 Assembly instructions
-	inline real cos(real x) {
-
-		#ifdef MSVC_ASM
-		__asm {
-			fld x
-			fcos
-		}
-		#else
-		asm("fcos" : "+t"(x));
-		#endif
-
-		return x;
-	}
-
-
-	// Calculate tangent of x
-	inline real tan(real x) {
-
-		// fptan usage TO-DO
-
-		real s, c;
-
-		#ifdef MSVC_ASM
-
-		// TO-DO
-
-		#else
-		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
-		#endif
-
-		return s / c;
-	}
-
-
-	// Calculate the cotangent of x
-	inline real cot(real x) {
-
-		real s, c;
-
-		#ifdef MSVC_ASM
-
-		// TO-DO
-
-		#else
-		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
-		#endif
-
-		return c / s;
-	}
-
-
 	// Calculate the absolute value of x using x86 Assembly instructions
 	inline real abs(real x) {
 
@@ -115,6 +47,44 @@ namespace uroboro {
 		#endif
 
 		return x;
+	}
+
+
+	// Return the sign of x (1 if positive, -1 if negative, 0 if null)
+	inline int sgn(real x) {
+		return (x > 0) ? 1 : (x < 0 ? -1 : 0);
+	}
+
+
+	// Return the biggest number between x and y
+	inline real max(real x, real y) {
+		
+		#ifdef UROBORO_BRANCHLESS
+			return (x + y + abs(x - y)) / 2.0;
+		#else
+			return x > y ? x : y;
+		#endif
+	}
+
+
+	// Return the smallest number between x and y
+	inline real min(real x, real y) {
+
+		#ifdef UROBORO_BRANCHLESS
+			return (x + y - abs(x - y)) / 2.0;
+		#else
+			return x > y ? y : x;
+		#endif
+	}
+
+
+	// Clamp x between a and b
+	inline real clamp(real x, real a, real b) {
+
+		return x > b ? b : (x < a ? a : x);
+
+		// Branch-less alternative
+		// return min(max(x, a), b);
 	}
 
 
@@ -195,6 +165,7 @@ namespace uroboro {
 
 	constexpr real APPROXIMATION_TOLERANCE = 0.000001;
 
+
 	// Approximate e^x using x86 Assembly instructions
 	// Works only for positive <x>
 	inline real exp_approx(real x) {
@@ -231,7 +202,129 @@ namespace uroboro {
 	}
 
 
-	// Calculate n!
+	// Calculate sin(x) using x86 Assembly instructions
+	inline real sin(real x) {
+
+		#ifdef MSVC_ASM
+		__asm {
+			fld x
+			fsin
+		}
+		#else
+		asm("fsin" : "+t"(x));
+		#endif
+
+		return x;
+	}
+
+	// Calculate cos(x) using x86 Assembly instructions
+	inline real cos(real x) {
+
+		#ifdef MSVC_ASM
+		__asm {
+			fld x
+			fcos
+		}
+		#else
+		asm("fcos" : "+t"(x));
+		#endif
+
+		return x;
+	}
+
+
+	// Calculate tangent of x
+	inline real tan(real x) {
+
+		// fptan usage TO-DO
+
+		real s, c;
+
+		#ifdef MSVC_ASM
+
+		// TO-DO
+
+		#else
+		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
+		#endif
+
+		return s / c;
+	}
+
+
+	// Calculate the cotangent of x
+	inline real cot(real x) {
+
+		real s, c;
+
+		#ifdef MSVC_ASM
+
+		// TO-DO
+
+		#else
+		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
+		#endif
+
+		return c / s;
+	}
+
+
+	// Inverse tangent
+	inline real atan(real x) {
+
+		if(abs(x) > 1)
+			return atan(PI2 - atan(1 / x));
+
+		// Fast approximation of atan in [-1, 1]
+		return PI4 * x - x * (abs(x) - 1) * (0.2447 + 0.0663 * abs(x));
+
+		// TO-DO
+		// Different approximation methods
+	}
+
+
+	// Inverse sine
+	inline real asin(real x) {
+		return atan(x / sqrt(1 - x * x));
+	}
+
+
+	// Inverse cosine
+	inline real acos(real x) {
+		return atan(sqrt(1 - x * x) / x);
+	}
+
+
+	inline real atan2(real y, real x) {
+
+		if(x == 0)
+			return sgn(y) * PI2;
+			// throw y == 0 ...
+
+		return atan(y / x) - clamp(sgn(x), -1, 0) * PI * sgn(y);
+	}
+
+
+	// Compute the hyperbolic sine
+	inline real sinh(real x) {
+		return (exp(x) - exp(-x)) / 2.0;
+	}
+
+
+	// Compute the hyperbolic cosine
+	inline real cosh(real x) {
+		return (exp(x) + exp(-x)) / 2.0;
+	}
+
+
+	// Compute the hyperbolic tangent
+	inline real tanh(real x) {
+		real exp_2x = exp(2 * x);
+		return (exp_2x - 1) / (exp_2x + 1);
+	}
+
+
+	// Compute the factorial of n
 	inline long long fact(unsigned int n) {
 
 		long long res = 1;
@@ -242,6 +335,7 @@ namespace uroboro {
 	}
 
 
+	// Compute the binomial coefficient
 	inline long long binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m)
@@ -254,24 +348,6 @@ namespace uroboro {
 			res *= i;
 
 		return res / fact(n - m);
-	}
-
-
-	// Clamp x between a and b
-	inline real clamp(real x, real a, real b) {
-		return x > b ? b : (x < a ? a : x);
-	}
-
-
-	// Return the biggest number between x and y
-	inline real max(real x, real y) {
-		return x > y ? x : y;
-	}
-
-
-	// Return the smallest number between x and y
-	inline real min(real x, real y) {
-		return x > y ? y : x;
 	}
 
 
