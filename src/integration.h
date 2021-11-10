@@ -3,79 +3,95 @@
 
 #include "./constants.h"
 #include "./function.h"
-
+#include "./polynomial.h"
 
 
 namespace uroboro {
 
 
-	real integrate_approx(real_function f, real a, real b, unsigned int prec = 1000) {
+	// Integrate a polynomial
+	polynomial integrate_polynomial(polynomial p) {
 
-		// TO-DO Simpson Cavalieri approximation
+		polynomial Dp;
+		Dp.coeff.push_back(0);
 
-		return 0;
+		for (int i = 0; i < p.size(); ++i) {
+			Dp.coeff.push_back(p.get(i) / (real) (i + 1));
+		}
+
+		return Dp;
 	}
+
+	// real integrate_approx(real_function f, real a, real b, unsigned int prec = 1000) {
+	// 	// TO-DO Simpson Cavalieri approximation
+	// }
 
 
 	// Runge-Kutta integration of 4th order
+	namespace RK4 {
 
-	struct kinematic_state {
+		// A kinematic state (position, velocity)
+		struct kinematic_state {
 
-		real x;
-		real v;
+			real x;
+			real v;
 
-		kinematic_state() : x(0), v(0) {}
-		kinematic_state(real x, real v) : x(x), v(v) {}
-
-	};
-
-
-	struct kinematic_deriv {
-
-		real dx;
-		real dv;
-
-		kinematic_deriv() : dx(0), dv(0) {}
-		kinematic_deriv(real dx, real dv) : dx(dx), dv(dv) {}
-
-	};
+			kinematic_state() : x(0), v(0) {}
+			kinematic_state(real x, real v) : x(x), v(v) {}
+		};
 
 
-	using acceleration_function = real(*)(const kinematic_state&, real);
+		// A kinematic state derivative (dx, dv)
+		struct kinematic_deriv {
+
+			real dx;
+			real dv;
+
+			kinematic_deriv() : dx(0), dv(0) {}
+			kinematic_deriv(real dx, real dv) : dx(dx), dv(dv) {}
+		};
 
 
-	inline kinematic_deriv eval(
-		const kinematic_state& prec,
-		real t, real dt,
-		const kinematic_deriv& deriv,
-		acceleration_function accel) {
-
-		kinematic_state state = kinematic_state(
-			prec.x + deriv.dx * dt,
-			prec.v + deriv.dv * dt);
-
-		kinematic_deriv res = kinematic_deriv(state.v, accel(state, t + dt));
-
-		return res;
-	}
+		// Function type for acceleration functions
+		using accel_function = real(*)(const kinematic_state&, real);
 
 
-	inline void integrate_rk4(kinematic_state s, real t, real dt, acceleration_function accel) {
+		// Eval a single kinematic state with its derivative
+		inline kinematic_deriv eval(
+			const kinematic_state& prec,
+			real t, real dt,
+			const kinematic_deriv& deriv,
+			accel_function accel) {
 
-		kinematic_deriv a, b, c, d;
+			kinematic_state state = kinematic_state(
+				prec.x + deriv.dx * dt,
+				prec.v + deriv.dv * dt);
 
-		a = eval(s, t, 0, kinematic_deriv(), accel);
-		b = eval(s, t, dt * 0.5, a, accel);
-		c = eval(s, t, dt * 0.5, b, accel);
-		d = eval(s, t, dt, c, accel);
+			kinematic_deriv res = kinematic_deriv(state.v, accel(state, t + dt));
 
-		// Approximate integration using 4 different points
-		real dxdt = 1.0f / 6.0f * (a.dx + 2.0f * (b.dx + c.dx) + d.dx);
-		real dvdt = 1.0f / 6.0f * (a.dv + 2.0f * (b.dv + c.dv) + d.dv);
+			return res;
+		}
 
-		// Update state
-		s.x = s.x + dxdt * dt;
-		s.v = s.v + dvdt * dt;
+
+		// Runge-Kutta integration of 4th order
+		inline void integrate_rk4(kinematic_state s, real t, real dt, accel_function accel) {
+
+			kinematic_deriv a, b, c, d;
+
+			a = eval(s, t, 0, kinematic_deriv(), accel);
+			b = eval(s, t, dt * 0.5, a, accel);
+			c = eval(s, t, dt * 0.5, b, accel);
+			d = eval(s, t, dt, c, accel);
+
+			// Approximate integration using 4 different points
+			real dxdt = 1.0f / 6.0f * (a.dx + 2.0f * (b.dx + c.dx) + d.dx);
+			real dvdt = 1.0f / 6.0f * (a.dv + 2.0f * (b.dv + c.dv) + d.dv);
+
+			// Update state
+			s.x = s.x + dxdt * dt;
+			s.v = s.v + dvdt * dt;
+		}
+
 	}
 
 }

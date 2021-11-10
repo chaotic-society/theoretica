@@ -12,7 +12,7 @@ using real = double;
 namespace uroboro {
 
 	// PI constant.
-	constexpr double PI = 3.141592653589793238462643;
+	constexpr real PI = 3.141592653589793238462643;
 
 	// Half PI.
 	constexpr real PI2 = PI / 2.0;
