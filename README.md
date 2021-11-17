@@ -13,12 +13,12 @@ Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` and all header files w
 
 ## Functionalities
 - Common math operations (trig. functions, sqrt, exp, ...)
-- Vector operations
+- Vector operations (N-dimensional)
 - Matrix operations (with transformations including rotations)
 - Complex numbers (with common complex functions), Quaternions and Phasors
 - Wide range of statistical functions (including least squares linearization)
 - Approximation of roots
-- Derivative and integration approximations (including Runge-Kutta of 4th order)
+- Derivative and integral approximations (including Runge-Kutta of 4th order)
 - Interpolation between points (Linear interpolation, Bezier)
 
 ## Examples
@@ -66,6 +66,7 @@ complex z2 = complex::rotor(TAU); // A complex rotor
 
 complex z3 = z1 * z2; // Complex multiplication
 complex z4 = z1.conjugate(); // Complex conjugate
+complex z5 = ln(z3) + atan(z3);
 ```
 Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and more are also supported (`complex_functions.h`).
 
@@ -89,7 +90,7 @@ Polynomial storage and manipolation is implemented in `polynomial.h`. Derivation
 ```c
 polynomial P1 = {1, 1, -1};
 polynomial P2 = {2, 3, 6, 1};
-polynomial P3 = P1 * P2 + derivate_polynomial(P1);
+polynomial P3 = P1 * P2 + differentiate_polynomial(P1);
 print_polynomial(P3);
 ```
 
