@@ -10,6 +10,3 @@ example:
 test:
 	g++ test/test.cpp -o test/test
 	./test/test
-
-labcalc:
-	g++ tools/labcalc.cpp -O2 -I./src/ -o ./labcalc
