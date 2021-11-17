@@ -15,9 +15,11 @@ Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` and all header files w
 - Common math operations (trig. functions, sqrt, exp, ...)
 - Vector operations
 - Matrix operations (with transformations including rotations)
-- Complex numbers and Quaternions
+- Complex numbers (with common complex functions), Quaternions and Phasors
 - Wide range of statistical functions (including least squares linearization)
+- Approximation of roots
 - Derivative and integration approximations (including Runge-Kutta of 4th order)
+- Interpolation between points (Linear interpolation, Bezier)
 
 ## Examples
 The file `example.cpp` gives example usage of the library.
@@ -65,6 +67,7 @@ complex z2 = complex::rotor(TAU); // A complex rotor
 complex z3 = z1 * z2; // Complex multiplication
 complex z4 = z1.conjugate(); // Complex conjugate
 ```
+Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and more are also supported (`complex_functions.h`).
 
 ### Quaternion usage
 Declare a quaternion using the `quat` class.
@@ -79,6 +82,15 @@ quat r = quat::rotation(PI, v);
 
 // Rotate a vector around an arbitrary axis using quaternions
 vec3 v_1 = quat::rotate(w, PI / 2.0, v);
+```
+
+### Polynomials
+Polynomial storage and manipolation is implemented in `polynomial.h`. Derivation and integration of polynomials is also supported (`derivation.h`, `integration.h`). The header file `approximation.h` defines many functions to approximate the roots of arbitrary functions and polynomials.
+```c
+polynomial P1 = {1, 1, -1};
+polynomial P2 = {2, 3, 6, 1};
+polynomial P3 = P1 * P2 + derivate_polynomial(P1);
+print_polynomial(P3);
 ```
 
 ### Statistics usage
@@ -105,4 +117,11 @@ real slope2 = lst_sqrs_weight_lin_slope(X, Y);
 
 real r = sample_correlation_coefficient(X, Y);
 
+```
+
+Many probability distribution functions are implemented in `distributions.h` and can be used through the `distribution` namespace. These include Gaussian, Binomial, Log-Normal, Poisson, Bernoulli, Cauchy and Breit Wigner.
+```c
+real x1 = distribution::gaussian(1, 2.1, 0.7);
+real x2 = distribution::binomial(1, 3, 0.75);
+real x3 = distribution::poisson(2, 3);
 ```
