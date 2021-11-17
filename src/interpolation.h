@@ -15,7 +15,7 @@ namespace uroboro {
 	// Linear interpolation
 	template<unsigned int N>
 	inline vec<N> lerp(vec<N> P1, vec<N> P2, real interp) {
-		return (P1 + interp * (P2 - P1));
+		return (P1 + (P2 - P1) * interp);
 	}
 
 
@@ -80,7 +80,7 @@ namespace uroboro {
 
 		return lerp(D, E, t);
 	}
-
+	
 }
 
 #endif

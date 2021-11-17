@@ -22,9 +22,63 @@ namespace uroboro {
 		return Dp;
 	}
 
-	// real integrate_approx(real_function f, real a, real b, unsigned int prec = 1000) {
-	// 	// TO-DO Simpson Cavalieri approximation
-	// }
+
+	// Approximate the definite integral of an arbitrary function
+	// using the midpoint method
+	real approx_integral_midpoint(real_function f, real a, real b, unsigned int steps = 100) {
+		
+		real dx = (b - a) / steps;
+		real res = 0;
+
+		for (int i = 0; i < steps; ++i) {
+			res += f(a + (i + 0.5) * dx);
+		}
+
+		return res * dx;
+	}
+
+
+	// Approximate the definite integral of an arbitrary function
+	// using the trapezoid method
+	real approx_integral_trapezoid(real_function f, real a, real b, unsigned int steps = 100) {
+		
+		real dx = (b - a) / steps;
+		real res = 0;
+
+		res += 0.5 * f(a);
+
+		for (int i = 1; i < steps - 1; ++i) {
+			res += f(a + i * dx);
+		}
+
+		res += 0.5 * f(b);
+
+		return res * dx;
+	}
+
+
+	// Approximate the definite integral of an arbitrary function
+	// using Simpson's method
+	real approx_integral_simpson(real_function f, real a, real b, unsigned int steps = 100) {
+		
+		real dx = (b - a) / (real) steps;
+		real res = 0;
+
+		res += f(a);
+
+		for (int i = 1; i < steps - 1; ++i) {
+
+			if(i % 2 == 0)
+				res += 2.0 * f(a + i * dx);
+			else
+				res += 4.0 * f(a + i * dx);
+			
+		}
+
+		res += f(b);
+
+		return res * dx / 3.0;
+	}
 
 
 	// Runge-Kutta integration of 4th order
@@ -74,7 +128,7 @@ namespace uroboro {
 
 
 		// Runge-Kutta integration of 4th order
-		inline void integrate_rk4(kinematic_state s, real t, real dt, accel_function accel) {
+		inline void integrate(kinematic_state s, real t, real dt, accel_function accel) {
 
 			kinematic_deriv a, b, c, d;
 

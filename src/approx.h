@@ -66,7 +66,7 @@ namespace uroboro {
 	inline real approx_polyn_root_newton(polynomial p, real guess = 0) {
 
 		real x = guess;
-		polynomial Dp = derivate_polynomial(p);
+		polynomial Dp = differentiate_polynomial(p);
 		int iter = 0;
 
 		while(uroboro::abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
@@ -130,8 +130,8 @@ namespace uroboro {
 	inline real approx_polyn_root_chebyshev(polynomial p, real guess = 0) {
 
 		real x = guess;
-		polynomial Dp = derivate_polynomial(p);
-		polynomial D2p = derivate_polynomial(p);
+		polynomial Dp = differentiate_polynomial(p);
+		polynomial D2p = differentiate_polynomial(p);
 		int iter = 0;
 
 		while(uroboro::abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {

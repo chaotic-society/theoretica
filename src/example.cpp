@@ -6,8 +6,15 @@ using namespace umath;
 
 int main(int argc, char const *argv[]) {
 
+	// Integral approximation
+	std::cout << "Integral approximation" << std::endl;
+	std::cout << approx_integral_midpoint(square, 0, 4) << std::endl;
+
+	std::cout << "Derivative approximation" << std::endl;
+	std::cout << approx_derivative(square, 4) << std::endl;
+
 	// Polynomials
-	std::cout << "Polynomials" << std::endl;
+	std::cout << "Polynomials\n" << std::endl;
 	polynomial P1 = {1, 1, -1};
 	polynomial P2 = {1, 2, 3};
 	print_polynomial(P1);
@@ -31,18 +38,22 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	std::cout << "d(P1)/dx: ";
-	print_polynomial(derivate_polynomial(P1));
+	print_polynomial(differentiate_polynomial(P1));
 	std::cout << "(P1 dx): ";
 	print_polynomial(integrate_polynomial(P1));
 	std::cout << std::endl;
 
 	// Phasor
-	// std::cout << "Phasor" << std::endl;
+	std::cout << "Phasor\n" << std::endl;
 	phasor p = phasor(PI, SQRT2);
-	// std::cout << std::endl;
+
+	print_phasor(phasor(1, PI) * phasor(1, PI2));
+	print_phasor(phasor(1, PI) / phasor(1, PI2));
+	print_phasor(phasor(1, 0) + phasor(2, PI));
+	std::cout << std::endl;
 
 	// Quaternion rotation of a vector
-	std::cout << "Quaternion rotation of a vector" << std::endl;
+	std::cout << "Quaternion rotation of a vector\n" << std::endl;
 	vec3 v = {1, 2, 3};
 	std::cout << "v = ";
 	print_vec(v);
@@ -52,7 +63,7 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	// Complex product and rotation
-	std::cout << "Complex product and rotation" << std::endl;
+	std::cout << "Complex product and rotation\n" << std::endl;
 	complex z = {1, 0};
 	complex w = {0, 1};
 	complex r = complex::rotor(PI);
@@ -76,7 +87,7 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	// Complex functions
-	std::cout << "Complex functions" << std::endl;
+	std::cout << "Complex functions\n" << std::endl;
 	std::cout << "sqrt(1, 1) = ";
 	print_complex(sqrt({1, 1}));
 
@@ -96,7 +107,7 @@ int main(int argc, char const *argv[]) {
 
 	// Operations between vectors
 
-	std::cout << "Operations between vectors" << std::endl;
+	std::cout << "Operations between vectors\n" << std::endl;
 
 	vec3 v1 = {1, 3, 1};
 	vec3 v2 = {-1, 2, 1};
@@ -120,7 +131,7 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	// Matrix operations
-	std::cout << "Matrix operations" << std::endl;
+	std::cout << "Matrix operations\n" << std::endl;
 
 	mat4 m1 = mat4(2);
 	m1.at(1, 2) = 3;
@@ -146,12 +157,10 @@ int main(int argc, char const *argv[]) {
 
 
 	// Statistical analysis
-	std::cout << "Statistical analysis" << std::endl;
+	std::cout << "Statistical analysis\n" << std::endl;
 
 	vec_buff X = {1, 1.2, 0.9, 0.78, 0.71};
 	vec_buff Y = {10.1, 11.7, 9.2, 8.1, 6.9};
-
-	std::cout << std::endl;
 
 	std::cout << "X = ";
 	print_vec_buff_row(X);

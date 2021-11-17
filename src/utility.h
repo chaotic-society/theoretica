@@ -7,9 +7,10 @@
 #include "./vec.h"
 #include "./vec_buff.h"
 #include "./mat.h"
-#include "./complex.h"
-#include "./quat.h"
-#include "./statistics.h"
+#include "./complex/complex.h"
+#include "./complex/quat.h"
+#include "./complex/phasor.h"
+#include "./statistics/statistics.h"
 #include "./polynomial.h"
 
 
@@ -52,6 +53,10 @@ namespace uroboro {
 
 	void print_complex_alg(complex z) {
 		std::cout << "(" << z.a << ", " << z.b << ")" << std::endl;
+	}
+
+	void print_phasor(phasor z) {
+		std::cout << z.modulus << "/" << z.phase << std::endl;
 	}
 
 	void print_quat(quat q) {

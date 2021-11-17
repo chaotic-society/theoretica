@@ -67,7 +67,7 @@ namespace uroboro {
 
 
 			// Remove higher order null coefficients
-			inline int trim() {
+			inline void trim() {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
 					if(coeff[i] != 0)

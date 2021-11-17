@@ -10,7 +10,7 @@ namespace uroboro {
 
 
 	// Derivate a polynomial
-	polynomial derivate_polynomial(polynomial p) {
+	polynomial differentiate_polynomial(polynomial p) {
 
 		polynomial Dp;
 
@@ -23,13 +23,11 @@ namespace uroboro {
 
 
 	// Basic derivation approximation
-	real derivate_approx_base(real_function f, real x, real dx = 0) {
+	real approx_derivative(real_function f, real x, real dx = 0) {
 
-		dx = dx == 0.0 ? (x / DERIV_PREC) : dx;
-		return (f(x + dx) - f(x)) / dx;
+		dx = (dx == 0 ? (x / DERIV_PREC) : dx);
+		return (f(x + dx) - f(x - dx)) / (2.0 * dx);
 	}
-
-	// TO-DO Refined approximation of derivative
 
 }
 

@@ -1,7 +1,7 @@
 #ifndef UROBORO_DISTRIBUTIONS
 #define UROBORO_DISTRIBUTIONS
 
-#include "./common.h"
+#include "../common.h"
 #include "./statistics.h"
 
 
@@ -53,6 +53,16 @@ namespace uroboro {
 
 			return 1.0 / (2.50662827463 * sigma * x) *
 				exp(-square(ln(x) - mu) / (2 * square(sigma)));
+		}
+
+
+		// Exponential distribution
+		inline real exponential(real x, real lambda) {
+
+			if(x < 0)
+				return 0;
+
+			return lambda * exp(-lambda * x);
 		}
 
 

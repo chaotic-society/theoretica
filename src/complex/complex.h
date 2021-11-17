@@ -1,8 +1,8 @@
 #ifndef UROBORO_COMPLEX_H
 #define UROBORO_COMPLEX_H
 
-#include "./common.h"
-#include "./vec.h"
+#include "../common.h"
+#include "../vec.h"
 #include <array>
 
 namespace  uroboro {
@@ -82,6 +82,10 @@ namespace  uroboro {
 
 			inline complex operator+(real r) const {
 				return complex(a + r, b);
+			}
+
+			inline complex operator-() const {
+				return complex(-a, -b);
 			}
 
 			inline complex operator-(const complex& other) const {

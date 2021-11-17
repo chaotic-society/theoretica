@@ -2,7 +2,7 @@
 #define UROBORO_COMPLEX_FUNCTIONS
 
 #include "./complex.h"
-#include "./common.h"
+#include "../common.h"
 
 namespace uroboro {
 
@@ -39,7 +39,7 @@ namespace uroboro {
 	inline complex sin(complex z) {
 
 		complex t = z * complex(0, 1);
-		return (exp(t) - exp(t * -1)) / complex(0, 2);
+		return (exp(t) - exp(-t)) / complex(0, 2);
 	}
 
 
@@ -47,7 +47,7 @@ namespace uroboro {
 	inline complex cos(complex z) {
 
 		complex t = z * complex(0, 1);
-		return (exp(t) + exp(t * -1)) / 2.0;
+		return (exp(t) + exp(-t)) / 2.0;
 	}
 
 
@@ -55,8 +55,7 @@ namespace uroboro {
 	inline complex tan(complex z) {
 
 		complex t = z * complex(0, 2);
-
-		return (z - 1) / (complex(0, 1) * (z + 1));
+		return (exp(t) - 1) / (exp(t) + 1) * complex(0, -1);
 	}
 
 
@@ -76,7 +75,19 @@ namespace uroboro {
 
 	// Compute the complex arcsine
 	inline complex asin(complex z) {
-		return ln(complex(0, 1) * z + sqrt(square(z) + 1)) / complex(0, 1);
+		return ln(complex(0, 1) * z + sqrt(complex(1, 0) - square(z))) * complex(0, -1);
+	}
+
+
+	// Compute the complex arccosine
+	inline complex acos(complex z) {
+		return ln(z + sqrt(square(z) - 1)) * complex(0, -1);
+	}
+
+
+	// Compute the complex arctangent
+	inline complex atan(complex z) {
+		return ln((complex(0, 1) - z) / (complex(0, 1) + z)) * complex(0, -0.5);
 	}
 
 

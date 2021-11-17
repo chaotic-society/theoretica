@@ -1,8 +1,8 @@
 #ifndef UROBORO_QUATERNION_H
 #define UROBORO_QUATERNION_H
 
-#include "./common.h"
-#include "./vec.h"
+#include "../common.h"
+#include "../vec.h"
 
 namespace uroboro {
 

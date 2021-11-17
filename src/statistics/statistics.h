@@ -1,10 +1,10 @@
 #ifndef UROBORO_STATISTICS_H
 #define UROBORO_STATISTICS_H
 
-#include "./constants.h"
-#include "./vec.h"
-#include "./vec_buff.h"
-#include "./common.h"
+#include "../constants.h"
+#include "../vec.h"
+#include "../vec_buff.h"
+#include "../common.h"
 
 
 namespace uroboro {
