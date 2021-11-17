@@ -1,171 +1,256 @@
-#include "lightcpptest.h"
-
 #define UROBORO_INCLUDE_ALL
 #include "../src/uroboro.h"
-#include "../src/utility.h"
 
+#include <cmath>
 
-using namespace uroboro;
+using namespace umath;
 
-constexpr real TOLERANCE = 0.000001;
+constexpr real TOLERANCE = 0.00000001;
 
+std::string func_name = "";
 
-bool good_enough(real a, real b) {
-	return abs(b - a) < TOLERANCE;
+unsigned int total_errors = 0;
+
+unsigned int tolr_test_runs = 0;
+unsigned int curr_errors = 0;
+real cum_err = 0;
+real max_err = 0;
+
+void test_start(std::string f) {
+
+	func_name = f;
+	std::cout << "Testing " << func_name << " ...\n" << std::endl;
+
+	curr_errors = 0;
+	tolr_test_runs = 0;
+	cum_err = 0;
+	max_err = 0;
 }
 
-void vec3_misc() {}
 
+void test_end() {
+
+	std::cout << "Finished testing " << func_name << std::endl;
+
+	if(curr_errors == 0) {
+		std::cout << "All tests passed successfully" << std::endl;
+	} else {
+		std::cout << curr_errors << " tests failed" << std::endl;
+	}
+
+	std::cout << "Absolute Error: " << cum_err << std::endl;
+	std::cout << "Mean Error: " << (cum_err / (real) tolr_test_runs) << std::endl;
+	std::cout << "Maximum Error: " << max_err << "\n" << std::endl;
+	func_name = "";
+}
+
+
+template<typename T>
+bool good_enough(T a, T b) {
+	return umath::abs(b - a) < TOLERANCE;
+}
+
+
+template<typename T1, typename T2>
+void test_tol(T1 evaluated, T1 expected, T2 input, bool silent = false) {
+
+	real diff = umath::abs(evaluated - expected);
+	cum_err += diff;
+	max_err = umath::max(diff, max_err);
+	tolr_test_runs++;
+
+	if(!good_enough(evaluated, expected)) {
+
+		if(!silent) {
+			std::cout << "Test failed on " << func_name << ":" << std::endl;
+			std::cout << "\tExpected: " << expected << std::endl;
+			std::cout << "\tEvaluated: " << evaluated << std::endl;
+			std::cout << "\tInput: " << input << std::endl;
+			std::cout << "\tDiff: " << diff << std::endl;
+		}
+		
+		total_errors++;
+		curr_errors++;
+
+	} else if(!silent) {
+		std::cout << "Test passed with diff: " << diff << std::endl;
+	}
+}
+
+
+void test_tolr(real evaluated, real expected, real input, bool silent = false) {
+	test_tol<real, real>(evaluated, expected, input, silent);
+}
+
+
+void test_tolr_interval(real_function f, real_function f_exp, real a, real b, unsigned int steps = 1000) {
+
+	std::cout << "Testing " << func_name <<
+		" on interval [" << a << ", " << b << "] with " << steps << " steps" << std::endl;
+
+	real dx = (b - a) / (real) steps;
+
+	for (int i = 0; i <= steps; ++i) {
+
+		real x = a + i * dx;
+
+		test_tolr(f(x), f_exp(x), x, true);
+	}
+}
 
 
 int main(int argc, char const *argv[]) {
 
-	TEST_STARTUP();
+	std::cout << "Starting testing of uroboro library...\n" << std::endl;
 
-	TEST_BEGIN_MODULE(uroboro);
-
-	// set_output_prec(8);
-
-	TEST_BEGIN_VOID(sqrt);
-
-		TEST_TOL(sqrt(4), 2);
-		TEST_TOL(sqrt(2), SQRT2);
-
-	TEST_END();
+	std::cout.precision(12);
 
 
-	TEST_BEGIN_VOID(ln);
+	test_start("umath::sqrt(real)");
 
-		TEST_TOL(ln(E), 1);
-		TEST_TOL(ln(E * E), 2);
-		TEST_TOL(ln(E * E * E), 3);
-		TEST_TOL(ln(E * E * E * E), 4);
+		test_tolr(umath::sqrt(4), 2, 4);
+		test_tolr(umath::sqrt(2), std::sqrt(2.0), 2);
+		test_tolr(umath::sqrt(9), 3, 9);
 
-	TEST_END();
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 1);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 1000);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 10000);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 100000);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 100000);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 10000000);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 100000000);
 
-
-	TEST_BEGIN_VOID(log2);
-
-		TEST_TOL(log2(2), 1);
-		TEST_TOL(log2(4), 2);
-		TEST_TOL(log2(8), 3);
-
-	TEST_END();
+	test_end();
 
 
-	TEST_BEGIN_VOID(log10);
+	test_start("umath::ln(real)");
 
-		TEST_TOL(log10(10), 1.f);
-		TEST_TOL(log10(100), 2.f);
-		TEST_TOL(log10(1000), 3.f);
+		test_tolr(umath::ln(E), 1, E);
+		test_tolr_interval(umath::ln, std::log, 0.0001, 1000);
 
-	TEST_END();
-
-
-	TEST_BEGIN_VOID(exp);
-
-		TEST_TOL(exp(2), E * E);
-		TEST_TOL(exp(1), E);
-
-	TEST_END();
+	test_end();
 
 
-	TEST_BEGIN_VOID(powf_approx);
+	test_start("umath::log2(real)");
 
-		TEST_TOL(powf_approx(2.f, 0.5f), SQRT2);
+		test_tolr(umath::log2(2), 1, 2);
+		test_tolr(umath::log2(4), 2, 4);
+		test_tolr(umath::log2(8), 3, 8);
 
-	TEST_END();
+	test_end();
 
 
-	TEST_BEGIN_VOID(sin);
+	test_start("umath::log10");
+
+		test_tolr(umath::log10(10), 1.f, 10);
+		test_tolr(umath::log10(100), 2.f, 100);
+		test_tolr(umath::log10(1000), 3.f, 1000);
+
+	test_end();
+
+
+	test_start("umath::exp");
+
+		test_tolr(umath::exp(2), umath::E * umath::E, 2);
+		test_tolr(umath::exp(1), umath::E, 1);
+
+	test_end();
+
+
+	test_start("umath::powf_approx");
+
+		test_tolr(umath::powf_approx(2.f, 0.5f), umath::SQRT2, 2);
+
+	test_end();
+
+
+	test_start("umath::sin");
 
 		// sin, cos and tan are precise
-		TEST_TOL(sin(0.5f), 0.4794255386);
-		TEST_TOL(sin(3), 0.14112000806);
+		test_tolr(umath::sin(0.5f), 0.4794255386, 0.5);
+		test_tolr(umath::sin(3), 0.14112000806, 3);
 
-	TEST_END();
-
-
-	TEST_BEGIN_VOID(cos);
-
-		TEST_TOL(cos(0.5f), 0.87758256189);
-		TEST_TOL(cos(3), -0.9899924966);
-
-	TEST_END();
+	test_end();
 
 
-	TEST_BEGIN_VOID(tan);
+	test_start("umath::cos");
 
-		TEST_TOL(tan(0.5f), 0.54630248984);
-		TEST_TOL(tan(3), -0.14254654307);
+		test_tolr(umath::cos(0.5f), 0.87758256189, 0.5);
+		test_tolr(umath::cos(3), -0.9899924966, 3);
 
-	TEST_END();
+	test_end();
 
 
-	// TEST_BEGIN_VOID(asin);
+	test_start("umath::tan");
+
+		test_tolr(umath::tan(0.5f), 0.54630248984, 0.5);
+		test_tolr(umath::tan(3), -0.14254654307, 3);
+
+	test_end();
+
+
+	// test_start(umath::asin);
 
 	// 	// After 0.9 gets a lot less precise
-	// 	TEST_TOL(asin(0.5f), 0.5235987756);
-	// 	TEST_TOL(asin(0.9f), 1.119769515);
+	// 	test_tolr(umath::asin(0.5), 0.5235987756, 0.5);
+	// 	test_tolr(umath::asin(0.9), 1.119769515, 0.9);
 
-	// TEST_END();
+	// test_end();
 
 
-	// TEST_BEGIN_VOID(acos);
+	// test_start(umath::acos);
 
 	// 	// After 0.9 gets less precise
-	// 	TEST_TOL(acos(0.5f), 1.0471975512);
-	// 	TEST_TOL(acos(0.9f), 0.4510268118);
+	// 	test_tolr(umath::acos(0.5), 1.0471975512, 0.5);
+	// 	test_tolr(umath::acos(0.9), 0.4510268118, 0.9);
 
-	// TEST_END();
+	// test_end();
 
 
-	// TEST_BEGIN_VOID(atan);
+	// test_start("atan(real)");
 
 	// 	// atan is really imprecise
-	// 	TEST_TOL(atan(0.5f), 0.54630248984);
-	// 	TEST_TOL(atan(0.9f), 0.78037308007);
+	// 	test_tolr(umath::atan(0.5), 0.54630248984, 0.5);
+	// 	test_tolr(umath::atan(0.9), 0.78037308007, 0.9);
+	// 	test_tolr_interval(umath::sqrt, std::atan, 0, 1);
 
-	// TEST_END();
-
-
-	TEST_BEGIN_VOID(degrees);
-
-		TEST_TOL(degrees(PI), 180);
-		TEST_TOL(degrees(PI / 2.0), 90);
-		TEST_TOL(degrees(PI / 4.0), 45);
-
-	TEST_END();
+	// test_end();
 
 
-	TEST_BEGIN_VOID(radians);
+	test_start("umath::degrees");
 
-		TEST_TOL(radians(180), PI);
-		TEST_TOL(radians(90), PI / 2.0);
-		TEST_TOL(radians(45), PI / 4.0);
+		test_tolr(umath::degrees(umath::PI), 180, umath::PI);
+		test_tolr(umath::degrees(umath::PI / 2.0), 90, umath::PI / 2.0);
+		test_tolr(umath::degrees(umath::PI / 4.0), 45, umath::PI / 4.0);
 
-	TEST_END();
+	test_end();
+
+
+	test_start("umath::radians");
+
+		test_tolr(umath::radians(180), umath::PI, 180);
+		test_tolr(umath::radians(90), umath::PI / 2.0, 90);
+		test_tolr(umath::radians(45), umath::PI / 4.0, 45);
+
+	test_end();
 
 
 	// Trick test framework with fake function
-	TEST_BEGIN_VOID(vec3_misc);
+	// test_start(vec3_misc);
 
-		vec3 v3 = {10, 15, 20};
-		vec4 v4 = {1, 2, 3, 4};
-		mat4 m = mat4::diagonal(2);
+	// 	umath::vec3 v3 = {10, 15, 20};
+	// 	umath::vec4 v4 = {1, 2, 3, 4};
+	// 	umath::mat4 m = umath::mat4::diagonal(2);
 
-		v4 = m * v4;
+	// 	v4 = m * v4;
 
-		TEST_TOL(v4[0], 2);
+	// 	test_tolr(v4[0], 2);
 
-		v3.normalize();
+	// 	v3.normalize();
 
-		TEST_TOL(v3.magnitude(), 1);
+	// 	test_tolr(v3.magnitude(), 1);
 
-	TEST_END();
+	// test_end();
 
-
-	TEST_END_MODULE();
-
-	TEST_EXIT();
+	return total_errors;
 }
