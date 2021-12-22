@@ -22,7 +22,7 @@ namespace uroboro {
 	}
 
 
-	// Basic derivation approximation
+	// Basic derivative approximation
 	real approx_derivative(real_function f, real x, real dx = 0) {
 
 		dx = (dx == 0 ? (x / DERIV_PREC) : dx);

@@ -1,12 +1,13 @@
 default_target: example
 
-.PHONY: all example test labcalc
+.PHONY: all example test
 
-all: example test labcalc
+all: example test
 
 example:
-	g++ src/example.cpp -O2 -o ./example
+	g++ src/example.cpp -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -o ./example
 
 test:
-	g++ test/test.cpp -o test/test
+	g++ test/test.cpp -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -O2 -o test/test
+	./test/test > test/test.log
 	./test/test

@@ -15,17 +15,17 @@ namespace uroboro {
 			real a;
 			vec3 v;
 
-			inline quat() {
+			quat() {
 				a = 0;
 				v = vec3();
 			}
 
-			inline quat(real a, const vec3& v) {
+			quat(real a, const vec3& v) {
 				this->a = a;
 				this->v = v;
 			}
 
-			inline quat(const quat& other) {
+			quat(const quat& other) {
 				a = other.a;
 				v = other.v;
 			}
@@ -44,14 +44,14 @@ namespace uroboro {
 				return *this;
 			}
 
-			inline quat(real a, real b, real c, real d) {
+			quat(real a, real b, real c, real d) {
 				this-> a = a;
 				v.data[0] = b;
 				v.data[1] = c;
 				v.data[2] = d;
 			}
 
-			inline ~quat() {}
+			~quat() {}
 
 			// Get the norm of the quaternion
 			inline real norm() const {

@@ -7,10 +7,17 @@
 
 namespace uroboro {
 
-
+	// Real function
 	using real_function = real(*)(real);
 
+	// Complex function
 	using complex_function = complex(*)(complex);
+
+	// Multi-variable function
+	using multi_function = real(*)(const vec_buff&);
+
+	// Statistical function
+	using stat_function = real(*)(real, const vec_buff&);
 
 }
 

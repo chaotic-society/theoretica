@@ -1,6 +1,8 @@
 #ifndef UROBORO_CONSTANTS_H
 #define UROBORO_CONSTANTS_H
 
+// TO-DO bigfloat arbitrary precision
+
 #ifdef UROBORO_LONG_DOUBLE_PREC
 using real = long double;
 #elif defined(UROBORO_FLOAT_PREC)
@@ -36,10 +38,10 @@ namespace uroboro {
 	constexpr real E = 2.718281828459045235360287;
 
 	// Logarithm base 2 of Euler constant.
-	constexpr real LOG2E = 1.44269504088896338700465;
+	constexpr real LOG2E = 1.44269504088896338700465094;
 
 	// Logarithm base 2 of 10.
-	constexpr real LOG210 = 3.32192809489;
+	constexpr real LOG210 = 3.32192809488736218170856773213;
 
 	// Logarithm base 10 of Euler constant.
 	constexpr real LOG10E = 0.434294481903;
@@ -51,10 +53,10 @@ namespace uroboro {
 	constexpr real LN10 = 2.30258509299;
 
 	// Multiply a number by this constant to change it to radians.
-	constexpr real DEG2RAD = 0.0174532925199433;
+	constexpr real DEG2RAD = 0.017453292519943295474371680598;
 
 	// Multiply a number by this constant to change it to degrees.
-	constexpr real RAD2DEG = 57.29577951308232;
+	constexpr real RAD2DEG = 57.2957795130823228646477218717;
 
 	// Square root of 2.
 	constexpr real SQRT2 = 1.41421356237;

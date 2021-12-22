@@ -54,6 +54,12 @@ namespace uroboro {
 			}
 
 
+			// Return the nth order coefficient
+			inline real& operator[](unsigned int i) {
+				return coeff[i];
+			}
+
+
 			// Find the true order of the polynomial (without counting null coefficients)
 			inline int find_order() const {
 
@@ -163,6 +169,30 @@ namespace uroboro {
 				*this = r;
 
 				return *this;
+			}
+
+
+			// Check whether two polynomials are equal
+			inline bool operator==(const polynomial& other) const {
+
+				for (int i = 0; i < min(other.size(), this->size()); ++i) {
+					if(other.coeff[i] != coeff[i])
+						return false;
+				}
+
+				if(size() > other.size()) {
+					for (int i = 0; i < size(); ++i) {
+						if(coeff[i] != 0)
+							return false;
+					}
+				} else {
+					for (int i = 0; i < other.size(); ++i) {
+						if(other.coeff[i] != 0)
+							return false;
+					}
+				}
+
+				return true;
 			}
 		
 	};

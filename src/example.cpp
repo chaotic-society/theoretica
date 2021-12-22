@@ -1,4 +1,3 @@
-#define UROBORO_INCLUDE_ALL
 #include "uroboro.h"
 
 using namespace umath;
@@ -6,9 +5,12 @@ using namespace umath;
 
 int main(int argc, char const *argv[]) {
 
+
 	// Integral approximation
 	std::cout << "Integral approximation" << std::endl;
-	std::cout << approx_integral_midpoint(square, 0, 4) << std::endl;
+	std::cout << approx_integral_midpoint(umath::square, 0, 3) << std::endl;
+	std::cout << approx_integral_trapezoid(umath::square, 0, 3) << std::endl;
+	std::cout << approx_integral_simpson(umath::square, 0, 3) << std::endl;
 
 	std::cout << "Derivative approximation" << std::endl;
 	std::cout << approx_derivative(square, 4) << std::endl;

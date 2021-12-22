@@ -47,7 +47,7 @@ namespace uroboro {
 
 		res += 0.5 * f(a);
 
-		for (int i = 1; i < steps - 1; ++i) {
+		for (int i = 1; i < steps; ++i) {
 			res += f(a + i * dx);
 		}
 
@@ -64,9 +64,9 @@ namespace uroboro {
 		real dx = (b - a) / (real) steps;
 		real res = 0;
 
-		res += f(a);
+		res += f(a) + f(b);
 
-		for (int i = 1; i < steps - 1; ++i) {
+		for (int i = 1; i < steps; ++i) {
 
 			if(i % 2 == 0)
 				res += 2.0 * f(a + i * dx);
@@ -75,10 +75,13 @@ namespace uroboro {
 			
 		}
 
-		res += f(b);
-
 		return res * dx / 3.0;
 	}
+
+
+	// TO-DO Romberg integration
+
+	// TO-DO Monte Carlo integration
 
 
 	// Runge-Kutta integration of 4th order
