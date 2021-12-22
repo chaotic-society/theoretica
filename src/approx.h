@@ -19,6 +19,9 @@ namespace uroboro {
 	constexpr unsigned int MAX_CHEBYSHEV_ITER = 100;
 
 
+	// Root approximation
+
+
 	// Approximate a root of an arbitrary function using bisection
 	// inside a compact interval [a, b]
 	inline real approx_root_bisection(real_function f, real a, real b) {
@@ -53,7 +56,7 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(uroboro::abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
 			x = x - (f(x) / Df(x));
 			iter++;
 		}
@@ -69,7 +72,7 @@ namespace uroboro {
 		polynomial Dp = differentiate_polynomial(p);
 		int iter = 0;
 
-		while(uroboro::abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
 			x = x - (p(x) / Dp(x));
 			iter++;
 		}
@@ -85,7 +88,7 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(uroboro::abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
 			x = x - (f(x) / ((f(x + f(x)) / f(x)) - 1));
 			iter++;
 		}
@@ -100,7 +103,7 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(uroboro::abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
 			x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));
 			iter++;
 		}
@@ -117,7 +120,7 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(uroboro::abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
 			x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));
 			iter++;
 		}
@@ -134,12 +137,67 @@ namespace uroboro {
 		polynomial D2p = differentiate_polynomial(p);
 		int iter = 0;
 
-		while(uroboro::abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
 			x = x - (p(x) / Dp(x)) - square((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));
 			iter++;
 		}
 
 		return x;
+	}
+
+
+	// Max & Min approximation
+
+
+	inline real approx_max_newton(
+		real_function f, real_function Df, real_function D2f,
+		real guess = 0, real dx = 0.01) {
+
+		real z = approx_root_newton(Df, D2f, guess);
+
+		if(D2f(z) < 0)
+			return z;
+
+		// TO-DO throw...
+		return 0;
+	}
+
+
+	inline real approx_min_newton(
+		real_function f, real_function Df, real_function D2f,
+		real guess = 0, real dx = 0.00000001) {
+
+		real z = approx_root_newton(Df, D2f, guess);
+
+		if(D2f(z) > 0)
+			return z;
+
+		// TO-DO throw...
+		return 0;
+	}
+
+
+	inline real approx_max_bisection(real_function f, real_function Df, real a, real b, real dx = 0.00000001) {
+
+		real z = approx_root_bisection(Df, a, b);
+
+		if(approx_derivative(Df, z) < 0)
+			return z;
+
+		// TO-DO throw...
+		return 0;
+	}
+
+
+	inline real approx_min_bisection(real_function f, real_function Df, real a, real b, real dx = 0.00000001) {
+
+		real z = approx_root_bisection(Df, a, b);
+
+		if(approx_derivative(Df, z) > 0)
+			return z;
+
+		// TO-DO throw...
+		return 0;
 	}
 
 
