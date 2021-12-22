@@ -9,5 +9,4 @@ example:
 
 test:
 	g++ test/test.cpp -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -O2 -o test/test
-	./test/test > test/test.log
 	./test/test
