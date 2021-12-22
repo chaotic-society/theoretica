@@ -226,7 +226,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr(umath::tan(0.5f), 0.54630248984, 0.5);
 		test_tolr(umath::tan(3), -0.14254654307, 3);
-		test_tolr_interval(umath::tan, std::tan, 0, PI, TOLERANCE, 300000);
+		test_tolr_interval(umath::tan, std::tan, 0, PI, TOLERANCE, 333333);
 
 	test_end();
 
