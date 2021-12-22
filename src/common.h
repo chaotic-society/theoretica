@@ -3,22 +3,23 @@
 
 #include "./constants.h"
 
+
 namespace uroboro {
 
 
-	//Calculate x^2
+	//Compute x^2
 	inline real square(real x) {
 		return x * x;
 	}
 
 
-	//Calculate x^3
+	//Compute x^3
 	inline real cube(real x) {
 		return x * x * x;
 	}
 
 
-	// Calculate the square root of x using x86 Assembly instructions
+	// Compute the square root of x using x86 Assembly instructions
 	inline real sqrt(real x) {
 
 		#ifdef MSVC_ASM
@@ -34,19 +35,25 @@ namespace uroboro {
 	}
 
 
-	// Calculate the absolute value of x using x86 Assembly instructions
+	// Compute the absolute value of x using x86 Assembly instructions
 	inline real abs(real x) {
 
-		#ifdef MSVC_ASM
+#ifdef UROBORO_X86
+
+	#ifdef MSVC_ASM
 		__asm {
 			fld x
 			fabs
-		}
-		#else
+		}	
+	#else
 		asm("fabs" : "+t"(x));
-		#endif
+	#endif
 
 		return x;
+#else
+		return x >= 0 ? x : -x;
+#endif
+
 	}
 
 
@@ -56,7 +63,7 @@ namespace uroboro {
 	}
 
 
-	// Return the biggest number between x and y
+	// Return the greatest number between x and y
 	inline real max(real x, real y) {
 		
 		#ifdef UROBORO_BRANCHLESS
@@ -81,14 +88,22 @@ namespace uroboro {
 	// Clamp x between a and b
 	inline real clamp(real x, real a, real b) {
 
-		return x > b ? b : (x < a ? a : x);
+#ifdef UROBORO_FORCE_BRANCHLESS
 
-		// Branch-less alternative
-		// return min(max(x, a), b);
+		// The branchless version might be slower or equal
+		// on most compilers
+		return min(max(x, a), b);
+#else
+		return x > b ? b : (x < a ? a : x);
+#endif
 	}
 
 
-	// Calculate y * log2(x) using x86 Assembly instructions
+	// x86 instruction wrappers
+
+#ifdef UROBORO_X86
+
+	// Compute y * log2(x) using x86 Assembly instructions
 	inline real fyl2x(real x, real y) {
 
 		real res;
@@ -105,7 +120,7 @@ namespace uroboro {
 	}
 
 
-	// Calculate 2^x - 1 using x86 Assembly instructions
+	// Compute 2^x - 1 using x86 Assembly instructions
 	// Works only between -1 and +1
 	// May become particularly incorrect near boundaries
 	inline real f2xm1(real x) {
@@ -122,26 +137,27 @@ namespace uroboro {
 		return x;
 	}
 
+#endif
 
-	// Calculate log2(x) using x86 Assembly instructions
+	// Compute log2(x) using x86 Assembly instructions
 	inline real log2(real x) {
 		return fyl2x(x, 1.0);
 	}
 
 
-	// Calculate log10(x) using x86 Assembly instructions
+	// Compute log10(x) using x86 Assembly instructions
 	inline real log10(real x) {
 		return fyl2x(x, 1.0 / LOG210);
 	}
 
 
-	// Calculate ln(x) using x86 Assembly instructions
+	// Compute ln(x) using x86 Assembly instructions
 	inline real ln(real x) {
 		return fyl2x(x, 1.0 / LOG2E);
 	}
 
 
-	// Calculate x^n (where n is natural) using iteration
+	// Compute x^n (where n is natural) using iteration
 	inline real pow(real x, int n) {
 
 		real res;
@@ -163,7 +179,7 @@ namespace uroboro {
 	}
 
 
-	constexpr real APPROXIMATION_TOLERANCE = 0.000001;
+	constexpr real POW_APPROXIMATION_TOLERANCE = 0.000001;
 
 
 	// Approximate e^x using x86 Assembly instructions
@@ -173,7 +189,7 @@ namespace uroboro {
 		int x_int = uroboro::abs(int(x - 0.5));
 		real x_fract = uroboro::abs(x - x_int);
 
-		// Calculate e^x as e^int(x) * e^fract(x)
+		// Compute e^x as e^int(x) * e^fract(x)
 		// Where e^fract(x) is calculated as 2^(fract(x) / ln2)
 		return uroboro::pow(E, x_int) * square(f2xm1(x_fract / (2 * LN2)) + 1);
 	}
@@ -190,19 +206,19 @@ namespace uroboro {
 		real a_fract = uroboro::abs(a - a_int);
 		real x_int_pwr = uroboro::pow(x, a_int);
 
-		// Calculate x^fract(a) as e^(x * log2(fract(a) / log2(e)))
-		return x_int_pwr * (a_fract >= APPROXIMATION_TOLERANCE ?
+		// Compute x^fract(a) as e^(x * log2(fract(a) / log2(e)))
+		return x_int_pwr * (a_fract >= POW_APPROXIMATION_TOLERANCE ?
 			exp_approx(fyl2x(x, a_fract / LOG2E)) : 1);
 	}
 
 
-	// Calculate e^x
+	// Compute e^x
 	inline real exp(real x) {
 		return powf_approx(E, x);
 	}
 
 
-	// Calculate sin(x) using x86 Assembly instructions
+	// Compute sin(x) using x86 Assembly instructions
 	inline real sin(real x) {
 
 		#ifdef MSVC_ASM
@@ -217,7 +233,7 @@ namespace uroboro {
 		return x;
 	}
 
-	// Calculate cos(x) using x86 Assembly instructions
+	// Compute cos(x) using x86 Assembly instructions
 	inline real cos(real x) {
 
 		#ifdef MSVC_ASM
@@ -233,10 +249,8 @@ namespace uroboro {
 	}
 
 
-	// Calculate tangent of x
+	// Compute the tangent of x
 	inline real tan(real x) {
-
-		// fptan usage TO-DO
 
 		real s, c;
 
@@ -252,7 +266,7 @@ namespace uroboro {
 	}
 
 
-	// Calculate the cotangent of x
+	// Compute the cotangent of x
 	inline real cot(real x) {
 
 		real s, c;
@@ -269,32 +283,47 @@ namespace uroboro {
 	}
 
 
-	// Inverse tangent
+	// Compute the arctangent
 	inline real atan(real x) {
 
 		if(abs(x) > 1)
 			return atan(PI2 - atan(1 / x));
 
-		// Fast approximation of atan in [-1, 1]
-		return PI4 * x - x * (abs(x) - 1) * (0.2447 + 0.0663 * abs(x));
+		if(abs(x) < 0.6) {
 
-		// TO-DO
-		// Different approximation methods
+			// Use Taylor in [-0.6, 0.6]
+
+			real x2 = x * x;
+			real x4 = x2 * x2;
+
+			return x
+				- (x2 * x / 3.f)
+				+ (x4 * x / 5.f)
+				- (x4 * x2 * x / 7.f)
+				+ (x4 * x4 * x / 9.f);
+
+		} else {
+
+			// Fast approximation of atan in [-1, 1]
+			// More accurate than Taylor in [-1, -0.6] and [0.6, 1]
+			return PI4 * x - x * (abs(x) - 1) * (0.2447 + 0.0663 * abs(x));
+		}
 	}
 
 
-	// Inverse sine
+	// Compute the arcsine
 	inline real asin(real x) {
 		return atan(x / sqrt(1 - x * x));
 	}
 
 
-	// Inverse cosine
+	// Compute the arccosine
 	inline real acos(real x) {
 		return atan(sqrt(1 - x * x) / x);
 	}
 
 
+	// Compute the 2 argument arctangent
 	inline real atan2(real y, real x) {
 
 		if(x == 0)

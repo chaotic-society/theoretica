@@ -25,7 +25,7 @@ namespace uroboro {
 
 	// Compute the complex exponential
 	inline complex exp(complex z) {
-		return complex(cos(z.Im()), sin(z.Im())) * uroboro::exp(z.Re());
+		return complex(cos(z.Im()), sin(z.Im())) * exp(z.Re());
 	}
 
 
