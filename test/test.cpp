@@ -4,17 +4,30 @@
 
 using namespace umath;
 
+
+// Absolute different to tolerate
 constexpr real TOLERANCE = 0.00000001;
 
+// Function name holder
 std::string func_name = "";
 
+// Total number of errors (module-wise)
 unsigned int total_errors = 0;
 
+// Number of test_tolr test runs
 unsigned int tolr_test_runs = 0;
+
+// Number of errors on current function
 unsigned int curr_errors = 0;
+
+// Cumulative error on current function
 long double cum_err = 0;
+
+// Maximum error on current function
 long double max_err = 0;
 
+
+// Start testing a specific function
 void test_start(std::string f) {
 
 	func_name = f;
@@ -27,6 +40,8 @@ void test_start(std::string f) {
 }
 
 
+// End testing on the current function and print out information
+// about the test runs
 void test_end() {
 
 	std::cout << "\nFinished testing " << func_name << std::endl;
@@ -44,12 +59,14 @@ void test_end() {
 }
 
 
+// Check whether the given values differ only by a tolerance value or less
 template<typename T>
 bool good_enough(T a, T b, real tolerance = TOLERANCE) {
 	return umath::abs(b - a) < tolerance;
 }
 
 
+// Compare a function to an expected value
 template<typename T1, typename T2>
 void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, bool silent = false) {
 
@@ -82,6 +99,8 @@ void test_tolr(real evaluated, real expected, real input, real tolerance = TOLER
 }
 
 
+
+// Test a real function on an interval
 void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
 	real tolerance = TOLERANCE, unsigned int steps = 1000) {
 
@@ -177,7 +196,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr(umath::sin(0.5f), 0.4794255386, 0.5);
 		test_tolr(umath::sin(3), 0.14112000806, 3);
-		test_tolr_interval(umath::sin, std::sin, 0, 2 * PI, 100000);
+		test_tolr_interval(umath::sin, std::sin, 0, 2 * PI, TOLERANCE, 100000);
 		test_tolr_interval(umath::sin, std::sin, 0, 10 * PI);
 		test_tolr_interval(umath::sin, std::sin, -10 * PI, 0);
 		test_tolr_interval(umath::sin, std::sin, 0, 100 * PI);
@@ -192,7 +211,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr(umath::cos(0.5f), 0.87758256189, 0.5);
 		test_tolr(umath::cos(3), -0.9899924966, 3);
-		test_tolr_interval(umath::cos, std::cos, 0, 2 * PI, 100000);
+		test_tolr_interval(umath::cos, std::cos, 0, 2 * PI, TOLERANCE, 100000);
 		test_tolr_interval(umath::cos, std::cos, 0, 10 * PI);
 		test_tolr_interval(umath::cos, std::cos, -10 * PI, 0);
 		test_tolr_interval(umath::cos, std::cos, 0, 100 * PI);
@@ -207,13 +226,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr(umath::tan(0.5f), 0.54630248984, 0.5);
 		test_tolr(umath::tan(3), -0.14254654307, 3);
-		test_tolr_interval(umath::tan, std::tan, 0, 2 * PI, 100000);
-		test_tolr_interval(umath::tan, std::tan, 0, 10 * PI);
-		test_tolr_interval(umath::tan, std::tan, -10 * PI, 0);
-		test_tolr_interval(umath::tan, std::tan, 0, 100 * PI);
-		test_tolr_interval(umath::tan, std::tan, -100 * PI, 0);
-		test_tolr_interval(umath::tan, std::tan, 0, 1000 * PI);
-		test_tolr_interval(umath::tan, std::tan, -1000 * PI, 0);
+		test_tolr_interval(umath::tan, std::tan, 0, PI, TOLERANCE, 300000);
 
 	test_end();
 
