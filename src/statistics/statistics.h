@@ -2,9 +2,9 @@
 #define UROBORO_STATISTICS_H
 
 #include "../constants.h"
-#include "../vec.h"
+#include "../algebra/vec.h"
 #include "../vec_buff.h"
-#include "../common.h"
+#include "../real_analysis.h"
 
 
 namespace uroboro {

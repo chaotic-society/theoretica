@@ -1,8 +1,8 @@
 #ifndef UROBORO_MATRIX_H
 #define UROBORO_MATRIX_H
 
-#include "./constants.h"
-#include "./common.h"
+#include "../constants.h"
+#include "../real_analysis.h"
 #include "./vec.h"
 
 namespace uroboro {
@@ -509,6 +509,54 @@ namespace uroboro {
 
 			return res;
 		}
+
+
+		inline static mat<4, 4> perspective(real left, real right, real bottom, real top, real near, real far) {
+
+			mat<4, 4> result = mat<4, 4>();
+
+			result.data[0][0]  = 2 * near / (right - left);
+			result.data[0][2]  = (right + left) / (right - left);
+			result.data[1][1]  = 2 * near / (top - bottom);
+			result.data[1][2]  = (top + bottom) / (top - bottom);
+			result.data[2][2] = -(far + near) / (far - near);
+			result.data[2][3] = -(2 * far * near) / (far - near);
+			result.data[3][2] = -1;
+			result.data[3][3] = 0;
+
+			return result;
+		}
+
+
+		inline static mat<4, 4> perspective(real fov, real aspect, real near, real far) {
+
+			real height = near * tan(radians(fov / 2.f));
+			real width = height * aspect;
+
+			return perspective(-width, width, -height, height, near, far);
+		}
+
+
+		inline static mat<4, 4> ortho(real left, real right, real bottom, real top, real near, real far) {
+
+			mat<4, 4> result = mat<4, 4>();
+
+			result.data[0][0]  = 2 / (right - left);
+			result.data[0][3]  = -(right + left) / (right - left);
+			result.data[1][1]  = 2 / (top - bottom);
+			result.data[1][3]  = -(top + bottom) / (top - bottom);
+			result.data[2][2] = -2 / (far - near);
+			result.data[2][3] = -(far + near) / (far - near);
+
+			return result;
+		}
+
+		// Return a transformation matrix that points the
+		// field of view towards a given direction
+		// inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
+
+		// }
+
 
 	};
 

@@ -3,7 +3,7 @@
 
 #include "./vec_buff.h"
 #include "./function.h"
-#include "./derivation.h"
+#include "./calculus/derivation.h"
 
 
 namespace uroboro {
@@ -164,8 +164,8 @@ namespace uroboro {
 
 
 	inline real approx_min_newton(
-		real_function f, real_function Df, real_function D2f,
-		real guess = 0, real dx = 0.00000001) {
+		real_function f, real_function Df,
+		real_function D2f, real guess = 0) {
 
 		real z = approx_root_newton(Df, D2f, guess);
 
@@ -177,7 +177,9 @@ namespace uroboro {
 	}
 
 
-	inline real approx_max_bisection(real_function f, real_function Df, real a, real b, real dx = 0.00000001) {
+	inline real approx_max_bisection(
+		real_function f, real_function Df,
+		real a, real b) {
 
 		real z = approx_root_bisection(Df, a, b);
 
@@ -189,7 +191,7 @@ namespace uroboro {
 	}
 
 
-	inline real approx_min_bisection(real_function f, real_function Df, real a, real b, real dx = 0.00000001) {
+	inline real approx_min_bisection(real_function f, real_function Df, real a, real b) {
 
 		real z = approx_root_bisection(Df, a, b);
 

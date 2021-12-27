@@ -1,9 +1,9 @@
 #ifndef UROBORO_INTEGRATION_H
 #define UROBORO_INTEGRATION_H
 
-#include "./constants.h"
-#include "./function.h"
-#include "./polynomial.h"
+#include "../constants.h"
+#include "../function.h"
+#include "../polynomial.h"
 
 
 namespace uroboro {

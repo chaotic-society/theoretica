@@ -179,19 +179,30 @@ namespace uroboro {
 	}
 
 
-	constexpr real POW_APPROXIMATION_TOLERANCE = 0.000001;
+	// Compute the factorial of n
+	inline long long fact(unsigned int n) {
+
+		long long res = 1;
+		for (int i = n; i > 1; --i)
+			res *= i;
+
+		return res;
+	}
+
+
+	constexpr real POW_APPROXIMATION_TOLERANCE = 0.00000001;
 
 
 	// Approximate e^x using x86 Assembly instructions
 	// Works only for positive <x>
 	inline real exp_approx(real x) {
 
-		int x_int = uroboro::abs(int(x - 0.5));
-		real x_fract = uroboro::abs(x - x_int);
+		int x_int = abs(int(x - 0.5));
+		real x_fract = abs(x - x_int);
 
 		// Compute e^x as e^int(x) * e^fract(x)
 		// Where e^fract(x) is calculated as 2^(fract(x) / ln2)
-		return uroboro::pow(E, x_int) * square(f2xm1(x_fract / (2 * LN2)) + 1);
+		return pow(E, x_int) * square(f2xm1(x_fract / (2 * LN2)) + 1);
 	}
 
 
@@ -202,9 +213,9 @@ namespace uroboro {
 		if(a < 0)
 			return 1.0 / powf_approx(x, abs(a));
 
-		int a_int = uroboro::abs(int(a - 0.5));
-		real a_fract = uroboro::abs(a - a_int);
-		real x_int_pwr = uroboro::pow(x, a_int);
+		int a_int = abs(int(a - 0.5));
+		real a_fract = abs(a - a_int);
+		real x_int_pwr = pow(x, a_int);
 
 		// Compute x^fract(a) as e^(x * log2(fract(a) / log2(e)))
 		return x_int_pwr * (a_fract >= POW_APPROXIMATION_TOLERANCE ?
@@ -214,27 +225,79 @@ namespace uroboro {
 
 	// Compute e^x
 	inline real exp(real x) {
+
+#ifdef UROBORO_X86
+
 		return powf_approx(E, x);
+
+#else
+
+	// Taylor series expansion
+
+	// Compute e^floor(x) * e^fract(x)
+
+	int x_floor = abs(int(x - 0.5));
+	real x_fract = abs(x - x_floor);
+	real x_int_pwr = pow(x, x_floor);
+	
+	real res = 1;
+
+	for (int i = 1; i < TAYLOR_ORDER; ++i) {
+		res += pow(x, i) / static_cast<real>(fact(i));
+	}
+
+	return x_int_pwr * res;
+
+#endif
 	}
 
 
 	// Compute sin(x) using x86 Assembly instructions
 	inline real sin(real x) {
 
-		#ifdef MSVC_ASM
+#ifdef UROBORO_X86
+
+	#ifdef MSVC_ASM
 		__asm {
 			fld x
 			fsin
 		}
-		#else
+	#else
 		asm("fsin" : "+t"(x));
-		#endif
+	#endif
 
 		return x;
+
+#else
+
+		// Clamp x between -2PI and 2PI
+		while(x >= 2 * PI)
+			x -= 2 * PI;
+		
+		while(x <= -2 * PI)
+			x += 2 * PI;
+
+		real res = 0;
+
+		// Taylor series expansion
+
+		// sin(x) = sum( (-1)^i * x^(2i+1) / (2i+1)! )
+
+		for (int i = 0; i < TAYLOR_ORDER; ++i) {
+			res += (i % 2 == 0 ? 1 : -1)
+				* pow(x, 2 * i + 1)
+				/ static_cast<real>(fact(2 * i + 1));
+		}
+
+		return res;
+
+#endif
 	}
 
 	// Compute cos(x) using x86 Assembly instructions
 	inline real cos(real x) {
+
+#ifdef UROBORO_X86
 
 		#ifdef MSVC_ASM
 		__asm {
@@ -246,11 +309,39 @@ namespace uroboro {
 		#endif
 
 		return x;
+
+#else
+
+		// cos(x) is even (cos(x) = cos(-x))
+		if(x < 0)
+			x = -x;
+
+		// Clamp x between 0 and 2PI
+		while(x >= 2 * PI)
+			x -= 2 * PI;
+
+		real res = 0;
+
+		// Taylor series expansion
+
+		// sin(x) = sum( (-1)^i * x^(2i) / (2i)! )
+
+		for (int i = 0; i < TAYLOR_ORDER; ++i) {
+			res += (i % 2 == 0 ? 1 : -1)
+				* pow(x, 2 * i)
+				/ static_cast<real>(fact(2 * i));
+		}
+
+		return res;
+
+#endif
 	}
 
 
 	// Compute the tangent of x
 	inline real tan(real x) {
+
+#ifdef UROBORO_X86
 
 		real s, c;
 
@@ -263,11 +354,19 @@ namespace uroboro {
 		#endif
 
 		return s / c;
+
+#else
+
+		return sin(x) / cos(x);
+
+#endif
 	}
 
 
 	// Compute the cotangent of x
 	inline real cot(real x) {
+
+#ifdef UROBORO_X86
 
 		real s, c;
 
@@ -280,6 +379,12 @@ namespace uroboro {
 		#endif
 
 		return c / s;
+
+#else
+
+		return cos(x) / sin(x);
+
+#endif
 	}
 
 
@@ -350,17 +455,6 @@ namespace uroboro {
 	inline real tanh(real x) {
 		real exp_2x = exp(2 * x);
 		return (exp_2x - 1) / (exp_2x + 1);
-	}
-
-
-	// Compute the factorial of n
-	inline long long fact(unsigned int n) {
-
-		long long res = 1;
-		for (int i = n; i > 1; --i)
-			res *= i;
-
-		return res;
 	}
 
 

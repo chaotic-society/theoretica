@@ -1,30 +1,33 @@
 #ifndef UROBORO_QUATERNION_H
 #define UROBORO_QUATERNION_H
 
-#include "../common.h"
-#include "../vec.h"
+#include "../real_analysis.h"
+#include "../algebra/vec.h"
 
 namespace uroboro {
 
-	// Quaternion implementation
+	// Quaternion
 	// In the form (a + bi + cj + dk)
-	// As (a + v) [real + vec<3>]
+	// As (a + v) [real + vec3]
 	class quat {
 		public:
 
 			real a;
 			vec3 v;
 
+			// Initialize as (0 + 0i + 0j + 0k)
 			quat() {
 				a = 0;
 				v = vec3();
 			}
 
+			// Initialize from a real number and a vector
 			quat(real a, const vec3& v) {
 				this->a = a;
 				this->v = v;
 			}
 
+			// Initialize from another quaternion
 			quat(const quat& other) {
 				a = other.a;
 				v = other.v;
@@ -44,6 +47,7 @@ namespace uroboro {
 				return *this;
 			}
 
+			// Initialize from four real numbers
 			quat(real a, real b, real c, real d) {
 				this-> a = a;
 				v.data[0] = b;
@@ -51,18 +55,19 @@ namespace uroboro {
 				v.data[2] = d;
 			}
 
-			~quat() {}
+			~quat() = default;
 
-			// Get the norm of the quaternion
+			// Get the norm of a quaternion
 			inline real norm() const {
 				return uroboro::sqrt(a * a + v.square_magnitude());
 			}
 
+			// Get the square norm of a quaternion
 			inline real square_norm() const {
 				return a * a + v.square_magnitude();
 			}
 
-			// Return the conjugate of the quaternion
+			// Return the conjugate of a quaternion
 			inline quat conjugate() const {
 				return quat(-a, v * -1);
 			}
@@ -109,12 +114,13 @@ namespace uroboro {
 				return quat(a / n, v / n);
 			}
 
-			// Return the inverse of the quaternion
+			// Return the inverse of a quaternion
 			inline quat inverse() const {
 				return conjugate() / square_norm();
 			}
 
-			// Obtain a vector containing the quaternion
+			// Convert a quaternion to a vector in the form
+			// (a, b, c, d)
 			inline vec4 to_vec4() const {
 				return vec4({a, v.get(0), v.get(1), v.get(2)});
 			}
@@ -178,17 +184,20 @@ namespace uroboro {
 				return res;
 			}
 
+
 			// Transform a 3D vector
 			inline vec3 transform(const vec3& v) const {
 				return (operator*(quat(0, v)) * inverse()).v;
 			}
 
-			// Return a quaternion which represents a rotation
+
+			// Construct a quaternion which represents a rotation
 			// of <rad> radians around the <axis> arbitrary axis
 			inline static quat rotation(real rad, const vec3& axis) {
 				return quat(uroboro::cos(rad / 2.0),
 							axis.normalized() * uroboro::sin(rad / 2.0));
 			}
+
 
 			// Rotate a 3D vector <v> by <rad> radians around
 			// the <axis> arbitrary axis

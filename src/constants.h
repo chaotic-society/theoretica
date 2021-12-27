@@ -64,6 +64,9 @@ namespace uroboro {
 	// Inverse square root of 2.
 	constexpr real INVSQR2 = 0.707106781187;
 
+	// Order of Taylor series approximations
+	constexpr int TAYLOR_ORDER = 7;
+
 }
 
 #endif

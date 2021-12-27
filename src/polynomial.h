@@ -2,7 +2,7 @@
 #define UROBORO_POLYNOMIAL_H
 
 #include "./vec_buff.h"
-#include "./common.h"
+#include "./real_analysis.h"
 
 
 namespace uroboro {
@@ -26,6 +26,7 @@ namespace uroboro {
 			}
 
 
+			// Get the i-th by value
 			inline real get(int i) const {
 				return coeff[i];
 			}
@@ -130,6 +131,9 @@ namespace uroboro {
 
 				return r;
 			}
+
+
+			// TO-DO Polynomial division
 
 
 			// Sum a polynomial to this one

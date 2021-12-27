@@ -4,9 +4,9 @@
 #include <string>
 #include <algorithm>
 
-#include "./vec.h"
+#include "./algebra/vec.h"
 #include "./vec_buff.h"
-#include "./mat.h"
+#include "./algebra/mat.h"
 #include "./complex/complex.h"
 #include "./complex/quat.h"
 #include "./complex/phasor.h"

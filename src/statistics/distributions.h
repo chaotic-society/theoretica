@@ -1,7 +1,7 @@
 #ifndef UROBORO_DISTRIBUTIONS
 #define UROBORO_DISTRIBUTIONS
 
-#include "../common.h"
+#include "../real_analysis.h"
 #include "./statistics.h"
 #include "../function.h"
 
@@ -9,6 +9,8 @@
 namespace uroboro {
 
 
+	// Compute the likelihood of a distribution <f> with the given
+	// parameters <theta> and measures <X>
 	inline real likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 1;
@@ -21,6 +23,8 @@ namespace uroboro {
 	}
 
 
+	// Compute the log likelihood of a distribution <f> with the given
+	// parameters <theta> and measures <X>
 	inline real log_likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 0;

@@ -2,7 +2,7 @@
 #define UROBORO_COMPLEX_FUNCTIONS
 
 #include "./complex.h"
-#include "../common.h"
+#include "../real_analysis.h"
 
 namespace uroboro {
 
