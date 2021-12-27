@@ -1,23 +1,22 @@
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 # Uroboro
-A header-only math library for videogames, simulations and graphics in C++, with x86 Assembly enhancements.
-Includes approximations of common math functions, vector and matrix calculations (see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for more).
+A general purpose mathematical header-only library in C++ intended for graphical and physical simulations. Includes approximations of common math functions with Assembly enhancements, vector and matrix calculations, as well as complex numbers, quaternions and statistical functions (see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for more).
 
 Matrices are column-first, for direct use in OpenGL.
 
 ## How to use
-Include `uroboro.h` and you will be able to use `vec<N>` and `mat<N, K>` classes.
+Include `uroboro.h` and to be able to use `vec<N>` and `mat<N, K>` classes.
 All functions and classes are defined inside the `uroboro` namespace (and the `umath` alias if `UROBORO_NO_NAMESPACE` is _not_ defined).
 
-Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` and all header files will be included automatically, otherwise only basic functionality will be included.
+Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` to automatically include all header files, otherwise only basic functionality will be included (vectors, matrices, complex numbers and common functions).
 
 ## Functionalities
 - Common math operations (trig. functions, sqrt, exp, ...)
 - Vector operations (N-dimensional)
-- Matrix operations (with transformations including rotations)
+- Matrix operations (with transformations, including rotations)
 - Complex numbers (with common complex functions), Quaternions and Phasors
 - Wide range of statistical functions (including least squares linearization)
-- Approximation of roots
+- Approximation of roots and extrema
 - Derivative and integral approximations (including Runge-Kutta of 4th order)
 - Interpolation between points (Linear interpolation, Bezier)
 
@@ -37,6 +36,7 @@ vec3 u = {1, 0, 1};
 real d = v * u; // Dot product
 vec w = v.cross(u); // Cross product
 
+// 12 dimensional vector
 vec<12> a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
 real b = a.lenght(); // Lenght of a vector (same as magnitude())
@@ -68,7 +68,7 @@ complex z3 = z1 * z2; // Complex multiplication
 complex z4 = z1.conjugate(); // Complex conjugate
 complex z5 = ln(z3) + atan(z3);
 ```
-Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and more are also supported (`complex_functions.h`).
+Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and more are also supported (`complex_analysis.h`).
 
 ### Quaternion usage
 Declare a quaternion using the `quat` class.
@@ -86,7 +86,7 @@ vec3 v_1 = quat::rotate(w, PI / 2.0, v);
 ```
 
 ### Polynomials
-Polynomial storage and manipolation is implemented in `polynomial.h`. Derivation and integration of polynomials is also supported (`derivation.h`, `integration.h`). The header file `approximation.h` defines many functions to approximate the roots of arbitrary functions and polynomials.
+Polynomial storage and manipolation is implemented in `polynomial.h`. Derivation and integration of polynomials is also supported (`derivation.h`, `integration.h`). The header file `approx.h` defines many functions to approximate the roots of arbitrary functions and polynomials.
 ```c
 polynomial P1 = {1, 1, -1};
 polynomial P2 = {2, 3, 6, 1};
@@ -95,7 +95,7 @@ print_polynomial(P3);
 ```
 
 ### Statistics usage
-The header `statistics` defines many statistical functions of common use. The `vec_buff` type (alias for `std::vector<real>`) is used to store data.
+The header `statistics/statistics.h` defines many statistical functions of common use. The `vec_buff` type (alias for `std::vector<real>`) is used to store data.
 ```c
 vec_buff data = {1.0, 1.1, 1.3, 0.9, 1.0, 0.9, 0.8};
 
@@ -120,7 +120,7 @@ real r = sample_correlation_coefficient(X, Y);
 
 ```
 
-Many probability distribution functions are implemented in `distributions.h` and can be used through the `distribution` namespace. These include Gaussian, Binomial, Log-Normal, Poisson, Bernoulli, Cauchy and Breit Wigner.
+Many probability distribution functions are implemented in `statistics/distributions.h` and can be used through the `distribution` namespace. These include Gaussian, Binomial, Log-Normal, Poisson, Bernoulli, Cauchy and Breit Wigner.
 ```c
 real x1 = distribution::gaussian(1, 2.1, 0.7);
 real x2 = distribution::binomial(1, 3, 0.75);
