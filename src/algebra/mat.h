@@ -5,6 +5,7 @@
 #include "../real_analysis.h"
 #include "./vec.h"
 
+
 namespace uroboro {
 
 	// KxN matrix implementation

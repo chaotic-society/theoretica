@@ -263,7 +263,7 @@ namespace uroboro {
 
 	// Compute the distance between two points
 	template<unsigned int N, typename T>
-	real distance(vec<N, T> v1, vec<N, T> v2) {
+	T distance(vec<N, T> v1, vec<N, T> v2) {
 		return (v1 - v2).lenght();
 	}
 
@@ -289,8 +289,14 @@ namespace uroboro {
 
 
 	// Compute the cross product of two vectors
-	vec3 cross(vec3 v1, vec3 v2) {
-		return v1.cross(v2);
+	vec3 cross(const vec3& v1, const vec3& v2) {
+		vec3 res;
+
+		res.data[0] = v1.data[1] * v2.data[2] - v1.data[2] * v2.data[1];
+		res.data[1] = v1.data[2] * v2.data[0] - v1.data[0] * v2.data[2];
+		res.data[2] = v1.data[0] * v2.data[1] - v1.data[1] * v2.data[0];
+
+		return res;
 	}
 
 }

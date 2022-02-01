@@ -76,6 +76,9 @@ namespace uroboro {
 			}
 
 
+			// TO-DO +=, *= ... operators
+
+
 			// Transform a phasor to a complex number
 			complex to_complex() const {
 				return complex(

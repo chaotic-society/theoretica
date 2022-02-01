@@ -9,16 +9,6 @@
 namespace uroboro {
 
 
-	constexpr real ROOT_APPROX_TOL = 0.00000001;
-
-	constexpr real BISECTION_APPROX_TOL = 0.00000001;
-
-	constexpr unsigned int MAX_BISECTION_ITER = 100;
-	constexpr unsigned int MAX_NEWTON_ITER = 100;
-	constexpr unsigned int MAX_STEFFENSEN_ITER = 100;
-	constexpr unsigned int MAX_CHEBYSHEV_ITER = 100;
-
-
 	// Root approximation
 
 
@@ -149,6 +139,8 @@ namespace uroboro {
 	// Max & Min approximation
 
 
+	// Approximate a function maximum given the function and the first
+	// two derivatives using Newton-Raphson
 	inline real approx_max_newton(
 		real_function f, real_function Df, real_function D2f,
 		real guess = 0, real dx = 0.01) {
@@ -163,6 +155,8 @@ namespace uroboro {
 	}
 
 
+	// Approximate a function minimum given the function and the first
+	// two derivatives using Newton-Raphson
 	inline real approx_min_newton(
 		real_function f, real_function Df,
 		real_function D2f, real guess = 0) {
@@ -177,6 +171,8 @@ namespace uroboro {
 	}
 
 
+	// Approximate a function maximum inside an interval given
+	// the function and its first derivative using bisection (on the derivative)
 	inline real approx_max_bisection(
 		real_function f, real_function Df,
 		real a, real b) {
@@ -191,6 +187,8 @@ namespace uroboro {
 	}
 
 
+	// Approximate a function minimum inside an interval given
+	// the function and its first derivative using bisection (on the derivative)
 	inline real approx_min_bisection(real_function f, real_function Df, real a, real b) {
 
 		real z = approx_root_bisection(Df, a, b);

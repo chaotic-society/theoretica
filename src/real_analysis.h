@@ -22,16 +22,66 @@ namespace uroboro {
 	// Compute the square root of x using x86 Assembly instructions
 	inline real sqrt(real x) {
 
-		#ifdef MSVC_ASM
+#ifdef UROBORO_X86
+
+	#ifdef MSVC_ASM
 		__asm {
 			fld x
 			fsqrt
 		}
-		#else
+	#else
 		asm("fsqrt" : "+t"(x));
-		#endif
+	#endif
 
 		return x;
+#else
+
+		if(x < 1) {
+
+			// Approximate sqrt(x) between 0 and 1
+
+		}
+
+		// Approximate sqrt(x) using Newton-Raphson
+
+		real y = x;
+		int i = 0;
+
+		while((square(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+			y = y - (y / 2.0) + (x / (y * 2.0));
+			i++;
+		}
+
+		return y;
+#endif
+
+	}
+
+
+	// Compute the cubic root of x using x86 Assembly instructions
+	inline real cbrt(real x) {
+
+		// cbrt(x) is odd
+		if(x < 0)
+			return -cbrt(-x);
+
+		if(x < 1) {
+
+			// Approximate cbrt between 0 and 1
+
+		}
+
+		// Approximate cbrt(x) using Newton-Raphson
+
+		real y = x;
+		int i = 0;
+
+		while((cube(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+			y = (y * 2.0 + x / (y * y)) / 3.0;
+			i++;
+		}
+
+		return y;
 	}
 
 
@@ -44,7 +94,7 @@ namespace uroboro {
 		__asm {
 			fld x
 			fabs
-		}	
+		}
 	#else
 		asm("fabs" : "+t"(x));
 	#endif
@@ -90,7 +140,7 @@ namespace uroboro {
 
 #ifdef UROBORO_FORCE_BRANCHLESS
 
-		// The branchless version might be slower or equal
+		// The branchless implementation might be slower or equal
 		// on most compilers
 		return min(max(x, a), b);
 #else
@@ -190,9 +240,6 @@ namespace uroboro {
 	}
 
 
-	constexpr real POW_APPROXIMATION_TOLERANCE = 0.00000001;
-
-
 	// Approximate e^x using x86 Assembly instructions
 	// Works only for positive <x>
 	inline real exp_approx(real x) {
@@ -238,12 +285,12 @@ namespace uroboro {
 
 	int x_floor = abs(int(x - 0.5));
 	real x_fract = abs(x - x_floor);
-	real x_int_pwr = pow(x, x_floor);
+	real x_int_pwr = pow(E, x_floor);
 	
 	real res = 1;
 
 	for (int i = 1; i < TAYLOR_ORDER; ++i) {
-		res += pow(x, i) / static_cast<real>(fact(i));
+		res += pow(x_fract, i) / static_cast<real>(fact(i));
 	}
 
 	return x_int_pwr * res;
@@ -356,9 +403,7 @@ namespace uroboro {
 		return s / c;
 
 #else
-
 		return sin(x) / cos(x);
-
 #endif
 	}
 
@@ -381,9 +426,7 @@ namespace uroboro {
 		return c / s;
 
 #else
-
 		return cos(x) / sin(x);
-
 #endif
 	}
 

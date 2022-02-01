@@ -6,8 +6,6 @@
 
 namespace uroboro {
 
-	constexpr real DERIV_PREC = 100000.0;
-
 
 	// Derivate a polynomial
 	polynomial differentiate_polynomial(polynomial p) {

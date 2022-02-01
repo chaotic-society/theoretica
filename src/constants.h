@@ -1,17 +1,81 @@
 #ifndef UROBORO_CONSTANTS_H
 #define UROBORO_CONSTANTS_H
 
-// TO-DO bigfloat arbitrary precision
 
-#ifdef UROBORO_LONG_DOUBLE_PREC
-using real = long double;
-#elif defined(UROBORO_FLOAT_PREC)
-using real = float;
-#else
-using real = double;
+// Order of Taylor series approximations
+#ifndef UROBORO_TAYLOR_ORDER
+#define UROBORO_TAYLOR_ORDER 7
 #endif
 
+// Relative precision for derivative approximation
+#ifndef UROBORO_DERIV_PREC
+#define UROBORO_DERIV_PREC 100000.0
+#endif
+
+// Default number of steps for integral approximation
+#ifndef UROBORO_INTEGRATION_STEPS
+#define UROBORO_INTEGRATION_STEPS 100
+#endif
+
+// Biggest fractional part to ignore in powf computation
+#ifndef UROBORO_POW_APPROXIMATION_TOLERANCE
+#define UROBORO_POW_APPROXIMATION_TOLERANCE 0.00000001
+#endif
+	
+// Approximation tolerance for root finding
+#ifndef UROBORO_ROOT_APPROX_TOL
+#define UROBORO_ROOT_APPROX_TOL 0.00000001
+#endif
+
+// Approximation tolerance for bisection root finding
+#ifndef UROBORO_BISECTION_APPROX_TOL
+#define UROBORO_BISECTION_APPROX_TOL 0.00000001
+#endif
+
+// Maximum number of iterations for bisection
+#ifndef UROBORO_MAX_BISECTION_ITER
+#define UROBORO_MAX_BISECTION_ITER 100
+#endif
+
+// Maximum number of iterations for Newton-Raphson
+#ifndef UROBORO_MAX_NEWTON_ITER
+#define UROBORO_MAX_NEWTON_ITER 100
+#endif
+
+// Maximum number of iterations for Steffensen
+#ifndef UROBORO_MAX_STEFFENSEN_ITER
+#define UROBORO_MAX_STEFFENSEN_ITER 100
+#endif
+
+// Maximum number of iterations for Chebyshev
+#ifndef UROBORO_MAX_CHEBYSHEV_ITER
+#define UROBORO_MAX_CHEBYSHEV_ITER 100
+#endif
+
+
 namespace uroboro {
+
+
+	// Real number type
+
+#ifdef UROBORO_LONG_DOUBLE_PREC
+
+	using real = long double;
+
+#elif defined(UROBORO_FLOAT_PREC)
+
+	using real = float;
+
+#elif defined(UROBORO_ARBITRARY_PREC)
+
+// TO-DO bigfloat arbitrary precision
+
+#else
+
+	using real = double;
+
+#endif
+
 
 	// PI constant.
 	constexpr real PI = 3.141592653589793238462643;
@@ -65,7 +129,34 @@ namespace uroboro {
 	constexpr real INVSQR2 = 0.707106781187;
 
 	// Order of Taylor series approximations
-	constexpr int TAYLOR_ORDER = 7;
+	constexpr int TAYLOR_ORDER = UROBORO_TAYLOR_ORDER;
+
+	// Default number of steps for integral approximation
+	constexpr int INTEGRATION_STEPS = UROBORO_INTEGRATION_STEPS;
+
+	// Relative precision for derivative approximation
+	constexpr real DERIV_PREC = UROBORO_DERIV_PREC;
+
+	// Biggest fractional part to ignore in powf computation
+	constexpr real POW_APPROXIMATION_TOLERANCE = UROBORO_POW_APPROXIMATION_TOLERANCE;
+
+	// Approximation tolerance for root finding
+	constexpr real ROOT_APPROX_TOL = UROBORO_ROOT_APPROX_TOL;
+
+	// Approximation tolerance for bisection root finding
+	constexpr real BISECTION_APPROX_TOL = UROBORO_BISECTION_APPROX_TOL;
+
+	// Maximum number of iterations for bisection
+	constexpr unsigned int MAX_BISECTION_ITER = UROBORO_MAX_BISECTION_ITER;
+
+	// Maximum number of iterations for Newton-Raphson
+	constexpr unsigned int MAX_NEWTON_ITER = UROBORO_MAX_NEWTON_ITER;
+
+	// Maximum number of iterations for Steffensen
+	constexpr unsigned int MAX_STEFFENSEN_ITER = UROBORO_MAX_STEFFENSEN_ITER;
+
+	// Maximum number of iterations for Chebyshev
+	constexpr unsigned int MAX_CHEBYSHEV_ITER = UROBORO_MAX_CHEBYSHEV_ITER;
 
 }
 

@@ -159,7 +159,7 @@ namespace  uroboro {
 			// Construct a complex number representing a rotation
 			// of <rad> radians in 2 dimensions
 			inline static complex rotor(real rad) {
-				return complex(uroboro::cos(rad), uroboro::sin(rad));
+				return complex(cos(rad), sin(rad));
 			}
 
 	};

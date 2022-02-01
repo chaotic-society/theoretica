@@ -25,7 +25,8 @@ namespace uroboro {
 
 	// Approximate the definite integral of an arbitrary function
 	// using the midpoint method
-	real approx_integral_midpoint(real_function f, real a, real b, unsigned int steps = 100) {
+	real approx_integral_midpoint(real_function f, real a, real b,
+		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
 		real res = 0;
@@ -40,7 +41,8 @@ namespace uroboro {
 
 	// Approximate the definite integral of an arbitrary function
 	// using the trapezoid method
-	real approx_integral_trapezoid(real_function f, real a, real b, unsigned int steps = 100) {
+	real approx_integral_trapezoid(real_function f, real a, real b,
+		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
 		real res = 0;
@@ -59,7 +61,7 @@ namespace uroboro {
 
 	// Approximate the definite integral of an arbitrary function
 	// using Simpson's method
-	real approx_integral_simpson(real_function f, real a, real b, unsigned int steps = 100) {
+	real approx_integral_simpson(real_function f, real a, real b, unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / (real) steps;
 		real res = 0;
@@ -80,7 +82,7 @@ namespace uroboro {
 
 
 	// TO-DO Romberg integration
-
+	
 	// TO-DO Monte Carlo integration
 
 

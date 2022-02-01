@@ -7,6 +7,7 @@
 
 namespace uroboro {
 
+	// A polynomial of arbitrary order with real coefficients
 	class polynomial {
 		public:
 			vec_buff coeff;
@@ -61,7 +62,7 @@ namespace uroboro {
 			}
 
 
-			// Find the true order of the polynomial (without counting null coefficients)
+			// Find the true order of the polynomial (ignoring null coefficients)
 			inline int find_order() const {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
