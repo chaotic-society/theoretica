@@ -19,7 +19,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the square root of x using x86 Assembly instructions
+	// Compute the square root of x
 	inline real sqrt(real x) {
 
 #ifdef UROBORO_X86
@@ -36,10 +36,14 @@ namespace uroboro {
 		return x;
 #else
 
+		if(x == 0)
+			return 0;
+
 		if(x < 1) {
-
 			// Approximate sqrt(x) between 0 and 1
-
+			// The root of the inverse is the inverse of the root
+			// !!! Possible precision problems with smaller numbers
+			return 1.0 / sqrt(1.0 / x);
 		}
 
 		// Approximate sqrt(x) using Newton-Raphson
@@ -58,17 +62,21 @@ namespace uroboro {
 	}
 
 
-	// Compute the cubic root of x using x86 Assembly instructions
+	// Compute the cubic root of x
 	inline real cbrt(real x) {
+
+		if(x == 0)
+			return 0;
 
 		// cbrt(x) is odd
 		if(x < 0)
 			return -cbrt(-x);
 
 		if(x < 1) {
-
 			// Approximate cbrt between 0 and 1
-
+			// The root of the inverse is the inverse of the root
+			// !!! Possible precision problems with smaller numbers
+			return 1.0 / cbrt(1.0 / x);
 		}
 
 		// Approximate cbrt(x) using Newton-Raphson
@@ -85,7 +93,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the absolute value of x using x86 Assembly instructions
+	// Compute the absolute value of x
 	inline real abs(real x) {
 
 #ifdef UROBORO_X86
@@ -189,25 +197,25 @@ namespace uroboro {
 
 #endif
 
-	// Compute log2(x) using x86 Assembly instructions
+	// Compute the binary logarithm of x
 	inline real log2(real x) {
 		return fyl2x(x, 1.0);
 	}
 
 
-	// Compute log10(x) using x86 Assembly instructions
+	// Compute the base-10 logarithm of x
 	inline real log10(real x) {
 		return fyl2x(x, 1.0 / LOG210);
 	}
 
 
-	// Compute ln(x) using x86 Assembly instructions
+	// Compute the natural logarithm of x
 	inline real ln(real x) {
 		return fyl2x(x, 1.0 / LOG2E);
 	}
 
 
-	// Compute x^n (where n is natural) using iteration
+	// Compute the n-th power of x (where n is natural)
 	inline real pow(real x, int n) {
 
 		real res;
@@ -240,6 +248,8 @@ namespace uroboro {
 	}
 
 
+#ifdef UROBORO_X86
+
 	// Approximate e^x using x86 Assembly instructions
 	// Works only for positive <x>
 	inline real exp_approx(real x) {
@@ -269,18 +279,17 @@ namespace uroboro {
 			exp_approx(fyl2x(x, a_fract / LOG2E)) : 1);
 	}
 
+#endif
+
 
 	// Compute e^x
 	inline real exp(real x) {
 
 #ifdef UROBORO_X86
-
 		return powf_approx(E, x);
-
 #else
 
 	// Taylor series expansion
-
 	// Compute e^floor(x) * e^fract(x)
 
 	int x_floor = abs(int(x - 0.5));
@@ -327,7 +336,6 @@ namespace uroboro {
 		real res = 0;
 
 		// Taylor series expansion
-
 		// sin(x) = sum( (-1)^i * x^(2i+1) / (2i+1)! )
 
 		for (int i = 0; i < TAYLOR_ORDER; ++i) {
@@ -337,7 +345,6 @@ namespace uroboro {
 		}
 
 		return res;
-
 #endif
 	}
 
@@ -370,7 +377,6 @@ namespace uroboro {
 		real res = 0;
 
 		// Taylor series expansion
-
 		// sin(x) = sum( (-1)^i * x^(2i) / (2i)! )
 
 		for (int i = 0; i < TAYLOR_ORDER; ++i) {
@@ -380,7 +386,6 @@ namespace uroboro {
 		}
 
 		return res;
-
 #endif
 	}
 

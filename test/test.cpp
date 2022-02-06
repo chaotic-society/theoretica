@@ -154,7 +154,7 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::sqrt(2), std::sqrt(2.0), 2);
 		test_tolr(umath::sqrt(9), 3, 9);
 
-		// test_tolr_interval(umath::sqrt, std::sqrt, 0, 1);
+		test_tolr_interval(umath::sqrt, std::sqrt, 0, 1, TOLERANCE, 100000);
 		test_tolr_interval(umath::sqrt, std::sqrt, 0, 1000);
 		test_tolr_interval(umath::sqrt, std::sqrt, 0, 10000);
 		test_tolr_interval(umath::sqrt, std::sqrt, 0, 100000);
@@ -170,7 +170,7 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::cbrt(2), std::cbrt(2.0), 2);
 		test_tolr(umath::cbrt(27), 3, 27);
 
-		// test_tolr_interval(umath::cbrt, std::cbrt, 0, 1);
+		test_tolr_interval(umath::cbrt, std::cbrt, 0, 1, TOLERANCE, 100000);
 		test_tolr_interval(umath::cbrt, std::cbrt, 0, 1000);
 		test_tolr_interval(umath::cbrt, std::cbrt, 0, 10000);
 		test_tolr_interval(umath::cbrt, std::cbrt, 0, 100000);
