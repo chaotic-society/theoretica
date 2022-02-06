@@ -5,7 +5,7 @@ A general purpose mathematical header-only library in C++ intended for graphical
 Matrices are column-first, for direct use in OpenGL.
 
 ## How to use
-Include `uroboro.h` and to be able to use `vec<N>` and `mat<N, K>` classes.
+Include `uroboro.h` to be able to use common real functions, the `vec<N>` and `mat<N, K>` classes.
 All functions and classes are defined inside the `uroboro` namespace (and the `umath` alias if `UROBORO_NO_NAMESPACE` is _not_ defined).
 
 Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` to automatically include all header files, otherwise only basic functionality will be included (vectors, matrices, complex numbers and common functions).
