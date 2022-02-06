@@ -264,6 +264,76 @@ namespace uroboro {
 			return true;
 		}
 
+
+		// Compute the trace (sum of elements on the diagonal) of a square matrix
+		inline real trace() {
+
+			if(!is_square())
+				// throw ...
+				return 0;
+
+			real res = 0;
+
+			for (int i = 0; i < N; ++i)
+				res += data[i][i];
+
+			return res;
+		}
+
+
+		// Return the determinant if the matrix is 2x2 (no error checking)
+		inline real det_2x2() {
+			return data[0][0] * data[1][1] - data[0][1] * data[1][0];
+		}
+
+
+		// Return the determinant if the matrix is 3x3 (no error checking)
+		inline real det_3x3() {
+			return	data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) +
+					data[1][0] * (data[0][1] * data[2][2] - data[1][2] * data[2][1]) +
+					data[2][0] * (data[0][1] * data[1][2] - data[0][2] * data[1][1]);
+		}
+
+
+		// Return the determinant of the submatrix obtained by deleting the <row_i - 1> row
+		// and the <del_col> column
+		inline real det_submatrix(int column_i, int row_i, int del_col) {
+
+			// TO-DO
+
+			return 0;
+		}
+
+
+
+		inline real det() {
+
+			if(!is_square())
+				// throw ...
+				return 0;
+
+			if(N == 2 && K == 2)
+				return det_2x2();
+
+			if(N == 3 && K == 3)
+				return det_3x3();
+
+			real res = 0;
+			real sgn = 1;
+
+			for (int i = 0; i < N; ++i) {
+				sgn *= -1;
+				res += sgn *
+					det_submatrix(0, 1, i);
+			}
+
+			return res;
+		}
+
+
+
+		// Transformation matrices
+
 		// Get the identity matrix
 		inline static mat<N, K> identity() {
 			return mat<N, K>(1.0);
