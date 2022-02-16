@@ -127,3 +127,18 @@ real x1 = distribution::gaussian(1, 2.1, 0.7);
 real x2 = distribution::binomial(1, 3, 0.75);
 real x3 = distribution::poisson(2, 3);
 ```
+
+## Macros
+These are the macros that can be defined to change the library's behaviour:
+- **UROBORO_INCLUDE_ALL** - Including `uroboro.h` will include _all_ header files
+- **UROBORO_BRANCHLESS** - Branchless implementations will be preferred when possible (and computationally convenient)
+- **UROBORO_FORCE_BRANCHLESS** - Branchless implementations will always be used whenever possible
+- **UROBORO_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
+- **UROBORO_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
+- **UROBORO_NO_NAMESPACE** - The `umath` namespace alias will not be defined
+- **UROBORO_X86** - Assembly x86 implementations will be used whenever possible
+- **UROBORO_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
+- **UROBORO_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
+- **UROBORO_ARBITRARY_PREC** - Arbitrary precision will be used
+- See `constants.h` for more specific defines
+
