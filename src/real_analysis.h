@@ -36,10 +36,11 @@ namespace uroboro {
 		return x;
 #else
 
-		if(x == 0)
-			return 0;
-
 		if(x < 1) {
+
+			if(x == 0)
+				return 0;
+
 			// Approximate sqrt(x) between 0 and 1
 			// The root of the inverse is the inverse of the root
 			// !!! Possible precision problems with smaller numbers
@@ -65,14 +66,15 @@ namespace uroboro {
 	// Compute the cubic root of x
 	inline real cbrt(real x) {
 
-		if(x == 0)
-			return 0;
-
-		// cbrt(x) is odd
-		if(x < 0)
-			return -cbrt(-x);
-
 		if(x < 1) {
+
+			if(x == 0)
+				return 0;
+
+			// cbrt(x) is odd
+			if(x < 0)
+				return -cbrt(-x);
+
 			// Approximate cbrt between 0 and 1
 			// The root of the inverse is the inverse of the root
 			// !!! Possible precision problems with smaller numbers
@@ -234,6 +236,41 @@ namespace uroboro {
 			return 1.0;
 
 		return res;
+	}
+
+
+	// Compute the n-th root of x
+	inline real root(real x, int n) {
+
+		if(n % 2 == 0 && x < 0 || n == 0)
+			// throw ...
+			return 0;
+
+		if(n < 0)
+			return 1.0 / root(x, -n);
+
+		if(x < 1) {
+
+			if(x == 0)
+				return 0;
+
+			// Approximate root between 0 and 1
+			// The root of the inverse is the inverse of the root
+			// !!! Possible precision problems with smaller numbers
+			return 1.0 / root(1.0 / x, n);
+		}
+
+		// Approximate n-th root using Newton-Raphson
+
+		real y = x;
+		int i = 0;
+
+		while((pow(y, n) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+			y = (y * (n - 1) + x / pow(y, n - 1)) / (real) n;
+			i++;
+		}
+
+		return y;
 	}
 
 

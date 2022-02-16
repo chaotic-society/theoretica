@@ -59,11 +59,7 @@ namespace uroboro {
 	// Quadratic Bezier curve
 	template<unsigned int N>
 	inline vec<N> quadratic_bezier(vec<N> P0, vec<N> P1, vec<N> P2, real t) {
-
-		vec<N> A = lerp(P0, P1, t);
-		vec<N> B = lerp(P1, P2, t);
-
-		return lerp(A, B, t);
+		return lerp(lerp(P0, P1, t), lerp(P1, P2, t), t);
 	}
 
 
