@@ -2,7 +2,8 @@
 # Uroboro
 A general purpose mathematical header-only library in C++ intended for graphical and physical simulations. Includes approximations of common math functions with Assembly enhancements, vector and matrix calculations, as well as complex numbers, quaternions and statistical functions (see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for more).
 
-Matrices are column-first, for direct use in OpenGL.
+Matrices are implemented column-first, for direct use in OpenGL.
+See [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md) for a list of the features of the library and [PROJECT_STRUCTURE.md](https://github.com/mattiaisgro/uroboro/blob/master/PROJECT_STRUCTURE.md) for an overview of the project file structure.
 
 ## How to use
 Include `uroboro.h` to be able to use common real functions, the `vec<N>` and `mat<N, K>` classes.
