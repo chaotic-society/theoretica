@@ -133,7 +133,69 @@ namespace  uroboro {
 				return complex(a / r, b / r);
 			}
 
-			// operator += -= *= /= ...
+
+			// Sum a real number to this complex number
+			inline complex& operator+=(real r) {
+
+				a += r;
+				return *this;
+			}
+
+			// Subtract a real number from this one
+			inline complex& operator-=(const complex& other) {
+
+				a -= other.a;
+				b -= other.b;
+				return *this;
+			}
+
+			// Subtract a real number from this complex number
+			inline complex& operator-=(real r) {
+
+				a -= r;
+				return *this;
+			}
+
+			// Multiply this complex number by another one
+			inline complex& operator*=(const complex& other) {
+
+				a = (a * other.a) - (b * other.b);
+				b = (a * other.b) + (b * other.a);
+				return *this;
+			}
+
+			// Multiply this complex number by a real number
+			inline complex& operator*=(real r) {
+
+				a *= r;
+				b *= r;
+				return *this;
+			}
+
+			// Divide this complex number by another one
+			inline complex& operator/=(const complex& other) {
+
+				real m = other.square_modulus();
+				a = (a * other.a + b * other.b) / m;
+				b = (b * other.a - a * other.b) / m;
+				return *this;
+			}
+
+			// Divide a complex number by a real number
+			inline complex& operator/=(real r) {
+
+				if(r == 0) {
+					// throw ...
+					a = 0;
+					b = 0;
+				}
+
+				a /= r;
+				b /= r;
+
+				return *this;
+			}
+
 
 			// Check whether two complex numbers have the same
 			// real and imaginary parts
@@ -141,7 +203,8 @@ namespace  uroboro {
 				return (a == other.a) && (b == other.b);
 			}
 
-			// Concert a complex number to a vector
+
+			// Convert a complex number to a vector
 			inline vec2 to_vec() const {
 				vec2 res;
 				res.data[0] = a;
@@ -160,6 +223,11 @@ namespace  uroboro {
 			// of <rad> radians in 2 dimensions
 			inline static complex rotor(real rad) {
 				return complex(cos(rad), sin(rad));
+			}
+
+
+			inline static complex i() {
+				return complex(0, 1);
 			}
 
 	};

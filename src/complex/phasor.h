@@ -2,9 +2,12 @@
 #define UROBORO_PHASOR
 
 #include "../real_analysis.h"
+#include "./complex.h"
+
 
 namespace uroboro {
 
+	// Complex number in exponential (modulus * e^(i * phase))
 	class phasor {
 		public:
 
@@ -76,7 +79,52 @@ namespace uroboro {
 			}
 
 
-			// TO-DO +=, *= ... operators
+			// Add a phasor to this one
+			inline phasor& operator+=(const phasor& other) {
+
+				if(phase == other.phase)
+					modulus += other.modulus;
+				else
+					*this = phasor(to_complex() + other.to_complex());
+
+				return *this;
+			}
+
+
+			// Subtract a phasor from this one
+			inline phasor& operator-=(const phasor& other) {
+
+				if(phase == other.phase)
+					modulus -= other.modulus;
+				else
+					*this = phasor(to_complex() - other.to_complex());
+
+				return *this;
+			}
+
+
+			// Multiply this phasor by another one
+			inline phasor& operator*=(const phasor& other) {
+
+				modulus *= other.modulus;
+				phase += other.phase;
+
+				return *this;
+			}
+
+
+			// Divide this phasor by another one
+			inline phasor& operator/=(const phasor& other) {
+
+				if(other.modulus == 0)
+					// throw ...
+					*this = phasor(0, 0);
+
+				modulus /= other.modulus;
+				phase -= other.phase;
+
+				return *this;
+			}
 
 
 			// Transform a phasor to a complex number

@@ -6,8 +6,7 @@
 
 namespace uroboro {
 
-	// Quaternion
-	// In the form (a + bi + cj + dk)
+	// Quaternion in the form (a + bi + cj + dk)
 	// As (a + v) [real + vec3]
 	class quat {
 		public:
@@ -74,32 +73,83 @@ namespace uroboro {
 
 			// Operators
 
-			inline quat operator*(real scalar) {
+			// Multiply a quaternion by a scalar value
+			inline quat operator*(real scalar) const {
 				return quat(a * scalar, v * scalar);
 			}
 
-			inline quat operator/(real scalar) {
+			// Divide a quaternion by a scalar value
+			inline quat operator/(real scalar) const {
 				return quat(a / scalar, v / scalar);
 			}
 
+			// Add two quaternions
 			inline quat operator+(const quat& other) const {
 				return quat(a + other.a, v + other.v);
 			}
 
+			// Subtract two quaternions
 			inline quat operator-(const quat& other) const {
 				return quat(a - other.a, v - other.v);
 			}
 
+			// Multiply two quaternions
 			inline quat operator*(const quat& other) const {
 				return quat((a * other.a) - (v * other.v),
 							(other.v * a) + (v * other.a) + v.cross(other.v));
 			}
 
-			inline quat operator/(const quat& other) {
+			// Divide two quaternions
+			inline quat operator/(const quat& other) const {
 				return operator*(other.inverse());
 			}
 
-			// TO-DO +=, *= ... operators
+
+			// Multiply this quaternion by a scalar value
+			inline quat& operator*=(real scalar) {
+
+				a *= scalar;
+				v *= scalar;
+				return *this;
+			}
+
+			// Divide this quaternion by a scalar value
+			inline quat& operator/=(real scalar) {
+
+				a /= scalar;
+				v /= scalar;
+				return *this;
+			}
+
+			// Add a quaternion to this one
+			inline quat& operator+=(const quat& other) {
+
+				a += other.a;
+				v += other.v;
+				return *this;
+			}
+
+			// Subtract a quaternion to this one
+			inline quat& operator-=(const quat& other) {
+
+				a -= other.a;
+				v -= other.v;
+				return *this;
+			}
+
+			// Multiply this quaternion by another one
+			inline quat& operator*=(const quat& other) {
+
+				a = (a * other.a) - (v * other.v);
+				v = (other.v * a) + (v * other.a) + v.cross(other.v);
+				return *this;
+			}
+
+			// Divide this quaternion by another one
+			inline quat& operator/=(const quat& other) {
+				return operator*=(other.inverse());
+			}
+
 
 			// Normalize the quaternion
 			inline void normalize() {
@@ -118,6 +168,7 @@ namespace uroboro {
 			inline quat inverse() const {
 				return conjugate() / square_norm();
 			}
+
 
 			// Convert a quaternion to a vector in the form
 			// (a, b, c, d)
