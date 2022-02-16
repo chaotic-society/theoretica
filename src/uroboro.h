@@ -1,6 +1,8 @@
 #ifndef UROBORO_H
 #define UROBORO_H
 
+#include "./constants.h"
+#include "./error.h"
 #include "./real_analysis.h"
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"

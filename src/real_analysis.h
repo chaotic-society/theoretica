@@ -2,6 +2,7 @@
 #define UROBORO_COMMON_H
 
 #include "./constants.h"
+#include "./error.h"
 
 
 namespace uroboro {
@@ -21,6 +22,10 @@ namespace uroboro {
 
 	// Compute the square root of x
 	inline real sqrt(real x) {
+
+		if(x < 0) {
+			UMATH_ERROR_R("sqrt", x, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+		}
 
 #ifdef UROBORO_X86
 
@@ -242,9 +247,9 @@ namespace uroboro {
 	// Compute the n-th root of x
 	inline real root(real x, int n) {
 
-		if(n % 2 == 0 && x < 0 || n == 0)
-			// throw ...
-			return 0;
+		if(n % 2 == 0 && x < 0 || n == 0) {
+			UMATH_ERROR_R("root", n, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+		}
 
 		if(n < 0)
 			return 1.0 / root(x, -n);
@@ -516,9 +521,14 @@ namespace uroboro {
 	// Compute the 2 argument arctangent
 	inline real atan2(real y, real x) {
 
-		if(x == 0)
+		if(x == 0) {
+
+			if(y == 0) {
+				UMATH_ERROR("atan2", y, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			}
+
 			return sgn(y) * PI2;
-			// throw y == 0 ...
+		}
 
 		return atan(y / x) - clamp(sgn(x), -1, 0) * PI * sgn(y);
 	}
@@ -546,9 +556,10 @@ namespace uroboro {
 	// Compute the binomial coefficient
 	inline long long binomial_coeff(unsigned int n, unsigned int m) {
 
-		if(n < m)
-			// throw...
+		if(n < m) {
+			UMATH_ERROR("binomial_coeff", n, EDOM, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
 			return 0;
+		}
 
 		long long res = 1;
 
