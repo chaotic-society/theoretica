@@ -5,6 +5,7 @@
 #include "../algebra/vec.h"
 #include <array>
 
+
 namespace  uroboro {
 
 	// Complex number in algebraic form (a + ib)
@@ -188,6 +189,7 @@ namespace  uroboro {
 					// throw ...
 					a = 0;
 					b = 0;
+					return *this;
 				}
 
 				a /= r;
@@ -216,6 +218,18 @@ namespace  uroboro {
 			inline void from_vec(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
+			}
+
+
+			// Convert a complex number to matrix form
+			inline mat2 to_mat() const {
+
+				mat2 m;
+				m[0][0] = a;
+				m[0][1] = -b;
+				m[1][0] = a;
+				m[1][1] = b;
+				return m;
 			}
 
 
