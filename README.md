@@ -18,6 +18,7 @@ Define `UROBORO_INCLUDE_ALL` before including `uroboro.h` to automatically inclu
 - Complex numbers (with common complex functions), Quaternions and Phasors
 - Wide range of statistical functions (including least squares linearization)
 - Approximation of roots and extrema
+- Automatic differentiation (using dual numbers)
 - Derivative and integral approximations (including Runge-Kutta of 4th order)
 - Interpolation between points (Linear interpolation, Bezier)
 
