@@ -3,17 +3,32 @@
 using namespace umath;
 
 
+dual f(dual x) {
+	return sqrt(abs(ln(sin(x) + 1) * pow(cos(square(x)), 3)));
+}
+
+
 int main(int argc, char const *argv[]) {
 
+	std::cout.precision(12);
+
+	// Automatic differentiation
+	std::cout << "Automatic differentiation" << std::endl;
+	dual d = dual(3, 1);
+	std::cout << f(d).Re() << std::endl;
+	std::cout << f(d).Dual() << std::endl;
+	std::cout << std::endl;
 
 	// Integral approximation
 	std::cout << "Integral approximation" << std::endl;
 	std::cout << approx_integral_midpoint(umath::square, 0, 3) << std::endl;
 	std::cout << approx_integral_trapezoid(umath::square, 0, 3) << std::endl;
 	std::cout << approx_integral_simpson(umath::square, 0, 3) << std::endl;
+	std::cout << std::endl;
 
 	std::cout << "Derivative approximation" << std::endl;
 	std::cout << approx_derivative(square, 4) << std::endl;
+	std::cout << std::endl;
 
 	// Polynomials
 	std::cout << "Polynomials\n" << std::endl;
@@ -91,19 +106,19 @@ int main(int argc, char const *argv[]) {
 	// Complex functions
 	std::cout << "Complex functions\n" << std::endl;
 	std::cout << "sqrt(1, 1) = ";
-	print_complex(sqrt({1, 1}));
+	print_complex(sqrt(z + w));
 
 	std::cout << "exp(1, 1) = ";
-	print_complex(exp({1, 1}));
+	print_complex(exp(z + w));
 
 	std::cout << "sin(1, 1) = ";
-	print_complex(sin({1, 1}));
+	print_complex(sin(z + w));
 
 	std::cout << "cos(1, 1) = ";
-	print_complex(cos({1, 1}));
+	print_complex(cos(z + w));
 
 	std::cout << "tan(1, 1) = ";
-	print_complex(tan({1, 1}));
+	print_complex(tan(z + w));
 	std::cout << std::endl;
 
 
