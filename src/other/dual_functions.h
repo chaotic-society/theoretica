@@ -42,36 +42,75 @@ namespace uroboro {
 	}
 
 
+	// Compute the sine of a dual number
 	dual sin(dual x) {
 		return dual(sin(x.Re()), cos(x.Re()) * x.Dual());
 	}
 
 
+	// Compute the cosine of a dual number
 	dual cos(dual x) {
 		return dual(cos(x.Re()), -sin(x.Re()) * x.Dual());
 	}
 
 
+	// Compute the tangent of a dual number
 	dual tan(dual x) {
 		return dual(tan(x.Re()), x.Dual() / square(cos(x.Re())));
 	}
 
 
+	// Compute the cotangent of a dual number
+	dual cot(dual x) {
+		return dual(cot(x.Re()), -x.Dual() / square(sin(x.Re())));
+	}
+
+
+	// Compute the exponential of a dual number
 	dual exp(dual x) {
 		return dual(exp(x.Re()), x.Dual() * exp(x.Re()));
 	}
 
 
+	// Compute the natural logarithm of a dual number
 	dual ln(dual x) {
 		return dual(ln(x.Re()), x.Dual() / x.Re());
 	}
 
 
+	// Compute the natural logarithm of a dual number
+	dual log2(dual x) {
+		return dual(log2(x.Re()), x.Dual() * log2(E) / x.Re());
+	}
+
+
+	// Compute the natural logarithm of a dual number
+	dual log10(dual x) {
+		return dual(log10(x.Re()), x.Dual() * log10(E) / x.Re());
+	}
+
+
+	// Compute the absolute value of a dual number
 	dual abs(dual x) {
 		return dual(abs(x.Re()), x.Dual() * sgn(x.Re()));
 	}
 
 
+	// Compute the arcsine of a dual number
+	dual asin(dual x) {
+		return dual(asin(x.Re()), x.Dual() / sqrt(1 - square(x.Re())));
+	}
+
+
+	// Compute the arcsine of a dual number
+	dual acos(dual x) {
+		return dual(acos(x.Re()), -x.Dual() / sqrt(1 - square(x.Re())));
+	}
+
+	// Compute the arcsine of a dual number
+	dual atan(dual x) {
+		return dual(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
+	}
 
 }
 

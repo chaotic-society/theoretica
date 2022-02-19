@@ -19,7 +19,7 @@ namespace  uroboro {
 			complex() : a(0), b(0) {}
 
 			// Initialize from two real numbers
-			complex(real r, real i) : a(r), b(i) {}
+			complex(real real_part, real imag_part) : a(real_part), b(imag_part) {}
 
 			// Initialize from a vec2
 			complex(const vec2& v) {
