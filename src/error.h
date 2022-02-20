@@ -47,6 +47,12 @@ namespace uroboro {
 	}
 
 
+	// Return positive infinity
+	inline real inf() {
+		return std::numeric_limits<real>::infinity();
+	}
+
+
 #if defined(UROBORO_THROW_EXCEPTIONS) || defined(UROBORO_ONLY_EXCEPTIONS)
 
 	class MathException : std::exception {

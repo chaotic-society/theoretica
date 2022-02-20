@@ -206,18 +206,54 @@ namespace uroboro {
 
 	// Compute the binary logarithm of x
 	inline real log2(real x) {
+
+		if(x <= 0) {
+
+			if(x == 0) {
+				UMATH_ERROR("log2", x, UMATH_ERRCODE::OUT_OF_RANGE);
+				return -inf();
+			}
+
+			UMATH_ERROR_R("log2", x, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			return nan();
+		}
+
 		return fyl2x(x, 1.0);
 	}
 
 
 	// Compute the base-10 logarithm of x
 	inline real log10(real x) {
+
+		if(x <= 0) {
+
+			if(x == 0) {
+				UMATH_ERROR("log10", x, UMATH_ERRCODE::OUT_OF_RANGE);
+				return -inf();
+			}
+
+			UMATH_ERROR_R("log10", x, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			return nan();
+		}
+
 		return fyl2x(x, 1.0 / LOG210);
 	}
 
 
 	// Compute the natural logarithm of x
 	inline real ln(real x) {
+
+		if(x <= 0) {
+
+			if(x == 0) {
+				UMATH_ERROR("ln", x, UMATH_ERRCODE::OUT_OF_RANGE);
+				return -inf();
+			}
+
+			UMATH_ERROR_R("ln", x, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			return nan();
+		}
+
 		return fyl2x(x, 1.0 / LOG2E);
 	}
 
@@ -436,9 +472,9 @@ namespace uroboro {
 	// Compute the tangent of x
 	inline real tan(real x) {
 
-#ifdef UROBORO_X86
-
 		real s, c;
+
+#ifdef UROBORO_X86
 
 		#ifdef MSVC_ASM
 
@@ -448,20 +484,25 @@ namespace uroboro {
 		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
 		#endif
 
-		return s / c;
-
 #else
-		return sin(x) / cos(x);
+		s = sin(x);
+		c = cos(x);
 #endif
+
+		if(c == 0) {
+			UMATH_ERROR("tan", c, UMATH_ERRCODE::DIV_BY_ZERO);
+		}
+
+		return s / c;
 	}
 
 
 	// Compute the cotangent of x
 	inline real cot(real x) {
 
-#ifdef UROBORO_X86
-
 		real s, c;
+
+#ifdef UROBORO_X86
 
 		#ifdef MSVC_ASM
 
@@ -471,11 +512,16 @@ namespace uroboro {
 		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
 		#endif
 
-		return c / s;
-
 #else
-		return cos(x) / sin(x);
+		s = sin(x);
+		c = cos(x);
 #endif
+
+		if(s == 0) {
+			UMATH_ERROR("cot", s, UMATH_ERRCODE::DIV_BY_ZERO);
+		}
+
+		return c / s;
 	}
 
 
