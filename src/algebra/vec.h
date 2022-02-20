@@ -19,6 +19,12 @@ namespace uroboro {
 
 		vec() = default;
 
+		vec(real a) {
+			for (int i = 0; i < N; ++i) {
+				data[i] = a;
+			}
+		}
+
 		// Copy constructor
 		vec(const vec<N, T>& other) {
 			for (int i = 0; i < N; ++i) {
@@ -37,14 +43,18 @@ namespace uroboro {
 		// Initialize from a list, e.g. {1, 2, 3}
 		vec(std::initializer_list<T> l) {
 
-			if(l.size() != N)
-				// throw ...
+			if(l.size() != N) {
+				UMATH_ERROR("vec::vec(initializer_list<T>)", l.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				// Set all elements to NaN
+				*this = vec<N, T>(nan());
 				return;
+			}
 
 			std::copy(l.begin(), l.end(), &data[0]);
 		}
 
 		~vec() = default;
+
 
 		// Operators
 
@@ -91,6 +101,7 @@ namespace uroboro {
 			return result;
 		}
 
+
 		// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline T dot(const vec<N, T>& other) const {
 
@@ -108,12 +119,14 @@ namespace uroboro {
 			return dot(other);
 		}
 
+
 		// Cross product between vectors
 		inline vec<3> cross(const vec<3>& other) const {
 
-			if(N != 3)
-				//throw ...
-				return vec<3>();
+			if(N != 3) {
+				UMATH_ERROR("vec::cross", N, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				return vec<N, T>(nan());
+			}
 
 			vec<3> res;
 
@@ -174,6 +187,7 @@ namespace uroboro {
 			return m;
 		}
 
+
 		// Alias for square_magnitude()
 		inline real square_lenght() const {
 			return square_magnitude();
@@ -199,13 +213,16 @@ namespace uroboro {
 			data[i] = x;
 		}
 
+
 		// Vector normalization (v / |v|)
 		inline void normalize() {
+
 			real m = magnitude();
 
-			if(m == 0)
-				// throw ...
-				return;
+			if(m == 0) {
+				UMATH_ERROR("vec::normalize", m, UMATH_ERRCODE::DIV_BY_ZERO);
+				*this = vec<N, T>(nan());
+			}
 
 			for (int i = 0; i < N; ++i) {
 				data[i] /= m;
@@ -214,18 +231,21 @@ namespace uroboro {
 
 		// Return the normalized vector (v / |v|)
 		inline vec<N, T> normalized() const {
+
 			vec<N, T> result = vec<N, T>();
 			real m = magnitude();
 
-			if(m == 0)
-				// throw ...
-				return result;
+			if(m == 0) {
+				UMATH_ERROR("vec::normalize", m, UMATH_ERRCODE::DIV_BY_ZERO);
+				return vec<N, T>(nan());
+			}
 
 			for (int i = 0; i < N; ++i)
 				result[i] = data[i] / m;
 
 			return result;
 		}
+
 
 		// Check whether all elements of both vectors are equal
 		inline bool operator==(const vec<N, T>& other) const {

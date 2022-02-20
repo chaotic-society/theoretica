@@ -13,7 +13,7 @@ namespace uroboro {
 
 
 	// Approximate a root of an arbitrary function using bisection
-	// inside a compact interval [a, b]
+	// inside a compact interval [a, b] where f(a) * f(b) < 0
 	inline real approx_root_bisection(real_function f, real a, real b) {
 
 		real x_avg = a;
@@ -21,9 +21,9 @@ namespace uroboro {
 		real x_min = a;
 		real x_max = b;
 
-		int i = 0;
+		int iter = 0;
 
-		while(x_max - x_min > BISECTION_APPROX_TOL && i < MAX_BISECTION_ITER) {
+		while(x_max - x_min > BISECTION_APPROX_TOL && iter <= MAX_BISECTION_ITER) {
 
 			x_avg = (x_max + x_min) / 2.0;
 
@@ -32,7 +32,12 @@ namespace uroboro {
 			else
 				x_max = x_avg;
 
-			++i;
+			++iter;
+		}
+
+		if(iter > MAX_BISECTION_ITER) {
+			UMATH_ERROR("approx_root_bisection", x_avg, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x_avg;
@@ -46,9 +51,14 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
 			x = x - (f(x) / Df(x));
 			iter++;
+		}
+
+		if(iter > MAX_NEWTON_ITER) {
+			UMATH_ERROR("approx_root_newton", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -56,15 +66,20 @@ namespace uroboro {
 
 
 	// Approximate a root of a polynomial using Newthon's method
-	inline real approx_polyn_root_newton(polynomial p, real guess = 0) {
+	inline real approx_polyn_root_newton(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial Dp = differentiate_polynomial(p);
+		polynomial<> Dp = differentiate_polynomial(p);
 		int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_NEWTON_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
 			x = x - (p(x) / Dp(x));
 			iter++;
+		}
+
+		if(iter > MAX_NEWTON_ITER) {
+			UMATH_ERROR("approx_polyn_root_newton", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -78,9 +93,14 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
 			x = x - (f(x) / ((f(x + f(x)) / f(x)) - 1));
 			iter++;
+		}
+
+		if(iter > MAX_STEFFENSEN_ITER) {
+			UMATH_ERROR("approx_root_steffensen", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -88,14 +108,19 @@ namespace uroboro {
 
 
 	// Approximate a root of a polynomial using Steffensen's method
-	inline real approx_polyn_root_steffensen(polynomial p, real guess = 0) {
+	inline real approx_polyn_root_steffensen(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
 		int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_STEFFENSEN_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
 			x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));
 			iter++;
+		}
+
+		if(iter > MAX_STEFFENSEN_ITER) {
+			UMATH_ERROR("approx_polyn_root_steffensen", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -110,9 +135,14 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
 			x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));
 			iter++;
+		}
+
+		if(iter > MAX_CHEBYSHEV_ITER) {
+			UMATH_ERROR("approx_root_chebyshev", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -120,16 +150,21 @@ namespace uroboro {
 
 
 	// Approximate a root of a polynomial using Chebyshev's method
-	inline real approx_polyn_root_chebyshev(polynomial p, real guess = 0) {
+	inline real approx_polyn_root_chebyshev(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial Dp = differentiate_polynomial(p);
-		polynomial D2p = differentiate_polynomial(p);
+		polynomial<> Dp = differentiate_polynomial(p);
+		polynomial<> D2p = differentiate_polynomial(p);
 		int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter < MAX_CHEBYSHEV_ITER) {
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
 			x = x - (p(x) / Dp(x)) - square((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));
 			iter++;
+		}
+
+		if(iter > MAX_CHEBYSHEV_ITER) {
+			UMATH_ERROR("approx_polyn_root_chebyshev", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
 		}
 
 		return x;
@@ -147,11 +182,12 @@ namespace uroboro {
 
 		real z = approx_root_newton(Df, D2f, guess);
 
-		if(D2f(z) < 0)
-			return z;
+		if(D2f(z) > 0) {
+			UMATH_ERROR("approx_max_newton", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
+		}
 
-		// TO-DO throw...
-		return 0;
+		return z;
 	}
 
 
@@ -163,11 +199,12 @@ namespace uroboro {
 
 		real z = approx_root_newton(Df, D2f, guess);
 
-		if(D2f(z) > 0)
-			return z;
+		if(D2f(z) < 0) {
+			UMATH_ERROR("approx_min_newton", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
+		}
 
-		// TO-DO throw...
-		return 0;
+		return z;
 	}
 
 
@@ -179,11 +216,12 @@ namespace uroboro {
 
 		real z = approx_root_bisection(Df, a, b);
 
-		if(approx_derivative(Df, z) < 0)
-			return z;
+		if(approx_derivative(Df, z) > 0) {
+			UMATH_ERROR("approx_max_bisection", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			return nan();
+		}
 
-		// TO-DO throw...
-		return 0;
+		return z;
 	}
 
 
@@ -193,11 +231,12 @@ namespace uroboro {
 
 		real z = approx_root_bisection(Df, a, b);
 
-		if(approx_derivative(Df, z) > 0)
+		if(approx_derivative(Df, z) < 0) {
+			UMATH_ERROR("approx_min_bisection", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
 			return z;
+		}
 
-		// TO-DO throw...
-		return 0;
+		return z;
 	}
 
 

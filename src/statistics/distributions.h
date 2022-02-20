@@ -51,9 +51,10 @@ namespace uroboro {
 		// Wrapper
 		inline real gaussian(real x, const vec_buff& theta) {
 
-			if(theta.size() != 2)
-				// throw ...
-				return 0;
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::gaussian", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return gaussian(x, theta[0], theta[1]);
 		}
@@ -69,9 +70,10 @@ namespace uroboro {
 		// Wrapper
 		inline real bernoulli(real k, const vec_buff& theta) {
 
-			if(theta.size() != 1)
-				// throw ...
-				return 0;
+			if(theta.size() != 1) {
+				UMATH_ERROR("distribution::bernoulli", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return bernoulli(static_cast<unsigned int>(k), theta[0]);
 
@@ -88,9 +90,10 @@ namespace uroboro {
 		// Wrapper
 		inline real poisson(real k, const vec_buff& theta) {
 
-			if(theta.size() != 1)
-				// throw ...
-				return 0;
+			if(theta.size() != 1) {
+				UMATH_ERROR("distribution::poisson", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return poisson(static_cast<unsigned int>(k), theta[0]);
 
@@ -108,9 +111,10 @@ namespace uroboro {
 		// Wrapper
 		inline real binomial(real nu, const vec_buff& theta) {
 
-			if(theta.size() != 2)
-				// throw ...
-				return 0;
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::binomial", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return binomial(static_cast<unsigned int>(nu),
 				static_cast<unsigned int>(theta[0]), theta[1]);
@@ -128,9 +132,10 @@ namespace uroboro {
 		// Wrapper
 		inline real log_normal(real x, const vec_buff& theta) {
 
-			if(theta.size() != 2)
-				// throw ...
-				return 0;
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::log_normal", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return log_normal(x, theta[0], theta[1]);
 		}
@@ -149,9 +154,10 @@ namespace uroboro {
 		// Wrapper
 		inline real exponential(real x, const vec_buff& theta) {
 
-			if(theta.size() != 1)
-				// throw ...
-				return 0;
+			if(theta.size() != 1) {
+				UMATH_ERROR("distribution::exponential", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return exponential(x, theta[0]);
 		}
@@ -167,9 +173,10 @@ namespace uroboro {
 		// Wrapper
 		inline real cauchy(real x, const vec_buff& theta) {
 
-			if(theta.size() != 2)
-				// throw ...
-				return 0;
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::cauchy", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return cauchy(x, theta[0], theta[1]);
 		}
@@ -185,9 +192,10 @@ namespace uroboro {
 		// Wrapper
 		inline real breit_wigner(real x, const vec_buff& theta) {
 
-			if(theta.size() != 2)
-				// throw ...
-				return 0;
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::breit_wigner", theta.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				return nan();
+			}
 
 			return breit_wigner(x, theta[0], theta[1]);
 		}

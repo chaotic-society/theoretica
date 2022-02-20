@@ -162,9 +162,12 @@ namespace uroboro {
 		// operator += -= *= /= ...
 
 		inline void transpose() {
-			if(!is_square())
-				// throw
+
+			if(!is_square()) {
+				UMATH_ERROR("mat::transpose", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				// Set all elements to nan ?
 				return;
+			}
 
 			mat<K, N> res;
 			for (int i = 0; i < N; ++i) {
@@ -181,6 +184,12 @@ namespace uroboro {
 		}
 
 		inline mat<K, N> transposed() const {
+
+			if(!is_square()) {
+				UMATH_ERROR("mat::transposed", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				return diagonal(nan());
+			}
+
 			mat<K, N> res;
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -268,9 +277,10 @@ namespace uroboro {
 		// Compute the trace (sum of elements on the diagonal) of a square matrix
 		inline real trace() {
 
-			if(!is_square())
-				// throw ...
-				return 0;
+			if(!is_square()) {
+				UMATH_ERROR("mat::trace", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				return nan();
+			}
 
 			real res = 0;
 
@@ -281,13 +291,13 @@ namespace uroboro {
 		}
 
 
-		// Return the determinant if the matrix is 2x2 (no error checking)
+		// Return the determinant if the matrix is 2x2 (NO error checking)
 		inline real det_2x2() {
 			return data[0][0] * data[1][1] - data[0][1] * data[1][0];
 		}
 
 
-		// Return the determinant if the matrix is 3x3 (no error checking)
+		// Return the determinant if the matrix is 3x3 (NO error checking)
 		inline real det_3x3() {
 			return	data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) +
 					data[1][0] * (data[0][1] * data[2][2] - data[1][2] * data[2][1]) +
@@ -305,12 +315,12 @@ namespace uroboro {
 		}
 
 
-
 		inline real det() {
 
-			if(!is_square())
-				// throw ...
-				return 0;
+			if(!is_square()) {
+				UMATH_ERROR("mat::det", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				return nan();
+			}
 
 			if(N == 2 && K == 2)
 				return det_2x2();

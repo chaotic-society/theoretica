@@ -3,20 +3,16 @@
 using namespace umath;
 
 
-dual f(dual x) {
-	return sqrt(abs(ln(sin(x) + 1) * pow(cos(square(x)), 3)));
-}
-
-
 int main(int argc, char const *argv[]) {
 
 	std::cout.precision(12);
 
-	// Automatic differentiation
+	// Automatic differentiation using dual numbers
 	std::cout << "Automatic differentiation" << std::endl;
-	dual d = dual(3, 1);
-	std::cout << f(d).Re() << std::endl;
-	std::cout << f(d).Dual() << std::endl;
+
+	dual d = dual(2, 1);
+	std::cout << sqrt(abs(cos(d))).Re() << std::endl; // Function value
+	std::cout << sqrt(abs(cos(d))).Dual() << std::endl; // Derivative value
 	std::cout << std::endl;
 
 	// Integral approximation
@@ -32,8 +28,8 @@ int main(int argc, char const *argv[]) {
 
 	// Polynomials
 	std::cout << "Polynomials\n" << std::endl;
-	polynomial P1 = {1, 1, -1};
-	polynomial P2 = {1, 2, 3};
+	polynomial<> P1 = {1, 1, -1};
+	polynomial<> P2 = {1, 2, 3};
 	print_polynomial(P1);
 	print_polynomial(P2);
 	std::cout << std::endl;

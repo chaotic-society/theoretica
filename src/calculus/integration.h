@@ -10,9 +10,9 @@ namespace uroboro {
 
 
 	// Integrate a polynomial
-	polynomial integrate_polynomial(polynomial p) {
+	polynomial<real> integrate_polynomial(polynomial<real> p) {
 
-		polynomial Dp;
+		polynomial<real> Dp;
 		Dp.coeff.push_back(0);
 
 		for (int i = 0; i < p.size(); ++i) {

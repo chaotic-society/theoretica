@@ -8,9 +8,9 @@ namespace uroboro {
 
 
 	// Derivate a polynomial
-	polynomial differentiate_polynomial(polynomial p) {
+	polynomial<real> differentiate_polynomial(polynomial<real> p) {
 
-		polynomial Dp;
+		polynomial<> Dp;
 
 		for (int i = 1; i < p.size(); ++i) {
 			Dp.coeff.push_back(p[i] * i);

@@ -81,7 +81,8 @@ namespace uroboro {
 		std::cout << " }" << std::endl;
 	}
 
-	void print_polynomial(polynomial p) {
+
+	void print_polynomial(polynomial<real> p) {
 
 		for (int i = 0; i < p.size(); ++i) {
 			if(i) {

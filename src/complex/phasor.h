@@ -69,9 +69,11 @@ namespace uroboro {
 			// Divide two phasors
 			inline phasor operator/(const phasor& other) const {
 
-				if(other.modulus == 0)
-					// throw ...
-					return phasor(0, 0);
+				if(other.modulus == 0) {
+					UMATH_ERROR("phasor::operator/", other.modulus, UMATH_ERRCODE::DIV_BY_ZERO);
+					return phasor(nan(), nan());
+				}
+					
 
 				return phasor(
 					modulus / other.modulus,
@@ -82,10 +84,11 @@ namespace uroboro {
 			// Add a phasor to this one
 			inline phasor& operator+=(const phasor& other) {
 
-				if(phase == other.phase)
+				if(phase == other.phase) {
 					modulus += other.modulus;
-				else
+				} else {
 					*this = phasor(to_complex() + other.to_complex());
+				}
 
 				return *this;
 			}
@@ -116,9 +119,12 @@ namespace uroboro {
 			// Divide this phasor by another one
 			inline phasor& operator/=(const phasor& other) {
 
-				if(other.modulus == 0)
-					// throw ...
-					*this = phasor(0, 0);
+				if(other.modulus == 0) {
+					UMATH_ERROR("phasor::operator/=", other.modulus, UMATH_ERRCODE::DIV_BY_ZERO);
+					modulus = nan();
+					phase = nan();
+					return *this;
+				}
 
 				modulus /= other.modulus;
 				phase -= other.phase;

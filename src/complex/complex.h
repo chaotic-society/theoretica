@@ -186,9 +186,9 @@ namespace  uroboro {
 			inline complex& operator/=(real r) {
 
 				if(r == 0) {
-					// throw ...
-					a = 0;
-					b = 0;
+					UMATH_ERROR("complex::operator/=", r, UMATH_ERRCODE::DIV_BY_ZERO);
+					a = nan();
+					b = nan();
 					return *this;
 				}
 

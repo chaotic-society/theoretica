@@ -40,9 +40,10 @@ namespace uroboro {
 	// The result is the propagated relative error
 	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
 
-		if(sigma.size() != mean.size())
-			// throw...
-			return 0;
+		if(sigma.size() != mean.size()) {
+			UMATH_ERROR("propagate_product", sigma.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		// Compute sum of squares of (i_sigma / i_mean)
 		real sum = 0;
@@ -58,9 +59,10 @@ namespace uroboro {
 	// Computed as sum(square(x_i - x_mean))
 	inline real total_sum_squares(const vec_buff& X) {
 
-		if(!X.size())
-			//throw...
-			return 0;
+		if(!X.size()) {
+			UMATH_ERROR("total_sum_squares", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real tss = 0;
 		real x_m = mean(X);
@@ -81,9 +83,10 @@ namespace uroboro {
 	// Compute the variance of a population
 	inline real variance(const vec_buff& data) {
 
-		if(!data.size())
-			//throw...
-			return 0;
+		if(!data.size()) {
+			UMATH_ERROR("variance", data.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		return total_sum_squares(data) / (real) data.size();
 	}
@@ -93,9 +96,10 @@ namespace uroboro {
 	// This function uses Bessel correction
 	inline real sample_variance(const vec_buff& data) {
 
-		if(!data.size())
-			//throw...
-			return 0;
+		if(!data.size()) {
+			UMATH_ERROR("sample_variance", data.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		// Bessel correction (N - 1)
 		return total_sum_squares(data) / (real) (data.size() - 1);
@@ -169,9 +173,10 @@ namespace uroboro {
 	// Compute the covariance of two sets of measures
 	inline real covariance(const vec_buff& X, const vec_buff& Y) {
 
-		if(X.size() != Y.size())
-			// throw ...
-			return 0;
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("covariance", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real sum = 0;
 		real X_mean = mean(X);
@@ -187,9 +192,10 @@ namespace uroboro {
 	// This function uses Bessel correction
 	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
 
-		if(X.size() != Y.size())
-			// throw ...
-			return 0;
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("sample_covariance", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real sum = 0;
 		real X_mean = mean(X);
@@ -219,9 +225,10 @@ namespace uroboro {
 	// calculated on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
 
-		if(!X.size())
-			//throw...
-			return 0;
+		if(!X.size()) {
+			UMATH_ERROR("chi_square_sigma", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		const unsigned int N = X.size();
 
@@ -258,9 +265,10 @@ namespace uroboro {
 	// Compute the intercept of the minimum squares linearization of X and Y
 	inline real least_squares_linear_intercept(const vec_buff& X, const vec_buff& Y) {
 
-		if(X.size() != Y.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("least_squares_linear_intercept", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		real A = (sum_squares(X) * sum(Y) - sum(X) * product_sum(X, Y)) / Delta;
@@ -286,9 +294,10 @@ namespace uroboro {
 	// Compute the slope of the minimum squares linearization of X and Y
 	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
 
-		if(X.size() != Y.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("least_squares_linear_slope", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		real B = (X.size() * product_sum(X, Y) - sum(X) * sum(Y)) / Delta;
@@ -315,9 +324,10 @@ namespace uroboro {
 	inline real least_squares_linear_error(const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
 
-		if(X.size() != Y.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("least_squares_linear_error", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real err = 0;
 		for (int i = 0; i < X.size(); ++i) {
@@ -340,9 +350,12 @@ namespace uroboro {
 	inline real chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
 
-		if(X.size() != Y.size() || X.size() != sigma.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size() || X.size() != sigma.size()) {
+			UMATH_ERROR(
+				"chi_square_linearization",
+				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real chi_squared = 0;
 		for (int i = 0; i < X.size(); ++i) {
@@ -367,9 +380,12 @@ namespace uroboro {
 	inline real least_squares_weighted_linear_intercept(const vec_buff& X,
 		const vec_buff& Y, const vec_buff& W) {
 
-		if(X.size() != Y.size() || X.size() != W.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size() || X.size() != W.size()) {
+			UMATH_ERROR(
+				"least_squares_weighted_linear_intercept",
+				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
 
@@ -390,9 +406,12 @@ namespace uroboro {
 	inline real least_squares_weighted_linear_slope(const vec_buff& X,
 		const vec_buff& Y, const vec_buff& W) {
 
-		if(X.size() != Y.size() || X.size() != W.size())
-			// throw...
-			return 0;
+		if(X.size() != Y.size() || X.size() != W.size()) {
+			UMATH_ERROR(
+				"least_squares_weighted_linear_slope",
+				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
 

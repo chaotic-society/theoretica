@@ -80,13 +80,13 @@ namespace uroboro {
 
 	// Compute the natural logarithm of a dual number
 	dual log2(dual x) {
-		return dual(log2(x.Re()), x.Dual() * log2(E) / x.Re());
+		return dual(log2(x.Re()), x.Dual() * LOG2E / x.Re());
 	}
 
 
 	// Compute the natural logarithm of a dual number
 	dual log10(dual x) {
-		return dual(log10(x.Re()), x.Dual() * log10(E) / x.Re());
+		return dual(log10(x.Re()), x.Dual() * LOG10E / x.Re());
 	}
 
 

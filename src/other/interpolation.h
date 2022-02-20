@@ -34,8 +34,10 @@ namespace uroboro {
 		// Check that all computed t_i are the same
 		for (int i = 1; i < N; ++i) {
 			if(t != (value - P1.get(i)) / (P2.get(i) - P1.get(i))) {
-				// throw ...
-				return 0;
+				UMATH_ERROR("invlerp",
+					(value - P1.get(i)) / (P2.get(i) - P1.get(i)),
+					UMATH_ERRCODE::OUT_OF_DOMAIN);
+				return nan();
 			}
 		}
 

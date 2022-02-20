@@ -8,13 +8,14 @@
 namespace uroboro {
 
 	// A polynomial of arbitrary order with real coefficients
+	template<typename T = real>
 	class polynomial {
 		public:
-			vec_buff coeff;
+			std::vector<T> coeff;
 
 			polynomial() : coeff() {}
 
-			polynomial(const vec_buff& c) : coeff(c) {}
+			polynomial(const std::vector<T>& c) : coeff(c) {}
 			
 			~polynomial() {}
 
@@ -22,21 +23,21 @@ namespace uroboro {
 
 
 			// Access i-th coefficient
-			inline real& operator[](int i) {
+			inline T& operator[](int i) {
 				return coeff[i];
 			}
 
 
 			// Get the i-th by value
-			inline real get(int i) const {
+			inline T get(int i) const {
 				return coeff[i];
 			}
 
 
 			// Evaluate the polynomial using x as variable
-			inline real eval(real x) const {
+			inline T eval(T x) const {
 
-				real res = 0;
+				T res = 0;
 
 				// TO-DO Implement Horner's method
 
@@ -51,13 +52,13 @@ namespace uroboro {
 
 
 			// Evaluate the polynomial using x as variable
-			inline real operator()(real x) const {
+			inline T operator()(T x) const {
 				return eval(x);
 			}
 
 
 			// Return the nth order coefficient
-			inline real& operator[](unsigned int i) {
+			inline T& operator[](unsigned int i) {
 				return coeff[i];
 			}
 

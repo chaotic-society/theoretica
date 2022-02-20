@@ -24,7 +24,7 @@ namespace uroboro {
 	inline real sqrt(real x) {
 
 		if(x < 0) {
-			UMATH_ERROR_R("sqrt", x, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			UMATH_ERROR_R("sqrt", x, UMATH_ERRCODE::OUT_OF_DOMAIN);
 		}
 
 #ifdef UROBORO_X86
@@ -223,9 +223,10 @@ namespace uroboro {
 
 
 	// Compute the n-th power of x (where n is natural)
-	inline real pow(real x, int n) {
+	template<typename T>
+	inline T pow(T x, int n) {
 
-		real res;
+		T res;
 		if(n > 0) {
 
 			res = x;
@@ -248,7 +249,7 @@ namespace uroboro {
 	inline real root(real x, int n) {
 
 		if(n % 2 == 0 && x < 0 || n == 0) {
-			UMATH_ERROR_R("root", n, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+			UMATH_ERROR_R("root", n, UMATH_ERRCODE::OUT_OF_DOMAIN);
 		}
 
 		if(n < 0)
@@ -524,7 +525,7 @@ namespace uroboro {
 		if(x == 0) {
 
 			if(y == 0) {
-				UMATH_ERROR("atan2", y, EDOM, UMATH_ERRCODE::OUT_OF_DOMAIN);
+				UMATH_ERROR("atan2", y, UMATH_ERRCODE::OUT_OF_DOMAIN);
 			}
 
 			return sgn(y) * PI2;
@@ -557,7 +558,7 @@ namespace uroboro {
 	inline long long binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m) {
-			UMATH_ERROR("binomial_coeff", n, EDOM, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+			UMATH_ERROR("binomial_coeff", n, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
 			return 0;
 		}
 
