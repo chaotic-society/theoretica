@@ -19,7 +19,8 @@ namespace uroboro {
 
 		vec() = default;
 
-		vec(real a) {
+		// Initialize all elements to the same value
+		vec(T a) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = a;
 			}
@@ -44,7 +45,8 @@ namespace uroboro {
 		vec(std::initializer_list<T> l) {
 
 			if(l.size() != N) {
-				UMATH_ERROR("vec::vec(initializer_list<T>)", l.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				UMATH_ERROR("vec::vec(initializer_list<T>)", l.size(),
+					UMATH_ERRCODE::INVALID_ARGUMENT);
 				// Set all elements to NaN
 				*this = vec<N, T>(nan());
 				return;
@@ -58,6 +60,11 @@ namespace uroboro {
 
 		// Operators
 
+		// Identity
+		inline vec<N, T> operator+() const {
+			return *this;
+		}
+
 		// Vector sum (v + w = (v.x + w.x, ...))
 		inline vec<N, T> operator+(const vec<N, T>& other) const {
 			vec<N, T> result;
@@ -67,6 +74,11 @@ namespace uroboro {
 			}
 
 			return result;
+		}
+
+		// Opposite vector
+		inline vec<N, T> operator-() const {
+			return *this * -1;
 		}
 
 		inline vec<N, T> operator-(const vec<N, T>& other) const {
@@ -309,8 +321,9 @@ namespace uroboro {
 
 
 	// Compute the cross product of two vectors
-	vec3 cross(const vec3& v1, const vec3& v2) {
-		vec3 res;
+	template<typename T>
+	vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
+		vec<3, T> res;
 
 		res.data[0] = v1.data[1] * v2.data[2] - v1.data[2] * v2.data[1];
 		res.data[1] = v1.data[2] * v2.data[0] - v1.data[0] * v2.data[2];

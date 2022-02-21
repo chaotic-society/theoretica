@@ -124,6 +124,23 @@ namespace uroboro {
 			return res;
 		}
 
+		// Scalar division
+		inline mat<N, K> operator/(real scalar) const {
+
+			if(scalar == 0) {
+				UMATH_ERROR("mat::operator/", scalar, UMATH_ERRCODE::DIV_BY_ZERO);
+				return mat<N, K>(nan());
+			}
+
+			mat<N, K> res;
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					res.data[i][l] = data[i][l] / scalar;
+				}
+			}
+			return res;
+		}
+
 		// Transform a vector v by the matrix
 		inline vec<K> transform(const vec<N>& v) const {
 			vec<K> res;
@@ -147,7 +164,9 @@ namespace uroboro {
 
 			for (int i = 0; i < M; ++i) {
 				for (int j = 0; j < K; ++j) {
-					res.at(j, i) = get_row(j) * B.get_column(i);
+					for (int k = 0; k < N; ++k) {
+						res.at(j, i) += data[k][j] * B.data[i][k];
+					}
 				}
 			}
 
@@ -159,8 +178,67 @@ namespace uroboro {
 			return transform(B);
 		}
 
-		// operator += -= *= /= ...
 
+		// Matrix addition
+		inline mat<N, K>& operator+=(const mat<N, K>& other) {
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] += other.data[i][l];
+				}
+			}
+
+			return *this;
+		}
+
+		// Matrix subtraction
+		inline mat<N, K>& operator-=(const mat<N, K>& other) {
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] -= other.data[i][l];
+				}
+			}
+
+			return *this;
+		}
+
+		// Scalar multiplication
+		inline mat<N, K>& operator*=(real scalar) {
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] *= scalar;
+				}
+			}
+
+			return *this;
+		}
+
+		// Scalar division
+		inline mat<N, K>& operator/=(real scalar) {
+
+			if(scalar == 0) {
+				UMATH_ERROR("mat::operator/", scalar, UMATH_ERRCODE::DIV_BY_ZERO);
+				return mat<N, K>(nan());
+			}
+
+			for (int i = 0; i < N; ++i) {
+				for (int l = 0; l < K; ++l) {
+					data[i][l] /= scalar;
+				}
+			}
+
+			return *this;
+		}
+
+		// Matrix multiplication
+		inline mat<N, K>& operator*=(const mat<N, K>& B) {
+			return (*this = this->operator*(B));
+		}
+
+
+		// Matrix transposition
 		inline void transpose() {
 
 			if(!is_square()) {
@@ -183,6 +261,7 @@ namespace uroboro {
 			}
 		}
 
+		// Return the transposed matrix
 		inline mat<K, N> transposed() const {
 
 			if(!is_square()) {
@@ -199,6 +278,7 @@ namespace uroboro {
 			return res;
 		}
 
+
 		// Calculate the dot product between v1 and v2
 		// using this matrix as the product matrix
 		inline real dot(const vec<N>& v1, const vec<N>& v2) const {
@@ -212,6 +292,7 @@ namespace uroboro {
 
 			return result;
 		}
+
 
 		// Access element at <column, row>
 		inline real& at(unsigned int column, unsigned int row) {
@@ -322,10 +403,10 @@ namespace uroboro {
 				return nan();
 			}
 
-			if(N == 2 && K == 2)
+			if(N == 2)
 				return det_2x2();
 
-			if(N == 3 && K == 3)
+			if(N == 3)
 				return det_3x3();
 
 			real res = 0;
@@ -354,7 +435,7 @@ namespace uroboro {
 			return mat<N, K>(diag);
 		}
 
-		// Get a matrix which translates by {x, y, z}
+		// Get a 4x4 matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(vec3 t) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -366,7 +447,7 @@ namespace uroboro {
 			return m;
 		}
 
-		// Get a matrix which translates by {x, y, z}
+		// Get a 4x4 matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(real x, real y, real z) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -594,16 +675,17 @@ namespace uroboro {
 
 		inline static mat<4, 4> perspective(real left, real right, real bottom, real top, real near, real far) {
 
-			mat<4, 4> result = mat<4, 4>();
+			mat<4, 4> result;
+			result.make_null();
 
-			result.data[0][0]  = 2 * near / (right - left);
-			result.data[0][2]  = (right + left) / (right - left);
-			result.data[1][1]  = 2 * near / (top - bottom);
-			result.data[1][2]  = (top + bottom) / (top - bottom);
-			result.data[2][2] = -(far + near) / (far - near);
-			result.data[2][3] = -(2 * far * near) / (far - near);
-			result.data[3][2] = -1;
-			result.data[3][3] = 0;
+			result.at(0, 0)  = 2 * near / (right - left);
+			result.at(0, 2)  = (right + left) / (right - left);
+			result.at(1, 1)  = 2 * near / (top - bottom);
+			result.at(1, 2)  = (top + bottom) / (top - bottom);
+			result.at(2, 2) = -(far + near) / (far - near);
+			result.at(2, 3) = -(2 * far * near) / (far - near);
+			result.at(3, 2) = -1;
+			result.at(3, 3) = 0;
 
 			return result;
 		}
@@ -620,23 +702,56 @@ namespace uroboro {
 
 		inline static mat<4, 4> ortho(real left, real right, real bottom, real top, real near, real far) {
 
-			mat<4, 4> result = mat<4, 4>();
+			mat<4, 4> result;
+			result.make_null();
 
-			result.data[0][0]  = 2 / (right - left);
-			result.data[0][3]  = -(right + left) / (right - left);
-			result.data[1][1]  = 2 / (top - bottom);
-			result.data[1][3]  = -(top + bottom) / (top - bottom);
-			result.data[2][2] = -2 / (far - near);
-			result.data[2][3] = -(far + near) / (far - near);
+			result.at(0, 0)  = 2 / (right - left);
+			result.at(0, 3)  = -(right + left) / (right - left);
+			result.at(1, 1)  = 2 / (top - bottom);
+			result.at(1, 3)  = -(top + bottom) / (top - bottom);
+			result.at(2, 2) = -2 / (far - near);
+			result.at(2, 3) = -(far + near) / (far - near);
 
 			return result;
 		}
 
 		// Return a transformation matrix that points the
-		// field of view towards a given direction
-		// inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
+		// field of view towards a given point from the <camera> point
+		inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
 
-		// }
+			// Construct an orthonormal basis
+			vec3 z_axis = (target - camera).normalized();
+			vec3 x_axis = cross(z_axis, up).normalized();
+			vec3 y_axis = cross(x_axis, z_axis); // Already normalized
+
+			// Negate z_axis to have a right-handed system
+			z_axis = -z_axis;
+
+			// Construct the rotation and translation matrix
+			mat<4, 4> res;
+
+			res.at(0, 0) = x_axis[0];
+			res.at(1, 0) = x_axis[1];
+			res.at(2, 0) = x_axis[2];
+			res.at(3, 0) = -dot(x_axis, camera);
+
+			res.at(0, 1) = y_axis[0];
+			res.at(1, 1) = y_axis[1];
+			res.at(2, 1) = y_axis[2];
+			res.at(3, 1) = -dot(y_axis, camera);
+
+			res.at(0, 2) = z_axis[0];
+			res.at(1, 2) = z_axis[1];
+			res.at(2, 2) = z_axis[2];
+			res.at(3, 2) = -dot(z_axis, camera);
+
+			res.at(0, 3) = 0;
+			res.at(1, 3) = 0;
+			res.at(2, 3) = 0;
+			res.at(3, 3) = 1;
+
+			return res;
+		}
 
 
 	};
