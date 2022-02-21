@@ -608,6 +608,8 @@ namespace uroboro {
 			return 0;
 		}
 
+		// TO-DO Check out of range
+
 		long long res = 1;
 
 		for (int i = n; i > m; --i)

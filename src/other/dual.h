@@ -54,6 +54,11 @@ namespace uroboro {
 				return b;
 			}
 
+			// Get the dual conjugate
+			inline dual conjugate() const {
+				return dual(a, -b);
+			}
+
 			// Get the inverse of a dual number
 			inline dual inverse() const {
 
