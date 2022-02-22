@@ -10,11 +10,54 @@
 namespace uroboro {
 
 
-	// Compute the mean of a set of values
-	inline real mean(const vec_buff& data) {
+	// Compute the arithmetic mean of a set of values
+	inline real arithmetic_mean(const vec_buff& data) {
+
+		if(!data.size()) {
+			UMATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
+			return nan();
+		}
 
 		// Sum of x_i / N
 		return sum(data) / (real) data.size();
+	}
+
+
+	// Compute the arithmetic mean of a set of values
+	// Alias for arithmetic_mean
+	inline real mean(const vec_buff& data) {
+		return arithmetic_mean(data);
+	}
+
+
+	// Compute the harmonic mean of a set of values
+	inline real harmonic_mean(const vec_buff& data) {
+
+		if(!data.size()) {
+			UMATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
+			return nan();
+		}
+
+		real res = 0;
+
+		for (int i = 0; i < data.size(); ++i) {
+
+			if(data[i] == 0) {
+				UMATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
+				return nan();
+			}
+
+			res += 1.0 / data[i];
+		}
+
+		return static_cast<real>(data.size()) / res;
+	}
+
+
+	// Compute the geometric mean of a set of values
+	// as root(pro)
+	inline real geometric_mean(const vec_buff& data) {
+		return root(product(data), data.size());
 	}
 
 
@@ -41,7 +84,7 @@ namespace uroboro {
 	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
 
 		if(sigma.size() != mean.size()) {
-			UMATH_ERROR("propagate_product", sigma.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -60,7 +103,7 @@ namespace uroboro {
 	inline real total_sum_squares(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("total_sum_squares", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -84,7 +127,7 @@ namespace uroboro {
 	inline real variance(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("variance", data.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("variance", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -97,7 +140,7 @@ namespace uroboro {
 	inline real sample_variance(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("sample_variance", data.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("sample_variance", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -133,14 +176,30 @@ namespace uroboro {
 	// Compute the relative error on a population measure
 	// using standard deviation
 	inline real standard_relative_error(const vec_buff& X) {
-		return standard_deviation(X) / abs(mean(X));
+
+		real x_mean = mean(X);
+
+		if(x_mean == 0) {
+			UMATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+			return nan();
+		}
+
+		return standard_deviation(X) / abs(x_mean);
 	}
 
 
 	// Compute the relative error on a sample measure
 	// using standard deviation
 	inline real sample_standard_relative_error(const vec_buff& X) {
-		return sample_standard_deviation(X) / abs(mean(X));
+
+		real x_mean = mean(X);
+
+		if(x_mean == 0) {
+			UMATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+			return nan();
+		}
+
+		return sample_standard_deviation(X) / abs(x_mean);
 	}
 
 
@@ -174,16 +233,17 @@ namespace uroboro {
 	inline real covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("covariance", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
 		real sum = 0;
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
-		for (int i = 0; i < X.size(); ++i) {
+
+		for (int i = 0; i < X.size(); ++i)
 			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
-		}
+
 		return sum / (real) X.size();
 	}
 
@@ -193,16 +253,16 @@ namespace uroboro {
 	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("sample_covariance", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("sample_covariance", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
 		real sum = 0;
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
-		for (int i = 0; i < X.size(); ++i) {
+
+		for (int i = 0; i < X.size(); ++i)
 			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
-		}
 
 		// Bessel correction (N - 1)
 		return sum / (real) (X.size() - 1);
@@ -226,7 +286,7 @@ namespace uroboro {
 	inline real chi_square_sigma(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("chi_square_sigma", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("chi_square_sigma", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -263,10 +323,11 @@ namespace uroboro {
 
 
 	// Compute the intercept of the minimum squares linearization of X and Y
-	inline real least_squares_linear_intercept(const vec_buff& X, const vec_buff& Y) {
+	inline real least_squares_linear_intercept(
+		const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_intercept", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("least_squares_linear_intercept", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -278,13 +339,15 @@ namespace uroboro {
 
 
 	// Compute the intercept of the minimum squares linearization of X and Y
-	inline real lst_sqrs_lin_intercept(const vec_buff& X, const vec_buff& Y) {
+	inline real lst_sqrs_lin_intercept(
+		const vec_buff& X, const vec_buff& Y) {
 		return least_squares_linear_intercept(X, Y);
 	}
 
 
 	// Compute the error on the intercept (A)
-	inline real least_squares_linear_sigma_A(const vec_buff& X, const vec_buff& Y, real sigma_y) {
+	inline real least_squares_linear_sigma_A(
+		const vec_buff& X, const vec_buff& Y, real sigma_y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		return sqrt(sum_squares(X) / Delta) * abs(sigma_y);
@@ -295,7 +358,7 @@ namespace uroboro {
 	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_slope", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -313,7 +376,8 @@ namespace uroboro {
 
 
 	// Compute the error on the slope coefficient (B)
-	inline real least_squares_linear_sigma_B(const vec_buff& X, const vec_buff& Y, real sigma_y) {
+	inline real least_squares_linear_sigma_B(
+		const vec_buff& X, const vec_buff& Y, real sigma_y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		return sqrt(X.size() / Delta) * abs(sigma_y);
@@ -321,11 +385,12 @@ namespace uroboro {
 
 
 	// Compute the error of the minimum squares linearization of a sample
-	inline real least_squares_linear_error(const vec_buff& X, const vec_buff& Y,
+	inline real least_squares_linear_error(
+		const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_error", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("least_squares_linear_error", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -340,20 +405,22 @@ namespace uroboro {
 
 
 	// Compute the error of the minimum squares linearization of a sample
-	inline real lst_sqrs_lin_error(const vec_buff& X, const vec_buff& Y,
+	inline real lst_sqrs_lin_error(
+		const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
 		return least_squares_linear_error(X, Y, intercept, slope);
 	}
 
 
 	// Compute the chi-square on a linearization
-	inline real chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
-		real intercept, real slope) {
+	inline real chi_square_linearization(
+		const vec_buff& X, const vec_buff& Y,
+		const vec_buff& sigma, real intercept, real slope) {
 
 		if(X.size() != Y.size() || X.size() != sigma.size()) {
 			UMATH_ERROR(
 				"chi_square_linearization",
-				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -367,7 +434,8 @@ namespace uroboro {
 
 
 	// Compute the reduced chi-squared on a linearization
-	inline real reduced_chi_square_linearization(const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+	inline real reduced_chi_square_linearization(
+		const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
 
 		// Divide by degrees of freedom (N - 2)
@@ -377,13 +445,13 @@ namespace uroboro {
 
 
 	// Compute the intercept of the weighted minimum squares linearization of X and Y
-	inline real least_squares_weighted_linear_intercept(const vec_buff& X,
-		const vec_buff& Y, const vec_buff& W) {
+	inline real least_squares_weighted_linear_intercept(
+		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
 			UMATH_ERROR(
 				"least_squares_weighted_linear_intercept",
-				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -397,19 +465,20 @@ namespace uroboro {
 
 
 	// Compute the intercept of the weighted minimum squares linearization of X and Y
-	inline real lst_sqrs_weight_lin_intercept(const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+	inline real lst_sqrs_weight_lin_intercept(
+		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 		return least_squares_weighted_linear_intercept(X, Y, W);
 	}
 
 
 	// Compute the slope of the weighted minimum squares linearization of X and Y
-	inline real least_squares_weighted_linear_slope(const vec_buff& X,
-		const vec_buff& Y, const vec_buff& W) {
+	inline real least_squares_weighted_linear_slope(
+		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
 			UMATH_ERROR(
 				"least_squares_weighted_linear_slope",
-				X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+				X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -423,7 +492,8 @@ namespace uroboro {
 
 
 	// Compute the slope of the weighted minimum squares linearization of X and Y
-	inline real lst_sqrs_weight_lin_slope(const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+	inline real lst_sqrs_weight_lin_slope(
+		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 		return least_squares_weighted_linear_slope(X, Y, W);
 	}
 
