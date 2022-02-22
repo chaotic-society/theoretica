@@ -63,7 +63,7 @@ namespace uroboro {
 			inline dual inverse() const {
 
 				if(a == 0) {
-					UMATH_ERROR("dual::inverse", 0, UMATH_ERRCODE::DIV_BY_ZERO);
+					UMATH_ERROR("dual::inverse", 0, DIV_BY_ZERO);
 					return dual(nan(), nan());
 				}
 
@@ -172,7 +172,7 @@ namespace uroboro {
 			inline dual& operator/=(real r) {
 
 				if(r == 0) {
-					UMATH_ERROR("dual::operator/=", 0, UMATH_ERRCODE::DIV_BY_ZERO);
+					UMATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
 					b = nan();
 					return *this;

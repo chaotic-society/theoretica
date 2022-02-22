@@ -10,11 +10,27 @@ namespace uroboro {
 	using vec_buff = std::vector<real>;
 
 
+	// Compute the product of a set of values
+	inline real product(const vec_buff& X) {
+
+		if(!X.size()) {
+			UMATH_ERROR("product", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real res = 1;
+		for(int i = 0; i < X.size(); i++)
+			res *= X[i];
+
+		return res;
+	}
+
+
 	// Sum the products of two sets of values
 	inline real product_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("product_sum", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -30,7 +46,7 @@ namespace uroboro {
     inline real product_sum(const vec_buff& X, const vec_buff& Y, const vec_buff& Z) {
 
 		if(X.size() != Y.size() || X.size() != Z.size()) {
-			UMATH_ERROR("product_sum", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -46,7 +62,7 @@ namespace uroboro {
 	inline real quotient_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("quotient_sum", X.size(), UMATH_ERRCODE::INVALID_ARGUMENT);
+			UMATH_ERROR("quotient_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -54,7 +70,7 @@ namespace uroboro {
 		for(int i = 0; i < X.size(); i++) {
 
 			if(Y[i] == 0) {
-				UMATH_ERROR("quotient_sum", Y[i], UMATH_ERRCODE::DIV_BY_ZERO);
+				UMATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
 				return nan();
 			}
 

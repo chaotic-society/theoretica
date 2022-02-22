@@ -36,7 +36,7 @@ namespace uroboro {
 			if(t != (value - P1.get(i)) / (P2.get(i) - P1.get(i))) {
 				UMATH_ERROR("invlerp",
 					(value - P1.get(i)) / (P2.get(i) - P1.get(i)),
-					UMATH_ERRCODE::OUT_OF_DOMAIN);
+					OUT_OF_DOMAIN);
 				return nan();
 			}
 		}

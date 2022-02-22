@@ -148,6 +148,7 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Remapping
   - [x] Quadratic Bezier
   - [x] Cubic Bezier
+  - [ ] Generic Bezier
 
 - Statistical functions (_statistics/statistics.h_) - **NO TEST CASES**
   - [x] Mean and weighted mean

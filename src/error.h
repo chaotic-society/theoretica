@@ -88,14 +88,14 @@ namespace uroboro {
 			// w += ": ";
 
 			switch(err) {
-				case UMATH_ERRCODE::NO_ERROR: return "No error"; break;
-				case UMATH_ERRCODE::DIV_BY_ZERO: return "Division by zero"; break;
-				case UMATH_ERRCODE::OUT_OF_DOMAIN:
+				case NO_ERROR: return "No error"; break;
+				case DIV_BY_ZERO: return "Division by zero"; break;
+				case OUT_OF_DOMAIN:
 					return "An argument was out of the domain of the called function"; break;
-				case UMATH_ERRCODE::IMPOSSIBLE_OPERATION:
+				case IMPOSSIBLE_OPERATION:
 					return "A mathematically impossible operation was requested"; break;
-				case UMATH_ERRCODE::NO_ALGO_CONVERGENCE: return "The algorithm did not converge"; break;
-				case UMATH_ERRCODE::INVALID_ARGUMENT: return "Invalid argument size or value"; break;
+				case NO_ALGO_CONVERGENCE: return "The algorithm did not converge"; break;
+				case INVALID_ARGUMENT: return "Invalid argument size or value"; break;
 				default: return "Unknown error"; break;
 			}
 

@@ -70,7 +70,7 @@ namespace uroboro {
 			inline phasor operator/(const phasor& other) const {
 
 				if(other.modulus == 0) {
-					UMATH_ERROR("phasor::operator/", other.modulus, UMATH_ERRCODE::DIV_BY_ZERO);
+					UMATH_ERROR("phasor::operator/", other.modulus, DIV_BY_ZERO);
 					return phasor(nan(), nan());
 				}
 					
@@ -120,7 +120,7 @@ namespace uroboro {
 			inline phasor& operator/=(const phasor& other) {
 
 				if(other.modulus == 0) {
-					UMATH_ERROR("phasor::operator/=", other.modulus, UMATH_ERRCODE::DIV_BY_ZERO);
+					UMATH_ERROR("phasor::operator/=", other.modulus, DIV_BY_ZERO);
 					modulus = nan();
 					phase = nan();
 					return *this;

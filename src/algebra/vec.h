@@ -46,7 +46,7 @@ namespace uroboro {
 
 			if(l.size() != N) {
 				UMATH_ERROR("vec::vec(initializer_list<T>)", l.size(),
-					UMATH_ERRCODE::INVALID_ARGUMENT);
+					INVALID_ARGUMENT);
 				// Set all elements to NaN
 				*this = vec<N, T>(nan());
 				return;
@@ -136,7 +136,7 @@ namespace uroboro {
 		inline vec<3> cross(const vec<3>& other) const {
 
 			if(N != 3) {
-				UMATH_ERROR("vec::cross", N, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				UMATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
 				return vec<N, T>(nan());
 			}
 
@@ -232,7 +232,7 @@ namespace uroboro {
 			real m = magnitude();
 
 			if(m == 0) {
-				UMATH_ERROR("vec::normalize", m, UMATH_ERRCODE::DIV_BY_ZERO);
+				UMATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
 				*this = vec<N, T>(nan());
 			}
 
@@ -248,7 +248,7 @@ namespace uroboro {
 			real m = magnitude();
 
 			if(m == 0) {
-				UMATH_ERROR("vec::normalize", m, UMATH_ERRCODE::DIV_BY_ZERO);
+				UMATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
 				return vec<N, T>(nan());
 			}
 

@@ -36,7 +36,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_BISECTION_ITER) {
-			UMATH_ERROR("approx_root_bisection", x_avg, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_root_bisection", x_avg, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -57,7 +57,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			UMATH_ERROR("approx_root_newton", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -78,7 +78,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			UMATH_ERROR("approx_polyn_root_newton", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_polyn_root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -99,7 +99,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			UMATH_ERROR("approx_root_steffensen", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -119,7 +119,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			UMATH_ERROR("approx_polyn_root_steffensen", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_polyn_root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -141,7 +141,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			UMATH_ERROR("approx_root_chebyshev", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -163,7 +163,7 @@ namespace uroboro {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			UMATH_ERROR("approx_polyn_root_chebyshev", x, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_polyn_root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -183,7 +183,7 @@ namespace uroboro {
 		real z = approx_root_newton(Df, D2f, guess);
 
 		if(D2f(z) > 0) {
-			UMATH_ERROR("approx_max_newton", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_max_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -200,7 +200,7 @@ namespace uroboro {
 		real z = approx_root_newton(Df, D2f, guess);
 
 		if(D2f(z) < 0) {
-			UMATH_ERROR("approx_min_newton", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_min_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -217,7 +217,7 @@ namespace uroboro {
 		real z = approx_root_bisection(Df, a, b);
 
 		if(approx_derivative(Df, z) > 0) {
-			UMATH_ERROR("approx_max_bisection", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -232,7 +232,7 @@ namespace uroboro {
 		real z = approx_root_bisection(Df, a, b);
 
 		if(approx_derivative(Df, z) < 0) {
-			UMATH_ERROR("approx_min_bisection", z, UMATH_ERRCODE::NO_ALGO_CONVERGENCE);
+			UMATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);
 			return z;
 		}
 

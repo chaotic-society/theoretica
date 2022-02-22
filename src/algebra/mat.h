@@ -22,10 +22,12 @@ namespace uroboro {
 
 		real data[N][K];
 
+		// Initialize a matrix to all zeroes
 		inline mat() {
 			make_null();
 		}
 
+		// Initialize a matrix from another one
 		inline mat(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -34,6 +36,7 @@ namespace uroboro {
 			}
 		}
 
+		// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -43,6 +46,7 @@ namespace uroboro {
 			return *this;
 		}
 
+		// Construct a diagonal matrix
 		inline mat(real diagonal) {
 			make_null();
 			int diag_n = min(N, K);
@@ -51,8 +55,10 @@ namespace uroboro {
 			}
 		}
 
-		inline ~mat() {}
+		// Default destructor
+		inline ~mat() = default;
 
+		// Get the l-th column of the matrix as a vector
 		inline vec<K> get_column(int l) const {
 			vec<K> column;
 			for (int i = 0; i < K; ++i) {
@@ -61,10 +67,12 @@ namespace uroboro {
 			return column;
 		}
 
+		// Get the l-th column of the matrix as a vector
 		inline vec<K> operator[](int l) const {
 			return get_column(l);
 		}
 
+		// Get the l-th row of the matrix as a vector
 		inline vec<N> get_row(int l) const {
 			vec<N> row;
 			for (int i = 0; i < N; ++i) {
@@ -73,18 +81,21 @@ namespace uroboro {
 			return row;
 		}
 
+		// Se the l-th column of the matrix from a vector
 		inline void set_column(unsigned int l, const vec<K>& column) {
 			for (int i = 0; i < K; ++i) {
 				data[l][i] = column.data[i];
 			}
 		}
 
+		// Se the l-th row of the matrix from a vector
 		inline void set_row(unsigned int l, const vec<N>& row) {
 			for (int i = 0; i < N; ++i) {
 				data[i][l] = row.data[i];
 			}
 		}
 
+		// Set all elements to zero
 		inline void make_null() {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -93,6 +104,7 @@ namespace uroboro {
 			}
 		}
 
+		// Matrix addition
 		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
@@ -103,6 +115,7 @@ namespace uroboro {
 			return res;
 		}
 
+		// Matrix subtraction
 		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
@@ -128,7 +141,7 @@ namespace uroboro {
 		inline mat<N, K> operator/(real scalar) const {
 
 			if(scalar == 0) {
-				UMATH_ERROR("mat::operator/", scalar, UMATH_ERRCODE::DIV_BY_ZERO);
+				UMATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
 				return mat<N, K>(nan());
 			}
 
@@ -153,10 +166,12 @@ namespace uroboro {
 			return res;
 		}
 
+		// Transform a vector v by the matrix
 		inline vec<K> operator*(const vec<N>& v) const {
 			return transform(v);
 		}
 
+		// Matrix multiplication
 		template<unsigned int M>
 		inline mat<K, M> transform(const mat<M, N>& B) const {
 
@@ -173,6 +188,7 @@ namespace uroboro {
 			return res;
 		}
 
+		// Matrix multiplication
 		template<unsigned int M>
 		inline mat<K, M> operator*(const mat<M, N>& B) const {
 			return transform(B);
@@ -219,7 +235,7 @@ namespace uroboro {
 		inline mat<N, K>& operator/=(real scalar) {
 
 			if(scalar == 0) {
-				UMATH_ERROR("mat::operator/", scalar, UMATH_ERRCODE::DIV_BY_ZERO);
+				UMATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
 				return mat<N, K>(nan());
 			}
 
@@ -242,7 +258,7 @@ namespace uroboro {
 		inline void transpose() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::transpose", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				UMATH_ERROR("mat::transpose", K, IMPOSSIBLE_OPERATION);
 				// Set all elements to nan ?
 				return;
 			}
@@ -265,7 +281,7 @@ namespace uroboro {
 		inline mat<K, N> transposed() const {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::transposed", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				UMATH_ERROR("mat::transposed", K, IMPOSSIBLE_OPERATION);
 				return diagonal(nan());
 			}
 
@@ -308,6 +324,7 @@ namespace uroboro {
 			data[column][row] = a;
 		}
 
+		// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
 
 			for (int i = 0; i < N; ++i) {
@@ -359,7 +376,7 @@ namespace uroboro {
 		inline real trace() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::trace", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				UMATH_ERROR("mat::trace", K, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
 
@@ -396,13 +413,14 @@ namespace uroboro {
 		}
 
 
+		// Compute the determinant of the matrix
 		inline real det() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::det", K, UMATH_ERRCODE::IMPOSSIBLE_OPERATION);
+				UMATH_ERROR("mat::det", K, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
-
+			
 			if(N == 2)
 				return det_2x2();
 
