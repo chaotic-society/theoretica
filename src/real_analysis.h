@@ -126,8 +126,14 @@ namespace uroboro {
 	inline int sgn(real x) {
 		return (x > 0) ? 1 : (x < 0 ? -1 : 0);
 	}
-
-
+	// Compute the floor of x
+	inline int floor(real x){
+		return (x > 0) ? (int) x : (int) (x-1);
+	}
+	// Compute the fractional part of x
+	inline real fract(real x){
+		return (x - floor(x) );
+	}
 	// Return the greatest number between x and y
 	inline real max(real x, real y) {
 		
@@ -152,6 +158,7 @@ namespace uroboro {
 
 	// Clamp x between a and b
 	inline real clamp(real x, real a, real b) {
+
 
 #ifdef UROBORO_FORCE_BRANCHLESS
 
