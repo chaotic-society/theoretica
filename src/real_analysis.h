@@ -130,8 +130,8 @@ namespace uroboro {
 	inline int floor(real x){
 		return (x > 0) ? (int) x : (int) (x-1);
 	}
-	// Compute the mantix of x
-	inline real mantix(real x){
+	// Compute the fractional part of x
+	inline real fract(real x){
 		return (x - floor(x) );
 	}
 	// Return the greatest number between x and y
