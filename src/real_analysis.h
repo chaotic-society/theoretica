@@ -131,7 +131,7 @@ namespace uroboro {
 
 
 	// Compute the floor of x
-	inline int floor(real x){
+	inline int floor(real x) {
 
 		// Compute the biggest integer number
 		// that is smaller than x
@@ -140,7 +140,7 @@ namespace uroboro {
 
 
 	// Compute the fractional part of x
-	inline real fract(real x){
+	inline real fract(real x) {
 		return abs(x - floor(x));
 	}
 
