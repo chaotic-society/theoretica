@@ -16,6 +16,11 @@ namespace uroboro {
 	// inside a compact interval [a, b] where f(a) * f(b) < 0
 	inline real approx_root_bisection(real_function f, real a, real b) {
 
+		if(f(a) * f(b) >= 0) {
+			UMATH_ERROR("approx_root_bisection", f(a) * f(b), INVALID_ARGUMENT);
+			return nan();
+		}
+
 		real x_avg = a;
 
 		real x_min = a;

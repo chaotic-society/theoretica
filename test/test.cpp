@@ -1,13 +1,13 @@
 
 #include "../src/uroboro.h"
 #include <cmath>
+
 #include "test.h"
 
 
 int main(int argc, char const *argv[]) {
 
 	std::cout << "Starting testing of uroboro library...\n" << std::endl;
-
 	std::cout.precision(12);
 
 
@@ -77,9 +77,17 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::exp");
 
-		test_tolr(umath::exp(2), E * E, 2);
 		test_tolr(umath::exp(1), E, 1);
-		test_tolr_interval(umath::exp, std::exp, 0.00000001, 1);
+		test_tolr(umath::exp(2), E * E, 2);
+		test_tolr(umath::exp(3), E * E * E, 3);
+
+		test_tolr(umath::exp(-1), std::exp(-1), -1.0 / E);
+
+		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1000);
+		test_tolr_interval(umath::exp, std::exp, -5, 5, TOLERANCE, 1000);
+		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1000);
+		test_tolr_interval(umath::exp, std::exp, 0, 11, TOLERANCE, 1000);
+		test_tolr_interval(umath::exp, std::exp, -123, 0, TOLERANCE, 671);
 
 	test_end();
 

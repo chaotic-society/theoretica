@@ -4,6 +4,8 @@
 #include "./constants.h"
 #include "./error.h"
 
+#include <iostream>
+
 
 namespace uroboro {
 
@@ -126,14 +128,23 @@ namespace uroboro {
 	inline int sgn(real x) {
 		return (x > 0) ? 1 : (x < 0 ? -1 : 0);
 	}
+
+
 	// Compute the floor of x
 	inline int floor(real x){
-		return (x > 0) ? (int) x : (int) (x-1);
+
+		// Compute the biggest integer number
+		// that is smaller than x
+		return int(x) - (int(x) % 1);
 	}
+
+
 	// Compute the fractional part of x
 	inline real fract(real x){
-		return (x - floor(x) );
+		return abs(x - floor(x));
 	}
+
+
 	// Return the greatest number between x and y
 	inline real max(real x, real y) {
 		
@@ -158,7 +169,6 @@ namespace uroboro {
 
 	// Clamp x between a and b
 	inline real clamp(real x, real a, real b) {
-
 
 #ifdef UROBORO_FORCE_BRANCHLESS
 
@@ -338,14 +348,11 @@ namespace uroboro {
 
 	// Approximate e^x using x86 Assembly instructions
 	// Works only for positive <x>
-	inline real exp_approx(real x) {
-
-		int x_int = abs(int(x - 0.5));
-		real x_fract = abs(x - x_int);
+	inline real exp_approx_norm(real x) {
 
 		// Compute e^x as e^int(x) * e^fract(x)
 		// Where e^fract(x) is calculated as 2^(fract(x) / ln2)
-		return pow(E, x_int) * square(f2xm1(x_fract / (2 * LN2)) + 1);
+		return square(f2xm1(fract(x) / (2 * LN2)) + 1);
 	}
 
 
@@ -353,16 +360,14 @@ namespace uroboro {
 	// Using pow(x, int(a)) * exp(fract(a) * ln(x))
 	inline real powf_approx(real x, real a) {
 
+		// Assume a positive
 		if(a < 0)
 			return 1.0 / powf_approx(x, abs(a));
 
-		int a_int = abs(int(a - 0.5));
-		real a_fract = abs(a - a_int);
-		real x_int_pwr = pow(x, a_int);
-
 		// Compute x^fract(a) as e^(x * log2(fract(a) / log2(e)))
-		return x_int_pwr * (a_fract >= POW_APPROXIMATION_TOLERANCE ?
-			exp_approx(fyl2x(x, a_fract / LOG2E)) : 1);
+		return pow(x, floor(a)) * ((fract(a) >= POW_APPROXIMATION_TOLERANCE) 
+			? exp_approx_norm(fyl2x(x, fract(a) / LOG2E))
+			: 1);
 	}
 
 #endif
@@ -377,18 +382,17 @@ namespace uroboro {
 
 	// Taylor series expansion
 	// Compute e^floor(x) * e^fract(x)
-
-	int x_floor = abs(int(x - 0.5));
-	real x_fract = abs(x - x_floor);
-	real x_int_pwr = pow(E, x_floor);
 	
 	real res = 1;
+	real fract_x = fract(x);
 
 	for (int i = 1; i < TAYLOR_ORDER; ++i) {
-		res += pow(x_fract, i) / static_cast<real>(fact(i));
+		res += pow(fract_x, i) / static_cast<real>(fact(i));
 	}
 
-	return x_int_pwr * res;
+	std::cout << x << "\t" << floor(x) << "\t+\t" << fract(x) << std::endl;
+
+	return pow(E, floor(x)) * res;
 
 #endif
 	}
@@ -562,12 +566,24 @@ namespace uroboro {
 
 	// Compute the arcsine
 	inline real asin(real x) {
+
+		if(x > 1 || x <= 0) {
+			UMATH_ERROR("asin", x, OUT_OF_DOMAIN);
+			return nan();
+		}
+
 		return atan(x / sqrt(1 - x * x));
 	}
 
 
 	// Compute the arccosine
 	inline real acos(real x) {
+
+		if(x > 1 || x <= 0) {
+			UMATH_ERROR("acos", x, OUT_OF_DOMAIN);
+			return nan();
+		}
+
 		return atan(sqrt(1 - x * x) / x);
 	}
 
@@ -584,7 +600,13 @@ namespace uroboro {
 			return sgn(y) * PI2;
 		}
 
-		return atan(y / x) - clamp(sgn(x), -1, 0) * PI * sgn(y);
+		if(x > 0) {
+			return sgn(y) * atan(y / x);
+		} else {
+			return sgn(y) * atan(y / -x) + PI2;
+		}
+
+		// return atan(y / x) - clamp(sgn(x), -1, 0) * PI * sgn(y);
 	}
 
 
