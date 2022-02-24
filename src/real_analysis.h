@@ -135,7 +135,7 @@ namespace uroboro {
 
 		// Compute the biggest integer number
 		// that is smaller than x
-		return int(x) - (int(x) % 1);
+		return x - (int(x) % 1);
 	}
 
 
