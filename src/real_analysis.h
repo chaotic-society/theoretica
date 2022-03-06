@@ -355,29 +355,32 @@ namespace uroboro {
 		return square(f2xm1(fract(x) / (2 * LN2)) + 1);
 	}
 
+#endif
+
 
 	// Approximate powf(real, real) = x^a
 	// Using pow(x, int(a)) * exp(fract(a) * ln(x))
-	inline real powf_approx(real x, real a) {
+	inline real powf(real x, real a) {
 
-		// Assume a positive
 		if(a < 0)
-			return 1.0 / powf_approx(x, abs(a));
+			return 1.0 / powf(x, abs(a));
+
+#ifdef UROBORO_X86
 
 		// Compute x^fract(a) as e^(x * log2(fract(a) / log2(e)))
 		return pow(x, floor(a)) * ((fract(a) >= POW_APPROXIMATION_TOLERANCE) 
 			? exp_approx_norm(fyl2x(x, fract(a) / LOG2E))
 			: 1);
-	}
-
 #endif
+
+	}
 
 
 	// Compute e^x
 	inline real exp(real x) {
 
 #ifdef UROBORO_X86
-		return powf_approx(E, x);
+		return powf(E, x);
 #else
 
 	// Taylor series expansion
@@ -389,8 +392,6 @@ namespace uroboro {
 	for (int i = 1; i < TAYLOR_ORDER; ++i) {
 		res += pow(fract_x, i) / static_cast<real>(fact(i));
 	}
-
-	std::cout << x << "\t" << floor(x) << "\t+\t" << fract(x) << std::endl;
 
 	return pow(E, floor(x)) * res;
 
@@ -555,6 +556,7 @@ namespace uroboro {
 				- (x4 * x2 * x / 7.f)
 				+ (x4 * x4 * x / 9.f);
 
+
 		} else {
 
 			// Fast approximation of atan in [-1, 1]
@@ -595,6 +597,7 @@ namespace uroboro {
 
 			if(y == 0) {
 				UMATH_ERROR("atan2", y, OUT_OF_DOMAIN);
+				return nan();
 			}
 
 			return sgn(y) * PI2;
@@ -612,20 +615,29 @@ namespace uroboro {
 
 	// Compute the hyperbolic sine
 	inline real sinh(real x) {
-		return (exp(x) - exp(-x)) / 2.0;
+		real exp_x = exp(x);
+		return (exp_x - 1.0 / exp_x) / 2.0;
 	}
 
 
 	// Compute the hyperbolic cosine
 	inline real cosh(real x) {
-		return (exp(x) + exp(-x)) / 2.0;
+		real exp_x = exp(x);
+		return (exp_x + 1.0 / exp_x) / 2.0;
 	}
 
 
 	// Compute the hyperbolic tangent
 	inline real tanh(real x) {
-		real exp_2x = exp(2 * x);
-		return (exp_2x - 1) / (exp_2x + 1);
+		real exp_x = exp(x);
+		return (exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x);
+	}
+
+
+	// Compute the hyperbolic cotangent
+	inline real coth(real x) {
+		real exp_x = exp(x);
+		return (exp_x + 1.0 / exp_x) / (exp_x - 1.0 / exp_x);
 	}
 
 

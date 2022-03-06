@@ -13,16 +13,13 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] max
   - [x] min
   - [x] clamp
-  - [ ] fyl2x - **(MSVC)**
-  - [ ] f2xm1 - **(MSVC)**
   - [ ] **log2** - **(only hardware implementation)**
   - [ ] log10 - **(only hardware implementation)**
   - [ ] ln - **(only hardware implementation)**
   - [x] pow - (may be improved)
   - [x] fact
-  - [ ] exp_approx - (needs a better implementation)
-  - [ ] **powf_approx** - (needs a better implementation)
-  - [ ] **exp**
+  - [ ] **powf** - **(only hardware implementation)**
+  - [ ] **exp** - **(only hardware implementation)**
   - [ ] sin - **(only hardware implementation)**
   - [ ] cos - **(only hardware implementation)**
   - [ ] tan - **(only hardware implementation)**
@@ -69,7 +66,7 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Conjugate and inverse
   - [x] Modulus
   - [x] Rotor construction
-  - [ ] Argument (depends on atan2 implementation)
+  - [ ] Argument - (depends on atan2 implementation)
   - [x] Conversion to other types (matrix form, to vector)
 
 - Complex functions (_complex/complex_functions.h_) - **NO TEST CASES**

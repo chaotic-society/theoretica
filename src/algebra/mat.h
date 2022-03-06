@@ -440,6 +440,106 @@ namespace uroboro {
 		}
 
 
+		// Matrix inversion
+
+		// Compute the inverse of a 2x2 matrix (NO ERROR CHECKING)
+		inline mat<N, K> inverse_2x2() {
+
+			mat<N, K> B;
+
+			// Exchange elements on the diagonal
+			B.at(0, 0) = get(1, 1);
+			B.at(1, 1) = get(0, 0);
+
+			// Change sign of the other elements
+			B.at(0, 1) = -get(0, 1);
+			B.at(1, 0) = -get(1, 0);
+
+			return B / B.det();
+		}
+
+
+		// Compute the inverse of a generic square matrix
+		inline mat<N, K> inverse() {
+
+			if(!is_square()) {
+				UMATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
+				return mat<N, K>(nan());
+			}
+
+			if(N == 2) {
+				return inverse_2x2();
+			}
+
+			// Initialize the needed matrices
+			// (A|B) is the augmented matrix
+			mat<N, K> A = mat<N, K>(*this);
+			mat<N, K> B = mat<N, K>::identity();
+
+			// Gauss-Jordan elimination
+
+			// Iterate on all columns
+			for (int i = 0; i < N; ++i) {
+				
+				// Make sure the element on the diagonal
+				// is non-zero by adding the first non-zero row
+				if(A.at(i, i) == 0) {
+
+					bool flag = false;
+
+					// Iterate on all rows
+					for (int j = i + 1; j < N; ++j) {
+
+						// Add the j-th row to the i-th row
+						// if Aji is non-zero
+						if(A.at(i, j) != 0) {
+
+							for (int k = 0; k < N; ++k) {
+								A.at(k, i) += A.at(k, j);
+								B.at(k, i) += B.at(k, j);
+							}
+
+							flag = true;
+							break;
+						}
+					}
+
+					if(!flag) {
+						UMATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
+						return mat<N, K>(nan());
+					}
+				}
+
+				// Use the current row to make all other
+				// elements of the column equal to zero
+				for (int j = 0; j < N; ++j) {
+
+					// Skip the current row
+					if(j == i)
+						continue;
+
+					// Multiplication coefficient for
+					// the elision of Ajk
+					real coeff = A.at(i, j) / A.at(i, i);
+					
+					for (int k = 0; k < N; ++k) {
+						A.at(k, j) -= coeff * A.at(k, i);
+						B.at(k, j) -= coeff * B.at(k, i);
+					}
+				}
+
+				// Divide the current row by the pivot
+				for (int j = 0; j < N; ++j) {
+					A.at(j, i) /= A.at(i, i);
+					B.at(j, i) /= A.at(i, i);
+				}
+				
+			}
+
+			return B;
+		}
+
+
 
 		// Transformation matrices
 

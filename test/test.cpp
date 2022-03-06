@@ -33,12 +33,12 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::cbrt(2), std::cbrt(2.0), 2);
 		test_tolr(umath::cbrt(27), 3, 27);
 
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 1, TOLERANCE, 100000);
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 1000);
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 10000);
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 100000);
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 10000000);
-		test_tolr_interval(umath::cbrt, std::cbrt, 0, 100000000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -1, 1, TOLERANCE, 100000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -1000, 1000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -10000, 10000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -100000, 100000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -1000000, 10000000);
+		test_tolr_interval(umath::cbrt, std::cbrt, -10000000, 100000000);
 
 	test_end();
 
@@ -83,20 +83,20 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr(umath::exp(-1), std::exp(-1), -1.0 / E);
 
-		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1000);
-		test_tolr_interval(umath::exp, std::exp, -5, 5, TOLERANCE, 1000);
-		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1000);
-		test_tolr_interval(umath::exp, std::exp, 0, 11, TOLERANCE, 1000);
+		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1234);
+		test_tolr_interval(umath::exp, std::exp, -5, 5, TOLERANCE, 1234);
+		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1234);
+		test_tolr_interval(umath::exp, std::exp, 0, 11, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, -123, 0, TOLERANCE, 671);
 
 	test_end();
 
 
-	test_start("umath::powf_approx");
+	test_start("umath::powf");
 
-		test_tolr(umath::powf_approx(2.0, 0.5), SQRT2, 2);
-		test_tolr(umath::powf_approx(2, 2), 4, 2);
-		test_tolr(umath::powf_approx(3, 2), 9, 3);
+		test_tolr(umath::powf(2.0, 0.5), SQRT2, 2);
+		test_tolr(umath::powf(2, 2), 4, 2);
+		test_tolr(umath::powf(3, 2), 9, 3);
 
 	test_end();
 
@@ -106,12 +106,12 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::sin(0.5f), 0.4794255386, 0.5);
 		test_tolr(umath::sin(3), 0.14112000806, 3);
 		test_tolr_interval(umath::sin, std::sin, 0, PI, TOLERANCE, 100000);
-		// test_tolr_interval(umath::sin, std::sin, 0, 10 * PI);
-		// test_tolr_interval(umath::sin, std::sin, -10 * PI, 0);
-		// test_tolr_interval(umath::sin, std::sin, 0, 100 * PI);
-		// test_tolr_interval(umath::sin, std::sin, -100 * PI, 0);
-		// test_tolr_interval(umath::sin, std::sin, 0, 1000 * PI);
-		// test_tolr_interval(umath::sin, std::sin, -1000 * PI, 0);
+		test_tolr_interval(umath::sin, std::sin, 0, 10 * PI);
+		test_tolr_interval(umath::sin, std::sin, -10 * PI, 0);
+		test_tolr_interval(umath::sin, std::sin, 0, 100 * PI);
+		test_tolr_interval(umath::sin, std::sin, -100 * PI, 0);
+		test_tolr_interval(umath::sin, std::sin, 0, 1000 * PI);
+		test_tolr_interval(umath::sin, std::sin, -1000 * PI, 0);
 
 	test_end();
 
@@ -158,13 +158,41 @@ int main(int argc, char const *argv[]) {
 
 	// test_start("umath::atan(real)");
 
-	// 	// Allow greater tolerance on atan
-	// 	test_tolr(umath::atan(0.5), std::atan(0.5), 0.5);
-	// 	test_tolr(umath::atan(0.9), std::atan(0.9), 0.9);
-	// 	test_tolr_interval(umath::atan, std::atan, 0, 1);
-	// 	test_tolr_interval(umath::atan, std::atan, -1, 0);
+	// 	test_tolr(umath::atan(0.4), std::atan(0.4), 0.4);
+	// 	test_tolr(umath::atan(0.1), std::atan(0.1), 0.1);
+	// 	test_tolr(umath::atan(0.01), std::atan(0.01), 0.01);
+	// 	test_tolr_interval(umath::atan, std::atan, -0.5, 0.5, TOLERANCE, 112551);
+	// 	test_tolr_interval(umath::atan, std::atan, -1, 1, TOLERANCE, 12345);
+	// 	test_tolr_interval(umath::atan, std::atan, -2, 2, TOLERANCE, 112551);
 
 	// test_end();
+
+
+	test_start("umath::sinh");
+
+		test_tolr_interval(umath::sinh, std::sinh, 0, 1, TOLERANCE, 1234);
+		test_tolr_interval(umath::sinh, std::sinh, -5, 5, TOLERANCE, 1234);
+		test_tolr_interval(umath::sinh, std::sinh, -10, 10, TOLERANCE, 1234);
+
+	test_end();
+
+	test_start("umath::cosh");
+
+		test_tolr_interval(umath::cosh, std::cosh, 0, 1, TOLERANCE, 1234);
+		test_tolr_interval(umath::cosh, std::cosh, -5, 5, TOLERANCE, 1234);
+		test_tolr_interval(umath::cosh, std::cosh, -10, 10, TOLERANCE, 1234);
+
+	test_end();
+
+	test_start("umath::tanh");
+
+		test_tolr_interval(umath::tanh, std::tanh, 0, 1, TOLERANCE, 1234);
+		test_tolr_interval(umath::tanh, std::tanh, -5, 5, TOLERANCE, 1234);
+		test_tolr_interval(umath::tanh, std::tanh, -10, 10, TOLERANCE, 1234);
+		test_tolr_interval(umath::tanh, std::tanh, -20, 20, TOLERANCE, 1234);
+		test_tolr_interval(umath::tanh, std::tanh, -30, 30, TOLERANCE, 1234);
+
+	test_end();
 
 
 	test_start("umath::degrees");
