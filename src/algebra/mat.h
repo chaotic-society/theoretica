@@ -510,6 +510,8 @@ namespace uroboro {
 					}
 				}
 
+				real inv_pivot = 1.0 / A.at(i, i);
+
 				// Use the current row to make all other
 				// elements of the column equal to zero
 				for (int j = 0; j < N; ++j) {
@@ -520,7 +522,7 @@ namespace uroboro {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.at(i, j) / A.at(i, i);
+					real coeff = A.at(i, j) * inv_pivot;
 					
 					for (int k = 0; k < N; ++k) {
 						A.at(k, j) -= coeff * A.at(k, i);
@@ -530,8 +532,8 @@ namespace uroboro {
 
 				// Divide the current row by the pivot
 				for (int j = 0; j < N; ++j) {
-					A.at(j, i) /= A.at(i, i);
-					B.at(j, i) /= A.at(i, i);
+					A.at(j, i) *= inv_pivot;
+					B.at(j, i) *= inv_pivot;
 				}
 				
 			}
