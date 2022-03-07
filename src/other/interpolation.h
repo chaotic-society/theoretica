@@ -51,11 +51,39 @@ namespace uroboro {
 	}
 
 
-	// Remap a value from one range to another
+	// Remap a vector value from one range to another
 	template<unsigned int N>
 	inline vec<N> remap(vec<N> iFrom, vec<N> iTo, vec<N> oFrom, vec<N> oTo, real value) {
 		return lerp(oFrom, oTo, invlerp(iFrom, iTo, value));
 	}
+
+
+	// Sigmoid-like interpolation
+
+
+	// Smoothstep interpolation
+	inline real smoothstep(real x1, real x2, real interp) {
+
+		// Clamp x between 0 and 1
+		const real x = clamp((interp - x1) / (x2 - x1), 0.0, 1.0);
+
+		// 3x^2 - 2x^3
+		return x * x * (3 - 2 * x);
+	}
+
+
+	// Smootherstep interpolation
+	inline real smootherstep(real x1, real x2, real interp) {
+
+		// Clamp x between 0 and 1
+		const real x = clamp((interp - x1) / (x2 - x1), 0.0, 1.0);
+
+		// 6x^5 - 15x^4 + 10x^3
+		return x * x * x * (x * (x * 6 - 15) + 10);
+	}
+
+
+	// Bezier curves
 
 
 	// Quadratic Bezier curve
