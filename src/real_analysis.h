@@ -133,6 +133,9 @@ namespace uroboro {
 	// Compute the floor of x
 	inline int floor(real x) {
 
+		if(x < 0 && x > -1)
+			return -1;
+
 		// Compute the biggest integer number
 		// that is smaller than x
 		return x - (int(x) % 1);

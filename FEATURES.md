@@ -10,9 +10,11 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] cube
   - [x] abs
   - [x] sgn
-  - [x] max
-  - [x] min
-  - [x] clamp
+  - [ ] max - Test cases
+  - [ ] min - Test cases
+  - [ ] clamp - Test cases
+  - [ ] floor - Test cases
+  - [ ] fract - Test cases
   - [ ] **log2** - **(only hardware implementation)**
   - [ ] log10 - **(only hardware implementation)**
   - [ ] ln - **(only hardware implementation)**
@@ -28,10 +30,10 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [ ] asin
   - [ ] acos
   - [ ] **atan2**
-  - [ ] sinh
-  - [ ] cosh
-  - [ ] tanh
-  - [ ] coth
+  - [ ] sinh - Depends on exp
+  - [ ] cosh - Depends on exp
+  - [ ] tanh - Depends on exp
+  - [ ] coth - Depends on exp
   - [x] binomial_coeff
   - [x] radians
   - [x] degrees
@@ -56,7 +58,7 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Matrix types (_is_square_, _is_diagonal_, _is_symmetric_)
   - [x] Transformation matrices (_identity_, _translation_, _rotation_4x4_, _rotation_3x3_, _scaling_)
   - [x] Perspective and Ortho matrices - Need testing
-  - [ ] Inversion
+  - [x] Inversion
   - [ ] Determinant of a generic matrix
   - [x] Determinant of 2x2 and 3x3 matrices
 

@@ -205,5 +205,6 @@ int main(int argc, char const *argv[]) {
 
 	std::cout << distribution::gaussian(1.0, 1.0, 0.02) << std::endl;
 	std::cout << distribution::binomial(0, 4, 0.5) << std::endl;
+
 	return 0;
 }

@@ -91,6 +91,42 @@ bool good_enough(T a, T b, real tolerance = TOLERANCE) {
 
 // Compare a function to an expected value
 template<typename T1, typename T2>
+void test_equal(T1 evaluated, T1 expected, T2 input, bool silent = false) {
+
+	if(!(evaluated == expected)) {
+
+		if(!silent) {
+			std::cout << "\tTest failed" << std::endl;
+		}
+		
+		total_errors++;
+		curr_errors++;
+
+	} else if(!silent) {
+		std::cout << "\tTest passed" << std::endl;
+	}
+}
+
+
+// Test a real function on an interval
+void test_equal_interval(real_function f, real_function f_exp, real a, real b,
+	real tolerance = TOLERANCE, unsigned int steps = 1000) {
+
+	std::cout << "\tTesting on interval [" << a << ", " << b << "] with " << steps << " steps" << std::endl;
+
+	real dx = (b - a) / (real) steps;
+
+	for (int i = 0; i <= steps; ++i) {
+
+		real x = a + i * dx;
+
+		test_equal(f(x), f_exp(x), x, true);
+	}
+}
+
+
+// Compare a function to an expected value
+template<typename T1, typename T2>
 void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, bool silent = false) {
 
 	real diff = umath::abs(evaluated - expected);

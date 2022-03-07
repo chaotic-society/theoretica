@@ -1,4 +1,3 @@
-
 #include "../src/uroboro.h"
 #include <cmath>
 
@@ -7,8 +6,32 @@
 
 int main(int argc, char const *argv[]) {
 
-	std::cout << "Starting testing of uroboro library...\n" << std::endl;
+	std::cout << "Starting testing of uroboro library..." << std::endl;
+	std::cout << "Testing real_analysis\n" << std::endl;
+
 	std::cout.precision(12);
+
+
+	test_start("umath::square(real)");
+
+		test_tolr(umath::square(1), 1, 1);
+		test_tolr(umath::square(2), 4, 2);
+		test_tolr(umath::square(-1), 1, -1);
+		test_tolr(umath::square(3), 9, 3);
+		test_tolr(umath::square(0), 0, 0);
+
+	test_end();
+
+
+	test_start("umath::cube(real)");
+
+		test_tolr(umath::cube(1), 1, 1);
+		test_tolr(umath::cube(2), 8, 2);
+		test_tolr(umath::cube(-1), -1, -1);
+		test_tolr(umath::cube(3), 27, 3);
+		test_tolr(umath::cube(0), 0, 0);
+
+	test_end();
 
 
 	test_start("umath::sqrt(real)");
@@ -39,6 +62,30 @@ int main(int argc, char const *argv[]) {
 		test_tolr_interval(umath::cbrt, std::cbrt, -100000, 100000);
 		test_tolr_interval(umath::cbrt, std::cbrt, -1000000, 10000000);
 		test_tolr_interval(umath::cbrt, std::cbrt, -10000000, 100000000);
+
+	test_end();
+
+
+	test_start("umath::abs(real)");
+
+		test_tolr(umath::abs(1), 1, 1);
+		test_tolr(umath::abs(2), 2, 2);
+		test_tolr(umath::abs(-1), 1, -1);
+		test_tolr(umath::abs(-3), 3, -3);
+		test_tolr(umath::abs(0), 0, 0);
+		test_tolr(umath::abs(-1.0 / 3.0), 1.0 / 3.0, -1.0 / 3.0);
+
+	test_end();
+
+
+	test_start("umath::sgn(real)");
+
+		test_tolr(umath::sgn(1), 1, 1);
+		test_tolr(umath::sgn(2), 1, 2);
+		test_tolr(umath::sgn(-1), -1, -1);
+		test_tolr(umath::sgn(-3), -1, -3);
+		test_tolr(umath::sgn(0), 0, 0);
+		test_tolr(umath::sgn(-1.0 / 3.0), -1, -1.0 / 3.0);
 
 	test_end();
 
@@ -86,7 +133,7 @@ int main(int argc, char const *argv[]) {
 		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, -5, 5, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1234);
-		test_tolr_interval(umath::exp, std::exp, 0, 11, TOLERANCE, 1234);
+		test_tolr_interval(umath::exp, std::exp, 0, 10, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, -123, 0, TOLERANCE, 671);
 
 	test_end();
@@ -195,6 +242,21 @@ int main(int argc, char const *argv[]) {
 	test_end();
 
 
+	test_start("umath::binomial_coeff");
+
+		test_tol<long long, long long>(binomial_coeff(1, 1), 1, 1);
+		test_tol<long long, long long>(binomial_coeff(2, 0), 1, 2);
+		test_tol<long long, long long>(binomial_coeff(2, 1), 2, 2);
+		test_tol<long long, long long>(binomial_coeff(3, 2), 3, 3);
+		test_tol<long long, long long>(binomial_coeff(3, 1), 3, 3);
+		test_tol<long long, long long>(binomial_coeff(6, 3), 20, 6);
+		test_tol<long long, long long>(binomial_coeff(10, 3), 120, 10);
+		test_tol<long long, long long>(binomial_coeff(16, 7), 11440, 16);
+		test_tol<long long, long long>(binomial_coeff(18, 6), 18564, 18);
+
+	test_end();
+
+
 	test_start("umath::degrees");
 
 		test_tolr(umath::degrees(umath::PI), 180, umath::PI);
@@ -209,21 +271,6 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::radians(180), umath::PI, 180);
 		test_tolr(umath::radians(90), umath::PI / 2.0, 90);
 		test_tolr(umath::radians(45), umath::PI / 4.0, 45);
-
-	test_end();
-
-
-	test_start("umath::binomial_coeff");
-
-		test_tol<long long, long long>(binomial_coeff(1, 1), 1, 1);
-		test_tol<long long, long long>(binomial_coeff(2, 0), 1, 2);
-		test_tol<long long, long long>(binomial_coeff(2, 1), 2, 2);
-		test_tol<long long, long long>(binomial_coeff(3, 2), 3, 3);
-		test_tol<long long, long long>(binomial_coeff(3, 1), 3, 3);
-		test_tol<long long, long long>(binomial_coeff(6, 3), 20, 6);
-		test_tol<long long, long long>(binomial_coeff(10, 3), 120, 10);
-		test_tol<long long, long long>(binomial_coeff(16, 7), 11440, 16);
-		test_tol<long long, long long>(binomial_coeff(18, 6), 18564, 18);
 
 	test_end();
 
