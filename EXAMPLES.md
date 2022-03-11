@@ -191,7 +191,7 @@ complex z5 = ln(z3) + atan(z3);
 ```
 Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and many more are also supported (`complex_analysis.h`).
 
-#### Using quaternions
+## Using quaternions
 Declare a quaternion using the `quat` class.
 ```c
 // Initialize a quaternion as 1 + 2i + 3j + 4k
