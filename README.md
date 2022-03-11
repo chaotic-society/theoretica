@@ -1,7 +1,7 @@
 <img alt="license badge" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="last commit badge" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="code size in bytes badge" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="issues badge" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
 # Uroboro Math Library
-A general purpose, header-only, **C++ mathematical library**, focused on graphical and physical computation. Includes **real and complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions** and **statistical** functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
+A header-only, **C++ mathematical library**, focused on **graphical** and **physical** applications. Includes **real and complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions** and **statistical** functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
 
 ## Usage
 The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.
