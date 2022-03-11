@@ -9,12 +9,13 @@ The library is header-only, so it is only needed to include the proper header fi
 - To include **all header files** `UROBORO_INCLUDE_ALL` may be defined before including `uroboro.h`.
 - All functions and classes are defined inside the `uroboro` namespace (and eventually other sub-namespaces). Another namespace alias is automatically defined as `umath` (same as using `uroboro`). If you want to disable the `umath` alias, define `UROBORO_NO_NAMESPACE` before including `uroboro.h`
 
-**Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where N is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
+**Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where `N` is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
 
 ## Dependencies
 The library has no dependencies. Only the C++ Standard Library is needed to use it.
 
 ## Functionalities
+This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md)
 - Real analysis (`real_analysis.h`)
 - Linear algebra (vector and matrix operations) (`algebra/vec.h`, `algebra/mat.h`)
 - Complex (in algebraic and exponential form) and quaternion numbers (`complex/complex.h`, `complex/quat.h`, `complex/phasor.h`)
@@ -54,12 +55,12 @@ These are the macros that can be defined to change the library's behaviour:
 - See `constants.h` for more specific defines
 
 ## Future development
-#### In progress
+### In progress
 These are features which are currently under development:
 - Matrix determinant
 - Column/row precedence independence for matrices (let the user decide whether to use column/row-first storage and colexicographical/lexicographical representation)
 
-#### Planned
+### Planned
 These are features which will be developed soon:
 - Romberg integral approximation
 - Pseudorandom Number Generation
@@ -69,7 +70,7 @@ These are features which will be developed soon:
 - Benchmarking (either implemented or integrated)
 - Make the library independent from the C++ Standard Library (at least partially)
 
-#### Potential
+### Potential
 These are interesting features which might or might not be implemented in the future.
 - Sorting algorithms
 - Metropolis pseudorandom number generation
