@@ -32,6 +32,33 @@ This is an overview of the library's functionalities. For a more detailed list s
 ## Examples
 Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/src/example.cpp) for more example code.
 
+### Quickstart
+To check if you correctly set up the library, try to compile the following code in a source file:
+```c
+#define UROBORO_INCLUDE_ALL
+#include "uroboro.h"
+
+using namespace uroboro;
+
+int main() {
+ 
+    vec3 v = {1, 2, 3};
+    mat3 A = mat3::rotation_x_3x3(PI2);
+ 
+    vec3 w = A * v;
+ 
+    complex z = complex::rotor(PI4);
+ 
+    quat q = {1, 2, 3, 4};
+    q = q.inverse();
+ 
+    return 0;
+}
+```
+
+## Error handling
+The library uses `errno` and `umath::MathException` (if it is enabled) to report errors. The behaviour of the library may be modified using the `UROBORO_THROW_EXCEPTIONS` and `UROBORO_ONLY_EXCEPTIONS`. See [Macros](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Macros) to learn more.
+
 ## Progress
 Most functionalities have already been implemented, but test cases and documentation are in need of writing. Benchmarking different algorithms may be also used to enchance the library. Core functions which are currently under development are:
 - Matrix determinant
