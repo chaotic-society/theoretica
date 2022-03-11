@@ -69,11 +69,12 @@ These are features which will be developed soon:
 - Montecarlo integral approximation
 - Benchmarking (either implemented or integrated)
 - Make the library independent from the C++ Standard Library (at least partially)
+- Metropolis pseudorandom number generation
+- Noise generation
 
 ### Potential
 These are interesting features which might or might not be implemented in the future.
 - Sorting algorithms
-- Metropolis pseudorandom number generation
 - SSE implementations of vector and matrix operations
 
 ## Contributing
