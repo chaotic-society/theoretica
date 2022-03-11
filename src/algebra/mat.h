@@ -320,7 +320,7 @@ namespace uroboro {
 			return data[column][row];
 		}
 
-		inline void set(real a, unsigned int column, unsigned int row) {
+		inline void set(unsigned int column, unsigned int row, real a) {
 			data[column][row] = a;
 		}
 

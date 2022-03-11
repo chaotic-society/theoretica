@@ -21,10 +21,15 @@ namespace uroboro {
 
 			polynomial(std::initializer_list<real> l) : coeff(l) {}
 
+			// Access i-th coefficient
+			inline T& at(int i) {
+				return coeff[i];
+			}
+
 
 			// Access i-th coefficient
 			inline T& operator[](int i) {
-				return coeff[i];
+				return at(i);
 			}
 
 
