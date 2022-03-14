@@ -3,14 +3,6 @@
 # Uroboro Math Library
 A header-only, **C++ mathematical library**, focused on **graphical** and **physical** applications. Includes **real and complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions** and **statistical** functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
 
-## Usage
-The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.
-- Make sure to define `UROBORO_X86` if  you are using the x86 architecture, so that the library will use Assembly enhancements.
-- To include **all header files** `UROBORO_INCLUDE_ALL` may be defined before including `uroboro.h`.
-- All functions and classes are defined inside the `uroboro` namespace (and eventually other sub-namespaces). Another namespace alias is automatically defined as `umath` (same as using `uroboro`). If you want to disable the `umath` alias, define `UROBORO_NO_NAMESPACE` before including `uroboro.h`
-
-**Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where `N` is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
-
 ## Dependencies
 The library has no dependencies. Only the C++ Standard Library is needed to use it.
 
@@ -28,6 +20,14 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Integral approximation, including Runge-Kutta of 4th order (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial.h`)
 - Interpolation between vector data, including Bezier curves (`other/interpolation.h`)
+
+## Usage
+The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.
+- Make sure to define `UROBORO_X86` if  you are using the x86 architecture, so that the library will use Assembly enhancements.
+- To include **all header files** `UROBORO_INCLUDE_ALL` may be defined before including `uroboro.h`.
+- All functions and classes are defined inside the `uroboro` namespace (and eventually other sub-namespaces). Another namespace alias is automatically defined as `umath` (same as using `uroboro`). If you want to disable the `umath` alias, define `UROBORO_NO_NAMESPACE` before including `uroboro.h`
+
+**Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where `N` is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
 
 ## Examples
 Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/src/example.cpp) for more example code.
@@ -62,8 +62,8 @@ The library uses `errno` and `umath::MathException` (if it is enabled) to report
 ## Progress
 Most functionalities have already been implemented, but test cases and documentation are in need of writing. Benchmarking different algorithms may be also used to enchance the library. Core functions which are currently under development are:
 - Matrix determinant
-- powf, exp, sin/cos/tan (only the **architecture independent** versions, they already work properly on x86 machines)
-- asin/acos/atan/atan2 (Inverse trig functions)
+- powf, exp, sin, cos, tan (only the **architecture independent** versions, they already work properly on x86 machines)
+- asin, acos, atan, atan2 (Inverse trig functions)
 
 See [Future development](https://github.com/mattiaisgro/uroboro/blob/master/README.md#future-development) for information about new features which might get implemented.
 
