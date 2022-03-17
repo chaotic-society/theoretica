@@ -116,14 +116,14 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton and bisection
 
-- Dual numbers (_other/dual.h_) - **NO TEST CASES**
+- Dual numbers (_autodiff/dual.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
   - [x] Multiplication and division
   - [x] Conjugate and inverse
   - [x] Conversion from and to vector
   - [x] Matrix form
 
-- Dual functions and Automatic Differentiation (_other/dual_functions.h_) - **NO TEST CASES**
+- Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_) - **NO TEST CASES**
   - [x] square
   - [x] cube
   - [x] pow

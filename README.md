@@ -12,7 +12,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Linear algebra (vector and matrix operations) (`algebra/vec.h`, `algebra/mat.h`)
 - Complex (in algebraic and exponential form) and quaternion numbers (`complex/complex.h`, `complex/quat.h`, `complex/phasor.h`)
 - Complex analysis (`complex/complex_analysis.h`)
-- Dual numbers and Automatic Differentiation (`other/dual.h`, `other/dual_functions.h`)
+- Dual numbers and Automatic Differentiation (`autodiff/dual.h`, `autodiff/dual_functions.h`)
 - Statistical functions (including Least Squares Linearization) (`statistics/statistics.h`)
 - Probability distribution functions (`statistics/distributions.h`)
 - Approximation of roots and extrema of real functions (`approx.h`)
@@ -43,8 +43,7 @@ using namespace uroboro;
 int main() {
  
     vec3 v = {1, 2, 3};
-    mat3 A = mat3::rotation_x_3x3(PI2);
- 
+    mat3 A = mat3::rotation_3x3(PI4, {1, 0, 1});
     vec3 w = A * v;
  
     complex z = complex::rotor(PI4);

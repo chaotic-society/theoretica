@@ -21,8 +21,8 @@
 #include "./calculus/integration.h"
 #include "./polynomial.h"
 #include "./statistics/distributions.h"
-#include "./other/dual.h"
-#include "./other/dual_functions.h"
+#include "./autodiff/dual.h"
+#include "./autodiff/dual_functions.h"
 #endif
 
 #ifndef UROBORO_NO_NAMESPACE

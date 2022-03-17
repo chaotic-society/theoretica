@@ -579,6 +579,21 @@ namespace uroboro {
 			return m;
 		}
 
+		// Get a matrix which rotates the 2D plane of <theta> radians
+		inline static mat<2, 2> rotation_2x2(real theta) {
+
+			real s = uroboro::sin(theta);
+			real c = uroboro::cos(theta);
+
+			mat<2, 2> res;
+			res.at(0, 0) = c;
+			res.at(1, 0) = -s;
+			res.at(0, 1) = s;
+			res.at(1, 1) = c;
+
+			return res;
+		}
+
 		// Get a matrix which rotates <theta> radians around the x axis
 		inline static mat<4, 4> rotation_x_4x4(real theta) {
 
@@ -782,7 +797,7 @@ namespace uroboro {
 
 		// Get a scaling matrix by <v> factors
 		template<unsigned int M>
-		inline static mat<N,K> scaling(vec<M> v) {
+		inline static mat<N, K> scaling(vec<M> v) {
 
 			mat<N, K> res = mat<N, K>(1.0);
 
