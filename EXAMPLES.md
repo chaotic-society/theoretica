@@ -150,11 +150,11 @@ Transformations:
 mat3 Rot1 = mat3::rotation_3x3(PI2, vec3({1, 2, 3}));
 
 // Rotation around the x axis (same for y and z)
-mat3 Rot2 = mat3::rotation_3x3_x(PI4);
+mat3 Rot2 = mat3::rotation_x_3x3(PI4);
 
 // 4x4 rotation matrix around the z axis of 10 degrees
 // (radians(real) converts degrees to radians, degrees does the opposite)
-mat4 Rot3 = mat4::rotation_4x4_z(radians(10));
+mat4 Rot3 = mat4::rotation_z_4x4(radians(10));
 
 // 4x4 translation matrix
 mat4 T1 = mat4::translation(1, 2, 3);

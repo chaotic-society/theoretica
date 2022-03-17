@@ -238,7 +238,11 @@ namespace uroboro {
 			return nan();
 		}
 
+#ifdef UROBORO_X86
 		return fyl2x(x, 1.0);
+#else
+		return nan();
+#endif
 	}
 
 
@@ -256,7 +260,11 @@ namespace uroboro {
 			return nan();
 		}
 
+#ifdef UROBORO_X86
 		return fyl2x(x, 1.0 / LOG210);
+#else
+		return nan();
+#endif
 	}
 
 
@@ -274,7 +282,11 @@ namespace uroboro {
 			return nan();
 		}
 
+#ifdef UROBORO_X86
 		return fyl2x(x, 1.0 / LOG2E);
+#else
+		return nan();
+#endif
 	}
 
 
@@ -390,10 +402,15 @@ namespace uroboro {
 	// Compute e^floor(x) * e^fract(x)
 	
 	real res = 1;
+	real s_n = 1;
 	real fract_x = fract(x);
 
 	for (int i = 1; i < TAYLOR_ORDER; ++i) {
-		res += pow(fract_x, i) / static_cast<real>(fact(i));
+
+		// Recurrence formula to improve
+		// numerical stability and performance
+		s_n *= fract_x / static_cast<real>(i);
+		res += s_n;
 	}
 
 	return pow(E, floor(x)) * res;

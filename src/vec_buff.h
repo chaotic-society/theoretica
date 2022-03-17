@@ -102,6 +102,14 @@ namespace uroboro {
 		return res;
 	}
 
+
+	// Apply a function to a set of values
+	inline void apply(vec_buff& X, real(*f)(real)) {
+
+		for (real& x : X)
+			x = f(x);
+	}
+
 }
 
 #endif
