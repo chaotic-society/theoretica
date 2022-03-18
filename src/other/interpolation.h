@@ -58,11 +58,23 @@ namespace uroboro {
 	}
 
 
+	// Normalized linear interpolation
+	template<unsigned int N>
+	inline vec<N> nlerp(vec<N> P1, vec<N> P2, real interp) {
+		return (P1 + (P2 - P1) * interp).normalized();
+	}
+
+
 	// Sigmoid-like interpolation
 
 
 	// Smoothstep interpolation
 	inline real smoothstep(real x1, real x2, real interp) {
+
+		if(x1 == x2) {
+			UMATH_ERROR("smoothstep", x1, DIV_BY_ZERO);
+			return nan();
+		}
 
 		// Clamp x between 0 and 1
 		const real x = clamp((interp - x1) / (x2 - x1), 0.0, 1.0);
@@ -75,11 +87,46 @@ namespace uroboro {
 	// Smootherstep interpolation
 	inline real smootherstep(real x1, real x2, real interp) {
 
+		if(x1 == x2) {
+			UMATH_ERROR("smootherstep", x1, DIV_BY_ZERO);
+			return nan();
+		}
+
 		// Clamp x between 0 and 1
 		const real x = clamp((interp - x1) / (x2 - x1), 0.0, 1.0);
 
 		// 6x^5 - 15x^4 + 10x^3
 		return x * x * x * (x * (x * 6 - 15) + 10);
+	}
+
+
+	// Spherical interpolation
+	template<unsigned int N>
+	inline vec<N> slerp(vec<N> P1, vec<N> P2, real t) {
+
+		// Compute (only once) the length
+		// of the input vectors
+		real P1_l = P1.length();
+		real P2_l = P2.length();
+
+		// Check whether one of the vectors is null,
+		// which would make the computation impossible
+		if(P1_l == 0 || P2_l == 0) {
+			UMATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
+			return vec<N>(nan());
+		}
+
+		// Angle between P1 and P2 (from the dot product)
+		real omega = acos((P1 * P2) / (P1_l * P2_l));
+		real s = sin(omega);
+
+		// Check that the sine of the angle is not zero
+		if(s == 0) {
+			UMATH_ERROR("slerp", s, DIV_BY_ZERO);
+			return vec<N>(nan());
+		}
+
+		return (P1 * sin((1 - t) * omega) + P2 * sin(t * omega)) / s;
 	}
 
 
