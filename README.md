@@ -16,7 +16,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Dual numbers and **Automatic Differentiation** (`autodiff/dual.h`, `autodiff/dual_functions.h`)
 - **Statistical** functions (including Least Squares Linearization) (`statistics/statistics.h`)
 - Probability distribution functions (`statistics/distributions.h`)
-- Approximation of **roots** and **extrema** of real functions (`approx.h`)
+- Approximation of **roots** and **extrema** of real functions (`approx/roots.h`, `approx/extrema.h`)
 - Derivative approximation (`calculus/derivation.h`)
 - Integral approximation, including **Runge-Kutta** of 4th order (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial.h`)
@@ -74,11 +74,12 @@ These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_FORCE_BRANCHLESS** - Branchless implementations will always be used whenever possible
 - **UROBORO_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
 - **UROBORO_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
-- **UROBORO_NO_NAMESPACE** - The `umath` namespace alias will not be defined
-- **UROBORO_X86** - Assembly x86 implementations will be used whenever possible
+- **UROBORO_NO_NAMESPACE** - The `umath` namespace alias will **not** be defined
+- **UROBORO_X86** - **Assembly x86** implementations will be used whenever possible
 - **UROBORO_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
 - **UROBORO_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
 - **UROBORO_ARBITRARY_PREC** - Arbitrary precision will be used (NOT implemented yet)
+- **UROBORO_NO_PRINT** - Do **not** compile to_string() and operator<<() methods for all classes (to avoid including <string>, <sstream> and <ostream>)
 - See `constants.h` for more specific defines
 
 ## Future development

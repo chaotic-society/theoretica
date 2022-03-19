@@ -17,6 +17,8 @@ Where source code is stored.
   - _phasor.h_ - Complex number class in exponential form
   - _quat.h_ - Quaternion class
 
+- _src/autodiff_ - Automatic Differentiation using dual numbers
+
 - _src/other_ - Miscellaneous files
   - _interpolation.h_ - Interpolation functions on vectors
 
@@ -24,7 +26,8 @@ Where source code is stored.
   - _distributions.h_ - Probability distribution functions
   - _statistics.h_ - Common statistical functions
 
-- _approx.h_ - Approximation of roots and extreme of real functions
+- _approx/roots.h_ - Approximation of roots of real functions
+- _approx/extrema.h_ - Approximation of extrema of real functions
 - _constants.h_ - Constants header
 - _example.cpp_ - Example file showcasing common use functions
 - _function.h_ - Function types header
@@ -37,4 +40,5 @@ Where source code is stored.
 ## The _test_ folder
 Where test cases are stored.
 
-- _test.cpp_ - Test cases file
+- _test_*.cpp_ - Test cases files
+- _test.h_ - Testing library code

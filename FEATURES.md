@@ -112,7 +112,7 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [ ] Monte Carlo integral approximation
   - [x] Derivative approximation
 
-- Approximation of roots and extrema (_approx.h_) - **NO TEST CASES**
+- Approximation of roots and extrema (_approx/approx.h_, _approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton and bisection
 
