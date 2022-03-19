@@ -11,15 +11,13 @@ int main(int argc, char const *argv[]) {
 	std::cout << "Automatic differentiation" << std::endl;
 
 	dual d = dual(2, 1);
-	std::cout << sqrt(abs(cos(d))).Re() << std::endl; // Function value
-	std::cout << sqrt(abs(cos(d))).Dual() << std::endl; // Derivative value
-	std::cout << std::endl;
+	std::cout << square(d) << std::endl;
 
 	// Integral approximation
 	std::cout << "Integral approximation" << std::endl;
-	std::cout << approx_integral_midpoint(umath::square, 0, 3) << std::endl;
-	std::cout << approx_integral_trapezoid(umath::square, 0, 3) << std::endl;
-	std::cout << approx_integral_simpson(umath::square, 0, 3) << std::endl;
+	std::cout << approx_integral_midpoint(square, 0, 3) << std::endl;
+	std::cout << approx_integral_trapezoid(square, 0, 3) << std::endl;
+	std::cout << approx_integral_simpson(square, 0, 3) << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Derivative approximation" << std::endl;
@@ -28,11 +26,9 @@ int main(int argc, char const *argv[]) {
 
 	// Polynomials
 	std::cout << "Polynomials\n" << std::endl;
-	polynomial<> P1 = {1, 1, -1};
-	polynomial<> P2 = {1, 2, 3};
-	print_polynomial(P1);
-	print_polynomial(P2);
-	std::cout << std::endl;
+	polynomial<real> P1 = {1, 1, -1};
+	polynomial<real> P2 = {1, 2, 3};
+	std::cout << P1 << std::endl << P2 << std::endl;
 
 	std::cout << "Approximated roots of P1 (different algorithms)" << std::endl;
 	std::cout << approx_polyn_root_newton(P1, 1) << std::endl;
@@ -43,37 +39,35 @@ int main(int argc, char const *argv[]) {
 	P1.trim();
 
 	std::cout << "P1 + P2: ";
-	print_polynomial(P1 + P2);
+	std::cout << (P1 + P2) << std::endl;
 	std::cout << "P1 - P2: ";
-	print_polynomial(P1 - P2);
+	std::cout << (P1 - P2) << std::endl;
 	std::cout << "P1 * P2: ";
-	print_polynomial(P1 * P2);
+	std::cout << (P1 * P2) << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "d(P1)/dx: ";
-	print_polynomial(differentiate_polynomial(P1));
+	std::cout << differentiate_polynomial(P1) << std::endl;
 	std::cout << "(P1 dx): ";
-	print_polynomial(integrate_polynomial(P1));
+	std::cout << integrate_polynomial(P1) << std::endl;
 	std::cout << std::endl;
 
 	// Phasor
 	std::cout << "Phasor\n" << std::endl;
 	phasor p = phasor(PI, SQRT2);
 
-	print_phasor(phasor(1, PI) * phasor(1, PI2));
-	print_phasor(phasor(1, PI) / phasor(1, PI2));
-	print_phasor(phasor(1, 0) + phasor(2, PI));
+	std::cout << phasor(1, PI) * phasor(1, PI2) << std::endl;
+	std::cout << phasor(1, PI) / phasor(1, PI2) << std::endl;
+	std::cout << phasor(1, 0) + phasor(2, PI) << std::endl;
 	std::cout << std::endl;
 
 	// Quaternion rotation of a vector
 	std::cout << "Quaternion rotation of a vector\n" << std::endl;
 	vec3 v = {1, 2, 3};
-	std::cout << "v = ";
-	print_vec(v);
+	std::cout << "v = " << v;
 
-	std::cout << "quat::rotate(v, PI, {0, 1, 0}) = ";
-	print_vec(quat::rotate(v, PI, {0, 1, 0}));
-	std::cout << std::endl;
+	std::cout << "quat::rotate(v, PI, {0, 1, 0}) = "
+		<< quat::rotate(v, PI, {0, 1, 0}) << std::endl;
 
 	// Complex product and rotation
 	std::cout << "Complex product and rotation\n" << std::endl;
@@ -81,40 +75,30 @@ int main(int argc, char const *argv[]) {
 	complex w = {0, 1};
 	complex r = complex::rotor(PI);
 
-	std::cout << "z = ";
-	print_complex(z);
-
-	std::cout << "w = ";
-	print_complex(w);
-
-	std::cout << "r = ";
-	print_complex(r);
-
+	std::cout << "z = " << z << std::endl;
+	std::cout << "w = " << w << std::endl;
+	std::cout << "r = " << r << std::endl;
 	std::cout << "arg(r) = " << r.arg() << std::endl;
-
-	std::cout << "z * w = ";
-	print_complex(z * w);
-
-	std::cout << "z * r = ";
-	print_complex(z * r);
+	std::cout << "z * w = " << (z * w) << std::endl;
+	std::cout << "z * r = " << (z * r) << std::endl;
 	std::cout << std::endl;
 
 	// Complex functions
 	std::cout << "Complex functions\n" << std::endl;
 	std::cout << "sqrt(1, 1) = ";
-	print_complex(sqrt(z + w));
+	std::cout << sqrt(z + w) << std::endl;
 
 	std::cout << "exp(1, 1) = ";
-	print_complex(exp(z + w));
+	std::cout << exp(z + w) << std::endl;
 
 	std::cout << "sin(1, 1) = ";
-	print_complex(sin(z + w));
+	std::cout << sin(z + w) << std::endl;
 
 	std::cout << "cos(1, 1) = ";
-	print_complex(cos(z + w));
+	std::cout << cos(z + w) << std::endl;
 
 	std::cout << "tan(1, 1) = ";
-	print_complex(tan(z + w));
+	std::cout << tan(z + w) << std::endl;
 	std::cout << std::endl;
 
 
@@ -125,22 +109,12 @@ int main(int argc, char const *argv[]) {
 	vec3 v1 = {1, 3, 1};
 	vec3 v2 = {-1, 2, 1};
 
-	std::cout << "v1 = ";
-	print_vec(v1);
-
-	std::cout << "v2 = ";
-	print_vec(v2);
-
-	std::cout << "v1 + v2 = ";
-	print_vec(v1 + v2);
-
-	std::cout << "v1 - v2 = ";
-	print_vec(v1 - v2);
-
+	std::cout << "v1 = " << v1 << std::endl;
+	std::cout << "v2 = " << v2 << std::endl;
+	std::cout << "v1 + v2 = " << (v1 + v2) << std::endl;
+	std::cout << "v1 - v2 = " << (v1 - v2) << std::endl;
 	std::cout << "v1 * v2 = " << (v1 * v2) << std::endl;
-
-	std::cout << "v1 x v2 = ";
-	print_vec(v1.cross(v2));
+	std::cout << "v1 x v2 = " << v1.cross(v2) << std::endl;
 	std::cout << std::endl;
 
 	// Matrix operations
@@ -152,20 +126,19 @@ int main(int argc, char const *argv[]) {
 
 	mat<3, 4> m2 = mat<3, 4>(3);
 
-	print_mat(m1);
-	print_mat(m1.transposed());
-	print_mat(m1 * m2);
+	std::cout << m1 << std::endl;
+	std::cout << (m1.transposed()) << std::endl;
+	std::cout << (m1 * m2) << std::endl;
 
-	print_mat(mat4::identity() * mat4::diagonal(2.0));
-	print_mat(mat4::translation(vec3({1, 2, 3})));
+	std::cout << (mat4::identity() * mat4::diagonal(2.0)) << std::endl;
+	std::cout << mat4::translation(vec3({1, 2, 3})) << std::endl;
 
 
 	// Matrix rotation around an arbitrary axis
 	v = {1, 1, 1};
 	mat3 R = mat3::rotation_3x3(PI2, vec3({1, 1, 1}));
 
-	print_vec(R * v);
-
+	std::cout << (R * v) << std::endl;
 	std::cout << std::endl;
 
 

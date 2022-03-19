@@ -1,9 +1,17 @@
 #ifndef UROBORO_VECTOR_H
 #define UROBORO_VECTOR_H
+
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include <array>
 
+#include "../error.h"
 #include "../real_analysis.h"
 #include "../vec_buff.h"
+
 
 namespace uroboro {
 
@@ -279,6 +287,34 @@ namespace uroboro {
 			return res;
 		}
 
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the vector to string representation
+			inline std::string to_string(std::string separator = ", ") const {
+
+				std::stringstream res;
+
+				res << "(";
+				for (int i = 0; i < N; ++i) {
+					res << data[i];
+					if(i != N - 1)
+						res << separator;
+				}
+				res << ")";
+
+				return res.str();
+			}
+
+
+			// Stream the vector in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const vec<N, T>& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
+
 	};
 
 	// Common vector types
@@ -300,17 +336,32 @@ namespace uroboro {
 	}
 
 
-	// template<unsigned int N>
-	// real lp_norm(vec<N, T> v1, vec<N, T> v2, unsigned int order) {
+	// Compute the Lp norm of a vector
+	// as sum(abs(v_i)^p)^1/p
+	template<unsigned int N, typename T>
+	real lp_norm(vec<N, T> v, unsigned int p) {
 
-	// 	real sum = 0;
+		real sum = 0;
 
-	// 	for (unsigned int i = 0; i < N; ++i) {
-	// 		sum += uroboro::pow(v1[i] - v2[i], order);
-	// 	}
+		for (unsigned int i = 0; i < N; ++i)
+			sum += pow(abs(v[i]), p);
 
-	// 	return uroboro::powf(sum, 1.0 / (real) order);
-	// }
+		return root(sum, p);
+	}
+
+
+	// Compute the Linf norm of a vector
+	// as max(abs(v_i))
+	template<unsigned int N, typename T>
+	real linf_norm(vec<N, T> v) {
+
+		real res = abs(v[0]);
+
+		for (unsigned int i = 1; i < N; ++i)
+			res = max(res, abs(v[i]));
+
+		return res;
+	}
 
 
 	// Compute the dot product of two vectors
@@ -323,13 +374,7 @@ namespace uroboro {
 	// Compute the cross product of two vectors
 	template<typename T>
 	vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
-		vec<3, T> res;
-
-		res.data[0] = v1.data[1] * v2.data[2] - v1.data[2] * v2.data[1];
-		res.data[1] = v1.data[2] * v2.data[0] - v1.data[0] * v2.data[2];
-		res.data[2] = v1.data[0] * v2.data[1] - v1.data[1] * v2.data[0];
-
-		return res;
+		return v1.cross(v2);
 	}
 
 }

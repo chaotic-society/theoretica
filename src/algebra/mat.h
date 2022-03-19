@@ -1,6 +1,12 @@
 #ifndef UROBORO_MATRIX_H
 #define UROBORO_MATRIX_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
+#include "../error.h"
 #include "../constants.h"
 #include "../real_analysis.h"
 #include "./vec.h"
@@ -888,6 +894,27 @@ namespace uroboro {
 			return res;
 		}
 
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the matrix to string representation
+			inline std::string to_string(std::string separator = ", ") const {
+
+				std::stringstream res;
+
+				for (int i = 0; i < row_size; ++i)
+					res << get_row(i).to_string(separator) << std::endl;
+
+				return res.str();
+			}
+
+
+			// Stream the matrix in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const mat<N, K>& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
 
 	};
 

@@ -1,8 +1,9 @@
 #ifndef UROBORO_VEC_BUFF_H
 #define UROBORO_VEC_BUFF_H
-#include <vector>
 
+#include <vector>
 #include "./constants.h"
+
 
 namespace uroboro {
 

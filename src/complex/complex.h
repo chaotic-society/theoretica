@@ -1,9 +1,17 @@
 #ifndef UROBORO_COMPLEX_H
 #define UROBORO_COMPLEX_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
+#include <array>
+
+#include "../error.h"
 #include "../real_analysis.h"
 #include "../algebra/vec.h"
-#include <array>
+#include "../algebra/mat.h"
 
 
 namespace  uroboro {
@@ -17,6 +25,9 @@ namespace  uroboro {
 
 			// Initialize as (0 + i0)
 			complex() : a(0), b(0) {}
+
+			// Initialize from a real number (zero imaginary part)
+			complex(real real_part) : a(real_part), b(0) {}
 
 			// Initialize from two real numbers
 			complex(real real_part, real imag_part) : a(real_part), b(imag_part) {}
@@ -243,6 +254,34 @@ namespace  uroboro {
 			inline static complex i() {
 				return complex(0, 1);
 			}
+
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the complex number to string representation
+			inline std::string to_string() const {
+
+				std::stringstream res;
+
+				res << a;
+				res << (b >= 0 ? " + " : " - ");
+				
+				if(abs(b) != 1)
+					res << abs(b);
+
+				res << "i";
+
+				return res.str();
+			}
+
+
+			// Stream the complex number in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const complex& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
 
 	};
 

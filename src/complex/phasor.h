@@ -1,13 +1,19 @@
 #ifndef UROBORO_PHASOR
 #define UROBORO_PHASOR
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "../real_analysis.h"
 #include "./complex.h"
 
 
 namespace uroboro {
 
-	// Complex number in exponential (modulus * e^(i * phase))
+
+	// Complex number in exponential form (modulus * e^(i * phase))
 	class phasor {
 		public:
 
@@ -139,6 +145,26 @@ namespace uroboro {
 					modulus * cos(phase),
 					modulus * sin(phase));
 			}
+
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the phasor to string representation
+			inline std::string to_string(std::string separator = ", ") const {
+
+				std::stringstream res;
+				res << modulus << "/" << phase;
+				return res.str();
+			}
+
+
+			// Stream the phasor in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const phasor& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
 
 	};
 

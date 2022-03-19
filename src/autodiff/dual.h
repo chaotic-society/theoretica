@@ -1,8 +1,14 @@
 #ifndef UROBORO_DUAL_H
 #define UROBORO_DUAL_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "../error.h"
 #include "../constants.h"
+
 
 namespace uroboro {
 
@@ -217,6 +223,34 @@ namespace uroboro {
 				m[1][1] = b;
 				return m;
 			}
+
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the complex number to string representation
+			inline std::string to_string(std::string epsilon = "e") const {
+
+				std::stringstream res;
+
+				res << a;
+				res << (b >= 0 ? " + " : " - ");
+				
+				if(abs(b) != 1)
+					res << abs(b);
+
+				res << epsilon;
+
+				return res.str();
+			}
+
+
+			// Stream the complex number in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const dual& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
 
 	};
 

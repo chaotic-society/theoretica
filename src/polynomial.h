@@ -1,8 +1,16 @@
 #ifndef UROBORO_POLYNOMIAL_H
 #define UROBORO_POLYNOMIAL_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "./vec_buff.h"
 #include "./real_analysis.h"
+#include "./algebra/vec.h"
+#include "./complex/complex.h"
+#include "./complex/complex_analysis.h"
 
 
 namespace uroboro {
@@ -205,6 +213,58 @@ namespace uroboro {
 
 				return true;
 			}
+
+
+			inline vec<2, complex> quadratic_roots() const {
+
+				int order = find_order();
+
+				// Check that the polynomial is quadratic
+				if(order != 2) {
+					UMATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
+					return vec<2, complex>({nan(), nan()});
+				}
+
+				// Complex square root
+				complex d = sqrt(complex(coeff[1] * coeff[1] - coeff[2] * coeff[0] * 4));
+
+				// Compute the two roots of the polynomial
+				// using the quadratic formula
+				return {
+					(d * -1	+ coeff[1] * -1) / (coeff[2] * 2),
+					(d		+ coeff[1] * -1) / (coeff[2] * 2)
+				};
+			}
+
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the polynomial to string representation
+			inline std::string to_string(const std::string& unknown = "x") const {
+
+				std::stringstream res;
+
+				for (int i = 0; i < coeff.size(); ++i) {
+					if(i) {
+						res << (coeff[i] >= 0 ? " + " : " - ")
+							<< unknown << abs(coeff[i]) << "^" << i;
+					} else {
+						res << coeff[i];
+					}	
+				}
+
+				return res.str();
+			}
+
+
+			// Stream the polynomial in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const polynomial& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
+
 		
 	};
 	

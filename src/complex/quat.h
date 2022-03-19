@@ -1,8 +1,14 @@
 #ifndef UROBORO_QUATERNION_H
 #define UROBORO_QUATERNION_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "../real_analysis.h"
 #include "../algebra/vec.h"
+
 
 namespace uroboro {
 
@@ -299,6 +305,31 @@ namespace uroboro {
 
 				return (q * p * q_inv).v;
 			}
+
+
+#ifndef UROBORO_NO_PRINT
+
+			// Convert the quaternion to string representation
+			inline std::string to_string() const {
+
+				std::stringstream res;
+
+				res << a;
+				res << (v.get(0) >= 0 ? " + " : " - ") << "i" << v.get(0);
+				res << (v.get(1) >= 0 ? " + " : " - ") << "j" << v.get(1);
+				res << (v.get(2) >= 0 ? " + " : " - ") << "k" << v.get(2);
+
+				return res.str();
+			}
+
+
+			// Stream the quaternion in string representation
+			// to an output stream (std::ostream)
+			friend std::ostream& operator<<(std::ostream& out, const quat& obj) {
+				return out << obj.to_string();
+			}
+
+#endif
 
 	};
 
