@@ -79,7 +79,7 @@ These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
 - **UROBORO_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
 - **UROBORO_ARBITRARY_PREC** - Arbitrary precision will be used (NOT implemented yet)
-- **UROBORO_NO_PRINT** - Do **not** compile to_string() and operator<<() methods for all classes (to avoid including <string>, <sstream> and <ostream>)
+- **UROBORO_NO_PRINT** - Do **not** compile `to_string()` and `operator<<()` methods for all classes (to avoid including `<string>`, `<sstream>` and `<ostream>`)
 - See `constants.h` for more specific defines
 
 ## Future development
