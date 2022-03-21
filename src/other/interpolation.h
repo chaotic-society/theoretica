@@ -29,14 +29,15 @@ namespace uroboro {
 	template<unsigned int N>
 	inline vec<N> invlerp(vec<N> P1, vec<N> P2, real value) {
 
-		real t = (value - P1.get(0)) / (P2.get(0) - P1.get(0));
+		real t = invlerp(P1.get(0), P2.get(0), value);
 
 		// Check that all computed t_i are the same
 		for (int i = 1; i < N; ++i) {
-			if(t != (value - P1.get(i)) / (P2.get(i) - P1.get(i))) {
-				UMATH_ERROR("invlerp",
-					(value - P1.get(i)) / (P2.get(i) - P1.get(i)),
-					OUT_OF_DOMAIN);
+
+			real t_new = invlerp(P1.get(i), P2.get(i), value);
+
+			if(t != t_new) {
+				UMATH_ERROR("invlerp", t_new, OUT_OF_DOMAIN);
 				return nan();
 			}
 		}
@@ -62,6 +63,36 @@ namespace uroboro {
 	template<unsigned int N>
 	inline vec<N> nlerp(vec<N> P1, vec<N> P2, real interp) {
 		return (P1 + (P2 - P1) * interp).normalized();
+	}
+
+
+	// Spherical interpolation
+	template<unsigned int N>
+	inline vec<N> slerp(vec<N> P1, vec<N> P2, real t) {
+
+		// Compute (only once) the length
+		// of the input vectors
+		real P1_l = P1.length();
+		real P2_l = P2.length();
+
+		// Check whether one of the vectors is null,
+		// which would make the computation impossible
+		if(P1_l == 0 || P2_l == 0) {
+			UMATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
+			return vec<N>(nan());
+		}
+
+		// Angle between P1 and P2 (from the dot product)
+		real omega = acos((P1 * P2) / (P1_l * P2_l));
+		real s = sin(omega);
+
+		// Check that the sine of the angle is not zero
+		if(s == 0) {
+			UMATH_ERROR("slerp", s, DIV_BY_ZERO);
+			return vec<N>(nan());
+		}
+
+		return (P1 * sin((1 - t) * omega) + P2 * sin(t * omega)) / s;
 	}
 
 
@@ -97,36 +128,6 @@ namespace uroboro {
 
 		// 6x^5 - 15x^4 + 10x^3
 		return x * x * x * (x * (x * 6 - 15) + 10);
-	}
-
-
-	// Spherical interpolation
-	template<unsigned int N>
-	inline vec<N> slerp(vec<N> P1, vec<N> P2, real t) {
-
-		// Compute (only once) the length
-		// of the input vectors
-		real P1_l = P1.length();
-		real P2_l = P2.length();
-
-		// Check whether one of the vectors is null,
-		// which would make the computation impossible
-		if(P1_l == 0 || P2_l == 0) {
-			UMATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
-			return vec<N>(nan());
-		}
-
-		// Angle between P1 and P2 (from the dot product)
-		real omega = acos((P1 * P2) / (P1_l * P2_l));
-		real s = sin(omega);
-
-		// Check that the sine of the angle is not zero
-		if(s == 0) {
-			UMATH_ERROR("slerp", s, DIV_BY_ZERO);
-			return vec<N>(nan());
-		}
-
-		return (P1 * sin((1 - t) * omega) + P2 * sin(t * omega)) / s;
 	}
 
 

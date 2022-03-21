@@ -50,17 +50,19 @@ namespace uroboro {
 			// Evaluate the polynomial using x as variable
 			inline T eval(T x) const {
 
-				T res = 0;
+				if(!coeff.size())
+					return 0;
 
-				// TO-DO Implement Horner's method
+				T sum = 0;
 
-				for (int i = 0; i < coeff.size(); ++i) {
-					if(coeff[i] != 0) {
-						res += coeff[i] * uroboro::pow(x, i);
-					}
-				}
+				// Evaluate using Horner's method
+				for (int i = 0; i < coeff.size(); ++i)
+					sum = coeff[coeff.size() - i - 1] + x * sum;
 
-				return res;
+				// TO-DO Compare performance using fma x86 Assembly instruction
+				// sum = fma(x, sum, coeff[coeff.size() - i - 1]);
+
+				return sum;
 			}
 
 
@@ -247,7 +249,7 @@ namespace uroboro {
 				for (int i = 0; i < coeff.size(); ++i) {
 					if(i) {
 						res << (coeff[i] >= 0 ? " + " : " - ")
-							<< unknown << abs(coeff[i]) << "^" << i;
+							 << abs(coeff[i]) << unknown << "^" << i;
 					} else {
 						res << coeff[i];
 					}	

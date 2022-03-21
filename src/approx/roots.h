@@ -54,7 +54,7 @@ namespace uroboro {
 		real x = guess;
 		int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
+		while(abs(f(x)) > NEWTON_RAPHSON_TOL && iter <= MAX_NEWTON_ITER) {
 			x = x - (f(x) / Df(x));
 			iter++;
 		}

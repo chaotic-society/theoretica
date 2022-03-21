@@ -18,13 +18,19 @@
 #endif
 
 // Biggest fractional part to ignore in powf computation
-#ifndef UROBORO_POW_APPROXIMATION_TOLERANCE
-#define UROBORO_POW_APPROXIMATION_TOLERANCE 0.00000001
+#ifndef UROBORO_POWF_APPROX_TOL
+#define UROBORO_POWF_APPROX_TOL 0.00000001
 #endif
 	
 // Approximation tolerance for root finding
 #ifndef UROBORO_ROOT_APPROX_TOL
 #define UROBORO_ROOT_APPROX_TOL 0.00000001
+#endif
+
+
+// Approximation tolerance for root finding
+#ifndef UROBORO_NEWTON_RAPHSON_TOL
+#define UROBORO_NEWTON_RAPHSON_TOL 0.00000001
 #endif
 
 // Approximation tolerance for bisection root finding
@@ -138,13 +144,16 @@ namespace uroboro {
 	constexpr real DERIV_PREC = UROBORO_DERIV_PREC;
 
 	// Biggest fractional part to ignore in powf computation
-	constexpr real POW_APPROXIMATION_TOLERANCE = UROBORO_POW_APPROXIMATION_TOLERANCE;
+	constexpr real POW_APPROXIMATION_TOLERANCE = UROBORO_POWF_APPROX_TOL;
 
 	// Approximation tolerance for root finding
 	constexpr real ROOT_APPROX_TOL = UROBORO_ROOT_APPROX_TOL;
 
 	// Approximation tolerance for bisection root finding
 	constexpr real BISECTION_APPROX_TOL = UROBORO_BISECTION_APPROX_TOL;
+
+	// Approximation tolerance for Newton-Raphson root finding
+	constexpr real NEWTON_RAPHSON_TOL = UROBORO_NEWTON_RAPHSON_TOL;
 
 	// Maximum number of iterations for bisection
 	constexpr unsigned int MAX_BISECTION_ITER = UROBORO_MAX_BISECTION_ITER;
