@@ -395,6 +395,18 @@ namespace uroboro {
 		}
 
 
+		// Compute the product of the diagonal elements of a square matrix
+		inline real diagonal_product() {
+
+			real res = data[0][0];
+
+			for (int i = 1; i < min(N, K); ++i)
+				res *= data[i][i];
+
+			return res;	
+		}
+
+
 		// Return the determinant if the matrix is 2x2 (NO error checking)
 		inline real det_2x2() {
 			return data[0][0] * data[1][1] - data[0][1] * data[1][0];
@@ -409,13 +421,71 @@ namespace uroboro {
 		}
 
 
-		// Return the determinant of the submatrix obtained by deleting the <row_i - 1> row
-		// and the <del_col> column
-		inline real det_submatrix(int column_i, int row_i, int del_col) {
+		// Compute the determinant of the matrix using
+		// Gauss-Jordan lower triangularization
+		inline real det_gj() {
 
-			// TO-DO
+			if(!is_square()) {
+				UMATH_ERROR("mat::det_gj", N, IMPOSSIBLE_OPERATION);
+				return nan();
+			}
 
-			return 0;
+			mat<N, K> A = mat<N, K>(*this);
+
+			// Iterate on all columns
+			for (int i = 0; i < N; ++i) {
+				
+				// Make sure the element on the diagonal
+				// is non-zero by adding the first non-zero row
+				if(A.at(i, i) == 0) {
+
+					bool flag = false;
+
+					// Iterate on all rows
+					for (int j = i + 1; j < N; ++j) {
+
+						// Add the j-th row to the i-th row
+						// if Aji is non-zero.
+						// The determinant does not change
+						// when adding a row to another
+						if(A.at(i, j) != 0) {
+
+							for (int k = 0; k < N; ++k) {
+								A.at(k, i) += A.at(k, j);
+							}
+
+							flag = true;
+							break;
+						}
+					}
+
+					if(!flag) {
+						return 0;
+					}
+				}
+
+				real inv_pivot = 1.0 / A.at(i, i);
+
+				// Use the current row to make all other
+				// elements of the column equal to zero
+				for (int j = i + 1; j < N; ++j) {
+
+					// Multiplication coefficient for
+					// the elision of Ajk
+					real coeff = A.at(i, j) * inv_pivot;
+
+					// The coefficient does not change
+					// when adding a linear combination
+					// of a row to another
+					for (int k = 0; k < N; ++k) {
+						A.at(k, j) -= coeff * A.at(k, i);
+					}
+				}
+			}
+
+			// The determinant of a (lower) triangular matrix
+			// is the product of the elements on its diagonal
+			return A.diagonal_product();
 		}
 
 
@@ -433,16 +503,7 @@ namespace uroboro {
 			if(N == 3)
 				return det_3x3();
 
-			real res = 0;
-			real sgn = 1;
-
-			for (int i = 0; i < N; ++i) {
-				sgn *= -1;
-				res += sgn *
-					det_submatrix(0, 1, i);
-			}
-
-			return res;
+			return det_gj();
 		}
 
 
