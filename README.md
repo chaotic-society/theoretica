@@ -86,13 +86,12 @@ These are the macros that can be defined to change the library's behaviour:
 ## Future development
 ### In progress
 These are features which are currently under development:
-- Matrix determinant
+- Pseudorandom Number Generation
 - Column/row precedence independence for matrices (let the user decide whether to use column/row-first storage and colexicographical/lexicographical representation)
 
 ### Planned
 These are features which will be developed soon:
 - Romberg integral approximation
-- Pseudorandom Number Generation
 - LU decomposition of matrices
 - Matrix eigenvalue finding
 - Montecarlo integral approximation
