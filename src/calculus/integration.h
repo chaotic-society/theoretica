@@ -3,7 +3,7 @@
 
 #include "../constants.h"
 #include "../function.h"
-#include "../polynomial.h"
+#include "../polynomial/polynomial.h"
 
 
 namespace uroboro {

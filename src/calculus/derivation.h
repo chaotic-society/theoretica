@@ -2,7 +2,7 @@
 #define DERIVATION_UROBORO_H
 
 #include "../function.h"
-#include "../polynomial.h"
+#include "../polynomial/polynomial.h"
 
 namespace uroboro {
 

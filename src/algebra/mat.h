@@ -527,15 +527,15 @@ namespace uroboro {
 
 
 		// Compute the inverse of a generic square matrix
-		inline mat<N, K> inverse() {
+		inline mat<N, K>& invert() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
-				return mat<N, K>(nan());
+				UMATH_ERROR("mat::invert", N, IMPOSSIBLE_OPERATION);
+				return *this;
 			}
 
 			if(N == 2) {
-				return inverse_2x2();
+				*this = inverse_2x2();
 			}
 
 			// Initialize the needed matrices
@@ -573,7 +573,7 @@ namespace uroboro {
 
 					if(!flag) {
 						UMATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
-						return mat<N, K>(nan());
+						return *this;
 					}
 				}
 
@@ -605,9 +605,10 @@ namespace uroboro {
 				
 			}
 
-			return B;
+			// Modify the matrix only when the inversion
+			// has succeeded
+			*this = B;
 		}
-
 
 
 		// Transformation matrices

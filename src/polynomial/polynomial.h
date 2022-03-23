@@ -6,16 +6,16 @@
 #include <ostream>
 #endif
 
-#include "./vec_buff.h"
-#include "./real_analysis.h"
-#include "./algebra/vec.h"
-#include "./complex/complex.h"
-#include "./complex/complex_analysis.h"
+#include "../vec_buff.h"
+#include "../real_analysis.h"
+#include "../algebra/vec.h"
+#include "../complex/complex.h"
+#include "../complex/complex_analysis.h"
 
 
 namespace uroboro {
 
-	// A polynomial of arbitrary order with real coefficients
+	// A polynomial of arbitrary order
 	template<typename T = real>
 	class polynomial {
 		public:
@@ -27,7 +27,7 @@ namespace uroboro {
 			
 			~polynomial() {}
 
-			polynomial(std::initializer_list<real> l) : coeff(l) {}
+			polynomial(std::initializer_list<T> l) : coeff(l) {}
 
 			// Access i-th coefficient
 			inline T& at(int i) {
@@ -156,9 +156,12 @@ namespace uroboro {
 			// Sum a polynomial to this one
 			inline polynomial& operator+=(const polynomial& p) {
 
-				for (int i = 0; i < uroboro::min(size(), p.size()); ++i) {
+				// Make room for the new coefficients
+				if(coeff.size() < p.size())
+					coeff.resize(p.size(), T(0));
+
+				for (int i = 0; i < uroboro::min(size(), p.size()); ++i)
 					coeff[i] += p.get(i);
-				}
 
 				return *this;
 			}
@@ -167,9 +170,12 @@ namespace uroboro {
 			// Subtract a polynomial from this one
 			inline polynomial& operator-=(const polynomial& p) {
 
-				for (int i = 0; i < uroboro::min(size(), p.size()); ++i) {
+				// Make room for the new coefficients
+				if(coeff.size() < p.size())
+					coeff.resize(p.size(), T(0));
+
+				for (int i = 0; i < uroboro::min(size(), p.size()); ++i)
 					coeff[i] -= p.get(i);
-				}
 
 				return *this;
 			}
@@ -188,7 +194,31 @@ namespace uroboro {
 				}
 
 				*this = r;
+				return *this;
+			}
 
+
+			// Multiply a polynomial by a scalar value
+			inline polynomial& operator*=(T a) {
+
+				for (int i = 0; i < coeff.size(); ++i)
+					coeff[i] *= a;
+				
+				return *this;
+			}
+
+
+			// Divide a polynomial by a scalar value
+			inline polynomial& operator/=(T a) {
+
+				if(a == 0) {
+					UMATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
+					return *this;
+				}
+
+				for (int i = 0; i < coeff.size(); ++i)
+					coeff[i] /= a;
+				
 				return *this;
 			}
 
@@ -217,6 +247,7 @@ namespace uroboro {
 			}
 
 
+			// Compute the roots of a quadratic polynomial
 			inline vec<2, complex> quadratic_roots() const {
 
 				int order = find_order();
@@ -236,6 +267,19 @@ namespace uroboro {
 					(d * -1	+ coeff[1] * -1) / (coeff[2] * 2),
 					(d		+ coeff[1] * -1) / (coeff[2] * 2)
 				};
+			}
+
+
+			// Construct a polynomial from its roots
+			inline static polynomial<T> from_roots(std::vector<T> roots) {
+
+				polynomial<T> P = {1};
+
+				// P = product((x - r_i))
+				for (int i = 0; i < roots.size(); ++i)
+					P *= polynomial<T>({roots[i] * -1, 1});
+
+				return P;
 			}
 
 
