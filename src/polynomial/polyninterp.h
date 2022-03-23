@@ -2,6 +2,7 @@
 #define UROBORO_POLYNINTERP_H
 
 #include <vector>
+#include "../real_analysis.h"
 #include "./polynomial.h"
 #include "../algebra/vec.h"
 
@@ -51,6 +52,23 @@ namespace uroboro {
 	}
 
 
+	// Compute the <n> Chebyshev nodes on a given interval
+	// from <a> to <b> (a < b)
+	inline vec_buff chebyshev_nodes(real a, real b, unsigned int n) {
+
+		vec_buff nodes;
+		nodes.resize(n);
+
+		real m = (b + a) / 2.0;
+		real c = (b - a) / 2.0;
+
+		for (int i = 1; i < n + 1; ++i)
+			nodes[i - 1] = m + c * cos(real(2 * i - 1) / real(2 * n) * PI);
+
+		return nodes;
+	}
+
+
 	// Compute the interpolating polynomial of a real function
 	// on an equidistant point sample.
 	// <f> is the function to interpolate
@@ -66,6 +84,26 @@ namespace uroboro {
 			real x = (b - a) / real(order) * real(i);
 			points[i] = {x, f(x)};
 		}
+
+		return lagrange_polynomial(points);
+	}
+
+
+	// Compute the interpolating polynomial of a real function
+	// using Chebyshev nodes as sampling points
+	// <f> is the function to interpolate
+	// <a> and <b> are the extremes of the interval (a < b)
+	// <order> is the order of the resulting polynomial
+	inline polynomial<real> interpolate_chebyshev(real_function f, real a, real b, unsigned int order) {
+
+		std::vector<vec2> points;
+		points.resize(order + 1);
+
+		vec_buff nodes = chebyshev_nodes(a, b, order + 1);
+
+		// Sample <order + 1> equidistant points
+		for (int i = 0; i < order + 1; ++i)
+			points[i] = {nodes[i], f(nodes[i])};
 
 		return lagrange_polynomial(points);
 	}
