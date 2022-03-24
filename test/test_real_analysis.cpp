@@ -3,14 +3,12 @@
 
 #include "test.h"
 
-
 int main(int argc, char const *argv[]) {
 
 	std::cout << "Starting testing of uroboro library..." << std::endl;
 	std::cout << "Testing real_analysis\n" << std::endl;
 
 	std::cout.precision(12);
-
 
 	test_start("umath::square(real)");
 
@@ -127,7 +125,6 @@ int main(int argc, char const *argv[]) {
 		test_tolr(umath::exp(1), E, 1);
 		test_tolr(umath::exp(2), E * E, 2);
 		test_tolr(umath::exp(3), E * E * E, 3);
-
 		test_tolr(umath::exp(-1), std::exp(-1), -1.0 / E);
 
 		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1234);
@@ -135,6 +132,25 @@ int main(int argc, char const *argv[]) {
 		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, 0, 10, TOLERANCE, 1234);
 		test_tolr_interval(umath::exp, std::exp, -123, 0, TOLERANCE, 671);
+
+		// Higher tolerance to consider floating point precision limits
+		test_tolr_interval(umath::exp, std::exp, 0, 20, 0.0001, 1234);
+
+	test_end();
+
+
+	test_start("umath::pow");
+
+		const unsigned int N = 7;
+		const unsigned int MAX_POW = 10;
+
+		for (int i = 0; i < N; ++i) {
+			for (int j = 0; j < 100; ++j) {
+				real x = 20 * i / N;
+				real p = MAX_POW * j / 100;
+				test_tol(umath::pow(x, p), std::pow(x, p), x, TOLERANCE, true);
+			}
+		}
 
 	test_end();
 
@@ -187,32 +203,27 @@ int main(int argc, char const *argv[]) {
 	test_end();
 
 
-	// test_start("umath::asin(real)");
+	test_start("umath::asin(real)");
 
-	// 	test_tolr_interval(umath::asin, std::asin, 0, 1, 0.0001);
-	// 	test_tolr_interval(umath::asin, std::asin, -1, 0, 0.0001);
+		test_tolr_interval(umath::asin, std::asin, -0.99999, 0.99999, 0.0001);
 
-	// test_end();
-
-
-	// test_start("umath::acos(real)");
-
-	// 	test_tolr_interval(umath::acos, std::acos, 0, 1, 0.0001);
-	// 	test_tolr_interval(umath::acos, std::acos, -1, 0, 0.0001);
-
-	// test_end();
+	test_end();
 
 
-	// test_start("umath::atan(real)");
+	test_start("umath::acos(real)");
 
-	// 	test_tolr(umath::atan(0.4), std::atan(0.4), 0.4);
-	// 	test_tolr(umath::atan(0.1), std::atan(0.1), 0.1);
-	// 	test_tolr(umath::atan(0.01), std::atan(0.01), 0.01);
-	// 	test_tolr_interval(umath::atan, std::atan, -0.5, 0.5, TOLERANCE, 112551);
-	// 	test_tolr_interval(umath::atan, std::atan, -1, 1, TOLERANCE, 12345);
-	// 	test_tolr_interval(umath::atan, std::atan, -2, 2, TOLERANCE, 112551);
+		test_tolr_interval(umath::acos, std::acos, -0.99999, 0.99999, 0.0001);
 
-	// test_end();
+	test_end();
+
+
+	test_start("umath::atan(real)");
+
+		test_tolr_interval(umath::atan, std::atan, -0.5, 0.5, 0.0001, 112551);
+		test_tolr_interval(umath::atan, std::atan, -1, 1, 0.0001, 12345);
+		test_tolr_interval(umath::atan, std::atan, -100, 100, 0.0001, 112551);
+
+	test_end();
 
 
 	test_start("umath::sinh");

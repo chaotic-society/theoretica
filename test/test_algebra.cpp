@@ -20,6 +20,15 @@ int main(int argc, char const *argv[]) {
 		A4.at(1, 0) = 1;
 		A4.at(3, 1) = 5;
 
+		mat4 inv = A4.inverse();
+		mat4 T = A4 * inv;
+
+		for (int i = 0; i < 4; ++i) {
+			for (int j = 0; j < 4; ++j) {
+				test_tol(T[i][j], real(i == j ? 1 : 0), A4[i][j]);
+			}
+		}
+
 		// test_equal(A4.inverse() * A4, mat4::identity(), A4);
 
 	test_end();
