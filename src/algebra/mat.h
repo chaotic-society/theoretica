@@ -527,6 +527,89 @@ namespace uroboro {
 
 
 		// Compute the inverse of a generic square matrix
+		inline mat<N, K> inverse() {
+
+			if(!is_square()) {
+				UMATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
+				return mat<N, K>(nan());
+			}
+
+			if(N == 2) {
+				return inverse_2x2();
+			}
+
+			// Initialize the needed matrices
+			// (A|B) is the augmented matrix
+			mat<N, K> A = mat<N, K>(*this);
+			mat<N, K> B = mat<N, K>::identity();
+
+			// Gauss-Jordan elimination
+
+			// Iterate on all columns
+			for (int i = 0; i < N; ++i) {
+				
+				// Make sure the element on the diagonal
+				// is non-zero by adding the first non-zero row
+				if(A.at(i, i) == 0) {
+
+					bool flag = false;
+
+					// Iterate on all rows
+					for (int j = i + 1; j < N; ++j) {
+
+						// Add the j-th row to the i-th row
+						// if Aji is non-zero
+						if(A.at(i, j) != 0) {
+
+							for (int k = 0; k < N; ++k) {
+								A.at(k, i) += A.at(k, j);
+								B.at(k, i) += B.at(k, j);
+							}
+
+							flag = true;
+							break;
+						}
+					}
+
+					if(!flag) {
+						UMATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
+						return mat<N, K>(nan());
+					}
+				}
+
+				real inv_pivot = 1.0 / A.at(i, i);
+
+				// Use the current row to make all other
+				// elements of the column equal to zero
+				for (int j = 0; j < N; ++j) {
+
+					// Skip the current row
+					if(j == i)
+						continue;
+
+					// Multiplication coefficient for
+					// the elision of Ajk
+					real coeff = A.at(i, j) * inv_pivot;
+					
+					for (int k = 0; k < N; ++k) {
+						A.at(k, j) -= coeff * A.at(k, i);
+						B.at(k, j) -= coeff * B.at(k, i);
+					}
+				}
+
+				// Divide the current row by the pivot
+				for (int j = 0; j < N; ++j) {
+					A.at(j, i) *= inv_pivot;
+					B.at(j, i) *= inv_pivot;
+				}
+				
+			}
+
+			return B;
+		}
+
+
+		// Compute the inverse of a generic square matrix
 		inline mat<N, K>& invert() {
 
 			if(!is_square()) {
@@ -572,7 +655,7 @@ namespace uroboro {
 					}
 
 					if(!flag) {
-						UMATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
+						UMATH_ERROR("mat::invert", flag, IMPOSSIBLE_OPERATION);
 						return *this;
 					}
 				}

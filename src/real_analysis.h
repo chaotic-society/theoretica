@@ -55,12 +55,11 @@ namespace uroboro {
 		}
 
 		// Approximate sqrt(x) using Newton-Raphson
-
 		real y = x;
 		int i = 0;
 
 		while((square(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
-			y = y - (y / 2.0) + (x / (y * 2.0));
+			y = (y + x / y) / 2.0;
 			i++;
 		}
 
@@ -295,19 +294,31 @@ namespace uroboro {
 	inline T pow(T x, int n) {
 
 		T res;
+		T x2 = x * x;
+		int i = 1;
+
 		if(n > 0) {
 
 			res = x;
-			for(int i = 1; i < n; ++i)
+
+			for(; i < (n / 2); i += 2)
+				res *= x2;
+
+			for(; i < n; ++i)
 				res *= x;
 
 		} else if(n < 0) {
 
 			res = 1 / x;
-			for(int i = 1; i < -n; ++i)
+
+			for(; i < (n / 2); i += 2)
+				res /= x2;
+
+			for(; i < -n; ++i)
 				res /= x;
-		} else
+		} else {
 			return 1.0;
+		}
 
 		return res;
 	}
@@ -560,36 +571,26 @@ namespace uroboro {
 	// Compute the arctangent
 	inline real atan(real x) {
 
-		if(abs(x) > 1)
-			return atan(PI2 - atan(1 / x));
+		// Domain reduction to [-1, 1]
+		if(abs(x) > 1.0)
+			return (PI2 - atan(1.0 / abs(x))) * sgn(x);
 
-		if(abs(x) < 0.6) {
+		real x2 = x * x;
 
-			// Use Taylor in [-0.6, 0.6]
-
-			real x2 = x * x;
-			real x4 = x2 * x2;
-
-			return x
-				- (x2 * x / 3.f)
-				+ (x4 * x / 5.f)
-				- (x4 * x2 * x / 7.f)
-				+ (x4 * x4 * x / 9.f);
-
-
-		} else {
-
-			// Fast approximation of atan in [-1, 1]
-			// More accurate than Taylor in [-1, -0.6] and [0.6, 1]
-			return PI4 * x - x * (abs(x) - 1) * (0.2447 + 0.0663 * abs(x));
-		}
+		// Interpolating Chebyshev polynomial
+		// of order 9
+		return x * (0.999965
+			+ x2 * (-0.331545
+				+ x2 * (0.184464
+					+ x2 * (-0.090752
+						+ 0.023286 * x2))));
 	}
 
 
 	// Compute the arcsine
 	inline real asin(real x) {
 
-		if(x > 1 || x <= 0) {
+		if(abs(x) > 1) {
 			UMATH_ERROR("asin", x, OUT_OF_DOMAIN);
 			return nan();
 		}
@@ -601,12 +602,15 @@ namespace uroboro {
 	// Compute the arccosine
 	inline real acos(real x) {
 
-		if(x > 1 || x <= 0) {
+		if(abs(x) > 1) {
 			UMATH_ERROR("acos", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
-		return atan(sqrt(1 - x * x) / x);
+		if(x < 0)
+			return atan(sqrt(1 - x * x) / x) + PI;
+		else
+			return atan(sqrt(1 - x * x) / x);
 	}
 
 
@@ -628,8 +632,6 @@ namespace uroboro {
 		} else {
 			return sgn(y) * atan(y / -x) + PI2;
 		}
-
-		// return atan(y / x) - clamp(sgn(x), -1, 0) * PI * sgn(y);
 	}
 
 
@@ -689,6 +691,14 @@ namespace uroboro {
 	// Convert radians to degrees
 	inline real degrees(real radians) {
 		return radians * RAD2DEG;
+	}
+
+
+	// Kronecker delta, equals 1 if i is equal to j,
+	// 0 otherwise
+	template<typename T>
+	inline T kronecker_delta(T i, T j, T tol = 0) {
+		return (i - j < tol) ? 1 : 0;
 	}
 
 }
