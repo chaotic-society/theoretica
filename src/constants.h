@@ -144,7 +144,7 @@ namespace uroboro {
 	constexpr real DERIV_PREC = UROBORO_DERIV_PREC;
 
 	// Biggest fractional part to ignore in powf computation
-	constexpr real POW_APPROXIMATION_TOLERANCE = UROBORO_POWF_APPROX_TOL;
+	constexpr real POWF_POWER_TOLERANCE = UROBORO_POWF_APPROX_TOL;
 
 	// Approximation tolerance for root finding
 	constexpr real ROOT_APPROX_TOL = UROBORO_ROOT_APPROX_TOL;

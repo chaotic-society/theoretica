@@ -122,19 +122,13 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::exp");
 
-		test_tolr(umath::exp(1), E, 1);
-		test_tolr(umath::exp(2), E * E, 2);
-		test_tolr(umath::exp(3), E * E * E, 3);
-		test_tolr(umath::exp(-1), std::exp(-1), -1.0 / E);
-
-		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1234);
-		test_tolr_interval(umath::exp, std::exp, -5, 5, TOLERANCE, 1234);
-		test_tolr_interval(umath::exp, std::exp, -9, 9, TOLERANCE, 1234);
-		test_tolr_interval(umath::exp, std::exp, 0, 10, TOLERANCE, 1234);
-		test_tolr_interval(umath::exp, std::exp, -123, 0, TOLERANCE, 671);
+		test_tolr_interval(umath::exp, std::exp, -1, 1, TOLERANCE, 13151);
+		test_tolr_interval(umath::exp, std::exp, -10, -1, TOLERANCE, 1151);
+		test_tolr_interval(umath::exp, std::exp, 1, 10, TOLERANCE, 1973);
+		test_tolr_interval(umath::exp, std::exp, -1000, -1, TOLERANCE, 12416);
 
 		// Higher tolerance to consider floating point precision limits
-		test_tolr_interval(umath::exp, std::exp, 0, 20, 0.0001, 1234);
+		test_tolr_interval(umath::exp, std::exp, 0, 20, 0.0001, 1957);
 
 	test_end();
 
@@ -158,6 +152,7 @@ int main(int argc, char const *argv[]) {
 	test_start("umath::powf");
 
 		test_tolr(umath::powf(2.0, 0.5), SQRT2, 2);
+		test_tolr(umath::powf(2.0, -0.5), 1.0 / SQRT2, 2);
 		test_tolr(umath::powf(2, 2), 4, 2);
 		test_tolr(umath::powf(3, 2), 9, 3);
 

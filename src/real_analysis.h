@@ -373,40 +373,29 @@ namespace uroboro {
 #ifdef UROBORO_X86
 
 	// Approximate e^x using x86 Assembly instructions
-	// Works only for positive <x>
-	inline real exp_approx_norm(real x) {
+	// Works only for positive <x> in [0, 1]
+	inline real exp_x86_norm(real x) {
 
-		// Compute e^x as e^int(x) * e^fract(x)
-		// Where e^fract(x) is calculated as 2^(fract(x) / ln2)
-		return square(f2xm1(fract(x) / (2 * LN2)) + 1);
+		// e^x is calculated as 2^(x / ln2)
+		return square(f2xm1(x / (2 * LN2)) + 1);
 	}
 
 #endif
-
-
-	// Approximate powf(real, real) = x^a
-	// Using pow(x, int(a)) * exp(fract(a) * ln(x))
-	inline real powf(real x, real a) {
-
-		if(a < 0)
-			return 1.0 / powf(x, abs(a));
-
-#ifdef UROBORO_X86
-
-		// Compute x^fract(a) as e^(x * log2(fract(a) / log2(e)))
-		return pow(x, floor(a)) * ((fract(a) >= POW_APPROXIMATION_TOLERANCE) 
-			? exp_approx_norm(fyl2x(x, fract(a) / LOG2E))
-			: 1);
-#endif
-
-	}
 
 
 	// Compute e^x
 	inline real exp(real x) {
 
+	// Domain reduction to [0, +inf]
+	if(x < 0)
+		return 1.0 / exp(abs(x));
+
+	real fract_x = fract(x);
+
 #ifdef UROBORO_X86
-		return powf(E, x);
+
+		return pow(E, floor(x)) * exp_x86_norm(fract_x);
+
 #else
 
 	// Taylor series expansion
@@ -414,7 +403,6 @@ namespace uroboro {
 	
 	real res = 1;
 	real s_n = 1;
-	real fract_x = fract(x);
 
 	for (int i = 1; i < TAYLOR_ORDER; ++i) {
 
@@ -427,6 +415,17 @@ namespace uroboro {
 	return pow(E, floor(x)) * res;
 
 #endif
+	}
+
+
+	// Approximate powf(real, real) = x^a
+	inline real powf(real x, real a) {
+
+		if(a < 0)
+			return 1.0 / exp(abs(a) * ln(x));
+
+		// x^a = e^(a * ln(x))
+		return exp(a * ln(abs(x)));
 	}
 
 
