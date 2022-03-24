@@ -98,6 +98,19 @@ namespace uroboro {
 	}
 
 
+	// Root Mean Square
+	// Computed as sqrt(sum(x_i^2) / N)
+	inline real rms(const vec_buff& X) {
+
+		if(!X.size()) {
+			UMATH_ERROR("rms", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return sqrt(sum_squares(X) / X.size());
+	}
+
+
 	// Total sum of squares (TSS)
 	// Computed as sum(square(x_i - x_mean))
 	inline real total_sum_squares(const vec_buff& X) {

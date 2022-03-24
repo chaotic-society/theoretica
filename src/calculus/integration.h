@@ -15,9 +15,8 @@ namespace uroboro {
 		polynomial<real> Dp;
 		Dp.coeff.push_back(0);
 
-		for (int i = 0; i < p.size(); ++i) {
+		for (int i = 0; i < p.size(); ++i)
 			Dp.coeff.push_back(p.get(i) / (real) (i + 1));
-		}
 
 		return Dp;
 	}
@@ -31,9 +30,8 @@ namespace uroboro {
 		real dx = (b - a) / steps;
 		real res = 0;
 
-		for (int i = 0; i < steps; ++i) {
+		for (int i = 0; i < steps; ++i)
 			res += f(a + (i + 0.5) * dx);
-		}
 
 		return res * dx;
 	}
@@ -49,9 +47,8 @@ namespace uroboro {
 
 		res += 0.5 * f(a);
 
-		for (int i = 1; i < steps; ++i) {
+		for (int i = 1; i < steps; ++i)
 			res += f(a + i * dx);
-		}
 
 		res += 0.5 * f(b);
 
@@ -79,11 +76,6 @@ namespace uroboro {
 
 		return res * dx / 3.0;
 	}
-
-
-	// TO-DO Romberg integration
-	
-	// TO-DO Monte Carlo integration
 
 
 	// Runge-Kutta integration of 4th order
