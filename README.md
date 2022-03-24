@@ -20,8 +20,8 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Derivative approximation (`calculus/derivation.h`)
 - Integral approximation, including **Runge-Kutta** of 4th order (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial/polynomial.h`)
-- Interpolation between vector data, including Bezier curves (`other/interpolation.h`)
-- Polynomial interpolation with Chebyshev nodes (`polynomial/polyninterp.h`)
+- Interpolation between vector data, including Bezier curves (`interp/spline_interp.h`)
+- Polynomial interpolation with Chebyshev nodes (`interp/polyn_interp.h`)
 
 ## Usage
 The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.
