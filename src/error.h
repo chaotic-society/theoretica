@@ -1,3 +1,8 @@
+
+///
+/// @file error.h Error handling
+///
+
 #ifndef UROBORO_ERROR_H
 #define UROBORO_ERROR_H
 
@@ -14,7 +19,7 @@
 
 namespace uroboro {
 
-	// Math error enumeration
+	/// Math error enumeration
 	enum UMATH_ERRCODE{
 		NO_ERROR = 0x00, // No error
 		DIV_BY_ZERO = 0x01, // Division by zero
@@ -26,7 +31,7 @@ namespace uroboro {
 	};
 
 
-	// Convert a UMATH_ERRCODE to errno error codes
+	/// Convert a UMATH_ERRCODE to errno error codes
 	int umath_errcode_to_errno(UMATH_ERRCODE err) {
 		switch(err) {
 			case NO_ERROR: return 0; break;
@@ -41,13 +46,13 @@ namespace uroboro {
 	}
 
 
-	// Return a quiet NaN number
+	/// Return a quiet NaN number
 	inline real nan() {
 		return std::numeric_limits<real>::quiet_NaN();
 	}
 
 
-	// Return positive infinity
+	/// Return positive infinity
 	inline real inf() {
 		return std::numeric_limits<real>::infinity();
 	}
@@ -78,7 +83,7 @@ namespace uroboro {
 		~MathException() = default;
 
 
-		// Return a string describing the exception
+		/// Return a string describing the exception
 		inline const char* what() {
 
 			// std::string w = std::string(file_name);
@@ -114,9 +119,9 @@ namespace uroboro {
 }
 
 
-// UMATH_ERROR is a macro which throws exceptions
-// or modifies errno depending on which compiling options
-// are defined
+/// UMATH_ERROR is a macro which throws exceptions
+/// or modifies errno (depending on which compiling options
+/// are defined)
 
 	
 // Only throw exceptions, without modifying errno
@@ -135,21 +140,12 @@ namespace uroboro {
 	errno = umath_errcode_to_errno(EXCEPTION); \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
-#define UMATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
-	UMATH_ERROR(F_NAME, VALUE, EXCEPTION)
-
 // Modify errno only
 #else
 
 // For a generic function (NO return statement)
 #define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	errno = umath_errcode_to_errno(EXCEPTION);
-
-
-// For a real function
-#define UMATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
-	errno = umath_errcode_to_errno(EXCEPTION); \
-	return uroboro::nan();
 
 #endif
 
