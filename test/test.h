@@ -1,3 +1,8 @@
+
+///
+/// @file test.h Routines to test the precision of the library
+///
+
 #ifndef UROBORO_TEST_H
 #define UROBORO_TEST_H
 
@@ -46,6 +51,9 @@ unsigned int curr_errors = 0;
 // Cumulative error on current function
 long double cum_err = 0;
 
+// Cumulative error on current function
+long double cum_sqr_err = 0;
+
 // Maximum error on current function
 long double max_err = 0;
 
@@ -59,6 +67,7 @@ void test_start(std::string f) {
 	curr_errors = 0;
 	tolr_test_runs = 0;
 	cum_err = 0;
+	cum_sqr_err = 0;
 	max_err = 0;
 }
 
@@ -77,6 +86,7 @@ void test_end() {
 	}
 
 	std::cout << "Mean Error: " << (cum_err / (real) tolr_test_runs) << std::endl;
+	std::cout << "RMS Error: " << umath::sqrt(cum_sqr_err / (real) tolr_test_runs) << std::endl;
 	std::cout << "Maximum Error: " << max_err << "\n\n" << std::endl;
 	func_name = "";
 }
@@ -131,6 +141,7 @@ void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, b
 
 	real diff = umath::abs(evaluated - expected);
 	cum_err += diff;
+	cum_sqr_err += umath::square(diff);
 	max_err = umath::max(diff, max_err);
 	tolr_test_runs++;
 
