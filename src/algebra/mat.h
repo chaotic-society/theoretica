@@ -1,3 +1,8 @@
+
+///
+/// @file mat.h Matrix class and operations
+///
+
 #ifndef UROBORO_MATRIX_H
 #define UROBORO_MATRIX_H
 
@@ -14,10 +19,12 @@
 
 namespace uroboro {
 
-	// KxN matrix implementation
-	// N is the number of columns
-	// K is the number or rows
-	// (column-first order is used for OpenGL)
+	/// 
+	/// @class mat
+	/// A generic KxN matrix.
+	/// N is the number of columns, K is the number or rows
+	/// (column-first order is used for OpenGL)
+	/// 
 	template<unsigned int N, unsigned int K>
 	class mat {
 		public:
@@ -28,12 +35,12 @@ namespace uroboro {
 
 		real data[N][K];
 
-		// Initialize a matrix to all zeroes
+		/// Initialize a matrix to all zeroes
 		inline mat() {
 			make_null();
 		}
 
-		// Initialize a matrix from another one
+		/// Initialize a matrix from another one
 		inline mat(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -42,7 +49,7 @@ namespace uroboro {
 			}
 		}
 
-		// Copy constructor
+		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -52,7 +59,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Construct a diagonal matrix
+		/// Construct a diagonal matrix
 		inline mat(real diagonal) {
 			make_null();
 			int diag_n = min(N, K);
@@ -61,10 +68,10 @@ namespace uroboro {
 			}
 		}
 
-		// Default destructor
+		/// Default destructor
 		inline ~mat() = default;
 
-		// Get the l-th column of the matrix as a vector
+		/// Get the l-th column of the matrix as a vector
 		inline vec<K> get_column(int l) const {
 			vec<K> column;
 			for (int i = 0; i < K; ++i) {
@@ -73,12 +80,12 @@ namespace uroboro {
 			return column;
 		}
 
-		// Get the l-th column of the matrix as a vector
+		/// Get the l-th column of the matrix as a vector
 		inline vec<K> operator[](int l) const {
 			return get_column(l);
 		}
 
-		// Get the l-th row of the matrix as a vector
+		/// Get the l-th row of the matrix as a vector
 		inline vec<N> get_row(int l) const {
 			vec<N> row;
 			for (int i = 0; i < N; ++i) {
@@ -87,21 +94,21 @@ namespace uroboro {
 			return row;
 		}
 
-		// Se the l-th column of the matrix from a vector
+		/// Se the l-th column of the matrix from a vector
 		inline void set_column(unsigned int l, const vec<K>& column) {
 			for (int i = 0; i < K; ++i) {
 				data[l][i] = column.data[i];
 			}
 		}
 
-		// Se the l-th row of the matrix from a vector
+		/// Se the l-th row of the matrix from a vector
 		inline void set_row(unsigned int l, const vec<N>& row) {
 			for (int i = 0; i < N; ++i) {
 				data[i][l] = row.data[i];
 			}
 		}
 
-		// Set all elements to zero
+		/// Set all elements to zero
 		inline void make_null() {
 			for (int i = 0; i < N; ++i) {
 				for (int l = 0; l < K; ++l) {
@@ -110,7 +117,7 @@ namespace uroboro {
 			}
 		}
 
-		// Matrix addition
+		/// Matrix addition
 		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
@@ -121,7 +128,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Matrix subtraction
+		/// Matrix subtraction
 		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
@@ -132,7 +139,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Scalar multiplication
+		/// Scalar multiplication
 		inline mat<N, K> operator*(real scalar) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
@@ -143,7 +150,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Scalar division
+		/// Scalar division
 		inline mat<N, K> operator/(real scalar) const {
 
 			if(scalar == 0) {
@@ -160,7 +167,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Transform a vector v by the matrix
+		/// Transform a vector v by the matrix
 		inline vec<K> transform(const vec<N>& v) const {
 			vec<K> res;
 			for (int i = 0; i < K; ++i) {
@@ -172,12 +179,12 @@ namespace uroboro {
 			return res;
 		}
 
-		// Transform a vector v by the matrix
+		/// Transform a vector v by the matrix
 		inline vec<K> operator*(const vec<N>& v) const {
 			return transform(v);
 		}
 
-		// Matrix multiplication
+		/// Matrix multiplication
 		template<unsigned int M>
 		inline mat<K, M> transform(const mat<M, N>& B) const {
 
@@ -194,14 +201,14 @@ namespace uroboro {
 			return res;
 		}
 
-		// Matrix multiplication
+		/// Matrix multiplication
 		template<unsigned int M>
 		inline mat<K, M> operator*(const mat<M, N>& B) const {
 			return transform(B);
 		}
 
 
-		// Matrix addition
+		/// Matrix addition
 		inline mat<N, K>& operator+=(const mat<N, K>& other) {
 
 			for (int i = 0; i < N; ++i) {
@@ -213,7 +220,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Matrix subtraction
+		/// Matrix subtraction
 		inline mat<N, K>& operator-=(const mat<N, K>& other) {
 
 			for (int i = 0; i < N; ++i) {
@@ -225,7 +232,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Scalar multiplication
+		/// Scalar multiplication
 		inline mat<N, K>& operator*=(real scalar) {
 
 			for (int i = 0; i < N; ++i) {
@@ -237,7 +244,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Scalar division
+		/// Scalar division
 		inline mat<N, K>& operator/=(real scalar) {
 
 			if(scalar == 0) {
@@ -254,13 +261,13 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Matrix multiplication
+		/// Matrix multiplication
 		inline mat<N, K>& operator*=(const mat<N, K>& B) {
 			return (*this = this->operator*(B));
 		}
 
 
-		// Matrix transposition
+		/// Matrix transposition
 		inline void transpose() {
 
 			if(!is_square()) {
@@ -283,7 +290,7 @@ namespace uroboro {
 			}
 		}
 
-		// Return the transposed matrix
+		/// Return the transposed matrix
 		inline mat<K, N> transposed() const {
 
 			if(!is_square()) {
@@ -301,8 +308,8 @@ namespace uroboro {
 		}
 
 
-		// Calculate the dot product between v1 and v2
-		// using this matrix as the product matrix
+		/// Calculate the dot product between v1 and v2
+		/// using this matrix as the product matrix
 		inline real dot(const vec<N>& v1, const vec<N>& v2) const {
 
 			vec<N> o = transform(v2);
@@ -316,12 +323,12 @@ namespace uroboro {
 		}
 
 
-		// Access element at <column, row>
+		/// Access element at <column, row>
 		inline real& at(unsigned int column, unsigned int row) {
 			return data[column][row];
 		}
 
-		// Getters and setters
+		/// Getters and setters
 		inline real get(unsigned int column, unsigned int row) const {
 			return data[column][row];
 		}
@@ -330,7 +337,7 @@ namespace uroboro {
 			data[column][row] = a;
 		}
 
-		// Check whether two matrices are equal element by element
+		/// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
 
 			for (int i = 0; i < N; ++i) {
@@ -345,12 +352,12 @@ namespace uroboro {
 
 		// Matrix types
 
-		// Return whether the matrix is square
+		/// Return whether the matrix is square
 		inline bool is_square() const {
 			return N == K;
 		}
 
-		// Return whether the matrix is diagonal
+		/// Return whether the matrix is diagonal
 		inline bool is_diagonal() const {
 
 			for (int i = 0; i < N; ++i) {
@@ -362,7 +369,7 @@ namespace uroboro {
 			return true;
 		}
 
-		// Return whether the matrix is symmetric
+		/// Return whether the matrix is symmetric
 		inline bool is_symmetric() const {
 
 			if(!is_square())
@@ -378,7 +385,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the trace (sum of elements on the diagonal) of a square matrix
+		/// Compute the trace (sum of elements on the diagonal) of a square matrix
 		inline real trace() {
 
 			if(!is_square()) {
@@ -395,7 +402,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the product of the diagonal elements of a square matrix
+		/// Compute the product of the diagonal elements of a square matrix
 		inline real diagonal_product() {
 
 			real res = data[0][0];
@@ -407,13 +414,15 @@ namespace uroboro {
 		}
 
 
-		// Return the determinant if the matrix is 2x2 (NO error checking)
+		/// Return the determinant if the matrix is 2x2.
+		/// @note No error checking is performed on the matrix size
 		inline real det_2x2() {
 			return data[0][0] * data[1][1] - data[0][1] * data[1][0];
 		}
 
 
-		// Return the determinant if the matrix is 3x3 (NO error checking)
+		/// Return the determinant if the matrix is 3x3.
+		/// @note No error checking is performed on the matrix size
 		inline real det_3x3() {
 			return	data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) +
 					data[1][0] * (data[0][1] * data[2][2] - data[1][2] * data[2][1]) +
@@ -421,8 +430,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the determinant of the matrix using
-		// Gauss-Jordan lower triangularization
+		/// Compute the determinant of the matrix using Gauss-Jordan lower triangularization
 		inline real det_gj() {
 
 			if(!is_square()) {
@@ -489,7 +497,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the determinant of the matrix
+		/// Compute the determinant of the matrix
 		inline real det() {
 
 			if(!is_square()) {
@@ -509,7 +517,8 @@ namespace uroboro {
 
 		// Matrix inversion
 
-		// Compute the inverse of a 2x2 matrix (NO ERROR CHECKING)
+		/// Compute the inverse of a 2x2 matrix.
+		/// @note No error checking is performed on the matrix size
 		inline mat<N, K> inverse_2x2() {
 
 			mat<N, K> B;
@@ -526,7 +535,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the inverse of a generic square matrix
+		/// Compute the inverse of a generic square matrix
 		inline mat<N, K> inverse() {
 
 			if(!is_square()) {
@@ -609,7 +618,7 @@ namespace uroboro {
 		}
 
 
-		// Compute the inverse of a generic square matrix
+		/// Compute the inverse of a generic square matrix
 		inline mat<N, K>& invert() {
 
 			if(!is_square()) {
@@ -696,17 +705,17 @@ namespace uroboro {
 
 		// Transformation matrices
 
-		// Get the identity matrix
+		/// Get the identity matrix
 		inline static mat<N, K> identity() {
 			return mat<N, K>(1.0);
 		}
 
-		// Get a diagonal matrix
+		/// Get a diagonal matrix
 		inline static mat<N, K> diagonal(real diag) {
 			return mat<N, K>(diag);
 		}
 
-		// Get a 4x4 matrix which translates by {x, y, z}
+		/// Get a 4x4 matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(vec3 t) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -718,7 +727,7 @@ namespace uroboro {
 			return m;
 		}
 
-		// Get a 4x4 matrix which translates by {x, y, z}
+		/// Get a 4x4 matrix which translates by {x, y, z}
 		inline static mat<4, 4> translation(real x, real y, real z) {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
@@ -730,7 +739,7 @@ namespace uroboro {
 			return m;
 		}
 
-		// Get a matrix which rotates the 2D plane of <theta> radians
+		/// Get a matrix which rotates the 2D plane of <theta> radians
 		inline static mat<2, 2> rotation_2x2(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -745,7 +754,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the x axis
+		/// Get a matrix which rotates <theta> radians around the x axis
 		inline static mat<4, 4> rotation_x_4x4(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -763,7 +772,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the x axis
+		/// Get a matrix which rotates <theta> radians around the x axis
 		inline static mat<3, 3> rotation_x_3x3(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -780,7 +789,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the y axis
+		/// Get a matrix which rotates <theta> radians around the y axis
 		inline static mat<4, 4> rotation_y_4x4(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -798,7 +807,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the y axis
+		/// Get a matrix which rotates <theta> radians around the y axis
 		inline static mat<3, 3> rotation_y_3x3(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -815,7 +824,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the z axis
+		/// Get a matrix which rotates <theta> radians around the z axis
 		inline static mat<4, 4> rotation_z_4x4(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -833,7 +842,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the z axis
+		/// Get a matrix which rotates <theta> radians around the z axis
 		inline static mat<3, 3> rotation_z_3x3(real theta) {
 
 			real s = uroboro::sin(theta);
@@ -850,7 +859,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a matrix which rotates <theta> radians around the <axis> axis
+		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<4, 4> rotation_4x4(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
@@ -888,7 +897,7 @@ namespace uroboro {
 		}
 
 
-		// Get a matrix which rotates <theta> radians around the <axis> axis
+		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<3, 3> rotation_3x3(real theta, const vec3& axis) {
 
 			real s = uroboro::sin(theta);
@@ -918,7 +927,7 @@ namespace uroboro {
 		}
 
 
-		// Get a scaling matrix by factors <x>, <y> and <z>
+		/// Get a scaling matrix by factors <x>, <y> and <z>
 		inline static mat<4, 4> scaling_4x4(real x, real y, real z) {
 
 			mat<4, 4> res;
@@ -933,7 +942,7 @@ namespace uroboro {
 		}
 
 
-		// Get a scaling matrix by factors <x>, <y> and <z>
+		/// Get a scaling matrix by factors <x>, <y> and <z>
 		inline static mat<3, 3> scaling_3x3(real x, real y, real z) {
 
 			mat<3, 3> res;
@@ -946,7 +955,7 @@ namespace uroboro {
 			return res;
 		}
 
-		// Get a scaling matrix by <v> factors
+		/// Get a scaling matrix by <v> factors
 		template<unsigned int M>
 		inline static mat<N, K> scaling(vec<M> v) {
 
@@ -1001,8 +1010,7 @@ namespace uroboro {
 			return result;
 		}
 
-		// Return a transformation matrix that points the
-		// field of view towards a given point from the <camera> point
+		/// Return a transformation matrix that points the field of view towards a given point from the <camera> point
 		inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
 
 			// Construct an orthonormal basis
@@ -1041,7 +1049,7 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the matrix to string representation
+			/// Convert the matrix to string representation
 			inline std::string to_string(std::string separator = ", ") const {
 
 				std::stringstream res;
@@ -1053,8 +1061,7 @@ namespace uroboro {
 			}
 
 
-			// Stream the matrix in string representation
-			// to an output stream (std::ostream)
+			/// Stream the matrix in string representation to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const mat<N, K>& obj) {
 				return out << obj.to_string();
 			}
@@ -1064,9 +1071,29 @@ namespace uroboro {
 	};
 
 	// Square matrices types
+
+	/// A 2x2 matrix
 	using mat2 = mat<2, 2>;
+
+	/// A 3x3 matrix
 	using mat3 = mat<3, 3>;
+
+	/// A 4x4 matrix
 	using mat4 = mat<4, 4>;
+
+
+	/// Solve a linear system
+	template<unsigned int N>
+	inline vec<N> solve(mat<N, N> A, vec<N> b) {
+		return A.inverse() * b;
+	}
+
+
+	/// Solve a linear system
+	template<unsigned int N>
+	inline mat<N, N> solve(mat<N, N> A, mat<N, N> B) {
+		return A.inverse() * B;
+	}
 
 }
 
