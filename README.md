@@ -1,6 +1,5 @@
-<img alt="license badge" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="last commit badge" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="code size in bytes badge" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="issues badge" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
+<img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
-# Uroboro Math Library
 A header-only, **C++ mathematical library**, focused on **graphical** and **physical** applications. Includes **real and complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions** and **statistical** functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
 
 ## Dependencies
@@ -20,8 +19,8 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Derivative approximation (`calculus/derivation.h`)
 - Integral approximation, including **Runge-Kutta** of 4th order (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial/polynomial.h`)
-- Interpolation between vector data, including Bezier curves (`other/interpolation.h`)
-- Polynomial interpolation with Chebyshev nodes (`polynomial/polyninterp.h`)
+- Interpolation between vector data, including Bezier curves (`interpolation/spline_interp.h`)
+- Polynomial interpolation with Chebyshev nodes (`interpolation/polyn_interp.h`)
 
 ## Usage
 The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.

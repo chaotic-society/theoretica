@@ -138,7 +138,7 @@ Matrix inversion:
 mat4 I1 = A1.inverse();
 ```
 
-(UNDER DEVELOPMENT) Matrix determinant:
+Matrix determinant:
 ```c
 // Compute the determinant
 real D = I1.det();

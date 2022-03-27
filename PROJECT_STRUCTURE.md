@@ -1,6 +1,6 @@
 # Project structure
 
-### The _src_ folder
+## The src folder
 Where source code is stored.
 
 - _src/algebra_ - Linear algebra classes
@@ -37,7 +37,7 @@ Where source code is stored.
 - _utility.h_ - Printing functions
 - _vec_buff.h_ - Dynamic vector class
 
-## The _test_ folder
+## The test folder
 Where test cases are stored.
 
 - _test_*.cpp_ - Test cases files
