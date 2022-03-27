@@ -1,3 +1,10 @@
+
+///
+/// @file uroboro.h General include file
+/// This file will include core header files.
+/// If UROBORO_INCLUDE_ALL is defined, it will include all header files of the library
+///
+
 #ifndef UROBORO_H
 #define UROBORO_H
 
@@ -29,6 +36,7 @@
 #include "./autodiff/dual_functions.h"
 #endif
 
+/// @namespace umath Alias for the uroboro namespace
 #ifndef UROBORO_NO_NAMESPACE
 namespace umath = uroboro;
 #endif

@@ -1,3 +1,9 @@
+
+///
+/// @file utility.h Utility functions to print or insert vec_buff data sets.
+/// This header file is **not** automatically included by uroboro.h
+///
+
 #ifndef UROBORO_UTILITY_H
 #define UROBORO_UTILITY_H
 
@@ -12,6 +18,7 @@
 namespace uroboro {
 
 
+	/// Print a `vec_buff` data set to standard output
 	void print_vec_buff(const vec_buff& v) {
 		for(int i = 0; i < v.size(); i++) {
 			std::cout << v[i] << std::endl;
@@ -19,6 +26,7 @@ namespace uroboro {
 	}
 
 
+	/// Print a `vec_buff` data set to standard output on a single row
 	void print_vec_buff_row(const vec_buff& v) {
 		std::cout << "{ ";
 		for(int i = 0; i < v.size(); i++) {
@@ -31,6 +39,7 @@ namespace uroboro {
 	}
 
 
+	/// Insert a `vec_buff` data set from standard input
 	void insert_data(vec_buff& data, std::string terminator) {
 
         std::string line;
@@ -55,6 +64,7 @@ namespace uroboro {
 	}
 
 
+	/// Print common statistical information about a `vec_buff` data set
 	void print_sample_stats(const vec_buff& X) {
 		std::cout << "N = " << X.size() << std::endl;
 		std::cout << "Mean: " << mean(X) << std::endl;

@@ -1,3 +1,8 @@
+
+///
+/// @file example.cpp Example file
+///
+
 #include "uroboro.h"
 
 using namespace umath;

@@ -1,3 +1,8 @@
+
+///
+/// @file vec_buff.h Allocation and operations on data sets
+///
+
 #ifndef UROBORO_VEC_BUFF_H
 #define UROBORO_VEC_BUFF_H
 
@@ -8,10 +13,12 @@
 namespace uroboro {
 
 
+	/// A dynamically allocated variable-size container
+	/// Defined by default as an alias for `std::vector<real>`
 	using vec_buff = std::vector<real>;
 
 
-	// Compute the product of a set of values
+	/// Compute the product of a set of values
 	inline real product(const vec_buff& X) {
 
 		if(!X.size()) {
@@ -27,7 +34,7 @@ namespace uroboro {
 	}
 
 
-	// Sum the products of two sets of values
+	/// Sum the products of two sets of values
 	inline real product_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
@@ -43,7 +50,7 @@ namespace uroboro {
 	}
 
 
-    // Sum the products of three sets of values
+    /// Sum the products of three sets of values
     inline real product_sum(const vec_buff& X, const vec_buff& Y, const vec_buff& Z) {
 
 		if(X.size() != Y.size() || X.size() != Z.size()) {
@@ -59,7 +66,7 @@ namespace uroboro {
     }
 
 
-    // Sum the quotients of two sets of values
+    /// Sum the quotients of two sets of values
 	inline real quotient_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
@@ -82,7 +89,7 @@ namespace uroboro {
 	}
 
 
-    // Sum the squares of a set of values
+    /// Sum the squares of a set of values
     inline real sum_squares(const vec_buff& X) {
 
 		real res = 0;
@@ -93,7 +100,7 @@ namespace uroboro {
     }
 
 
-    // Sum together a set of values
+    /// Sum together a set of values
 	inline real sum(const vec_buff& X) {
 
 		real res = 0;
@@ -104,7 +111,7 @@ namespace uroboro {
 	}
 
 
-	// Apply a function to a set of values
+	/// Apply a function to a set of values
 	inline void apply(vec_buff& X, real(*f)(real)) {
 
 		for (real& x : X)

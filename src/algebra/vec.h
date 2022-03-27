@@ -1,3 +1,8 @@
+
+/// 
+/// @file vec.h Vector class and operations
+/// 
+
 #ifndef UROBORO_VECTOR_H
 #define UROBORO_VECTOR_H
 
@@ -15,6 +20,10 @@
 
 namespace uroboro {
 
+	/// 
+	/// @class vec
+	/// An N-dimensional vector of T type elements.
+	/// 
 	template<unsigned int N, typename T = real>
 	class vec {
 
@@ -27,21 +36,21 @@ namespace uroboro {
 
 		vec() = default;
 
-		// Initialize all elements to the same value
+		/// Initialize all elements to the same value
 		vec(T a) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = a;
 			}
 		}
 
-		// Copy constructor
+		/// Copy constructor
 		vec(const vec<N, T>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 		}
 
-		// Copy from other
+		/// Copy from other
 		vec<N, T>& operator=(const vec<N, T>& other) {
 			for (int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
@@ -49,7 +58,7 @@ namespace uroboro {
 			return *this;
 		}
 
-		// Initialize from a list, e.g. {1, 2, 3}
+		/// Initialize from a list, e.g. {1, 2, 3}
 		vec(std::initializer_list<T> l) {
 
 			if(l.size() != N) {
@@ -68,12 +77,12 @@ namespace uroboro {
 
 		// Operators
 
-		// Identity
+		/// Identity
 		inline vec<N, T> operator+() const {
 			return *this;
 		}
 
-		// Vector sum (v + w = (v.x + w.x, ...))
+		/// Vector sum (v + w = (v.x + w.x, ...))
 		inline vec<N, T> operator+(const vec<N, T>& other) const {
 			vec<N, T> result;
 
@@ -84,7 +93,7 @@ namespace uroboro {
 			return result;
 		}
 
-		// Opposite vector
+		/// Opposite vector
 		inline vec<N, T> operator-() const {
 			return *this * -1;
 		}
@@ -99,7 +108,7 @@ namespace uroboro {
 			return result;
 		}
 
-		// Scalar multiplication (av = (v.x * a, ...))
+		/// Scalar multiplication (av = (v.x * a, ...))
 		inline vec<N, T> operator*(T scalar) const {
 			vec<N, T> result;
 
@@ -110,7 +119,7 @@ namespace uroboro {
 			return result;
 		}
 
-		// Scalar division (v / a = (v.x / a, ...))
+		/// Scalar division (v / a = (v.x / a, ...))
 		inline vec<N, T> operator/(T scalar) const {
 			vec<N, T> result;
 
@@ -122,7 +131,7 @@ namespace uroboro {
 		}
 
 
-		// Dot product between vectors (v * w = v.x * w.x + ...)
+		/// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline T dot(const vec<N, T>& other) const {
 
 			T result = 0;
@@ -134,13 +143,13 @@ namespace uroboro {
 			return result;
 		}
 
-		// Dot product between vectors (v * w = v.x * w.x + ...)
+		/// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline T operator*(const vec<N, T>& other) const {
 			return dot(other);
 		}
 
 
-		// Cross product between vectors
+		/// Cross product between vectors
 		inline vec<3> cross(const vec<3>& other) const {
 
 			if(N != 3) {
@@ -183,7 +192,7 @@ namespace uroboro {
 		}
 
 
-		// Magnitude of vector (sqrt(v * v))
+		/// Magnitude of vector (sqrt(v * v))
 		inline T magnitude() const {
 
 			T m = 0;
@@ -193,12 +202,12 @@ namespace uroboro {
 			return sqrt(m);
 		}
 
-		// Alias for magnitude()
+		/// Alias for magnitude()
 		inline T lenght() {
 			return magnitude();
 		}
 
-		// Square magnitude of vector (v * v)
+		/// Square magnitude of vector (v * v)
 		inline T square_magnitude() const {
 			T m = 0;
 			for (int i = 0; i < N; ++i) {
@@ -208,33 +217,33 @@ namespace uroboro {
 		}
 
 
-		// Alias for square_magnitude()
+		/// Alias for square_magnitude()
 		inline real square_lenght() const {
 			return square_magnitude();
 		}
 
-		// Access i-th component
+		/// Access i-th component
 		inline T& operator[](int i) {
 			return data[i];
 		}
 
-		// Access i-th element
+		/// Access i-th element
 		inline T& at(int i) {
 			return data[i];
 		}
 
-		// Getters and setters
+		/// Getters and setters
 		inline T get(int i) const {
 			return data[i];
 		}
 
-		// Set the i-th element
+		/// Set the i-th element
 		inline void set(int i, T x) {
 			data[i] = x;
 		}
 
 
-		// Vector normalization (v / |v|)
+		/// Vector normalization (v / |v|)
 		inline void normalize() {
 
 			real m = magnitude();
@@ -249,7 +258,7 @@ namespace uroboro {
 			}
 		}
 
-		// Return the normalized vector (v / |v|)
+		/// Return the normalized vector (v / |v|)
 		inline vec<N, T> normalized() const {
 
 			vec<N, T> result = vec<N, T>();
@@ -267,7 +276,7 @@ namespace uroboro {
 		}
 
 
-		// Check whether all elements of both vectors are equal
+		/// Check whether all elements of both vectors are equal
 		inline bool operator==(const vec<N, T>& other) const {
 			for (int i = 0; i < N; ++i) {
 				if(data[i] != other[i])
@@ -277,7 +286,7 @@ namespace uroboro {
 			return true;
 		}
 
-		// Convert a vec<N, T> to a vec_buff
+		/// Convert a vec<N, T> to a vec_buff
 		inline vec_buff to_vec_buff() {
 			
 			vec_buff res;
@@ -290,7 +299,7 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the vector to string representation
+			/// Convert the vector to string representation
 			inline std::string to_string(std::string separator = ", ") const {
 
 				std::stringstream res;
@@ -307,8 +316,7 @@ namespace uroboro {
 			}
 
 
-			// Stream the vector in string representation
-			// to an output stream (std::ostream)
+			/// Stream the vector in string representation to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const vec<N, T>& obj) {
 				return out << obj.to_string();
 			}
@@ -318,26 +326,32 @@ namespace uroboro {
 	};
 
 	// Common vector types
+
+	/// A 2-dimensional vector with real elements
 	using vec2 = vec<2, real>;
+
+	/// A 3-dimensional vector with real elements
 	using vec3 = vec<3, real>;
+
+	/// A 4-dimensional vector with real elements
 	using vec4 = vec<4, real>;
 
 
-	// Compute the (Euclidian) distance between two values
+	/// Compute the (Euclidian) distance between two values
 	real distance(real v1, real v2) {
 		return abs(v1 - v2);
 	}
 
 
-	// Compute the distance between two points
+	/// Compute the distance between two points
 	template<unsigned int N, typename T>
 	T distance(vec<N, T> v1, vec<N, T> v2) {
 		return (v1 - v2).lenght();
 	}
 
 
-	// Compute the Lp norm of a vector
-	// as sum(abs(v_i)^p)^1/p
+	/// Compute the Lp norm of a vector.
+	/// Lp(v) = sum(abs(v_i)^p)^1/p
 	template<unsigned int N, typename T>
 	real lp_norm(vec<N, T> v, unsigned int p) {
 
@@ -350,8 +364,8 @@ namespace uroboro {
 	}
 
 
-	// Compute the Linf norm of a vector
-	// as max(abs(v_i))
+	/// Compute the Linf norm of a vector.
+	/// Linf(v) = max(abs(v_i))
 	template<unsigned int N, typename T>
 	real linf_norm(vec<N, T> v) {
 
@@ -364,14 +378,15 @@ namespace uroboro {
 	}
 
 
-	// Compute the dot product of two vectors
+	/// Compute the dot product of two vectors
 	template<unsigned int N, typename T>
 	real dot(vec<N, T> v1, vec<N, T> v2) {
 		return v1.dot(v2);
 	}
 
 
-	// Compute the cross product of two vectors
+	/// Compute the cross product of two vectors.
+	/// The vectors have to be 3-dimensional
 	template<typename T>
 	vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
 		return v1.cross(v2);

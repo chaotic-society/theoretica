@@ -1,3 +1,8 @@
+
+///
+/// @file roots.h Root approximation of real functions
+///
+
 #ifndef UROBORO_ROOTS_H
 #define UROBORO_ROOTS_H
 
@@ -8,10 +13,9 @@
 
 namespace uroboro {
 
-	// Root approximation
 
-	// Approximate a root of an arbitrary function using bisection
-	// inside a compact interval [a, b] where f(a) * f(b) < 0
+	/// Approximate a root of an arbitrary function using bisection
+	/// inside a compact interval [a, b] where f(a) * f(b) < 0
 	inline real approx_root_bisection(real_function f, real a, real b) {
 
 		if(f(a) * f(b) >= 0) {
@@ -47,7 +51,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of an arbitrary function using Newthon's method
+	/// Approximate a root of an arbitrary function using Newthon's method
 	inline real approx_root_newton(real_function f, real_function Df, real guess = 0) {
 
 
@@ -68,7 +72,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of a polynomial using Newthon's method
+	/// Approximate a root of a polynomial using Newthon's method
 	inline real approx_polyn_root_newton(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -89,7 +93,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of an arbitrary function using Steffensen's method
+	/// Approximate a root of an arbitrary function using Steffensen's method
 	inline real approx_root_steffensen(real_function f, real_function Df, real guess = 0) {
 
 
@@ -110,7 +114,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of a polynomial using Steffensen's method
+	/// Approximate a root of a polynomial using Steffensen's method
 	inline real approx_polyn_root_steffensen(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -130,7 +134,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of an arbitrary function using Chebyshev's method
+	/// Approximate a root of an arbitrary function using Chebyshev's method
 	inline real approx_root_chebyshev(real_function f, real_function Df,
 		real_function D2f, real guess = 0) {
 
@@ -152,7 +156,7 @@ namespace uroboro {
 	}
 
 
-	// Approximate a root of a polynomial using Chebyshev's method
+	/// Approximate a root of a polynomial using Chebyshev's method
 	inline real approx_polyn_root_chebyshev(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
