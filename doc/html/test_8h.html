@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: test.h File Reference</title>
+<title>Uroboro Math Library: test/test.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,70 +106,521 @@ $(document).ready(function(){initNavTree('test_8h.html',''); initResizable(); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa9d3e99022f9f30b210350c30636d1cb"><td class="memItemLeft" align="right" valign="top"><a id="aa9d3e99022f9f30b210350c30636d1cb" name="aa9d3e99022f9f30b210350c30636d1cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_start</b> (std::string f)</td></tr>
+<tr class="memitem:aa9d3e99022f9f30b210350c30636d1cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#aa9d3e99022f9f30b210350c30636d1cb">test_start</a> (std::string f)</td></tr>
 <tr class="separator:aa9d3e99022f9f30b210350c30636d1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa54398df48848e082db164b9e73c67c5"><td class="memItemLeft" align="right" valign="top"><a id="aa54398df48848e082db164b9e73c67c5" name="aa54398df48848e082db164b9e73c67c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_end</b> ()</td></tr>
+<tr class="memitem:aa54398df48848e082db164b9e73c67c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#aa54398df48848e082db164b9e73c67c5">test_end</a> ()</td></tr>
 <tr class="separator:aa54398df48848e082db164b9e73c67c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplParams" colspan="2"><a id="a5bd1822afdbdedb55722859213bb8fc8" name="a5bd1822afdbdedb55722859213bb8fc8"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>good_enough</b> (T a, T b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE)</td></tr>
+<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="test_8h.html#a5bd1822afdbdedb55722859213bb8fc8">good_enough</a> (T a, T b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE)</td></tr>
 <tr class="separator:a5bd1822afdbdedb55722859213bb8fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplParams" colspan="2"><a id="a4a301c9dbc21f509993db7ee6ab2b2f7" name="a4a301c9dbc21f509993db7ee6ab2b2f7"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_equal</b> (T1 evaluated, T1 expected, T2 input, bool silent=false)</td></tr>
+<tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="test_8h.html#a4a301c9dbc21f509993db7ee6ab2b2f7">test_equal</a> (T1 evaluated, T1 expected, T2 input, bool silent=false)</td></tr>
 <tr class="separator:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef97e3e1f19f5ce21edca4be08e224e9"><td class="memItemLeft" align="right" valign="top"><a id="aef97e3e1f19f5ce21edca4be08e224e9" name="aef97e3e1f19f5ce21edca4be08e224e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_equal_interval</b> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
+<tr class="memitem:aef97e3e1f19f5ce21edca4be08e224e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#aef97e3e1f19f5ce21edca4be08e224e9">test_equal_interval</a> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
 <tr class="separator:aef97e3e1f19f5ce21edca4be08e224e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplParams" colspan="2"><a id="a1bd6c2a2cf4f2ba2a20a55645b132827" name="a1bd6c2a2cf4f2ba2a20a55645b132827"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_tol</b> (T1 evaluated, T1 expected, T2 input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
+<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="test_8h.html#a1bd6c2a2cf4f2ba2a20a55645b132827">test_tol</a> (T1 evaluated, T1 expected, T2 input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
 <tr class="separator:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae85d12de41371bfd2f4e9df36ab96c87"><td class="memItemLeft" align="right" valign="top"><a id="ae85d12de41371bfd2f4e9df36ab96c87" name="ae85d12de41371bfd2f4e9df36ab96c87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr</b> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> evaluated, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> expected, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
+<tr class="memitem:ae85d12de41371bfd2f4e9df36ab96c87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#ae85d12de41371bfd2f4e9df36ab96c87">test_tolr</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> evaluated, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> expected, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
 <tr class="separator:ae85d12de41371bfd2f4e9df36ab96c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaba639c8f84053f4a4b3b9e72fead7ef"><td class="memItemLeft" align="right" valign="top"><a id="aaba639c8f84053f4a4b3b9e72fead7ef" name="aaba639c8f84053f4a4b3b9e72fead7ef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr_interval</b> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
+<tr class="memitem:aaba639c8f84053f4a4b3b9e72fead7ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#aaba639c8f84053f4a4b3b9e72fead7ef">test_tolr_interval</a> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
 <tr class="separator:aaba639c8f84053f4a4b3b9e72fead7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad881398e9a291203b9602447d28dc3a4"><td class="memItemLeft" align="right" valign="top"><a id="ad881398e9a291203b9602447d28dc3a4" name="ad881398e9a291203b9602447d28dc3a4"></a>
-constexpr <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TOLERANCE</b> = 0.00000001</td></tr>
+<tr class="memitem:ad881398e9a291203b9602447d28dc3a4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#ad881398e9a291203b9602447d28dc3a4">TOLERANCE</a> = 0.00000001</td></tr>
 <tr class="separator:ad881398e9a291203b9602447d28dc3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac713dd7ee953280e8bbd3bfe85fd7233"><td class="memItemLeft" align="right" valign="top"><a id="ac713dd7ee953280e8bbd3bfe85fd7233" name="ac713dd7ee953280e8bbd3bfe85fd7233"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>func_name</b> = &quot;&quot;</td></tr>
+<tr class="memitem:ac713dd7ee953280e8bbd3bfe85fd7233"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#ac713dd7ee953280e8bbd3bfe85fd7233">func_name</a> = &quot;&quot;</td></tr>
 <tr class="separator:ac713dd7ee953280e8bbd3bfe85fd7233"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33ce9c01fed2ae2ed826511c4827155b"><td class="memItemLeft" align="right" valign="top"><a id="a33ce9c01fed2ae2ed826511c4827155b" name="a33ce9c01fed2ae2ed826511c4827155b"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>total_errors</b> = 0</td></tr>
+<tr class="memitem:a33ce9c01fed2ae2ed826511c4827155b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#a33ce9c01fed2ae2ed826511c4827155b">total_errors</a> = 0</td></tr>
 <tr class="separator:a33ce9c01fed2ae2ed826511c4827155b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e6f196348b5874a86a67fb11042438"><td class="memItemLeft" align="right" valign="top"><a id="ad3e6f196348b5874a86a67fb11042438" name="ad3e6f196348b5874a86a67fb11042438"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>tolr_test_runs</b> = 0</td></tr>
+<tr class="memitem:ad3e6f196348b5874a86a67fb11042438"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#ad3e6f196348b5874a86a67fb11042438">tolr_test_runs</a> = 0</td></tr>
 <tr class="separator:ad3e6f196348b5874a86a67fb11042438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82d434c5fdb222f0bfc65dcb1ab84e9d"><td class="memItemLeft" align="right" valign="top"><a id="a82d434c5fdb222f0bfc65dcb1ab84e9d" name="a82d434c5fdb222f0bfc65dcb1ab84e9d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>curr_errors</b> = 0</td></tr>
+<tr class="memitem:a82d434c5fdb222f0bfc65dcb1ab84e9d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#a82d434c5fdb222f0bfc65dcb1ab84e9d">curr_errors</a> = 0</td></tr>
 <tr class="separator:a82d434c5fdb222f0bfc65dcb1ab84e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3ac0a5315c26796f56b11cbdb70b034"><td class="memItemLeft" align="right" valign="top"><a id="ac3ac0a5315c26796f56b11cbdb70b034" name="ac3ac0a5315c26796f56b11cbdb70b034"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><b>cum_err</b> = 0</td></tr>
+<tr class="memitem:ac3ac0a5315c26796f56b11cbdb70b034"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#ac3ac0a5315c26796f56b11cbdb70b034">cum_err</a> = 0</td></tr>
 <tr class="separator:ac3ac0a5315c26796f56b11cbdb70b034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a283ba395ef3b9c909d5ff0e58977d7ac"><td class="memItemLeft" align="right" valign="top"><a id="a283ba395ef3b9c909d5ff0e58977d7ac" name="a283ba395ef3b9c909d5ff0e58977d7ac"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><b>cum_sqr_err</b> = 0</td></tr>
+<tr class="memitem:a283ba395ef3b9c909d5ff0e58977d7ac"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#a283ba395ef3b9c909d5ff0e58977d7ac">cum_sqr_err</a> = 0</td></tr>
 <tr class="separator:a283ba395ef3b9c909d5ff0e58977d7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c57cc53db520cdb728e433e2245c5b6"><td class="memItemLeft" align="right" valign="top"><a id="a4c57cc53db520cdb728e433e2245c5b6" name="a4c57cc53db520cdb728e433e2245c5b6"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><b>max_err</b> = 0</td></tr>
+<tr class="memitem:a4c57cc53db520cdb728e433e2245c5b6"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8h.html#a4c57cc53db520cdb728e433e2245c5b6">max_err</a> = 0</td></tr>
 <tr class="separator:a4c57cc53db520cdb728e433e2245c5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Routines to test the precision of the library. </p>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5bd1822afdbdedb55722859213bb8fc8" name="a5bd1822afdbdedb55722859213bb8fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bd1822afdbdedb55722859213bb8fc8">&#9670;&nbsp;</a></span>good_enough()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool good_enough </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>TOLERANCE</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00097">97</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="aa54398df48848e082db164b9e73c67c5" name="aa54398df48848e082db164b9e73c67c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54398df48848e082db164b9e73c67c5">&#9670;&nbsp;</a></span>test_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00077">77</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a4a301c9dbc21f509993db7ee6ab2b2f7" name="a4a301c9dbc21f509993db7ee6ab2b2f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a301c9dbc21f509993db7ee6ab2b2f7">&#9670;&nbsp;</a></span>test_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T1 , typename T2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_equal </td>
+          <td>(</td>
+          <td class="paramtype">T1&#160;</td>
+          <td class="paramname"><em>evaluated</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1&#160;</td>
+          <td class="paramname"><em>expected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T2&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>silent</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00104">104</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="aef97e3e1f19f5ce21edca4be08e224e9" name="aef97e3e1f19f5ce21edca4be08e224e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef97e3e1f19f5ce21edca4be08e224e9">&#9670;&nbsp;</a></span>test_equal_interval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_equal_interval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a>&#160;</td>
+          <td class="paramname"><em>f_exp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>TOLERANCE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>steps</em> = <code>1000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00122">122</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="aa9d3e99022f9f30b210350c30636d1cb" name="aa9d3e99022f9f30b210350c30636d1cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d3e99022f9f30b210350c30636d1cb">&#9670;&nbsp;</a></span>test_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_start </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00062">62</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a1bd6c2a2cf4f2ba2a20a55645b132827" name="a1bd6c2a2cf4f2ba2a20a55645b132827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd6c2a2cf4f2ba2a20a55645b132827">&#9670;&nbsp;</a></span>test_tol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T1 , typename T2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_tol </td>
+          <td>(</td>
+          <td class="paramtype">T1&#160;</td>
+          <td class="paramname"><em>evaluated</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1&#160;</td>
+          <td class="paramname"><em>expected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T2&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>TOLERANCE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>silent</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00140">140</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="ae85d12de41371bfd2f4e9df36ab96c87" name="ae85d12de41371bfd2f4e9df36ab96c87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85d12de41371bfd2f4e9df36ab96c87">&#9670;&nbsp;</a></span>test_tolr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_tolr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>evaluated</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>expected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>TOLERANCE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>silent</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00167">167</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="aaba639c8f84053f4a4b3b9e72fead7ef" name="aaba639c8f84053f4a4b3b9e72fead7ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba639c8f84053f4a4b3b9e72fead7ef">&#9670;&nbsp;</a></span>test_tolr_interval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_tolr_interval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a>&#160;</td>
+          <td class="paramname"><em>f_exp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>TOLERANCE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>steps</em> = <code>1000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00174">174</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac3ac0a5315c26796f56b11cbdb70b034" name="ac3ac0a5315c26796f56b11cbdb70b034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ac0a5315c26796f56b11cbdb70b034">&#9670;&nbsp;</a></span>cum_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long double cum_err = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00052">52</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a283ba395ef3b9c909d5ff0e58977d7ac" name="a283ba395ef3b9c909d5ff0e58977d7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283ba395ef3b9c909d5ff0e58977d7ac">&#9670;&nbsp;</a></span>cum_sqr_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long double cum_sqr_err = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00055">55</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a82d434c5fdb222f0bfc65dcb1ab84e9d" name="a82d434c5fdb222f0bfc65dcb1ab84e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d434c5fdb222f0bfc65dcb1ab84e9d">&#9670;&nbsp;</a></span>curr_errors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int curr_errors = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00049">49</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="ac713dd7ee953280e8bbd3bfe85fd7233" name="ac713dd7ee953280e8bbd3bfe85fd7233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac713dd7ee953280e8bbd3bfe85fd7233">&#9670;&nbsp;</a></span>func_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string func_name = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00040">40</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c57cc53db520cdb728e433e2245c5b6" name="a4c57cc53db520cdb728e433e2245c5b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c57cc53db520cdb728e433e2245c5b6">&#9670;&nbsp;</a></span>max_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long double max_err = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00058">58</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="ad881398e9a291203b9602447d28dc3a4" name="ad881398e9a291203b9602447d28dc3a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad881398e9a291203b9602447d28dc3a4">&#9670;&nbsp;</a></span>TOLERANCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> TOLERANCE = 0.00000001</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00034">34</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="ad3e6f196348b5874a86a67fb11042438" name="ad3e6f196348b5874a86a67fb11042438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e6f196348b5874a86a67fb11042438">&#9670;&nbsp;</a></span>tolr_test_runs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int tolr_test_runs = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00046">46</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+<a id="a33ce9c01fed2ae2ed826511c4827155b" name="a33ce9c01fed2ae2ed826511c4827155b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ce9c01fed2ae2ed826511c4827155b">&#9670;&nbsp;</a></span>total_errors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int total_errors = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test_8h_source.html#l00043">43</a> of file <a class="el" href="test_8h_source.html">test.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="test_8h.html">test.h</a></li>
-    <li class="footer">Generated on Sun Mar 27 2022 18:35:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Mar 28 2022 23:23:37 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

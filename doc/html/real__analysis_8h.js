@@ -13,6 +13,7 @@ var real__analysis_8h =
     [ "cot", "real__analysis_8h.html#aa444ee16de69d29a83cd35f880819677", null ],
     [ "coth", "real__analysis_8h.html#ae52218903fe88afe09a5d9b8df9ba3f9", null ],
     [ "cube", "real__analysis_8h.html#afa8569031932cdaae020bd9bff74ee70", null ],
+    [ "degrees", "real__analysis_8h.html#a0fee867755bd6d2fc210d01ec543ede7", null ],
     [ "exp", "real__analysis_8h.html#aca621468c789d4e3b7269a546d93d13c", null ],
     [ "fact", "real__analysis_8h.html#aabaf0a819f840c3ef7d84f692b40eadb", null ],
     [ "floor", "real__analysis_8h.html#a83db8c30f7a831873a7c451841fec761", null ],
@@ -32,5 +33,6 @@ var real__analysis_8h =
     [ "sinh", "real__analysis_8h.html#ae01671e91c0f180bc985daf811ef4590", null ],
     [ "sqrt", "real__analysis_8h.html#ab96d642a803b7e4df038f74dbc2815c0", null ],
     [ "square", "real__analysis_8h.html#a2af827d6b4ec40c45e5035c8c955cb48", null ],
-    [ "tan", "real__analysis_8h.html#a3b0d8ff530ddfc3c372fe19d373ebc8d", null ]
+    [ "tan", "real__analysis_8h.html#a3b0d8ff530ddfc3c372fe19d373ebc8d", null ],
+    [ "tanh", "real__analysis_8h.html#aeef2c781d86b6163fc271f1df8a717ce", null ]
 ];

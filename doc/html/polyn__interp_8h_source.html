@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: polyn_interp.h Source File</title>
+<title>Uroboro Math Library: interpolation/polyn_interp.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -208,20 +208,20 @@ $(document).ready(function(){initNavTree('polyn__interp_8h_source.html',''); ini
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> error.h:147</div></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a57bc43a753233fcd9835f097d49007f3"><div class="ttname"><a href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">uroboro::vec_buff</a></div><div class="ttdeci">std::vector&lt; real &gt; vec_buff</div><div class="ttdoc">A dynamically allocated variable-size container Defined by default as an alias for std::vector&lt;real&gt;</div><div class="ttdef"><b>Definition:</b> vec_buff.h:18</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8a0318aa958d120abbe441ed65e0798d"><div class="ttname"><a href="namespaceuroboro.html#a8a0318aa958d120abbe441ed65e0798d">uroboro::PI</a></div><div class="ttdeci">constexpr real PI</div><div class="ttdoc">The Pi mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:101</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:93</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Real function.</div><div class="ttdef"><b>Definition:</b> function.h:16</div></div>
+<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00147">error.h:147</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number.</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00050">error.h:50</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a57bc43a753233fcd9835f097d49007f3"><div class="ttname"><a href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">uroboro::vec_buff</a></div><div class="ttdeci">std::vector&lt; real &gt; vec_buff</div><div class="ttdoc">A dynamically allocated variable-size container Defined by default as an alias for std::vector&lt;real&gt;</div><div class="ttdef"><b>Definition:</b> <a href="vec__buff_8h_source.html#l00018">vec_buff.h:18</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a8a0318aa958d120abbe441ed65e0798d"><div class="ttname"><a href="namespaceuroboro.html#a8a0318aa958d120abbe441ed65e0798d">uroboro::PI</a></div><div class="ttdeci">constexpr real PI</div><div class="ttdoc">The Pi mathematical constant.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00101">constants.h:101</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00093">constants.h:93</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Real function.</div><div class="ttdef"><b>Definition:</b> <a href="function_8h_source.html#l00016">function.h:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_264890e5c091f8c8d7fe1f842870c25e.html">interpolation</a></li><li class="navelem"><b>polyn_interp.h</b></li>
-    <li class="footer">Generated on Sun Mar 27 2022 18:35:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Mar 28 2022 23:23:37 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

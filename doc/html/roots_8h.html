@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: roots.h File Reference</title>
+<title>Uroboro Math Library: approx/roots.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,44 +114,39 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a27d6e9ef8ac67be3484d2fe2a22097c3"><td class="memItemLeft" align="right" valign="top"><a id="a27d6e9ef8ac67be3484d2fe2a22097c3" name="a27d6e9ef8ac67be3484d2fe2a22097c3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_root_bisection</b> (real_function f, real a, real b)</td></tr>
-<tr class="memdesc:a27d6e9ef8ac67be3484d2fe2a22097c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0. <br /></td></tr>
+<tr class="memitem:a27d6e9ef8ac67be3484d2fe2a22097c3"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a27d6e9ef8ac67be3484d2fe2a22097c3">uroboro::approx_root_bisection</a> (real_function f, real a, real b)</td></tr>
+<tr class="memdesc:a27d6e9ef8ac67be3484d2fe2a22097c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0.  <a href="namespaceuroboro.html#a27d6e9ef8ac67be3484d2fe2a22097c3">More...</a><br /></td></tr>
 <tr class="separator:a27d6e9ef8ac67be3484d2fe2a22097c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ad425520afa4fd9586b54d89b516ab6"><td class="memItemLeft" align="right" valign="top"><a id="a4ad425520afa4fd9586b54d89b516ab6" name="a4ad425520afa4fd9586b54d89b516ab6"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_root_newton</b> (real_function f, real_function Df, real guess=0)</td></tr>
-<tr class="memdesc:a4ad425520afa4fd9586b54d89b516ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method. <br /></td></tr>
+<tr class="memitem:a4ad425520afa4fd9586b54d89b516ab6"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a4ad425520afa4fd9586b54d89b516ab6">uroboro::approx_root_newton</a> (real_function f, real_function Df, real guess=0)</td></tr>
+<tr class="memdesc:a4ad425520afa4fd9586b54d89b516ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method.  <a href="namespaceuroboro.html#a4ad425520afa4fd9586b54d89b516ab6">More...</a><br /></td></tr>
 <tr class="separator:a4ad425520afa4fd9586b54d89b516ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a214db86e921328a95ee8047657a47169"><td class="memItemLeft" align="right" valign="top"><a id="a214db86e921328a95ee8047657a47169" name="a214db86e921328a95ee8047657a47169"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_polyn_root_newton</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
-<tr class="memdesc:a214db86e921328a95ee8047657a47169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Newthon's method. <br /></td></tr>
+<tr class="memitem:a214db86e921328a95ee8047657a47169"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a214db86e921328a95ee8047657a47169">uroboro::approx_polyn_root_newton</a> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
+<tr class="memdesc:a214db86e921328a95ee8047657a47169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Newthon's method.  <a href="namespaceuroboro.html#a214db86e921328a95ee8047657a47169">More...</a><br /></td></tr>
 <tr class="separator:a214db86e921328a95ee8047657a47169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a371170a9d01f44d90941a28d9f88385b"><td class="memItemLeft" align="right" valign="top"><a id="a371170a9d01f44d90941a28d9f88385b" name="a371170a9d01f44d90941a28d9f88385b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_root_steffensen</b> (real_function f, real_function Df, real guess=0)</td></tr>
-<tr class="memdesc:a371170a9d01f44d90941a28d9f88385b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method. <br /></td></tr>
+<tr class="memitem:a371170a9d01f44d90941a28d9f88385b"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a371170a9d01f44d90941a28d9f88385b">uroboro::approx_root_steffensen</a> (real_function f, real_function Df, real guess=0)</td></tr>
+<tr class="memdesc:a371170a9d01f44d90941a28d9f88385b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method.  <a href="namespaceuroboro.html#a371170a9d01f44d90941a28d9f88385b">More...</a><br /></td></tr>
 <tr class="separator:a371170a9d01f44d90941a28d9f88385b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d7408b0c910d74d55d0a58c0e6313cd"><td class="memItemLeft" align="right" valign="top"><a id="a4d7408b0c910d74d55d0a58c0e6313cd" name="a4d7408b0c910d74d55d0a58c0e6313cd"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_polyn_root_steffensen</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
-<tr class="memdesc:a4d7408b0c910d74d55d0a58c0e6313cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Steffensen's method. <br /></td></tr>
+<tr class="memitem:a4d7408b0c910d74d55d0a58c0e6313cd"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a4d7408b0c910d74d55d0a58c0e6313cd">uroboro::approx_polyn_root_steffensen</a> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
+<tr class="memdesc:a4d7408b0c910d74d55d0a58c0e6313cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Steffensen's method.  <a href="namespaceuroboro.html#a4d7408b0c910d74d55d0a58c0e6313cd">More...</a><br /></td></tr>
 <tr class="separator:a4d7408b0c910d74d55d0a58c0e6313cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4131e666dcfbecf704e7dcb014c2967c"><td class="memItemLeft" align="right" valign="top"><a id="a4131e666dcfbecf704e7dcb014c2967c" name="a4131e666dcfbecf704e7dcb014c2967c"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_root_chebyshev</b> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
-<tr class="memdesc:a4131e666dcfbecf704e7dcb014c2967c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
+<tr class="memitem:a4131e666dcfbecf704e7dcb014c2967c"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a4131e666dcfbecf704e7dcb014c2967c">uroboro::approx_root_chebyshev</a> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
+<tr class="memdesc:a4131e666dcfbecf704e7dcb014c2967c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method.  <a href="namespaceuroboro.html#a4131e666dcfbecf704e7dcb014c2967c">More...</a><br /></td></tr>
 <tr class="separator:a4131e666dcfbecf704e7dcb014c2967c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="memItemLeft" align="right" valign="top"><a id="a769ab68e1ef0fb741a6130f9784dd0fc" name="a769ab68e1ef0fb741a6130f9784dd0fc"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_polyn_root_chebyshev</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
-<tr class="memdesc:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method. <br /></td></tr>
+<tr class="memitem:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a769ab68e1ef0fb741a6130f9784dd0fc">uroboro::approx_polyn_root_chebyshev</a> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
+<tr class="memdesc:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method.  <a href="namespaceuroboro.html#a769ab68e1ef0fb741a6130f9784dd0fc">More...</a><br /></td></tr>
 <tr class="separator:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Root approximation of real functions. </p>
+
+<p class="definition">Definition in file <a class="el" href="roots_8h_source.html">roots.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_22ceb20c45c71f6098f33f7a3e928471.html">approx</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Sun Mar 27 2022 18:35:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Mar 28 2022 23:23:37 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
