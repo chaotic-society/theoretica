@@ -351,7 +351,7 @@ namespace uroboro {
 
 
 	/// Compute the Lp norm of a vector.
-	/// Lp(v) = sum(abs(v_i)^p)^1/p
+	/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
 	template<unsigned int N, typename T>
 	real lp_norm(vec<N, T> v, unsigned int p) {
 
@@ -365,7 +365,7 @@ namespace uroboro {
 
 
 	/// Compute the Linf norm of a vector.
-	/// Linf(v) = max(abs(v_i))
+	/// \f$L_{inf}(\vec v) = max(|v_i|)\f$
 	template<unsigned int N, typename T>
 	real linf_norm(vec<N, T> v) {
 

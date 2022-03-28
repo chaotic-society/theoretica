@@ -9,8 +9,6 @@
 #include "../constants.h"
 #include "./roots.h"
 
-#include <iostream>
-
 
 namespace uroboro {
 

@@ -122,13 +122,13 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::exp");
 
-		test_tolr_interval(umath::exp, std::exp, -1, 1, TOLERANCE, 13151);
+		test_tolr_interval(umath::exp, std::exp, 0, 1, 0.0000001, 13151);
 		test_tolr_interval(umath::exp, std::exp, -10, -1, TOLERANCE, 1151);
 		test_tolr_interval(umath::exp, std::exp, 1, 10, TOLERANCE, 1973);
 		test_tolr_interval(umath::exp, std::exp, -1000, -1, TOLERANCE, 12416);
 
-		// Higher tolerance to consider floating point precision limits
-		test_tolr_interval(umath::exp, std::exp, 0, 20, 0.0001, 1957);
+		// Higher tolerance to account for floating point precision limits
+		test_tolr_interval(umath::exp, std::exp, 10, 20, 0.0001, 1137);
 
 	test_end();
 
