@@ -33,7 +33,7 @@
 #endif
 
 
-/// Approximation tolerance for root finding
+/// Approximation tolerance for Newton's method root finding
 #ifndef UROBORO_NEWTON_RAPHSON_TOL
 #define UROBORO_NEWTON_RAPHSON_TOL 0.00000001
 #endif
@@ -46,6 +46,11 @@
 /// Maximum number of iterations for bisection
 #ifndef UROBORO_MAX_BISECTION_ITER
 #define UROBORO_MAX_BISECTION_ITER 100
+#endif
+
+/// Maximum number of iterations for Halley's method
+#ifndef UROBORO_MAX_HALLEY_ITER
+#define UROBORO_MAX_HALLEY_ITER 100
 #endif
 
 /// Maximum number of iterations for Newton-Raphson
@@ -171,6 +176,9 @@ namespace uroboro {
 
 	/// Maximum number of iterations for the bisection algorithm
 	constexpr unsigned int MAX_BISECTION_ITER = UROBORO_MAX_BISECTION_ITER;
+
+	/// Maximum number of iterations for Halley's method
+	constexpr unsigned int MAX_HALLEY_ITER = UROBORO_MAX_HALLEY_ITER;
 
 	/// Maximum number of iterations for the Newton-Raphson algorithm
 	constexpr unsigned int MAX_NEWTON_ITER = UROBORO_MAX_NEWTON_ITER;

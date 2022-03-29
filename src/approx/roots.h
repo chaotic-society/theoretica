@@ -93,6 +93,49 @@ namespace uroboro {
 	}
 
 
+	/// Approximate a root of an arbitrary function using Halley's method
+	inline real approx_root_halley(real_function f, real_function Df,
+		real_function D2f, real guess = 0) {
+
+		real x = guess;
+		int iter = 0;
+
+		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+			x = x - (2 * f(x) * Df(x)) / (2 * Df(x) - f(x) * D2f(x));
+			iter++;
+		}
+
+		if(iter > MAX_HALLEY_ITER) {
+			UMATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
+	/// Approximate a root of a polynomial using Halley's method
+	inline real approx_polyn_root_halley(polynomial<real> p, real guess = 0) {
+
+		polynomial<> Dp = differentiate_polynomial(p);
+		polynomial<> D2p = differentiate_polynomial(Dp);
+		real x = guess;
+		int iter = 0;
+
+		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+			x = x - (2 * p(x) * Dp(x)) / (2 * Dp(x) - p(x) * D2p(x));
+			iter++;
+		}
+
+		if(iter > MAX_HALLEY_ITER) {
+			UMATH_ERROR("approx_polyn_root_halley", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
 	/// Approximate a root of an arbitrary function using Steffensen's method
 	inline real approx_root_steffensen(real_function f, real_function Df, real guess = 0) {
 
@@ -137,7 +180,6 @@ namespace uroboro {
 	/// Approximate a root of an arbitrary function using Chebyshev's method
 	inline real approx_root_chebyshev(real_function f, real_function Df,
 		real_function D2f, real guess = 0) {
-
 
 		real x = guess;
 		int iter = 0;
