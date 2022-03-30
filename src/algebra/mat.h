@@ -1047,6 +1047,36 @@ namespace uroboro {
 			return res;
 		}
 
+
+		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
+		inline static mat<N, K> symplectic() {
+
+			if(N != K || (N % 2 != 0)) {
+				UMATH_ERROR("mat::symplectic", N, IMPOSSIBLE_OPERATION);
+				return mat<N, K>(nan());
+			}
+
+			mat<N, K> res = mat<N, K>();
+
+			for (int i = 0; i < N / 2; ++i) {	
+				for (int j = N / 2; j < N; ++j) {
+					if(i == (j - N / 2))
+						res.at(j, i) = 1;
+				}
+			}
+
+			for (int i = N / 2; i < N; ++i) {
+				for (int j = 0; j < N / 2; ++j) {
+					if((i - N / 2) == (j))
+						res.at(j, i) = -1;
+				}
+			}
+
+			return res;
+		} 
+
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the matrix to string representation
@@ -1072,13 +1102,13 @@ namespace uroboro {
 
 	// Square matrices types
 
-	/// A 2x2 matrix
+	/// A 2x2 matrix with real entries
 	using mat2 = mat<2, 2>;
 
-	/// A 3x3 matrix
+	/// A 3x3 matrix with real entries
 	using mat3 = mat<3, 3>;
 
-	/// A 4x4 matrix
+	/// A 4x4 matrix with real entries
 	using mat4 = mat<4, 4>;
 
 
