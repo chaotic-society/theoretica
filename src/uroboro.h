@@ -34,6 +34,7 @@
 #include "./statistics/distributions.h"
 #include "./autodiff/dual.h"
 #include "./autodiff/dual_functions.h"
+#include "./autodiff/autodiff.h"
 #endif
 
 /// @namespace umath Alias for the uroboro namespace

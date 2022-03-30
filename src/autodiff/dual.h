@@ -28,6 +28,10 @@ namespace uroboro {
 			dual(real real_part, real dual_part)
 				: a(real_part), b(dual_part) {}
 
+			// Initialize from a real number
+			dual(real real_part)
+				: a(real_part), b(0) {}
+
 			~dual() = default;
 		
 			// Initialize from a vec2
@@ -40,6 +44,13 @@ namespace uroboro {
 			inline dual& operator=(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
+				return *this;
+			}
+
+			// Initialize a dual number from a real number
+			inline dual& operator=(real x) {
+				a = x;
+				b = 0;
 				return *this;
 			}
 
