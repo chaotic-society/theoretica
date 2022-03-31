@@ -161,15 +161,13 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::sin");
 
-		test_tolr(umath::sin(0.5f), 0.4794255386, 0.5);
-		test_tolr(umath::sin(3), 0.14112000806, 3);
-		test_tolr_interval(umath::sin, std::sin, 0, PI, TOLERANCE, 100000);
-		test_tolr_interval(umath::sin, std::sin, 0, 10 * PI);
-		test_tolr_interval(umath::sin, std::sin, -10 * PI, 0);
-		test_tolr_interval(umath::sin, std::sin, 0, 100 * PI);
-		test_tolr_interval(umath::sin, std::sin, -100 * PI, 0);
-		test_tolr_interval(umath::sin, std::sin, 0, 1000 * PI);
-		test_tolr_interval(umath::sin, std::sin, -1000 * PI, 0);
+		test_tolr_interval(umath::sin, std::sin, 0, PI2, TOLERANCE, 100000);
+		test_tolr_interval(umath::sin, std::sin, 0, 10 * PI, 0.00005);
+		test_tolr_interval(umath::sin, std::sin, -10 * PI, 0, 0.00005);
+		test_tolr_interval(umath::sin, std::sin, 0, 100 * PI, 0.00005);
+		test_tolr_interval(umath::sin, std::sin, -100 * PI, 0, 0.00005);
+		test_tolr_interval(umath::sin, std::sin, 0, 1000 * PI, 0.00005);
+		test_tolr_interval(umath::sin, std::sin, -1000 * PI, 0, 0.00005);
 
 	test_end();
 

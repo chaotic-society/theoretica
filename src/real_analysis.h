@@ -515,6 +515,13 @@ namespace uroboro {
 		while(x <= -2 * PI)
 			x += 2 * PI;
 
+		// Domain reduction to [-PI, PI]
+		if(x > PI) {
+			x = PI - x;
+		} else if(x < -PI) {
+			x = -PI - x;
+		}
+
 		real res = 0;
 
 		// Taylor series expansion
@@ -551,13 +558,12 @@ namespace uroboro {
 
 #else
 
-		// cos(x) is even (cos(x) = cos(-x))
-		if(x < 0)
-			x = -x;
-
-		// Clamp x between 0 and 2PI
+		// Clamp x between -2PI and 2PI
 		while(x >= 2 * PI)
 			x -= 2 * PI;
+		
+		while(x <= -2 * PI)
+			x += 2 * PI;
 
 		real res = 0;
 

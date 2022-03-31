@@ -26,10 +26,10 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [ ] cos - **(only hardware implementation)**
   - [ ] tan - **(only hardware implementation)**
   - [ ] cot - **(only hardware implementation)**
-  - [ ] **atan**
-  - [ ] asin
-  - [ ] acos
-  - [ ] **atan2**
+  - [ ] **atan** - Low precision
+  - [ ] asin - Low precision
+  - [ ] acos - Low precision
+  - [ ] **atan2** - Low precision
   - [ ] sinh - Depends on exp
   - [ ] cosh - Depends on exp
   - [ ] tanh - Depends on exp
@@ -141,7 +141,8 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [ ] atan
   - [x] abs
 
-- Interpolation (_interpolation.h_) - **NO TEST CASES**
+- Interpolation (_interpolation/polyn_interp.h_, _interpolation/spline_interp.h_) - **NO TEST CASES**
+  - [x] Polynomial interpolation
   - [x] Linear interpolation
   - [x] Inverse linear interpolation
   - [x] Remapping
