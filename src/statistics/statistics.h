@@ -1,3 +1,8 @@
+
+///
+/// @file statistics.h Statistical functions
+///
+
 #ifndef UROBORO_STATISTICS_H
 #define UROBORO_STATISTICS_H
 
@@ -10,7 +15,7 @@
 namespace uroboro {
 
 
-	// Compute the arithmetic mean of a set of values
+	/// Compute the arithmetic mean of a set of values
 	inline real arithmetic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
@@ -23,14 +28,14 @@ namespace uroboro {
 	}
 
 
-	// Compute the arithmetic mean of a set of values
-	// Alias for arithmetic_mean
+	/// Compute the arithmetic mean of a set of values
+	/// Alias for arithmetic_mean
 	inline real mean(const vec_buff& data) {
 		return arithmetic_mean(data);
 	}
 
 
-	// Compute the harmonic mean of a set of values
+	/// Compute the harmonic mean of a set of values
 	inline real harmonic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
@@ -54,15 +59,15 @@ namespace uroboro {
 	}
 
 
-	// Compute the geometric mean of a set of values
-	// as root(pro)
+	/// Compute the geometric mean of a set of values
+	/// as \f$\sqrt[n]{\Pi_i x_i}\f$
 	inline real geometric_mean(const vec_buff& data) {
 		return root(product(data), data.size());
 	}
 
 
-	// Compute the weighted mean of a set of values
-	// <data> and <weights> must have the same size
+	/// Compute the weighted mean of a set of values
+	/// <data> and <weights> must have the same size
 	inline real weighted_mean(const vec_buff& data, const vec_buff& weights) {
 
 		// Sum of x_i * w_i / Sum of w_i
@@ -70,17 +75,17 @@ namespace uroboro {
 	}
 
 
-	// Propagate error of a sum of values
-	// as sqrt(sigma_x^2 + sigma_y^2 + ...)
+	/// Propagate error of a sum of values
+	/// as sqrt(sigma_x^2 + sigma_y^2 + ...)
 	inline real propagate_sum(const vec_buff& sigma) {
 
 		return sqrt(sum_squares(sigma));
 	}
 
 
-	// Propagate error of a product (or quotient) of values
-	// as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...)
-	// The result is the propagated relative error
+	/// Propagate error of a product (or quotient) of values
+	/// as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...)
+	/// The result is the propagated relative error
 	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
 
 		if(sigma.size() != mean.size()) {
@@ -98,8 +103,8 @@ namespace uroboro {
 	}
 
 
-	// Root Mean Square
-	// Computed as sqrt(sum(x_i^2) / N)
+	/// Root Mean Square
+	/// Computed as sqrt(sum(x_i^2) / N)
 	inline real rms(const vec_buff& X) {
 
 		if(!X.size()) {
@@ -111,8 +116,8 @@ namespace uroboro {
 	}
 
 
-	// Total sum of squares (TSS)
-	// Computed as sum(square(x_i - x_mean))
+	/// Total sum of squares (TSS)
+	/// Computed as sum(square(x_i - x_mean))
 	inline real total_sum_squares(const vec_buff& X) {
 
 		if(!X.size()) {
@@ -129,14 +134,14 @@ namespace uroboro {
 		return tss;
 	}
 
-	// Total sum of squares (TSS)
-	// Computed as sum(square(x_i - x_mean))
+	/// Total sum of squares (TSS)
+	/// Computed as sum(square(x_i - x_mean))
 	inline real tss(const vec_buff& X) {
 		return total_sum_squares(X);
 	}
 
 
-	// Compute the variance of a population
+	/// Compute the variance of a population
 	inline real variance(const vec_buff& data) {
 
 		if(!data.size()) {
@@ -148,8 +153,8 @@ namespace uroboro {
 	}
 
 
-	// Compute the variance of a sample
-	// This function uses Bessel correction
+	/// Compute the variance of a sample
+	/// This function uses Bessel correction
 	inline real sample_variance(const vec_buff& data) {
 
 		if(!data.size()) {
@@ -162,32 +167,32 @@ namespace uroboro {
 	}
 
 
-	// Compute the standard deviation of a population
+	/// Compute the standard deviation of a population
 	inline real standard_deviation(const vec_buff& data) {
 		return sqrt(variance(data));
 	}
 
 
-	// Compute the standard deviation of a population
+	/// Compute the standard deviation of a population
 	inline real stdev(const vec_buff& data) {
 		return standard_deviation(data);
 	}
 
 
-	// Compute the standard deviation of a sample
+	/// Compute the standard deviation of a sample
 	inline real sample_standard_deviation(const vec_buff& data) {
 		return sqrt(sample_variance(data));
 	}
 
 
-	// Compute the standard deviation of a sample
+	/// Compute the standard deviation of a sample
 	inline real smpl_stdev(const vec_buff& data) {
 		return sample_standard_deviation(data);
 	}
 
 
-	// Compute the relative error on a population measure
-	// using standard deviation
+	/// Compute the relative error on a population measure
+	/// using standard deviation
 	inline real standard_relative_error(const vec_buff& X) {
 
 		real x_mean = mean(X);
@@ -201,8 +206,8 @@ namespace uroboro {
 	}
 
 
-	// Compute the relative error on a sample measure
-	// using standard deviation
+	/// Compute the relative error on a sample measure
+	/// using standard deviation
 	inline real sample_standard_relative_error(const vec_buff& X) {
 
 		real x_mean = mean(X);
@@ -216,33 +221,33 @@ namespace uroboro {
 	}
 
 
-	// Compute the standard deviation on the mean of a set of values
+	/// Compute the standard deviation on the mean of a set of values
 	inline real mean_standard_deviation(const vec_buff& data) {
 		return sqrt(variance(data)) / sqrt(data.size());
 	}
 
 
-	// Compute the standard deviation on the mean of a set of values
+	/// Compute the standard deviation on the mean of a set of values
 	inline real stdom(const vec_buff& data) {
 		return mean_standard_deviation(data);
 	}
 
 
-	// Compute the standard deviation on the mean of a set of measures
-	// Bessel correction is used in the calculation of variance
+	/// Compute the standard deviation on the mean of a set of measures
+	/// Bessel correction is used in the calculation of variance
 	inline real sample_mean_standard_deviation(const vec_buff& data) {
 		return sqrt(sample_variance(data)) / sqrt(data.size());
 	}
 
 
-	// Compute the standard deviation on the mean of a set of measures
-	// Bessel correction is used in the calculation of variance
+	/// Compute the standard deviation on the mean of a set of measures
+	/// Bessel correction is used in the calculation of variance
 	inline real smpl_stdom(const vec_buff& data) {
 		return sample_mean_standard_deviation(data);
 	}
 
 
-	// Compute the covariance of two sets of measures
+	/// Compute the covariance of two sets of measures
 	inline real covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
@@ -261,8 +266,8 @@ namespace uroboro {
 	}
 
 
-	// Compute the covariance between two sets of sample measures
-	// This function uses Bessel correction
+	/// Compute the covariance between two sets of sample measures
+	/// This function uses Bessel correction
 	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
@@ -282,20 +287,20 @@ namespace uroboro {
 	}
 
 
-	// Pearson's correlation coefficient R for a population
+	/// Pearson's correlation coefficient R for a population
 	inline real correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
 		return covariance(X, Y) / (stdev(X) * stdev(Y));
 	}
 
 
-	// Pearson's correlation coefficient r for a sample
+	/// Pearson's correlation coefficient r for a sample
 	inline real sample_correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
 		return sample_covariance(X, Y) / (smpl_stdev(X) * smpl_stdev(Y));
 	}
 
 
-	// Normal distribution chi-square with 4 intervals
-	// calculated on a sample of measures
+	/// Normal distribution chi-square with 4 intervals
+	/// calculated on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
 
 		if(!X.size()) {
@@ -335,7 +340,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the intercept of the minimum squares linearization of X and Y
+	/// Compute the intercept of the minimum squares linearization of X and Y
 	inline real least_squares_linear_intercept(
 		const vec_buff& X, const vec_buff& Y) {
 
@@ -351,14 +356,14 @@ namespace uroboro {
 	}
 
 
-	// Compute the intercept of the minimum squares linearization of X and Y
+	/// Compute the intercept of the minimum squares linearization of X and Y
 	inline real lst_sqrs_lin_intercept(
 		const vec_buff& X, const vec_buff& Y) {
 		return least_squares_linear_intercept(X, Y);
 	}
 
 
-	// Compute the error on the intercept (A)
+	/// Compute the error on the intercept (A)
 	inline real least_squares_linear_sigma_A(
 		const vec_buff& X, const vec_buff& Y, real sigma_y) {
 
@@ -367,7 +372,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the slope of the minimum squares linearization of X and Y
+	/// Compute the slope of the minimum squares linearization of X and Y
 	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
@@ -382,13 +387,13 @@ namespace uroboro {
 	}
 
 
-	// Compute the slope of the minimum squares linearization of X and Y
+	/// Compute the slope of the minimum squares linearization of X and Y
 	inline real lst_sqrs_lin_slope(const vec_buff& X, const vec_buff& Y) {
 		return least_squares_linear_slope(X, Y);
 	}
 
 
-	// Compute the error on the slope coefficient (B)
+	/// Compute the error on the slope coefficient (B)
 	inline real least_squares_linear_sigma_B(
 		const vec_buff& X, const vec_buff& Y, real sigma_y) {
 
@@ -397,7 +402,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the error of the minimum squares linearization of a sample
+	/// Compute the error of the minimum squares linearization of a sample
 	inline real least_squares_linear_error(
 		const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
@@ -417,7 +422,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the error of the minimum squares linearization of a sample
+	/// Compute the error of the minimum squares linearization of a sample
 	inline real lst_sqrs_lin_error(
 		const vec_buff& X, const vec_buff& Y,
 		real intercept, real slope) {
@@ -425,7 +430,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the chi-square on a linearization
+	/// Compute the chi-square on a linearization
 	inline real chi_square_linearization(
 		const vec_buff& X, const vec_buff& Y,
 		const vec_buff& sigma, real intercept, real slope) {
@@ -446,7 +451,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the reduced chi-squared on a linearization
+	/// Compute the reduced chi-squared on a linearization
 	inline real reduced_chi_square_linearization(
 		const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
 		real intercept, real slope) {
@@ -457,7 +462,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the intercept of the weighted minimum squares linearization of X and Y
+	/// Compute the intercept of the weighted minimum squares linearization of X and Y
 	inline real least_squares_weighted_linear_intercept(
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
@@ -477,14 +482,14 @@ namespace uroboro {
 	}
 
 
-	// Compute the intercept of the weighted minimum squares linearization of X and Y
+	/// Compute the intercept of the weighted minimum squares linearization of X and Y
 	inline real lst_sqrs_weight_lin_intercept(
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 		return least_squares_weighted_linear_intercept(X, Y, W);
 	}
 
 
-	// Compute the slope of the weighted minimum squares linearization of X and Y
+	/// Compute the slope of the weighted minimum squares linearization of X and Y
 	inline real least_squares_weighted_linear_slope(
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
@@ -504,7 +509,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the slope of the weighted minimum squares linearization of X and Y
+	/// Compute the slope of the weighted minimum squares linearization of X and Y
 	inline real lst_sqrs_weight_lin_slope(
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 		return least_squares_weighted_linear_slope(X, Y, W);

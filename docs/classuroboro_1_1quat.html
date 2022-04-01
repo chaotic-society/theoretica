@@ -100,71 +100,107 @@ $(document).ready(function(){initNavTree('classuroboro_1_1quat.html',''); initRe
   <div class="headertitle"><div class="title">uroboro::quat Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Quaternion in the form \(a + bi + cj + dk\), stored as \((a + \vec v)\) where \(a \in \mathbb{R}\) and \(\vec v \in \mathbb{R}^3\).  
+ <a href="classuroboro_1_1quat.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="quat_8h_source.html">quat.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a44e1796d5641bda403f70d187039a639"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a44e1796d5641bda403f70d187039a639">quat</a> ()</td></tr>
+<tr class="memdesc:a44e1796d5641bda403f70d187039a639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize as (0 + 0i + 0j + 0k)  <a href="classuroboro_1_1quat.html#a44e1796d5641bda403f70d187039a639">More...</a><br /></td></tr>
+<tr class="separator:a44e1796d5641bda403f70d187039a639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1f7e48140743d134aebcbddf9c7e3bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aa1f7e48140743d134aebcbddf9c7e3bb">quat</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, const <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> &amp;v)</td></tr>
+<tr class="memdesc:aa1f7e48140743d134aebcbddf9c7e3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from a real number and a vector.  <a href="classuroboro_1_1quat.html#aa1f7e48140743d134aebcbddf9c7e3bb">More...</a><br /></td></tr>
 <tr class="separator:aa1f7e48140743d134aebcbddf9c7e3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1cece7c7d7c90765df6a429f35bd3df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ad1cece7c7d7c90765df6a429f35bd3df">quat</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:ad1cece7c7d7c90765df6a429f35bd3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from another quaternion.  <a href="classuroboro_1_1quat.html#ad1cece7c7d7c90765df6a429f35bd3df">More...</a><br /></td></tr>
 <tr class="separator:ad1cece7c7d7c90765df6a429f35bd3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa13824de88b51982fb698fb46477be6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aa13824de88b51982fb698fb46477be6b">operator=</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
 <tr class="separator:aa13824de88b51982fb698fb46477be6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2004470a61582e44fd0d30a1275ada9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ac2004470a61582e44fd0d30a1275ada9">operator=</a> (const std::array&lt; <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>, 4 &gt; &amp;v)</td></tr>
 <tr class="separator:ac2004470a61582e44fd0d30a1275ada9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc46dc6adf8cced20e40f44bd7461f15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#adc46dc6adf8cced20e40f44bd7461f15">quat</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> c, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> d)</td></tr>
+<tr class="memdesc:adc46dc6adf8cced20e40f44bd7461f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from four real numbers.  <a href="classuroboro_1_1quat.html#adc46dc6adf8cced20e40f44bd7461f15">More...</a><br /></td></tr>
 <tr class="separator:adc46dc6adf8cced20e40f44bd7461f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6bbccc9c142da915b1460a21e8a83b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ab6bbccc9c142da915b1460a21e8a83b9">norm</a> () const</td></tr>
+<tr class="memdesc:ab6bbccc9c142da915b1460a21e8a83b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the norm of a quaternion.  <a href="classuroboro_1_1quat.html#ab6bbccc9c142da915b1460a21e8a83b9">More...</a><br /></td></tr>
 <tr class="separator:ab6bbccc9c142da915b1460a21e8a83b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a04002ced6c9afc39df070f7f7927ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a1a04002ced6c9afc39df070f7f7927ee">square_norm</a> () const</td></tr>
+<tr class="memdesc:a1a04002ced6c9afc39df070f7f7927ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the square norm of a quaternion.  <a href="classuroboro_1_1quat.html#a1a04002ced6c9afc39df070f7f7927ee">More...</a><br /></td></tr>
 <tr class="separator:a1a04002ced6c9afc39df070f7f7927ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca807ff5882279a25658f4db85e61b73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aca807ff5882279a25658f4db85e61b73">conjugate</a> () const</td></tr>
+<tr class="memdesc:aca807ff5882279a25658f4db85e61b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the conjugate of a quaternion.  <a href="classuroboro_1_1quat.html#aca807ff5882279a25658f4db85e61b73">More...</a><br /></td></tr>
 <tr class="separator:aca807ff5882279a25658f4db85e61b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9a0ac35aeb5d81b82880e15b460d9fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ad9a0ac35aeb5d81b82880e15b460d9fe">operator*</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> scalar) const</td></tr>
+<tr class="memdesc:ad9a0ac35aeb5d81b82880e15b460d9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a quaternion by a scalar value.  <a href="classuroboro_1_1quat.html#ad9a0ac35aeb5d81b82880e15b460d9fe">More...</a><br /></td></tr>
 <tr class="separator:ad9a0ac35aeb5d81b82880e15b460d9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b1bafb097cffa0e56ab5f1f17f8e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ad6b1bafb097cffa0e56ab5f1f17f8e1e">operator/</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> scalar) const</td></tr>
+<tr class="memdesc:ad6b1bafb097cffa0e56ab5f1f17f8e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a quaternion by a scalar value.  <a href="classuroboro_1_1quat.html#ad6b1bafb097cffa0e56ab5f1f17f8e1e">More...</a><br /></td></tr>
 <tr class="separator:ad6b1bafb097cffa0e56ab5f1f17f8e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23b3403c91e2a172fdf7026ebe666d32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a23b3403c91e2a172fdf7026ebe666d32">operator+</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a23b3403c91e2a172fdf7026ebe666d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add two quaternions.  <a href="classuroboro_1_1quat.html#a23b3403c91e2a172fdf7026ebe666d32">More...</a><br /></td></tr>
 <tr class="separator:a23b3403c91e2a172fdf7026ebe666d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e8907120915ec78362085b70537baab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a3e8907120915ec78362085b70537baab">operator-</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a3e8907120915ec78362085b70537baab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract two quaternions.  <a href="classuroboro_1_1quat.html#a3e8907120915ec78362085b70537baab">More...</a><br /></td></tr>
 <tr class="separator:a3e8907120915ec78362085b70537baab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb473f11e59fdbb44fa3a70ca32a740f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#adb473f11e59fdbb44fa3a70ca32a740f">operator*</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:adb473f11e59fdbb44fa3a70ca32a740f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two quaternions.  <a href="classuroboro_1_1quat.html#adb473f11e59fdbb44fa3a70ca32a740f">More...</a><br /></td></tr>
 <tr class="separator:adb473f11e59fdbb44fa3a70ca32a740f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e489cbe0cd2856f00bfe08094d86ae5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a1e489cbe0cd2856f00bfe08094d86ae5">operator/</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a1e489cbe0cd2856f00bfe08094d86ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide two quaternions.  <a href="classuroboro_1_1quat.html#a1e489cbe0cd2856f00bfe08094d86ae5">More...</a><br /></td></tr>
 <tr class="separator:a1e489cbe0cd2856f00bfe08094d86ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a3be10877ac177e546c1b4d6e9608e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a0a3be10877ac177e546c1b4d6e9608e2">operator*=</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> scalar)</td></tr>
+<tr class="memdesc:a0a3be10877ac177e546c1b4d6e9608e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by a scalar value.  <a href="classuroboro_1_1quat.html#a0a3be10877ac177e546c1b4d6e9608e2">More...</a><br /></td></tr>
 <tr class="separator:a0a3be10877ac177e546c1b4d6e9608e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4ef2424b918e6943a44e9bcae02a76e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aa4ef2424b918e6943a44e9bcae02a76e">operator/=</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> scalar)</td></tr>
+<tr class="memdesc:aa4ef2424b918e6943a44e9bcae02a76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by a scalar value.  <a href="classuroboro_1_1quat.html#aa4ef2424b918e6943a44e9bcae02a76e">More...</a><br /></td></tr>
 <tr class="separator:aa4ef2424b918e6943a44e9bcae02a76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e19375b660425a2a4c4dfc7bf74336"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a26e19375b660425a2a4c4dfc7bf74336">operator+=</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:a26e19375b660425a2a4c4dfc7bf74336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a quaternion to this one.  <a href="classuroboro_1_1quat.html#a26e19375b660425a2a4c4dfc7bf74336">More...</a><br /></td></tr>
 <tr class="separator:a26e19375b660425a2a4c4dfc7bf74336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ce209e9cd2b88bae3005dc6bb498fc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a5ce209e9cd2b88bae3005dc6bb498fc4">operator-=</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:a5ce209e9cd2b88bae3005dc6bb498fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract a quaternion to this one.  <a href="classuroboro_1_1quat.html#a5ce209e9cd2b88bae3005dc6bb498fc4">More...</a><br /></td></tr>
 <tr class="separator:a5ce209e9cd2b88bae3005dc6bb498fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a697dd889f18cb34781077e719930a650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a697dd889f18cb34781077e719930a650">operator*=</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:a697dd889f18cb34781077e719930a650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by another one.  <a href="classuroboro_1_1quat.html#a697dd889f18cb34781077e719930a650">More...</a><br /></td></tr>
 <tr class="separator:a697dd889f18cb34781077e719930a650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3004db4e42943e992561a252d3b6af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aae3004db4e42943e992561a252d3b6af">operator/=</a> (const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:aae3004db4e42943e992561a252d3b6af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by another one.  <a href="classuroboro_1_1quat.html#aae3004db4e42943e992561a252d3b6af">More...</a><br /></td></tr>
 <tr class="separator:aae3004db4e42943e992561a252d3b6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada8b76860ee2a739e095598f94ede03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ada8b76860ee2a739e095598f94ede03a">normalize</a> ()</td></tr>
+<tr class="memdesc:ada8b76860ee2a739e095598f94ede03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the quaternion.  <a href="classuroboro_1_1quat.html#ada8b76860ee2a739e095598f94ede03a">More...</a><br /></td></tr>
 <tr class="separator:ada8b76860ee2a739e095598f94ede03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14ec574ecb53e992362b63ad28da91a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#af14ec574ecb53e992362b63ad28da91a">normalized</a> () const</td></tr>
+<tr class="memdesc:af14ec574ecb53e992362b63ad28da91a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normalized quaternion.  <a href="classuroboro_1_1quat.html#af14ec574ecb53e992362b63ad28da91a">More...</a><br /></td></tr>
 <tr class="separator:af14ec574ecb53e992362b63ad28da91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a814a4be55a0a988dc944a8408a8f9bda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a814a4be55a0a988dc944a8408a8f9bda">inverse</a> () const</td></tr>
+<tr class="memdesc:a814a4be55a0a988dc944a8408a8f9bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the inverse of a quaternion.  <a href="classuroboro_1_1quat.html#a814a4be55a0a988dc944a8408a8f9bda">More...</a><br /></td></tr>
 <tr class="separator:a814a4be55a0a988dc944a8408a8f9bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9009b36ba67fec909eb375536ae9c31a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#ae81d803db01b5dabb64d403ee1f093fd">vec4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a9009b36ba67fec909eb375536ae9c31a">to_vec4</a> () const</td></tr>
+<tr class="memdesc:a9009b36ba67fec909eb375536ae9c31a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a quaternion to a vector in the form (a, b, c, d)  <a href="classuroboro_1_1quat.html#a9009b36ba67fec909eb375536ae9c31a">More...</a><br /></td></tr>
 <tr class="separator:a9009b36ba67fec909eb375536ae9c31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a857bda943f0d034ba395b2c253aab29d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#ad35c7a18020d7b6294e61a4f7290134d">mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a857bda943f0d034ba395b2c253aab29d">to_mat4</a> () const</td></tr>
+<tr class="memdesc:a857bda943f0d034ba395b2c253aab29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to a 4x4 matrix.  <a href="classuroboro_1_1quat.html#a857bda943f0d034ba395b2c253aab29d">More...</a><br /></td></tr>
 <tr class="separator:a857bda943f0d034ba395b2c253aab29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36084aa9ef04ff615e4a625ef9679f9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">mat3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a36084aa9ef04ff615e4a625ef9679f9d">to_mat3</a> () const</td></tr>
+<tr class="memdesc:a36084aa9ef04ff615e4a625ef9679f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to a 3x3 matrix.  <a href="classuroboro_1_1quat.html#a36084aa9ef04ff615e4a625ef9679f9d">More...</a><br /></td></tr>
 <tr class="separator:a36084aa9ef04ff615e4a625ef9679f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ca498da8cc8d1f3161a8517f958f2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#aa5ca498da8cc8d1f3161a8517f958f2b">transform</a> (const <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> &amp;v) const</td></tr>
+<tr class="memdesc:aa5ca498da8cc8d1f3161a8517f958f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a 3D vector.  <a href="classuroboro_1_1quat.html#aa5ca498da8cc8d1f3161a8517f958f2b">More...</a><br /></td></tr>
 <tr class="separator:aa5ca498da8cc8d1f3161a8517f958f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9acdb367f509c942c54b759b4b208a9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ad9acdb367f509c942c54b759b4b208a9">to_string</a> () const</td></tr>
+<tr class="memdesc:ad9acdb367f509c942c54b759b4b208a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to string representation.  <a href="classuroboro_1_1quat.html#ad9acdb367f509c942c54b759b4b208a9">More...</a><br /></td></tr>
 <tr class="separator:ad9acdb367f509c942c54b759b4b208a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3c11ec199cc7de8f5371c8005cf2a62"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classuroboro_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#ab3c11ec199cc7de8f5371c8005cf2a62">rotation</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> rad, const <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> &amp;axis)</td></tr>
+<tr class="memdesc:ab3c11ec199cc7de8f5371c8005cf2a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion which represents a rotation of &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis.  <a href="classuroboro_1_1quat.html#ab3c11ec199cc7de8f5371c8005cf2a62">More...</a><br /></td></tr>
 <tr class="separator:ab3c11ec199cc7de8f5371c8005cf2a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61a2a3fb5bb5571f14231a6d339e358b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#a61a2a3fb5bb5571f14231a6d339e358b">rotate</a> (const <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> &amp;v, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> rad, const <a class="el" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> &amp;axis)</td></tr>
+<tr class="memdesc:a61a2a3fb5bb5571f14231a6d339e358b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a 3D vector &lt;v&gt; by &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis.  <a href="classuroboro_1_1quat.html#a61a2a3fb5bb5571f14231a6d339e358b">More...</a><br /></td></tr>
 <tr class="separator:a61a2a3fb5bb5571f14231a6d339e358b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -177,11 +213,13 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html#abf9ce958a55c1af1cb33a3a3aca26dce">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classuroboro_1_1quat.html">quat</a> &amp;obj)</td></tr>
+<tr class="memdesc:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream the quaternion in string representation to an output stream (std::ostream)  <a href="classuroboro_1_1quat.html#abf9ce958a55c1af1cb33a3a3aca26dce">More...</a><br /></td></tr>
 <tr class="separator:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00017">17</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<div class="textblock"><p >Quaternion in the form \(a + bi + cj + dk\), stored as \((a + \vec v)\) where \(a \in \mathbb{R}\) and \(\vec v \in \mathbb{R}^3\). </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00024">24</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a44e1796d5641bda403f70d187039a639" name="a44e1796d5641bda403f70d187039a639"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44e1796d5641bda403f70d187039a639">&#9670;&nbsp;</a></span>quat() <span class="overload">[1/4]</span></h2>
@@ -206,7 +244,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00024">24</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Initialize as (0 + 0i + 0j + 0k) </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00031">31</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +284,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00030">30</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Initialize from a real number and a vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00037">37</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +314,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00036">36</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Initialize from another quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00043">43</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +366,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00056">56</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Initialize from four real numbers. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00063">63</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -350,7 +396,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00076">76</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Return the conjugate of a quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00083">83</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +425,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00199">199</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Return the inverse of a quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00206">206</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -404,7 +454,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00066">66</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Get the norm of a quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00073">73</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -431,7 +483,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00172">172</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Normalize the quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00179">179</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -458,7 +512,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00186">186</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Return the normalized quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00193">193</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -486,7 +542,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00109">109</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Multiply two quaternions. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00116">116</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +572,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00083">83</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Multiply a quaternion by a scalar value. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00090">90</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -542,7 +602,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00158">158</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Multiply this quaternion by another one. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00165">165</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +632,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00121">121</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Multiply this quaternion by a scalar value. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00128">128</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -598,7 +662,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00099">99</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Add two quaternions. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00106">106</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -626,7 +692,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00142">142</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Add a quaternion to this one. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00149">149</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -654,7 +722,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00104">104</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Subtract two quaternions. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00111">111</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -682,7 +752,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00150">150</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Subtract a quaternion to this one. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00157">157</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -710,7 +782,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00115">115</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Divide two quaternions. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00122">122</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -738,7 +812,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00088">88</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Divide a quaternion by a scalar value. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00095">95</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -766,7 +842,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00166">166</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Divide this quaternion by another one. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00173">173</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -794,7 +872,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00129">129</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Divide this quaternion by a scalar value. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00136">136</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -822,7 +902,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00041">41</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00048">48</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +930,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00047">47</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00054">54</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -894,7 +974,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00294">294</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Rotate a 3D vector &lt;v&gt; by &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00301">301</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -932,7 +1014,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00286">286</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Construct a quaternion which represents a rotation of &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00293">293</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -959,7 +1043,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00071">71</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Get the square norm of a quaternion. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00078">78</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -986,7 +1072,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00253">253</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Convert the quaternion to a 3x3 matrix. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00260">260</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1101,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00219">219</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Convert the quaternion to a 4x4 matrix. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00226">226</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1040,7 +1130,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00313">313</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Convert the quaternion to string representation. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00320">320</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1067,7 +1159,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00214">214</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Convert a quaternion to a vector in the form (a, b, c, d) </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00221">221</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1095,7 +1189,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00279">279</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Transform a 3D vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00286">286</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1134,7 +1230,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00328">328</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p>Stream the quaternion in string representation to an output stream (std::ostream) </p>
+
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00335">335</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1249,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00020">20</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00027">27</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1265,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00021">21</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00028">28</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1278,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuroboro.html">uroboro</a></li><li class="navelem"><a class="el" href="classuroboro_1_1quat.html">quat</a></li>
-    <li class="footer">Generated on Mon Mar 28 2022 23:23:38 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

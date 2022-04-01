@@ -4,6 +4,7 @@ var searchData=
   ['error_2eh_1',['error.h',['../error_8h.html',1,'']]],
   ['example_2ecpp_2',['example.cpp',['../example_8cpp.html',1,'']]],
   ['examples_3',['Examples',['../md_e_x_a_m_p_l_e_s.html',1,'']]],
-  ['exp_4',['exp',['../namespaceuroboro.html#aca621468c789d4e3b7269a546d93d13c',1,'uroboro']]],
-  ['extrema_2eh_5',['extrema.h',['../extrema_8h.html',1,'']]]
+  ['exp_4',['exp',['../namespaceuroboro.html#a77c01bd44a7c610929755fa1b3f8c02f',1,'uroboro::exp(dual x)'],['../namespaceuroboro.html#a868bb7a7607e8298d1bece814ecdc15d',1,'uroboro::exp(complex z)'],['../namespaceuroboro.html#aca621468c789d4e3b7269a546d93d13c',1,'uroboro::exp(real x)']]],
+  ['exponential_5',['exponential',['../distributions_8h.html#a5fbd7e5cec874088f7df9668bf74e9c9',1,'uroboro::distribution::exponential(real x, real lambda)'],['../distributions_8h.html#a121b4d7f22e2ae351c56333d7a92868a',1,'uroboro::distribution::exponential(real x, const vec_buff &amp;theta)']]],
+  ['extrema_2eh_6',['extrema.h',['../extrema_8h.html',1,'']]]
 ];

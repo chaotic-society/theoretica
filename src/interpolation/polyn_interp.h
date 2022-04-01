@@ -1,3 +1,8 @@
+
+///
+/// @file polyn_interp.h Polynomial interpolation of real functions
+///
+
 #ifndef UROBORO_POLYN_INTERP_H
 #define UROBORO_POLYN_INTERP_H
 
@@ -11,8 +16,10 @@
 namespace uroboro {
 
 
-	// Compute the Lagrange polynomial
-	// interpolating a set of points
+	/// Compute the Lagrange polynomial
+	/// interpolating a set of points
+	/// @param points The set of n points to interpolate
+	/// @return A polynomial of (n - 1) degree interpolating the points
 	template<typename T>
 	inline polynomial<T> lagrange_polynomial(const std::vector<vec<2, T>>& points) {
 
@@ -53,8 +60,10 @@ namespace uroboro {
 	}
 
 
-	// Compute the <n> Chebyshev nodes on a given interval
-	// from <a> to <b> (a < b)
+	/// Compute the n Chebyshev nodes on a given interval
+	/// @param a The lower bound of the interval
+	/// @param b The upper bound of the interval
+	/// @param n The number of points to evaluate
 	inline vec_buff chebyshev_nodes(real a, real b, unsigned int n) {
 
 		vec_buff nodes;
@@ -70,11 +79,13 @@ namespace uroboro {
 	}
 
 
-	// Compute the interpolating polynomial of a real function
-	// on an equidistant point sample.
-	// <f> is the function to interpolate
-	// <a> and <b> are the extremes of the interval (a < b)
-	// <order> is the order of the resulting polynomial
+	/// Compute the interpolating polynomial of a real function
+	/// on an equidistant point sample.
+	/// @param f The function to interpolate
+	/// @param a Lower bound of the interval
+	/// @param b Upper bound of the interval 
+	/// @param order Order of the resulting polynomial
+	/// @return A polynomial of (n - 1) degree interpolating the function
 	inline polynomial<real> interpolate_grid(real_function f, real a, real b, unsigned int order) {
 
 		std::vector<vec2> points;
@@ -90,11 +101,17 @@ namespace uroboro {
 	}
 
 
-	// Compute the interpolating polynomial of a real function
-	// using Chebyshev nodes as sampling points
-	// <f> is the function to interpolate
-	// <a> and <b> are the extremes of the interval (a < b)
-	// <order> is the order of the resulting polynomial
+	/// Compute the interpolating polynomial of a real function
+	/// using Chebyshev nodes as sampling points
+	/// @param f The function to interpolate
+	/// @param a Lower bound of the interval
+	/// @param b Upper bound of the interval 
+	/// @param order Order of the resulting polynomial
+	/// @return A polynomial of (n - 1) degree interpolating the function through
+	/// the Chebyshev nodes.
+	///
+	/// \see chebyshev_nodes
+	/// \see lagrange_polynomial
 	inline polynomial<real> interpolate_chebyshev(real_function f, real a, real b, unsigned int order) {
 
 		std::vector<vec2> points;

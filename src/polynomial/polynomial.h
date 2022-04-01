@@ -1,3 +1,8 @@
+
+///
+/// @file polynomial.h Polynomial storage and manipulation
+///
+
 #ifndef UROBORO_POLYNOMIAL_H
 #define UROBORO_POLYNOMIAL_H
 
@@ -15,7 +20,8 @@
 
 namespace uroboro {
 
-	// A polynomial of arbitrary order
+	/// @class polynomial
+	/// A polynomial of arbitrary order
 	template<typename T = real>
 	class polynomial {
 		public:

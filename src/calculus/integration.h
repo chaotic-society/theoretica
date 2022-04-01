@@ -1,3 +1,8 @@
+
+///
+/// @file integration.h Integral approximation
+///
+
 #ifndef UROBORO_INTEGRATION_H
 #define UROBORO_INTEGRATION_H
 

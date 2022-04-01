@@ -58,7 +58,7 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
@@ -87,8 +87,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"index.html",
-""
+"classuroboro_1_1quat.html#ad1cece7c7d7c90765df6a429f35bd3df",
+"md_p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md25",
+"quat_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

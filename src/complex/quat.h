@@ -1,3 +1,8 @@
+
+///
+/// @file quat.h Quaternion algebra
+///
+
 #ifndef UROBORO_QUATERNION_H
 #define UROBORO_QUATERNION_H
 
@@ -12,27 +17,29 @@
 
 namespace uroboro {
 
-	// Quaternion in the form (a + bi + cj + dk)
-	// As (a + v) [real + vec3]
+	/// @class quat
+	/// Quaternion in the form \f$a + bi + cj + dk\f$,
+	/// stored as \f$(a + \vec v)\f$ where \f$a \in \mathbb{R}\f$ and
+	/// \f$\vec v \in \mathbb{R}^3\f$
 	class quat {
 		public:
 
 			real a;
 			vec3 v;
 
-			// Initialize as (0 + 0i + 0j + 0k)
+			/// Initialize as (0 + 0i + 0j + 0k)
 			quat() {
 				a = 0;
 				v = vec3();
 			}
 
-			// Initialize from a real number and a vector
+			/// Initialize from a real number and a vector
 			quat(real a, const vec3& v) {
 				this->a = a;
 				this->v = v;
 			}
 
-			// Initialize from another quaternion
+			/// Initialize from another quaternion
 			quat(const quat& other) {
 				a = other.a;
 				v = other.v;
@@ -52,7 +59,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Initialize from four real numbers
+			/// Initialize from four real numbers
 			quat(real a, real b, real c, real d) {
 				this-> a = a;
 				v.data[0] = b;
@@ -62,29 +69,29 @@ namespace uroboro {
 
 			~quat() = default;
 
-			// Get the norm of a quaternion
+			/// Get the norm of a quaternion
 			inline real norm() const {
 				return uroboro::sqrt(a * a + v.square_magnitude());
 			}
 
-			// Get the square norm of a quaternion
+			/// Get the square norm of a quaternion
 			inline real square_norm() const {
 				return a * a + v.square_magnitude();
 			}
 
-			// Return the conjugate of a quaternion
+			/// Return the conjugate of a quaternion
 			inline quat conjugate() const {
 				return quat(-a, v * -1);
 			}
 
 			// Operators
 
-			// Multiply a quaternion by a scalar value
+			/// Multiply a quaternion by a scalar value
 			inline quat operator*(real scalar) const {
 				return quat(a * scalar, v * scalar);
 			}
 
-			// Divide a quaternion by a scalar value
+			/// Divide a quaternion by a scalar value
 			inline quat operator/(real scalar) const {
 
 				if(scalar == 0) {
@@ -95,29 +102,29 @@ namespace uroboro {
 				return quat(a / scalar, v / scalar);
 			}
 
-			// Add two quaternions
+			/// Add two quaternions
 			inline quat operator+(const quat& other) const {
 				return quat(a + other.a, v + other.v);
 			}
 
-			// Subtract two quaternions
+			/// Subtract two quaternions
 			inline quat operator-(const quat& other) const {
 				return quat(a - other.a, v - other.v);
 			}
 
-			// Multiply two quaternions
+			/// Multiply two quaternions
 			inline quat operator*(const quat& other) const {
 				return quat((a * other.a) - (v * other.v),
 							(other.v * a) + (v * other.a) + v.cross(other.v));
 			}
 
-			// Divide two quaternions
+			/// Divide two quaternions
 			inline quat operator/(const quat& other) const {
 				return operator*(other.inverse());
 			}
 
 
-			// Multiply this quaternion by a scalar value
+			/// Multiply this quaternion by a scalar value
 			inline quat& operator*=(real scalar) {
 
 				a *= scalar;
@@ -125,7 +132,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Divide this quaternion by a scalar value
+			/// Divide this quaternion by a scalar value
 			inline quat& operator/=(real scalar) {
 
 				if(scalar == 0) {
@@ -138,7 +145,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Add a quaternion to this one
+			/// Add a quaternion to this one
 			inline quat& operator+=(const quat& other) {
 
 				a += other.a;
@@ -146,7 +153,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Subtract a quaternion to this one
+			/// Subtract a quaternion to this one
 			inline quat& operator-=(const quat& other) {
 
 				a -= other.a;
@@ -154,7 +161,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Multiply this quaternion by another one
+			/// Multiply this quaternion by another one
 			inline quat& operator*=(const quat& other) {
 
 				a = (a * other.a) - (v * other.v);
@@ -162,13 +169,13 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Divide this quaternion by another one
+			/// Divide this quaternion by another one
 			inline quat& operator/=(const quat& other) {
 				return operator*=(other.inverse());
 			}
 
 
-			// Normalize the quaternion
+			/// Normalize the quaternion
 			inline void normalize() {
 
 				real n = norm();
@@ -182,7 +189,7 @@ namespace uroboro {
 				v /= n;
 			}
 
-			// Return the normalized quaternion
+			/// Return the normalized quaternion
 			inline quat normalized() const {
 
 				real n = norm();
@@ -195,7 +202,7 @@ namespace uroboro {
 				return quat(a / n, v / n);
 			}
 
-			// Return the inverse of a quaternion
+			/// Return the inverse of a quaternion
 			inline quat inverse() const {
 
 				real sqr_norm = square_norm();
@@ -209,13 +216,13 @@ namespace uroboro {
 			}
 
 
-			// Convert a quaternion to a vector in the form
-			// (a, b, c, d)
+			/// Convert a quaternion to a vector in the form
+			/// (a, b, c, d)
 			inline vec4 to_vec4() const {
 				return vec4({a, v.get(0), v.get(1), v.get(2)});
 			}
 
-			// Convert the quaternion to a 4x4 matrix
+			/// Convert the quaternion to a 4x4 matrix
 			inline mat4 to_mat4() const {
 
 				real x = v.get(0);
@@ -249,7 +256,7 @@ namespace uroboro {
 				return res;
 			}
 
-			// Convert the quaternion to a 3x3 matrix
+			/// Convert the quaternion to a 3x3 matrix
 			inline mat3 to_mat3() const {
 
 				real x = v.get(0);
@@ -275,22 +282,22 @@ namespace uroboro {
 			}
 
 
-			// Transform a 3D vector
+			/// Transform a 3D vector
 			inline vec3 transform(const vec3& v) const {
 				return (operator*(quat(0, v)) * inverse()).v;
 			}
 
 
-			// Construct a quaternion which represents a rotation
-			// of <rad> radians around the <axis> arbitrary axis
+			/// Construct a quaternion which represents a rotation
+			/// of <rad> radians around the <axis> arbitrary axis
 			inline static quat rotation(real rad, const vec3& axis) {
 				return quat(uroboro::cos(rad / 2.0),
 							axis.normalized() * uroboro::sin(rad / 2.0));
 			}
 
 
-			// Rotate a 3D vector <v> by <rad> radians around
-			// the <axis> arbitrary axis
+			/// Rotate a 3D vector <v> by <rad> radians around
+			/// the <axis> arbitrary axis
 			inline static vec3 rotate(const vec3& v, real rad, const vec3& axis) {
 
 				vec3 n_axis = axis.normalized();
@@ -309,7 +316,7 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the quaternion to string representation
+			/// Convert the quaternion to string representation
 			inline std::string to_string() const {
 
 				std::stringstream res;
@@ -323,8 +330,8 @@ namespace uroboro {
 			}
 
 
-			// Stream the quaternion in string representation
-			// to an output stream (std::ostream)
+			/// Stream the quaternion in string representation
+			/// to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const quat& obj) {
 				return out << obj.to_string();
 			}

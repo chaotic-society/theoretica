@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Uroboro Math Library </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_C__Users_matth_Documents_uroboro_README"></a> <img src="https://img.shields.io/github/license/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/issues/mattiaisgro/uroboro" alt="" class="inline"/></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/license/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/issues/mattiaisgro/uroboro" alt="" class="inline"/></p>
 <p >A header-only, <b>C++ mathematical library</b>, focused on <b>graphical</b> and <b>physical</b> applications. Includes <b>real and complex analysis</b> functions with x86 Assembly enhancements, <b>linear algebra</b> operations, <b>quaternions</b> and <b>statistical</b> functions. Many other features are also supported, see <a href="https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities">Functionalities</a> for an overview of the functionalities provided by the library.</p>
 <h2><a class="anchor" id="autotoc_md0"></a>
 Dependencies</h2>
@@ -104,18 +104,18 @@ Functionalities</h2>
 <p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md">FEATURES.md</a></p><ul>
 <li><b>Real analysis</b> (<code><a class="el" href="real__analysis_8h.html" title="Real functions.">real_analysis.h</a></code>)</li>
 <li><b>Linear algebra</b> (vector and matrix operations, including common transformations) (<code><a class="el" href="vec_8h.html" title="Vector class and operations.">algebra/vec.h</a></code>, <code><a class="el" href="mat_8h.html" title="Matrix class and operations.">algebra/mat.h</a></code>)</li>
-<li><b>Complex</b> numbers (in algebraic and exponential form) (<code><a class="el" href="complex_8h_source.html">complex/complex.h</a></code>, <code><a class="el" href="phasor_8h_source.html">complex/phasor.h</a></code>)</li>
-<li><b>Quaternions</b> (<code><a class="el" href="quat_8h_source.html">complex/quat.h</a></code>)</li>
-<li>Complex analysis (<code><a class="el" href="complex__analysis_8h_source.html">complex/complex_analysis.h</a></code>)</li>
-<li>Dual numbers and <b>Automatic Differentiation</b> (<code><a class="el" href="dual_8h_source.html">autodiff/dual.h</a></code>, <code><a class="el" href="dual__functions_8h_source.html">autodiff/dual_functions.h</a></code>)</li>
-<li><b>Statistical</b> functions (including Least Squares Linearization) (<code><a class="el" href="statistics_8h_source.html">statistics/statistics.h</a></code>)</li>
-<li>Probability distribution functions (<code><a class="el" href="distributions_8h_source.html">statistics/distributions.h</a></code>)</li>
+<li><b>Complex</b> numbers (in algebraic and exponential form) (<code><a class="el" href="complex_8h.html" title="Complex numbers.">complex/complex.h</a></code>, <code><a class="el" href="phasor_8h.html" title="Phasor (complex number in exponential form)">complex/phasor.h</a></code>)</li>
+<li><b>Quaternions</b> (<code><a class="el" href="quat_8h.html" title="Quaternion algebra.">complex/quat.h</a></code>)</li>
+<li>Complex analysis (<code><a class="el" href="complex__analysis_8h.html" title="Functions of complex variable.">complex/complex_analysis.h</a></code>)</li>
+<li>Dual numbers and <b>Automatic Differentiation</b> (<code><a class="el" href="dual_8h.html" title="Dual numbers.">autodiff/dual.h</a></code>, <code><a class="el" href="dual__functions_8h_source.html">autodiff/dual_functions.h</a></code>)</li>
+<li><b>Statistical</b> functions (including Least Squares Linearization) (<code><a class="el" href="statistics_8h.html" title="Statistical functions.">statistics/statistics.h</a></code>)</li>
+<li>Probability distribution functions (<code><a class="el" href="distributions_8h.html" title="Probability distribution functions.">statistics/distributions.h</a></code>)</li>
 <li>Approximation of <b>roots</b> and <b>extrema</b> of real functions (<code><a class="el" href="roots_8h.html" title="Root approximation of real functions.">approx/roots.h</a></code>, <code><a class="el" href="extrema_8h.html" title="Extrema approximation of real functions.">approx/extrema.h</a></code>)</li>
-<li>Derivative approximation (<code><a class="el" href="derivation_8h_source.html">calculus/derivation.h</a></code>)</li>
-<li>Integral approximation, including <b>Runge-Kutta</b> of 4th order (<code><a class="el" href="integration_8h_source.html">calculus/integration.h</a></code>)</li>
-<li>Polynomial operations, including derivation and integration (<code><a class="el" href="polynomial_8h_source.html">polynomial/polynomial.h</a></code>)</li>
-<li>Interpolation between vector data, including Bezier curves (<code><a class="el" href="spline__interp_8h_source.html">interpolation/spline_interp.h</a></code>)</li>
-<li>Polynomial interpolation with Chebyshev nodes (<code><a class="el" href="polyn__interp_8h_source.html">interpolation/polyn_interp.h</a></code>)</li>
+<li>Derivative approximation (<code><a class="el" href="derivation_8h.html" title="Derivative approximation.">calculus/derivation.h</a></code>)</li>
+<li>Integral approximation, including <b>Runge-Kutta</b> of 4th order (<code><a class="el" href="integration_8h.html" title="Integral approximation.">calculus/integration.h</a></code>)</li>
+<li>Polynomial operations, including derivation and integration (<code><a class="el" href="polynomial_8h.html" title="Polynomial storage and manipulation.">polynomial/polynomial.h</a></code>)</li>
+<li>Interpolation between vector data, including Bezier curves (<code><a class="el" href="spline__interp_8h.html" title="Spline interpolation.">interpolation/spline_interp.h</a></code>)</li>
+<li>Polynomial interpolation with Chebyshev nodes (<code><a class="el" href="polyn__interp_8h.html" title="Polynomial interpolation of real functions.">interpolation/polyn_interp.h</a></code>)</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Usage</h2>
@@ -124,7 +124,7 @@ Usage</h2>
 <li>To include <b>all header files</b> <code>UROBORO_INCLUDE_ALL</code> may be defined before including <code><a class="el" href="uroboro_8h.html" title="General include file This file will include core header files.">uroboro.h</a></code>.</li>
 <li>All functions and classes are defined inside the <code>uroboro</code> namespace (and eventually other sub-namespaces). Another namespace alias is automatically defined as <code>umath</code> (same as using <code>uroboro</code>). If you want to disable the <code>umath</code> alias, define <code>UROBORO_NO_NAMESPACE</code> before including <code><a class="el" href="uroboro_8h.html" title="General include file This file will include core header files.">uroboro.h</a></code></li>
 </ul>
-<p ><b>Matrices</b> (<code><a class="el" href="mat_8h.html" title="Matrix class and operations.">algebra/mat.h</a></code>) are implemented inside the <code>mat&lt;N, K&gt;</code> class (where N and K are the number of columns and rows respectively), while <b>vectors</b> (<code><a class="el" href="vec_8h.html" title="Vector class and operations.">algebra/vec.h</a></code>) in the <code>vec&lt;N&gt;</code> class (where <code>N</code> is the number of rows). <b>Quaternions</b> (<code><a class="el" href="quat_8h_source.html">complex/quat.h</a></code>) and <b>complex</b> (<code><a class="el" href="complex_8h_source.html">complex/complex.h</a></code>) numbers are implemented in the <code>quat</code> and <code>complex</code> classes. For example usage see <a href="https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples">Examples</a>.</p>
+<p ><b>Matrices</b> (<code><a class="el" href="mat_8h.html" title="Matrix class and operations.">algebra/mat.h</a></code>) are implemented inside the <code>mat&lt;N, K&gt;</code> class (where N and K are the number of columns and rows respectively), while <b>vectors</b> (<code><a class="el" href="vec_8h.html" title="Vector class and operations.">algebra/vec.h</a></code>) in the <code>vec&lt;N&gt;</code> class (where <code>N</code> is the number of rows). <b>Quaternions</b> (<code><a class="el" href="quat_8h.html" title="Quaternion algebra.">complex/quat.h</a></code>) and <b>complex</b> (<code><a class="el" href="complex_8h.html" title="Complex numbers.">complex/complex.h</a></code>) numbers are implemented in the <code>quat</code> and <code>complex</code> classes. For example usage see <a href="https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples">Examples</a>.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Examples</h2>
 <p >Introductory examples can be found in <a href="https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md">EXAMPLES.md</a>, see <a href="https://github.com/mattiaisgro/uroboro/blob/master/src/example.cpp">example.cpp</a> for more example code.</p>
@@ -150,8 +150,8 @@ Quickstart</h3>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00334">vec.h:334</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a982f5856e8832b88b5def88ea0dd678b"><div class="ttname"><a href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">uroboro::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00107">constants.h:107</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_af3c73efc6d8813649590ff43e814864a"><div class="ttname"><a href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">uroboro::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l01079">mat.h:1079</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a982f5856e8832b88b5def88ea0dd678b"><div class="ttname"><a href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">uroboro::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00116">constants.h:116</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_af3c73efc6d8813649590ff43e814864a"><div class="ttname"><a href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">uroboro::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l01109">mat.h:1109</a></div></div>
 <div class="ttc" id="auroboro_8h_html"><div class="ttname"><a href="uroboro_8h.html">uroboro.h</a></div><div class="ttdoc">General include file This file will include core header files.</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Error handling</h2>
@@ -218,7 +218,7 @@ License</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Mar 28 2022 23:23:38 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

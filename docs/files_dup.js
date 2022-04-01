@@ -9,6 +9,7 @@ var files_dup =
     [ "polynomial", "dir_80b12a04080342cac66dddc13ab3e1e7.html", "dir_80b12a04080342cac66dddc13ab3e1e7" ],
     [ "statistics", "dir_65ad14ba617219a91653797a9020c4d5.html", "dir_65ad14ba617219a91653797a9020c4d5" ],
     [ "test", "dir_13e138d54eb8818da29c3992edef070a.html", "dir_13e138d54eb8818da29c3992edef070a" ],
+    [ "autodiff_hamiltonian.h", "autodiff__hamiltonian_8h_source.html", null ],
     [ "constants.h", "constants_8h.html", "constants_8h" ],
     [ "error.h", "error_8h.html", "error_8h" ],
     [ "example.cpp", "example_8cpp.html", null ],

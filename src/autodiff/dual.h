@@ -1,3 +1,8 @@
+
+///
+/// @file dual.h Dual numbers
+///
+
 #ifndef UROBORO_DUAL_H
 #define UROBORO_DUAL_H
 
@@ -13,8 +18,10 @@
 namespace uroboro {
 
 
-	// Dual number (a + b*epsilon)
-	// epsilon such that epsilon^2 = 0
+	/// @class dual
+	/// Dual number class.
+	/// Implemented as (a + b*epsilon)
+	/// where epsilon is such that epsilon^2 = 0
 	class dual {
 		public:
 

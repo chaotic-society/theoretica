@@ -2,7 +2,7 @@
 ///
 /// @file uroboro.h General include file
 /// This file will include core header files.
-/// If UROBORO_INCLUDE_ALL is defined, it will include all header files of the library
+/// If `UROBORO_INCLUDE_ALL` is defined, it will include all header files of the library
 ///
 
 #ifndef UROBORO_H

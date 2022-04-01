@@ -7,6 +7,11 @@
 #define UROBORO_CONSTANTS_H
 
 
+/// @macro UROBORO_X86 Define this macro if the
+/// machine has a x86 architecture to use hardware
+/// enhanced functions.
+
+
 /// Order of Taylor series approximations
 #ifndef UROBORO_TAYLOR_ORDER
 #define UROBORO_TAYLOR_ORDER 7
@@ -31,7 +36,6 @@
 #ifndef UROBORO_ROOT_APPROX_TOL
 #define UROBORO_ROOT_APPROX_TOL 0.00000001
 #endif
-
 
 /// Approximation tolerance for Newton's method root finding
 #ifndef UROBORO_NEWTON_RAPHSON_TOL

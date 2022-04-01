@@ -1,3 +1,8 @@
+
+///
+/// @file autodiff.h Automatic differentiation
+///
+
 #ifndef UROBORO_AUTODIFF_H
 #define UROBORO_AUTODIFF_H
 

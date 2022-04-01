@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['uroboro_2eh_0',['uroboro.h',['../uroboro_8h.html',1,'']]],
-  ['utility_2eh_1',['utility.h',['../utility_8h.html',1,'']]]
+  ['phasor_2eh_0',['phasor.h',['../phasor_8h.html',1,'']]],
+  ['polyn_5finterp_2eh_1',['polyn_interp.h',['../polyn__interp_8h.html',1,'']]],
+  ['polynomial_2eh_2',['polynomial.h',['../polynomial_8h.html',1,'']]]
 ];

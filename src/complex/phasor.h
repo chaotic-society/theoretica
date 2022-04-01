@@ -1,3 +1,8 @@
+
+///
+/// @file phasor.h Phasor (complex number in exponential form)
+///
+
 #ifndef UROBORO_PHASOR
 #define UROBORO_PHASOR
 
@@ -13,29 +18,30 @@
 namespace uroboro {
 
 
-	// Complex number in exponential form (modulus * e^(i * phase))
+	/// @class phasor
+	/// Complex number in exponential form \f$\rho e^{i \theta}\f$
 	class phasor {
 		public:
 
 			real phase;
 			real modulus;
 
-			// Initialize as 0/0
+			/// Initialize as 0/0
 			phasor() : phase(0), modulus(0) {}
 
-			// Initialize from two real numbers
+			/// Initialize from two real numbers
 			phasor(real modulus, real phase) {
 				this->phase = phase;
 				this->modulus = modulus;
 			}
 
-			// Initialize from another phasor
+			/// Initialize from another phasor
 			phasor(const phasor& other) {
 				phase = other.phase;
 				modulus = other.modulus;
 			}
 
-			// Initialize from a complex number
+			/// Initialize from a complex number
 			phasor(const complex& z) {
 				phase = z.arg();
 				modulus = z.modulus();
@@ -44,7 +50,7 @@ namespace uroboro {
 			~phasor() = default;
 
 
-			// Add two phasors
+			/// Add two phasors
 			inline phasor operator+(const phasor& other) const {
 
 				if(phase == other.phase)
@@ -54,7 +60,7 @@ namespace uroboro {
 			}
 
 
-			// Subtract two phasors
+			/// Subtract two phasors
 			inline phasor operator-(const phasor& other) const {
 
 				if(phase == other.phase)
@@ -64,7 +70,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply two phasors
+			/// Multiply two phasors
 			inline phasor operator*(const phasor& other) const {
 				return phasor(
 					modulus * other.modulus,
@@ -72,7 +78,7 @@ namespace uroboro {
 			}
 
 
-			// Divide two phasors
+			/// Divide two phasors
 			inline phasor operator/(const phasor& other) const {
 
 				if(other.modulus == 0) {
@@ -87,7 +93,7 @@ namespace uroboro {
 			}
 
 
-			// Add a phasor to this one
+			/// Add a phasor to this one
 			inline phasor& operator+=(const phasor& other) {
 
 				if(phase == other.phase) {
@@ -100,7 +106,7 @@ namespace uroboro {
 			}
 
 
-			// Subtract a phasor from this one
+			/// Subtract a phasor from this one
 			inline phasor& operator-=(const phasor& other) {
 
 				if(phase == other.phase)
@@ -112,7 +118,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply this phasor by another one
+			/// Multiply this phasor by another one
 			inline phasor& operator*=(const phasor& other) {
 
 				modulus *= other.modulus;
@@ -122,7 +128,7 @@ namespace uroboro {
 			}
 
 
-			// Divide this phasor by another one
+			/// Divide this phasor by another one
 			inline phasor& operator/=(const phasor& other) {
 
 				if(other.modulus == 0) {
@@ -139,7 +145,7 @@ namespace uroboro {
 			}
 
 
-			// Transform a phasor to a complex number
+			/// Transform a phasor to a complex number
 			complex to_complex() const {
 				return complex(
 					modulus * cos(phase),
@@ -149,7 +155,7 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the phasor to string representation
+			/// Convert the phasor to string representation
 			inline std::string to_string(std::string separator = ", ") const {
 
 				std::stringstream res;
@@ -158,8 +164,8 @@ namespace uroboro {
 			}
 
 
-			// Stream the phasor in string representation
-			// to an output stream (std::ostream)
+			/// Stream the phasor in string representation
+			/// to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const phasor& obj) {
 				return out << obj.to_string();
 			}

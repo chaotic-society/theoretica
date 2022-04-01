@@ -1,3 +1,8 @@
+
+///
+/// @file spline_interp.h Spline interpolation
+///
+
 #ifndef UROBORO_INTERP_H
 #define UROBORO_INTERP_H
 
@@ -7,26 +12,26 @@
 namespace uroboro {
 
 
-	// Linear interpolation
+	/// Linear interpolation
 	inline real lerp(real x1, real x2, real interp) {
 		return (x1 + interp * (x2 - x1));
 	}
 
 
-	// Linear interpolation
+	/// Linear interpolation
 	template<unsigned int N>
 	inline vec<N> lerp(vec<N> P1, vec<N> P2, real interp) {
 		return (P1 + (P2 - P1) * interp);
 	}
 
 
-	// Inverse linear interpolation
+	/// Inverse linear interpolation
 	inline real invlerp(real x1, real x2, real value) {
 		return (value - x1) / (x2 - x1);
 	}
 
 
-	// Inverse linear interpolation
+	/// Inverse linear interpolation
 	template<unsigned int N>
 	inline vec<N> invlerp(vec<N> P1, vec<N> P2, real value) {
 
@@ -47,27 +52,27 @@ namespace uroboro {
 	}
 
 
-	// Remap a value from one range to another
+	/// Remap a value from one range to another
 	inline real remap(real iFrom, real iTo, real oFrom, real oTo, real value) {
 		return lerp(oFrom, oTo, invlerp(iFrom, iTo, value));
 	}
 
 
-	// Remap a vector value from one range to another
+	/// Remap a vector value from one range to another
 	template<unsigned int N>
 	inline vec<N> remap(vec<N> iFrom, vec<N> iTo, vec<N> oFrom, vec<N> oTo, real value) {
 		return lerp(oFrom, oTo, invlerp(iFrom, iTo, value));
 	}
 
 
-	// Normalized linear interpolation
+	/// Normalized linear interpolation
 	template<unsigned int N>
 	inline vec<N> nlerp(vec<N> P1, vec<N> P2, real interp) {
 		return (P1 + (P2 - P1) * interp).normalized();
 	}
 
 
-	// Spherical interpolation
+	/// Spherical interpolation
 	template<unsigned int N>
 	inline vec<N> slerp(vec<N> P1, vec<N> P2, real t) {
 
@@ -100,7 +105,7 @@ namespace uroboro {
 	// Sigmoid-like interpolation
 
 
-	// Smoothstep interpolation
+	/// Smoothstep interpolation
 	inline real smoothstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
@@ -116,7 +121,7 @@ namespace uroboro {
 	}
 
 
-	// Smootherstep interpolation
+	/// Smootherstep interpolation
 	inline real smootherstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
@@ -135,14 +140,14 @@ namespace uroboro {
 	// Bezier curves
 
 
-	// Quadratic Bezier curve
+	/// Quadratic Bezier curve
 	template<unsigned int N>
 	inline vec<N> quadratic_bezier(vec<N> P0, vec<N> P1, vec<N> P2, real t) {
 		return lerp(lerp(P0, P1, t), lerp(P1, P2, t), t);
 	}
 
 
-	// Cubic Bezier curve
+	/// Cubic Bezier curve
 	template<unsigned int N>
 	inline vec<N> cubic_bezier(vec<N> P0, vec<N> P1, vec<N> P2, vec<N> P3, real t) {
 

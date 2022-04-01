@@ -16,6 +16,8 @@ namespace uroboro {
 	/// Compute the square of a real number
 	/// @param x A real number
 	/// @return The square of x
+	///
+	/// Domain: [-inf, +inf]
 	inline real square(real x) {
 		return x * x;
 	}
@@ -24,6 +26,8 @@ namespace uroboro {
 	/// Compute the cube of a real number
 	/// @param x A real number
 	/// @return The cube of x
+	///
+	/// Domain: [-inf, +inf]
 	inline real cube(real x) {
 		return x * x * x;
 	}
@@ -33,9 +37,12 @@ namespace uroboro {
 	/// @param x A real number
 	/// @return The square root of x
 	///
-	/// Domain: [0, +inf].
+	/// Domain: [0, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
-	/// the square root, is used.
+	/// the square root and limited by the
+	/// `UROBORO_MAX_NEWTON_ITER` macro constant, is used.
+	/// Domain reduction to [0, 1] is applied
+	/// to ensure convergence of the algorithm.
 	/// On x86 architectures, if `UROBORO_X86` is defined,
 	/// the `fsqrt` instruction will be used.
 	inline real sqrt(real x) {
@@ -89,9 +96,12 @@ namespace uroboro {
 	/// @param x A real number
 	/// @return The cubic root of x
 	///
-	/// Domain: [-inf, +inf]
+	/// Domain: [-inf, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
-	/// the cubic root, is used.
+	/// the cubic root and limited by the
+	/// `UROBORO_MAX_NEWTON_ITER` macro constant, is used.
+	/// Domain reduction to [0, 1] is applied
+	/// to ensure convergence of the algorithm.
 	inline real cbrt(real x) {
 
 		if(x < 1) {
@@ -126,6 +136,9 @@ namespace uroboro {
 	/// Compute the absolute value of a real number
 	/// @param x A real number
 	/// @return The absolute value of x
+	///
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fabs` instruction will be used.
 	inline real abs(real x) {
 
 #ifdef UROBORO_X86
@@ -159,6 +172,9 @@ namespace uroboro {
 	/// Computes the maximum integer number that is smaller than x
 	/// @param x A real number
 	/// @return The floor of x
+	///
+	/// e.g. floor(1.6) = 1
+	/// e.g. floor(-0.3) = -1
 	inline int floor(real x) {
 
 		if(x < 0 && x > -1)
@@ -173,6 +189,9 @@ namespace uroboro {
 	/// Compute the fractional part of a real number
 	/// @param x A real number
 	/// @return The fractional part of x
+	///
+	/// e.g. fract(2.5) = 0.5
+	/// e.g. fract(-0.2) = 0.2
 	inline real fract(real x) {
 		return abs(x - floor(x));
 	}
@@ -182,6 +201,9 @@ namespace uroboro {
 	/// @param x A real number
 	/// @param y A real number
 	/// @return The greatest number between x and y
+	///
+	/// If `UROBORO_BRANCHLESS` is defined, a branchless
+	/// implementation will be used
 	inline real max(real x, real y) {
 		
 		#ifdef UROBORO_BRANCHLESS
@@ -196,6 +218,9 @@ namespace uroboro {
 	/// @param x A real number
 	/// @param y A real number
 	/// @return The smallest number between x and y
+	///
+	/// If `UROBORO_BRANCHLESS` is defined, a branchless
+	/// implementation will be used
 	inline real min(real x, real y) {
 
 		#ifdef UROBORO_BRANCHLESS
@@ -212,6 +237,9 @@ namespace uroboro {
 	/// @param b A real number
 	/// @return Returns x if x is between a and b,
 	/// a if x is less than a, b if x is bigger than b
+	///
+	/// If `UROBORO_FORCE_BRANCHLESS` is defined,
+	/// a (potentially slower) implementation will be used.
 	inline real clamp(real x, real a, real b) {
 
 #ifdef UROBORO_FORCE_BRANCHLESS
@@ -229,7 +257,7 @@ namespace uroboro {
 
 #ifdef UROBORO_X86
 
-	/// Compute \f$y \cdot log2(x)\f$ using x86 Assembly instructions
+	/// Compute \f$y log2(x)\f$ using x86 Assembly instructions
 	inline real fyl2x(real x, real y) {
 
 		real res;
@@ -247,7 +275,8 @@ namespace uroboro {
 
 
 	/// Compute \f$2^x - 1\f$ using x86 Assembly instructions
-	/// Works only between -1 and +1
+	///
+	/// Domain: [-1, 1] \n
 	/// May become particularly incorrect near boundaries
 	inline real f2xm1(real x) {
 
@@ -268,6 +297,10 @@ namespace uroboro {
 	/// Compute the binary logarithm of a real number
 	/// @param x A real number bigger than 0
 	/// @return The binary logarithm of x
+	///
+	/// Domain: (0, +inf] \n
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fyl2x` instruction will be used.
 	inline real log2(real x) {
 
 		if(x <= 0) {
@@ -292,6 +325,10 @@ namespace uroboro {
 	/// Compute the base-10 logarithm of x
 	/// @param x A real number bigger than 0
 	/// @return The base-10 logarithm of x
+	///
+	/// Domain: (0, +inf] \n
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fyl2x` instruction will be used.
 	inline real log10(real x) {
 
 		if(x <= 0) {
@@ -316,6 +353,10 @@ namespace uroboro {
 	/// Compute the natural logarithm of x
 	/// @param x A real number bigger than 0
 	/// @return The natural logarithm of x
+	///
+	/// Domain: (0, +inf] \n
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fyl2x` instruction will be used.
 	inline real ln(real x) {
 
 		if(x <= 0) {
@@ -379,6 +420,9 @@ namespace uroboro {
 	/// @param x A real number
 	/// @param n The root number
 	/// @return The n-th real root of x
+	///
+	/// The Newton-Raphson method is used, limited by the
+	/// `UROBORO_MAX_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
 
 		if(n % 2 == 0 && x < 0 || n == 0) {
@@ -428,7 +472,7 @@ namespace uroboro {
 #ifdef UROBORO_X86
 
 	/// Approximate \f$e^x\f$ using x86 Assembly instructions
-	/// Works only for positive x in [0, 1]
+	/// in the domain [0, 1]
 	inline real exp_x86_norm(real x) {
 
 		// e^x is calculated as 2^(x / ln2)
@@ -439,6 +483,13 @@ namespace uroboro {
 
 
 	/// Compute \f$e^x\f$
+	/// @param x A real number
+	/// @return The exponential of x
+	///
+	/// The exponential is computed as \f$e^{floor(x)} e^{fract(x)}\f$,
+	/// where \f$e^{floor(x)} = pow(e, floor(x))\f$ and \f$e^{fract(x)}\f$
+	/// is either approximated using Taylor series on [0, 0.5] or,
+	/// if `UROBORO_X86` is defined, using the `f2xm1` x86 assembly instruction.
 	inline real exp(real x) {
 
 	// Domain reduction to [0, +inf]
@@ -477,7 +528,7 @@ namespace uroboro {
 	/// @param x A real number
 	/// @return a A real exponent
 	///
-	/// Approximated as \f$e^{a \cdot ln(|x|) sgn(x)}\f$
+	/// Approximated as \f$e^{a ln(|x|) sgn(x)}\f$
 	inline real powf(real x, real a) {
 
 		if(a < 0)
@@ -491,6 +542,9 @@ namespace uroboro {
 	/// Compute the sine of a real number
 	/// @param x An angle in **radians**
 	/// @return The sine of x
+	///
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fsin` instruction will be used.
 	inline real sin(real x) {
 
 #ifdef UROBORO_X86
@@ -541,6 +595,9 @@ namespace uroboro {
 	/// Compute the cosine of a real number
 	/// @param x An angle in **radians**
 	/// @return The cosine of x
+	///
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fcos` instruction will be used.
 	inline real cos(real x) {
 
 #ifdef UROBORO_X86
@@ -585,7 +642,8 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The tangent of x
 	///
-	/// Domain: [-inf, +inf]
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fsincos` instruction will be used.
 	inline real tan(real x) {
 
 		real s, c;
@@ -607,6 +665,7 @@ namespace uroboro {
 
 		if(c == 0) {
 			UMATH_ERROR("tan", c, DIV_BY_ZERO);
+			return nan();
 		}
 
 		return s / c;
@@ -617,7 +676,8 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The cotangent of x
 	///
-	/// Domain: [-inf, +inf]
+	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// the `fsincos` instruction will be used.
 	inline real cot(real x) {
 
 		real s, c;
@@ -639,6 +699,7 @@ namespace uroboro {
 
 		if(s == 0) {
 			UMATH_ERROR("cot", s, DIV_BY_ZERO);
+			return nan();
 		}
 
 		return c / s;
@@ -649,7 +710,6 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The arctangent of x
 	///
-	/// Domain: [-inf, +inf].
 	/// A degree 9 interpolating polynomial through
 	/// Chebyshev nodes is used to approximate \f$atan(x)\f$.
 	/// Domain reduction to [-1, 1] is performed.
@@ -672,6 +732,11 @@ namespace uroboro {
 
 
 	/// Compute the arcsine
+	/// @param x A real number
+	/// @return The arcsine of x
+	///
+	/// Domain: [-1, 1].
+	/// The identity \f$asin(x) = atan(\frac{x}{\sqrt{1 - x^2}})\f$ is used.
 	inline real asin(real x) {
 
 		if(abs(x) > 1) {
@@ -684,6 +749,12 @@ namespace uroboro {
 
 
 	/// Compute the arccosine
+	/// @param x A real number
+	/// @return The arccosine of x
+	///
+	/// Domain: [-1, 1].
+	/// The identities \f$asin(x) = atan(\frac{sqrt{1 - x^2}{x}})\f$ and
+	/// \f$asin(x) = atan(\frac{\sqrt{1 - x^2}{x}}) + \pi\f$ are used.
 	inline real acos(real x) {
 
 		if(abs(x) > 1) {
@@ -699,6 +770,12 @@ namespace uroboro {
 
 
 	/// Compute the 2 argument arctangent
+	/// @param y The y coordinate in cartesian space
+	/// @param x The x coordinate in cartesian space
+	/// @return The counterclockwise angle between the vector described by x and y
+	/// and the x axis.
+	///
+	/// Computed using identities on atan(x).
 	inline real atan2(real y, real x) {
 
 		if(x == 0) {
@@ -741,7 +818,7 @@ namespace uroboro {
 	}
 
 
-	// Compute the hyperbolic tangent
+	/// Compute the hyperbolic tangent
 	/// @param x A real number
 	/// @return The hyperbolic tangent of x
 	inline real tanh(real x) {
@@ -760,6 +837,10 @@ namespace uroboro {
 
 
 	/// Compute the binomial coefficient
+	/// @param n A natural number
+	/// @param m A natural number smaller than n
+	/// @return The binomial coefficient computed on (n, m)
+	/// as \f$\frac{n!}{m!(n - m)!}\f$
 	inline long long binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m) {
@@ -781,6 +862,8 @@ namespace uroboro {
 	/// Convert degrees to radians
 	/// @param degrees An angle in degrees
 	/// @return The converted angle in radians
+	///
+	/// The `DEG2RAD` scalar factor is used.
 	inline real radians(real degrees) {
 		return degrees * DEG2RAD;
 	}
@@ -789,6 +872,8 @@ namespace uroboro {
 	/// Convert radians to degrees
 	/// @param radians An angle in radians
 	/// @return The converted angle in degrees
+	///
+	/// The `RAD2DEG` scalar factor is used.
 	inline real degrees(real radians) {
 		return radians * RAD2DEG;
 	}
@@ -797,7 +882,7 @@ namespace uroboro {
 	/// Kronecker delta, equals 1 if i is equal to j, 0 otherwise
 	/// @param i The first value to compare
 	/// @param j The second value to compare
-	/// @param tol Maximum difference to tolerate
+	/// @param tol Maximum difference to tolerate (defaults to 0)
 	/// @return 1 if i is equal to j, 0 otherwise
 	template<typename T>
 	inline T kronecker_delta(T i, T j, T tol = 0) {
