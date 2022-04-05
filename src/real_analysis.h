@@ -213,6 +213,11 @@ namespace uroboro {
 		#endif
 	}
 
+	template<typename T>
+	inline T max(T x, T y) {
+		return x > y ? x : y;
+	}
+
 
 	/// Return the smallest number between two real numbers
 	/// @param x A real number
@@ -228,6 +233,11 @@ namespace uroboro {
 		#else
 			return x > y ? y : x;
 		#endif
+	}
+
+	template<typename T>
+	inline T min(T x, T y) {
+		return x > y ? y : x;
 	}
 
 

@@ -35,6 +35,7 @@
 #include "./autodiff/dual.h"
 #include "./autodiff/dual_functions.h"
 #include "./autodiff/autodiff.h"
+#include "./pseudo_random/pseudo_random_algo.h"
 #endif
 
 /// @namespace umath Alias for the uroboro namespace
