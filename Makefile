@@ -1,14 +1,17 @@
 default_target: example
-
 .PHONY: all example test
-
 all: example test
 
+CXXFLAGS = -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -I./src/
+
 example:
-	g++ src/example.cpp -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -o ./example
+	g++ examples/example.cpp ${CXXFLAGS} -o ./example
 
 test:
-	g++ test/test_real_analysis.cpp -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -O2 -o test/test_real_analysis
-	g++ test/test_algebra.cpp -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -O2 -o test/test_algebra
+	g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test/test_real_analysis
+	g++ test/test_algebra.cpp ${CXXFLAGS} -o test/test_algebra
 	./test/test_real_analysis
 	./test/test_algebra
+
+autodiff_hamiltonian:
+	g++ examples/autodiff_hamiltonian.cpp ${CXXFLAGS} -o ./autodiff_hamiltonian

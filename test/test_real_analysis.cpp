@@ -223,7 +223,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr_interval(umath::sinh, std::sinh, 0, 1, TOLERANCE, 1234);
 		test_tolr_interval(umath::sinh, std::sinh, -5, 5, TOLERANCE, 1234);
-		test_tolr_interval(umath::sinh, std::sinh, -10, 10, TOLERANCE, 1234);
+		test_tolr_interval(umath::sinh, std::sinh, -10, 10, 0.00001, 1234);
 
 	test_end();
 
@@ -231,7 +231,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr_interval(umath::cosh, std::cosh, 0, 1, TOLERANCE, 1234);
 		test_tolr_interval(umath::cosh, std::cosh, -5, 5, TOLERANCE, 1234);
-		test_tolr_interval(umath::cosh, std::cosh, -10, 10, TOLERANCE, 1234);
+		test_tolr_interval(umath::cosh, std::cosh, -10, 10, 0.00001, 1234);
 
 	test_end();
 
@@ -241,7 +241,7 @@ int main(int argc, char const *argv[]) {
 		test_tolr_interval(umath::tanh, std::tanh, -5, 5, TOLERANCE, 1234);
 		test_tolr_interval(umath::tanh, std::tanh, -10, 10, TOLERANCE, 1234);
 		test_tolr_interval(umath::tanh, std::tanh, -20, 20, TOLERANCE, 1234);
-		test_tolr_interval(umath::tanh, std::tanh, -30, 30, TOLERANCE, 1234);
+		test_tolr_interval(umath::tanh, std::tanh, -30, 30, 0.00001, 1234);
 
 	test_end();
 
