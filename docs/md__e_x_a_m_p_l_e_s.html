@@ -35,7 +35,7 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">Uroboro Math Library
    </div>
-   <div id="projectbrief">A C++ mathematical library</div>
+   <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
  </tr>
  </tbody>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('md_e_x_a_m_p_l_e_s.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md__e_x_a_m_p_l_e_s.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -104,7 +104,7 @@ Including library headers</h1>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a>;</div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="auroboro_8h_html"><div class="ttname"><a href="uroboro_8h.html">uroboro.h</a></div><div class="ttdoc">General include file This file will include core header files.</div></div>
+<div class="ttc" id="auroboro_8h_html"><div class="ttname"><a href="uroboro_8h.html">uroboro.h</a></div><div class="ttdoc">General include file.</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
 Using vectors</h1>
 <p >Vector operations can be used through the <code>vec&lt;N, T = real&gt;</code> class, where <code>N</code> specifies the number of rows and <code>T</code> specifies the element type (<code>real</code> is used as default). Common vector types are defined as <code>vec2</code>, <code>vec3</code> and <code>vec4</code>.</p>
@@ -113,7 +113,7 @@ Using vectors</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// You can initialize a vector from a bracketed list</span></div>
 <div class="line"><a class="code hl_typedef" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> v2 = {0, 1, 0};</div>
-<div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00334">vec.h:334</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00343">vec.h:343</a></div></div>
 </div><!-- fragment --><p >Basic vector operations: </p><div class="fragment"><div class="line"><span class="comment">// Compute the lenght of a vector</span></div>
 <div class="line"><a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> l = v1.lenght();</div>
 <div class="line"> </div>
@@ -151,7 +151,7 @@ Using vectors</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Or simply the * operator</span></div>
 <div class="line">d = v1 * v2;</div>
-<div class="ttc" id="anamespaceuroboro_html_a52c0919b6661648289cd006dad497633"><div class="ttname"><a href="namespaceuroboro.html#a52c0919b6661648289cd006dad497633">uroboro::dot</a></div><div class="ttdeci">real dot(vec&lt; N, T &gt; v1, vec&lt; N, T &gt; v2)</div><div class="ttdoc">Compute the dot product of two vectors.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00383">vec.h:383</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a52c0919b6661648289cd006dad497633"><div class="ttname"><a href="namespaceuroboro.html#a52c0919b6661648289cd006dad497633">uroboro::dot</a></div><div class="ttdeci">real dot(vec&lt; N, T &gt; v1, vec&lt; N, T &gt; v2)</div><div class="ttdoc">Compute the dot product of two vectors.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00392">vec.h:392</a></div></div>
 </div><!-- fragment --><p >Cross product: </p><div class="fragment"><div class="line"><span class="comment">// Same thing with the cross product</span></div>
 <div class="line"><a class="code hl_typedef" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> c;</div>
 <div class="line">c = v1.<a class="code hl_function" href="classuroboro_1_1vec.html#a323dea5182bb7ef73b4c6fbe68588119">cross</a>(v2);</div>
@@ -159,7 +159,7 @@ Using vectors</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// But there is no cross product operator!</span></div>
 <div class="ttc" id="aclassuroboro_1_1vec_html_a323dea5182bb7ef73b4c6fbe68588119"><div class="ttname"><a href="classuroboro_1_1vec.html#a323dea5182bb7ef73b4c6fbe68588119">uroboro::vec::cross</a></div><div class="ttdeci">vec&lt; 3 &gt; cross(const vec&lt; 3 &gt; &amp;other) const</div><div class="ttdoc">Cross product between vectors.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00153">vec.h:153</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a0e0a248404f267e01ed71debe9f2b6c0"><div class="ttname"><a href="namespaceuroboro.html#a0e0a248404f267e01ed71debe9f2b6c0">uroboro::cross</a></div><div class="ttdeci">vec&lt; 3, T &gt; cross(const vec&lt; 3, T &gt; &amp;v1, const vec&lt; 3, T &gt; &amp;v2)</div><div class="ttdoc">Compute the cross product of two vectors.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00391">vec.h:391</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a0e0a248404f267e01ed71debe9f2b6c0"><div class="ttname"><a href="namespaceuroboro.html#a0e0a248404f267e01ed71debe9f2b6c0">uroboro::cross</a></div><div class="ttdeci">vec&lt; 3, T &gt; cross(const vec&lt; 3, T &gt; &amp;v1, const vec&lt; 3, T &gt; &amp;v2)</div><div class="ttdoc">Compute the cross product of two vectors.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00400">vec.h:400</a></div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
 Using matrices</h1>
 <p >Matrices are implemented in the <code>mat&lt;N, K&gt;</code> class, where N is the number of columns and K is the number of rows (lexicographical and column-first implementation). Common square matrix types are defines as <code>mat2</code>, <code>mat3</code>, <code>mat4</code></p>
@@ -221,7 +221,7 @@ Using matrices</h1>
 <div class="line"><span class="comment">// perspective(), ortho(), scaling_3x3(), scaling_4x4(),</span></div>
 <div class="line"><span class="comment">// lookAt() functions are also supported</span></div>
 <div class="ttc" id="anamespaceuroboro_html_a3121b61d64bc4af30cb130d4e56da464"><div class="ttname"><a href="namespaceuroboro.html#a3121b61d64bc4af30cb130d4e56da464">uroboro::PI2</a></div><div class="ttdeci">constexpr real PI2</div><div class="ttdoc">Half of Pi.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00113">constants.h:113</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a3662c64ee4e3e1c44d59e4be73b474af"><div class="ttname"><a href="namespaceuroboro.html#a3662c64ee4e3e1c44d59e4be73b474af">uroboro::radians</a></div><div class="ttdeci">real radians(real degrees)</div><div class="ttdoc">Convert degrees to radians.</div><div class="ttdef"><b>Definition:</b> <a href="real__analysis_8h_source.html#l00867">real_analysis.h:867</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a3662c64ee4e3e1c44d59e4be73b474af"><div class="ttname"><a href="namespaceuroboro.html#a3662c64ee4e3e1c44d59e4be73b474af">uroboro::radians</a></div><div class="ttdeci">real radians(real degrees)</div><div class="ttdoc">Convert degrees to radians.</div><div class="ttdef"><b>Definition:</b> <a href="real__analysis_8h_source.html#l00877">real_analysis.h:877</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a982f5856e8832b88b5def88ea0dd678b"><div class="ttname"><a href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">uroboro::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00116">constants.h:116</a></div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md18"></a>
 Using complex numbers</h1>
@@ -246,10 +246,10 @@ Using complex numbers</h1>
 <div class="line">complex z4 = z1.conjugate();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Complex analysis functions</span></div>
-<div class="line">complex z5 = <a class="code hl_function" href="namespaceuroboro.html#a3443ec9e1caf87193013b7b1acaef7c9">ln</a>(z3) + <a class="code hl_function" href="namespaceuroboro.html#a0a0667b772d76cbbb622a5a0fc1a5996">atan</a>(z3);</div>
-<div class="ttc" id="anamespaceuroboro_html_a0a0667b772d76cbbb622a5a0fc1a5996"><div class="ttname"><a href="namespaceuroboro.html#a0a0667b772d76cbbb622a5a0fc1a5996">uroboro::atan</a></div><div class="ttdeci">complex atan(complex z)</div><div class="ttdoc">Compute the complex arctangent.</div><div class="ttdef"><b>Definition:</b> <a href="complex__analysis_8h_source.html#l00094">complex_analysis.h:94</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a3443ec9e1caf87193013b7b1acaef7c9"><div class="ttname"><a href="namespaceuroboro.html#a3443ec9e1caf87193013b7b1acaef7c9">uroboro::ln</a></div><div class="ttdeci">complex ln(complex z)</div><div class="ttdoc">Compute the complex logarithm.</div><div class="ttdef"><b>Definition:</b> <a href="complex__analysis_8h_source.html#l00076">complex_analysis.h:76</a></div></div>
+<div class="line">complex z5 = <a class="code hl_function" href="namespaceuroboro.html#acec648ec6fd5b5a42fd42e95c27a1da5">ln</a>(z3) + <a class="code hl_function" href="namespaceuroboro.html#a46acc3da8e5ebf9152672fd17e4c61d0">atan</a>(z3);</div>
+<div class="ttc" id="anamespaceuroboro_html_a46acc3da8e5ebf9152672fd17e4c61d0"><div class="ttname"><a href="namespaceuroboro.html#a46acc3da8e5ebf9152672fd17e4c61d0">uroboro::atan</a></div><div class="ttdeci">dual atan(dual x)</div><div class="ttdoc">Compute the arcsine of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00120">dual_functions.h:120</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a9f3ef573ae89dc65f92c66c0bdfb1007"><div class="ttname"><a href="namespaceuroboro.html#a9f3ef573ae89dc65f92c66c0bdfb1007">uroboro::TAU</a></div><div class="ttdeci">constexpr real TAU</div><div class="ttdoc">The Tau mathematical constant (Pi times 2)</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00122">constants.h:122</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_acec648ec6fd5b5a42fd42e95c27a1da5"><div class="ttname"><a href="namespaceuroboro.html#acec648ec6fd5b5a42fd42e95c27a1da5">uroboro::ln</a></div><div class="ttdeci">dual ln(dual x)</div><div class="ttdoc">Compute the natural logarithm of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00084">dual_functions.h:84</a></div></div>
 </div><!-- fragment --><p> Common complex functions such as <code>sqrt</code>, <code>ln</code>, complex trigonometric functions and many more are also supported (<code><a class="el" href="complex__analysis_8h.html" title="Functions of complex variable.">complex_analysis.h</a></code>).</p>
 <h1><a class="anchor" id="autotoc_md19"></a>
 Using quaternions</h1>
@@ -349,7 +349,7 @@ Using statistical functions</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 6 2022 14:56:31 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

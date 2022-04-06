@@ -618,7 +618,7 @@ namespace uroboro {
 		}
 
 
-		/// Compute the inverse of a generic square matrix
+		/// Invert a generic square matrix
 		inline mat<N, K>& invert() {
 
 			if(!is_square()) {

@@ -35,7 +35,7 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">Uroboro Math Library
    </div>
-   <div id="projectbrief">A C++ mathematical library</div>
+   <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
  </tr>
  </tbody>
@@ -111,262 +111,260 @@ $(document).ready(function(){initNavTree('dual_8h_source.html',''); initResizabl
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html">   25</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a; <span class="comment">// Real part</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b; <span class="comment">// &quot;Dual&quot; part</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="comment">// Default constructor, initialize with null values</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>() : a(0), b(0) {}</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="comment">// Initialize from two real numbers</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> real_part, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dual_part)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                : a(real_part), b(dual_part) {}</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">// Initialize from a real number</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> real_part)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                : a(real_part), b(0) {}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">~dual</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="comment">// Initialize from a vec2</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                a = v.data[0];</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                b = v.data[1];</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="comment">// Initialize a dual number from a vec2</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                a = v.data[0];</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                b = v.data[1];</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="comment">// Initialize a dual number from a real number</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator=(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                a = x;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                b = 0;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="comment">// Initialize a dual number from a std::array</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator=(<span class="keyword">const</span> std::array&lt;real, 2&gt;&amp; v) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                a = v[0];</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                b = v[1];</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="comment">// Return real part</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> Re()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keywordflow">return</span> a;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="comment">// Return dual part</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> Dual()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="comment">// Get the dual conjugate</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> conjugate()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a, -b);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="comment">// Get the inverse of a dual number</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> inverse()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                <span class="keywordflow">if</span>(a == 0) {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                    <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;dual::inverse&quot;</span>, 0, DIV_BY_ZERO);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(<a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>(), <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>());</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(1.0 / a, -b / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(a));</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="comment">// Identity (for consistency)</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator+()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a, b);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="comment">// Sum two dual numbers</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator+(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a + other.a, b + other.b);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment">// Sum a real number to a dual number</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator+(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a + r, b);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="comment">// Get the opposite of a dual number</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator-()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(-a, -b);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            }</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="comment">// Subtract two dual numbers</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator-(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a - other.a, b - other.b);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="comment">// Subtract a real number from a dual number</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator-(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a - r, b);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="comment">// Multiply two dual numbers</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator*(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a * other.a, a * other.b + b * other.a);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="comment">// Multiply a dual number by a real number</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator*(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a * r, b * r);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            }</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="comment">// Dual division</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator/(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a / other.a,</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                    (b * other.a - a * other.b) / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(other.a));</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="comment">// Divide a dual number by a real number</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> operator/(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="keywordflow">return</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(a / r, b / r);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            }</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="comment">// Sum a real number to this dual number</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator+=(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                a += r;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="comment">// Subtract a real number from this one</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator-=(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                a -= other.a;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                b -= other.b;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="comment">// Subtract a real number from this dual number</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator-=(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                a -= r;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            }</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="comment">// Multiply this dual number by another one</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator*=(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                a = (a * other.a);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                b = (a * other.b) + (b * other.a);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="comment">// Multiply this dual number by a real number</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator*=(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                a *= r;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                b *= r;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="comment">// Divide this dual number by another one</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator/=(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                a = (a / other.a);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                b = (b * other.a - a * other.b) / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(other.a);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            }</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="comment">// Divide a dual number by a real number</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; operator/=(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                <span class="keywordflow">if</span>(r == 0) {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                    <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;dual::operator/=&quot;</span>, 0, DIV_BY_ZERO);</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                    a = <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>();</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    b = <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>();</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                }</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                a /= r;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                b /= r;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            }</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="comment">// Check whether two dual numbers have the same</span></div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            <span class="comment">// real and dual parts</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                <span class="keywordflow">return</span> (a == other.a) &amp;&amp; (b == other.b);</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            }</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="comment">// Convert a dual number to a vector</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a> to_vec()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a> res;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                res.data[0] = a;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                res.data[1] = b;</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            }</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            <span class="comment">// Initialize from a vector</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> from_vec(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                a = v.data[0];</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                b = v.data[1];</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="comment">// Convert a dual number to matrix form</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1mat.html">mat2</a> to_mat()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <a class="code hl_class" href="classuroboro_1_1mat.html">mat2</a> m;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                m[0][0] = a;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                m[0][1] = 0;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                m[1][0] = a;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                m[1][1] = b;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <span class="keywordflow">return</span> m;</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            }</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">#ifndef UROBORO_NO_PRINT</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html">   27</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a; <span class="comment">// Real part</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b; <span class="comment">// &quot;Dual&quot; part</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">   34</a></span>            <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>() : a(0), b(0) {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a35d8feb4366b75a881e1bf54be020617">   37</a></span>            <a class="code hl_function" href="classuroboro_1_1dual.html#a35d8feb4366b75a881e1bf54be020617">dual</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> real_part, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dual_part)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                : a(real_part), b(dual_part) {}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#abdba4335f5d3192bc72f1f79f8cd4ee7">   41</a></span>            <a class="code hl_function" href="classuroboro_1_1dual.html#abdba4335f5d3192bc72f1f79f8cd4ee7">dual</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> real_part)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                : a(real_part), b(0) {}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_class" href="classuroboro_1_1dual.html">~dual</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#addd47a7c9a94609a13c3a39ce4c505a9">   47</a></span>            <a class="code hl_function" href="classuroboro_1_1dual.html#addd47a7c9a94609a13c3a39ce4c505a9">dual</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                a = v.data[0];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                b = v.data[1];</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ab33f15eb80390b93be8d27831271d4ec">   53</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#ab33f15eb80390b93be8d27831271d4ec">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                a = v.data[0];</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                b = v.data[1];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a6a92923e1c72be75eeb50bf5c8e52ade">   60</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a6a92923e1c72be75eeb50bf5c8e52ade">operator=</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                a = x;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                b = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#af050203dc8d8749941de10376e0ed4b0">   67</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#af050203dc8d8749941de10376e0ed4b0">operator=</a>(<span class="keyword">const</span> std::array&lt;real, 2&gt;&amp; v) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                a = v[0];</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                b = v[1];</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096">   74</a></span>            <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096">Re</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                <span class="keywordflow">return</span> a;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ab119136c0e0a8a80dd0e6164b079ad72">   79</a></span>            <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ab119136c0e0a8a80dd0e6164b079ad72">Dual</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a62f1b6ef975273d61154454e44081d4e">   84</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a62f1b6ef975273d61154454e44081d4e">conjugate</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a, -b);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a198731009de9f35a78131483a1246d17">   89</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a198731009de9f35a78131483a1246d17">inverse</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <span class="keywordflow">if</span>(a == 0) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                    <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;dual::inverse&quot;</span>, 0, DIV_BY_ZERO);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(<a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>(), <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>());</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(1.0 / a, -b / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(a));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a2be04ddb0a89ff2101da3353c4ced392">  100</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a2be04ddb0a89ff2101da3353c4ced392">operator+</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a, b);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ab0ef39fca0b97633d847295a105b61ed">  105</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ab0ef39fca0b97633d847295a105b61ed">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a + other.a, b + other.b);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ac3d988e07891c2b6d6c0a9f63b82f6cc">  110</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ac3d988e07891c2b6d6c0a9f63b82f6cc">operator+</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a + r, b);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#aa5d4f805fc29768af810dbb500f07d44">  115</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#aa5d4f805fc29768af810dbb500f07d44">operator-</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(-a, -b);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ad1bd5a1fb99cf412cdbbc86527ae5a6c">  120</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ad1bd5a1fb99cf412cdbbc86527ae5a6c">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a - other.a, b - other.b);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ae483e9f6ae3691486cdf4d77c2357040">  125</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ae483e9f6ae3691486cdf4d77c2357040">operator-</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a - r, b);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#aac3a9926819742473deaf1d641e15956">  130</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#aac3a9926819742473deaf1d641e15956">operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a * other.a, a * other.b + b * other.a);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#ab191821c33c605901b45d3d2c7e34a21">  135</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#ab191821c33c605901b45d3d2c7e34a21">operator*</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a * r, b * r);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a3c6f69b0e11531308f216637916dc1d2">  140</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a3c6f69b0e11531308f216637916dc1d2">operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a / other.a,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    (b * other.a - a * other.b) / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(other.a));</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a429c399f4c4fd26d05266222fd1ea55e">  146</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a429c399f4c4fd26d05266222fd1ea55e">operator/</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">dual</a>(a / r, b / r);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a4c7bb8956e07894adacc19e32a246606">  152</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a4c7bb8956e07894adacc19e32a246606">operator+=</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                a += r;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a706eceef5ad27a18efd846768be536d2">  159</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a706eceef5ad27a18efd846768be536d2">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                a -= other.a;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                b -= other.b;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a305b127e817294630ec2817ec942ae88">  167</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a305b127e817294630ec2817ec942ae88">operator-=</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                a -= r;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a34ff0fc6fc269bbf9a84e0dc4565764d">  174</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a34ff0fc6fc269bbf9a84e0dc4565764d">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                a = (a * other.a);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                b = (a * other.b) + (b * other.a);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a033e2eb6416d5bd879136491a2a52638">  182</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a033e2eb6416d5bd879136491a2a52638">operator*=</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                a *= r;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                b *= r;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a4b84dd07c90e080fec39f6d5b0d9e8c3">  190</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a4b84dd07c90e080fec39f6d5b0d9e8c3">operator/=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                a = (a / other.a);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                b = (b * other.a - a * other.b) / <a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(other.a);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a7eaac87417c4ebdf6d9a775cabd823d6">  198</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; <a class="code hl_function" href="classuroboro_1_1dual.html#a7eaac87417c4ebdf6d9a775cabd823d6">operator/=</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> r) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                <span class="keywordflow">if</span>(r == 0) {</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;dual::operator/=&quot;</span>, 0, DIV_BY_ZERO);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                    a = <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>();</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                    b = <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>();</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                a /= r;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                b /= r;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a6fe1ce2a9c41bbd06f9781c7a3852fed">  216</a></span>            <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classuroboro_1_1dual.html#a6fe1ce2a9c41bbd06f9781c7a3852fed">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; other) {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                <span class="keywordflow">return</span> (a == other.a) &amp;&amp; (b == other.b);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a20d23c40fa6260fbdf6dd3cd1ec3d28f">  222</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a20d23c40fa6260fbdf6dd3cd1ec3d28f">to_vec</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a> res;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                res.data[0] = a;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                res.data[1] = b;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#aef03903816bd4bf6b9788a914aab4e0c">  230</a></span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classuroboro_1_1dual.html#aef03903816bd4bf6b9788a914aab4e0c">from_vec</a>(<span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1vec.html">vec2</a>&amp; v) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                a = v.data[0];</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                b = v.data[1];</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a05ebdaeb9c079c6bb030ee2ffaae48f4">  237</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1mat.html">mat2</a> <a class="code hl_function" href="classuroboro_1_1dual.html#a05ebdaeb9c079c6bb030ee2ffaae48f4">to_mat</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <a class="code hl_class" href="classuroboro_1_1mat.html">mat2</a> m;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                m[0][0] = a;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                m[0][1] = 0;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                m[1][0] = a;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                m[1][1] = b;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                <span class="keywordflow">return</span> m;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="comment">// Convert the complex number to string representation</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keyword">inline</span> std::string to_string(std::string epsilon = <span class="stringliteral">&quot;e&quot;</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                std::stringstream res;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                res &lt;&lt; a;</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                res &lt;&lt; (b &gt;= 0 ? <span class="stringliteral">&quot; + &quot;</span> : <span class="stringliteral">&quot; - &quot;</span>);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                <span class="keywordflow">if</span>(<a class="code hl_function" href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">abs</a>(b) != 1)</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                    res &lt;&lt; <a class="code hl_function" href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">abs</a>(b);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                res &lt;&lt; epsilon;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                <span class="keywordflow">return</span> res.str();</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">#ifndef UROBORO_NO_PRINT</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a50f1e64e6c3ccba614bb85b88d2a5991">  252</a></span>            <span class="keyword">inline</span> std::string <a class="code hl_function" href="classuroboro_1_1dual.html#a50f1e64e6c3ccba614bb85b88d2a5991">to_string</a>(std::string epsilon = <span class="stringliteral">&quot;e&quot;</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                std::stringstream res;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                res &lt;&lt; a;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                res &lt;&lt; (b &gt;= 0 ? <span class="stringliteral">&quot; + &quot;</span> : <span class="stringliteral">&quot; - &quot;</span>);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                <span class="keywordflow">if</span>(<a class="code hl_function" href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">abs</a>(b) != 1)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                    res &lt;&lt; <a class="code hl_function" href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">abs</a>(b);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                res &lt;&lt; epsilon;</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="comment">// Stream the complex number in string representation</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="comment">// to an output stream (std::ostream)</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; obj) {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                <span class="keywordflow">return</span> out &lt;&lt; obj.to_string();</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            }</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    };</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">return</span> res.str();</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="classuroboro_1_1dual.html#a66f41daddf0ad1c91a15fd6760f2774a">  270</a></span>            <span class="keyword">friend</span> std::ostream&amp; <a class="code hl_friend" href="classuroboro_1_1dual.html#a66f41daddf0ad1c91a15fd6760f2774a">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>&amp; obj) {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                <span class="keywordflow">return</span> out &lt;&lt; obj.<a class="code hl_function" href="classuroboro_1_1dual.html#a50f1e64e6c3ccba614bb85b88d2a5991">to_string</a>();</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            }</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>}</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    };</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassuroboro_1_1dual_html"><div class="ttname"><a href="classuroboro_1_1dual.html">uroboro::dual</a></div><div class="ttdoc">Dual number class.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00025">dual.h:25</a></div></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>}</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html"><div class="ttname"><a href="classuroboro_1_1dual.html">uroboro::dual</a></div><div class="ttdoc">Dual number class.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00027">dual.h:27</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a033e2eb6416d5bd879136491a2a52638"><div class="ttname"><a href="classuroboro_1_1dual.html#a033e2eb6416d5bd879136491a2a52638">uroboro::dual::operator*=</a></div><div class="ttdeci">dual &amp; operator*=(real r)</div><div class="ttdoc">Multiply this dual number by a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00182">dual.h:182</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a05ebdaeb9c079c6bb030ee2ffaae48f4"><div class="ttname"><a href="classuroboro_1_1dual.html#a05ebdaeb9c079c6bb030ee2ffaae48f4">uroboro::dual::to_mat</a></div><div class="ttdeci">mat2 to_mat() const</div><div class="ttdoc">Convert a dual number to matrix form.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00237">dual.h:237</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a198731009de9f35a78131483a1246d17"><div class="ttname"><a href="classuroboro_1_1dual.html#a198731009de9f35a78131483a1246d17">uroboro::dual::inverse</a></div><div class="ttdeci">dual inverse() const</div><div class="ttdoc">Get the inverse of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00089">dual.h:89</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a20d23c40fa6260fbdf6dd3cd1ec3d28f"><div class="ttname"><a href="classuroboro_1_1dual.html#a20d23c40fa6260fbdf6dd3cd1ec3d28f">uroboro::dual::to_vec</a></div><div class="ttdeci">vec2 to_vec() const</div><div class="ttdoc">Convert a dual number to a vector.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00222">dual.h:222</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a2be04ddb0a89ff2101da3353c4ced392"><div class="ttname"><a href="classuroboro_1_1dual.html#a2be04ddb0a89ff2101da3353c4ced392">uroboro::dual::operator+</a></div><div class="ttdeci">dual operator+() const</div><div class="ttdoc">Identity (for consistency)</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00100">dual.h:100</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a305b127e817294630ec2817ec942ae88"><div class="ttname"><a href="classuroboro_1_1dual.html#a305b127e817294630ec2817ec942ae88">uroboro::dual::operator-=</a></div><div class="ttdeci">dual &amp; operator-=(real r)</div><div class="ttdoc">Subtract a real number from this dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00167">dual.h:167</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a34ff0fc6fc269bbf9a84e0dc4565764d"><div class="ttname"><a href="classuroboro_1_1dual.html#a34ff0fc6fc269bbf9a84e0dc4565764d">uroboro::dual::operator*=</a></div><div class="ttdeci">dual &amp; operator*=(const dual &amp;other)</div><div class="ttdoc">Multiply this dual number by another one.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00174">dual.h:174</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a35d8feb4366b75a881e1bf54be020617"><div class="ttname"><a href="classuroboro_1_1dual.html#a35d8feb4366b75a881e1bf54be020617">uroboro::dual::dual</a></div><div class="ttdeci">dual(real real_part, real dual_part)</div><div class="ttdoc">Initialize from two real numbers.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00037">dual.h:37</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a38953b6e6562a16f231eccc4e9ee3096"><div class="ttname"><a href="classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096">uroboro::dual::Re</a></div><div class="ttdeci">real Re() const</div><div class="ttdoc">Return real part.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00074">dual.h:74</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a3c6f69b0e11531308f216637916dc1d2"><div class="ttname"><a href="classuroboro_1_1dual.html#a3c6f69b0e11531308f216637916dc1d2">uroboro::dual::operator/</a></div><div class="ttdeci">dual operator/(const dual &amp;other) const</div><div class="ttdoc">Dual division.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00140">dual.h:140</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a429c399f4c4fd26d05266222fd1ea55e"><div class="ttname"><a href="classuroboro_1_1dual.html#a429c399f4c4fd26d05266222fd1ea55e">uroboro::dual::operator/</a></div><div class="ttdeci">dual operator/(real r) const</div><div class="ttdoc">Divide a dual number by a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00146">dual.h:146</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a4b84dd07c90e080fec39f6d5b0d9e8c3"><div class="ttname"><a href="classuroboro_1_1dual.html#a4b84dd07c90e080fec39f6d5b0d9e8c3">uroboro::dual::operator/=</a></div><div class="ttdeci">dual &amp; operator/=(const dual &amp;other)</div><div class="ttdoc">Divide this dual number by another one.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00190">dual.h:190</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a4c7bb8956e07894adacc19e32a246606"><div class="ttname"><a href="classuroboro_1_1dual.html#a4c7bb8956e07894adacc19e32a246606">uroboro::dual::operator+=</a></div><div class="ttdeci">dual &amp; operator+=(real r)</div><div class="ttdoc">Sum a real number to this dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00152">dual.h:152</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a50f1e64e6c3ccba614bb85b88d2a5991"><div class="ttname"><a href="classuroboro_1_1dual.html#a50f1e64e6c3ccba614bb85b88d2a5991">uroboro::dual::to_string</a></div><div class="ttdeci">std::string to_string(std::string epsilon=&quot;e&quot;) const</div><div class="ttdoc">Convert the dual number to string representation.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00252">dual.h:252</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a62f1b6ef975273d61154454e44081d4e"><div class="ttname"><a href="classuroboro_1_1dual.html#a62f1b6ef975273d61154454e44081d4e">uroboro::dual::conjugate</a></div><div class="ttdeci">dual conjugate() const</div><div class="ttdoc">Get the dual conjugate.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00084">dual.h:84</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a66f41daddf0ad1c91a15fd6760f2774a"><div class="ttname"><a href="classuroboro_1_1dual.html#a66f41daddf0ad1c91a15fd6760f2774a">uroboro::dual::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const dual &amp;obj)</div><div class="ttdoc">Stream the dual number in string representation to an output stream (std::ostream)</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00270">dual.h:270</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a6a92923e1c72be75eeb50bf5c8e52ade"><div class="ttname"><a href="classuroboro_1_1dual.html#a6a92923e1c72be75eeb50bf5c8e52ade">uroboro::dual::operator=</a></div><div class="ttdeci">dual &amp; operator=(real x)</div><div class="ttdoc">Initialize a dual number from a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00060">dual.h:60</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a6fe1ce2a9c41bbd06f9781c7a3852fed"><div class="ttname"><a href="classuroboro_1_1dual.html#a6fe1ce2a9c41bbd06f9781c7a3852fed">uroboro::dual::operator==</a></div><div class="ttdeci">bool operator==(const dual &amp;other)</div><div class="ttdoc">Check whether two dual numbers have the same real and dual parts.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00216">dual.h:216</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a706eceef5ad27a18efd846768be536d2"><div class="ttname"><a href="classuroboro_1_1dual.html#a706eceef5ad27a18efd846768be536d2">uroboro::dual::operator-=</a></div><div class="ttdeci">dual &amp; operator-=(const dual &amp;other)</div><div class="ttdoc">Subtract a real number from this one.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00159">dual.h:159</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_a7eaac87417c4ebdf6d9a775cabd823d6"><div class="ttname"><a href="classuroboro_1_1dual.html#a7eaac87417c4ebdf6d9a775cabd823d6">uroboro::dual::operator/=</a></div><div class="ttdeci">dual &amp; operator/=(real r)</div><div class="ttdoc">Divide a dual number by a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00198">dual.h:198</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_aa5d4f805fc29768af810dbb500f07d44"><div class="ttname"><a href="classuroboro_1_1dual.html#aa5d4f805fc29768af810dbb500f07d44">uroboro::dual::operator-</a></div><div class="ttdeci">dual operator-() const</div><div class="ttdoc">Get the opposite of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00115">dual.h:115</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_aac3a9926819742473deaf1d641e15956"><div class="ttname"><a href="classuroboro_1_1dual.html#aac3a9926819742473deaf1d641e15956">uroboro::dual::operator*</a></div><div class="ttdeci">dual operator*(const dual &amp;other) const</div><div class="ttdoc">Multiply two dual numbers.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00130">dual.h:130</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ab0ef39fca0b97633d847295a105b61ed"><div class="ttname"><a href="classuroboro_1_1dual.html#ab0ef39fca0b97633d847295a105b61ed">uroboro::dual::operator+</a></div><div class="ttdeci">dual operator+(const dual &amp;other) const</div><div class="ttdoc">Sum two dual numbers.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00105">dual.h:105</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ab119136c0e0a8a80dd0e6164b079ad72"><div class="ttname"><a href="classuroboro_1_1dual.html#ab119136c0e0a8a80dd0e6164b079ad72">uroboro::dual::Dual</a></div><div class="ttdeci">real Dual() const</div><div class="ttdoc">Return dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00079">dual.h:79</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ab191821c33c605901b45d3d2c7e34a21"><div class="ttname"><a href="classuroboro_1_1dual.html#ab191821c33c605901b45d3d2c7e34a21">uroboro::dual::operator*</a></div><div class="ttdeci">dual operator*(real r) const</div><div class="ttdoc">Multiply a dual number by a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00135">dual.h:135</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ab33f15eb80390b93be8d27831271d4ec"><div class="ttname"><a href="classuroboro_1_1dual.html#ab33f15eb80390b93be8d27831271d4ec">uroboro::dual::operator=</a></div><div class="ttdeci">dual &amp; operator=(const vec2 &amp;v)</div><div class="ttdoc">Initialize a dual number from a vec2.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00053">dual.h:53</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_abdba4335f5d3192bc72f1f79f8cd4ee7"><div class="ttname"><a href="classuroboro_1_1dual.html#abdba4335f5d3192bc72f1f79f8cd4ee7">uroboro::dual::dual</a></div><div class="ttdeci">dual(real real_part)</div><div class="ttdoc">Initialize from a real number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00041">dual.h:41</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ac3d988e07891c2b6d6c0a9f63b82f6cc"><div class="ttname"><a href="classuroboro_1_1dual.html#ac3d988e07891c2b6d6c0a9f63b82f6cc">uroboro::dual::operator+</a></div><div class="ttdeci">dual operator+(real r) const</div><div class="ttdoc">Sum a real number to a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00110">dual.h:110</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ad1bd5a1fb99cf412cdbbc86527ae5a6c"><div class="ttname"><a href="classuroboro_1_1dual.html#ad1bd5a1fb99cf412cdbbc86527ae5a6c">uroboro::dual::operator-</a></div><div class="ttdeci">dual operator-(const dual &amp;other) const</div><div class="ttdoc">Subtract two dual numbers.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00120">dual.h:120</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_addd47a7c9a94609a13c3a39ce4c505a9"><div class="ttname"><a href="classuroboro_1_1dual.html#addd47a7c9a94609a13c3a39ce4c505a9">uroboro::dual::dual</a></div><div class="ttdeci">dual(const vec2 &amp;v)</div><div class="ttdoc">Initialize from a vec2.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00047">dual.h:47</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_ae483e9f6ae3691486cdf4d77c2357040"><div class="ttname"><a href="classuroboro_1_1dual.html#ae483e9f6ae3691486cdf4d77c2357040">uroboro::dual::operator-</a></div><div class="ttdeci">dual operator-(real r) const</div><div class="ttdoc">Subtract a real number from a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00125">dual.h:125</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_aef03903816bd4bf6b9788a914aab4e0c"><div class="ttname"><a href="classuroboro_1_1dual.html#aef03903816bd4bf6b9788a914aab4e0c">uroboro::dual::from_vec</a></div><div class="ttdeci">void from_vec(const vec2 &amp;v)</div><div class="ttdoc">Initialize from a vector.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00230">dual.h:230</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_af050203dc8d8749941de10376e0ed4b0"><div class="ttname"><a href="classuroboro_1_1dual.html#af050203dc8d8749941de10376e0ed4b0">uroboro::dual::operator=</a></div><div class="ttdeci">dual &amp; operator=(const std::array&lt; real, 2 &gt; &amp;v)</div><div class="ttdoc">Initialize a dual number from a std::array.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00067">dual.h:67</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual_html_af7f4a23c22d237e1a063c2e48d0da408"><div class="ttname"><a href="classuroboro_1_1dual.html#af7f4a23c22d237e1a063c2e48d0da408">uroboro::dual::dual</a></div><div class="ttdeci">dual()</div><div class="ttdoc">Default constructor, initialize with null values.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00034">dual.h:34</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1mat_html"><div class="ttname"><a href="classuroboro_1_1mat.html">uroboro::mat</a></div><div class="ttdoc">A generic KxN matrix.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00029">mat.h:29</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1vec_html"><div class="ttname"><a href="classuroboro_1_1vec.html">uroboro::vec</a></div><div class="ttdoc">An N-dimensional vector of T type elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00028">vec.h:28</a></div></div>
 <div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00147">error.h:147</a></div></div>
@@ -374,14 +372,14 @@ $(document).ready(function(){initNavTree('dual_8h_source.html',''); initResizabl
 <div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number.</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00050">error.h:50</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00102">constants.h:102</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_aafdea1a9d10f9ceb85941a764bdf5948"><div class="ttname"><a href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">uroboro::square</a></div><div class="ttdeci">dual square(dual x)</div><div class="ttdoc">Return the square of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00028">dual_functions.h:28</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_af401de70af5a47935a10a5c6432345a4"><div class="ttname"><a href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">uroboro::abs</a></div><div class="ttdeci">dual abs(dual x)</div><div class="ttdoc">Compute the absolute value of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00099">dual_functions.h:99</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_af401de70af5a47935a10a5c6432345a4"><div class="ttname"><a href="namespaceuroboro.html#af401de70af5a47935a10a5c6432345a4">uroboro::abs</a></div><div class="ttdeci">dual abs(dual x)</div><div class="ttdoc">Compute the absolute value of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00102">dual_functions.h:102</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="dual_8h.html">dual.h</a></li>
-    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 6 2022 14:56:30 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

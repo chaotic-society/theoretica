@@ -1,6 +1,6 @@
 
 ///
-/// @file Functions defined on dual numbers for
+/// @file dual_functions.h Functions defined on dual numbers for
 /// automatic differentiation.
 ///
 /// Dual numbers can be easily used for

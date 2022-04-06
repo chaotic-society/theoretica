@@ -7,5 +7,6 @@ var searchData=
   ['mean_4',['mean',['../namespaceuroboro.html#a8c9831766c369238b617a41d293b5319',1,'uroboro']]],
   ['mean_5fstandard_5fdeviation_5',['mean_standard_deviation',['../namespaceuroboro.html#a2072a2e3a2bdaeeac094fcb18e01b250',1,'uroboro']]],
   ['min_6',['min',['../namespaceuroboro.html#a2ba3e34d5c2a1cc7dffa4cd3990527ac',1,'uroboro']]],
-  ['modulus_7',['modulus',['../classuroboro_1_1complex.html#a9fdd162f59368df1b2ccc8a6e1e6c228',1,'uroboro::complex']]]
+  ['modulus_7',['modulus',['../classuroboro_1_1complex.html#a9fdd162f59368df1b2ccc8a6e1e6c228',1,'uroboro::complex']]],
+  ['multidual_8',['multidual',['../classuroboro_1_1multidual.html#a356e82149c05770c866e93c4f9c881b2',1,'uroboro::multidual::multidual()'],['../classuroboro_1_1multidual.html#ae5d56372cf698b766447966c7756ee01',1,'uroboro::multidual::multidual(real r, vec&lt; N &gt; u)']]]
 ];

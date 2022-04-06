@@ -35,7 +35,7 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">Uroboro Math Library
    </div>
-   <div id="projectbrief">A C++ mathematical library</div>
+   <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
  </tr>
  </tbody>
@@ -115,11 +115,17 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html">mat</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic KxN matrix.  <a href="classuroboro_1_1mat.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1multidual.html">multidual</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multidual number algebra for functions of the form \(f: \mathbb{R}^n \rightarrow \mathbb{R}\).  <a href="classuroboro_1_1multidual.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1phasor.html">phasor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complex number in exponential form \(\rho e^{i \theta}\).  <a href="classuroboro_1_1phasor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1polynomial.html">polynomial</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A polynomial of arbitrary order.  <a href="classuroboro_1_1polynomial.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1_p_r_n_g.html">PRNG</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom number generator.  <a href="classuroboro_1_1_p_r_n_g.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1quat.html">quat</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternion in the form \(a + bi + cj + dk\), stored as \((a + \vec v)\) where \(a \in \mathbb{R}\) and \(\vec v \in \mathbb{R}^3\).  <a href="classuroboro_1_1quat.html#details">More...</a><br /></td></tr>
@@ -163,6 +169,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:acfbf85e05ce2bdbe8b7ef675141b3b6c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#acfbf85e05ce2bdbe8b7ef675141b3b6c">stat_function</a> = <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>(*)(<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>, const <a class="el" href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">vec_buff</a> &amp;)</td></tr>
 <tr class="memdesc:acfbf85e05ce2bdbe8b7ef675141b3b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Statistical function.  <a href="namespaceuroboro.html#acfbf85e05ce2bdbe8b7ef675141b3b6c">More...</a><br /></td></tr>
 <tr class="separator:acfbf85e05ce2bdbe8b7ef675141b3b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ffc8828539140e106ff2fdd8498b93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">pseudorandom_function</a> = unsigned int(*)(unsigned int, const std::vector&lt; unsigned int &gt; &amp;)</td></tr>
+<tr class="memdesc:a40ffc8828539140e106ff2fdd8498b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom function pointer.  <a href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">More...</a><br /></td></tr>
+<tr class="separator:a40ffc8828539140e106ff2fdd8498b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57bc43a753233fcd9835f097d49007f3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">vec_buff</a> = std::vector&lt; <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt;</td></tr>
 <tr class="memdesc:a57bc43a753233fcd9835f097d49007f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dynamically allocated variable-size container Defined by default as an alias for <code>std::vector&lt;real&gt;</code>  <a href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">More...</a><br /></td></tr>
 <tr class="separator:a57bc43a753233fcd9835f097d49007f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,10 +264,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a769ab68e1ef0fb741a6130f9784dd0fc">approx_polyn_root_chebyshev</a> (<a class="el" href="classuroboro_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; p, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> guess=0)</td></tr>
 <tr class="memdesc:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method.  <a href="namespaceuroboro.html#a769ab68e1ef0fb741a6130f9784dd0fc">More...</a><br /></td></tr>
 <tr class="separator:a769ab68e1ef0fb741a6130f9784dd0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a375c70dae70848e7b7177c8eb0b2fc1f">gradient</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; &gt;), <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; x)</td></tr>
+<tr class="memdesc:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a375c70dae70848e7b7177c8eb0b2fc1f">More...</a><br /></td></tr>
+<tr class="separator:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485e6d84e73ba82d77940d49011a12ac"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a485e6d84e73ba82d77940d49011a12ac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a485e6d84e73ba82d77940d49011a12ac">gradient</a> (<a class="el" href="classuroboro_1_1dual.html">dual</a>(*f)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1dual.html">dual</a> &gt;), <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; x)</td></tr>
 <tr class="memdesc:a485e6d84e73ba82d77940d49011a12ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a485e6d84e73ba82d77940d49011a12ac">More...</a><br /></td></tr>
 <tr class="separator:a485e6d84e73ba82d77940d49011a12ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa958be15dc457ca9954273beb7326443"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aa958be15dc457ca9954273beb7326443"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa958be15dc457ca9954273beb7326443">divergence</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; &gt;), <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; x)</td></tr>
+<tr class="memdesc:aa958be15dc457ca9954273beb7326443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#aa958be15dc457ca9954273beb7326443">More...</a><br /></td></tr>
+<tr class="separator:aa958be15dc457ca9954273beb7326443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0f900c9e5e4c151f7c8654cc7889052a">divergence</a> (<a class="el" href="classuroboro_1_1dual.html">dual</a>(*f)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1dual.html">dual</a> &gt;), <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; x)</td></tr>
+<tr class="memdesc:a0f900c9e5e4c151f7c8654cc7889052a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a0f900c9e5e4c151f7c8654cc7889052a">More...</a><br /></td></tr>
+<tr class="separator:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafdea1a9d10f9ceb85941a764bdf5948"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1dual.html">dual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a> (<a class="el" href="classuroboro_1_1dual.html">dual</a> x)</td></tr>
 <tr class="memdesc:aafdea1a9d10f9ceb85941a764bdf5948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the square of a dual number.  <a href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">More...</a><br /></td></tr>
 <tr class="separator:aafdea1a9d10f9ceb85941a764bdf5948"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -307,6 +328,70 @@ Functions</h2></td></tr>
 <tr class="memitem:a46acc3da8e5ebf9152672fd17e4c61d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1dual.html">dual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a46acc3da8e5ebf9152672fd17e4c61d0">atan</a> (<a class="el" href="classuroboro_1_1dual.html">dual</a> x)</td></tr>
 <tr class="memdesc:a46acc3da8e5ebf9152672fd17e4c61d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arcsine of a dual number.  <a href="namespaceuroboro.html#a46acc3da8e5ebf9152672fd17e4c61d0">More...</a><br /></td></tr>
 <tr class="separator:a46acc3da8e5ebf9152672fd17e4c61d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c0893a578a218fc92cd83574f48166"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a05c0893a578a218fc92cd83574f48166"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a05c0893a578a218fc92cd83574f48166">square</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a05c0893a578a218fc92cd83574f48166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the square of a multidual number.  <a href="namespaceuroboro.html#a05c0893a578a218fc92cd83574f48166">More...</a><br /></td></tr>
+<tr class="separator:a05c0893a578a218fc92cd83574f48166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7902b4b155b272959ff56021e3b59e3d"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a7902b4b155b272959ff56021e3b59e3d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a7902b4b155b272959ff56021e3b59e3d">cube</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a7902b4b155b272959ff56021e3b59e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the cube of a multidual number.  <a href="namespaceuroboro.html#a7902b4b155b272959ff56021e3b59e3d">More...</a><br /></td></tr>
+<tr class="separator:a7902b4b155b272959ff56021e3b59e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d45c40b4a324d719c8b4a5f51de7d3"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a64d45c40b4a324d719c8b4a5f51de7d3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a64d45c40b4a324d719c8b4a5f51de7d3">pow</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x, int n)</td></tr>
+<tr class="memdesc:a64d45c40b4a324d719c8b4a5f51de7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the n-th power of a multidual number.  <a href="namespaceuroboro.html#a64d45c40b4a324d719c8b4a5f51de7d3">More...</a><br /></td></tr>
+<tr class="separator:a64d45c40b4a324d719c8b4a5f51de7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b2958f04ec8a4578b9da331ae364d90"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a3b2958f04ec8a4578b9da331ae364d90"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a3b2958f04ec8a4578b9da331ae364d90">sqrt</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a3b2958f04ec8a4578b9da331ae364d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the square root of a multidual number.  <a href="namespaceuroboro.html#a3b2958f04ec8a4578b9da331ae364d90">More...</a><br /></td></tr>
+<tr class="separator:a3b2958f04ec8a4578b9da331ae364d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701a39619ec48dcfd798ebb32e8b1af4"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a701a39619ec48dcfd798ebb32e8b1af4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a701a39619ec48dcfd798ebb32e8b1af4">sin</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a701a39619ec48dcfd798ebb32e8b1af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sine of a multidual number.  <a href="namespaceuroboro.html#a701a39619ec48dcfd798ebb32e8b1af4">More...</a><br /></td></tr>
+<tr class="separator:a701a39619ec48dcfd798ebb32e8b1af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091e2430f42a3d75146b59a6d3da97f5"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a091e2430f42a3d75146b59a6d3da97f5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a091e2430f42a3d75146b59a6d3da97f5">cos</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a091e2430f42a3d75146b59a6d3da97f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cosine of a multidual number.  <a href="namespaceuroboro.html#a091e2430f42a3d75146b59a6d3da97f5">More...</a><br /></td></tr>
+<tr class="separator:a091e2430f42a3d75146b59a6d3da97f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66a050bac22b18d204b4f657e3284d5"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:ad66a050bac22b18d204b4f657e3284d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ad66a050bac22b18d204b4f657e3284d5">tan</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:ad66a050bac22b18d204b4f657e3284d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the tangent of a multidual number.  <a href="namespaceuroboro.html#ad66a050bac22b18d204b4f657e3284d5">More...</a><br /></td></tr>
+<tr class="separator:ad66a050bac22b18d204b4f657e3284d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48389203b502ef178997c15e14b7336d"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a48389203b502ef178997c15e14b7336d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a48389203b502ef178997c15e14b7336d">cot</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a48389203b502ef178997c15e14b7336d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cotangent of a multidual number.  <a href="namespaceuroboro.html#a48389203b502ef178997c15e14b7336d">More...</a><br /></td></tr>
+<tr class="separator:a48389203b502ef178997c15e14b7336d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47c135e3bcb42b0770c03def8ee48202"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a47c135e3bcb42b0770c03def8ee48202"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a47c135e3bcb42b0770c03def8ee48202">exp</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a47c135e3bcb42b0770c03def8ee48202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the exponential of a multidual number.  <a href="namespaceuroboro.html#a47c135e3bcb42b0770c03def8ee48202">More...</a><br /></td></tr>
+<tr class="separator:a47c135e3bcb42b0770c03def8ee48202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ef54d8b08d5f510d36d1e585bce593"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a71ef54d8b08d5f510d36d1e585bce593"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a71ef54d8b08d5f510d36d1e585bce593">ln</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a71ef54d8b08d5f510d36d1e585bce593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the natural logarithm of a multidual number.  <a href="namespaceuroboro.html#a71ef54d8b08d5f510d36d1e585bce593">More...</a><br /></td></tr>
+<tr class="separator:a71ef54d8b08d5f510d36d1e585bce593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106c0d396e58c3cfd4124b8b9bf4d306"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a106c0d396e58c3cfd4124b8b9bf4d306"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a106c0d396e58c3cfd4124b8b9bf4d306">log2</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a106c0d396e58c3cfd4124b8b9bf4d306"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the natural logarithm of a multidual number.  <a href="namespaceuroboro.html#a106c0d396e58c3cfd4124b8b9bf4d306">More...</a><br /></td></tr>
+<tr class="separator:a106c0d396e58c3cfd4124b8b9bf4d306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a19bb87a4214ed5673af489e4cb03a"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:ac0a19bb87a4214ed5673af489e4cb03a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ac0a19bb87a4214ed5673af489e4cb03a">log10</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:ac0a19bb87a4214ed5673af489e4cb03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the natural logarithm of a multidual number.  <a href="namespaceuroboro.html#ac0a19bb87a4214ed5673af489e4cb03a">More...</a><br /></td></tr>
+<tr class="separator:ac0a19bb87a4214ed5673af489e4cb03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8224b1ded554a53be41b73e53b9ebd55"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a8224b1ded554a53be41b73e53b9ebd55"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a8224b1ded554a53be41b73e53b9ebd55">abs</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:a8224b1ded554a53be41b73e53b9ebd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the absolute value of a multidual number.  <a href="namespaceuroboro.html#a8224b1ded554a53be41b73e53b9ebd55">More...</a><br /></td></tr>
+<tr class="separator:a8224b1ded554a53be41b73e53b9ebd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa63cd624ea81dca4cc0a7ddbaec5b5c"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aaa63cd624ea81dca4cc0a7ddbaec5b5c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aaa63cd624ea81dca4cc0a7ddbaec5b5c">asin</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:aaa63cd624ea81dca4cc0a7ddbaec5b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arcsine of a multidual number.  <a href="namespaceuroboro.html#aaa63cd624ea81dca4cc0a7ddbaec5b5c">More...</a><br /></td></tr>
+<tr class="separator:aaa63cd624ea81dca4cc0a7ddbaec5b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6860495d63050cf245a7e5e7df5afb2"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:ab6860495d63050cf245a7e5e7df5afb2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ab6860495d63050cf245a7e5e7df5afb2">acos</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:ab6860495d63050cf245a7e5e7df5afb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arcsine of a multidual number.  <a href="namespaceuroboro.html#ab6860495d63050cf245a7e5e7df5afb2">More...</a><br /></td></tr>
+<tr class="separator:ab6860495d63050cf245a7e5e7df5afb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6dee4084156e0d6dbaf11214df023c"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aaf6dee4084156e0d6dbaf11214df023c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aaf6dee4084156e0d6dbaf11214df023c">atan</a> (<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; x)</td></tr>
+<tr class="memdesc:aaf6dee4084156e0d6dbaf11214df023c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arcsine of a multidual number.  <a href="namespaceuroboro.html#aaf6dee4084156e0d6dbaf11214df023c">More...</a><br /></td></tr>
+<tr class="separator:aaf6dee4084156e0d6dbaf11214df023c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e08f1d824056385c73560bc2b6b463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ae2e08f1d824056385c73560bc2b6b463">differentiate_polynomial</a> (<a class="el" href="classuroboro_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt; p)</td></tr>
 <tr class="separator:ae2e08f1d824056385c73560bc2b6b463"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9a735aa9ee0e9f6159251f94bfb70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ada9a735aa9ee0e9f6159251f94bfb70b">approx_derivative</a> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx=0)</td></tr>
@@ -420,6 +505,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8127520c04edba01d38fbe57ca8b35c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a8127520c04edba01d38fbe57ca8b35c7">cubic_bezier</a> (<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; P0, <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; P1, <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; P2, <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; P3, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> t)</td></tr>
 <tr class="memdesc:a8127520c04edba01d38fbe57ca8b35c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cubic Bezier curve.  <a href="namespaceuroboro.html#a8127520c04edba01d38fbe57ca8b35c7">More...</a><br /></td></tr>
 <tr class="separator:a8127520c04edba01d38fbe57ca8b35c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bcc6de750c98323c5b64358307f7002"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">rand_congruential</a> (unsigned int x, unsigned int a=48271, unsigned int c=0, unsigned int m=((unsigned int) 1&lt;&lt; 31) - 1)</td></tr>
+<tr class="memdesc:a0bcc6de750c98323c5b64358307f7002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm.  <a href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">More...</a><br /></td></tr>
+<tr class="separator:a0bcc6de750c98323c5b64358307f7002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af80e6605fd98f1d1c719e1194b61bb6e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e">rand_congruential</a> (unsigned int x, const std::vector&lt; unsigned int &gt; &amp;state)</td></tr>
+<tr class="memdesc:af80e6605fd98f1d1c719e1194b61bb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm.  <a href="namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e">More...</a><br /></td></tr>
+<tr class="separator:af80e6605fd98f1d1c719e1194b61bb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2af827d6b4ec40c45e5035c8c955cb48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a2af827d6b4ec40c45e5035c8c955cb48">square</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x)</td></tr>
 <tr class="memdesc:a2af827d6b4ec40c45e5035c8c955cb48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the square of a real number.  <a href="namespaceuroboro.html#a2af827d6b4ec40c45e5035c8c955cb48">More...</a><br /></td></tr>
 <tr class="separator:a2af827d6b4ec40c45e5035c8c955cb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -447,9 +538,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ab1dcc0c7e6954c69a1d7c28e39322207"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ab1dcc0c7e6954c69a1d7c28e39322207">max</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> y)</td></tr>
 <tr class="memdesc:ab1dcc0c7e6954c69a1d7c28e39322207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the greatest number between two real numbers.  <a href="namespaceuroboro.html#ab1dcc0c7e6954c69a1d7c28e39322207">More...</a><br /></td></tr>
 <tr class="separator:ab1dcc0c7e6954c69a1d7c28e39322207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ede999fe7236c1deac996e47c64e003"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6ede999fe7236c1deac996e47c64e003"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a6ede999fe7236c1deac996e47c64e003">max</a> (T x, T y)</td></tr>
+<tr class="separator:a6ede999fe7236c1deac996e47c64e003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ba3e34d5c2a1cc7dffa4cd3990527ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a2ba3e34d5c2a1cc7dffa4cd3990527ac">min</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> y)</td></tr>
 <tr class="memdesc:a2ba3e34d5c2a1cc7dffa4cd3990527ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the smallest number between two real numbers.  <a href="namespaceuroboro.html#a2ba3e34d5c2a1cc7dffa4cd3990527ac">More...</a><br /></td></tr>
 <tr class="separator:a2ba3e34d5c2a1cc7dffa4cd3990527ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40c52735c8ade1b4ff12a008a454194"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac40c52735c8ade1b4ff12a008a454194"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ac40c52735c8ade1b4ff12a008a454194">min</a> (T x, T y)</td></tr>
+<tr class="separator:ac40c52735c8ade1b4ff12a008a454194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f43166fea12797d8466bbc0e3ed1ab3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a6f43166fea12797d8466bbc0e3ed1ab3">clamp</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b)</td></tr>
 <tr class="memdesc:a6f43166fea12797d8466bbc0e3ed1ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamp x between a and b.  <a href="namespaceuroboro.html#a6f43166fea12797d8466bbc0e3ed1ab3">More...</a><br /></td></tr>
 <tr class="separator:a6f43166fea12797d8466bbc0e3ed1ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -876,6 +973,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a40ffc8828539140e106ff2fdd8498b93" name="a40ffc8828539140e106ff2fdd8498b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ffc8828539140e106ff2fdd8498b93">&#9670;&nbsp;</a></span>pseudorandom_function</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">uroboro::pseudorandom_function</a> = typedef unsigned int (*)(unsigned int, const std::vector&lt;unsigned int&gt;&amp;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A pseudorandom function pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="pseudorandom__algo_8h_source.html#l00016">16</a> of file <a class="el" href="pseudorandom__algo_8h_source.html">pseudorandom_algo.h</a>.</p>
+
+</div>
+</div>
 <a id="a8b7326e30e885ae83295abc8e8f708d4" name="a8b7326e30e885ae83295abc8e8f708d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b7326e30e885ae83295abc8e8f708d4">&#9670;&nbsp;</a></span>real</h2>
 
@@ -945,7 +1060,7 @@ Variables</h2></td></tr>
 
 <p>A 2-dimensional vector with real elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00331">331</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00340">340</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -963,7 +1078,7 @@ Variables</h2></td></tr>
 
 <p>A 3-dimensional vector with real elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00334">334</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00343">343</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -981,7 +1096,7 @@ Variables</h2></td></tr>
 
 <p>A 4-dimensional vector with real elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00337">337</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00346">346</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1139,7 @@ Variables</h2></td></tr>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a6b07c4ab9fed059070a16aef988ef47e" name="a6b07c4ab9fed059070a16aef988ef47e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b07c4ab9fed059070a16aef988ef47e">&#9670;&nbsp;</a></span>abs() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b07c4ab9fed059070a16aef988ef47e">&#9670;&nbsp;</a></span>abs() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1054,7 +1169,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="af401de70af5a47935a10a5c6432345a4" name="af401de70af5a47935a10a5c6432345a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af401de70af5a47935a10a5c6432345a4">&#9670;&nbsp;</a></span>abs() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af401de70af5a47935a10a5c6432345a4">&#9670;&nbsp;</a></span>abs() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1071,12 +1186,36 @@ Variables</h2></td></tr>
 
 <p>Compute the absolute value of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00099">99</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00102">102</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a8224b1ded554a53be41b73e53b9ebd55" name="a8224b1ded554a53be41b73e53b9ebd55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8224b1ded554a53be41b73e53b9ebd55">&#9670;&nbsp;</a></span>abs() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::abs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the absolute value of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00105">105</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a704e4dbb1a49880b5254940c03deca75" name="a704e4dbb1a49880b5254940c03deca75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a704e4dbb1a49880b5254940c03deca75">&#9670;&nbsp;</a></span>abs() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a704e4dbb1a49880b5254940c03deca75">&#9670;&nbsp;</a></span>abs() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1114,7 +1253,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ac540f3e3eb0eb81cdfe8a1e9fcc9ff89" name="ac540f3e3eb0eb81cdfe8a1e9fcc9ff89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac540f3e3eb0eb81cdfe8a1e9fcc9ff89">&#9670;&nbsp;</a></span>acos() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac540f3e3eb0eb81cdfe8a1e9fcc9ff89">&#9670;&nbsp;</a></span>acos() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1144,7 +1283,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="af1aa7e517a256696b2df86e6ab2c29bb" name="af1aa7e517a256696b2df86e6ab2c29bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1aa7e517a256696b2df86e6ab2c29bb">&#9670;&nbsp;</a></span>acos() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af1aa7e517a256696b2df86e6ab2c29bb">&#9670;&nbsp;</a></span>acos() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1161,12 +1300,36 @@ Variables</h2></td></tr>
 
 <p>Compute the arcsine of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00111">111</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00114">114</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="ab6860495d63050cf245a7e5e7df5afb2" name="ab6860495d63050cf245a7e5e7df5afb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6860495d63050cf245a7e5e7df5afb2">&#9670;&nbsp;</a></span>acos() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::acos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the arcsine of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00119">119</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a201dcc5069af3e9a8a570e5f729cfabf" name="a201dcc5069af3e9a8a570e5f729cfabf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a201dcc5069af3e9a8a570e5f729cfabf">&#9670;&nbsp;</a></span>acos() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a201dcc5069af3e9a8a570e5f729cfabf">&#9670;&nbsp;</a></span>acos() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1199,7 +1362,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The arccosine of x</dd></dl>
 <p>Domain: [-1, 1]. The identities \(asin(x) = atan(\frac{sqrt{1 - x^2}{x}})\) and \(asin(x) = atan(\frac{\sqrt{1 - x^2}{x}}) + \pi\) are used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00758">758</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00768">768</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2046,7 +2209,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a2b448863f52ef5f436e1232280de7607" name="a2b448863f52ef5f436e1232280de7607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b448863f52ef5f436e1232280de7607">&#9670;&nbsp;</a></span>asin() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b448863f52ef5f436e1232280de7607">&#9670;&nbsp;</a></span>asin() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2076,7 +2239,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="abd8a51bd76f9accdc767bc9c0f27346e" name="abd8a51bd76f9accdc767bc9c0f27346e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd8a51bd76f9accdc767bc9c0f27346e">&#9670;&nbsp;</a></span>asin() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abd8a51bd76f9accdc767bc9c0f27346e">&#9670;&nbsp;</a></span>asin() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2093,12 +2256,36 @@ Variables</h2></td></tr>
 
 <p>Compute the arcsine of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00105">105</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00108">108</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="aaa63cd624ea81dca4cc0a7ddbaec5b5c" name="aaa63cd624ea81dca4cc0a7ddbaec5b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa63cd624ea81dca4cc0a7ddbaec5b5c">&#9670;&nbsp;</a></span>asin() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::asin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the arcsine of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00112">112</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="ac8c8e6e8f1df04f3d53cce223c0ed231" name="ac8c8e6e8f1df04f3d53cce223c0ed231"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c8e6e8f1df04f3d53cce223c0ed231">&#9670;&nbsp;</a></span>asin() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8c8e6e8f1df04f3d53cce223c0ed231">&#9670;&nbsp;</a></span>asin() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2131,12 +2318,12 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The arcsine of x</dd></dl>
 <p>Domain: [-1, 1]. The identity \(asin(x) = atan(\frac{x}{\sqrt{1 - x^2}})\) is used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00740">740</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00750">750</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
 <a id="a0a0667b772d76cbbb622a5a0fc1a5996" name="a0a0667b772d76cbbb622a5a0fc1a5996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a0667b772d76cbbb622a5a0fc1a5996">&#9670;&nbsp;</a></span>atan() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0667b772d76cbbb622a5a0fc1a5996">&#9670;&nbsp;</a></span>atan() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2166,7 +2353,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a46acc3da8e5ebf9152672fd17e4c61d0" name="a46acc3da8e5ebf9152672fd17e4c61d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46acc3da8e5ebf9152672fd17e4c61d0">&#9670;&nbsp;</a></span>atan() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a46acc3da8e5ebf9152672fd17e4c61d0">&#9670;&nbsp;</a></span>atan() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2183,12 +2370,36 @@ Variables</h2></td></tr>
 
 <p>Compute the arcsine of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00116">116</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00120">120</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="aaf6dee4084156e0d6dbaf11214df023c" name="aaf6dee4084156e0d6dbaf11214df023c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6dee4084156e0d6dbaf11214df023c">&#9670;&nbsp;</a></span>atan() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::atan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the arcsine of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00125">125</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a97bef0001d8597c99924e3e089a0001b" name="a97bef0001d8597c99924e3e089a0001b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97bef0001d8597c99924e3e089a0001b">&#9670;&nbsp;</a></span>atan() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a97bef0001d8597c99924e3e089a0001b">&#9670;&nbsp;</a></span>atan() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2221,7 +2432,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The arctangent of x</dd></dl>
 <p>A degree 9 interpolating polynomial through Chebyshev nodes is used to approximate \(atan(x)\). Domain reduction to [-1, 1] is performed. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00716">716</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00726">726</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2270,7 +2481,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The counterclockwise angle between the vector described by x and y and the x axis.</dd></dl>
 <p>Computed using identities on atan(x). </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00779">779</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00789">789</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2318,7 +2529,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The binomial coefficient computed on (n, m) as \(\frac{n!}{m!(n - m)!}\) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00844">844</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00854">854</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2555,7 +2766,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 <dl class="section return"><dt>Returns</dt><dd>Returns x if x is between a and b, a if x is less than a, b if x is bigger than b</dd></dl>
 <p>If <code>UROBORO_FORCE_BRANCHLESS</code> is defined, a (potentially slower) implementation will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00243">243</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00253">253</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2600,7 +2811,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 </div>
 </div>
 <a id="a570ee927a447254fdfd1a4a1094bb6a4" name="a570ee927a447254fdfd1a4a1094bb6a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a570ee927a447254fdfd1a4a1094bb6a4">&#9670;&nbsp;</a></span>cos() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a570ee927a447254fdfd1a4a1094bb6a4">&#9670;&nbsp;</a></span>cos() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2630,7 +2841,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 </div>
 </div>
 <a id="a2ea299175a774545654beaed8ddc785a" name="a2ea299175a774545654beaed8ddc785a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea299175a774545654beaed8ddc785a">&#9670;&nbsp;</a></span>cos() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea299175a774545654beaed8ddc785a">&#9670;&nbsp;</a></span>cos() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2647,12 +2858,36 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 
 <p>Compute the cosine of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00057">57</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00060">60</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a091e2430f42a3d75146b59a6d3da97f5" name="a091e2430f42a3d75146b59a6d3da97f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a091e2430f42a3d75146b59a6d3da97f5">&#9670;&nbsp;</a></span>cos() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::cos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the cosine of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00056">56</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a4c80de6e99e529a1cd4889a8f73badee" name="a4c80de6e99e529a1cd4889a8f73badee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c80de6e99e529a1cd4889a8f73badee">&#9670;&nbsp;</a></span>cos() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c80de6e99e529a1cd4889a8f73badee">&#9670;&nbsp;</a></span>cos() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2685,7 +2920,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 <dl class="section return"><dt>Returns</dt><dd>The cosine of x</dd></dl>
 <p>On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fcos</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00601">601</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00611">611</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2723,12 +2958,12 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 <dl class="section return"><dt>Returns</dt><dd>The hyperbolic cosine of x</dd></dl>
 <p>\(cosh = \frac{e^x + e^{-x}}{2}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00815">815</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00825">825</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
 <a id="a329f18f2761787cc7987edb965711798" name="a329f18f2761787cc7987edb965711798"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a329f18f2761787cc7987edb965711798">&#9670;&nbsp;</a></span>cot() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a329f18f2761787cc7987edb965711798">&#9670;&nbsp;</a></span>cot() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2745,12 +2980,36 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 
 <p>Compute the cotangent of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00069">69</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00072">72</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a48389203b502ef178997c15e14b7336d" name="a48389203b502ef178997c15e14b7336d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48389203b502ef178997c15e14b7336d">&#9670;&nbsp;</a></span>cot() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::cot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the cotangent of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00070">70</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="aa444ee16de69d29a83cd35f880819677" name="aa444ee16de69d29a83cd35f880819677"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa444ee16de69d29a83cd35f880819677">&#9670;&nbsp;</a></span>cot() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa444ee16de69d29a83cd35f880819677">&#9670;&nbsp;</a></span>cot() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2783,7 +3042,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 <dl class="section return"><dt>Returns</dt><dd>The cotangent of x</dd></dl>
 <p>On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fsincos</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00681">681</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00691">691</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2820,7 +3079,7 @@ The Newton-Raphson algorithm, optimized for the cubic root and limited by the <c
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The hyperbolic cotangent of x </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00833">833</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00843">843</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -2895,12 +3154,12 @@ template&lt;typename T &gt; </div>
 <p>Compute the cross product of two vectors. </p>
 <p >The vectors have to be 3-dimensional </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00391">391</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00400">400</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
 <a id="a5da2ee92d995ef6cb6b8049f2d201431" name="a5da2ee92d995ef6cb6b8049f2d201431"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5da2ee92d995ef6cb6b8049f2d201431">&#9670;&nbsp;</a></span>cube() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da2ee92d995ef6cb6b8049f2d201431">&#9670;&nbsp;</a></span>cube() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2930,7 +3189,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a42679d879981b3ae02094b94cab88fcd" name="a42679d879981b3ae02094b94cab88fcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42679d879981b3ae02094b94cab88fcd">&#9670;&nbsp;</a></span>cube() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a42679d879981b3ae02094b94cab88fcd">&#9670;&nbsp;</a></span>cube() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2947,12 +3206,36 @@ template&lt;typename T &gt; </div>
 
 <p>Return the cube of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00033">33</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00034">34</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a7902b4b155b272959ff56021e3b59e3d" name="a7902b4b155b272959ff56021e3b59e3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7902b4b155b272959ff56021e3b59e3d">&#9670;&nbsp;</a></span>cube() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::cube </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the cube of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00026">26</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="afa8569031932cdaae020bd9bff74ee70" name="afa8569031932cdaae020bd9bff74ee70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa8569031932cdaae020bd9bff74ee70">&#9670;&nbsp;</a></span>cube() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afa8569031932cdaae020bd9bff74ee70">&#9670;&nbsp;</a></span>cube() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3083,7 +3366,7 @@ template&lt;unsigned int N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The converted angle in degrees</dd></dl>
 <p>The <code>RAD2DEG</code> scalar factor is used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00877">877</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00887">887</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -3135,7 +3418,7 @@ template&lt;unsigned int N&gt; </div>
 
 <p>Compute the (Euclidian) distance between two values. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00341">341</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00350">350</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -3169,7 +3452,92 @@ template&lt;unsigned int N, typename T &gt; </div>
 
 <p>Compute the distance between two points. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00348">348</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00357">357</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+
+</div>
+</div>
+<a id="a0f900c9e5e4c151f7c8654cc7889052a" name="a0f900c9e5e4c151f7c8654cc7889052a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f900c9e5e4c151f7c8654cc7889052a">&#9670;&nbsp;</a></span>divergence() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> uroboro::divergence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1dual.html">dual</a>(*)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1dual.html">dual</a> &gt;)&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. </p>
+<p >The multidual implementation is more efficient as it does not need to compute the function value N times and should be preferred. </p>
+
+<p class="definition">Definition at line <a class="el" href="autodiff_8h_source.html#l00073">73</a> of file <a class="el" href="autodiff_8h_source.html">autodiff.h</a>.</p>
+
+</div>
+</div>
+<a id="aa958be15dc457ca9954273beb7326443" name="aa958be15dc457ca9954273beb7326443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa958be15dc457ca9954273beb7326443">&#9670;&nbsp;</a></span>divergence() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> uroboro::divergence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; &gt;)&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. </p>
+
+<p class="definition">Definition at line <a class="el" href="autodiff_8h_source.html#l00054">54</a> of file <a class="el" href="autodiff_8h_source.html">autodiff.h</a>.</p>
 
 </div>
 </div>
@@ -3203,12 +3571,12 @@ template&lt;unsigned int N, typename T &gt; </div>
 
 <p>Compute the dot product of two vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00383">383</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00392">392</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
 <a id="a868bb7a7607e8298d1bece814ecdc15d" name="a868bb7a7607e8298d1bece814ecdc15d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a868bb7a7607e8298d1bece814ecdc15d">&#9670;&nbsp;</a></span>exp() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a868bb7a7607e8298d1bece814ecdc15d">&#9670;&nbsp;</a></span>exp() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3238,7 +3606,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </div>
 </div>
 <a id="a77c01bd44a7c610929755fa1b3f8c02f" name="a77c01bd44a7c610929755fa1b3f8c02f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77c01bd44a7c610929755fa1b3f8c02f">&#9670;&nbsp;</a></span>exp() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a77c01bd44a7c610929755fa1b3f8c02f">&#9670;&nbsp;</a></span>exp() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3255,12 +3623,36 @@ template&lt;unsigned int N, typename T &gt; </div>
 
 <p>Compute the exponential of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00075">75</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00078">78</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a47c135e3bcb42b0770c03def8ee48202" name="a47c135e3bcb42b0770c03def8ee48202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47c135e3bcb42b0770c03def8ee48202">&#9670;&nbsp;</a></span>exp() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::exp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the exponential of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00077">77</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="aca621468c789d4e3b7269a546d93d13c" name="aca621468c789d4e3b7269a546d93d13c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca621468c789d4e3b7269a546d93d13c">&#9670;&nbsp;</a></span>exp() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aca621468c789d4e3b7269a546d93d13c">&#9670;&nbsp;</a></span>exp() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3293,7 +3685,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The exponential of x</dd></dl>
 <p>The exponential is computed as \(e^{floor(x)} e^{fract(x)}\), where \(e^{floor(x)} = pow(e, floor(x))\) and \(e^{fract(x)}\) is either approximated using Taylor series on [0, 0.5] or, if <code>UROBORO_X86</code> is defined, using the <code>f2xm1</code> x86 assembly instruction. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00493">493</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00503">503</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -3323,7 +3715,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 
 <p>Compute the factorial of n. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00462">462</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00472">472</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -3434,7 +3826,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </div>
 </div>
 <a id="a485e6d84e73ba82d77940d49011a12ac" name="a485e6d84e73ba82d77940d49011a12ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a485e6d84e73ba82d77940d49011a12ac">&#9670;&nbsp;</a></span>gradient()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a485e6d84e73ba82d77940d49011a12ac">&#9670;&nbsp;</a></span>gradient() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3470,8 +3862,51 @@ template&lt;unsigned int N&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. </p>
+<p >The multidual implementation is more efficient as it does not need to compute the function value N times and should be preferred. </p>
 
-<p class="definition">Definition at line <a class="el" href="autodiff_8h_source.html#l00019">19</a> of file <a class="el" href="autodiff_8h_source.html">autodiff.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="autodiff_8h_source.html#l00032">32</a> of file <a class="el" href="autodiff_8h_source.html">autodiff.h</a>.</p>
+
+</div>
+</div>
+<a id="a375c70dae70848e7b7177c8eb0b2fc1f" name="a375c70dae70848e7b7177c8eb0b2fc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375c70dae70848e7b7177c8eb0b2fc1f">&#9670;&nbsp;</a></span>gradient() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; uroboro::gradient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; &gt;)&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. </p>
+
+<p class="definition">Definition at line <a class="el" href="autodiff_8h_source.html#l00020">20</a> of file <a class="el" href="autodiff_8h_source.html">autodiff.h</a>.</p>
 
 </div>
 </div>
@@ -3860,7 +4295,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if i is equal to j, 0 otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00888">888</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00898">898</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -4380,12 +4815,12 @@ template&lt;unsigned int N, typename T &gt; </div>
 <p>Compute the Linf norm of a vector. </p>
 <p >\(L_{inf}(\vec v) = max(|v_i|)\) </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00370">370</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00379">379</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
 <a id="a3443ec9e1caf87193013b7b1acaef7c9" name="a3443ec9e1caf87193013b7b1acaef7c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3443ec9e1caf87193013b7b1acaef7c9">&#9670;&nbsp;</a></span>ln() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3443ec9e1caf87193013b7b1acaef7c9">&#9670;&nbsp;</a></span>ln() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4415,7 +4850,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </div>
 </div>
 <a id="acec648ec6fd5b5a42fd42e95c27a1da5" name="acec648ec6fd5b5a42fd42e95c27a1da5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acec648ec6fd5b5a42fd42e95c27a1da5">&#9670;&nbsp;</a></span>ln() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acec648ec6fd5b5a42fd42e95c27a1da5">&#9670;&nbsp;</a></span>ln() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4432,12 +4867,36 @@ template&lt;unsigned int N, typename T &gt; </div>
 
 <p>Compute the natural logarithm of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00081">81</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00084">84</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a71ef54d8b08d5f510d36d1e585bce593" name="a71ef54d8b08d5f510d36d1e585bce593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ef54d8b08d5f510d36d1e585bce593">&#9670;&nbsp;</a></span>ln() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::ln </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the natural logarithm of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00084">84</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a243780f8ccaf65798a52f9b56d76712a" name="a243780f8ccaf65798a52f9b56d76712a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a243780f8ccaf65798a52f9b56d76712a">&#9670;&nbsp;</a></span>ln() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a243780f8ccaf65798a52f9b56d76712a">&#9670;&nbsp;</a></span>ln() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4471,12 +4930,12 @@ template&lt;unsigned int N, typename T &gt; </div>
 <p>Domain: (0, +inf] <br  />
 On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00360">360</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00370">370</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
 <a id="af26e702557cd6eedd1788ba737ed87e6" name="af26e702557cd6eedd1788ba737ed87e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af26e702557cd6eedd1788ba737ed87e6">&#9670;&nbsp;</a></span>log10() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af26e702557cd6eedd1788ba737ed87e6">&#9670;&nbsp;</a></span>log10() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4493,12 +4952,36 @@ On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</c
 
 <p>Compute the natural logarithm of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00093">93</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00096">96</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="ac0a19bb87a4214ed5673af489e4cb03a" name="ac0a19bb87a4214ed5673af489e4cb03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a19bb87a4214ed5673af489e4cb03a">&#9670;&nbsp;</a></span>log10() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::log10 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the natural logarithm of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00098">98</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a18975d035aa181d47e6228eda5c70e00" name="a18975d035aa181d47e6228eda5c70e00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18975d035aa181d47e6228eda5c70e00">&#9670;&nbsp;</a></span>log10() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18975d035aa181d47e6228eda5c70e00">&#9670;&nbsp;</a></span>log10() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4532,12 +5015,12 @@ On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</c
 <p>Domain: (0, +inf] <br  />
 On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00332">332</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00342">342</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
 <a id="a1d3de3aa0f19029a7f6bbd5461d4c510" name="a1d3de3aa0f19029a7f6bbd5461d4c510"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d3de3aa0f19029a7f6bbd5461d4c510">&#9670;&nbsp;</a></span>log2() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d3de3aa0f19029a7f6bbd5461d4c510">&#9670;&nbsp;</a></span>log2() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4554,12 +5037,36 @@ On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</c
 
 <p>Compute the natural logarithm of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00087">87</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00090">90</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a106c0d396e58c3cfd4124b8b9bf4d306" name="a106c0d396e58c3cfd4124b8b9bf4d306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106c0d396e58c3cfd4124b8b9bf4d306">&#9670;&nbsp;</a></span>log2() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::log2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the natural logarithm of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00091">91</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a4c0c174974b70187583a5f31e2736f73" name="a4c0c174974b70187583a5f31e2736f73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0c174974b70187583a5f31e2736f73">&#9670;&nbsp;</a></span>log2() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0c174974b70187583a5f31e2736f73">&#9670;&nbsp;</a></span>log2() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4593,7 +5100,7 @@ On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</c
 <p>Domain: (0, +inf] <br  />
 On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fyl2x</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00304">304</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00314">314</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -4674,7 +5181,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 <p>Compute the Lp norm of a vector. </p>
 <p >\(L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00356">356</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00365">365</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -4903,7 +5410,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </div>
 </div>
 <a id="ab1dcc0c7e6954c69a1d7c28e39322207" name="ab1dcc0c7e6954c69a1d7c28e39322207"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1dcc0c7e6954c69a1d7c28e39322207">&#9670;&nbsp;</a></span>max()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dcc0c7e6954c69a1d7c28e39322207">&#9670;&nbsp;</a></span>max() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4948,6 +5455,46 @@ template&lt;unsigned int N, typename T &gt; </div>
 <p>If <code>UROBORO_BRANCHLESS</code> is defined, a branchless implementation will be used </p>
 
 <p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00207">207</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+
+</div>
+</div>
+<a id="a6ede999fe7236c1deac996e47c64e003" name="a6ede999fe7236c1deac996e47c64e003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ede999fe7236c1deac996e47c64e003">&#9670;&nbsp;</a></span>max() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T uroboro::max </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00217">217</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -5012,7 +5559,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </div>
 </div>
 <a id="a2ba3e34d5c2a1cc7dffa4cd3990527ac" name="a2ba3e34d5c2a1cc7dffa4cd3990527ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ba3e34d5c2a1cc7dffa4cd3990527ac">&#9670;&nbsp;</a></span>min()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba3e34d5c2a1cc7dffa4cd3990527ac">&#9670;&nbsp;</a></span>min() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5056,7 +5603,47 @@ template&lt;unsigned int N, typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The smallest number between x and y</dd></dl>
 <p>If <code>UROBORO_BRANCHLESS</code> is defined, a branchless implementation will be used </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00224">224</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00229">229</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+
+</div>
+</div>
+<a id="ac40c52735c8ade1b4ff12a008a454194" name="ac40c52735c8ade1b4ff12a008a454194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40c52735c8ade1b4ff12a008a454194">&#9670;&nbsp;</a></span>min() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T uroboro::min </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00239">239</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -5138,7 +5725,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a20610cac6a2119040f21cb50cfece965" name="a20610cac6a2119040f21cb50cfece965"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20610cac6a2119040f21cb50cfece965">&#9670;&nbsp;</a></span>pow() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20610cac6a2119040f21cb50cfece965">&#9670;&nbsp;</a></span>pow() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5165,12 +5752,46 @@ template&lt;unsigned int N&gt; </div>
 
 <p>Compute the n-th power of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00038">38</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00040">40</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a64d45c40b4a324d719c8b4a5f51de7d3" name="a64d45c40b4a324d719c8b4a5f51de7d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d45c40b4a324d719c8b4a5f51de7d3">&#9670;&nbsp;</a></span>pow() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::pow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the n-th power of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00033">33</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a93c3ae5b8c783025bd7f678776f70f50" name="a93c3ae5b8c783025bd7f678776f70f50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93c3ae5b8c783025bd7f678776f70f50">&#9670;&nbsp;</a></span>pow() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c3ae5b8c783025bd7f678776f70f50">&#9670;&nbsp;</a></span>pow() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5215,7 +5836,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>x to the power n </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00386">386</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00396">396</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -5263,7 +5884,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>a A real exponent</dd></dl>
 <p>Approximated as \(e^{a ln(|x|) sgn(x)}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00532">532</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00542">542</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -5647,7 +6268,104 @@ template&lt;unsigned int N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The converted angle in radians</dd></dl>
 <p>The <code>DEG2RAD</code> scalar factor is used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00867">867</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00877">877</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+
+</div>
+</div>
+<a id="af80e6605fd98f1d1c719e1194b61bb6e" name="af80e6605fd98f1d1c719e1194b61bb6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80e6605fd98f1d1c719e1194b61bb6e">&#9670;&nbsp;</a></span>rand_congruential() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int uroboro::rand_congruential </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Congruential pseudorandom number generation algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The current recurrence value of the algorithm (x_n) </td></tr>
+    <tr><td class="paramname">state</td><td>A vector containing the state of the algorithm (a, c, m in this order) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next generated pseudorandom number</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002" title="Congruential pseudorandom number generation algorithm.">rand_congruential(unsigned int, unsigned int, unsigned int, unsigned int)</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pseudorandom__algo_8h_source.html#l00046">46</a> of file <a class="el" href="pseudorandom__algo_8h_source.html">pseudorandom_algo.h</a>.</p>
+
+</div>
+</div>
+<a id="a0bcc6de750c98323c5b64358307f7002" name="a0bcc6de750c98323c5b64358307f7002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcc6de750c98323c5b64358307f7002">&#9670;&nbsp;</a></span>rand_congruential() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int uroboro::rand_congruential </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>a</em> = <code>48271</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>c</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>m</em> = <code>((unsigned&#160;int)&#160;1&#160;&lt;&lt;&#160;31)&#160;-&#160;1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Congruential pseudorandom number generation algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The current recurrence value of the algorithm (x_n) </td></tr>
+    <tr><td class="paramname">a</td><td>The multiplier term </td></tr>
+    <tr><td class="paramname">c</td><td>The increment term </td></tr>
+    <tr><td class="paramname">m</td><td>The modulus term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next generated pseudorandom number</dd></dl>
+<p>The congruential generator is defined by the recurrence formula \(x_{n+1} = (a x_n + c) mod m\) <br  />
+If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 &lt;&lt; 31) - 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="pseudorandom__algo_8h_source.html#l00030">30</a> of file <a class="el" href="pseudorandom__algo_8h_source.html">pseudorandom_algo.h</a>.</p>
 
 </div>
 </div>
@@ -5902,7 +6620,7 @@ template&lt;unsigned int N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The n-th real root of x</dd></dl>
 <p>The Newton-Raphson method is used, limited by the <code>UROBORO_MAX_NEWTON_ITER</code> macro constant. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00426">426</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00436">436</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -6144,7 +6862,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a393e051a38c35d2cb7347695be536eda" name="a393e051a38c35d2cb7347695be536eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a393e051a38c35d2cb7347695be536eda">&#9670;&nbsp;</a></span>sin() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a393e051a38c35d2cb7347695be536eda">&#9670;&nbsp;</a></span>sin() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6174,7 +6892,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a2e603003dacef6b8e672523497d83b9a" name="a2e603003dacef6b8e672523497d83b9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e603003dacef6b8e672523497d83b9a">&#9670;&nbsp;</a></span>sin() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e603003dacef6b8e672523497d83b9a">&#9670;&nbsp;</a></span>sin() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6191,12 +6909,36 @@ template&lt;unsigned int N&gt; </div>
 
 <p>Compute the sine of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00051">51</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00054">54</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a701a39619ec48dcfd798ebb32e8b1af4" name="a701a39619ec48dcfd798ebb32e8b1af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a701a39619ec48dcfd798ebb32e8b1af4">&#9670;&nbsp;</a></span>sin() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::sin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the sine of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00049">49</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a0491c7cf41f0b530de54fc987d791147" name="a0491c7cf41f0b530de54fc987d791147"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0491c7cf41f0b530de54fc987d791147">&#9670;&nbsp;</a></span>sin() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0491c7cf41f0b530de54fc987d791147">&#9670;&nbsp;</a></span>sin() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6229,7 +6971,7 @@ template&lt;unsigned int N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The sine of x</dd></dl>
 <p>On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fsin</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00548">548</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00558">558</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -6267,7 +7009,7 @@ template&lt;unsigned int N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The hyperbolic sine of x</dd></dl>
 <p>\(sinh = \frac{e^x - e^{-x}}{2}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00804">804</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00814">814</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -6556,7 +7298,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a3b35749cf3679098c019135892a662fc" name="a3b35749cf3679098c019135892a662fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b35749cf3679098c019135892a662fc">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b35749cf3679098c019135892a662fc">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6586,7 +7328,7 @@ template&lt;unsigned int N&gt; </div>
 </div>
 </div>
 <a id="a1a4d279ecbefc8806cabfb3731b90b78" name="a1a4d279ecbefc8806cabfb3731b90b78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a4d279ecbefc8806cabfb3731b90b78">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4d279ecbefc8806cabfb3731b90b78">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6603,12 +7345,36 @@ template&lt;unsigned int N&gt; </div>
 
 <p>Compute the square root of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00044">44</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00047">47</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="a3b2958f04ec8a4578b9da331ae364d90" name="a3b2958f04ec8a4578b9da331ae364d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b2958f04ec8a4578b9da331ae364d90">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the square root of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00041">41</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="ab96d642a803b7e4df038f74dbc2815c0" name="ab96d642a803b7e4df038f74dbc2815c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab96d642a803b7e4df038f74dbc2815c0">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab96d642a803b7e4df038f74dbc2815c0">&#9670;&nbsp;</a></span>sqrt() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6647,7 +7413,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 </div>
 </div>
 <a id="add1152ad0edbea0fa62a49c964e59caa" name="add1152ad0edbea0fa62a49c964e59caa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add1152ad0edbea0fa62a49c964e59caa">&#9670;&nbsp;</a></span>square() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add1152ad0edbea0fa62a49c964e59caa">&#9670;&nbsp;</a></span>square() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6677,7 +7443,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 </div>
 </div>
 <a id="aafdea1a9d10f9ceb85941a764bdf5948" name="aafdea1a9d10f9ceb85941a764bdf5948"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafdea1a9d10f9ceb85941a764bdf5948">&#9670;&nbsp;</a></span>square() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aafdea1a9d10f9ceb85941a764bdf5948">&#9670;&nbsp;</a></span>square() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6698,8 +7464,32 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 
 </div>
 </div>
+<a id="a05c0893a578a218fc92cd83574f48166" name="a05c0893a578a218fc92cd83574f48166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c0893a578a218fc92cd83574f48166">&#9670;&nbsp;</a></span>square() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::square </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the square of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00019">19</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
+
+</div>
+</div>
 <a id="a2af827d6b4ec40c45e5035c8c955cb48" name="a2af827d6b4ec40c45e5035c8c955cb48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2af827d6b4ec40c45e5035c8c955cb48">&#9670;&nbsp;</a></span>square() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2af827d6b4ec40c45e5035c8c955cb48">&#9670;&nbsp;</a></span>square() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6917,7 +7707,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 </div>
 </div>
 <a id="adb4e1c13505e36b747d20779be614b44" name="adb4e1c13505e36b747d20779be614b44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb4e1c13505e36b747d20779be614b44">&#9670;&nbsp;</a></span>tan() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb4e1c13505e36b747d20779be614b44">&#9670;&nbsp;</a></span>tan() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6947,7 +7737,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 </div>
 </div>
 <a id="a979a3ccba375f2daa102776791a0dc83" name="a979a3ccba375f2daa102776791a0dc83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a979a3ccba375f2daa102776791a0dc83">&#9670;&nbsp;</a></span>tan() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a979a3ccba375f2daa102776791a0dc83">&#9670;&nbsp;</a></span>tan() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6964,12 +7754,36 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 
 <p>Compute the tangent of a dual number. </p>
 
-<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00063">63</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dual__functions_8h_source.html#l00066">66</a> of file <a class="el" href="dual__functions_8h_source.html">dual_functions.h</a>.</p>
+
+</div>
+</div>
+<a id="ad66a050bac22b18d204b4f657e3284d5" name="ad66a050bac22b18d204b4f657e3284d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66a050bac22b18d204b4f657e3284d5">&#9670;&nbsp;</a></span>tan() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt; uroboro::tan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; N &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the tangent of a multidual number. </p>
+
+<p class="definition">Definition at line <a class="el" href="multidual__functions_8h_source.html#l00063">63</a> of file <a class="el" href="multidual__functions_8h_source.html">multidual_functions.h</a>.</p>
 
 </div>
 </div>
 <a id="a3b0d8ff530ddfc3c372fe19d373ebc8d" name="a3b0d8ff530ddfc3c372fe19d373ebc8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b0d8ff530ddfc3c372fe19d373ebc8d">&#9670;&nbsp;</a></span>tan() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b0d8ff530ddfc3c372fe19d373ebc8d">&#9670;&nbsp;</a></span>tan() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7002,7 +7816,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 <dl class="section return"><dt>Returns</dt><dd>The tangent of x</dd></dl>
 <p>On x86 architectures, if <code>UROBORO_X86</code> is defined, the <code>fsincos</code> instruction will be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00647">647</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00657">657</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -7039,7 +7853,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The hyperbolic tangent of x </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00824">824</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="real__analysis_8h_source.html#l00834">834</a> of file <a class="el" href="real__analysis_8h_source.html">real_analysis.h</a>.</p>
 
 </div>
 </div>
@@ -7982,7 +8796,7 @@ The Newton-Raphson algorithm, optimized for the square root and limited by the <
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuroboro.html">uroboro</a></li>
-    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 6 2022 14:56:31 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

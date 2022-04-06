@@ -1,4 +1,6 @@
 
+/// @file test_algebra.cpp Test cases for linear algebra
+
 #include "../src/uroboro.h"
 #include <cmath>
 

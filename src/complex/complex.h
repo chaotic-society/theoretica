@@ -30,7 +30,7 @@ namespace  uroboro {
 			real a; // Real part
 			real b; // Imaginary part
 
-			/// Initialize as (0 + i0)
+			/// Initialize as \f$(0 + i0)\f$
 			complex() : a(0), b(0) {}
 
 			/// Initialize from a real number (zero imaginary part)

@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Uroboro Math Library", "index.html", [
-    [ "Examples", "md_e_x_a_m_p_l_e_s.html", [
+    [ "Examples", "md__e_x_a_m_p_l_e_s.html", [
       [ "Dependencies", "index.html#autotoc_md0", null ],
       [ "Functionalities", "index.html#autotoc_md1", null ],
       [ "Usage", "index.html#autotoc_md2", null ],
@@ -42,19 +42,20 @@ var NAVTREE =
       ] ],
       [ "Contributing", "index.html#autotoc_md12", null ],
       [ "License", "index.html#autotoc_md13", null ],
-      [ "Including library headers", "md_e_x_a_m_p_l_e_s.html#autotoc_md15", null ],
-      [ "Using vectors", "md_e_x_a_m_p_l_e_s.html#autotoc_md16", null ],
-      [ "Using matrices", "md_e_x_a_m_p_l_e_s.html#autotoc_md17", null ],
-      [ "Using complex numbers", "md_e_x_a_m_p_l_e_s.html#autotoc_md18", null ],
-      [ "Using quaternions", "md_e_x_a_m_p_l_e_s.html#autotoc_md19", null ],
-      [ "Using polynomials", "md_e_x_a_m_p_l_e_s.html#autotoc_md20", null ],
-      [ "Using statistical functions", "md_e_x_a_m_p_l_e_s.html#autotoc_md21", null ]
+      [ "Including library headers", "md__e_x_a_m_p_l_e_s.html#autotoc_md15", null ],
+      [ "Using vectors", "md__e_x_a_m_p_l_e_s.html#autotoc_md16", null ],
+      [ "Using matrices", "md__e_x_a_m_p_l_e_s.html#autotoc_md17", null ],
+      [ "Using complex numbers", "md__e_x_a_m_p_l_e_s.html#autotoc_md18", null ],
+      [ "Using quaternions", "md__e_x_a_m_p_l_e_s.html#autotoc_md19", null ],
+      [ "Using polynomials", "md__e_x_a_m_p_l_e_s.html#autotoc_md20", null ],
+      [ "Using statistical functions", "md__e_x_a_m_p_l_e_s.html#autotoc_md21", null ]
     ] ],
-    [ "List of features", "md_f_e_a_t_u_r_e_s.html", null ],
-    [ "Project structure", "md_p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html", [
-      [ "The src folder", "md_p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md24", null ],
-      [ "The test folder", "md_p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md25", null ]
+    [ "List of features", "md__f_e_a_t_u_r_e_s.html", null ],
+    [ "Project structure", "md__p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html", [
+      [ "The src folder", "md__p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md24", null ],
+      [ "The test folder", "md__p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md25", null ]
     ] ],
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -69,8 +70,8 @@ var NAVTREE =
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -87,9 +88,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classuroboro_1_1quat.html#ad1cece7c7d7c90765df6a429f35bd3df",
-"md_p_r_o_j_e_c_t__s_t_r_u_c_t_u_r_e.html#autotoc_md25",
-"quat_8h.html"
+"classuroboro_1_1mat.html#af0467ff6a9e30f3736ac4fa79f250a3b",
+"constants_8h.html#a719626095b824ca3ca2007f1b3232876",
+"namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323",
+"real__analysis_8h.html#a028faad6699bfda36b6a0259bb46c461"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -14,7 +14,7 @@ namespace uroboro {
 	/// 
 	/// @class multidual
 	/// Multidual number algebra for functions
-	/// of the form \f$f: \mathbb{R}^n \rarrow \mathbb{R}\f$
+	/// of the form \f$f: \mathbb{R}^n \rightarrow \mathbb{R}\f$
 	///
 	template<unsigned int N>
 	class multidual {
@@ -220,6 +220,9 @@ namespace uroboro {
 			}
 
 
+			/// Construct an N-dimensional vector of multidual numbers
+			/// to be passed as argument to a multidual function
+			/// @param x A vector of real numbers containing the variables to pass
 			inline static vec<N, multidual<N>> pack_function_arg(vec<N, real> x) {
 
 				vec<N, multidual<N>> arg;

@@ -35,7 +35,7 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">Uroboro Math Library
    </div>
-   <div id="projectbrief">A C++ mathematical library</div>
+   <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
  </tr>
  </tbody>
@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('autodiff_8h.html',''); initResizable()
 <p>Automatic differentiation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="dual_8h_source.html">dual.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="multidual_8h_source.html">multidual.h</a>&quot;</code><br />
 </div>
 <p><a href="autodiff_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -112,10 +113,22 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a375c70dae70848e7b7177c8eb0b2fc1f">uroboro::gradient</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N, real &gt; x)</td></tr>
+<tr class="memdesc:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a375c70dae70848e7b7177c8eb0b2fc1f">More...</a><br /></td></tr>
+<tr class="separator:a375c70dae70848e7b7177c8eb0b2fc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485e6d84e73ba82d77940d49011a12ac"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a485e6d84e73ba82d77940d49011a12ac"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a485e6d84e73ba82d77940d49011a12ac">uroboro::gradient</a> (dual(*f)(vec&lt; N, dual &gt;), vec&lt; N, real &gt; x)</td></tr>
 <tr class="memdesc:a485e6d84e73ba82d77940d49011a12ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a485e6d84e73ba82d77940d49011a12ac">More...</a><br /></td></tr>
 <tr class="separator:a485e6d84e73ba82d77940d49011a12ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa958be15dc457ca9954273beb7326443"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aa958be15dc457ca9954273beb7326443"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa958be15dc457ca9954273beb7326443">uroboro::divergence</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N, real &gt; x)</td></tr>
+<tr class="memdesc:aa958be15dc457ca9954273beb7326443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#aa958be15dc457ca9954273beb7326443">More...</a><br /></td></tr>
+<tr class="separator:aa958be15dc457ca9954273beb7326443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0f900c9e5e4c151f7c8654cc7889052a">uroboro::divergence</a> (dual(*f)(vec&lt; N, dual &gt;), vec&lt; N, real &gt; x)</td></tr>
+<tr class="memdesc:a0f900c9e5e4c151f7c8654cc7889052a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespaceuroboro.html#a0f900c9e5e4c151f7c8654cc7889052a">More...</a><br /></td></tr>
+<tr class="separator:a0f900c9e5e4c151f7c8654cc7889052a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Automatic differentiation. </p>
@@ -127,7 +140,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff_8h.html">autodiff.h</a></li>
-    <li class="footer">Generated on Fri Apr 1 2022 11:57:17 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 6 2022 14:56:30 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -1,6 +1,6 @@
 
 ///
-/// @file Functions defined on multidual numbers for
+/// @file multidual_functions.h Functions defined on multidual numbers for
 /// automatic differentiation of multivariable real functions
 
 
