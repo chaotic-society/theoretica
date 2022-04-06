@@ -34,6 +34,8 @@
 #include "./statistics/distributions.h"
 #include "./autodiff/dual.h"
 #include "./autodiff/dual_functions.h"
+#include "./autodiff/multidual.h"
+#include "./autodiff/multidual_functions.h"
 #include "./autodiff/autodiff.h"
 #include "./pseudorandom/pseudorandom_algo.h"
 #include "./pseudorandom/prng.h"

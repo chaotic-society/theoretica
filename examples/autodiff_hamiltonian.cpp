@@ -11,7 +11,7 @@
 using namespace umath;
 
 
-dual harmonic_oscillator(vec<2, dual> eta) {
+multidual<2> harmonic_oscillator(vec<2, multidual<2>> eta) {
 
 	const real omega = 1;
 	const real m = 1;
@@ -20,7 +20,7 @@ dual harmonic_oscillator(vec<2, dual> eta) {
 }
 
 
-dual pendulum(vec<2, dual> eta) {
+multidual<2> pendulum(vec<2, multidual<2>> eta) {
 
 	const real l = 1;
 	const real m = 1;

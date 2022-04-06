@@ -18,72 +18,74 @@
 namespace uroboro {
 
 
+	///
 	/// @class dual
 	/// Dual number class.
 	/// Implemented as (a + b*epsilon)
 	/// where epsilon is such that epsilon^2 = 0
+	///
 	class dual {
 		public:
 
 			real a; // Real part
 			real b; // "Dual" part
 
-			// Default constructor, initialize with null values
+			/// Default constructor, initialize with null values
 			dual() : a(0), b(0) {}
 
-			// Initialize from two real numbers
+			/// Initialize from two real numbers
 			dual(real real_part, real dual_part)
 				: a(real_part), b(dual_part) {}
 
-			// Initialize from a real number
+			/// Initialize from a real number
 			dual(real real_part)
 				: a(real_part), b(0) {}
 
 			~dual() = default;
 		
-			// Initialize from a vec2
+			/// Initialize from a vec2
 			dual(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
 			}
 
-			// Initialize a dual number from a vec2
+			/// Initialize a dual number from a vec2
 			inline dual& operator=(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
 				return *this;
 			}
 
-			// Initialize a dual number from a real number
+			/// Initialize a dual number from a real number
 			inline dual& operator=(real x) {
 				a = x;
 				b = 0;
 				return *this;
 			}
 
-			// Initialize a dual number from a std::array
+			/// Initialize a dual number from a std::array
 			inline dual& operator=(const std::array<real, 2>& v) {
 				a = v[0];
 				b = v[1];
 				return *this;
 			}
 
-			// Return real part
+			/// Return real part
 			inline real Re() const {
 				return a;
 			}
 
-			// Return dual part
+			/// Return dual part
 			inline real Dual() const {
 				return b;
 			}
 
-			// Get the dual conjugate
+			/// Get the dual conjugate
 			inline dual conjugate() const {
 				return dual(a, -b);
 			}
 
-			// Get the inverse of a dual number
+			/// Get the inverse of a dual number
 			inline dual inverse() const {
 
 				if(a == 0) {
@@ -94,66 +96,66 @@ namespace uroboro {
 				return dual(1.0 / a, -b / square(a));
 			}
 
-			// Identity (for consistency)
+			/// Identity (for consistency)
 			inline dual operator+() const {
 				return dual(a, b);
 			}
 
-			// Sum two dual numbers
+			/// Sum two dual numbers
 			inline dual operator+(const dual& other) const {
 				return dual(a + other.a, b + other.b);
 			}
 
-			// Sum a real number to a dual number
+			/// Sum a real number to a dual number
 			inline dual operator+(real r) const {
 				return dual(a + r, b);
 			}
 
-			// Get the opposite of a dual number
+			/// Get the opposite of a dual number
 			inline dual operator-() const {
 				return dual(-a, -b);
 			}
 
-			// Subtract two dual numbers
+			/// Subtract two dual numbers
 			inline dual operator-(const dual& other) const {
 				return dual(a - other.a, b - other.b);
 			}
 
-			// Subtract a real number from a dual number
+			/// Subtract a real number from a dual number
 			inline dual operator-(real r) const {
 				return dual(a - r, b);
 			}
 
-			// Multiply two dual numbers
+			/// Multiply two dual numbers
 			inline dual operator*(const dual& other) const {
 				return dual(a * other.a, a * other.b + b * other.a);
 			}
 
-			// Multiply a dual number by a real number
+			/// Multiply a dual number by a real number
 			inline dual operator*(real r) const {
 				return dual(a * r, b * r);
 			}
 
-			// Dual division
+			/// Dual division
 			inline dual operator/(const dual& other) const {
 				return dual(a / other.a,
 					(b * other.a - a * other.b) / square(other.a));
 			}
 
-			// Divide a dual number by a real number
+			/// Divide a dual number by a real number
 			inline dual operator/(real r) const {
 				return dual(a / r, b / r);
 			}
 
 
-			// Sum a real number to this dual number
+			/// Sum a real number to this dual number
 			inline dual& operator+=(real r) {
 
 				a += r;
 				return *this;
 			}
 
-			// Subtract a real number from this one
+			/// Subtract a real number from this one
 			inline dual& operator-=(const dual& other) {
 
 				a -= other.a;
@@ -161,14 +163,14 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Subtract a real number from this dual number
+			/// Subtract a real number from this dual number
 			inline dual& operator-=(real r) {
 
 				a -= r;
 				return *this;
 			}
 
-			// Multiply this dual number by another one
+			/// Multiply this dual number by another one
 			inline dual& operator*=(const dual& other) {
 
 				a = (a * other.a);
@@ -176,7 +178,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Multiply this dual number by a real number
+			/// Multiply this dual number by a real number
 			inline dual& operator*=(real r) {
 
 				a *= r;
@@ -184,7 +186,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Divide this dual number by another one
+			/// Divide this dual number by another one
 			inline dual& operator/=(const dual& other) {
 
 				a = (a / other.a);
@@ -192,7 +194,7 @@ namespace uroboro {
 				return *this;
 			}
 
-			// Divide a dual number by a real number
+			/// Divide a dual number by a real number
 			inline dual& operator/=(real r) {
 
 				if(r == 0) {
@@ -209,14 +211,14 @@ namespace uroboro {
 			}
 
 
-			// Check whether two dual numbers have the same
-			// real and dual parts
+			/// Check whether two dual numbers have the same
+			/// real and dual parts
 			inline bool operator==(const dual& other) {
 				return (a == other.a) && (b == other.b);
 			}
 
 
-			// Convert a dual number to a vector
+			/// Convert a dual number to a vector
 			inline vec2 to_vec() const {
 				vec2 res;
 				res.data[0] = a;
@@ -224,14 +226,14 @@ namespace uroboro {
 				return res;
 			}
 
-			// Initialize from a vector
+			/// Initialize from a vector
 			inline void from_vec(const vec2& v) {
 				a = v.data[0];
 				b = v.data[1];
 			}
 
 
-			// Convert a dual number to matrix form
+			/// Convert a dual number to matrix form
 			inline mat2 to_mat() const {
 
 				mat2 m;
@@ -245,7 +247,8 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the complex number to string representation
+			/// Convert the dual number to string representation
+			/// @param epsilon The character to use to represent epsilon
 			inline std::string to_string(std::string epsilon = "e") const {
 
 				std::stringstream res;
@@ -262,8 +265,8 @@ namespace uroboro {
 			}
 
 
-			// Stream the complex number in string representation
-			// to an output stream (std::ostream)
+			/// Stream the dual number in string representation
+			/// to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const dual& obj) {
 				return out << obj.to_string();
 			}

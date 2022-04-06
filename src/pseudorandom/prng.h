@@ -57,13 +57,15 @@ namespace uroboro {
 
 			/// Discard n numbers from the generator.
 			/// Equivalent to calling next() n times.
-			inline unsigned int discard(unsigned int n) {
+			inline void discard(unsigned int n) {
 				for (int i = 0; i < n; ++i)
 					next();
 			}
 
 
 			/// Returns a standard linear congruential generator
+			/// @param seed The seed to use for the generator (defaults to 1)
+			/// @return A standard linear congruential PRNG object
 			inline static PRNG linear_congruential(unsigned int seed = 1) {
 				return PRNG(rand_congruential, seed, {48271, 0, ((unsigned int) 1 << 31) - 1});
 			}

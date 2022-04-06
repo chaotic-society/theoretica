@@ -297,6 +297,15 @@ namespace uroboro {
 		}
 
 
+		inline static vec<N> euclidean_base(unsigned int i) {
+
+			vec<N> e_i = vec<N>(0);
+			e_i.at(i) = 1;
+
+			return e_i;
+		}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the vector to string representation

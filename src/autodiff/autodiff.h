@@ -7,6 +7,7 @@
 #define UROBORO_AUTODIFF_H
 
 #include "dual.h"
+#include "multidual.h"
 
 
 namespace uroboro {
@@ -15,6 +16,18 @@ namespace uroboro {
 	/// Compute the gradient for a given \f$\vec x\f$ of a function
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// using automatic differentiation
+	template<unsigned int N>
+	inline vec<N> gradient(multidual<N>(*f)(vec<N, multidual<N>>), vec<N, real> x) {
+		return f(multidual<N>::pack_function_arg(x)).Dual();
+	}
+
+
+	/// Compute the gradient for a given \f$\vec x\f$ of a function
+	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+	/// using automatic differentiation.
+	///
+	/// The multidual implementation is more efficient as it does not
+	/// need to compute the function value N times and should be preferred.
 	template<unsigned int N>
 	inline vec<N> gradient(dual(*f)(vec<N, dual>), vec<N, real> x) {
 
@@ -27,6 +40,47 @@ namespace uroboro {
 		for (int i = 0; i < N; ++i) {
 			dual_x[i].b = 1;
 			res.at(i) = f(dual_x).Dual();
+			dual_x[i].b = 0;
+		}
+
+		return res;
+	}
+
+
+	/// Compute the divergence for a given \f$\vec x\f$ of a function
+	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+	/// using automatic differentiation
+	template<unsigned int N>
+	inline real divergence(multidual<N>(*f)(vec<N, multidual<N>>), vec<N, real> x) {
+
+		multidual<N> d = f(multidual<N>::pack_function_arg(x));
+
+		real div = 0;
+		for (int i = 0; i < N; ++i)
+			div += d.v.at(i);
+
+		return div;
+	}
+
+
+	/// Compute the divergence for a given \f$\vec x\f$ of a function
+	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+	/// using automatic differentiation.
+	///
+	/// The multidual implementation is more efficient as it does not
+	/// need to compute the function value N times and should be preferred.
+	template<unsigned int N>
+	inline real divergence(dual(*f)(vec<N, dual>), vec<N, real> x) {
+
+		real res = 0;
+		vec<N, dual> dual_x;
+
+		for (int i = 0; i < N; ++i)
+			dual_x[i] = x[i];
+
+		for (int i = 0; i < N; ++i) {
+			dual_x[i].b = 1;
+			div += f(dual_x).Dual();
 			dual_x[i].b = 0;
 		}
 

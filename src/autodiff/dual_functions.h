@@ -29,16 +29,19 @@ namespace uroboro {
 		return x * x;
 	}
 
+
 	/// Return the cube of a dual number
 	dual cube(dual x) {
 		return x * x * x;
 	}
+
 
 	/// Compute the n-th power of a dual number
 	dual pow(dual x, int n) {
 		real pow_n_1_x = pow(x.Re(), n - 1);
 		return dual(pow_n_1_x * x.Re(), pow_n_1_x * n * x.Dual());
 	}
+
 
 	/// Compute the square root of a dual number
 	dual sqrt(dual x) {
@@ -111,6 +114,7 @@ namespace uroboro {
 	dual acos(dual x) {
 		return dual(acos(x.Re()), -x.Dual() / sqrt(1 - square(x.Re())));
 	}
+
 
 	/// Compute the arcsine of a dual number
 	dual atan(dual x) {
