@@ -32,7 +32,7 @@ The library is header-only, so it is only needed to include the proper header fi
 **Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where `N` is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
 
 ## Examples
-Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/src/example.cpp) for more example code.
+Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/examples/example.cpp) for more example code.
 
 ### Quickstart
 To check if you correctly set up the library, try to compile the following code in a source file:
