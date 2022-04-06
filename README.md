@@ -1,6 +1,6 @@
 <img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
-A header-only, **C++ mathematical library**, focused on **graphical** and **physical** applications. Includes **real and complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions** and **statistical** functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
+A C++ numerical and automatic **mathematical library**, focused on **graphical** and **physical** applications. Includes **real** and **complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions**, **statistical** functions and **numerical** and **automatic** methods for real functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
 
 ## Dependencies
 The library has no dependencies. Only the C++ Standard Library is needed to use it.
@@ -9,17 +9,18 @@ The library has no dependencies. Only the C++ Standard Library is needed to use 
 This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md)
 - **Real analysis** (`real_analysis.h`)
 - **Linear algebra** (vector and matrix operations, including common transformations) (`algebra/vec.h`, `algebra/mat.h`)
-- **Complex** numbers (in algebraic and exponential form) (`complex/complex.h`, `complex/phasor.h`)
+- **Complex** numbers (in algebraic and exponential form) and complex analysis (`complex/complex.h`, `complex/phasor.h`, `complex/complex_analysis.h`)
 - **Quaternions** (`complex/quat.h`)
-- Complex analysis (`complex/complex_analysis.h`)
-- Dual numbers and **Automatic Differentiation** (`autodiff/dual.h`, `autodiff/dual_functions.h`)
+- Dual numbers (`autodiff/dual.h`, `autodiff/dual_functions.h`)
+- Multivariable Automatic Differentiation and Differential Operators (`autodiff/multidual.h`, `autodiff/multidual_functions.h`, `autodiff/autodiff.h`)
 - **Statistical** functions (including Least Squares Linearization) (`statistics/statistics.h`)
 - Probability distribution functions (`statistics/distributions.h`)
+- Pseudorandom number generation (`pseudorandom/prng.h`, `pseudorandom/pseudorandom_algo.h`)
 - Approximation of **roots** and **extrema** of real functions (`approx/roots.h`, `approx/extrema.h`)
 - Derivative approximation (`calculus/derivation.h`)
 - Integral approximation, including **Runge-Kutta** of 4th order (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial/polynomial.h`)
-- Interpolation between vector data, including Bezier curves (`interpolation/spline_interp.h`)
+- Spline curves, including Bezier curves (`interpolation/spline_interp.h`)
 - Polynomial interpolation with Chebyshev nodes (`interpolation/polyn_interp.h`)
 
 ## Usage
@@ -61,10 +62,9 @@ The library uses `errno` and `umath::MathException` (if it is enabled) to report
 
 ## Progress
 Most functionalities have already been implemented, but test cases and documentation are in need of writing. Benchmarking different algorithms may be also used to enchance the library. Core functions which are currently under development are:
-- Matrix determinant
-- powf, exp, sin, cos, tan (only the **architecture independent** versions, they already work properly on x86 machines)
-- asin, acos, atan, atan2 (Inverse trig functions)
+- powf, cos, tan (only the **architecture independent** versions, they already work properly on x86 machines)
 
+On x86 based architectures, if **UROBORO_X86** is defined, the library should be stable and precise for most applications.
 See [Future development](https://github.com/mattiaisgro/uroboro/blob/master/README.md#future-development) for information about new features which might get implemented.
 
 ## Macros
@@ -93,6 +93,7 @@ These are features which will be developed soon:
 - Romberg integral approximation
 - LU decomposition of matrices
 - Matrix eigenvalue finding
+- Arbitrary precision numbers
 - Montecarlo integral approximation
 - Benchmarking (either implemented or integrated)
 - Make the library independent from the C++ Standard Library (at least partially)
