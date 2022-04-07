@@ -52,6 +52,11 @@
 #define UROBORO_MAX_BISECTION_ITER 100
 #endif
 
+/// Maximum number of iterations for golden section search
+#ifndef UROBORO_MAX_GOLDENSECTION_ITER
+#define UROBORO_MAX_GOLDENSECTION_ITER 100
+#endif
+
 /// Maximum number of iterations for Halley's method
 #ifndef UROBORO_MAX_HALLEY_ITER
 #define UROBORO_MAX_HALLEY_ITER 100
@@ -180,6 +185,9 @@ namespace uroboro {
 
 	/// Maximum number of iterations for the bisection algorithm
 	constexpr unsigned int MAX_BISECTION_ITER = UROBORO_MAX_BISECTION_ITER;
+
+	/// Maximum number of iterations for the golden section search algorithm
+	constexpr unsigned int MAX_GOLDENSECTION_ITER = UROBORO_MAX_GOLDENSECTION_ITER;
 
 	/// Maximum number of iterations for Halley's method
 	constexpr unsigned int MAX_HALLEY_ITER = UROBORO_MAX_HALLEY_ITER;

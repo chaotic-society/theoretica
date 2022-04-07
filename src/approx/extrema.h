@@ -13,6 +13,72 @@
 namespace uroboro {
 
 
+	/// Approximate a function maximum using the Golden Section search algorithm
+	inline real approx_max_goldensection(real_function f, real a, real b) {
+
+		real x1 = a;
+		real x2 = b;
+		real x3 = b - (b - a) / PHI;
+		real x4 = a + (b - a) / PHI;
+
+		unsigned int iter = 0;
+
+		while(abs(x2 - x1) > ROOT_APPROX_TOL && iter <= MAX_GOLDENSECTION_ITER) {
+
+			if(f(x3) > f(x4)) {
+				x2 = x4;
+			} else {
+				x1 = x3;
+			}
+
+			x3 = x2 - (x2 - x1) / PHI;
+			x4 = x1 + (x2 - x1) / PHI;
+
+			iter++;
+		}
+
+		if(iter > MAX_GOLDENSECTION_ITER) {
+			UMATH_ERROR("approx_max_goldensection", iter, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return (x2 + x1) / 2.0;
+	}
+
+
+	/// Approximate a function minimum using the Golden Section search algorithm
+	inline real approx_min_goldensection(real_function f, real a, real b) {
+
+		real x1 = a;
+		real x2 = b;
+		real x3 = b - (b - a) / PHI;
+		real x4 = a + (b - a) / PHI;
+
+		unsigned int iter = 0;
+
+		while(abs(x2 - x1) > ROOT_APPROX_TOL && iter <= MAX_GOLDENSECTION_ITER) {
+
+			if(f(x3) < f(x4)) {
+				x2 = x4;
+			} else {
+				x1 = x3;
+			}
+
+			x3 = x2 - (x2 - x1) / PHI;
+			x4 = x1 + (x2 - x1) / PHI;
+
+			iter++;
+		}
+
+		if(iter > MAX_GOLDENSECTION_ITER) {
+			UMATH_ERROR("approx_min_goldensection", iter, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return (x2 + x1) / 2.0;
+	}
+
+
 	/// Approximate a function maximum given the function and the first two derivatives using Newton-Raphson
 	inline real approx_max_newton(
 		real_function f, real_function Df, real_function D2f,
