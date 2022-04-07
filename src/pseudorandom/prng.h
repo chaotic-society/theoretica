@@ -17,28 +17,28 @@ namespace uroboro {
 		private:
 			pseudorandom_function f;
 			unsigned int x;
-			std::vector<unsigned int> state;
+			std::vector<unsigned int> param;
 
 		public:
 			/// Construct a PRNG with the given
-			/// generating algorithm p, seed x and state s
+			/// generating algorithm p, seed x and parameters s
 			PRNG(pseudorandom_function p,
 				unsigned int seed,
 				const std::vector<unsigned int>& s) {
 
 				f = p;
 				x = seed;
-				state = s;
+				param = s;
 			}
 
 			/// Construct a PRNG with the given
-			/// generating algorithm p, seed x and state s
+			/// generating algorithm p, seed x and parameters s
 			PRNG(pseudorandom_function p,
 				const std::vector<unsigned int>& s) {
 
 				f = p;
 				x = 1;
-				state = s;
+				param = s;
 			}
 
 			/// Seed the PRNG
@@ -49,7 +49,7 @@ namespace uroboro {
 
 			/// Generate a pseudorandom number
 			inline unsigned int next() {
-				return x = f(x, state);
+				return x = f(x, param);
 			}
 
 
@@ -68,6 +68,28 @@ namespace uroboro {
 			}
 
 
+			/// Set the generating function
+			inline void set_function(pseudorandom_function p) {
+				f = p;
+			}
+
+			/// Get the generating function
+			inline pseudorandom_function get_function() {
+				return f;
+			}
+
+
+			/// Set the generator's parameters
+			inline void set_param(std::vector<unsigned int> v) {
+				param = v;
+			}
+
+			/// Get the generator's parameters
+			inline std::vector<unsigned int> get_param() {
+				return param;
+			}
+
+
 			/// Returns a standard linear congruential generator
 			/// @param seed The seed to use for the generator (defaults to 1)
 			/// @return A standard linear congruential PRNG object
@@ -76,6 +98,16 @@ namespace uroboro {
 			}
 		
 	};
+
+
+	/// Generate a pseudorandom real number in [a, b] using a
+	/// preexisting generator.
+	///
+	/// The algorithm generates natural numbers between 0 and prec,
+	/// scales the result to [0, 1] and then transforms it to [a, b]
+	inline real rand_real(real a, real b, PRNG& g, unsigned int prec = (1 << 30)) {
+		return a + (b - a) * (g.next() % prec) / static_cast<real>(prec);
+	}
 
 }
 
