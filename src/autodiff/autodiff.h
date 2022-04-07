@@ -26,10 +26,14 @@ namespace uroboro {
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// using automatic differentiation.
 	///
-	/// The multidual implementation is more efficient as it does not
+	/// @note The multidual implementation is more efficient as it does not
 	/// need to compute the function value N times and should be preferred.
+	/// 
+	/// The `mono` suffix is used to emphasize the difference between simple
+	/// dual numbers and multidual numbers and to avoid differentiation
+	/// between overloads on the user's side.
 	template<unsigned int N>
-	inline vec<N> gradient(dual(*f)(vec<N, dual>), vec<N, real> x) {
+	inline vec<N> gradient_mono(dual(*f)(vec<N, dual>), vec<N, real> x) {
 
 		vec<N, real> res;
 		vec<N, dual> dual_x;
@@ -67,10 +71,14 @@ namespace uroboro {
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// using automatic differentiation.
 	///
-	/// The multidual implementation is more efficient as it does not
+	/// @note The multidual implementation is more efficient as it does not
 	/// need to compute the function value N times and should be preferred.
+	/// 
+	/// The `mono` suffix is used to emphasize the difference between simple
+	/// dual numbers and multidual numbers and to avoid differentiation
+	/// between overloads on the user's side.
 	template<unsigned int N>
-	inline real divergence(dual(*f)(vec<N, dual>), vec<N, real> x) {
+	inline real divergence_mono(dual(*f)(vec<N, dual>), vec<N, real> x) {
 
 		real res = 0;
 		vec<N, dual> dual_x;

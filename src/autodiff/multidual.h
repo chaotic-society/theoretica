@@ -6,6 +6,11 @@
 /// @file multidual.h Multidual numbers
 ///
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "../algebra/vec.h"
 
 
