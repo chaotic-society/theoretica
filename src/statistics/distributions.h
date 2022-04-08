@@ -51,7 +51,7 @@ namespace uroboro {
 		inline real gaussian(real x, real X, real sigma) {
 
 			return (1.0 / (sigma *
-				uroboro::sqrt(2 * PI))) * uroboro::exp(-square(x - X) / (2 * square(sigma)));
+				sqrt(2 * PI))) * exp(-square(x - X) / (2 * square(sigma)));
 		}
 
 
@@ -90,7 +90,7 @@ namespace uroboro {
 		/// Poisson distribution
 		inline real poisson(unsigned int k, real lambda) {
 
-			return uroboro::exp(-lambda) * uroboro::pow(lambda, k) / (real) fact(k);
+			return exp(-lambda) * pow(lambda, k) / (real) fact(k);
 		}
 
 
@@ -111,7 +111,7 @@ namespace uroboro {
 		inline real binomial(unsigned int nu, unsigned int n, real p) {
 
 			return binomial_coeff(n, nu) *
-				uroboro::pow(p, nu) * uroboro::pow(1 - p, n - nu);
+				pow(p, nu) * pow(1 - p, n - nu);
 		}
 
 

@@ -186,14 +186,14 @@ namespace uroboro {
 
 		/// Matrix multiplication
 		template<unsigned int M>
-		inline mat<K, M> transform(const mat<M, N>& B) const {
+		inline mat<M, K> transform(const mat<M, N>& B) const {
 
-			mat<K, M> res;
+			mat<M, K> res;
 
 			for (int i = 0; i < M; ++i) {
 				for (int j = 0; j < K; ++j) {
 					for (int k = 0; k < N; ++k) {
-						res.at(j, i) += data[k][j] * B.data[i][k];
+						res.at(i, j) += data[k][j] * B.data[i][k];
 					}
 				}
 			}
@@ -203,7 +203,7 @@ namespace uroboro {
 
 		/// Matrix multiplication
 		template<unsigned int M>
-		inline mat<K, M> operator*(const mat<M, N>& B) const {
+		inline mat<M, K> operator*(const mat<M, N>& B) const {
 			return transform(B);
 		}
 
