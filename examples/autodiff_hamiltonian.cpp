@@ -11,6 +11,7 @@
 using namespace umath;
 
 
+// Hamiltonian for the harmonic oscillator (1D)
 multidual<2> harmonic_oscillator(vec<2, multidual<2>> eta) {
 
 	const real omega = 1;
@@ -20,6 +21,7 @@ multidual<2> harmonic_oscillator(vec<2, multidual<2>> eta) {
 }
 
 
+// Hamiltonian for the simple pendulum
 multidual<2> pendulum(vec<2, multidual<2>> eta) {
 
 	const real l = 1;
@@ -34,6 +36,7 @@ int main(int argc, char const *argv[]) {
 
 	std::cout.precision(12);
 
+	// Coordinates in phase space
 	vec2 eta = {0, 1};
 
 	vec2 eta_dt;
@@ -41,6 +44,7 @@ int main(int argc, char const *argv[]) {
 
 	std::ofstream of("harmonic_oscillator.dat");
 
+	// Simulate the system using Euler integration
 	for (int i = 0; i < 1000000; ++i) {
 
 		eta_dt = mat2::symplectic() * gradient(harmonic_oscillator, eta);
