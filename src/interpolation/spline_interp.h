@@ -160,6 +160,39 @@ namespace uroboro {
 
 		return lerp(D, E, t);
 	}
+
+
+	/// Generic Bezier curve in N dimensions
+	/// @param points The control points
+	/// @param t The curve parameter between 0 and 1
+	///
+	/// The generic Bezier curve is computed by
+	/// successive linear interpolations.
+	/// For cubic and quadratic Bezier curves the
+	/// related functions should be preferred.
+	/// \see quadratic_bezier
+	/// \see cubic_bezier
+	template<unsigned int N>
+	inline vec<N> bezier(std::vector<vec<N>> points, real t) {
+		
+		if(points.size() < 2) {
+			UMATH_ERROR("bezier", points.size(), INVALID_ARGUMENT);
+			return vec<N>(nan());
+		}
+
+		if(t < 0 || t > 1) {
+			UMATH_ERROR("bezier", t, INVALID_ARGUMENT);
+			return vec<N>(nan());
+		}
+
+		for (int index = points.size(); index > 1; --index) {
+
+			for (int i = 0; i < index - 1; ++i)
+				points[i] = lerp(points[i], points[i + 1], t);
+		}
+
+		return points[0];
+	}
 	
 }
 

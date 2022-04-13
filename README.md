@@ -80,6 +80,8 @@ These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
 - **UROBORO_ARBITRARY_PREC** - Arbitrary precision will be used (NOT implemented yet)
 - **UROBORO_NO_PRINT** - Do **not** compile `to_string()` and `operator<<()` methods for all classes (to avoid including `<string>`, `<sstream>` and `<ostream>`)
+- **UROBORO_ROW_FIRST** - The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.
+- **UROBORO_MATRIX_LEXIC** - Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.
 - See `constants.h` for more specific defines
 
 ## Future development
