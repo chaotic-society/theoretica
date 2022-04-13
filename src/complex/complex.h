@@ -243,10 +243,10 @@ namespace  uroboro {
 			inline mat2 to_mat() const {
 
 				mat2 m;
-				m[0][0] = a;
-				m[0][1] = -b;
-				m[1][0] = a;
-				m[1][1] = b;
+				m.iat(0, 0) = a;
+				m.iat(1, 0) = -b;
+				m.iat(0, 1) = b;
+				m.iat(1, 1) = a;
 				return m;
 			}
 

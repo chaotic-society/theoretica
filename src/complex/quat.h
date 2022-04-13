@@ -232,26 +232,25 @@ namespace uroboro {
 
 				mat4 res;
 
-				res.at(0, 0) = 1 - (2 * square(y) + 2 * square(z));
-				res.at(1, 0) = 2 * x * y + 2 * z * w;
-				res.at(2, 0) = 2 * x * z - 2 * y * w;
-				res.at(3, 0) = 0;
+				res.iat(0, 0) = 1 - (2 * square(y) + 2 * square(z));
+				res.iat(0, 1) = 2 * x * y + 2 * z * w;
+				res.iat(0, 2) = 2 * x * z - 2 * y * w;
+				res.iat(0, 3) = 0;
 
-				res.at(0, 1) = 2 * x * y - 2 * z * w;
-				res.at(1, 1) = 1 - (2 * square(x) + 2 * square(z));
-				res.at(2, 1) = 2 * y * z + 2 * x * w;
-				res.at(3, 1) = 0;
+				res.iat(1, 0) = 2 * x * y - 2 * z * w;
+				res.iat(1, 1) = 1 - (2 * square(x) + 2 * square(z));
+				res.iat(1, 2) = 2 * y * z + 2 * x * w;
+				res.iat(1, 3) = 0;
 
-				res.at(0, 2) = 2 * x * z + 2 * y * w;
-				res.at(1, 2) = 2 * y * z - 2 * x * w;
-				res.at(2, 2) = 1 - (2 * square(x) + 2 * square(y));
-				res.at(3, 2) = 0;
+				res.iat(2, 0) = 2 * x * z + 2 * y * w;
+				res.iat(2, 1) = 2 * y * z - 2 * x * w;
+				res.iat(2, 2) = 1 - (2 * square(x) + 2 * square(y));
+				res.iat(2, 3) = 0;
 
-				res.at(0, 3) = 0;
-				res.at(1, 3) = 0;
-				res.at(2, 3) = 0;
-				res.at(3, 3) = 1;
-
+				res.iat(3, 0) = 0;
+				res.iat(3, 1) = 0;
+				res.iat(3, 2) = 0;
+				res.iat(3, 3) = 1;
 
 				return res;
 			}
@@ -266,17 +265,17 @@ namespace uroboro {
 
 				mat3 res;
 
-				res.at(0, 0) = 1 - (2 * square(y) + 2 * square(z));
-				res.at(1, 0) = 2 * x * y + 2 * z * w;
-				res.at(2, 0) = 2 * x * z - 2 * y * w;
+				res.iat(0, 0) = 1 - (2 * square(y) + 2 * square(z));
+				res.iat(0, 1) = 2 * x * y + 2 * z * w;
+				res.iat(0, 2) = 2 * x * z - 2 * y * w;
 
-				res.at(0, 1) = 2 * x * y - 2 * z * w;
-				res.at(1, 1) = 1 - (2 * square(x) + 2 * square(z));
-				res.at(2, 1) = 2 * y * z + 2 * x * w;
+				res.iat(1, 0) = 2 * x * y - 2 * z * w;
+				res.iat(1, 1) = 1 - (2 * square(x) + 2 * square(z));
+				res.iat(1, 2) = 2 * y * z + 2 * x * w;
 
-				res.at(0, 2) = 2 * x * z + 2 * y * w;
-				res.at(1, 2) = 2 * y * z - 2 * x * w;
-				res.at(2, 2) = 1 - (2 * square(x) + 2 * square(y));
+				res.iat(2, 0) = 2 * x * z + 2 * y * w;
+				res.iat(2, 1) = 2 * y * z - 2 * x * w;
+				res.iat(2, 2) = 1 - (2 * square(x) + 2 * square(y));
 
 				return res;
 			}

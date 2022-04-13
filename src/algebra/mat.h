@@ -21,19 +21,24 @@ namespace uroboro {
 
 	/// 
 	/// @class mat
-	/// A generic KxN matrix.
-	/// N is the number of columns, K is the number or rows
-	/// (column-first order is used for OpenGL)
-	/// 
+	/// A generic matrix with real entries
+	///
+	/// @param N The number of rows
+	/// @param K The number of columns
+	///
 	template<unsigned int N, unsigned int K>
 	class mat {
 		public:
 
-		static const unsigned int size = N * K;
-		static const unsigned int column_size = N;
-		static const unsigned int row_size = K;
+		static const unsigned int SIZE = N * K;
+		static const unsigned int ROW_SIZE = N;
+		static const unsigned int COL_SIZE = K;
 
+#if defined(UROBORO_ROW_FIRST)
+		real data[K][N];
+#else
 		real data[N][K];
+#endif
 
 		/// Initialize a matrix to all zeroes
 		inline mat() {
@@ -43,17 +48,34 @@ namespace uroboro {
 		/// Initialize a matrix from another one
 		inline mat(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] = other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) = other.iget(i, j);
 				}
 			}
 		}
 
+		/// Initialize from an initializer list
+		// inline mat(std::array<vec<K>, N> rows) {
+
+		// 	if(rows.size() != N) {
+		// 		UMATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(),
+		// 			INVALID_ARGUMENT);
+		// 		*this = mat<N, K>(nan());
+		// 		return;
+		// 	}
+
+		// 	for (int i = 0; i < N; ++i) {
+		// 		for (int j = 0; j < K; ++j) {
+		// 			iat(i, j) = rows[i].get(j);
+		// 		}
+		// 	}
+		// }
+
 		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] = other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) = other.iget(i, j);
 				}
 			}
 			return *this;
@@ -64,7 +86,7 @@ namespace uroboro {
 			make_null();
 			int diag_n = min(N, K);
 			for (int i = 0; i < diag_n; ++i) {
-				data[i][i] = diagonal;
+				iat(i, i) = diagonal;
 			}
 		}
 
@@ -73,46 +95,47 @@ namespace uroboro {
 
 		/// Get the l-th column of the matrix as a vector
 		inline vec<K> get_column(int l) const {
+			
 			vec<K> column;
-			for (int i = 0; i < K; ++i) {
-				column.data[i] = data[l][i];
-			}
-			return column;
-		}
+			for (int i = 0; i < K; ++i)
+				column.at(i) = iget(i, l);
 
-		/// Get the l-th column of the matrix as a vector
-		inline vec<K> operator[](int l) const {
-			return get_column(l);
+			return column;
 		}
 
 		/// Get the l-th row of the matrix as a vector
 		inline vec<N> get_row(int l) const {
 			vec<N> row;
 			for (int i = 0; i < N; ++i) {
-				row.data[i] = data[i][l];
+				row.at(i) = iget(l, i);
 			}
 			return row;
 		}
 
+		/// Get the l-th row of the matrix as a vector
+		inline vec<K> operator[](int l) const {
+			return get_row(l);
+		}
+
 		/// Se the l-th column of the matrix from a vector
-		inline void set_column(unsigned int l, const vec<K>& column) {
+		inline void set_column(unsigned int l, const vec<N>& column) {
 			for (int i = 0; i < K; ++i) {
-				data[l][i] = column.data[i];
+				iat(i, l) = column.data[i];
 			}
 		}
 
 		/// Se the l-th row of the matrix from a vector
-		inline void set_row(unsigned int l, const vec<N>& row) {
+		inline void set_row(unsigned int l, const vec<K>& row) {
 			for (int i = 0; i < N; ++i) {
-				data[i][l] = row.data[i];
+				iat(l, i) = row.data[i];
 			}
 		}
 
 		/// Set all elements to zero
 		inline void make_null() {
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] = 0;
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) = 0;
 				}
 			}
 		}
@@ -121,8 +144,8 @@ namespace uroboro {
 		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[i][l] = data[i][l] + other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iget(i, j) + other.iget(i, j);
 				}
 			}
 			return res;
@@ -132,8 +155,8 @@ namespace uroboro {
 		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[i][l] = data[i][l] - other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iget(i, j) - other.iget(i, j);
 				}
 			}
 			return res;
@@ -143,8 +166,8 @@ namespace uroboro {
 		inline mat<N, K> operator*(real scalar) const {
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[i][l] = data[i][l] * scalar;
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iget(i, j) * scalar;
 				}
 			}
 			return res;
@@ -160,40 +183,40 @@ namespace uroboro {
 
 			mat<N, K> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[i][l] = data[i][l] / scalar;
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iget(i, j) / scalar;
 				}
 			}
 			return res;
 		}
 
 		/// Transform a vector v by the matrix
-		inline vec<K> transform(const vec<N>& v) const {
-			vec<K> res;
-			for (int i = 0; i < K; ++i) {
+		inline vec<N> transform(const vec<K>& v) const {
+			vec<N> res;
+			for (int i = 0; i < N; ++i) {
 				res[i] = 0;
-				for (int l = 0; l < N; ++l) {
-					res[i] += data[i][l] * v.data[l];
+				for (int j = 0; j < K; ++j) {
+					res[i] += iget(i, j) * v.get(j);
 				}
 			}
 			return res;
 		}
 
 		/// Transform a vector v by the matrix
-		inline vec<K> operator*(const vec<N>& v) const {
+		inline vec<N> operator*(const vec<K>& v) const {
 			return transform(v);
 		}
 
 		/// Matrix multiplication
 		template<unsigned int M>
-		inline mat<M, K> transform(const mat<M, N>& B) const {
+		inline mat<N, M> transform(const mat<K, M>& B) const {
 
-			mat<M, K> res;
-
-			for (int i = 0; i < M; ++i) {
+			mat<N, M> res = mat<N, M>();
+			
+			for (int i = 0; i < N; ++i) {
 				for (int j = 0; j < K; ++j) {
-					for (int k = 0; k < N; ++k) {
-						res.at(i, j) += data[k][j] * B.data[i][k];
+					for (int k = 0; k < M; ++k) {
+						res.iat(i, k) += iget(i, j) * B.iget(j, k);
 					}
 				}
 			}
@@ -203,7 +226,7 @@ namespace uroboro {
 
 		/// Matrix multiplication
 		template<unsigned int M>
-		inline mat<M, K> operator*(const mat<M, N>& B) const {
+		inline mat<N, M> operator*(const mat<K, M>& B) const {
 			return transform(B);
 		}
 
@@ -212,8 +235,8 @@ namespace uroboro {
 		inline mat<N, K>& operator+=(const mat<N, K>& other) {
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] += other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) += other.iat(i, j);
 				}
 			}
 
@@ -224,8 +247,8 @@ namespace uroboro {
 		inline mat<N, K>& operator-=(const mat<N, K>& other) {
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] -= other.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) -= other.iat(i, j);
 				}
 			}
 
@@ -236,8 +259,8 @@ namespace uroboro {
 		inline mat<N, K>& operator*=(real scalar) {
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] *= scalar;
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) *= scalar;
 				}
 			}
 
@@ -253,8 +276,8 @@ namespace uroboro {
 			}
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] /= scalar;
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) /= scalar;
 				}
 			}
 
@@ -278,14 +301,14 @@ namespace uroboro {
 
 			mat<K, N> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[l][i] = data[i][l];
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iat(j, i);
 				}
 			}
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					data[i][l] = res.data[i][l];
+				for (int j = 0; j < K; ++j) {
+					iat(i, j) = res.iat(i, j);
 				}
 			}
 		}
@@ -300,54 +323,104 @@ namespace uroboro {
 
 			mat<K, N> res;
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					res.data[l][i] = data[i][l];
+				for (int j = 0; j < K; ++j) {
+					res.iat(i, j) = iget(j, i);
 				}
 			}
 			return res;
 		}
 
 
-		/// Calculate the dot product between v1 and v2
+		/// Compute the dot product between v1 and v2
 		/// using this matrix as the product matrix
-		inline real dot(const vec<N>& v1, const vec<N>& v2) const {
+		inline real dot(const vec<K>& v1, const vec<K>& v2) const {
 
 			vec<N> o = transform(v2);
 			real result = 0;
 
-			for (int i = 0; i < N; ++i) {
+			for (int i = 0; i < N; ++i)
 				result += v1.data[i] * o.data[i];
-			}
 
 			return result;
 		}
 
 
-		/// Access element at <column, row>
-		inline real& at(unsigned int column, unsigned int row) {
-			return data[column][row];
+		/// Independent at() function.
+		/// Access element at i and j index,
+		/// where i is always the index on rows
+		/// and j is always the index on columns.
+		///
+		/// This function is used inside of the library
+		/// to access matrix elements independently from
+		/// the specific setup of storage or notation
+		/// (regardless of UROBORO_MATRIX_LEXIC and UROBORO_ROW_FIRST)
+		inline real& iat(unsigned int i, unsigned int j) {
+
+#ifdef UROBORO_ROW_FIRST
+			return data[i][j];
+#else
+			return data[j][i];
+#endif
 		}
 
-		/// Access element at <column, row>
-		inline real& operator()(unsigned int column, unsigned int row) {
-			return at(column, row);
+
+		/// Access element at i and j index.
+		///
+		/// By default, i is the index on rows and
+		/// j is the index on columns.
+		/// If UROBORO_MATRIX_LEXIC is defined,
+		/// the indices will instead refer to columns
+		/// and rows respectively.
+		inline real& at(unsigned int i, unsigned int j) {
+
+#ifdef UROBORO_MATRIX_LEXIC
+			return iat(j, i);
+#else
+			return iat(i, j);
+#endif
 		}
+
+
+		/// Access element at indices i and j
+		inline real& operator()(unsigned int i, unsigned int j) {
+			return at(i, j);
+		}
+
 
 		/// Getters and setters
-		inline real get(unsigned int column, unsigned int row) const {
-			return data[column][row];
+		inline real iget(unsigned int i, unsigned int j) const {
+
+#ifdef UROBORO_ROW_FIRST
+			return data[i][j];
+#else
+			return data[j][i];
+#endif
 		}
 
-		inline void set(unsigned int column, unsigned int row, real a) {
-			data[column][row] = a;
+
+		/// Getters and setters
+		inline real get(unsigned int i, unsigned int j) const {
+
+#ifdef UROBORO_MATRIX_LEXIC
+			return iget(j, i);
+#else
+			return iget(i, j);
+#endif
 		}
+
+
+		/// Set the element at indices i and j
+		inline void set(unsigned int i, unsigned int j, real a) {
+			at(i, j) = a;
+		}
+
 
 		/// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					if(data[i][l] != other.data[i][l])
+				for (int j = 0; j < K; ++j) {
+					if(iat(i, j) != other.iat(i, j))
 						return false;
 				}
 			}
@@ -366,8 +439,8 @@ namespace uroboro {
 		inline bool is_diagonal() const {
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					if(i != l && data[i][l] != 0)
+				for (int j = 0; j < K; ++j) {
+					if(i != j && iget(i, j) != 0)
 						return false;
 				}
 			}
@@ -381,8 +454,8 @@ namespace uroboro {
 				return false;
 
 			for (int i = 0; i < N; ++i) {
-				for (int l = 0; l < K; ++l) {
-					if(i != l && data[i][l] != data[l][i])
+				for (int j = 0; j < K; ++j) {
+					if(i != j && iget(i, j) != iget(j, i))
 						return false;
 				}
 			}
@@ -401,7 +474,7 @@ namespace uroboro {
 			real res = 0;
 
 			for (int i = 0; i < N; ++i)
-				res += data[i][i];
+				res += iget(i, i);
 
 			return res;
 		}
@@ -410,33 +483,37 @@ namespace uroboro {
 		/// Compute the product of the diagonal elements of a square matrix
 		inline real diagonal_product() {
 
-			real res = data[0][0];
+			if(!is_square()) {
+				UMATH_ERROR("mat::diagonal_product", K, IMPOSSIBLE_OPERATION);
+				return nan();
+			}
 
-			for (int i = 1; i < min(N, K); ++i)
-				res *= data[i][i];
+			real res = iat(0, 0);
+			for (int i = 1; i < N; ++i)
+				res *= iget(i, i);
 
-			return res;	
+			return res;
 		}
 
 
 		/// Return the determinant if the matrix is 2x2.
 		/// @note No error checking is performed on the matrix size
-		inline real det_2x2() {
-			return data[0][0] * data[1][1] - data[0][1] * data[1][0];
+		inline real det_2x2() const {
+			return iget(0, 0) * iget(1, 1) - iget(1, 0) * iget(0, 1);
 		}
 
 
 		/// Return the determinant if the matrix is 3x3.
 		/// @note No error checking is performed on the matrix size
-		inline real det_3x3() {
-			return	data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) +
-					data[1][0] * (data[0][1] * data[2][2] - data[1][2] * data[2][1]) +
-					data[2][0] * (data[0][1] * data[1][2] - data[0][2] * data[1][1]);
+		inline real det_3x3() const {
+			return	iget(0, 0) * (iget(1, 1) * iget(2, 2) - iget(2, 1) * iget(1, 2)) +
+					iget(0, 1) * (iget(1, 0) * iget(2, 2) - iget(2, 1) * iget(1, 2)) +
+					iget(0, 2) * (iget(1, 0) * iget(2, 1) - iget(2, 0) * iget(1, 1));
 		}
 
 
 		/// Compute the determinant of the matrix using Gauss-Jordan lower triangularization
-		inline real det_gj() {
+		inline real det_gj() const {
 
 			if(!is_square()) {
 				UMATH_ERROR("mat::det_gj", N, IMPOSSIBLE_OPERATION);
@@ -450,7 +527,7 @@ namespace uroboro {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.at(i, i) == 0) {
+				if(A.iat(i, i) == 0) {
 
 					bool flag = false;
 
@@ -460,11 +537,11 @@ namespace uroboro {
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero.
 						// The determinant does not change
-						// when adding a row to another
-						if(A.at(i, j) != 0) {
+						// when adding a row to another one
+						if(A.iat(j, i) != 0) {
 
 							for (int k = 0; k < N; ++k) {
-								A.at(k, i) += A.at(k, j);
+								A.iat(i, k) += A.iat(j, k);
 							}
 
 							flag = true;
@@ -477,7 +554,7 @@ namespace uroboro {
 					}
 				}
 
-				real inv_pivot = 1.0 / A.at(i, i);
+				real inv_pivot = 1.0 / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -485,13 +562,13 @@ namespace uroboro {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.at(i, j) * inv_pivot;
+					real coeff = A.iat(j, i) * inv_pivot;
 
 					// The coefficient does not change
 					// when adding a linear combination
 					// of a row to another
 					for (int k = 0; k < N; ++k) {
-						A.at(k, j) -= coeff * A.at(k, i);
+						A.iat(j, k) -= coeff * A.iat(i, k);
 					}
 				}
 			}
@@ -503,7 +580,7 @@ namespace uroboro {
 
 
 		/// Compute the determinant of the matrix
-		inline real det() {
+		inline real det() const {
 
 			if(!is_square()) {
 				UMATH_ERROR("mat::det", K, IMPOSSIBLE_OPERATION);
@@ -524,33 +601,32 @@ namespace uroboro {
 
 		/// Compute the inverse of a 2x2 matrix.
 		/// @note No error checking is performed on the matrix size
-		inline mat<N, K> inverse_2x2() {
+		inline mat<N, K> inverse_2x2() const {
 
 			mat<N, K> B;
 
 			// Exchange elements on the diagonal
-			B.at(0, 0) = get(1, 1);
-			B.at(1, 1) = get(0, 0);
+			B.iat(0, 0) = iget(1, 1);
+			B.iat(1, 1) = iget(0, 0);
 
 			// Change sign of the other elements
-			B.at(0, 1) = -get(0, 1);
-			B.at(1, 0) = -get(1, 0);
+			B.iat(1, 0) = -iget(1, 0);
+			B.iat(0, 1) = -iget(0, 1);
 
 			return B / B.det();
 		}
 
 
 		/// Compute the inverse of a generic square matrix
-		inline mat<N, K> inverse() {
+		inline mat<N, K> inverse() const {
 
 			if(!is_square()) {
 				UMATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
 				return mat<N, K>(nan());
 			}
 
-			if(N == 2) {
+			if(N == 2)
 				return inverse_2x2();
-			}
 
 			// Initialize the needed matrices
 			// (A|B) is the augmented matrix
@@ -564,7 +640,7 @@ namespace uroboro {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.at(i, i) == 0) {
+				if(A.iat(i, i) == 0) {
 
 					bool flag = false;
 
@@ -573,11 +649,11 @@ namespace uroboro {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
-						if(A.at(i, j) != 0) {
+						if(A.iat(j, i) != 0) {
 
 							for (int k = 0; k < N; ++k) {
-								A.at(k, i) += A.at(k, j);
-								B.at(k, i) += B.at(k, j);
+								A.iat(i, k) += A.iat(j, k);
+								B.iat(i, k) += B.iat(j, k);
 							}
 
 							flag = true;
@@ -591,7 +667,7 @@ namespace uroboro {
 					}
 				}
 
-				real inv_pivot = 1.0 / A.at(i, i);
+				real inv_pivot = 1.0 / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -603,18 +679,18 @@ namespace uroboro {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.at(i, j) * inv_pivot;
+					real coeff = A.iat(j, i) * inv_pivot;
 					
 					for (int k = 0; k < N; ++k) {
-						A.at(k, j) -= coeff * A.at(k, i);
-						B.at(k, j) -= coeff * B.at(k, i);
+						A.iat(j, k) -= coeff * A.iat(i, k);
+						B.iat(j, k) -= coeff * B.iat(i, k);
 					}
 				}
 
 				// Divide the current row by the pivot
 				for (int j = 0; j < N; ++j) {
-					A.at(j, i) *= inv_pivot;
-					B.at(j, i) *= inv_pivot;
+					A.iat(i, j) *= inv_pivot;
+					B.iat(i, j) *= inv_pivot;
 				}
 				
 			}
@@ -647,7 +723,7 @@ namespace uroboro {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.at(i, i) == 0) {
+				if(A.iat(i, i) == 0) {
 
 					bool flag = false;
 
@@ -656,11 +732,11 @@ namespace uroboro {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
-						if(A.at(i, j) != 0) {
+						if(A.iat(j, i) != 0) {
 
 							for (int k = 0; k < N; ++k) {
-								A.at(k, i) += A.at(k, j);
-								B.at(k, i) += B.at(k, j);
+								A.iat(i, k) += A.iat(j, k);
+								B.iat(i, k) += B.iat(j, k);
 							}
 
 							flag = true;
@@ -674,7 +750,7 @@ namespace uroboro {
 					}
 				}
 
-				real inv_pivot = 1.0 / A.at(i, i);
+				real inv_pivot = 1.0 / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -686,18 +762,18 @@ namespace uroboro {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.at(i, j) * inv_pivot;
+					real coeff = A.iat(j, i) * inv_pivot;
 					
 					for (int k = 0; k < N; ++k) {
-						A.at(k, j) -= coeff * A.at(k, i);
-						B.at(k, j) -= coeff * B.at(k, i);
+						A.iat(j, k) -= coeff * A.iat(i, k);
+						B.iat(j, k) -= coeff * B.iat(i, k);
 					}
 				}
 
 				// Divide the current row by the pivot
 				for (int j = 0; j < N; ++j) {
-					A.at(j, i) *= inv_pivot;
-					B.at(j, i) *= inv_pivot;
+					A.iat(i, j) *= inv_pivot;
+					B.iat(i, j) *= inv_pivot;
 				}
 				
 			}
@@ -725,9 +801,9 @@ namespace uroboro {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
 
-			m.at(3, 0) = t[0];
-			m.at(3, 1) = t[1];
-			m.at(3, 2) = t[2];
+			m.iat(0, 3) = t[0];
+			m.iat(1, 3) = t[1];
+			m.iat(2, 3) = t[2];
 
 			return m;
 		}
@@ -737,9 +813,9 @@ namespace uroboro {
 
 			mat<4, 4> m = mat<4, 4>(1.0);
 
-			m.at(3, 0) = x;
-			m.at(3, 1) = y;
-			m.at(3, 2) = z;
+			m.iat(0, 3) = x;
+			m.iat(1, 3) = y;
+			m.iat(2, 3) = z;
 
 			return m;
 		}
@@ -751,10 +827,10 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<2, 2> res;
-			res.at(0, 0) = c;
-			res.at(1, 0) = -s;
-			res.at(0, 1) = s;
-			res.at(1, 1) = c;
+			res.iat(0, 0) = c;
+			res.iat(0, 1) = -s;
+			res.iat(1, 0) = s;
+			res.iat(1, 1) = c;
 
 			return res;
 		}
@@ -766,13 +842,13 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
-			res.at(0, 0) = 1;
-			res.at(1, 1) = c;
-			res.at(2, 2) = c;
-			res.at(3, 3) = 1;
+			res.iat(0, 0) = 1;
+			res.iat(1, 1) = c;
+			res.iat(2, 2) = c;
+			res.iat(3, 3) = 1;
 
-			res.at(2, 1) = -s;
-			res.at(1, 2) = s;
+			res.iat(1, 2) = -s;
+			res.iat(2, 1) = s;
 
 			return res;
 		}
@@ -784,12 +860,12 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
-			res.at(0, 0) = 1;
-			res.at(1, 1) = c;
-			res.at(2, 2) = c;
+			res.iat(0, 0) = 1;
+			res.iat(1, 1) = c;
+			res.iat(2, 2) = c;
 
-			res.at(2, 1) = -s;
-			res.at(1, 2) = s;
+			res.iat(1, 2) = -s;
+			res.iat(2, 1) = s;
 
 			return res;
 		}
@@ -801,13 +877,13 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
-			res.at(0, 0) = c;
-			res.at(1, 1) = 1;
-			res.at(2, 2) = c;
-			res.at(3, 3) = 1;
+			res.iat(0, 0) = c;
+			res.iat(1, 1) = 1;
+			res.iat(2, 2) = c;
+			res.iat(3, 3) = 1;
 
-			res.at(2, 0) = s;
-			res.at(0, 2) = -s;
+			res.iat(0, 2) = s;
+			res.iat(2, 0) = -s;
 
 			return res;
 		}
@@ -819,12 +895,12 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
-			res.at(0, 0) = c;
-			res.at(1, 1) = 1;
-			res.at(2, 2) = c;
+			res.iat(0, 0) = c;
+			res.iat(1, 1) = 1;
+			res.iat(2, 2) = c;
 
-			res.at(2, 0) = s;
-			res.at(0, 2) = -s;
+			res.iat(0, 2) = s;
+			res.iat(2, 0) = -s;
 
 			return res;
 		}
@@ -836,13 +912,13 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
-			res.at(0, 0) = c;
-			res.at(1, 1) = c;
-			res.at(2, 2) = 1;
-			res.at(3, 3) = 1;
+			res.iat(0, 0) = c;
+			res.iat(1, 1) = c;
+			res.iat(2, 2) = 1;
+			res.iat(3, 3) = 1;
 
-			res.at(1, 0) = -s;
-			res.at(0, 1) = s;
+			res.iat(0, 1) = -s;
+			res.iat(1, 0) = s;
 
 			return res;
 		}
@@ -854,12 +930,12 @@ namespace uroboro {
 			real c = uroboro::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
-			res.at(0, 0) = c;
-			res.at(1, 1) = c;
-			res.at(2, 2) = 1;
+			res.iat(0, 0) = c;
+			res.iat(1, 1) = c;
+			res.iat(2, 2) = 1;
 
-			res.at(1, 0) = -s;
-			res.at(0, 1) = s;
+			res.iat(0, 1) = -s;
+			res.iat(1, 0) = s;
 
 			return res;
 		}
@@ -878,25 +954,25 @@ namespace uroboro {
 
 			mat<4, 4> m;
 
-			m.at(0, 0) = c + square(Rx) * cm1;
-			m.at(1, 0) = Rx * Ry * cm1 - Rz * s;
-			m.at(2, 0) = Rx * Rz * cm1 - Ry * s;
-			m.at(3, 0) = 0;
+			m.iat(0, 0) = c + square(Rx) * cm1;
+			m.iat(0, 1) = Rx * Ry * cm1 - Rz * s;
+			m.iat(0, 2) = Rx * Rz * cm1 - Ry * s;
+			m.iat(0, 3) = 0;
 
-			m.at(0, 1) = Ry * Rx * cm1 + Rz * s;
-			m.at(1, 1) = c + square(Ry) * cm1;
-			m.at(2, 1) = Ry * Rz * cm1 - Rx * s;
-			m.at(3, 1) = 0;
+			m.iat(1, 0) = Ry * Rx * cm1 + Rz * s;
+			m.iat(1, 1) = c + square(Ry) * cm1;
+			m.iat(1, 2) = Ry * Rz * cm1 - Rx * s;
+			m.iat(1, 3) = 0;
 
-			m.at(0, 2) = Rz * Rx * cm1 - Ry * s;
-			m.at(1, 2) = Rz * Ry * cm1 + Rx * s;
-			m.at(2, 2) = c + square(Rz) * cm1;
-			m.at(3, 2) = 0;
+			m.iat(2, 0) = Rz * Rx * cm1 - Ry * s;
+			m.iat(2, 1) = Rz * Ry * cm1 + Rx * s;
+			m.iat(2, 2) = c + square(Rz) * cm1;
+			m.iat(2, 3) = 0;
 
-			m.at(0, 3) = 0;
-			m.at(1, 3) = 0;
-			m.at(2, 3) = 0;
-			m.at(3, 3) = 1;
+			m.iat(3, 0) = 0;
+			m.iat(3, 1) = 0;
+			m.iat(3, 2) = 0;
+			m.iat(3, 3) = 1;
 
 			return m;
 		}
@@ -916,17 +992,17 @@ namespace uroboro {
 
 			mat<3, 3> m;
 
-			m.at(0, 0) = c + square(Rx) * cm1;
-			m.at(1, 0) = Rx * Ry * cm1 - Rz * s;
-			m.at(2, 0) = Rx * Rz * cm1 - Ry * s;
+			m.iat(0, 0) = c + square(Rx) * cm1;
+			m.iat(0, 1) = Rx * Ry * cm1 - Rz * s;
+			m.iat(0, 2) = Rx * Rz * cm1 - Ry * s;
 
-			m.at(0, 1) = Ry * Rx * cm1 + Rz * s;
-			m.at(1, 1) = c + square(Ry) * cm1;
-			m.at(2, 1) = Ry * Rz * cm1 - Rx * s;
+			m.iat(1, 0) = Ry * Rx * cm1 + Rz * s;
+			m.iat(1, 1) = c + square(Ry) * cm1;
+			m.iat(1, 2) = Ry * Rz * cm1 - Rx * s;
 
-			m.at(0, 2) = Rz * Rx * cm1 - Ry * s;
-			m.at(1, 2) = Rz * Ry * cm1 + Rx * s;
-			m.at(2, 2) = c + square(Rz) * cm1;
+			m.iat(2, 0) = Rz * Rx * cm1 - Ry * s;
+			m.iat(2, 1) = Rz * Ry * cm1 + Rx * s;
+			m.iat(2, 2) = c + square(Rz) * cm1;
 
 			return m;
 		}
@@ -938,10 +1014,10 @@ namespace uroboro {
 			mat<4, 4> res;
 			res.make_null();
 
-			res.at(0, 0) = x;
-			res.at(1, 1) = y;
-			res.at(2, 2) = z;
-			res.at(3, 3) = 1;
+			res.iat(0, 0) = x;
+			res.iat(1, 1) = y;
+			res.iat(2, 2) = z;
+			res.iat(3, 3) = 1;
 
 			return res;
 		}
@@ -953,9 +1029,9 @@ namespace uroboro {
 			mat<3, 3> res;
 			res.make_null();
 
-			res.at(0, 0) = x;
-			res.at(1, 1) = y;
-			res.at(2, 2) = z;
+			res.iat(0, 0) = x;
+			res.iat(1, 1) = y;
+			res.iat(2, 2) = z;
 
 			return res;
 		}
@@ -967,7 +1043,7 @@ namespace uroboro {
 			mat<N, K> res = mat<N, K>(1.0);
 
 			for (int i = 0; i < min(min(M, N), K); ++i)
-				res.at(i, i) = v.get(i);
+				res.iat(i, i) = v.get(i);
 
 			return res;
 		}
@@ -978,14 +1054,14 @@ namespace uroboro {
 			mat<4, 4> result;
 			result.make_null();
 
-			result.at(0, 0)  = 2 * near / (right - left);
-			result.at(0, 2)  = (right + left) / (right - left);
-			result.at(1, 1)  = 2 * near / (top - bottom);
-			result.at(1, 2)  = (top + bottom) / (top - bottom);
-			result.at(2, 2) = -(far + near) / (far - near);
-			result.at(2, 3) = -(2 * far * near) / (far - near);
-			result.at(3, 2) = -1;
-			result.at(3, 3) = 0;
+			result.iat(0, 0)  = 2 * near / (right - left);
+			result.iat(2, 0)  = (right + left) / (right - left);
+			result.iat(1, 1)  = 2 * near / (top - bottom);
+			result.iat(2, 1)  = (top + bottom) / (top - bottom);
+			result.iat(2, 2) = -(far + near) / (far - near);
+			result.iat(3, 2) = -(2 * far * near) / (far - near);
+			result.iat(2, 3) = -1;
+			result.iat(3, 3) = 0;
 
 			return result;
 		}
@@ -1005,12 +1081,12 @@ namespace uroboro {
 			mat<4, 4> result;
 			result.make_null();
 
-			result.at(0, 0)  = 2 / (right - left);
-			result.at(0, 3)  = -(right + left) / (right - left);
-			result.at(1, 1)  = 2 / (top - bottom);
-			result.at(1, 3)  = -(top + bottom) / (top - bottom);
-			result.at(2, 2) = -2 / (far - near);
-			result.at(2, 3) = -(far + near) / (far - near);
+			result.iat(0, 0)  = 2 / (right - left);
+			result.iat(3, 0)  = -(right + left) / (right - left);
+			result.iat(1, 1)  = 2 / (top - bottom);
+			result.iat(3, 1)  = -(top + bottom) / (top - bottom);
+			result.iat(2, 2) = -2 / (far - near);
+			result.iat(3, 2) = -(far + near) / (far - near);
 
 			return result;
 		}
@@ -1029,25 +1105,25 @@ namespace uroboro {
 			// Construct the rotation and translation matrix
 			mat<4, 4> res;
 
-			res.at(0, 0) = x_axis[0];
-			res.at(1, 0) = x_axis[1];
-			res.at(2, 0) = x_axis[2];
-			res.at(3, 0) = -dot(x_axis, camera);
+			res.iat(0, 0) = x_axis[0];
+			res.iat(0, 1) = x_axis[1];
+			res.iat(0, 2) = x_axis[2];
+			res.iat(0, 3) = -dot(x_axis, camera);
 
-			res.at(0, 1) = y_axis[0];
-			res.at(1, 1) = y_axis[1];
-			res.at(2, 1) = y_axis[2];
-			res.at(3, 1) = -dot(y_axis, camera);
+			res.iat(1, 0) = y_axis[0];
+			res.iat(1, 1) = y_axis[1];
+			res.iat(1, 2) = y_axis[2];
+			res.iat(1, 3) = -dot(y_axis, camera);
 
-			res.at(0, 2) = z_axis[0];
-			res.at(1, 2) = z_axis[1];
-			res.at(2, 2) = z_axis[2];
-			res.at(3, 2) = -dot(z_axis, camera);
+			res.iat(2, 0) = z_axis[0];
+			res.iat(2, 1) = z_axis[1];
+			res.iat(2, 2) = z_axis[2];
+			res.iat(2, 3) = -dot(z_axis, camera);
 
-			res.at(0, 3) = 0;
-			res.at(1, 3) = 0;
-			res.at(2, 3) = 0;
-			res.at(3, 3) = 1;
+			res.iat(3, 0) = 0;
+			res.iat(3, 1) = 0;
+			res.iat(3, 2) = 0;
+			res.iat(3, 3) = 1;
 
 			return res;
 		}
@@ -1066,14 +1142,14 @@ namespace uroboro {
 			for (int i = 0; i < N / 2; ++i) {	
 				for (int j = N / 2; j < N; ++j) {
 					if(i == (j - N / 2))
-						res.at(j, i) = 1;
+						res.iat(i, j) = 1;
 				}
 			}
 
 			for (int i = N / 2; i < N; ++i) {
 				for (int j = 0; j < N / 2; ++j) {
 					if((i - N / 2) == (j))
-						res.at(j, i) = -1;
+						res.iat(i, j) = -1;
 				}
 			}
 
@@ -1089,7 +1165,7 @@ namespace uroboro {
 
 				std::stringstream res;
 
-				for (int i = 0; i < row_size; ++i)
+				for (int i = 0; i < N; ++i)
 					res << get_row(i).to_string(separator) << std::endl;
 
 				return res.str();
