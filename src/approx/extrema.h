@@ -119,7 +119,7 @@ namespace uroboro {
 
 		real z = approx_root_bisection(Df, a, b);
 
-		if(approx_derivative(Df, z) > 0) {
+		if(approx_derivative_central(Df, z) > 0) {
 			UMATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -134,7 +134,7 @@ namespace uroboro {
 
 		real z = approx_root_bisection(Df, a, b);
 
-		if(approx_derivative(Df, z) < 0) {
+		if(approx_derivative_central(Df, z) < 0) {
 			UMATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);
 			return z;
 		}

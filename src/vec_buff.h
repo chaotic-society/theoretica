@@ -50,6 +50,22 @@ namespace uroboro {
 	}
 
 
+	/// Sum the products of the squares of two sets of data
+	inline real product_sum_squares(const vec_buff& X, const vec_buff& Y) {
+
+		if(X.size() != Y.size()) {
+			UMATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real res = 0;
+		for(int i = 0; i < X.size(); i++)
+			res += square(X[i]) * square(Y[i]);
+
+		return res;
+	}
+
+
     /// Sum the products of three sets of values
     inline real product_sum(const vec_buff& X, const vec_buff& Y, const vec_buff& Z) {
 

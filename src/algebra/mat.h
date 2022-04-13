@@ -328,6 +328,11 @@ namespace uroboro {
 			return data[column][row];
 		}
 
+		/// Access element at <column, row>
+		inline real& operator()(unsigned int column, unsigned int row) {
+			return at(column, row);
+		}
+
 		/// Getters and setters
 		inline real get(unsigned int column, unsigned int row) const {
 			return data[column][row];

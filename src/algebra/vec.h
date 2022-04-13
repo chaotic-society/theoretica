@@ -29,7 +29,7 @@ namespace uroboro {
 
 		public:
 
-		static constexpr unsigned int size = N;
+		static constexpr unsigned int SIZE = N;
 
 		T data[N];
 
@@ -286,6 +286,7 @@ namespace uroboro {
 			return true;
 		}
 
+
 		/// Convert a vec<N, T> to a vec_buff
 		inline vec_buff to_vec_buff() {
 			
@@ -297,6 +298,14 @@ namespace uroboro {
 		}
 
 
+		/// Returns the size of the vector (N)
+		inline unsigned int size() {
+			return N;
+		}
+
+
+		/// Returns an N-dimensional euclidean base unit vector
+		/// with the i-th element set to 1.
 		inline static vec<N> euclidean_base(unsigned int i) {
 
 			vec<N> e_i = vec<N>(0);
