@@ -21,6 +21,7 @@ var classuroboro_1_1vec =
     [ "operator==", "classuroboro_1_1vec.html#aa48671cc8088c57474953dac4e20bf48", null ],
     [ "operator[]", "classuroboro_1_1vec.html#a61f460ccd0eac370b39b2fa931337cbe", null ],
     [ "set", "classuroboro_1_1vec.html#afde8ea8f1a8d77b12776b40f1e196cbc", null ],
+    [ "size", "classuroboro_1_1vec.html#ac21d5992a4717bb748eed8b56921cbb0", null ],
     [ "square_lenght", "classuroboro_1_1vec.html#a7131450fb06633dfb3db33ff77b8e652", null ],
     [ "square_magnitude", "classuroboro_1_1vec.html#a09d48e45b30425372a946a8b2465c859", null ],
     [ "to_string", "classuroboro_1_1vec.html#a64650efd7d2a4686096565be1f035c06", null ],

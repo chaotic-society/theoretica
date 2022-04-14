@@ -6,7 +6,6 @@
 #ifndef UROBORO_ROOTS_H
 #define UROBORO_ROOTS_H
 
-#include "../vec_buff.h"
 #include "../function.h"
 #include "../calculus/derivation.h"
 

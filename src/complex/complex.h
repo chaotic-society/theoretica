@@ -244,8 +244,8 @@ namespace  uroboro {
 
 				mat2 m;
 				m.iat(0, 0) = a;
-				m.iat(1, 0) = -b;
-				m.iat(0, 1) = b;
+				m.iat(0, 1) = -b;
+				m.iat(1, 0) = b;
 				m.iat(1, 1) = a;
 				return m;
 			}

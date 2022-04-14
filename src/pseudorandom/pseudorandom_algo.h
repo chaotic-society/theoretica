@@ -37,12 +37,12 @@ namespace uroboro {
 	}
 
 
-    /// Congruential pseudorandom number generation algorithm
+    /// Congruential pseudorandom number generation algorithm (wrapper)
     /// @param x The current recurrence value of the algorithm (x_n)
     /// @param state A vector containing the state of the algorithm (a, c, m in this order)
     /// @return The next generated pseudorandom number
     /// 
-    /// \see rand_congruential(unsigned int, unsigned int, unsigned int, unsigned int)
+    /// \see rand_congruential
 	unsigned int rand_congruential(unsigned int x, const std::vector<unsigned int>& state) {
 
 		if(state.size() != 3) {

@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['rad2deg_0',['RAD2DEG',['../namespaceuroboro.html#ad9c9bf07250a20e0a7cea2e15c7f5ab9',1,'uroboro']]],
-  ['radians_1',['radians',['../namespaceuroboro.html#a3662c64ee4e3e1c44d59e4be73b474af',1,'uroboro']]],
-  ['rand_5fcongruential_2',['rand_congruential',['../namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002',1,'uroboro::rand_congruential(unsigned int x, unsigned int a=48271, unsigned int c=0, unsigned int m=((unsigned int) 1&lt;&lt; 31) - 1)'],['../namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e',1,'uroboro::rand_congruential(unsigned int x, const std::vector&lt; unsigned int &gt; &amp;state)']]],
-  ['re_3',['Re',['../classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096',1,'uroboro::dual::Re()'],['../classuroboro_1_1multidual.html#a8597210cf141127f09cbc7e557629288',1,'uroboro::multidual::Re()'],['../classuroboro_1_1complex.html#ad5a396b7225d7a501cee36b250541768',1,'uroboro::complex::Re()']]],
-  ['real_4',['real',['../namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4',1,'uroboro']]],
-  ['real_5fanalysis_2eh_5',['real_analysis.h',['../real__analysis_8h.html',1,'']]],
-  ['real_5ffunction_6',['real_function',['../namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d',1,'uroboro']]],
-  ['reduced_5fchi_5fsquare_5flinearization_7',['reduced_chi_square_linearization',['../namespaceuroboro.html#af55624b3d44267170d726bb4a6f397b1',1,'uroboro']]],
-  ['remap_8',['remap',['../namespaceuroboro.html#a1c90ac136a93985c2323202e0dd7e422',1,'uroboro::remap(real iFrom, real iTo, real oFrom, real oTo, real value)'],['../namespaceuroboro.html#a4bf19121fdaea05f4baa16258334f499',1,'uroboro::remap(vec&lt; N &gt; iFrom, vec&lt; N &gt; iTo, vec&lt; N &gt; oFrom, vec&lt; N &gt; oTo, real value)']]],
-  ['rms_9',['rms',['../namespaceuroboro.html#ab1075dd080b8f057f0c82f048fe7d5d5',1,'uroboro']]],
-  ['root_10',['root',['../namespaceuroboro.html#a36d34513e5bd768631d4140ca6ad53f4',1,'uroboro']]],
-  ['root_5fapprox_5ftol_11',['ROOT_APPROX_TOL',['../namespaceuroboro.html#afc169c401028ed65ab89d17fa5f68df9',1,'uroboro']]],
-  ['roots_2eh_12',['roots.h',['../roots_8h.html',1,'']]],
-  ['rotate_13',['rotate',['../classuroboro_1_1quat.html#a61a2a3fb5bb5571f14231a6d339e358b',1,'uroboro::quat']]],
-  ['rotation_14',['rotation',['../classuroboro_1_1quat.html#ab3c11ec199cc7de8f5371c8005cf2a62',1,'uroboro::quat']]],
-  ['rotation_5f2x2_15',['rotation_2x2',['../classuroboro_1_1mat.html#a321b4a3f348b802919f1472f562249df',1,'uroboro::mat']]],
-  ['rotation_5f3x3_16',['rotation_3x3',['../classuroboro_1_1mat.html#a05db23c0e68902db2c57d7638f63730b',1,'uroboro::mat']]],
-  ['rotation_5f4x4_17',['rotation_4x4',['../classuroboro_1_1mat.html#abf2679ddc34a4df99229545285c483e7',1,'uroboro::mat']]],
-  ['rotation_5fx_5f3x3_18',['rotation_x_3x3',['../classuroboro_1_1mat.html#a39f236bd48202dda8be84291fc04be0f',1,'uroboro::mat']]],
-  ['rotation_5fx_5f4x4_19',['rotation_x_4x4',['../classuroboro_1_1mat.html#ab81ab980e8cddfdc83e22024843ae5d4',1,'uroboro::mat']]],
-  ['rotation_5fy_5f3x3_20',['rotation_y_3x3',['../classuroboro_1_1mat.html#a8ab3605ca25688097047ad99fa1fffaf',1,'uroboro::mat']]],
-  ['rotation_5fy_5f4x4_21',['rotation_y_4x4',['../classuroboro_1_1mat.html#a445fec7a39e442e8f12d62ef0cb7c3d7',1,'uroboro::mat']]],
-  ['rotation_5fz_5f3x3_22',['rotation_z_3x3',['../classuroboro_1_1mat.html#a1cc0b7fd8e007a82e1cf45cd11581427',1,'uroboro::mat']]],
-  ['rotation_5fz_5f4x4_23',['rotation_z_4x4',['../classuroboro_1_1mat.html#ad95f582916bfa150eefdba0b3d1f45c7',1,'uroboro::mat']]],
-  ['rotor_24',['rotor',['../classuroboro_1_1complex.html#acadb267c19c8a9dcf114b07ed969b8f2',1,'uroboro::complex']]]
+  ['quadratic_5fbezier_0',['quadratic_bezier',['../namespaceuroboro.html#ad6cbfc3bbbc84d00d7d44c863b092313',1,'uroboro']]],
+  ['quat_1',['quat',['../classuroboro_1_1quat.html#a44e1796d5641bda403f70d187039a639',1,'uroboro::quat::quat()'],['../classuroboro_1_1quat.html#aa1f7e48140743d134aebcbddf9c7e3bb',1,'uroboro::quat::quat(real a, const vec3 &amp;v)'],['../classuroboro_1_1quat.html#ad1cece7c7d7c90765df6a429f35bd3df',1,'uroboro::quat::quat(const quat &amp;other)'],['../classuroboro_1_1quat.html#adc46dc6adf8cced20e40f44bd7461f15',1,'uroboro::quat::quat(real a, real b, real c, real d)'],['../classuroboro_1_1quat.html',1,'uroboro::quat']]],
+  ['quat_2eh_2',['quat.h',['../quat_8h.html',1,'']]],
+  ['quotient_5fsum_3',['quotient_sum',['../namespaceuroboro.html#a90e320e71051b5d2f1a143612265fa0d',1,'uroboro']]]
 ];

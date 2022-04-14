@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('classuroboro_1_1mat.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>A generic KxN matrix.  
+<p>A generic matrix with real entries.  
  <a href="classuroboro_1_1mat.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="mat_8h_source.html">mat.h</a>&gt;</code></p>
@@ -116,7 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a10c0245aa4ee8c3d43943aeb4d02948d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a matrix from another one.  <a href="classuroboro_1_1mat.html#a10c0245aa4ee8c3d43943aeb4d02948d">More...</a><br /></td></tr>
 <tr class="separator:a10c0245aa4ee8c3d43943aeb4d02948d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab36c6db6066148ff17256e72adf85ce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ab36c6db6066148ff17256e72adf85ce1">operator=</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other)</td></tr>
-<tr class="memdesc:ab36c6db6066148ff17256e72adf85ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classuroboro_1_1mat.html#ab36c6db6066148ff17256e72adf85ce1">More...</a><br /></td></tr>
+<tr class="memdesc:ab36c6db6066148ff17256e72adf85ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from an initializer list.  <a href="classuroboro_1_1mat.html#ab36c6db6066148ff17256e72adf85ce1">More...</a><br /></td></tr>
 <tr class="separator:ab36c6db6066148ff17256e72adf85ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54fe7bdd966e08fd02de617d820a5107"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a54fe7bdd966e08fd02de617d820a5107">mat</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html#a2cc80bc0363f74facc72d80d4254eedb">diagonal</a>)</td></tr>
 <tr class="memdesc:a54fe7bdd966e08fd02de617d820a5107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a diagonal matrix.  <a href="classuroboro_1_1mat.html#a54fe7bdd966e08fd02de617d820a5107">More...</a><br /></td></tr>
@@ -128,18 +128,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a0ddae33028ea12078c466a42fde3f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a2a0ddae33028ea12078c466a42fde3f3">get_column</a> (int l) const</td></tr>
 <tr class="memdesc:a2a0ddae33028ea12078c466a42fde3f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the l-th column of the matrix as a vector.  <a href="classuroboro_1_1mat.html#a2a0ddae33028ea12078c466a42fde3f3">More...</a><br /></td></tr>
 <tr class="separator:a2a0ddae33028ea12078c466a42fde3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a9138bb3595e42a325826da744eec9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a34a9138bb3595e42a325826da744eec9">operator[]</a> (int l) const</td></tr>
-<tr class="memdesc:a34a9138bb3595e42a325826da744eec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the l-th column of the matrix as a vector.  <a href="classuroboro_1_1mat.html#a34a9138bb3595e42a325826da744eec9">More...</a><br /></td></tr>
-<tr class="separator:a34a9138bb3595e42a325826da744eec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6c709db32a64d7cb7f1b06e74fa11cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad6c709db32a64d7cb7f1b06e74fa11cb">get_row</a> (int l) const</td></tr>
 <tr class="memdesc:ad6c709db32a64d7cb7f1b06e74fa11cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the l-th row of the matrix as a vector.  <a href="classuroboro_1_1mat.html#ad6c709db32a64d7cb7f1b06e74fa11cb">More...</a><br /></td></tr>
 <tr class="separator:ad6c709db32a64d7cb7f1b06e74fa11cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d93f525ca21da7f8411b649c0ac22ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a6d93f525ca21da7f8411b649c0ac22ad">set_column</a> (unsigned int l, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;column)</td></tr>
-<tr class="memdesc:a6d93f525ca21da7f8411b649c0ac22ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se the l-th column of the matrix from a vector.  <a href="classuroboro_1_1mat.html#a6d93f525ca21da7f8411b649c0ac22ad">More...</a><br /></td></tr>
-<tr class="separator:a6d93f525ca21da7f8411b649c0ac22ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ca0cfa60025d95be814be719443593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#af8ca0cfa60025d95be814be719443593">set_row</a> (unsigned int l, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;row)</td></tr>
-<tr class="memdesc:af8ca0cfa60025d95be814be719443593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se the l-th row of the matrix from a vector.  <a href="classuroboro_1_1mat.html#af8ca0cfa60025d95be814be719443593">More...</a><br /></td></tr>
-<tr class="separator:af8ca0cfa60025d95be814be719443593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a9138bb3595e42a325826da744eec9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a34a9138bb3595e42a325826da744eec9">operator[]</a> (int l) const</td></tr>
+<tr class="memdesc:a34a9138bb3595e42a325826da744eec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the l-th row of the matrix as a vector.  <a href="classuroboro_1_1mat.html#a34a9138bb3595e42a325826da744eec9">More...</a><br /></td></tr>
+<tr class="separator:a34a9138bb3595e42a325826da744eec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd93d5bddc7231b62837d5ddca735273"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#afd93d5bddc7231b62837d5ddca735273">set_column</a> (unsigned int l, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;column)</td></tr>
+<tr class="memdesc:afd93d5bddc7231b62837d5ddca735273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se the l-th column of the matrix from a vector.  <a href="classuroboro_1_1mat.html#afd93d5bddc7231b62837d5ddca735273">More...</a><br /></td></tr>
+<tr class="separator:afd93d5bddc7231b62837d5ddca735273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef093507d4a175803cc7632b5e08b012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aef093507d4a175803cc7632b5e08b012">set_row</a> (unsigned int l, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;row)</td></tr>
+<tr class="memdesc:aef093507d4a175803cc7632b5e08b012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se the l-th row of the matrix from a vector.  <a href="classuroboro_1_1mat.html#aef093507d4a175803cc7632b5e08b012">More...</a><br /></td></tr>
+<tr class="separator:aef093507d4a175803cc7632b5e08b012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb91c6e43bc8c86aa1f7d26b146a3cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#adb91c6e43bc8c86aa1f7d26b146a3cb6">make_null</a> ()</td></tr>
 <tr class="memdesc:adb91c6e43bc8c86aa1f7d26b146a3cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all elements to zero.  <a href="classuroboro_1_1mat.html#adb91c6e43bc8c86aa1f7d26b146a3cb6">More...</a><br /></td></tr>
 <tr class="separator:adb91c6e43bc8c86aa1f7d26b146a3cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,20 +155,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4953ca9744cc644ae4bbc0cc812b16e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a4953ca9744cc644ae4bbc0cc812b16e7">operator/</a> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> scalar) const</td></tr>
 <tr class="memdesc:a4953ca9744cc644ae4bbc0cc812b16e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar division.  <a href="classuroboro_1_1mat.html#a4953ca9744cc644ae4bbc0cc812b16e7">More...</a><br /></td></tr>
 <tr class="separator:a4953ca9744cc644ae4bbc0cc812b16e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88272dc82bde4e509a89e978fc3ba892"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a88272dc82bde4e509a89e978fc3ba892">transform</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;v) const</td></tr>
-<tr class="memdesc:a88272dc82bde4e509a89e978fc3ba892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector v by the matrix.  <a href="classuroboro_1_1mat.html#a88272dc82bde4e509a89e978fc3ba892">More...</a><br /></td></tr>
-<tr class="separator:a88272dc82bde4e509a89e978fc3ba892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e56eabfcf39e58480ecbf02cc62d94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ab1e56eabfcf39e58480ecbf02cc62d94">operator*</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;v) const</td></tr>
-<tr class="memdesc:ab1e56eabfcf39e58480ecbf02cc62d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector v by the matrix.  <a href="classuroboro_1_1mat.html#ab1e56eabfcf39e58480ecbf02cc62d94">More...</a><br /></td></tr>
-<tr class="separator:ab1e56eabfcf39e58480ecbf02cc62d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae26836abb5d3ea756ee10b48185b3216"><td class="memTemplParams" colspan="2">template&lt;unsigned int M&gt; </td></tr>
-<tr class="memitem:ae26836abb5d3ea756ee10b48185b3216"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ae26836abb5d3ea756ee10b48185b3216">transform</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; M, N &gt; &amp;B) const</td></tr>
-<tr class="memdesc:ae26836abb5d3ea756ee10b48185b3216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication.  <a href="classuroboro_1_1mat.html#ae26836abb5d3ea756ee10b48185b3216">More...</a><br /></td></tr>
-<tr class="separator:ae26836abb5d3ea756ee10b48185b3216"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9679d73d7da790be99df584a4866c98c"><td class="memTemplParams" colspan="2">template&lt;unsigned int M&gt; </td></tr>
-<tr class="memitem:a9679d73d7da790be99df584a4866c98c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a9679d73d7da790be99df584a4866c98c">operator*</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; M, N &gt; &amp;B) const</td></tr>
-<tr class="memdesc:a9679d73d7da790be99df584a4866c98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication.  <a href="classuroboro_1_1mat.html#a9679d73d7da790be99df584a4866c98c">More...</a><br /></td></tr>
-<tr class="separator:a9679d73d7da790be99df584a4866c98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588786db7541bd579fd07ad7fc715785"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a588786db7541bd579fd07ad7fc715785">transform</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;v) const</td></tr>
+<tr class="memdesc:a588786db7541bd579fd07ad7fc715785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector v by the matrix.  <a href="classuroboro_1_1mat.html#a588786db7541bd579fd07ad7fc715785">More...</a><br /></td></tr>
+<tr class="separator:a588786db7541bd579fd07ad7fc715785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65889d80c9ce5d64a4de3e50097e396e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a65889d80c9ce5d64a4de3e50097e396e">operator*</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;v) const</td></tr>
+<tr class="memdesc:a65889d80c9ce5d64a4de3e50097e396e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector v by the matrix.  <a href="classuroboro_1_1mat.html#a65889d80c9ce5d64a4de3e50097e396e">More...</a><br /></td></tr>
+<tr class="separator:a65889d80c9ce5d64a4de3e50097e396e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa07570fa132bef0ed3be80876050d90"><td class="memTemplParams" colspan="2">template&lt;unsigned int M&gt; </td></tr>
+<tr class="memitem:aaa07570fa132bef0ed3be80876050d90"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aaa07570fa132bef0ed3be80876050d90">transform</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; &amp;B) const</td></tr>
+<tr class="memdesc:aaa07570fa132bef0ed3be80876050d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication.  <a href="classuroboro_1_1mat.html#aaa07570fa132bef0ed3be80876050d90">More...</a><br /></td></tr>
+<tr class="separator:aaa07570fa132bef0ed3be80876050d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61787024cc50d784980f1322d098e7f4"><td class="memTemplParams" colspan="2">template&lt;unsigned int M&gt; </td></tr>
+<tr class="memitem:a61787024cc50d784980f1322d098e7f4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a61787024cc50d784980f1322d098e7f4">operator*</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; &amp;B) const</td></tr>
+<tr class="memdesc:a61787024cc50d784980f1322d098e7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication.  <a href="classuroboro_1_1mat.html#a61787024cc50d784980f1322d098e7f4">More...</a><br /></td></tr>
+<tr class="separator:a61787024cc50d784980f1322d098e7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff1556cd658c8de3abd09ab32b5b932e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aff1556cd658c8de3abd09ab32b5b932e">operator+=</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other)</td></tr>
 <tr class="memdesc:aff1556cd658c8de3abd09ab32b5b932e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix addition.  <a href="classuroboro_1_1mat.html#aff1556cd658c8de3abd09ab32b5b932e">More...</a><br /></td></tr>
 <tr class="separator:aff1556cd658c8de3abd09ab32b5b932e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,17 +190,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06242bf4270124fed109fe7f369b438e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a06242bf4270124fed109fe7f369b438e">transposed</a> () const</td></tr>
 <tr class="memdesc:a06242bf4270124fed109fe7f369b438e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the transposed matrix.  <a href="classuroboro_1_1mat.html#a06242bf4270124fed109fe7f369b438e">More...</a><br /></td></tr>
 <tr class="separator:a06242bf4270124fed109fe7f369b438e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3214a9d3f50a76486b8fc7ba23b70d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a3214a9d3f50a76486b8fc7ba23b70d9c">dot</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;v1, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;v2) const</td></tr>
-<tr class="memdesc:a3214a9d3f50a76486b8fc7ba23b70d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the dot product between v1 and v2 using this matrix as the product matrix.  <a href="classuroboro_1_1mat.html#a3214a9d3f50a76486b8fc7ba23b70d9c">More...</a><br /></td></tr>
-<tr class="separator:a3214a9d3f50a76486b8fc7ba23b70d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc655089e894128f909997b3f1e3757"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aebc655089e894128f909997b3f1e3757">at</a> (unsigned int column, unsigned int row)</td></tr>
-<tr class="memdesc:aebc655089e894128f909997b3f1e3757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access element at &lt;column, row&gt;  <a href="classuroboro_1_1mat.html#aebc655089e894128f909997b3f1e3757">More...</a><br /></td></tr>
-<tr class="separator:aebc655089e894128f909997b3f1e3757"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25d8b715fca2bbff5f849b39281ce94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad25d8b715fca2bbff5f849b39281ce94">get</a> (unsigned int column, unsigned int row) const</td></tr>
-<tr class="memdesc:ad25d8b715fca2bbff5f849b39281ce94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getters and setters.  <a href="classuroboro_1_1mat.html#ad25d8b715fca2bbff5f849b39281ce94">More...</a><br /></td></tr>
-<tr class="separator:ad25d8b715fca2bbff5f849b39281ce94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6d3058fac962b4624411f285f1ba758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ac6d3058fac962b4624411f285f1ba758">set</a> (unsigned int column, unsigned int row, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a)</td></tr>
-<tr class="separator:ac6d3058fac962b4624411f285f1ba758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a2b449a70bd6895fa552e803c0c6a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad7a2b449a70bd6895fa552e803c0c6a8">dot</a> (const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;v1, const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;v2) const</td></tr>
+<tr class="memdesc:ad7a2b449a70bd6895fa552e803c0c6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the dot product between v1 and v2 using this matrix as the product matrix.  <a href="classuroboro_1_1mat.html#ad7a2b449a70bd6895fa552e803c0c6a8">More...</a><br /></td></tr>
+<tr class="separator:ad7a2b449a70bd6895fa552e803c0c6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add83c35e912f28fc2c77005d88f141ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#add83c35e912f28fc2c77005d88f141ad">iat</a> (unsigned int i, unsigned int j)</td></tr>
+<tr class="memdesc:add83c35e912f28fc2c77005d88f141ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Independent <a class="el" href="classuroboro_1_1mat.html#a244bbfcd87c8983b631cbfae46deddd0" title="Access element at i and j index.">at()</a> function.  <a href="classuroboro_1_1mat.html#add83c35e912f28fc2c77005d88f141ad">More...</a><br /></td></tr>
+<tr class="separator:add83c35e912f28fc2c77005d88f141ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244bbfcd87c8983b631cbfae46deddd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a244bbfcd87c8983b631cbfae46deddd0">at</a> (unsigned int i, unsigned int j)</td></tr>
+<tr class="memdesc:a244bbfcd87c8983b631cbfae46deddd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access element at i and j index.  <a href="classuroboro_1_1mat.html#a244bbfcd87c8983b631cbfae46deddd0">More...</a><br /></td></tr>
+<tr class="separator:a244bbfcd87c8983b631cbfae46deddd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a246db5c30864a8997367bbceeae6be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a0a246db5c30864a8997367bbceeae6be">operator()</a> (unsigned int i, unsigned int j)</td></tr>
+<tr class="memdesc:a0a246db5c30864a8997367bbceeae6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access element at indices i and j.  <a href="classuroboro_1_1mat.html#a0a246db5c30864a8997367bbceeae6be">More...</a><br /></td></tr>
+<tr class="separator:a0a246db5c30864a8997367bbceeae6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc02a581f94d866dfb5e110244b14e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#acc02a581f94d866dfb5e110244b14e84">iget</a> (unsigned int i, unsigned int j) const</td></tr>
+<tr class="memdesc:acc02a581f94d866dfb5e110244b14e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getters and setters.  <a href="classuroboro_1_1mat.html#acc02a581f94d866dfb5e110244b14e84">More...</a><br /></td></tr>
+<tr class="separator:acc02a581f94d866dfb5e110244b14e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0fa0d5e67d2adac96cfce9fdbc8cba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a9d0fa0d5e67d2adac96cfce9fdbc8cba">get</a> (unsigned int i, unsigned int j) const</td></tr>
+<tr class="memdesc:a9d0fa0d5e67d2adac96cfce9fdbc8cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getters and setters.  <a href="classuroboro_1_1mat.html#a9d0fa0d5e67d2adac96cfce9fdbc8cba">More...</a><br /></td></tr>
+<tr class="separator:a9d0fa0d5e67d2adac96cfce9fdbc8cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad205cf98ba93e272d266ee0f71b6f294"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad205cf98ba93e272d266ee0f71b6f294">set</a> (unsigned int i, unsigned int j, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a)</td></tr>
+<tr class="memdesc:ad205cf98ba93e272d266ee0f71b6f294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the element at indices i and j.  <a href="classuroboro_1_1mat.html#ad205cf98ba93e272d266ee0f71b6f294">More...</a><br /></td></tr>
+<tr class="separator:ad205cf98ba93e272d266ee0f71b6f294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700fc145e2a3b9067d69bb818ebb0990"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a700fc145e2a3b9067d69bb818ebb0990">operator==</a> (const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other) const</td></tr>
 <tr class="memdesc:a700fc145e2a3b9067d69bb818ebb0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether two matrices are equal element by element.  <a href="classuroboro_1_1mat.html#a700fc145e2a3b9067d69bb818ebb0990">More...</a><br /></td></tr>
 <tr class="separator:a700fc145e2a3b9067d69bb818ebb0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,24 +229,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af0b16d7c0506d878073996939dad597c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#af0b16d7c0506d878073996939dad597c">diagonal_product</a> ()</td></tr>
 <tr class="memdesc:af0b16d7c0506d878073996939dad597c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of the diagonal elements of a square matrix.  <a href="classuroboro_1_1mat.html#af0b16d7c0506d878073996939dad597c">More...</a><br /></td></tr>
 <tr class="separator:af0b16d7c0506d878073996939dad597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaccaf61e706d76dcbded1f45e6641ff5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aaccaf61e706d76dcbded1f45e6641ff5">det_2x2</a> ()</td></tr>
-<tr class="memdesc:aaccaf61e706d76dcbded1f45e6641ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant if the matrix is 2x2.  <a href="classuroboro_1_1mat.html#aaccaf61e706d76dcbded1f45e6641ff5">More...</a><br /></td></tr>
-<tr class="separator:aaccaf61e706d76dcbded1f45e6641ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90776546008563738cd179955c9f5f19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a90776546008563738cd179955c9f5f19">det_3x3</a> ()</td></tr>
-<tr class="memdesc:a90776546008563738cd179955c9f5f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant if the matrix is 3x3.  <a href="classuroboro_1_1mat.html#a90776546008563738cd179955c9f5f19">More...</a><br /></td></tr>
-<tr class="separator:a90776546008563738cd179955c9f5f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d6d9985a9c110b70ba5ca9fb1f4245a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a2d6d9985a9c110b70ba5ca9fb1f4245a">det_gj</a> ()</td></tr>
-<tr class="memdesc:a2d6d9985a9c110b70ba5ca9fb1f4245a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the determinant of the matrix using Gauss-Jordan lower triangularization.  <a href="classuroboro_1_1mat.html#a2d6d9985a9c110b70ba5ca9fb1f4245a">More...</a><br /></td></tr>
-<tr class="separator:a2d6d9985a9c110b70ba5ca9fb1f4245a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24b13660c68c6ab2acfc2b452c0b5d52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a24b13660c68c6ab2acfc2b452c0b5d52">det</a> ()</td></tr>
-<tr class="memdesc:a24b13660c68c6ab2acfc2b452c0b5d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the determinant of the matrix.  <a href="classuroboro_1_1mat.html#a24b13660c68c6ab2acfc2b452c0b5d52">More...</a><br /></td></tr>
-<tr class="separator:a24b13660c68c6ab2acfc2b452c0b5d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab77ce18f770d1da075e676fa37007ecf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ab77ce18f770d1da075e676fa37007ecf">inverse_2x2</a> ()</td></tr>
-<tr class="memdesc:ab77ce18f770d1da075e676fa37007ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a 2x2 matrix.  <a href="classuroboro_1_1mat.html#ab77ce18f770d1da075e676fa37007ecf">More...</a><br /></td></tr>
-<tr class="separator:ab77ce18f770d1da075e676fa37007ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a14c410fe2f9ead96118dd9701c1ccd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a6a14c410fe2f9ead96118dd9701c1ccd">inverse</a> ()</td></tr>
-<tr class="memdesc:a6a14c410fe2f9ead96118dd9701c1ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a generic square matrix.  <a href="classuroboro_1_1mat.html#a6a14c410fe2f9ead96118dd9701c1ccd">More...</a><br /></td></tr>
-<tr class="separator:a6a14c410fe2f9ead96118dd9701c1ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1af203725232ed07b2b7666549fd0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#adc1af203725232ed07b2b7666549fd0b">det_2x2</a> () const</td></tr>
+<tr class="memdesc:adc1af203725232ed07b2b7666549fd0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant if the matrix is 2x2.  <a href="classuroboro_1_1mat.html#adc1af203725232ed07b2b7666549fd0b">More...</a><br /></td></tr>
+<tr class="separator:adc1af203725232ed07b2b7666549fd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c5062b575d3c763a0cab3dfbd50023"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a04c5062b575d3c763a0cab3dfbd50023">det_3x3</a> () const</td></tr>
+<tr class="memdesc:a04c5062b575d3c763a0cab3dfbd50023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant if the matrix is 3x3.  <a href="classuroboro_1_1mat.html#a04c5062b575d3c763a0cab3dfbd50023">More...</a><br /></td></tr>
+<tr class="separator:a04c5062b575d3c763a0cab3dfbd50023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8108d2b941140188648fb24617c5c299"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a8108d2b941140188648fb24617c5c299">det_gj</a> () const</td></tr>
+<tr class="memdesc:a8108d2b941140188648fb24617c5c299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the determinant of the matrix using Gauss-Jordan lower triangularization.  <a href="classuroboro_1_1mat.html#a8108d2b941140188648fb24617c5c299">More...</a><br /></td></tr>
+<tr class="separator:a8108d2b941140188648fb24617c5c299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d9c00e69c2c2b1588b3afe0971e6fb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a2d9c00e69c2c2b1588b3afe0971e6fb1">det</a> () const</td></tr>
+<tr class="memdesc:a2d9c00e69c2c2b1588b3afe0971e6fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the determinant of the matrix.  <a href="classuroboro_1_1mat.html#a2d9c00e69c2c2b1588b3afe0971e6fb1">More...</a><br /></td></tr>
+<tr class="separator:a2d9c00e69c2c2b1588b3afe0971e6fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f99f79cf1a9be360d50ecd0baca67d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a48f99f79cf1a9be360d50ecd0baca67d">inverse_2x2</a> () const</td></tr>
+<tr class="memdesc:a48f99f79cf1a9be360d50ecd0baca67d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a 2x2 matrix.  <a href="classuroboro_1_1mat.html#a48f99f79cf1a9be360d50ecd0baca67d">More...</a><br /></td></tr>
+<tr class="separator:a48f99f79cf1a9be360d50ecd0baca67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a068b42407e4f927cd0098f5788b67637"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a068b42407e4f927cd0098f5788b67637">inverse</a> () const</td></tr>
+<tr class="memdesc:a068b42407e4f927cd0098f5788b67637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a generic square matrix.  <a href="classuroboro_1_1mat.html#a068b42407e4f927cd0098f5788b67637">More...</a><br /></td></tr>
+<tr class="separator:a068b42407e4f927cd0098f5788b67637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4db86ab8cfb92c41bb7afbc579c30094"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a4db86ab8cfb92c41bb7afbc579c30094">invert</a> ()</td></tr>
 <tr class="memdesc:a4db86ab8cfb92c41bb7afbc579c30094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invert a generic square matrix.  <a href="classuroboro_1_1mat.html#a4db86ab8cfb92c41bb7afbc579c30094">More...</a><br /></td></tr>
 <tr class="separator:a4db86ab8cfb92c41bb7afbc579c30094"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,12 +325,12 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a443d8fde0809f3ed64318e7d344bfb51"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a443d8fde0809f3ed64318e7d344bfb51">size</a> = N * K</td></tr>
-<tr class="separator:a443d8fde0809f3ed64318e7d344bfb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa49ef03f0ac864f119a0a97425c72d14"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#aa49ef03f0ac864f119a0a97425c72d14">column_size</a> = N</td></tr>
-<tr class="separator:aa49ef03f0ac864f119a0a97425c72d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0f76b8cdf248311761e4f70855d47ef"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad0f76b8cdf248311761e4f70855d47ef">row_size</a> = K</td></tr>
-<tr class="separator:ad0f76b8cdf248311761e4f70855d47ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e171c768899bd7ded39da8e9f5bb06"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#ad0e171c768899bd7ded39da8e9f5bb06">SIZE</a> = N * K</td></tr>
+<tr class="separator:ad0e171c768899bd7ded39da8e9f5bb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72864edff85a760fc4ea8ca2f0e4512b"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a72864edff85a760fc4ea8ca2f0e4512b">ROW_SIZE</a> = N</td></tr>
+<tr class="separator:a72864edff85a760fc4ea8ca2f0e4512b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f32486074d1ee05e3c5a8fd8e6750a"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1mat.html#a81f32486074d1ee05e3c5a8fd8e6750a">COL_SIZE</a> = K</td></tr>
+<tr class="separator:a81f32486074d1ee05e3c5a8fd8e6750a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -330,10 +340,16 @@ Friends</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;unsigned int N, unsigned int K&gt;<br />
-class uroboro::mat&lt; N, K &gt;</div><p >A generic KxN matrix. </p>
-<p >N is the number of columns, K is the number or rows (column-first order is used for OpenGL) </p>
+class uroboro::mat&lt; N, K &gt;</div><p >A generic matrix with real entries. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>The number of rows </td></tr>
+    <tr><td class="paramname">K</td><td>The number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00029">29</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00030">30</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abdcbb7f3adbab5baaa2cee20bc54abe5" name="abdcbb7f3adbab5baaa2cee20bc54abe5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdcbb7f3adbab5baaa2cee20bc54abe5">&#9670;&nbsp;</a></span>mat() <span class="overload">[1/3]</span></h2>
@@ -362,7 +378,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Initialize a matrix to all zeroes. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00039">39</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00044">44</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -394,7 +410,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Initialize a matrix from another one. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00044">44</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00049">49</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -426,13 +442,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Construct a diagonal matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00063">63</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00085">85</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aebc655089e894128f909997b3f1e3757" name="aebc655089e894128f909997b3f1e3757"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebc655089e894128f909997b3f1e3757">&#9670;&nbsp;</a></span>at()</h2>
+<a id="a244bbfcd87c8983b631cbfae46deddd0" name="a244bbfcd87c8983b631cbfae46deddd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244bbfcd87c8983b631cbfae46deddd0">&#9670;&nbsp;</a></span>at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,13 +462,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::at </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>column</em>, </td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>row</em>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -467,14 +483,15 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Access element at &lt;column, row&gt; </p>
+<p>Access element at i and j index. </p>
+<p >By default, i is the index on rows and j is the index on columns. If UROBORO_MATRIX_LEXIC is defined, the indices will instead refer to columns and rows respectively. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00327">327</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00374">374</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a24b13660c68c6ab2acfc2b452c0b5d52" name="a24b13660c68c6ab2acfc2b452c0b5d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24b13660c68c6ab2acfc2b452c0b5d52">&#9670;&nbsp;</a></span>det()</h2>
+<a id="a2d9c00e69c2c2b1588b3afe0971e6fb1" name="a2d9c00e69c2c2b1588b3afe0971e6fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9c00e69c2c2b1588b3afe0971e6fb1">&#9670;&nbsp;</a></span>det()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -488,7 +505,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::det </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -500,12 +517,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Compute the determinant of the matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00501">501</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00583">583</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="aaccaf61e706d76dcbded1f45e6641ff5" name="aaccaf61e706d76dcbded1f45e6641ff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaccaf61e706d76dcbded1f45e6641ff5">&#9670;&nbsp;</a></span>det_2x2()</h2>
+<a id="adc1af203725232ed07b2b7666549fd0b" name="adc1af203725232ed07b2b7666549fd0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1af203725232ed07b2b7666549fd0b">&#9670;&nbsp;</a></span>det_2x2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -519,7 +536,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::det_2x2 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -532,12 +549,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <p>Return the determinant if the matrix is 2x2. </p>
 <dl class="section note"><dt>Note</dt><dd>No error checking is performed on the matrix size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00419">419</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00501">501</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a90776546008563738cd179955c9f5f19" name="a90776546008563738cd179955c9f5f19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90776546008563738cd179955c9f5f19">&#9670;&nbsp;</a></span>det_3x3()</h2>
+<a id="a04c5062b575d3c763a0cab3dfbd50023" name="a04c5062b575d3c763a0cab3dfbd50023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c5062b575d3c763a0cab3dfbd50023">&#9670;&nbsp;</a></span>det_3x3()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -551,7 +568,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::det_3x3 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -564,12 +581,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <p>Return the determinant if the matrix is 3x3. </p>
 <dl class="section note"><dt>Note</dt><dd>No error checking is performed on the matrix size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00426">426</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00508">508</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a2d6d9985a9c110b70ba5ca9fb1f4245a" name="a2d6d9985a9c110b70ba5ca9fb1f4245a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d6d9985a9c110b70ba5ca9fb1f4245a">&#9670;&nbsp;</a></span>det_gj()</h2>
+<a id="a8108d2b941140188648fb24617c5c299" name="a8108d2b941140188648fb24617c5c299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8108d2b941140188648fb24617c5c299">&#9670;&nbsp;</a></span>det_gj()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,7 +600,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::det_gj </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -595,7 +612,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Compute the determinant of the matrix using Gauss-Jordan lower triangularization. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00434">434</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00516">516</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -627,7 +644,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a diagonal matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00714">714</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00795">795</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -658,12 +675,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Compute the product of the diagonal elements of a square matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00406">406</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00484">484</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a3214a9d3f50a76486b8fc7ba23b70d9c" name="a3214a9d3f50a76486b8fc7ba23b70d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3214a9d3f50a76486b8fc7ba23b70d9c">&#9670;&nbsp;</a></span>dot()</h2>
+<a id="ad7a2b449a70bd6895fa552e803c0c6a8" name="ad7a2b449a70bd6895fa552e803c0c6a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a2b449a70bd6895fa552e803c0c6a8">&#9670;&nbsp;</a></span>dot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -676,13 +693,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::dot </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
@@ -698,14 +715,14 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Calculate the dot product between v1 and v2 using this matrix as the product matrix. </p>
+<p>Compute the dot product between v1 and v2 using this matrix as the product matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00313">313</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00336">336</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ad25d8b715fca2bbff5f849b39281ce94" name="ad25d8b715fca2bbff5f849b39281ce94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad25d8b715fca2bbff5f849b39281ce94">&#9670;&nbsp;</a></span>get()</h2>
+<a id="a9d0fa0d5e67d2adac96cfce9fdbc8cba" name="a9d0fa0d5e67d2adac96cfce9fdbc8cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0fa0d5e67d2adac96cfce9fdbc8cba">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -719,13 +736,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::get </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>column</em>, </td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>row</em>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -742,7 +759,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Getters and setters. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00332">332</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00402">402</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -774,7 +791,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get the l-th column of the matrix as a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00075">75</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00097">97</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -806,7 +823,51 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get the l-th row of the matrix as a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00089">89</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00107">107</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+
+</div>
+</div>
+<a id="add83c35e912f28fc2c77005d88f141ad" name="add83c35e912f28fc2c77005d88f141ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add83c35e912f28fc2c77005d88f141ad">&#9670;&nbsp;</a></span>iat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N, unsigned int K&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::iat </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Independent <a class="el" href="classuroboro_1_1mat.html#a244bbfcd87c8983b631cbfae46deddd0" title="Access element at i and j index.">at()</a> function. </p>
+<p >Access element at i and j index, where i is always the index on rows and j is always the index on columns.</p>
+<p >This function is used inside of the library to access matrix elements independently from the specific setup of storage or notation (regardless of UROBORO_MATRIX_LEXIC and UROBORO_ROW_FIRST) </p>
+
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00357">357</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -837,12 +898,54 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get the identity matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00709">709</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00790">790</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a6a14c410fe2f9ead96118dd9701c1ccd" name="a6a14c410fe2f9ead96118dd9701c1ccd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a14c410fe2f9ead96118dd9701c1ccd">&#9670;&nbsp;</a></span>inverse()</h2>
+<a id="acc02a581f94d866dfb5e110244b14e84" name="acc02a581f94d866dfb5e110244b14e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc02a581f94d866dfb5e110244b14e84">&#9670;&nbsp;</a></span>iget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N, unsigned int K&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::iget </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getters and setters. </p>
+
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00391">391</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+
+</div>
+</div>
+<a id="a068b42407e4f927cd0098f5788b67637" name="a068b42407e4f927cd0098f5788b67637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a068b42407e4f927cd0098f5788b67637">&#9670;&nbsp;</a></span>inverse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -856,7 +959,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::inverse </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -868,12 +971,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Compute the inverse of a generic square matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00539">539</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00621">621</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ab77ce18f770d1da075e676fa37007ecf" name="ab77ce18f770d1da075e676fa37007ecf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab77ce18f770d1da075e676fa37007ecf">&#9670;&nbsp;</a></span>inverse_2x2()</h2>
+<a id="a48f99f79cf1a9be360d50ecd0baca67d" name="a48f99f79cf1a9be360d50ecd0baca67d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f99f79cf1a9be360d50ecd0baca67d">&#9670;&nbsp;</a></span>inverse_2x2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -887,7 +990,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, K &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::inverse_2x2 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -900,7 +1003,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <p>Compute the inverse of a 2x2 matrix. </p>
 <dl class="section note"><dt>Note</dt><dd>No error checking is performed on the matrix size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00522">522</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00604">604</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -931,7 +1034,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Invert a generic square matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00622">622</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00703">703</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -962,7 +1065,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Return whether the matrix is diagonal. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00361">361</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00439">439</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1096,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Return whether the matrix is square. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00356">356</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00434">434</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1127,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Return whether the matrix is symmetric. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00373">373</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00451">451</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1175,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Return a transformation matrix that points the field of view towards a given point from the &lt;camera&gt; point. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01014">1014</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01095">1095</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1103,12 +1206,54 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Set all elements to zero. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00112">112</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00135">135</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a9679d73d7da790be99df584a4866c98c" name="a9679d73d7da790be99df584a4866c98c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9679d73d7da790be99df584a4866c98c">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/3]</span></h2>
+<a id="a0a246db5c30864a8997367bbceeae6be" name="a0a246db5c30864a8997367bbceeae6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a246db5c30864a8997367bbceeae6be">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N, unsigned int K&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> &amp; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access element at indices i and j. </p>
+
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00385">385</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+
+</div>
+</div>
+<a id="a61787024cc50d784980f1322d098e7f4" name="a61787024cc50d784980f1322d098e7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61787024cc50d784980f1322d098e7f4">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1121,9 +1266,9 @@ template&lt;unsigned int M&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::operator* </td>
+          <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, M &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; M, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1137,12 +1282,12 @@ template&lt;unsigned int M&gt; </div>
 
 <p>Matrix multiplication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00206">206</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00229">229</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ab1e56eabfcf39e58480ecbf02cc62d94" name="ab1e56eabfcf39e58480ecbf02cc62d94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1e56eabfcf39e58480ecbf02cc62d94">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/3]</span></h2>
+<a id="a65889d80c9ce5d64a4de3e50097e396e" name="a65889d80c9ce5d64a4de3e50097e396e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65889d80c9ce5d64a4de3e50097e396e">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1153,9 +1298,9 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::operator* </td>
+          <td class="memname"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1169,7 +1314,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Transform a vector v by the matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00183">183</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00206">206</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1201,7 +1346,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Scalar multiplication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00143">143</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00166">166</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1233,7 +1378,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix multiplication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00265">265</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00288">288</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1265,7 +1410,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Scalar multiplication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00236">236</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00259">259</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1297,7 +1442,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix addition. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00121">121</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00144">144</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1329,7 +1474,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix addition. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00212">212</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00235">235</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1361,7 +1506,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix subtraction. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00132">132</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00155">155</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1538,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix subtraction. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00224">224</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00247">247</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1425,7 +1570,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Scalar division. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00154">154</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00177">177</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1457,7 +1602,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Scalar division. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00248">248</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00271">271</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1487,9 +1632,10 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy constructor. </p>
+<p>Initialize from an initializer list. </p>
+<p >Copy constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00053">53</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00075">75</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1521,7 +1667,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Check whether two matrices are equal element by element. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00341">341</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00419">419</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1551,9 +1697,9 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the l-th column of the matrix as a vector. </p>
+<p>Get the l-th row of the matrix as a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00084">84</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00116">116</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1617,7 +1763,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00998">998</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01079">1079</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1669,7 +1815,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00989">989</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01070">1070</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1733,7 +1879,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00971">971</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01052">1052</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1765,7 +1911,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates the 2D plane of &lt;theta&gt; radians. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00743">743</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00824">824</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1807,7 +1953,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the &lt;axis&gt; axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00901">901</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00982">982</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1849,7 +1995,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the &lt;axis&gt; axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00863">863</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00944">944</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1881,7 +2027,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the x axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00776">776</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00857">857</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1913,7 +2059,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the x axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00758">758</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00839">839</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1945,7 +2091,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the y axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00811">811</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00892">892</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -1977,7 +2123,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the y axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00793">793</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00874">874</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2009,7 +2155,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the z axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00846">846</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00927">927</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2041,7 +2187,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a matrix which rotates &lt;theta&gt; radians around the z axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00828">828</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00909">909</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2075,7 +2221,7 @@ template&lt;unsigned int M&gt; </div>
 
 <p>Get a scaling matrix by &lt;v&gt; factors. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00960">960</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01041">1041</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2123,7 +2269,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a scaling matrix by factors &lt;x&gt;, &lt;y&gt; and &lt;z&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00946">946</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01027">1027</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2171,12 +2317,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a scaling matrix by factors &lt;x&gt;, &lt;y&gt; and &lt;z&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00931">931</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01012">1012</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ac6d3058fac962b4624411f285f1ba758" name="ac6d3058fac962b4624411f285f1ba758"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6d3058fac962b4624411f285f1ba758">&#9670;&nbsp;</a></span>set()</h2>
+<a id="ad205cf98ba93e272d266ee0f71b6f294" name="ad205cf98ba93e272d266ee0f71b6f294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad205cf98ba93e272d266ee0f71b6f294">&#9670;&nbsp;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2190,13 +2336,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
           <td class="memname">void <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::set </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>column</em>, </td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
+          <td class="paramname"><em>j</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2217,12 +2363,14 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00336">336</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p>Set the element at indices i and j. </p>
+
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00413">413</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a6d93f525ca21da7f8411b649c0ac22ad" name="a6d93f525ca21da7f8411b649c0ac22ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d93f525ca21da7f8411b649c0ac22ad">&#9670;&nbsp;</a></span>set_column()</h2>
+<a id="afd93d5bddc7231b62837d5ddca735273" name="afd93d5bddc7231b62837d5ddca735273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd93d5bddc7231b62837d5ddca735273">&#9670;&nbsp;</a></span>set_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2241,7 +2389,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>column</em>&#160;</td>
         </tr>
         <tr>
@@ -2259,12 +2407,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Se the l-th column of the matrix from a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00098">98</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00121">121</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="af8ca0cfa60025d95be814be719443593" name="af8ca0cfa60025d95be814be719443593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8ca0cfa60025d95be814be719443593">&#9670;&nbsp;</a></span>set_row()</h2>
+<a id="aef093507d4a175803cc7632b5e08b012" name="aef093507d4a175803cc7632b5e08b012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef093507d4a175803cc7632b5e08b012">&#9670;&nbsp;</a></span>set_row()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2283,7 +2431,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>row</em>&#160;</td>
         </tr>
         <tr>
@@ -2301,7 +2449,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Se the l-th row of the matrix from a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00105">105</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00128">128</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2332,7 +2480,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>A symplectic NxN matrix, where \(N = 2K\) for some natural K. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01052">1052</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01133">1133</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2364,7 +2512,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Convert the matrix to string representation. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01083">1083</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01164">1164</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2395,12 +2543,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Compute the trace (sum of elements on the diagonal) of a square matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00389">389</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00467">467</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ae26836abb5d3ea756ee10b48185b3216" name="ae26836abb5d3ea756ee10b48185b3216"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae26836abb5d3ea756ee10b48185b3216">&#9670;&nbsp;</a></span>transform() <span class="overload">[1/2]</span></h2>
+<a id="aaa07570fa132bef0ed3be80876050d90" name="aaa07570fa132bef0ed3be80876050d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa07570fa132bef0ed3be80876050d90">&#9670;&nbsp;</a></span>transform() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2413,9 +2561,9 @@ template&lt;unsigned int M&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::transform </td>
+          <td class="memname"><a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; N, M &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::transform </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; M, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1mat.html">mat</a>&lt; K, M &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -2429,12 +2577,12 @@ template&lt;unsigned int M&gt; </div>
 
 <p>Matrix multiplication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00189">189</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00212">212</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="a88272dc82bde4e509a89e978fc3ba892" name="a88272dc82bde4e509a89e978fc3ba892"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88272dc82bde4e509a89e978fc3ba892">&#9670;&nbsp;</a></span>transform() <span class="overload">[2/2]</span></h2>
+<a id="a588786db7541bd579fd07ad7fc715785" name="a588786db7541bd579fd07ad7fc715785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588786db7541bd579fd07ad7fc715785">&#9670;&nbsp;</a></span>transform() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2445,9 +2593,9 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::transform </td>
+          <td class="memname"><a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::transform </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -2461,7 +2609,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Transform a vector v by the matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00171">171</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00194">194</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2509,7 +2657,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a 4x4 matrix which translates by {x, y, z}. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00731">731</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00812">812</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2541,7 +2689,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Get a 4x4 matrix which translates by {x, y, z}. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00719">719</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00800">800</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2572,7 +2720,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Matrix transposition. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00271">271</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00294">294</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2603,7 +2751,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Return the transposed matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00294">294</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00317">317</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2646,13 +2794,13 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 <p>Stream the matrix in string representation to an output stream (std::ostream) </p>
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01095">1095</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l01176">1176</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa49ef03f0ac864f119a0a97425c72d14" name="aa49ef03f0ac864f119a0a97425c72d14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa49ef03f0ac864f119a0a97425c72d14">&#9670;&nbsp;</a></span>column_size</h2>
+<a id="a81f32486074d1ee05e3c5a8fd8e6750a" name="a81f32486074d1ee05e3c5a8fd8e6750a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81f32486074d1ee05e3c5a8fd8e6750a">&#9670;&nbsp;</a></span>COL_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2663,7 +2811,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::column_size = N</td>
+          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::COL_SIZE = K</td>
         </tr>
       </table>
   </td>
@@ -2673,7 +2821,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00033">33</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00035">35</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
@@ -2691,12 +2839,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00036">36</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00040">40</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
-<a id="ad0f76b8cdf248311761e4f70855d47ef" name="ad0f76b8cdf248311761e4f70855d47ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0f76b8cdf248311761e4f70855d47ef">&#9670;&nbsp;</a></span>row_size</h2>
+<a id="a72864edff85a760fc4ea8ca2f0e4512b" name="a72864edff85a760fc4ea8ca2f0e4512b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72864edff85a760fc4ea8ca2f0e4512b">&#9670;&nbsp;</a></span>ROW_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2707,7 +2855,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::row_size = K</td>
+          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::ROW_SIZE = N</td>
         </tr>
       </table>
   </td>
@@ -2721,8 +2869,8 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 </div>
 </div>
-<a id="a443d8fde0809f3ed64318e7d344bfb51" name="a443d8fde0809f3ed64318e7d344bfb51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a443d8fde0809f3ed64318e7d344bfb51">&#9670;&nbsp;</a></span>size</h2>
+<a id="ad0e171c768899bd7ded39da8e9f5bb06" name="ad0e171c768899bd7ded39da8e9f5bb06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e171c768899bd7ded39da8e9f5bb06">&#9670;&nbsp;</a></span>SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2733,7 +2881,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::size = N * K</td>
+          <td class="memname">const unsigned int <a class="el" href="classuroboro_1_1mat.html">uroboro::mat</a>&lt; N, K &gt;::SIZE = N * K</td>
         </tr>
       </table>
   </td>
@@ -2743,12 +2891,12 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00032">32</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat_8h_source.html#l00033">33</a> of file <a class="el" href="mat_8h_source.html">mat.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>algebra/<a class="el" href="mat_8h_source.html">mat.h</a></li>
+<li><a class="el" href="mat_8h_source.html">mat.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -2756,7 +2904,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuroboro.html">uroboro</a></li><li class="navelem"><a class="el" href="classuroboro_1_1mat.html">mat</a></li>
-    <li class="footer">Generated on Wed Apr 6 2022 14:56:31 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

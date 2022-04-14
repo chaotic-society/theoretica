@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <li>[x] Transformation matrices (<em>identity</em>, <em>translation</em>, <em>rotation_4x4</em>, <em>rotation_3x3</em>, <em>scaling</em>)</li>
 <li>[x] Perspective and Ortho matrices - Need testing</li>
 <li>[x] Inversion</li>
-<li>[ ] Determinant of a generic matrix</li>
+<li>[x] Determinant of a generic matrix</li>
 <li>[x] Determinant of 2x2 and 3x3 matrices</li>
 </ul>
 </li>
@@ -215,12 +215,12 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <li>[x] Derivative approximation</li>
 </ul>
 </li>
-<li>Approximation of roots and extrema (<em><a class="el" href="approx_8h.html" title="Include file for extrema.h and roots.h.">approx/approx.h</a></em>, <em><a class="el" href="roots_8h.html" title="Root approximation of real functions.">approx/roots.h</a></em>, <em><a class="el" href="extrema_8h.html" title="Extrema approximation of real functions.">approx/extrema.h</a></em>) - <b>NO TEST CASES</b><ul>
+<li>Approximation of roots and extrema (<em><a class="el" href="roots_8h.html" title="Root approximation of real functions.">approx/roots.h</a></em>, <em><a class="el" href="extrema_8h.html" title="Extrema approximation of real functions.">approx/extrema.h</a></em>) - <b>NO TEST CASES</b><ul>
 <li>[x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev</li>
-<li>[x] Approximation of extrema using Newton and bisection</li>
+<li>[x] Approximation of extrema using Newton, bisection and golden section search</li>
 </ul>
 </li>
-<li>Dual numbers (<em><a class="el" href="dual_8h.html" title="Dual numbers.">autodiff/dual.h</a></em>) - <b>NO TEST CASES</b><ul>
+<li>Dual numbers (<em><a class="el" href="dual_8h.html" title="Dual number class.">autodiff/dual.h</a></em>) - <b>NO TEST CASES</b><ul>
 <li>[x] Addition and subtraction</li>
 <li>[x] Multiplication and division</li>
 <li>[x] Conjugate and inverse</li>
@@ -228,22 +228,30 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <li>[x] Matrix form</li>
 </ul>
 </li>
+<li>Multidual numbers (<em><a class="el" href="multidual_8h.html" title="Multidual numbers.">autodiff/multidual.h</a></em>) - <b>NO TEST CASES</b><ul>
+<li>[x] Addition and subtraction</li>
+<li>[x] Multiplication and division</li>
+<li>[x] Conjugate and inverse</li>
+<li>[ ] Conversion from and to vector</li>
+<li>[ ] Matrix form</li>
+</ul>
+</li>
 <li>Dual functions and Automatic Differentiation (<em><a class="el" href="dual__functions_8h.html" title="Functions defined on dual numbers for automatic differentiation.">autodiff/dual_functions.h</a></em>) - <b>NO TEST CASES</b><ul>
 <li>[x] square</li>
 <li>[x] cube</li>
 <li>[x] pow</li>
 <li>[x] sqrt</li>
-<li>[ ] sin</li>
-<li>[ ] cos</li>
-<li>[ ] tan</li>
-<li>[ ] cot</li>
-<li>[ ] exp</li>
-<li>[ ] ln</li>
-<li>[ ] log2</li>
-<li>[ ] log10</li>
-<li>[ ] asin</li>
-<li>[ ] acos</li>
-<li>[ ] atan</li>
+<li>[ ] sin - Depends on real function</li>
+<li>[ ] cos - Depends on real function</li>
+<li>[ ] tan - Depends on real function</li>
+<li>[ ] cot - Depends on real function</li>
+<li>[ ] exp - Depends on real function</li>
+<li>[ ] ln - Depends on real function</li>
+<li>[ ] log2 - Depends on real function</li>
+<li>[ ] log10 - Depends on real function</li>
+<li>[ ] asin - Depends on real function</li>
+<li>[ ] acos - Depends on real function</li>
+<li>[ ] atan - Depends on real function</li>
 <li>[x] abs</li>
 </ul>
 </li>
@@ -254,7 +262,16 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <li>[x] Remapping</li>
 <li>[x] Quadratic Bezier</li>
 <li>[x] Cubic Bezier</li>
-<li>[ ] Generic Bezier</li>
+<li>[x] Generic Bezier</li>
+</ul>
+</li>
+<li>Pseudorandom numbers (<em><a class="el" href="pseudorandom__algo_8h.html" title="Pseudorandom number generation algorithms.">pseudorandom/pseudorandom_algo.h</a></em>, <em><a class="el" href="prng_8h.html" title="Pseudorandom number generator class.">pseudorandom/prng.h</a></em>) - <b>NO TEST CASES</b><ul>
+<li>[x] PRNG class</li>
+<li>[x] Random real numbers on a range</li>
+<li>[x] Congruential generator</li>
+<li>[ ] Mersenne twister</li>
+<li>[ ] Xorshift</li>
+<li>[ ] Lagged Fibonacci</li>
 </ul>
 </li>
 <li>Statistical functions (<em><a class="el" href="statistics_8h.html" title="Statistical functions.">statistics/statistics.h</a></em>) - <b>NO TEST CASES</b><ul>
@@ -279,7 +296,13 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <li>[x] Log-normal</li>
 <li>[x] Exponential</li>
 <li>[x] Cauchy</li>
-<li>[x] Breit Wigner </li>
+<li>[x] Breit Wigner</li>
+</ul>
+</li>
+<li>Random number-based algorithms (<em>pseudorandom/randstat.h</em>) - <b>NO TEST CASES</b><ul>
+<li>[x] Try-and-catch number generation following a distribution</li>
+<li>[ ] Inverse cumulative function method</li>
+<li>[ ] Metropolis-Hastings Monte Carlo Markov Chain method </li>
 </ul>
 </li>
 </ul>
@@ -289,7 +312,7 @@ $(document).ready(function(){initNavTree('md__f_e_a_t_u_r_e_s.html',''); initRes
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Apr 6 2022 14:56:31 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -191,6 +191,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12c684e6e3f725462bb796ac117d35eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">vec_buff</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#a12c684e6e3f725462bb796ac117d35eb">to_vec_buff</a> ()</td></tr>
 <tr class="memdesc:a12c684e6e3f725462bb796ac117d35eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a vec&lt;N, T&gt; to a vec_buff.  <a href="classuroboro_1_1vec.html#a12c684e6e3f725462bb796ac117d35eb">More...</a><br /></td></tr>
 <tr class="separator:a12c684e6e3f725462bb796ac117d35eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21d5992a4717bb748eed8b56921cbb0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#ac21d5992a4717bb748eed8b56921cbb0">size</a> ()</td></tr>
+<tr class="memdesc:ac21d5992a4717bb748eed8b56921cbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the vector (N)  <a href="classuroboro_1_1vec.html#ac21d5992a4717bb748eed8b56921cbb0">More...</a><br /></td></tr>
+<tr class="separator:ac21d5992a4717bb748eed8b56921cbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64650efd7d2a4686096565be1f035c06"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#a64650efd7d2a4686096565be1f035c06">to_string</a> (std::string separator=&quot;, &quot;) const</td></tr>
 <tr class="memdesc:a64650efd7d2a4686096565be1f035c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the vector to string representation.  <a href="classuroboro_1_1vec.html#a64650efd7d2a4686096565be1f035c06">More...</a><br /></td></tr>
 <tr class="separator:a64650efd7d2a4686096565be1f035c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,6 +201,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a715cfe940a5013f85dd045e79180e6d5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#a715cfe940a5013f85dd045e79180e6d5">euclidean_base</a> (unsigned int i)</td></tr>
+<tr class="memdesc:a715cfe940a5013f85dd045e79180e6d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an N-dimensional euclidean base unit vector with the i-th element set to 1.  <a href="classuroboro_1_1vec.html#a715cfe940a5013f85dd045e79180e6d5">More...</a><br /></td></tr>
 <tr class="separator:a715cfe940a5013f85dd045e79180e6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -207,8 +211,8 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac4074bb9ae8110823ba28eaf893525bd"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#ac4074bb9ae8110823ba28eaf893525bd">size</a> = N</td></tr>
-<tr class="separator:ac4074bb9ae8110823ba28eaf893525bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b73ffc2929c41fae8ce3c2e690ff66"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuroboro_1_1vec.html#ac7b73ffc2929c41fae8ce3c2e690ff66">SIZE</a> = N</td></tr>
+<tr class="separator:ac7b73ffc2929c41fae8ce3c2e690ff66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -441,7 +445,9 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00300">300</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p>Returns an N-dimensional euclidean base unit vector with the i-th element set to 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00309">309</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -1079,6 +1085,37 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 
 </div>
 </div>
+<a id="ac21d5992a4717bb748eed8b56921cbb0" name="ac21d5992a4717bb748eed8b56921cbb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21d5992a4717bb748eed8b56921cbb0">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N, typename T  = real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="classuroboro_1_1vec.html">uroboro::vec</a>&lt; N, T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the size of the vector (N) </p>
+
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00302">302</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+
+</div>
+</div>
 <a id="a7131450fb06633dfb3db33ff77b8e652" name="a7131450fb06633dfb3db33ff77b8e652"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7131450fb06633dfb3db33ff77b8e652">&#9670;&nbsp;</a></span>square_lenght()</h2>
 
@@ -1169,7 +1206,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 
 <p>Convert the vector to string representation. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00312">312</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00321">321</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -1200,7 +1237,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 
 <p>Convert a vec&lt;N, T&gt; to a vec_buff. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00290">290</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00291">291</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -1243,7 +1280,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 
 <p>Stream the vector in string representation to an output stream (std::ostream) </p>
 
-<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00329">329</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec_8h_source.html#l00338">338</a> of file <a class="el" href="vec_8h_source.html">vec.h</a>.</p>
 
 </div>
 </div>
@@ -1266,8 +1303,8 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 
 </div>
 </div>
-<a id="ac4074bb9ae8110823ba28eaf893525bd" name="ac4074bb9ae8110823ba28eaf893525bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4074bb9ae8110823ba28eaf893525bd">&#9670;&nbsp;</a></span>size</h2>
+<a id="ac7b73ffc2929c41fae8ce3c2e690ff66" name="ac7b73ffc2929c41fae8ce3c2e690ff66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b73ffc2929c41fae8ce3c2e690ff66">&#9670;&nbsp;</a></span>SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1278,7 +1315,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr unsigned int <a class="el" href="classuroboro_1_1vec.html">uroboro::vec</a>&lt; N, T &gt;::size = N</td>
+          <td class="memname">constexpr unsigned int <a class="el" href="classuroboro_1_1vec.html">uroboro::vec</a>&lt; N, T &gt;::SIZE = N</td>
         </tr>
       </table>
   </td>
@@ -1293,7 +1330,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>algebra/<a class="el" href="vec_8h_source.html">vec.h</a></li>
+<li><a class="el" href="vec_8h_source.html">vec.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1301,7 +1338,7 @@ template&lt;unsigned int N, typename T  = real&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuroboro.html">uroboro</a></li><li class="navelem"><a class="el" href="classuroboro_1_1vec.html">vec</a></li>
-    <li class="footer">Generated on Wed Apr 6 2022 14:56:31 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

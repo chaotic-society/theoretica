@@ -11,6 +11,7 @@
 
 namespace uroboro {
 
+
 	/// Generate a pseudorandom value following any
 	/// probability distribution function using the
 	/// Try-and-Catch algorithm.

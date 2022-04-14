@@ -1,5 +1,6 @@
 var spline__interp_8h =
 [
+    [ "bezier", "spline__interp_8h.html#aba8f1a7d60bb57ff431dece69b467b05", null ],
     [ "cubic_bezier", "spline__interp_8h.html#a8127520c04edba01d38fbe57ca8b35c7", null ],
     [ "invlerp", "spline__interp_8h.html#a3d620f40480706e28ed65c69f7732181", null ],
     [ "invlerp", "spline__interp_8h.html#afa4f0c6a8854c680f6057384dd46fdf1", null ],

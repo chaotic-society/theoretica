@@ -88,10 +88,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classuroboro_1_1mat.html#af0467ff6a9e30f3736ac4fa79f250a3b",
-"constants_8h.html#a719626095b824ca3ca2007f1b3232876",
-"namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323",
-"real__analysis_8h.html#a028faad6699bfda36b6a0259bb46c461"
+"classuroboro_1_1dual2.html#afb736543f40399fa0d645c2642d445a1",
+"classuroboro_1_1quat.html#af14ec574ecb53e992362b63ad28da91a",
+"functions_i.html",
+"namespaceuroboro.html#aa0ca52531bf3ea0820656d885aba5096",
+"vec_8h.html#a452c1018751842a7ec955ef294eecf29"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

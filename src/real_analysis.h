@@ -419,7 +419,7 @@ namespace uroboro {
 			for(; i < -n; ++i)
 				res /= x;
 		} else {
-			return 1.0;
+			return static_cast<T>(1.0);
 		}
 
 		return res;
@@ -624,26 +624,7 @@ namespace uroboro {
 		return x;
 
 #else
-
-		// Clamp x between -2PI and 2PI
-		while(x >= 2 * PI)
-			x -= 2 * PI;
-		
-		while(x <= -2 * PI)
-			x += 2 * PI;
-
-		real res = 0;
-
-		// Taylor series expansion
-		// sin(x) = sum( (-1)^i * x^(2i) / (2i)! )
-
-		for (int i = 0; i < TAYLOR_ORDER; ++i) {
-			res += (i % 2 == 0 ? 1 : -1)
-				* pow(x, 2 * i)
-				/ static_cast<real>(fact(2 * i));
-		}
-
-		return res;
+		return sin(PI2 - x);
 #endif
 	}
 

@@ -7,6 +7,7 @@ var annotated_dup =
       ] ],
       [ "complex", "classuroboro_1_1complex.html", "classuroboro_1_1complex" ],
       [ "dual", "classuroboro_1_1dual.html", "classuroboro_1_1dual" ],
+      [ "dual2", "classuroboro_1_1dual2.html", "classuroboro_1_1dual2" ],
       [ "mat", "classuroboro_1_1mat.html", "classuroboro_1_1mat" ],
       [ "multidual", "classuroboro_1_1multidual.html", "classuroboro_1_1multidual" ],
       [ "phasor", "classuroboro_1_1phasor.html", "classuroboro_1_1phasor" ],

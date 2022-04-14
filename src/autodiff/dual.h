@@ -1,6 +1,6 @@
 
 ///
-/// @file dual.h Dual numbers
+/// @file dual.h Dual number class
 ///
 
 #ifndef UROBORO_DUAL_H
@@ -21,8 +21,8 @@ namespace uroboro {
 	///
 	/// @class dual
 	/// Dual number class.
-	/// Implemented as (a + b*epsilon)
-	/// where epsilon is such that epsilon^2 = 0
+	/// Implemented as \f$a + b \epsilon\f$
+	/// where \f$\epsilon\f$ is such that \f$\epsilon^2 = 0\f$
 	///
 	class dual {
 		public:
@@ -237,10 +237,10 @@ namespace uroboro {
 			inline mat2 to_mat() const {
 
 				mat2 m;
-				m[0][0] = a;
-				m[0][1] = 0;
-				m[1][0] = a;
-				m[1][1] = b;
+				m.iat(0, 0) = a;
+				m.iat(1, 0) = 0;
+				m.iat(0, 1) = a;
+				m.iat(1, 1) = b;
 				return m;
 			}
 
@@ -274,7 +274,6 @@ namespace uroboro {
 #endif
 
 	};
-
 
 }
 

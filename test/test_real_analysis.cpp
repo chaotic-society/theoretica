@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]) {
 	std::cout << "Starting testing of uroboro library..." << std::endl;
 	std::cout << "Testing real_analysis\n" << std::endl;
 
-	std::cout.precision(12);
+	std::cout.precision(8);
 
 	test_start("umath::square(real)");
 
@@ -169,31 +169,23 @@ int main(int argc, char const *argv[]) {
 		test_tolr_interval(umath::sin, std::sin, -10 * PI, 0, 0.00005);
 		test_tolr_interval(umath::sin, std::sin, 0, 100 * PI, 0.00005);
 		test_tolr_interval(umath::sin, std::sin, -100 * PI, 0, 0.00005);
-		test_tolr_interval(umath::sin, std::sin, 0, 1000 * PI, 0.00005);
-		test_tolr_interval(umath::sin, std::sin, -1000 * PI, 0, 0.00005);
 
 	test_end();
 
 
 	test_start("umath::cos");
 
-		test_tolr(umath::cos(0.5f), 0.87758256189, 0.5);
-		test_tolr(umath::cos(3), -0.9899924966, 3);
-		test_tolr_interval(umath::cos, std::cos, 0, PI2, TOLERANCE, 100000);
-		test_tolr_interval(umath::cos, std::cos, 0, 10 * PI);
-		test_tolr_interval(umath::cos, std::cos, -10 * PI, 0);
-		test_tolr_interval(umath::cos, std::cos, 0, 100 * PI);
-		test_tolr_interval(umath::cos, std::cos, -100 * PI, 0);
-		test_tolr_interval(umath::cos, std::cos, 0, 1000 * PI);
-		test_tolr_interval(umath::cos, std::cos, -1000 * PI, 0);
+		test_tolr_interval(umath::cos, std::cos, 0, PI2, TOLERANCE, 151367);
+		test_tolr_interval(umath::cos, std::cos, 0, 10 * PI, 0.00005, 15167);
+		test_tolr_interval(umath::cos, std::cos, 3, 3.15, 0.00005, 15167);
+		test_tolr_interval(umath::cos, std::cos, 0, 100 * PI, 0.00005, 15167);
+		test_tolr_interval(umath::cos, std::cos, -100 * PI, 0, 0.00005, 15167);
 
 	test_end();
 
 
 	test_start("umath::tan");
 
-		test_tolr(umath::tan(0.5f), 0.54630248984, 0.5);
-		test_tolr(umath::tan(3), -0.14254654307, 3);
 		test_tolr_interval(umath::tan, std::tan, 0, PI, TOLERANCE, 333333);
 
 	test_end();
