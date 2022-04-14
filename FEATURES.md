@@ -59,7 +59,7 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Transformation matrices (_identity_, _translation_, _rotation_4x4_, _rotation_3x3_, _scaling_)
   - [x] Perspective and Ortho matrices - Need testing
   - [x] Inversion
-  - [ ] Determinant of a generic matrix
+  - [x] Determinant of a generic matrix
   - [x] Determinant of 2x2 and 3x3 matrices
 
 - Complex numbers (_complex/complex.h_) - **NO TEST CASES**
@@ -112,9 +112,9 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [ ] Monte Carlo integral approximation
   - [x] Derivative approximation
 
-- Approximation of roots and extrema (_approx/approx.h_, _approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
+- Approximation of roots and extrema (_approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
-  - [x] Approximation of extrema using Newton and bisection
+  - [x] Approximation of extrema using Newton, bisection and golden section search
 
 - Dual numbers (_autodiff/dual.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -123,22 +123,29 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Conversion from and to vector
   - [x] Matrix form
 
+- Multidual numbers (_autodiff/multidual.h_) - **NO TEST CASES**
+  - [x] Addition and subtraction
+  - [x] Multiplication and division
+  - [x] Conjugate and inverse
+  - [ ] Conversion from and to vector
+  - [ ] Matrix form
+
 - Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_) - **NO TEST CASES**
   - [x] square
   - [x] cube
   - [x] pow
   - [x] sqrt
-  - [ ] sin
-  - [ ] cos
-  - [ ] tan
-  - [ ] cot
-  - [ ] exp
-  - [ ] ln
-  - [ ] log2
-  - [ ] log10
-  - [ ] asin
-  - [ ] acos
-  - [ ] atan
+  - [ ] sin - Depends on real function
+  - [ ] cos - Depends on real function
+  - [ ] tan - Depends on real function
+  - [ ] cot - Depends on real function
+  - [ ] exp - Depends on real function
+  - [ ] ln - Depends on real function
+  - [ ] log2 - Depends on real function
+  - [ ] log10 - Depends on real function
+  - [ ] asin - Depends on real function
+  - [ ] acos - Depends on real function
+  - [ ] atan - Depends on real function
   - [x] abs
 
 - Interpolation (_interpolation/polyn_interp.h_, _interpolation/spline_interp.h_) - **NO TEST CASES**
@@ -148,7 +155,15 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Remapping
   - [x] Quadratic Bezier
   - [x] Cubic Bezier
-  - [ ] Generic Bezier
+  - [x] Generic Bezier
+
+- Pseudorandom numbers (_pseudorandom/pseudorandom_algo.h_, _pseudorandom/prng.h_) - **NO TEST CASES**
+  - [x] PRNG class
+  - [x] Random real numbers on a range
+  - [x] Congruential generator
+  - [ ] Mersenne twister
+  - [ ] Xorshift
+  - [ ] Lagged Fibonacci
 
 - Statistical functions (_statistics/statistics.h_) - **NO TEST CASES**
   - [x] Mean and weighted mean
@@ -172,3 +187,8 @@ A functionality is considered "_fully implemented_" when it has at least one imp
   - [x] Exponential
   - [x] Cauchy
   - [x] Breit Wigner
+
+- Random number-based algorithms (_pseudorandom/randstat.h_) - **NO TEST CASES**
+  - [x] Try-and-catch number generation following a distribution
+  - [ ] Inverse cumulative function method
+  - [ ] Metropolis-Hastings Monte Carlo Markov Chain method

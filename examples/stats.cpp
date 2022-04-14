@@ -4,8 +4,10 @@
 ///
 
 #include "uroboro.h"
-#include "utility.h"
 
+// The utility.h header is not included
+// by uroboro.h
+#include "utility.h"
 using namespace umath;
 
 

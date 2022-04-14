@@ -20,8 +20,6 @@ NumType theta(vec<2, NumType> v) {
 
 int main(int argc, char const *argv[]) {
 
-	std::cout.precision(12);
-
 	real r, d;
 	real delta_r, delta_d_lf;
 

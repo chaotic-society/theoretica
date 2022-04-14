@@ -7,7 +7,6 @@
 
 #include <fstream>
 #include "uroboro.h"
-
 using namespace umath;
 
 
@@ -33,8 +32,6 @@ multidual<2> pendulum(vec<2, multidual<2>> eta) {
 
 
 int main(int argc, char const *argv[]) {
-
-	std::cout.precision(12);
 
 	// Coordinates in phase space
 	vec2 eta = {0, 1};

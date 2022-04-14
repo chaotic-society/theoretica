@@ -77,6 +77,11 @@
 #define UROBORO_MAX_CHEBYSHEV_ITER 100
 #endif
 
+/// Maximum number of failed iterations for the Try-and-Catch algorithm
+#ifndef UROBORO_MAX_TRYANDCATCH_ITER
+#define UROBORO_MAX_TRYANDCATCH_ITER 100
+#endif
+
 
 /// @namespace uroboro Main namespace of the library which contains all functions and objects
 namespace uroboro {
@@ -200,6 +205,9 @@ namespace uroboro {
 
 	/// Maximum number of iterations for the Chebyshev algorithm
 	constexpr unsigned int MAX_CHEBYSHEV_ITER = UROBORO_MAX_CHEBYSHEV_ITER;
+
+	/// Maximum number of failed iterations for the Try-and-Catch algorithm
+	constexpr unsigned int MAX_TRYANDCATCH_ITER = UROBORO_MAX_TRYANDCATCH_ITER;
 
 }
 

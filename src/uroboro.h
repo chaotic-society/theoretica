@@ -40,6 +40,7 @@
 #include "./autodiff/autodiff.h"
 #include "./pseudorandom/pseudorandom_algo.h"
 #include "./pseudorandom/prng.h"
+#include "./pseudorandom/rand_dist.h"
 #endif
 
 /// @namespace umath Alias for the uroboro namespace
