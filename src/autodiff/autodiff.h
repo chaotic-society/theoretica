@@ -95,6 +95,25 @@ namespace uroboro {
 		return res;
 	}
 
+
+	/// Compute the jacobian of a generic function of the form
+	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$
+	template<unsigned int N, unsigned int M>
+	inline mat<M, N> jacobian(vec<M, multidual<N>>(*f)(vec<N, multidual<N>>), vec<N, real> v) {
+
+		vec<M, multidual<N>> res = f(multidual<N>::pack_function_arg(v));
+
+		// Construct the jacobian matrix
+		mat<M, N> J;
+		for (int i = 0; i < N; ++i) {
+			for (int j = 0; j < M; ++j) {
+				J.iat(i, j) = res.at(j).Dual().at(i);
+			}
+		}
+
+		return J;
+	}
+
 }
 
 #endif

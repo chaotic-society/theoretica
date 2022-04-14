@@ -33,7 +33,7 @@ namespace uroboro {
 			/// as \f$(0 + \vec 0)\f$
 			multidual() {
 				a = 0;
-				v = vec<N>();
+				v = vec<N>(0);
 			}
 
 
@@ -42,6 +42,14 @@ namespace uroboro {
 			multidual(real r, vec<N> u) {
 				a = r;
 				v = u;
+			}
+
+
+			/// Construct a Multidual number from
+			/// a real number
+			multidual(real r) {
+				a = r;
+				v = vec<N>(0);
 			}
 
 

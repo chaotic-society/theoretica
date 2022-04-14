@@ -26,7 +26,8 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	std::cout << "Derivative approximation" << std::endl;
-	std::cout << approx_derivative(square, 4) << std::endl;
+	std::cout << approx_derivative_central(square, 4) << std::endl;
+	std::cout << approx_derivative_forward(square, 4) << std::endl;
 	std::cout << std::endl;
 
 	// Polynomials
@@ -129,7 +130,7 @@ int main(int argc, char const *argv[]) {
 	m1.at(1, 2) = 3;
 	m1.at(2, 1) = 5;
 
-	mat<3, 4> m2 = mat<3, 4>(3);
+	mat<4, 3> m2 = mat<4, 3>(3);
 
 	std::cout << m1 << std::endl;
 	std::cout << (m1.transposed()) << std::endl;

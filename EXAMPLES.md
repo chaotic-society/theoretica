@@ -78,7 +78,7 @@ c = cross(v1, v2);
 ```
 
 ## Using matrices
-Matrices are implemented in the `mat<N, K>` class, where N is the number of columns and K is the number of rows (lexicographical and column-first implementation). Common square matrix types are defines as `mat2`, `mat3`, `mat4`
+Matrices are implemented in the `mat<N, K>` class, where N is the number of rows and K is the number of columns (colexicographical and column-first implementation). Common square matrix types are defines as `mat2`, `mat3`, `mat4`
 
 Initialize a matrix:
 ```c
