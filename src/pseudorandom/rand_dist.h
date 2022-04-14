@@ -55,6 +55,28 @@ namespace uroboro {
 		return x;
 	}
 
+
+	/// Generate a random number in a range
+	/// following a Gaussian distribution by
+	/// exploiting the Central Limit Theorem.
+	/// @param x1 Lower extreme of the interval of generation
+	/// @param x2 Upper extreme of the interval of generation
+	/// @param g An already initialized PRNG to use
+	/// @param iter The number of random number to generate
+	///
+	/// Many real numbers in a range are generated
+	/// and the mean is computed to get a single
+	/// real number following (asymptotically) a
+	/// Gaussian distribution.
+	inline real rand_gaussian_clt(real x1, real x2, PRNG& g, unsigned int iter = 10) {
+
+		real s = 0;
+		for (int i = 0; i < iter; ++i)
+			s += rand_real(x1, x2, g);
+
+		return s / static_cast<real>(iter);
+	}
+
 }
 
 #endif
