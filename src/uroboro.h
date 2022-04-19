@@ -12,35 +12,63 @@
 // Core headers
 #include "./constants.h"
 #include "./error.h"
+
+// Real functions
 #include "./real_analysis.h"
+
+// Vector and matrix algebra
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"
+
+// Complex and quaternion classes
 #include "./complex/complex.h"
 #include "./complex/quat.h"
 
+
 // All other headers
 #ifdef UROBORO_INCLUDE_ALL
+
+// Data sets
 #include "./vec_buff.h"
-#include "./utility.h"
+
+// Interpolation
 #include "./interpolation/spline_interp.h"
 #include "./interpolation/polyn_interp.h"
+	
+// Statistical functions
 #include "./statistics/statistics.h"
+#include "./statistics/distributions.h"
+
+// Root and extrema of real functions
 #include "./approx/roots.h"
 #include "./approx/extrema.h"
+
+// Complex and quaternion functions
 #include "./complex/complex_analysis.h"
 #include "./complex/phasor.h"
+
+// Derivative and integral approximation
 #include "./calculus/derivation.h"
 #include "./calculus/integration.h"
+#include "./calculus/taylor_expansion.h"
+
+// Polynomial class
 #include "./polynomial/polynomial.h"
-#include "./statistics/distributions.h"
+
+// Dual numbers and automatic differentiation
 #include "./autodiff/dual.h"
 #include "./autodiff/dual_functions.h"
 #include "./autodiff/multidual.h"
 #include "./autodiff/multidual_functions.h"
+#include "./autodiff/dual2.h"
+#include "./autodiff/dual2_functions.h"
 #include "./autodiff/autodiff.h"
+
+// Pseudorandom number generation
 #include "./pseudorandom/pseudorandom_algo.h"
 #include "./pseudorandom/prng.h"
 #include "./pseudorandom/rand_dist.h"
+
 #endif
 
 /// @namespace umath Alias for the uroboro namespace

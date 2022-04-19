@@ -156,6 +156,34 @@ namespace uroboro {
 			}
 
 
+			// Multiply a polynomial by a scalar
+			inline polynomial operator*(real a) const {
+
+				polynomial r = polynomial(*this);
+
+				for (int i = 0; i < size(); ++i)
+					r.coeff[i] *= a;
+
+				return r;
+			}
+
+
+			// Divide a polynomial by a scalar
+			inline polynomial operator/(real a) const {
+
+				if(a == 0) {
+					UMATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
+				}
+
+				polynomial r = polynomial(*this);
+
+				for (int i = 0; i < size(); ++i)
+					r.coeff[i] /= a;
+
+				return r;
+			}
+
+
 			// TO-DO Polynomial division
 
 

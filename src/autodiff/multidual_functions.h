@@ -162,7 +162,7 @@ namespace uroboro {
 	}
 
 
-	/// Compute the arcsine of a multidual number
+	/// Compute the arccosine of a multidual number
 	template<unsigned int N>
 	multidual<N> acos(multidual<N> x) {
 
@@ -174,7 +174,7 @@ namespace uroboro {
 		return multidual<N>(acos(x.Re()), x.Dual() * (-1 / sqrt(1 - square(x.Re()))));
 	}
 
-	/// Compute the arcsine of a multidual number
+	/// Compute the arctangent of a multidual number
 	template<unsigned int N>
 	multidual<N> atan(multidual<N> x) {
 		return multidual<N>(atan(x.Re()), x.Dual() / (1 + square(x.Re())));

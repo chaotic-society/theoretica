@@ -4,6 +4,7 @@
 ///
 
 #include "uroboro.h"
+#include "utility.h"
 
 using namespace umath;
 

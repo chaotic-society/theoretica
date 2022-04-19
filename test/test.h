@@ -7,6 +7,7 @@
 #define UROBORO_TEST_H
 
 #include "../src/uroboro.h"
+#include <iostream>
 
 using namespace umath;
 

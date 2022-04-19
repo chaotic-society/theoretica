@@ -158,7 +158,7 @@ namespace uroboro {
 	}
 
 
-	/// Compute the arcsine of a dual number
+	/// Compute the arccosine of a dual number
 	dual acos(dual x) {
 
 		if(x.Re() >= 1) {
@@ -170,7 +170,7 @@ namespace uroboro {
 	}
 
 
-	/// Compute the arcsine of a dual number
+	/// Compute the arctangent of a dual number
 	dual atan(dual x) {
 		return dual(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
 	}
