@@ -45,7 +45,14 @@ namespace uroboro {
 
 	/// Compute the square root of a dual number
 	dual sqrt(dual x) {
+
 		real sqrt_x = sqrt(x.Re());
+
+		if(sqrt_x == 0) {
+			UMATH_ERROR("sqrt(dual)", sqrt_x, DIV_BY_ZERO);
+			return dual(nan(), nan());
+		}
+
 		return dual(sqrt_x, 0.5 / sqrt_x * x.Dual());
 	}
 
@@ -64,36 +71,71 @@ namespace uroboro {
 
 	/// Compute the tangent of a dual number
 	dual tan(dual x) {
-		return dual(tan(x.Re()), x.Dual() / square(cos(x.Re())));
+
+		real cos_x = cos(x.Re());
+
+		if(cos_x == 0) {
+			UMATH_ERROR("tan(dual)", cos_x, DIV_BY_ZERO);
+			return dual(nan(), nan());
+		}
+
+		return dual(tan(x.Re()), x.Dual() / square(cos_x));
 	}
 
 
 	/// Compute the cotangent of a dual number
 	dual cot(dual x) {
-		return dual(cot(x.Re()), -x.Dual() / square(sin(x.Re())));
+
+		real sin_x = sin(x.Re());
+
+		if(sin_x == 0) {
+			UMATH_ERROR("cot(dual)", sin_x, DIV_BY_ZERO);
+			return dual(nan(), nan());
+		}
+
+		return dual(cot(x.Re()), -x.Dual() / square(sin_x));
 	}
 
 
 	/// Compute the exponential of a dual number
 	dual exp(dual x) {
-		return dual(exp(x.Re()), x.Dual() * exp(x.Re()));
+		real exp_x = exp(x.Re());
+		return dual(exp_x, x.Dual() * exp_x);
 	}
 
 
 	/// Compute the natural logarithm of a dual number
 	dual ln(dual x) {
+
+		if(x.Re() <= 0) {
+			UMATH_ERROR("ln(dual)", x.Re(), OUT_OF_DOMAIN);
+			return dual(nan(), nan());
+		}
+
 		return dual(ln(x.Re()), x.Dual() / x.Re());
 	}
 
 
 	/// Compute the natural logarithm of a dual number
 	dual log2(dual x) {
+
+		if(x.Re() <= 0) {
+			UMATH_ERROR("log2(dual)", x.Re(), OUT_OF_DOMAIN);
+			return dual(nan(), nan());
+		}
+
 		return dual(log2(x.Re()), x.Dual() * LOG2E / x.Re());
 	}
 
 
 	/// Compute the natural logarithm of a dual number
 	dual log10(dual x) {
+
+		if(x.Re() <= 0) {
+			UMATH_ERROR("log10(dual)", x.Re(), OUT_OF_DOMAIN);
+			return dual(nan(), nan());
+		}
+
 		return dual(log10(x.Re()), x.Dual() * LOG10E / x.Re());
 	}
 
@@ -106,12 +148,24 @@ namespace uroboro {
 
 	/// Compute the arcsine of a dual number
 	dual asin(dual x) {
+
+		if(x.Re() >= 1) {
+			UMATH_ERROR("asin(dual)", x.Re(), OUT_OF_DOMAIN);
+			return dual(nan(), nan());
+		}
+
 		return dual(asin(x.Re()), x.Dual() / sqrt(1 - square(x.Re())));
 	}
 
 
 	/// Compute the arcsine of a dual number
 	dual acos(dual x) {
+
+		if(x.Re() >= 1) {
+			UMATH_ERROR("acos(dual)", x.Re(), OUT_OF_DOMAIN);
+			return dual(nan(), nan());
+		}
+
 		return dual(acos(x.Re()), -x.Dual() / sqrt(1 - square(x.Re())));
 	}
 

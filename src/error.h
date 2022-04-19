@@ -46,13 +46,27 @@ namespace uroboro {
 	}
 
 
-	/// Return a quiet NaN number
+	/// Return a quiet NaN number in floating point representation
 	inline real nan() {
 		return std::numeric_limits<real>::quiet_NaN();
 	}
 
 
-	/// Return positive infinity
+	/// Check whether a generic variable is
+	/// (equivalent to) a NaN number.
+	///
+	/// NaN numbers are the only variables which do not
+	/// compare equal to themselves in floating point
+	/// operations. This is valid for real types but
+	/// also for any mathematical structure, as NaNs
+	/// are used to report failure inside the library.
+	template<typename T>
+	inline bool is_nan(const T& x) {
+		return !(x == x);
+	}
+
+
+	/// Return positive infinity in floating point representation
 	inline real inf() {
 		return std::numeric_limits<real>::infinity();
 	}
