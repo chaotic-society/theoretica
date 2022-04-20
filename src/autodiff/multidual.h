@@ -29,7 +29,7 @@ namespace uroboro {
 			vec<N> v;
 
 
-			/// Construct a Multidual number
+			/// Construct a multidual number
 			/// as \f$(0 + \vec 0)\f$
 			multidual() {
 				a = 0;
@@ -37,7 +37,7 @@ namespace uroboro {
 			}
 
 
-			/// Construct a Multidual number from
+			/// Construct a multidual number from
 			/// a real number and an N dimensional vector
 			multidual(real r, vec<N> u) {
 				a = r;
@@ -45,7 +45,7 @@ namespace uroboro {
 			}
 
 
-			/// Construct a Multidual number from
+			/// Construct a multidual number from
 			/// a real number
 			multidual(real r) {
 				a = r;
@@ -59,7 +59,7 @@ namespace uroboro {
 			~multidual() = default;
 
 
-			/// Initialize a multi-dual number from a real number
+			/// Initialize a multidual number from a real number
 			inline multidual& operator=(real x) {
 				a = x;
 				v = vec<N>();
@@ -246,6 +246,26 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (multidual)
+
+			inline friend multidual operator+(real a, const multidual& d) {
+				return d + a;
+			}
+
+			inline friend multidual operator-(real a, const multidual& d) {
+				return -d + a;
+			}
+
+			inline friend multidual operator*(real a, const multidual& d) {
+				return d * a;
+			}
+
+			inline friend multidual operator/(real a, const multidual& d) {
+				return multidual(a) / d;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the multidual number to string representation
@@ -261,7 +281,7 @@ namespace uroboro {
 
 			/// Stream the multidual number in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const multidual& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const multidual& obj) {
 				return out << obj.to_string();
 			}
 

@@ -42,25 +42,30 @@ namespace uroboro {
 	/// Insert a `vec_buff` data set from standard input
 	void insert_data(vec_buff& data, std::string terminator) {
 
-        std::string line;
-        real value;
+		std::string line;
+		real value;
 
-        while(true) {
-            std::getline(std::cin, line);
+		while(true) {
+			std::getline(std::cin, line);
 
-            if(line == terminator)
-                break;
+			if(line == "")
+				continue;
 
-            std::replace(line.begin(), line.end(), ',', '.');
+			if(line == terminator)
+				break;
 
-            try {
-                value = std::stod(line);
-            } catch(...) {
-                std::cout << "Input conversion error" << std::endl;
-            }
+			std::replace(line.begin(), line.end(), ',', '.');
 
-            data.emplace_back(value);
-        }
+			try {
+				value = std::stod(line);
+			} catch(...) {
+				std::cout << "Input conversion error" << std::endl;
+				value = nan();
+			}
+
+			if(!is_nan(value))
+				data.emplace_back(value);
+		}
 	}
 
 

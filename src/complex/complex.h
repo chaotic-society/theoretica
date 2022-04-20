@@ -263,6 +263,26 @@ namespace  uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (complex)
+
+			inline friend complex operator+(real r, const complex& z) {
+				return z + r;
+			}
+
+			inline friend complex operator-(real r, const complex& z) {
+				return -z + r;
+			}
+
+			inline friend complex operator*(real r, const complex& z) {
+				return z * r;
+			}
+
+			inline friend complex operator/(real r, const complex& z) {
+				return complex(r, 0) / z;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the complex number to string representation
@@ -284,7 +304,7 @@ namespace  uroboro {
 
 			/// Stream the complex number in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const complex& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const complex& obj) {
 				return out << obj.to_string();
 			}
 

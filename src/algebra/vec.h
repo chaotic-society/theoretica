@@ -314,30 +314,36 @@ namespace uroboro {
 			return e_i;
 		}
 
+		/// Friend operator to enable equations of the form
+		/// (T) * (vec)
+		inline friend vec<N> operator*(T a, const vec<N, T>& v) {
+			return v * a;
+		}
+
 
 #ifndef UROBORO_NO_PRINT
 
-			/// Convert the vector to string representation
-			inline std::string to_string(std::string separator = ", ") const {
+		/// Convert the vector to string representation
+		inline std::string to_string(std::string separator = ", ") const {
 
-				std::stringstream res;
+			std::stringstream res;
 
-				res << "(";
-				for (int i = 0; i < N; ++i) {
-					res << data[i];
-					if(i != N - 1)
-						res << separator;
-				}
-				res << ")";
-
-				return res.str();
+			res << "(";
+			for (int i = 0; i < N; ++i) {
+				res << data[i];
+				if(i != N - 1)
+					res << separator;
 			}
+			res << ")";
+
+			return res.str();
+		}
 
 
-			/// Stream the vector in string representation to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const vec<N, T>& obj) {
-				return out << obj.to_string();
-			}
+		/// Stream the vector in string representation to an output stream (std::ostream)
+		inline friend std::ostream& operator<<(std::ostream& out, const vec<N, T>& obj) {
+			return out << obj.to_string();
+		}
 
 #endif
 

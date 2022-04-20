@@ -245,6 +245,26 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (dual)
+
+			inline friend dual operator+(real a, const dual& d) {
+				return d + a;
+			}
+
+			inline friend dual operator-(real a, const dual& d) {
+				return -d + a;
+			}
+
+			inline friend dual operator*(real a, const dual& d) {
+				return d * a;
+			}
+
+			inline friend dual operator/(real a, const dual& d) {
+				return dual(a, 0) / d;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the dual number to string representation
@@ -255,11 +275,7 @@ namespace uroboro {
 
 				res << a;
 				res << (b >= 0 ? " + " : " - ");
-				
-				if(abs(b) != 1)
-					res << abs(b);
-
-				res << epsilon;
+				res << abs(b) << epsilon;
 
 				return res.str();
 			}
@@ -267,7 +283,7 @@ namespace uroboro {
 
 			/// Stream the dual number in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const dual& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const dual& obj) {
 				return out << obj.to_string();
 			}
 

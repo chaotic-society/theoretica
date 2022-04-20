@@ -47,6 +47,11 @@ namespace uroboro {
 				modulus = z.modulus();
 			}
 
+			phaso(real r) {
+				modulus = abs(r);
+				phase = (r >= 0 ? 0 : PI);
+			}
+
 			~phasor() = default;
 
 
@@ -153,6 +158,26 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (phasor)
+
+			inline friend phasor operator+(real r, const phasor& z) {
+				return z + phasor(r);
+			}
+
+			inline friend phasor operator-(real r, const phasor& z) {
+				return phasor(z.modulus, z.phase + PI) + phasor(r);
+			}
+
+			inline friend phasor operator*(real r, const phasor& z) {
+				return z * phasor(r);
+			}
+
+			inline friend phasor operator/(real r, const phasor& z) {
+				return phasor(r) / z;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the phasor to string representation
@@ -166,7 +191,7 @@ namespace uroboro {
 
 			/// Stream the phasor in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const phasor& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const phasor& obj) {
 				return out << obj.to_string();
 			}
 

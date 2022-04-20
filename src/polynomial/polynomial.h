@@ -317,6 +317,22 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (T) op. (polynomial<T>)
+
+			inline friend polynomial<T> operator+(T r, const polynomial<T>& z) {
+				return z + polynomial({r});
+			}
+
+			inline friend polynomial<T> operator-(T r, const polynomial<T>& z) {
+				return (z * -1) + polynomial({r});
+			}
+
+			inline friend polynomial<T> operator*(T r, const polynomial<T>& z) {
+				return z * r;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			// Convert the polynomial to string representation

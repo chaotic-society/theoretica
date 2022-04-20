@@ -160,6 +160,12 @@ namespace uroboro {
 
 			/// Divide a dual number by a real number
 			inline dual2 operator/(real r) const {
+
+				if(r == 0) {
+					UMATH_ERROR("dual2::operator/", r, DIV_BY_ZERO);
+					return dual2(nan(), nan(), nan());
+				}
+
 				return dual2(a / r, b / r, c / r);
 			}
 
@@ -217,6 +223,7 @@ namespace uroboro {
 					UMATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
 					b = nan();
+					c = nan();
 					return *this;
 				}
 
@@ -252,6 +259,26 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (dual2)
+
+			inline friend dual2 operator+(real a, const dual2& d) {
+				return d + a;
+			}
+
+			inline friend dual2 operator-(real a, const dual2& d) {
+				return -d + a;
+			}
+
+			inline friend dual2 operator*(real a, const dual2& d) {
+				return d * a;
+			}
+
+			inline friend dual2 operator/(real a, const dual2& d) {
+				return dual2(a, 0, 0) / d;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the dual number to string representation
@@ -279,7 +306,7 @@ namespace uroboro {
 
 			/// Stream the dual number in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const dual2& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const dual2& obj) {
 				return out << obj.to_string();
 			}
 

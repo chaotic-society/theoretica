@@ -173,6 +173,12 @@ namespace uroboro {
 			return res;
 		}
 
+		/// Friend operator to enable equations of the form
+		/// (T) * (mat)
+		inline friend mat<N, K> operator*(real a, const mat<N, K>& B) {
+			return B * a;
+		}
+
 		/// Scalar division
 		inline mat<N, K> operator/(real scalar) const {
 
@@ -1154,7 +1160,7 @@ namespace uroboro {
 			}
 
 			return res;
-		} 
+		}
 
 
 
@@ -1173,7 +1179,7 @@ namespace uroboro {
 
 
 			/// Stream the matrix in string representation to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const mat<N, K>& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const mat<N, K>& obj) {
 				return out << obj.to_string();
 			}
 

@@ -313,6 +313,26 @@ namespace uroboro {
 			}
 
 
+			// Friend operators to enable equations of the form
+			// (real) op. (quat)
+
+			inline friend quat operator+(real r, const quat& z) {
+				return z + quat(r, 0, 0, 0);
+			}
+
+			inline friend quat operator-(real r, const quat& z) {
+				return (z * -1) + quat(r, 0, 0, 0);
+			}
+
+			inline friend quat operator*(real r, const quat& z) {
+				return z * r;
+			}
+
+			inline friend quat operator/(real r, const quat& z) {
+				return quat(r, 0, 0, 0) / z;
+			}
+
+
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the quaternion to string representation
@@ -331,7 +351,7 @@ namespace uroboro {
 
 			/// Stream the quaternion in string representation
 			/// to an output stream (std::ostream)
-			friend std::ostream& operator<<(std::ostream& out, const quat& obj) {
+			inline friend std::ostream& operator<<(std::ostream& out, const quat& obj) {
 				return out << obj.to_string();
 			}
 
