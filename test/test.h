@@ -179,12 +179,28 @@ void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
 
 	real dx = (b - a) / (real) steps;
 
+	real cum_err_ = cum_err;
+	real cum_sqr_err_ = cum_sqr_err;
+	real max_err_ = max_err;
+
+	cum_err = 0;
+	cum_sqr_err = 0;
+	max_err = 0;
+
 	for (int i = 0; i <= steps; ++i) {
 
 		real x = a + i * dx;
 
 		test_tolr(f(x), f_exp(x), x, tolerance, true);
 	}
+
+	std::cout << "\tMean Error on Interval: " << (cum_err / abs(b - a) / (real) steps) << std::endl;
+	std::cout << "\tRMS Error on Interval: " << umath::sqrt(cum_sqr_err / abs(b - a) / (real) steps) << std::endl;
+	std::cout << "\tMaximum Error on Interval: " << max_err << "\n" << std::endl;
+
+	real cum_err = cum_err_;
+	real cum_sqr_err = cum_sqr_err_;
+	real max_err = max_err_;
 }
 
 

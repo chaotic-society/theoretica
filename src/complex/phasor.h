@@ -47,7 +47,7 @@ namespace uroboro {
 				modulus = z.modulus();
 			}
 
-			phaso(real r) {
+			phasor(real r) {
 				modulus = abs(r);
 				phase = (r >= 0 ? 0 : PI);
 			}

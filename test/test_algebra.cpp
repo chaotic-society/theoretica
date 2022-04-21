@@ -5,6 +5,7 @@
 #include <cmath>
 
 #include "test.h"
+#include <ctime>
 
 
 int main(int argc, char const *argv[]) {
@@ -17,21 +18,44 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::mat::inverse");
 
-		mat4 A4 = mat4(3);
-		A4.at(0, 1) = 2;
-		A4.at(1, 0) = 1;
-		A4.at(3, 1) = 5;
+		unsigned int N = 1000000;
 
-		mat4 inv = A4.inverse();
-		mat4 T = A4 * inv;
+		std::cout << "\tTesting on " << N << " random matrices" << std::endl;
 
-		for (int i = 0; i < 4; ++i) {
+		PRNG g = PRNG::linear_congruential(time(nullptr));
+
+		for (int i = 0; i < N; ++i) {
+			
+			mat4 A;
+
+			// Generate a random matrix
 			for (int j = 0; j < 4; ++j) {
-				test_tol(T[i][j], real(i == j ? 1 : 0), A4[i][j]);
+				for (int k = 0; k < 4; ++k) {
+					A.iat(j, k) = rand_real(-1000000, 1000000, g);
+				}
 			}
-		}
 
-		// test_equal(A4.inverse() * A4, mat4::identity(), A4);
+			// Skip singular matrices
+			if(A.det() == 0) {
+				i--;
+				continue;
+			}
+
+			mat4 Ainv = A.inverse();
+			mat4 res = A * Ainv;
+
+			// Check that all entries are zero
+			for (int j = 0; j < 4; ++j) {
+				for (int k = 0; k < 4; ++k) {
+					test_tolr(
+						res.iat(j, k),
+						kronecker_delta(j, k),
+						A.iat(j, k),
+						TOLERANCE, true);
+				}
+			}
+
+		}
 
 	test_end();
 

@@ -876,8 +876,8 @@ namespace uroboro {
 	/// @param tol Maximum difference to tolerate (defaults to 0)
 	/// @return 1 if i is equal to j, 0 otherwise
 	template<typename T>
-	inline T kronecker_delta(T i, T j, T tol = 0) {
-		return (i - j < tol) ? 1 : 0;
+	inline T kronecker_delta(T i, T j) {
+		return i == j ? 1 : 0;
 	}
 
 }
