@@ -44,7 +44,12 @@ int main(int argc, char const *argv[]) {
 	// Simulate the system using Euler integration
 	for (int i = 0; i < 1000000; ++i) {
 
+		// The time derivatives of coordinates in phase space
+		// are determined by the gradient of the Hamiltonian
+		// multiplied by the symplectic matrix
 		eta_dt = mat2::symplectic() * gradient(harmonic_oscillator, eta);
+
+		// Simple (and inaccurate) Euler integration
 		eta = eta + eta_dt * dt;
 		
 		of << eta[0] << " " << eta[1] << std::endl;

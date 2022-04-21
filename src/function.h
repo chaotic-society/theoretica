@@ -8,20 +8,18 @@
 
 #include "./constants.h"
 #include "./complex.h"
+#include "./vec_buff.h"
 
 
 namespace uroboro {
 
-	/// Real function
+	/// Function pointer to a real function
 	using real_function = real(*)(real);
 
-	/// Complex function
+	/// Function pointer to a complex function
 	using complex_function = complex(*)(complex);
 
-	/// Multi-variable function
-	using multi_function = real(*)(const vec_buff&);
-
-	/// Statistical function
+	/// Function pointer to a statistical function
 	using stat_function = real(*)(real, const vec_buff&);
 
 }

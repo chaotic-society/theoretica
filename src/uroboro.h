@@ -39,7 +39,7 @@
 #include "./statistics/statistics.h"
 #include "./statistics/distributions.h"
 
-// Root and extrema of real functions
+// Roots and extrema approximation of real functions
 #include "./approx/roots.h"
 #include "./approx/extrema.h"
 

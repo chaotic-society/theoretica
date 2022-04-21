@@ -106,7 +106,7 @@ namespace uroboro {
 	/// The algorithm generates natural numbers between 0 and prec,
 	/// scales the result to [0, 1] and then transforms it to [a, b]
 	inline real rand_real(real a, real b, PRNG& g, unsigned int prec = (1 << 30)) {
-		return a + (b - a) * (g.next() % prec) / static_cast<real>(prec);
+		return a + (b - a) * ((g.next() % prec) / static_cast<real>(prec));
 	}
 
 }
