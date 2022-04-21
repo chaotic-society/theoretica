@@ -35,25 +35,25 @@ namespace uroboro {
 
 			polynomial(std::initializer_list<T> l) : coeff(l) {}
 
-			// Access i-th coefficient
+			/// Access i-th coefficient
 			inline T& at(int i) {
 				return coeff[i];
 			}
 
 
-			// Access i-th coefficient
+			/// Access i-th coefficient
 			inline T& operator[](int i) {
 				return at(i);
 			}
 
 
-			// Get the i-th by value
+			/// Get the i-th by value
 			inline T get(int i) const {
 				return coeff[i];
 			}
 
 
-			// Evaluate the polynomial using x as variable
+			/// Evaluate the polynomial using x as variable
 			inline T eval(T x) const {
 
 				if(!coeff.size())
@@ -72,19 +72,19 @@ namespace uroboro {
 			}
 
 
-			// Evaluate the polynomial using x as variable
+			/// Evaluate the polynomial using x as variable
 			inline T operator()(T x) const {
 				return eval(x);
 			}
 
 
-			// Return the nth order coefficient
+			/// Return the nth order coefficient
 			inline T& operator[](unsigned int i) {
 				return coeff[i];
 			}
 
 
-			// Find the true order of the polynomial (ignoring null coefficients)
+			/// Find the true order of the polynomial (ignoring null coefficients)
 			inline int find_order() const {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
@@ -96,7 +96,7 @@ namespace uroboro {
 			}
 
 
-			// Remove higher order null coefficients
+			/// Remove higher order null coefficients
 			inline void trim() {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
@@ -108,13 +108,13 @@ namespace uroboro {
 			}
 
 
-			// Get the number of coefficients
+			/// Get the number of coefficients
 			inline size_t size() const {
 				return coeff.size();
 			}
 
 
-			// Sum two polynomials
+			/// Sum two polynomials
 			inline polynomial operator+(const polynomial& p) const {
 
 				polynomial r(coeff);
@@ -127,7 +127,7 @@ namespace uroboro {
 			}
 
 
-			// Subtract a polynomial from another
+			/// Subtract a polynomial from another
 			inline polynomial operator-(const polynomial& p) const {
 				
 				polynomial r(coeff);
@@ -140,7 +140,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply two polynomials
+			/// Multiply two polynomials
 			inline polynomial operator*(const polynomial& p) const {
 
 				polynomial r = polynomial();
@@ -156,7 +156,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply a polynomial by a scalar
+			/// Multiply a polynomial by a scalar
 			inline polynomial operator*(real a) const {
 
 				polynomial r = polynomial(*this);
@@ -168,7 +168,7 @@ namespace uroboro {
 			}
 
 
-			// Divide a polynomial by a scalar
+			/// Divide a polynomial by a scalar
 			inline polynomial operator/(real a) const {
 
 				if(a == 0) {
@@ -187,7 +187,7 @@ namespace uroboro {
 			// TO-DO Polynomial division
 
 
-			// Sum a polynomial to this one
+			/// Sum a polynomial to this one
 			inline polynomial& operator+=(const polynomial& p) {
 
 				// Make room for the new coefficients
@@ -201,7 +201,7 @@ namespace uroboro {
 			}
 
 
-			// Subtract a polynomial from this one
+			/// Subtract a polynomial from this one
 			inline polynomial& operator-=(const polynomial& p) {
 
 				// Make room for the new coefficients
@@ -215,7 +215,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply two polynomials
+			/// Multiply two polynomials
 			inline polynomial& operator*=(const polynomial& p) {
 
 				polynomial r = polynomial();
@@ -232,7 +232,7 @@ namespace uroboro {
 			}
 
 
-			// Multiply a polynomial by a scalar value
+			/// Multiply a polynomial by a scalar value
 			inline polynomial& operator*=(T a) {
 
 				for (int i = 0; i < coeff.size(); ++i)
@@ -242,7 +242,7 @@ namespace uroboro {
 			}
 
 
-			// Divide a polynomial by a scalar value
+			/// Divide a polynomial by a scalar value
 			inline polynomial& operator/=(T a) {
 
 				if(a == 0) {
@@ -257,7 +257,7 @@ namespace uroboro {
 			}
 
 
-			// Check whether two polynomials are equal
+			/// Check whether two polynomials are equal
 			inline bool operator==(const polynomial& other) const {
 
 				for (int i = 0; i < min(other.size(), this->size()); ++i) {
@@ -281,7 +281,7 @@ namespace uroboro {
 			}
 
 
-			// Compute the roots of a quadratic polynomial
+			/// Compute the roots of a quadratic polynomial
 			inline vec<2, complex> quadratic_roots() const {
 
 				int order = find_order();
@@ -292,19 +292,26 @@ namespace uroboro {
 					return vec<2, complex>({nan(), nan()});
 				}
 
+				const T a = coeff[2];
+				const T b = coeff[1];
+				const T c = coeff[0];
+
 				// Complex square root
-				complex d = sqrt(complex(coeff[1] * coeff[1] - coeff[2] * coeff[0] * 4));
+				complex d = sqrt(complex(b * b - a * c * 4));
 
 				// Compute the two roots of the polynomial
 				// using the quadratic formula
+
+				// Two different (but equivalent) formulas are
+				// used to avoid cancellation in opposite sign cases
 				return {
-					(d * -1	+ coeff[1] * -1) / (coeff[2] * 2),
-					(d		+ coeff[1] * -1) / (coeff[2] * 2)
+					(d + b) * -1 / (a * 2),
+					(c * -2) / (b + d) 
 				};
 			}
 
 
-			// Construct a polynomial from its roots
+			/// Construct a polynomial from its roots
 			inline static polynomial<T> from_roots(std::vector<T> roots) {
 
 				polynomial<T> P = {1};
@@ -335,7 +342,7 @@ namespace uroboro {
 
 #ifndef UROBORO_NO_PRINT
 
-			// Convert the polynomial to string representation
+			/// Convert the polynomial to string representation
 			inline std::string to_string(const std::string& unknown = "x") const {
 
 				std::stringstream res;
@@ -353,8 +360,8 @@ namespace uroboro {
 			}
 
 
-			// Stream the polynomial in string representation
-			// to an output stream (std::ostream)
+			/// Stream the polynomial in string representation
+			/// to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const polynomial& obj) {
 				return out << obj.to_string();
 			}
