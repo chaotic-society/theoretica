@@ -27,18 +27,19 @@ namespace uroboro {
 
 
 	// Central derivative approximation
-	real approx_derivative_central(real_function f, real x, real dx = 0) {
-
-		dx = (dx == 0 ? (x / DERIV_PREC) : dx);
+	real approx_derivative_central(real_function f, real x, real dx = 0.00000001) {
 		return (f(x + dx) - f(x - dx)) / (2.0 * dx);
 	}
 
 
 	// Forward derivative approximation
-	real approx_derivative_forward(real_function f, real x, real dx = 0) {
+	real approx_derivative_forward(real_function f, real x, real dx = 0.00000001) {
+		return (f(x + dx) - f(x)) / dx;
+	}
 
-		dx = (dx == 0 ? (x / DERIV_PREC) : dx);
-		return (f(x + dx) - f(x)) / (2.0 * dx);
+	// Backward derivative approximation
+	real approx_derivative_backward(real_function f, real x, real dx = 0.00000001) {
+		return (f(x) - f(x - dx)) / dx;
 	}
 
 }

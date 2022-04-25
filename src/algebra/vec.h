@@ -416,6 +416,27 @@ namespace uroboro {
 		return v1.cross(v2);
 	}
 
+
+	/// Sphere inversion of a point with respect to
+	/// a sphere of radius r centered in a point c
+	/// @param p The vector to transform
+	/// @param c The center of the sphere
+	/// @param r The radius of the sphere
+	template<unsigned int N>
+	vec<N> sphere_inversion(vec<N> p, vec<N> c, real r) {
+		vec<N> q = (p - c);
+		return c + q * (square(r) / q.square_lenght());
+	}
+
+
+	/// Sphere inversion of a point with respect to
+	/// a sphere of radius 1 centered in the origin
+	/// @param p The vector to transform
+	template<unsigned int N>
+	vec<N> sphere_inversion(vec<N> p) {
+		return sphere_inversion(p, vec<N>(0), 1);
+	}
+
 }
 
 
