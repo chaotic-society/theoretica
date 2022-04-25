@@ -236,11 +236,11 @@ namespace uroboro {
 			/// Construct an N-dimensional vector of multidual numbers
 			/// to be passed as argument to a multidual function
 			/// @param x A vector of real numbers containing the variables to pass
-			inline static vec<N, multidual<N>> pack_function_arg(vec<N, real> x) {
+			inline static vec<N, multidual<N>> pack_function_arg(const vec<N, real>& x) {
 
 				vec<N, multidual<N>> arg;
 				for (int i = 0; i < N; ++i)
-					arg.at(i) = multidual<N>(x.at(i), vec<N>::euclidean_base(i));
+					arg.at(i) = multidual<N>(x.get(i), vec<N>::euclidean_base(i));
 
 				return arg;
 			}
