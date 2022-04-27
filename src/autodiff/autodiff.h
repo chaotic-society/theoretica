@@ -10,6 +10,7 @@
 #include "multidual.h"
 #include "dual2.h"
 
+
 namespace uroboro {
 
 
@@ -99,7 +100,7 @@ namespace uroboro {
 	/// Compute the jacobian of a generic function of the form
 	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$
 	template<unsigned int N, unsigned int M>
-	inline mat<M, N> jacobian(vec<M, multidual<N>>(*f)(vec<N, multidual<N>>), vec<N, real> x) {
+	inline mat<M, N> jacobian(vec<M, multidual<N>>(*f)(vec<N, multidual<N>>), const vec<N, real>& x) {
 
 		vec<M, multidual<N>> res = f(multidual<N>::pack_function_arg(x));
 
@@ -107,11 +108,27 @@ namespace uroboro {
 		mat<M, N> J;
 		for (int i = 0; i < N; ++i) {
 			for (int j = 0; j < M; ++j) {
-				J.iat(i, j) = res.at(j).Dual().at(i);
+				J.iat(j, i) = res.at(j).Dual().at(i);
 			}
 		}
 
 		return J;
+	}
+
+
+	/// Compute the curl for a given \f$\vec x\f$ of a vector field
+	/// defined by \f$f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\f$
+	/// using automatic differentiation.
+	inline vec<3> curl(vec<3, multidual<3>>(*f)(vec<3, multidual<3>>), const vec<3, real>& x) {
+
+		mat3 J = jacobian<3, 3>(f, x);
+		vec3 res;
+
+		res.at(0) = J.iat(2, 1) - J.iat(1, 2);
+		res.at(1) = J.iat(0, 2) - J.iat(2, 0);
+		res.at(2) = J.iat(1, 0) - J.iat(0, 1);
+
+		return res;
 	}
 
 
