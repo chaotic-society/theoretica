@@ -22,7 +22,8 @@ int main(int argc, char const *argv[]) {
 
 		std::cout << "\tTesting on " << N << " random matrices" << std::endl;
 
-		PRNG g = PRNG::linear_congruential(time(nullptr));
+		PRNG g = PRNG::xoshiro256(time(nullptr));
+		g.discard(1000);
 
 		for (int i = 0; i < N; ++i) {
 			

@@ -7,13 +7,14 @@
 #define UROBORO_PSEUDO_RANDOM_H
 
 #include <vector>
+#include <cstdint>
 
 
 namespace uroboro {
 
 
     /// A pseudorandom function pointer
-    using pseudorandom_function = unsigned int (*)(unsigned int, const std::vector<unsigned int>&);
+    using pseudorandom_function = uint64_t (*)(uint64_t, std::vector<uint64_t>&);
 
 
 	/// Congruential pseudorandom number generation algorithm
@@ -27,11 +28,11 @@ namespace uroboro {
 	/// \f$x_{n+1} = (a x_n + c) mod m\f$ \n
     /// If no parameters are passed, the generator defaults to a = 48271,
     /// c = 0, m = (1 << 31) - 1.
-	unsigned int rand_congruential(
-        unsigned int x,
-        unsigned int a = 48271,
-        unsigned int c = 0,
-        unsigned int m = ((unsigned int) 1 << 31) - 1) {
+	inline uint64_t rand_congruential(
+        uint64_t x,
+        uint64_t a = 48271,
+        uint64_t c = 0,
+        uint64_t m = ((uint64_t) 1 << 31) - 1) {
 
 		return (a * x + c) % m;
 	}
@@ -43,16 +44,16 @@ namespace uroboro {
     /// @return The next generated pseudorandom number
     /// 
     /// \see rand_congruential
-	unsigned int rand_congruential(unsigned int x, const std::vector<unsigned int>& state) {
+	inline uint64_t rand_congruential(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 3) {
 			UMATH_ERROR("rand_congruential", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 
-		const unsigned int a = state[0];
-		const unsigned int c = state[1];
-		const unsigned int m = state[2];
+		const uint64_t a = state[0];
+		const uint64_t c = state[1];
+		const uint64_t m = state[2];
 
         if(a > m || c > m) {
             UMATH_ERROR("rand_congruential", max(a, c), INVALID_ARGUMENT);
@@ -60,6 +61,75 @@ namespace uroboro {
         }
 
 		return rand_congruential(x, a, c, m);
+	}
+
+
+	/// Xoroshift256++ pseudorandom number generation algorithm
+	/// @param x Dummy parameter (needed for function signature)
+	/// @param state The four 64-bit integer state of the algorithm
+	///
+	/// Adapted from the reference implementation by Sebastiano Vigna
+	inline uint64_t rand_xoshiro256(uint64_t& a, uint64_t& b, uint64_t& c, uint64_t& d) {
+
+		// Rotate
+		const uint64_t res = ((a + d) << 23) |
+			(a + d >> (41)) + a;
+
+		// Shift
+		const uint64_t t = b << 17;
+
+		// Xor
+		c ^= a;
+		d ^= b;
+		b ^= c;
+		a ^= d;
+
+		c ^= t;
+
+		// Rotate
+		d = (d << 45) | (d >> (19));
+
+		return res;
+	}
+
+
+	/// Xoroshift256++ pseudorandom number generation algorithm
+	/// adapted from the reference implementation by Sebastiano Vigna
+	///
+	/// @param x Dummy parameter (needed for function signature)
+	/// @param state The four 64-bit integer state of the algorithm
+	inline uint64_t rand_xoshiro256(uint64_t x, std::vector<uint64_t>& state) {
+
+		if(state.size() != 4) {
+			UMATH_ERROR("rand_xoroshift256pp", state.size(), INVALID_ARGUMENT);
+			return 0;
+		}
+
+		return rand_xoshiro256(state[0], state[1], state[2], state[3]);
+	}
+
+
+	/// SplitMix64 pseudorandom number generation
+	/// @param x The 64-bit state of the algorithm
+	///
+	/// Adapted from the reference implementation by Sebastiano Vigna
+	inline uint64_t rand_splitmix64(uint64_t x) {
+
+		x += 0x9e3779b97f4a7c15;
+
+		uint64_t res = x;
+		res = (res ^ (res >> 30)) * 0xbf58476d1ce4e5b9;
+		res = (res ^ (res >> 27)) * 0x94d049bb133111eb;
+
+		return res ^ (res >> 31);
+	}
+
+
+	/// SplitMix64 pseudorandom number generation
+	/// @param x The 64-bit state of the algorithm
+	/// @param p Dummy variable (needed for function signature)
+	inline uint64_t rand_splitmix64(uint64_t x, std::vector<uint64_t>& p) {
+		return rand_splitmix64(x);
 	}
 
 }
