@@ -53,7 +53,7 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::abs(real)");
 
-		test_tolr_interval(umath::abs, std::abs, -10000000, 10000000, TOLERANCE, 145132119);
+		test_tolr_interval(umath::abs, std::abs, -10000000, 10000000, TOLERANCE, 1451119);
 
 	test_end();
 
@@ -99,11 +99,9 @@ int main(int argc, char const *argv[]) {
 
 	test_start("umath::exp");
 
-		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1315167);
-		test_tolr_interval(umath::exp, std::exp, -10, -1, TOLERANCE, 1315167);
-
-		// Higher tolerance to account for floating point precision limits
-		test_tolr_interval(umath::exp, std::exp, 10, 20, 0.0001, 1137);
+		test_tolr_interval(umath::exp, std::exp, 0, 1, TOLERANCE, 1351637);
+		test_tolr_interval(umath::exp, std::exp, -10, -1, TOLERANCE, 1319673);
+		test_tolr_interval(umath::exp, std::exp, 10, 20, TOLERANCE, 1137);
 
 	test_end();
 
@@ -186,7 +184,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr_interval(umath::sinh, std::sinh, 0, 1, TOLERANCE, 1726896);
 		test_tolr_interval(umath::sinh, std::sinh, -5, 5, TOLERANCE, 1726896);
-		test_tolr_interval(umath::sinh, std::sinh, -10, 10, 0.00001, 1726896);
+		test_tolr_interval(umath::sinh, std::sinh, -10, 10, TOLERANCE, 1726896);
 
 	test_end();
 
@@ -194,7 +192,7 @@ int main(int argc, char const *argv[]) {
 
 		test_tolr_interval(umath::cosh, std::cosh, 0, 1, TOLERANCE, 1726896);
 		test_tolr_interval(umath::cosh, std::cosh, -5, 5, TOLERANCE, 1726896);
-		test_tolr_interval(umath::cosh, std::cosh, -10, 10, 0.00001, 1726896);
+		test_tolr_interval(umath::cosh, std::cosh, -10, 10, TOLERANCE, 1726896);
 
 	test_end();
 

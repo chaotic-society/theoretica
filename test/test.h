@@ -58,6 +58,11 @@ long double cum_sqr_err = 0;
 // Maximum error on current function
 long double max_err = 0;
 
+// Sum of relative errors
+long double rel_err_sum = 0;
+
+// Number of added relative errors
+unsigned int rel_err_n = 0;
 
 // Start testing a specific function
 void test_start(std::string f) {
@@ -70,6 +75,8 @@ void test_start(std::string f) {
 	cum_err = 0;
 	cum_sqr_err = 0;
 	max_err = 0;
+	rel_err_sum = 0;
+	rel_err_n = 0;
 }
 
 
@@ -88,7 +95,8 @@ void test_end() {
 
 	std::cout << "Mean Error: " << (cum_err / (real) tolr_test_runs) << std::endl;
 	std::cout << "RMS Error: " << umath::sqrt(cum_sqr_err / (real) tolr_test_runs) << std::endl;
-	std::cout << "Maximum Error: " << max_err << "\n\n" << std::endl;
+	std::cout << "Maximum Error: " << max_err << std::endl;
+	std::cout << "Mean Relative Error: " << rel_err_sum / (real) tolr_test_runs << " %\n\n" << std::endl;
 	func_name = "";
 }
 
@@ -146,7 +154,18 @@ void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, b
 	max_err = umath::max(diff, max_err);
 	tolr_test_runs++;
 
-	if(!good_enough(evaluated, expected, tolerance)) {
+	// Absolute difference
+	real curr_err = diff;
+
+	// If the expected value is not too small,
+	// use the relative error
+	if(umath::abs(expected) > tolerance) {
+		curr_err /= umath::abs(expected);
+		rel_err_sum += curr_err;
+		rel_err_n++;
+	}
+
+	if(!(curr_err < tolerance)) {
 
 		if(!silent) {
 			std::cout << "\tTest failed on " << func_name << ":" << std::endl;
