@@ -8,6 +8,9 @@
 #include <ctime>
 
 
+constexpr real FAIL_THRESHOLD_PERC = 1E-04;
+
+
 int main(int argc, char const *argv[]) {
 
 	std::cout << "Starting testing of uroboro library..." << std::endl;
@@ -57,6 +60,9 @@ int main(int argc, char const *argv[]) {
 			}
 
 		}
+
+		if(curr_errors / (real) tolr_test_runs <= FAIL_THRESHOLD_PERC)
+			total_errors -= curr_errors;
 
 	test_end();
 
