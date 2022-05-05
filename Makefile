@@ -1,6 +1,6 @@
 default_target: example
 .PHONY: all example test autodiff autodiff_hamiltonian error_propagation stats
-all: example test
+all: example test examples
 
 CXXFLAGS = -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -I./src/
 
@@ -28,3 +28,5 @@ error_propagation:
 
 stats:
 	g++ examples/stats.cpp ${CXXFLAGS} -o ./stats
+
+examples: autodiff hamiltonian error_propagation stats

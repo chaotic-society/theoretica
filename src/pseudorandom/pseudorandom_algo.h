@@ -101,7 +101,7 @@ namespace uroboro {
 	inline uint64_t rand_xoshiro256(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
-			UMATH_ERROR("rand_xoroshift256pp", state.size(), INVALID_ARGUMENT);
+			UMATH_ERROR("rand_xoroshift256", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 

@@ -6,7 +6,7 @@ A C++ numerical and automatic **mathematical library**, focused on **graphical**
 The library has no dependencies. Only the C++ Standard Library is needed to use it.
 
 ## Functionalities
-This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md)
+This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/txt/FEATURES.md)
 - **Real analysis** (`real_analysis.h`)
 - **Linear algebra** (vector and matrix operations, including common transformations) (`algebra/vec.h`, `algebra/mat.h`)
 - **Complex** numbers (in algebraic and exponential form) and complex analysis (`complex/complex.h`, `complex/phasor.h`, `complex/complex_analysis.h`)
@@ -32,7 +32,7 @@ The library is header-only, so it is only needed to include the proper header fi
 **Matrices** (`algebra/mat.h`) are implemented inside the `mat<N, K>` class (where N and K are the number of columns and rows respectively), while **vectors** (`algebra/vec.h`) in the `vec<N>` class (where `N` is the number of rows). **Quaternions** (`complex/quat.h`) and **complex** (`complex/complex.h`) numbers are implemented in the `quat` and `complex` classes. For example usage see [Examples](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples).
 
 ## Examples
-Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/examples/example.cpp) for more example code.
+Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/txt/EXAMPLES.md), see  [example.cpp](https://github.com/mattiaisgro/uroboro/blob/master/examples/example.cpp) for more example code.
 
 ### Quickstart
 To check if you correctly set up the library, try to compile the following code in a source file:

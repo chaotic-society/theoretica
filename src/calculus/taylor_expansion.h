@@ -1,3 +1,10 @@
+
+///
+/// @file taylor_expansion.h Computation of first and second
+/// order Taylor expansions for generic functions using automatic
+/// differentiation.
+///
+
 #ifndef UROBORO_TAYLOR_EXPANSION_H
 #define UROBORO_TAYLOR_EXPANSION_H
 

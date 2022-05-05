@@ -1,7 +1,7 @@
 # List of features
 This is a non-comprehensive list of features. Elements marked with an 'x' have been fully implemented.
 
-A functionality is considered "_fully implemented_" when it has at least one implementation which is architecture independent that passed all test cases and has no performance issues. Every function may have an **architecture independent** implementation, possibly of **arbitrary precision**, and one or more **architecture dependent** implementations, eventually making use of Assembly instructions.
+A functionality is considered "fully implemented" when it has at least one implementation which is architecture independent that passed all test cases and has no performance issues. Every function may have an **architecture independent** implementation, possibly of **arbitrary precision**, and one or more **architecture dependent** implementations, eventually making use of Assembly instructions.
 
 - Real analysis (_real_analysis.h_)
   - [x] sqrt
