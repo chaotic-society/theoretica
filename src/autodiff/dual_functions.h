@@ -175,6 +175,32 @@ namespace uroboro {
 		return dual(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
 	}
 
+
+	/// Compute the hyperbolic sine of a dual number
+	dual sinh(dual x) {
+
+		real exp_x = exp(x.Re());
+		return dual((exp_x - 1.0 / exp_x) / 2.0, x.Dual() * (exp_x + 1.0 / exp_x) / 2.0);
+	}
+
+
+	/// Compute the hyperbolic cosine of a dual number
+	dual cosh(dual x) {
+
+		real exp_x = exp(x.Re());
+		return dual((exp_x + 1.0 / exp_x) / 2.0, x.Dual() * (exp_x - 1.0 / exp_x) / 2.0);
+	}
+
+
+	/// Compute the hyperbolic tangent of a dual number
+	dual tanh(dual x) {
+
+		real exp_x = exp(x.Re());
+		return dual(
+			(exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),
+			x.Dual() / square(exp_x + 1.0 / exp_x));
+	}
+
 }
 
 

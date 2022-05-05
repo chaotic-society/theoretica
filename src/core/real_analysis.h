@@ -213,6 +213,12 @@ namespace uroboro {
 		#endif
 	}
 
+	/// Compare two objects and return the greatest
+	/// @param x The first object to compare
+	/// @param y The second object to compare
+	/// @return The greatest between the objects
+	///
+	/// The templated T type must have comparison operators.
 	template<typename T>
 	inline T max(T x, T y) {
 		return x > y ? x : y;
@@ -235,6 +241,12 @@ namespace uroboro {
 		#endif
 	}
 
+	/// Compare two objects and return the greatest
+	/// @param x The first object to compare
+	/// @param y The second object to compare
+	/// @return The smallest between the objects
+	///
+	/// The templated T type must have comparison operators.
 	template<typename T>
 	inline T min(T x, T y) {
 		return x > y ? y : x;
@@ -242,24 +254,30 @@ namespace uroboro {
 
 
 	/// Clamp x between a and b
-	/// @param x A real number
-	/// @param a A real number
-	/// @param b A real number
+	/// @param x The real number to clamp
+	/// @param a The lower bound
+	/// @param b The upper bound
 	/// @return Returns x if x is between a and b,
 	/// a if x is less than a, b if x is bigger than b
 	///
 	/// If `UROBORO_FORCE_BRANCHLESS` is defined,
 	/// a (potentially slower) implementation will be used.
 	inline real clamp(real x, real a, real b) {
-
-#ifdef UROBORO_FORCE_BRANCHLESS
-
-		// The branchless implementation might be slower or equal
-		// on most compilers
-		return min(max(x, a), b);
-#else
 		return x > b ? b : (x < a ? a : x);
-#endif
+	}
+
+
+	/// Clamp a value between two other values
+	/// @param x The value to clamp
+	/// @param a The lower bound
+	/// @param b The upper bound
+	/// @return Returns x if x is between a and b,
+	/// a if x is less than a, b if x is bigger than b
+	///
+	/// The templated T type must have comparison operators.
+	template<typename T>
+	inline T clamp(T x, T a, T b) {
+		return x > b ? b : (x < a ? a : x);
 	}
 
 
@@ -852,6 +870,29 @@ namespace uroboro {
 	inline real coth(real x) {
 		real exp_x = exp(x);
 		return (exp_x + 1.0 / exp_x) / (exp_x - 1.0 / exp_x);
+	}
+
+
+	/// Compute the sigmoid function
+	/// @param x A real number
+	/// @return The sigmoid function for x defined as
+	/// \f$\frac{1}{1 - e^{-x}}\f$
+	inline real sigmoid(real x) {
+		return 1.0 / (1.0 + 1.0 / exp(x));
+	}
+
+
+	/// Compute the normalized sinc function
+	/// @param x A real number
+	/// @return The normalized sinc function for x defined as
+	/// \f$\frac{sin(\pi x)}{\pi x}\f$
+	inline real sinc(real x) {
+
+		if(abs(x) <= MACH_EPSILON) {
+			return 1;
+		}
+
+		return sin(PI * x) / (PI * x);
 	}
 
 

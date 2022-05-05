@@ -7,6 +7,9 @@
 #define UROBORO_CONSTANTS_H
 
 
+#include <limits>
+
+
 /// @macro UROBORO_X86 Define this macro if the
 /// machine has a x86 architecture to use hardware
 /// enhanced functions.
@@ -112,6 +115,10 @@ namespace uroboro {
 	using real = double;
 
 #endif
+
+
+	/// Machine epsilon for the real type
+	constexpr real MACH_EPSILON = std::numeric_limits<real>::epsilon();
 
 	/// The Phi (Golden Section) mathematical constant
 	constexpr real PHI = 1.6180339887498948482045868;

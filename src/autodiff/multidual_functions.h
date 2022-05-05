@@ -180,6 +180,35 @@ namespace uroboro {
 		return multidual<N>(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
 	}
 
+
+	/// Compute the hyperbolic sine of a multidual number
+	template<unsigned int N>
+	multidual<N> sinh(multidual<N> x) {
+
+		real exp_x = exp(x.Re());
+		return multidual<N>((exp_x - 1.0 / exp_x) / 2.0, x.Dual() * (exp_x + 1.0 / exp_x) / 2.0);
+	}
+
+
+	/// Compute the hyperbolic cosine of a multidual number
+	template<unsigned int N>
+	multidual<N> cosh(multidual<N> x) {
+
+		real exp_x = exp(x.Re());
+		return multidual<N>((exp_x + 1.0 / exp_x) / 2.0, x.Dual() * (exp_x - 1.0 / exp_x) / 2.0);
+	}
+
+
+	/// Compute the hyperbolic tangent of a multidual number
+	template<unsigned int N>
+	multidual<N> tanh(multidual<N> x) {
+
+		real exp_x = exp(x.Re());
+		return multidual<N>(
+			(exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),
+			x.Dual() / square(exp_x + 1.0 / exp_x));
+	}
+
 }
 
 

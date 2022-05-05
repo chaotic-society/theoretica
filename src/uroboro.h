@@ -69,7 +69,7 @@
 #include "./pseudorandom/prng.h"
 #include "./pseudorandom/rand_dist.h"
 
-// Montecarlo methods
+// Monte Carlo methods
 #include "./pseudorandom/montecarlo.h"
 
 #endif

@@ -1,6 +1,6 @@
 
 ///
-/// @file dual.h Second order dual number class
+/// @file dual2.h Second order dual number class
 ///
 
 #ifndef UROBORO_DUAL2_H
