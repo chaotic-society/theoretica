@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: pseudorandom_algo.h File Reference</title>
+<title>Uroboro Math Library: pseudorandom/pseudorandom_algo.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('pseudorandom__algo_8h.html',''); initR
 <p>Pseudorandom number generation algorithms.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 </div>
 <p><a href="pseudorandom__algo_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -113,18 +114,30 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a40ffc8828539140e106ff2fdd8498b93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">uroboro::pseudorandom_function</a> = unsigned int(*)(unsigned int, const std::vector&lt; unsigned int &gt; &amp;)</td></tr>
-<tr class="memdesc:a40ffc8828539140e106ff2fdd8498b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom function pointer.  <a href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">More...</a><br /></td></tr>
-<tr class="separator:a40ffc8828539140e106ff2fdd8498b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a235f7be5ce495bac58e9d913f6b30217"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a235f7be5ce495bac58e9d913f6b30217">uroboro::pseudorandom_function</a> = uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;)</td></tr>
+<tr class="memdesc:a235f7be5ce495bac58e9d913f6b30217"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom function pointer.  <a href="namespaceuroboro.html#a235f7be5ce495bac58e9d913f6b30217">More...</a><br /></td></tr>
+<tr class="separator:a235f7be5ce495bac58e9d913f6b30217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0bcc6de750c98323c5b64358307f7002"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">uroboro::rand_congruential</a> (unsigned int x, unsigned int a=48271, unsigned int c=0, unsigned int m=((unsigned int) 1&lt;&lt; 31) - 1)</td></tr>
-<tr class="memdesc:a0bcc6de750c98323c5b64358307f7002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm.  <a href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">More...</a><br /></td></tr>
-<tr class="separator:a0bcc6de750c98323c5b64358307f7002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80e6605fd98f1d1c719e1194b61bb6e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e">uroboro::rand_congruential</a> (unsigned int x, const std::vector&lt; unsigned int &gt; &amp;state)</td></tr>
-<tr class="memdesc:af80e6605fd98f1d1c719e1194b61bb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm (wrapper)  <a href="namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e">More...</a><br /></td></tr>
-<tr class="separator:af80e6605fd98f1d1c719e1194b61bb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a560e276c218a0ce820f518c980dc0"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">uroboro::rand_congruential</a> (uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</td></tr>
+<tr class="memdesc:a47a560e276c218a0ce820f518c980dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm.  <a href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">More...</a><br /></td></tr>
+<tr class="separator:a47a560e276c218a0ce820f518c980dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312143e5ce943dfe8ca255e5c8fdff75"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a312143e5ce943dfe8ca255e5c8fdff75">uroboro::rand_congruential</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;state)</td></tr>
+<tr class="memdesc:a312143e5ce943dfe8ca255e5c8fdff75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm (wrapper)  <a href="namespaceuroboro.html#a312143e5ce943dfe8ca255e5c8fdff75">More...</a><br /></td></tr>
+<tr class="separator:a312143e5ce943dfe8ca255e5c8fdff75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48efb0301843782ae1c34d9d8559940"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">uroboro::rand_xoshiro256</a> (uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</td></tr>
+<tr class="memdesc:ab48efb0301843782ae1c34d9d8559940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xoroshift256++ pseudorandom number generation algorithm.  <a href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">More...</a><br /></td></tr>
+<tr class="separator:ab48efb0301843782ae1c34d9d8559940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b17e8794fbe9e7b6a735abb7b1272a"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a27b17e8794fbe9e7b6a735abb7b1272a">uroboro::rand_xoshiro256</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;state)</td></tr>
+<tr class="memdesc:a27b17e8794fbe9e7b6a735abb7b1272a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xoroshift256++ pseudorandom number generation algorithm adapted from the reference implementation by Sebastiano Vigna.  <a href="namespaceuroboro.html#a27b17e8794fbe9e7b6a735abb7b1272a">More...</a><br /></td></tr>
+<tr class="separator:a27b17e8794fbe9e7b6a735abb7b1272a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c27a458275c2673771bbce1a7f5d04"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">uroboro::rand_splitmix64</a> (uint64_t x)</td></tr>
+<tr class="memdesc:a16c27a458275c2673771bbce1a7f5d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">SplitMix64 pseudorandom number generation.  <a href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">More...</a><br /></td></tr>
+<tr class="separator:a16c27a458275c2673771bbce1a7f5d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abacd1560cd54a41e42189a13b8a81b78"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#abacd1560cd54a41e42189a13b8a81b78">uroboro::rand_splitmix64</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;p)</td></tr>
+<tr class="memdesc:abacd1560cd54a41e42189a13b8a81b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">SplitMix64 pseudorandom number generation.  <a href="namespaceuroboro.html#abacd1560cd54a41e42189a13b8a81b78">More...</a><br /></td></tr>
+<tr class="separator:abacd1560cd54a41e42189a13b8a81b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Pseudorandom number generation algorithms. </p>
@@ -136,7 +149,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom__algo_8h.html">pseudorandom_algo.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

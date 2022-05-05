@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: rand_dist.h Source File</title>
+<title>Uroboro Math Library: pseudorandom/rand_dist.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('rand__dist_8h_source.html',''); initRe
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define UROBORO_RAND_DIST_H</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../function.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../core/function.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="prng_8h.html">./prng.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -119,8 +119,8 @@ $(document).ready(function(){initNavTree('rand__dist_8h_source.html',''); initRe
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">do</span> {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            x = <a class="code hl_function" href="namespaceuroboro.html#afa4f0b526445904324d85aa7e630514e">rand_real</a>(x1, x2, g);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            y = <a class="code hl_function" href="namespaceuroboro.html#afa4f0b526445904324d85aa7e630514e">rand_real</a>(y1, y2, g);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            x = <a class="code hl_function" href="namespaceuroboro.html#a336a970e34fc1c5617b0e7d896103c1c">rand_real</a>(x1, x2, g);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            y = <a class="code hl_function" href="namespaceuroboro.html#a336a970e34fc1c5617b0e7d896103c1c">rand_real</a>(y1, y2, g);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            iter++;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        } <span class="keywordflow">while</span>(y &gt; f(x, theta) &amp;&amp; iter &lt;= max_iter);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('rand__dist_8h_source.html',''); initRe
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> s = 0;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; iter; ++i)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            s += <a class="code hl_function" href="namespaceuroboro.html#afa4f0b526445904324d85aa7e630514e">rand_real</a>(x1, x2, g);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            s += <a class="code hl_function" href="namespaceuroboro.html#a336a970e34fc1c5617b0e7d896103c1c">rand_real</a>(x1, x2, g);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> s / <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a><span class="keyword">&gt;</span>(iter);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
@@ -146,16 +146,16 @@ $(document).ready(function(){initNavTree('rand__dist_8h_source.html',''); initRe
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassuroboro_1_1_p_r_n_g_html"><div class="ttname"><a href="classuroboro_1_1_p_r_n_g.html">uroboro::PRNG</a></div><div class="ttdoc">A pseudorandom number generator.</div><div class="ttdef"><b>Definition:</b> <a href="prng_8h_source.html#l00016">prng.h:16</a></div></div>
-<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00147">error.h:147</a></div></div>
+<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00161">error.h:161</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number.</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00050">error.h:50</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00050">error.h:50</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a12356ce5fd515bf9d776a375efc8bbc0"><div class="ttname"><a href="namespaceuroboro.html#a12356ce5fd515bf9d776a375efc8bbc0">uroboro::rand_gaussian_clt</a></div><div class="ttdeci">real rand_gaussian_clt(real x1, real x2, PRNG &amp;g, unsigned int iter=10)</div><div class="ttdoc">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit...</div><div class="ttdef"><b>Definition:</b> <a href="rand__dist_8h_source.html#l00072">rand_dist.h:72</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a247c322c30b6d3432d3e21371676af6a"><div class="ttname"><a href="namespaceuroboro.html#a247c322c30b6d3432d3e21371676af6a">uroboro::rand_dist_tac</a></div><div class="ttdeci">real rand_dist_tac(stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</div><div class="ttdoc">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch...</div><div class="ttdef"><b>Definition:</b> <a href="rand__dist_8h_source.html#l00034">rand_dist.h:34</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a336a970e34fc1c5617b0e7d896103c1c"><div class="ttname"><a href="namespaceuroboro.html#a336a970e34fc1c5617b0e7d896103c1c">uroboro::rand_real</a></div><div class="ttdeci">real rand_real(real a, real b, PRNG &amp;g, uint64_t prec=(1&lt;&lt; 30))</div><div class="ttdoc">Generate a pseudorandom real number in [a, b] using a preexisting generator.</div><div class="ttdef"><b>Definition:</b> <a href="prng_8h_source.html#l00157">prng.h:157</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a35f037d3e459f5e788e9d6711c96af85"><div class="ttname"><a href="namespaceuroboro.html#a35f037d3e459f5e788e9d6711c96af85">uroboro::MAX_TRYANDCATCH_ITER</a></div><div class="ttdeci">constexpr unsigned int MAX_TRYANDCATCH_ITER</div><div class="ttdoc">Maximum number of failed iterations for the Try-and-Catch algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00210">constants.h:210</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a57bc43a753233fcd9835f097d49007f3"><div class="ttname"><a href="namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3">uroboro::vec_buff</a></div><div class="ttdeci">std::vector&lt; real &gt; vec_buff</div><div class="ttdoc">A dynamically allocated variable-size container Defined by default as an alias for std::vector&lt;real&gt;</div><div class="ttdef"><b>Definition:</b> <a href="vec__buff_8h_source.html#l00018">vec_buff.h:18</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00112">constants.h:112</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_acfbf85e05ce2bdbe8b7ef675141b3b6c"><div class="ttname"><a href="namespaceuroboro.html#acfbf85e05ce2bdbe8b7ef675141b3b6c">uroboro::stat_function</a></div><div class="ttdeci">real(*)(real, const vec_buff &amp;) stat_function</div><div class="ttdoc">Statistical function.</div><div class="ttdef"><b>Definition:</b> <a href="function_8h_source.html#l00025">function.h:25</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_afa4f0b526445904324d85aa7e630514e"><div class="ttname"><a href="namespaceuroboro.html#afa4f0b526445904324d85aa7e630514e">uroboro::rand_real</a></div><div class="ttdeci">real rand_real(real a, real b, PRNG &amp;g, unsigned int prec=(1&lt;&lt; 30))</div><div class="ttdoc">Generate a pseudorandom real number in [a, b] using a preexisting generator.</div><div class="ttdef"><b>Definition:</b> <a href="prng_8h_source.html#l00108">prng.h:108</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_acfbf85e05ce2bdbe8b7ef675141b3b6c"><div class="ttname"><a href="namespaceuroboro.html#acfbf85e05ce2bdbe8b7ef675141b3b6c">uroboro::stat_function</a></div><div class="ttdeci">real(*)(real, const vec_buff &amp;) stat_function</div><div class="ttdoc">Function pointer to a statistical function.</div><div class="ttdef"><b>Definition:</b> <a href="function_8h_source.html#l00023">function.h:23</a></div></div>
 <div class="ttc" id="aprng_8h_html"><div class="ttname"><a href="prng_8h.html">prng.h</a></div><div class="ttdoc">Pseudorandom number generator class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('rand__dist_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="rand__dist_8h.html">rand_dist.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

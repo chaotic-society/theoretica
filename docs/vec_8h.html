@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: vec.h File Reference</title>
+<title>Uroboro Math Library: algebra/vec.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,9 +105,9 @@ $(document).ready(function(){initNavTree('vec_8h.html',''); initResizable(); });
 <div class="textblock"><code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
-<code>#include &quot;<a class="el" href="error_8h_source.html">../error.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../real_analysis.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec__buff_8h_source.html">../vec_buff.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error_8h_source.html">../core/error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec__buff_8h_source.html">../core/vec_buff.h</a>&quot;</code><br />
 </div>
 <p><a href="vec_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -160,6 +160,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e0a248404f267e01ed71debe9f2b6c0"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; 3, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0e0a248404f267e01ed71debe9f2b6c0">uroboro::cross</a> (const vec&lt; 3, T &gt; &amp;v1, const vec&lt; 3, T &gt; &amp;v2)</td></tr>
 <tr class="memdesc:a0e0a248404f267e01ed71debe9f2b6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product of two vectors.  <a href="namespaceuroboro.html#a0e0a248404f267e01ed71debe9f2b6c0">More...</a><br /></td></tr>
 <tr class="separator:a0e0a248404f267e01ed71debe9f2b6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf4a9b591a8ca99ca8ad7505b41b644"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aedf4a9b591a8ca99ca8ad7505b41b644"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aedf4a9b591a8ca99ca8ad7505b41b644">uroboro::sphere_inversion</a> (vec&lt; N &gt; p, vec&lt; N &gt; c, real r)</td></tr>
+<tr class="memdesc:aedf4a9b591a8ca99ca8ad7505b41b644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sphere inversion of a point with respect to a sphere of radius r centered in a point c.  <a href="namespaceuroboro.html#aedf4a9b591a8ca99ca8ad7505b41b644">More...</a><br /></td></tr>
+<tr class="separator:aedf4a9b591a8ca99ca8ad7505b41b644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae0196243c3e389365b61f290a8a67c1"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:aae0196243c3e389365b61f290a8a67c1"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aae0196243c3e389365b61f290a8a67c1">uroboro::sphere_inversion</a> (vec&lt; N &gt; p)</td></tr>
+<tr class="memdesc:aae0196243c3e389365b61f290a8a67c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sphere inversion of a point with respect to a sphere of radius 1 centered in the origin.  <a href="namespaceuroboro.html#aae0196243c3e389365b61f290a8a67c1">More...</a><br /></td></tr>
+<tr class="separator:aae0196243c3e389365b61f290a8a67c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Vector class and operations. </p>
@@ -171,7 +179,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="vec_8h.html">vec.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

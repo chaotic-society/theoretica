@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: pseudorandom_algo.h Source File</title>
+<title>Uroboro Math Library: pseudorandom/pseudorandom_algo.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,59 +100,114 @@ $(document).ready(function(){initNavTree('pseudorandom__algo_8h_source.html','')
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define UROBORO_PSEUDO_RANDOM_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">   16</a></span>    <span class="keyword">using</span> <a class="code hl_typedef" href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">pseudorandom_function</a> = <span class="keywordtype">unsigned</span> int (*)(<span class="keywordtype">unsigned</span> int, <span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp;);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a235f7be5ce495bac58e9d913f6b30217">   17</a></span>    <span class="keyword">using</span> <a class="code hl_typedef" href="namespaceuroboro.html#a235f7be5ce495bac58e9d913f6b30217">pseudorandom_function</a> = uint64_t (*)(uint64_t, std::vector&lt;uint64_t&gt;&amp;);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">   30</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">rand_congruential</a>(</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a = 48271,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c = 0,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = ((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) 1 &lt;&lt; 31) - 1) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> (a * x + c) % m;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">   31</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">rand_congruential</a>(</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        uint64_t x,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        uint64_t a = 48271,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        uint64_t c = 0,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        uint64_t m = ((uint64_t) 1 &lt;&lt; 31) - 1) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> (a * x + c) % m;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#af80e6605fd98f1d1c719e1194b61bb6e">   46</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">rand_congruential</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; state) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span>(state.size() != 3) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a = state[0];</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c = state[1];</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = state[2];</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">if</span>(a &gt; m || c &gt; m) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, <a class="code hl_function" href="namespaceuroboro.html#ab1dcc0c7e6954c69a1d7c28e39322207">max</a>(a, c), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">rand_congruential</a>(x, a, c, m);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a312143e5ce943dfe8ca255e5c8fdff75">   47</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">rand_congruential</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; state) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span>(state.size() != 3) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> uint64_t a = state[0];</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> uint64_t c = state[1];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> uint64_t m = state[2];</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">if</span>(a &gt; m || c &gt; m) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, <a class="code hl_function" href="namespaceuroboro.html#ab1dcc0c7e6954c69a1d7c28e39322207">max</a>(a, c), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">rand_congruential</a>(x, a, c, m);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00147">error.h:147</a></div></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">   72</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">rand_xoshiro256</a>(uint64_t&amp; a, uint64_t&amp; b, uint64_t&amp; c, uint64_t&amp; d) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// Rotate</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">const</span> uint64_t res = ((a + d) &lt;&lt; 23) |</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            (a + d &gt;&gt; (41)) + a;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">// Shift</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">const</span> uint64_t t = b &lt;&lt; 17;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// Xor</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        c ^= a;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        d ^= b;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        b ^= c;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        a ^= d;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        c ^= t;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// Rotate</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        d = (d &lt;&lt; 45) | (d &gt;&gt; (19));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a27b17e8794fbe9e7b6a735abb7b1272a">  101</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">rand_xoshiro256</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; state) {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span>(state.size() != 4) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_xoroshift256&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">rand_xoshiro256</a>(state[0], state[1], state[2], state[3]);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">  116</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">rand_splitmix64</a>(uint64_t x) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        x += 0x9e3779b97f4a7c15;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        uint64_t res = x;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        res = (res ^ (res &gt;&gt; 30)) * 0xbf58476d1ce4e5b9;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        res = (res ^ (res &gt;&gt; 27)) * 0x94d049bb133111eb;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">return</span> res ^ (res &gt;&gt; 31);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#abacd1560cd54a41e42189a13b8a81b78">  131</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">rand_splitmix64</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; p) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">rand_splitmix64</a>(x);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> <a href="error_8h_source.html#l00161">error.h:161</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a0bcc6de750c98323c5b64358307f7002"><div class="ttname"><a href="namespaceuroboro.html#a0bcc6de750c98323c5b64358307f7002">uroboro::rand_congruential</a></div><div class="ttdeci">unsigned int rand_congruential(unsigned int x, unsigned int a=48271, unsigned int c=0, unsigned int m=((unsigned int) 1&lt;&lt; 31) - 1)</div><div class="ttdoc">Congruential pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00030">pseudorandom_algo.h:30</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a40ffc8828539140e106ff2fdd8498b93"><div class="ttname"><a href="namespaceuroboro.html#a40ffc8828539140e106ff2fdd8498b93">uroboro::pseudorandom_function</a></div><div class="ttdeci">unsigned int(*)(unsigned int, const std::vector&lt; unsigned int &gt; &amp;) pseudorandom_function</div><div class="ttdoc">A pseudorandom function pointer.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00016">pseudorandom_algo.h:16</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a16c27a458275c2673771bbce1a7f5d04"><div class="ttname"><a href="namespaceuroboro.html#a16c27a458275c2673771bbce1a7f5d04">uroboro::rand_splitmix64</a></div><div class="ttdeci">uint64_t rand_splitmix64(uint64_t x)</div><div class="ttdoc">SplitMix64 pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00116">pseudorandom_algo.h:116</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a235f7be5ce495bac58e9d913f6b30217"><div class="ttname"><a href="namespaceuroboro.html#a235f7be5ce495bac58e9d913f6b30217">uroboro::pseudorandom_function</a></div><div class="ttdeci">uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;) pseudorandom_function</div><div class="ttdoc">A pseudorandom function pointer.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00017">pseudorandom_algo.h:17</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a47a560e276c218a0ce820f518c980dc0"><div class="ttname"><a href="namespaceuroboro.html#a47a560e276c218a0ce820f518c980dc0">uroboro::rand_congruential</a></div><div class="ttdeci">uint64_t rand_congruential(uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</div><div class="ttdoc">Congruential pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00031">pseudorandom_algo.h:31</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_ab1dcc0c7e6954c69a1d7c28e39322207"><div class="ttname"><a href="namespaceuroboro.html#ab1dcc0c7e6954c69a1d7c28e39322207">uroboro::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> <a href="real__analysis_8h_source.html#l00207">real_analysis.h:207</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_ab48efb0301843782ae1c34d9d8559940"><div class="ttname"><a href="namespaceuroboro.html#ab48efb0301843782ae1c34d9d8559940">uroboro::rand_xoshiro256</a></div><div class="ttdeci">uint64_t rand_xoshiro256(uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</div><div class="ttdoc">Xoroshift256++ pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="pseudorandom__algo_8h_source.html#l00072">pseudorandom_algo.h:72</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom__algo_8h.html">pseudorandom_algo.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

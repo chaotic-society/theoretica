@@ -2,6 +2,7 @@ var classuroboro_1_1dual2 =
 [
     [ "dual2", "classuroboro_1_1dual2.html#aa85947d27544908f6f1f3b685138eff7", null ],
     [ "dual2", "classuroboro_1_1dual2.html#a1d66c23b0a8bdd0c6a1fccb83ac2cc99", null ],
+    [ "dual2", "classuroboro_1_1dual2.html#a9aa0865497747d76ac87c9a72dcef9b6", null ],
     [ "dual2", "classuroboro_1_1dual2.html#a03beb6038cd3d97c9d03b7feea8b52d6", null ],
     [ "dual2", "classuroboro_1_1dual2.html#a885df86cdf86fd592cd1dea851555785", null ],
     [ "conjugate", "classuroboro_1_1dual2.html#a0d2617d78593bfa6c6427c2ba7d23ac1", null ],

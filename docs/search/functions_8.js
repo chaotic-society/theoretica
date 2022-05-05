@@ -13,6 +13,7 @@ var searchData=
   ['invert_10',['invert',['../classuroboro_1_1mat.html#a4db86ab8cfb92c41bb7afbc579c30094',1,'uroboro::mat']]],
   ['invlerp_11',['invlerp',['../namespaceuroboro.html#a3d620f40480706e28ed65c69f7732181',1,'uroboro::invlerp(real x1, real x2, real value)'],['../namespaceuroboro.html#afa4f0c6a8854c680f6057384dd46fdf1',1,'uroboro::invlerp(vec&lt; N &gt; P1, vec&lt; N &gt; P2, real value)']]],
   ['is_5fdiagonal_12',['is_diagonal',['../classuroboro_1_1mat.html#a4398e289f125b40db0291b13ef07a254',1,'uroboro::mat']]],
-  ['is_5fsquare_13',['is_square',['../classuroboro_1_1mat.html#a5d5fd412a24ccfc924cfe2676c1e2d2f',1,'uroboro::mat']]],
-  ['is_5fsymmetric_14',['is_symmetric',['../classuroboro_1_1mat.html#a5e531278d466e077ea6acf2352c22e97',1,'uroboro::mat']]]
+  ['is_5fnan_13',['is_nan',['../namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d',1,'uroboro']]],
+  ['is_5fsquare_14',['is_square',['../classuroboro_1_1mat.html#a5d5fd412a24ccfc924cfe2676c1e2d2f',1,'uroboro::mat']]],
+  ['is_5fsymmetric_15',['is_symmetric',['../classuroboro_1_1mat.html#a5e531278d466e077ea6acf2352c22e97',1,'uroboro::mat']]]
 ];

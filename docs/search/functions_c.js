@@ -8,5 +8,5 @@ var searchData=
   ['mean_5fstandard_5fdeviation_5',['mean_standard_deviation',['../namespaceuroboro.html#a2072a2e3a2bdaeeac094fcb18e01b250',1,'uroboro']]],
   ['min_6',['min',['../namespaceuroboro.html#a2ba3e34d5c2a1cc7dffa4cd3990527ac',1,'uroboro']]],
   ['modulus_7',['modulus',['../classuroboro_1_1complex.html#a9fdd162f59368df1b2ccc8a6e1e6c228',1,'uroboro::complex']]],
-  ['multidual_8',['multidual',['../classuroboro_1_1multidual.html#a356e82149c05770c866e93c4f9c881b2',1,'uroboro::multidual::multidual()'],['../classuroboro_1_1multidual.html#ae5d56372cf698b766447966c7756ee01',1,'uroboro::multidual::multidual(real r, vec&lt; N &gt; u)'],['../classuroboro_1_1multidual.html#ae2e7fbe7b86596565bbcaa376731ee27',1,'uroboro::multidual::multidual(real r)']]]
+  ['multidual_8',['multidual',['../classuroboro_1_1multidual.html#a356e82149c05770c866e93c4f9c881b2',1,'uroboro::multidual::multidual()'],['../classuroboro_1_1multidual.html#ae5d56372cf698b766447966c7756ee01',1,'uroboro::multidual::multidual(real r, vec&lt; N &gt; u)'],['../classuroboro_1_1multidual.html#ae2e7fbe7b86596565bbcaa376731ee27',1,'uroboro::multidual::multidual(real r)'],['../classuroboro_1_1multidual.html#a67c77219a88d7a9b48722da64df31ae1',1,'uroboro::multidual::multidual(const vec&lt; 1+N &gt; &amp;data)']]]
 ];

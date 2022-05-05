@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['spline_5finterp_2eh_0',['spline_interp.h',['../spline__interp_8h.html',1,'']]],
-  ['statistics_2eh_1',['statistics.h',['../statistics_8h.html',1,'']]],
-  ['stats_2ecpp_2',['stats.cpp',['../stats_8cpp.html',1,'']]]
+  ['rand_5fdist_2eh_0',['rand_dist.h',['../rand__dist_8h.html',1,'']]],
+  ['real_5fanalysis_2eh_1',['real_analysis.h',['../real__analysis_8h.html',1,'']]],
+  ['roots_2eh_2',['roots.h',['../roots_8h.html',1,'']]]
 ];

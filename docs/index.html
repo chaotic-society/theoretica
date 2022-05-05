@@ -101,13 +101,13 @@ Dependencies</h2>
 <p >The library has no dependencies. Only the C++ Standard Library is needed to use it.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Functionalities</h2>
-<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/mattiaisgro/uroboro/blob/master/FEATURES.md">FEATURES.md</a></p><ul>
+<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/mattiaisgro/uroboro/blob/master/txt/FEATURES.md">FEATURES.md</a></p><ul>
 <li><b>Real analysis</b> (<code><a class="el" href="real__analysis_8h.html" title="Real functions.">real_analysis.h</a></code>)</li>
 <li><b>Linear algebra</b> (vector and matrix operations, including common transformations) (<code><a class="el" href="vec_8h.html" title="Vector class and operations.">algebra/vec.h</a></code>, <code><a class="el" href="mat_8h.html" title="Matrix class and operations.">algebra/mat.h</a></code>)</li>
 <li><b>Complex</b> numbers (in algebraic and exponential form) and complex analysis (<code><a class="el" href="complex_8h.html" title="Complex numbers.">complex/complex.h</a></code>, <code><a class="el" href="phasor_8h.html" title="Phasor (complex number in exponential form)">complex/phasor.h</a></code>, <code><a class="el" href="complex__analysis_8h.html" title="Functions of complex variable.">complex/complex_analysis.h</a></code>)</li>
 <li><b>Quaternions</b> (<code><a class="el" href="quat_8h.html" title="Quaternion algebra.">complex/quat.h</a></code>)</li>
 <li>Dual numbers (<code><a class="el" href="dual_8h.html" title="Dual number class.">autodiff/dual.h</a></code>, <code><a class="el" href="dual__functions_8h.html" title="Functions defined on dual numbers for automatic differentiation.">autodiff/dual_functions.h</a></code>)</li>
-<li>Multivariable Automatic Differentiation and Differential Operators (<code><a class="el" href="multidual_8h.html" title="Multidual numbers.">autodiff/multidual.h</a></code>, <code><a class="el" href="multidual__functions_8h.html" title="Functions defined on multidual numbers for automatic differentiation of multivariable real functions.">autodiff/multidual_functions.h</a></code>, <code><a class="el" href="autodiff_8h.html" title="Automatic differentiation.">autodiff/autodiff.h</a></code>)</li>
+<li>Multivariable Automatic Differentiation and Differential Operators (<code><a class="el" href="multidual_8h.html" title="Multidual numbers.">autodiff/multidual.h</a></code>, <code><a class="el" href="multidual__functions_8h.html" title="Functions defined on multidual numbers for automatic differentiation of multivariable real functions.">autodiff/multidual_functions.h</a></code>, <code><a class="el" href="autodiff_8h.html" title="Differential operators using automatic differentiation.">autodiff/autodiff.h</a></code>)</li>
 <li><b>Statistical</b> functions (including Least Squares Linearization) (<code><a class="el" href="statistics_8h.html" title="Statistical functions.">statistics/statistics.h</a></code>)</li>
 <li>Probability distribution functions (<code><a class="el" href="distributions_8h.html" title="Probability distribution functions.">statistics/distributions.h</a></code>)</li>
 <li>Pseudorandom number generation (<code><a class="el" href="prng_8h.html" title="Pseudorandom number generator class.">pseudorandom/prng.h</a></code>, <code><a class="el" href="pseudorandom__algo_8h.html" title="Pseudorandom number generation algorithms.">pseudorandom/pseudorandom_algo.h</a></code>)</li>
@@ -128,7 +128,7 @@ Usage</h2>
 <p ><b>Matrices</b> (<code><a class="el" href="mat_8h.html" title="Matrix class and operations.">algebra/mat.h</a></code>) are implemented inside the <code>mat&lt;N, K&gt;</code> class (where N and K are the number of columns and rows respectively), while <b>vectors</b> (<code><a class="el" href="vec_8h.html" title="Vector class and operations.">algebra/vec.h</a></code>) in the <code>vec&lt;N&gt;</code> class (where <code>N</code> is the number of rows). <b>Quaternions</b> (<code><a class="el" href="quat_8h.html" title="Quaternion algebra.">complex/quat.h</a></code>) and <b>complex</b> (<code><a class="el" href="complex_8h.html" title="Complex numbers.">complex/complex.h</a></code>) numbers are implemented in the <code>quat</code> and <code>complex</code> classes. For example usage see <a href="https://github.com/mattiaisgro/uroboro/blob/master/README.md#Examples">Examples</a>.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Examples</h2>
-<p >Introductory examples can be found in <a href="https://github.com/mattiaisgro/uroboro/blob/master/EXAMPLES.md">EXAMPLES.md</a>, see <a href="https://github.com/mattiaisgro/uroboro/blob/master/examples/example.cpp">example.cpp</a> for more example code.</p>
+<p >Introductory examples can be found in <a href="https://github.com/mattiaisgro/uroboro/blob/master/txt/EXAMPLES.md">EXAMPLES.md</a>, see <a href="https://github.com/mattiaisgro/uroboro/blob/master/examples/example.cpp">example.cpp</a> for more example code.</p>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Quickstart</h3>
 <p >To check if you correctly set up the library, try to compile the following code in a source file: </p><div class="fragment"><div class="line"><span class="preprocessor">#define UROBORO_INCLUDE_ALL</span></div>
@@ -150,9 +150,9 @@ Quickstart</h3>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00352">vec.h:352</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> <a href="vec_8h_source.html#l00358">vec.h:358</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a982f5856e8832b88b5def88ea0dd678b"><div class="ttname"><a href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">uroboro::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00126">constants.h:126</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_af3c73efc6d8813649590ff43e814864a"><div class="ttname"><a href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">uroboro::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l01190">mat.h:1190</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_af3c73efc6d8813649590ff43e814864a"><div class="ttname"><a href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">uroboro::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l01196">mat.h:1196</a></div></div>
 <div class="ttc" id="auroboro_8h_html"><div class="ttname"><a href="uroboro_8h.html">uroboro.h</a></div><div class="ttdoc">General include file.</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Error handling</h2>
@@ -220,7 +220,7 @@ License</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:06 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:10 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

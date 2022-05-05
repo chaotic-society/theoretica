@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7emat_0',['~mat',['../classuroboro_1_1mat.html#abd99ee7373c0327a21a097f629f60190',1,'uroboro::mat']]],
-  ['_7emultidual_1',['~multidual',['../classuroboro_1_1multidual.html#ae052c1d820a18bf14a769b82dbd0b455',1,'uroboro::multidual']]]
+  ['xoshiro256_0',['xoshiro256',['../classuroboro_1_1_p_r_n_g.html#aa35ac19008f046298c15feabe072e14f',1,'uroboro::PRNG::xoshiro256(const std::vector&lt; uint64_t &gt; &amp;p)'],['../classuroboro_1_1_p_r_n_g.html#acc92cdfe189c8b532257c0d37649b205',1,'uroboro::PRNG::xoshiro256(uint64_t seed=1)']]]
 ];

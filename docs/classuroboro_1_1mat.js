@@ -12,8 +12,8 @@ var classuroboro_1_1mat =
     [ "diagonal_product", "classuroboro_1_1mat.html#af0b16d7c0506d878073996939dad597c", null ],
     [ "dot", "classuroboro_1_1mat.html#ad7a2b449a70bd6895fa552e803c0c6a8", null ],
     [ "get", "classuroboro_1_1mat.html#a9d0fa0d5e67d2adac96cfce9fdbc8cba", null ],
-    [ "get_column", "classuroboro_1_1mat.html#a2a0ddae33028ea12078c466a42fde3f3", null ],
-    [ "get_row", "classuroboro_1_1mat.html#ad6c709db32a64d7cb7f1b06e74fa11cb", null ],
+    [ "get_column", "classuroboro_1_1mat.html#a066e258ff7fd3945441b28768287f889", null ],
+    [ "get_row", "classuroboro_1_1mat.html#a063830cbdfa2724d6700aeef3cf01aa2", null ],
     [ "iat", "classuroboro_1_1mat.html#add83c35e912f28fc2c77005d88f141ad", null ],
     [ "iget", "classuroboro_1_1mat.html#acc02a581f94d866dfb5e110244b14e84", null ],
     [ "inverse", "classuroboro_1_1mat.html#a068b42407e4f927cd0098f5788b67637", null ],
@@ -37,7 +37,7 @@ var classuroboro_1_1mat =
     [ "operator/=", "classuroboro_1_1mat.html#ab7e56b6ea13428f6af6aa057942d25a9", null ],
     [ "operator=", "classuroboro_1_1mat.html#ab36c6db6066148ff17256e72adf85ce1", null ],
     [ "operator==", "classuroboro_1_1mat.html#a700fc145e2a3b9067d69bb818ebb0990", null ],
-    [ "operator[]", "classuroboro_1_1mat.html#a34a9138bb3595e42a325826da744eec9", null ],
+    [ "operator[]", "classuroboro_1_1mat.html#a420832af9d916b7e63bc9aaaa68986e2", null ],
     [ "set", "classuroboro_1_1mat.html#ad205cf98ba93e272d266ee0f71b6f294", null ],
     [ "set_column", "classuroboro_1_1mat.html#afd93d5bddc7231b62837d5ddca735273", null ],
     [ "set_row", "classuroboro_1_1mat.html#aef093507d4a175803cc7632b5e08b012", null ],
@@ -47,5 +47,6 @@ var classuroboro_1_1mat =
     [ "transform", "classuroboro_1_1mat.html#a588786db7541bd579fd07ad7fc715785", null ],
     [ "transpose", "classuroboro_1_1mat.html#af0467ff6a9e30f3736ac4fa79f250a3b", null ],
     [ "transposed", "classuroboro_1_1mat.html#a06242bf4270124fed109fe7f369b438e", null ],
+    [ "operator*", "classuroboro_1_1mat.html#a22c30877ba1f6a39959c66a3624654d9", null ],
     [ "operator<<", "classuroboro_1_1mat.html#a83b01780d9a900236791647cf51801f8", null ]
 ];

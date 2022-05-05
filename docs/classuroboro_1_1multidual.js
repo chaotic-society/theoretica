@@ -3,7 +3,7 @@ var classuroboro_1_1multidual =
     [ "multidual", "classuroboro_1_1multidual.html#a356e82149c05770c866e93c4f9c881b2", null ],
     [ "multidual", "classuroboro_1_1multidual.html#ae5d56372cf698b766447966c7756ee01", null ],
     [ "multidual", "classuroboro_1_1multidual.html#ae2e7fbe7b86596565bbcaa376731ee27", null ],
-    [ "~multidual", "classuroboro_1_1multidual.html#ae052c1d820a18bf14a769b82dbd0b455", null ],
+    [ "multidual", "classuroboro_1_1multidual.html#a67c77219a88d7a9b48722da64df31ae1", null ],
     [ "conjugate", "classuroboro_1_1multidual.html#a3a9f91dfe0392b5d7abbf2ff6011990f", null ],
     [ "Dual", "classuroboro_1_1multidual.html#af1d790bc1a180862a58ccdc8e13b869d", null ],
     [ "inverse", "classuroboro_1_1multidual.html#a897c6548d523dec50d2e66988dc73a1f", null ],

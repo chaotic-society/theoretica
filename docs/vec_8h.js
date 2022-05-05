@@ -9,5 +9,7 @@ var vec_8h =
     [ "distance", "vec_8h.html#a5045eae1211cd34f132b50cb025adc65", null ],
     [ "dot", "vec_8h.html#a52c0919b6661648289cd006dad497633", null ],
     [ "linf_norm", "vec_8h.html#a4aed682c582069c74fbf2a847a2c761b", null ],
-    [ "lp_norm", "vec_8h.html#acd278e8739ccd3ea9772d3bda816a1ca", null ]
+    [ "lp_norm", "vec_8h.html#acd278e8739ccd3ea9772d3bda816a1ca", null ],
+    [ "sphere_inversion", "vec_8h.html#aae0196243c3e389365b61f290a8a67c1", null ],
+    [ "sphere_inversion", "vec_8h.html#aedf4a9b591a8ca99ca8ad7505b41b644", null ]
 ];

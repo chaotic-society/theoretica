@@ -17,6 +17,7 @@ var searchData=
   ['invpi_14',['INVPI',['../namespaceuroboro.html#ad8a79c6dacad8d058db167fc857619c9',1,'uroboro']]],
   ['invsqr2_15',['INVSQR2',['../namespaceuroboro.html#aca28dff8cbad4fc7d8b4b54e38ca3c17',1,'uroboro']]],
   ['is_5fdiagonal_16',['is_diagonal',['../classuroboro_1_1mat.html#a4398e289f125b40db0291b13ef07a254',1,'uroboro::mat']]],
-  ['is_5fsquare_17',['is_square',['../classuroboro_1_1mat.html#a5d5fd412a24ccfc924cfe2676c1e2d2f',1,'uroboro::mat']]],
-  ['is_5fsymmetric_18',['is_symmetric',['../classuroboro_1_1mat.html#a5e531278d466e077ea6acf2352c22e97',1,'uroboro::mat']]]
+  ['is_5fnan_17',['is_nan',['../namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d',1,'uroboro']]],
+  ['is_5fsquare_18',['is_square',['../classuroboro_1_1mat.html#a5d5fd412a24ccfc924cfe2676c1e2d2f',1,'uroboro::mat']]],
+  ['is_5fsymmetric_19',['is_symmetric',['../classuroboro_1_1mat.html#a5e531278d466e077ea6acf2352c22e97',1,'uroboro::mat']]]
 ];

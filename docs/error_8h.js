@@ -11,6 +11,7 @@ var error_8h =
       [ "INVALID_ARGUMENT", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fad78a455a56701b98a0416621ae5db597", null ]
     ] ],
     [ "inf", "error_8h.html#ab0dae8839058c4d6543da97ae099ea42", null ],
+    [ "is_nan", "error_8h.html#abb3e6b15ef5d38e836df947935f37a3d", null ],
     [ "nan", "error_8h.html#a0261d15185aff18c120a43d1760a9323", null ],
     [ "umath_errcode_to_errno", "error_8h.html#a9bc9f9f90d3a3656d1a7169770210f29", null ]
 ];

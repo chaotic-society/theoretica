@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kronecker_5fdelta_0',['kronecker_delta',['../namespaceuroboro.html#aa47711087d13e422310720d07c691390',1,'uroboro']]]
+  ['kronecker_5fdelta_0',['kronecker_delta',['../namespaceuroboro.html#a4231747a90b408e1587835990a8667e1',1,'uroboro']]]
 ];

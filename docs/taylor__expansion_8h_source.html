@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: taylor_exp.h Source File</title>
+<title>Uroboro Math Library: calculus/taylor_expansion.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('taylor__exp_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('taylor__expansion_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -91,11 +91,11 @@ $(document).ready(function(){initNavTree('taylor__exp_8h_source.html',''); initR
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">taylor_exp.h</div></div>
+  <div class="headertitle"><div class="title">taylor_expansion.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UROBORO_TAYLOR_EXP_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UROBORO_TAYLOR_EXP_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UROBORO_TAYLOR_EXPANSION_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UROBORO_TAYLOR_EXPANSION_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../polynomial/polynomial.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../autodiff/dual.h&quot;</span></div>
@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('taylor__exp_8h_source.html',''); initR
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a2121cad95f5515cebbc6ba0915cb4b6f">   14</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;real&gt;</a> <a class="code hl_function" href="namespaceuroboro.html#a2121cad95f5515cebbc6ba0915cb4b6f">taylor_expansion1</a>(<a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(*f)(<a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>), <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x0 = 0) {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#af94641ee19c62dad3499dd8184fb1383">   14</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;real&gt;</a> <a class="code hl_function" href="namespaceuroboro.html#af94641ee19c62dad3499dd8184fb1383">taylor_linear_expansion</a>(<a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(*f)(<a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>), <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x0 = 0) {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="classuroboro_1_1dual.html">dual</a> d = f(<a class="code hl_class" href="classuroboro_1_1dual.html">dual</a>(x0, 1));</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> fx = d.<a class="code hl_function" href="classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096">Re</a>();</div>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('taylor__exp_8h_source.html',''); initR
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a88506f78c25f4940a77277cb847f0083">   29</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;real&gt;</a> <a class="code hl_function" href="namespaceuroboro.html#a88506f78c25f4940a77277cb847f0083">taylor_expansion2</a>(<a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a>(*f)(<a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a>), <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x0 = 0) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a898eac06687e9ec62bbfcf5d02a1b0a4">   29</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;real&gt;</a> <a class="code hl_function" href="namespaceuroboro.html#a898eac06687e9ec62bbfcf5d02a1b0a4">taylor_quadratic_expansion</a>(<a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a>(*f)(<a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a>), <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x0 = 0) {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a> d = f(<a class="code hl_class" href="classuroboro_1_1dual2.html">dual2</a>(x0, 1, 0));</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> fx = d.<a class="code hl_function" href="classuroboro_1_1dual2.html#a38df1de849c937af9f64dc461dd73523">Re</a>();</div>
@@ -127,36 +127,35 @@ $(document).ready(function(){initNavTree('taylor__exp_8h_source.html',''); initR
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;real&gt;</a> P = {fx};</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        P += <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;&gt;</a>({-x0, 1}) * dfx;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        P += <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;&gt;</a>({<a class="code hl_function" href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">square</a>(x0), -2 * x0, 1}) * d2fx / 2.0;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        P += <a class="code hl_class" href="classuroboro_1_1polynomial.html">polynomial&lt;&gt;</a>({<a class="code hl_function" href="namespaceuroboro.html#ae4bcfb297ed1215055f7a707d38490aa">square</a>(x0), -2 * x0, 1}) * (d2fx / 2.0);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> P;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassuroboro_1_1dual2_html"><div class="ttname"><a href="classuroboro_1_1dual2.html">uroboro::dual2</a></div><div class="ttdoc">Second order dual number class.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00028">dual2.h:28</a></div></div>
-<div class="ttc" id="aclassuroboro_1_1dual2_html_a38df1de849c937af9f64dc461dd73523"><div class="ttname"><a href="classuroboro_1_1dual2.html#a38df1de849c937af9f64dc461dd73523">uroboro::dual2::Re</a></div><div class="ttdeci">real Re() const</div><div class="ttdoc">Return real part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00080">dual2.h:80</a></div></div>
-<div class="ttc" id="aclassuroboro_1_1dual2_html_ab5bcb638da9e0d12e1ec277cb52732a6"><div class="ttname"><a href="classuroboro_1_1dual2.html#ab5bcb638da9e0d12e1ec277cb52732a6">uroboro::dual2::Dual2</a></div><div class="ttdeci">real Dual2() const</div><div class="ttdoc">Return second order dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00090">dual2.h:90</a></div></div>
-<div class="ttc" id="aclassuroboro_1_1dual2_html_afb736543f40399fa0d645c2642d445a1"><div class="ttname"><a href="classuroboro_1_1dual2.html#afb736543f40399fa0d645c2642d445a1">uroboro::dual2::Dual1</a></div><div class="ttdeci">real Dual1() const</div><div class="ttdoc">Return first order dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00085">dual2.h:85</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual2_html_a38df1de849c937af9f64dc461dd73523"><div class="ttname"><a href="classuroboro_1_1dual2.html#a38df1de849c937af9f64dc461dd73523">uroboro::dual2::Re</a></div><div class="ttdeci">real Re() const</div><div class="ttdoc">Return real part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00084">dual2.h:84</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual2_html_ab5bcb638da9e0d12e1ec277cb52732a6"><div class="ttname"><a href="classuroboro_1_1dual2.html#ab5bcb638da9e0d12e1ec277cb52732a6">uroboro::dual2::Dual2</a></div><div class="ttdeci">real Dual2() const</div><div class="ttdoc">Return second order dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00094">dual2.h:94</a></div></div>
+<div class="ttc" id="aclassuroboro_1_1dual2_html_afb736543f40399fa0d645c2642d445a1"><div class="ttname"><a href="classuroboro_1_1dual2.html#afb736543f40399fa0d645c2642d445a1">uroboro::dual2::Dual1</a></div><div class="ttdeci">real Dual1() const</div><div class="ttdoc">Return first order dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual2_8h_source.html#l00089">dual2.h:89</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1dual_html"><div class="ttname"><a href="classuroboro_1_1dual.html">uroboro::dual</a></div><div class="ttdoc">Dual number class.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00027">dual.h:27</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1dual_html_a38953b6e6562a16f231eccc4e9ee3096"><div class="ttname"><a href="classuroboro_1_1dual.html#a38953b6e6562a16f231eccc4e9ee3096">uroboro::dual::Re</a></div><div class="ttdeci">real Re() const</div><div class="ttdoc">Return real part.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00074">dual.h:74</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1dual_html_ab119136c0e0a8a80dd0e6164b079ad72"><div class="ttname"><a href="classuroboro_1_1dual.html#ab119136c0e0a8a80dd0e6164b079ad72">uroboro::dual::Dual</a></div><div class="ttdeci">real Dual() const</div><div class="ttdoc">Return dual part.</div><div class="ttdef"><b>Definition:</b> <a href="dual_8h_source.html#l00079">dual.h:79</a></div></div>
 <div class="ttc" id="aclassuroboro_1_1polynomial_html"><div class="ttname"><a href="classuroboro_1_1polynomial.html">uroboro::polynomial</a></div><div class="ttdoc">A polynomial of arbitrary order.</div><div class="ttdef"><b>Definition:</b> <a href="polynomial_8h_source.html#l00026">polynomial.h:26</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a2121cad95f5515cebbc6ba0915cb4b6f"><div class="ttname"><a href="namespaceuroboro.html#a2121cad95f5515cebbc6ba0915cb4b6f">uroboro::taylor_expansion1</a></div><div class="ttdeci">polynomial&lt; real &gt; taylor_expansion1(dual(*f)(dual), real x0=0)</div><div class="ttdoc">Computes the first order Taylor expansion of a function around x0, computed using dual numbers.</div><div class="ttdef"><b>Definition:</b> <a href="taylor__exp_8h_source.html#l00014">taylor_exp.h:14</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a88506f78c25f4940a77277cb847f0083"><div class="ttname"><a href="namespaceuroboro.html#a88506f78c25f4940a77277cb847f0083">uroboro::taylor_expansion2</a></div><div class="ttdeci">polynomial&lt; real &gt; taylor_expansion2(dual2(*f)(dual2), real x0=0)</div><div class="ttdoc">Computes the second order Taylor expansion of a function around x0, computed using dual numbers (of s...</div><div class="ttdef"><b>Definition:</b> <a href="taylor__exp_8h_source.html#l00029">taylor_exp.h:29</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_a898eac06687e9ec62bbfcf5d02a1b0a4"><div class="ttname"><a href="namespaceuroboro.html#a898eac06687e9ec62bbfcf5d02a1b0a4">uroboro::taylor_quadratic_expansion</a></div><div class="ttdeci">polynomial&lt; real &gt; taylor_quadratic_expansion(dual2(*f)(dual2), real x0=0)</div><div class="ttdoc">Computes the second order Taylor expansion of a generic function around x0, computed using dual numbe...</div><div class="ttdef"><b>Definition:</b> <a href="taylor__expansion_8h_source.html#l00029">taylor_expansion.h:29</a></div></div>
 <div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00112">constants.h:112</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_aafdea1a9d10f9ceb85941a764bdf5948"><div class="ttname"><a href="namespaceuroboro.html#aafdea1a9d10f9ceb85941a764bdf5948">uroboro::square</a></div><div class="ttdeci">dual square(dual x)</div><div class="ttdoc">Return the square of a dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual__functions_8h_source.html#l00028">dual_functions.h:28</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_ae4bcfb297ed1215055f7a707d38490aa"><div class="ttname"><a href="namespaceuroboro.html#ae4bcfb297ed1215055f7a707d38490aa">uroboro::square</a></div><div class="ttdeci">dual2 square(dual2 x)</div><div class="ttdoc">Return the square of a second order dual number.</div><div class="ttdef"><b>Definition:</b> <a href="dual2__functions_8h_source.html#l00025">dual2_functions.h:25</a></div></div>
+<div class="ttc" id="anamespaceuroboro_html_af94641ee19c62dad3499dd8184fb1383"><div class="ttname"><a href="namespaceuroboro.html#af94641ee19c62dad3499dd8184fb1383">uroboro::taylor_linear_expansion</a></div><div class="ttdeci">polynomial&lt; real &gt; taylor_linear_expansion(dual(*f)(dual), real x0=0)</div><div class="ttdoc">Computes the first order Taylor expansion of a generic function around x0, computed using dual number...</div><div class="ttdef"><b>Definition:</b> <a href="taylor__expansion_8h_source.html#l00014">taylor_expansion.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><b>taylor_exp.h</b></li>
-    <li class="footer">Generated on Thu Apr 14 2022 22:10:05 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><b>taylor_expansion.h</b></li>
+    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
