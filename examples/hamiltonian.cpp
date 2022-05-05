@@ -1,6 +1,6 @@
 
 ///
-/// @file autodiff_hamiltonian.cpp Automatically simulate an Hamiltonian system from
+/// @file hamiltonian.cpp Automatically simulate an Hamiltonian system from
 /// its Hamiltonian function using automatical differentiation and
 /// numerical integration
 ///

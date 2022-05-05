@@ -37,6 +37,7 @@ int main() {
 	std::cout << "f(v) = " << f(v) << std::endl;
 	std::cout << "grad(f) = " << gradient(f, v) << std::endl;
 	std::cout << "div(f) = " << divergence(f, v) << "\n" << std::endl;
+	std::cout << "laplacian(f) = " << laplacian(f, v) << "\n" << std::endl;
 
 	// Compute the Jacobian matrix of g(x, y)
 	// Note that you may need to specify the input and output size

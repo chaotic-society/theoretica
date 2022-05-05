@@ -20,8 +20,8 @@ test: test_real_analysis test_algebra
 autodiff:
 	g++ examples/autodiff.cpp ${CXXFLAGS} -o ./autodiff
 
-autodiff_hamiltonian:
-	g++ examples/autodiff_hamiltonian.cpp ${CXXFLAGS} -o ./autodiff_hamiltonian
+hamiltonian:
+	g++ examples/hamiltonian.cpp ${CXXFLAGS} -o ./hamiltonian
 
 error_propagation:
 	g++ examples/error_propagation.cpp ${CXXFLAGS} -o ./error_propagation

@@ -7,6 +7,7 @@
 using namespace umath;
 
 
+// Direct sum of the errors
 template<unsigned int N>
 real product_sum(vec<N> g, vec<N> v) {
 
@@ -17,6 +18,7 @@ real product_sum(vec<N> g, vec<N> v) {
 	return res;
 }
 
+// Sum the errors under quadrature
 template<unsigned int N>
 real product_sum_quad(vec<N> g, vec<N> v) {
 
