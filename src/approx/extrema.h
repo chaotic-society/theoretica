@@ -6,7 +6,7 @@
 #ifndef UROBORO_EXTREMA_H
 #define UROBORO_EXTREMA_H
 
-#include "../constants.h"
+#include "../core/constants.h"
 #include "./roots.h"
 
 

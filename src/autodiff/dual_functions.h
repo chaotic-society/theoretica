@@ -18,7 +18,7 @@
 #define UROBORO_DUAL_FUNCTIONS_H
 
 #include "./dual.h"
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 
 
 namespace uroboro {

@@ -13,8 +13,8 @@
 
 #include <array>
 
-#include "../error.h"
-#include "../real_analysis.h"
+#include "../core/error.h"
+#include "../core/real_analysis.h"
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
 

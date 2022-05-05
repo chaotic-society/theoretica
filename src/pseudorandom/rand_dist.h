@@ -5,7 +5,7 @@
 #define UROBORO_RAND_DIST_H
 
 
-#include "../function.h"
+#include "../core/function.h"
 #include "./prng.h"
 
 

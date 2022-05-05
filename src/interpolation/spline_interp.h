@@ -6,7 +6,7 @@
 #ifndef UROBORO_INTERP_H
 #define UROBORO_INTERP_H
 
-#include "../constants.h"
+#include "../core/constants.h"
 
 
 namespace uroboro {

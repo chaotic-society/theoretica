@@ -11,7 +11,7 @@
 #include <ostream>
 #endif
 
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 #include "./complex.h"
 
 

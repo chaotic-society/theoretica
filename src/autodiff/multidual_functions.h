@@ -8,7 +8,7 @@
 #define UROBORO_MULTIDUAL_FUNCTIONS_H
 
 #include "./multidual.h"
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 
 
 namespace uroboro {

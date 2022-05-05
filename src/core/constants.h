@@ -1,6 +1,6 @@
 
 ///
-/// @file constants.h Mathematical constants and algorithm parameters
+/// @file core/constants.h Mathematical constants and algorithm parameters
 ///
 
 #ifndef UROBORO_CONSTANTS_H
@@ -14,7 +14,7 @@
 
 /// Order of Taylor series approximations
 #ifndef UROBORO_TAYLOR_ORDER
-#define UROBORO_TAYLOR_ORDER 7
+#define UROBORO_TAYLOR_ORDER 9
 #endif
 
 /// Relative precision for derivative approximation

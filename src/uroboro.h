@@ -10,11 +10,11 @@
 #define UROBORO_H
 
 // Core headers
-#include "./constants.h"
-#include "./error.h"
+#include "./core/constants.h"
+#include "./core/error.h"
 
 // Real functions
-#include "./real_analysis.h"
+#include "./core/real_analysis.h"
 
 // Vector and matrix algebra
 #include "./algebra/vec.h"
@@ -29,7 +29,7 @@
 #ifdef UROBORO_INCLUDE_ALL
 
 // Data sets
-#include "./vec_buff.h"
+#include "./core/vec_buff.h"
 
 // Interpolation
 #include "./interpolation/spline_interp.h"
@@ -68,6 +68,9 @@
 #include "./pseudorandom/pseudorandom_algo.h"
 #include "./pseudorandom/prng.h"
 #include "./pseudorandom/rand_dist.h"
+
+// Montecarlo methods
+#include "./pseudorandom/montecarlo.h"
 
 #endif
 

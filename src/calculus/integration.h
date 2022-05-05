@@ -6,8 +6,8 @@
 #ifndef UROBORO_INTEGRATION_H
 #define UROBORO_INTEGRATION_H
 
-#include "../constants.h"
-#include "../function.h"
+#include "../core/constants.h"
+#include "../core/function.h"
 #include "../polynomial/polynomial.h"
 
 

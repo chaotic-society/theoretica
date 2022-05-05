@@ -6,10 +6,10 @@
 #ifndef UROBORO_STATISTICS_H
 #define UROBORO_STATISTICS_H
 
-#include "../constants.h"
+#include "../core/constants.h"
 #include "../algebra/vec.h"
-#include "../vec_buff.h"
-#include "../real_analysis.h"
+#include "../core/vec_buff.h"
+#include "../core/real_analysis.h"
 
 
 namespace uroboro {

@@ -11,8 +11,8 @@
 #include <ostream>
 #endif
 
-#include "../error.h"
-#include "../constants.h"
+#include "../core/error.h"
+#include "../core/constants.h"
 
 
 namespace uroboro {

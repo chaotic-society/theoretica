@@ -9,7 +9,7 @@
 #define UROBORO_DUAL2_FUNCTIONS_H
 
 #include "./dual2.h"
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 
 #include <iostream>
 

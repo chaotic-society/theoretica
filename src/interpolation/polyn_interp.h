@@ -7,10 +7,10 @@
 #define UROBORO_POLYN_INTERP_H
 
 #include <vector>
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 #include "../polynomial/polynomial.h"
 #include "../algebra/vec.h"
-#include "../function.h"
+#include "../core/function.h"
 
 
 namespace uroboro {

@@ -1,6 +1,6 @@
 
 ///
-/// @file real_analysis.h Real functions
+/// @file core/real_analysis.h Real functions
 ///
 
 #ifndef UROBORO_COMMON_H
@@ -710,6 +710,34 @@ namespace uroboro {
 		if(abs(x) > 1.0)
 			return (PI2 - atan(1.0 / abs(x))) * sgn(x);
 
+		// Finite differences method for arctangent approximation
+
+		// real res;
+		// real x_n;
+		// const real dx = 0.0000001;
+
+		// if(abs(x) > 0.5) {
+
+		// 	x_n = 1;
+		// 	res = 0.7853981636472042; // atan(1)
+
+		// 	while (x_n > abs(x)) {
+		// 		res -= dx * (1 / (square(x_n) + 1));
+		// 		x_n -= dx;
+		// 	}
+		// } else {
+
+		// 	x_n = 0;
+		// 	res = 0; // atan(0)
+
+		// 	while (x_n < abs(x)) {
+		// 		res += dx * (1 / (square(x_n) + 1));
+		// 		x_n += dx;
+		// 	}
+		// }
+
+		// return sgn(x) * res;
+
 		real x2 = x * x;
 
 		// Interpolating Chebyshev polynomial
@@ -873,7 +901,6 @@ namespace uroboro {
 	/// Kronecker delta, equals 1 if i is equal to j, 0 otherwise
 	/// @param i The first value to compare
 	/// @param j The second value to compare
-	/// @param tol Maximum difference to tolerate (defaults to 0)
 	/// @return 1 if i is equal to j, 0 otherwise
 	template<typename T>
 	inline T kronecker_delta(T i, T j) {

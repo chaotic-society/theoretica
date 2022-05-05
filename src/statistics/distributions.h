@@ -6,9 +6,9 @@
 #ifndef UROBORO_DISTRIBUTIONS
 #define UROBORO_DISTRIBUTIONS
 
-#include "../real_analysis.h"
+#include "../core/real_analysis.h"
 #include "./statistics.h"
-#include "../function.h"
+#include "../core/function.h"
 
 
 /// @namespace uroboro

@@ -11,9 +11,9 @@
 #include <ostream>
 #endif
 
-#include "../error.h"
-#include "../constants.h"
-#include "../real_analysis.h"
+#include "../core/error.h"
+#include "../core/constants.h"
+#include "../core/real_analysis.h"
 #include "./vec.h"
 
 

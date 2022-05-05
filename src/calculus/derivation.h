@@ -6,7 +6,7 @@
 #ifndef DERIVATION_UROBORO_H
 #define DERIVATION_UROBORO_H
 
-#include "../function.h"
+#include "../core/function.h"
 #include "../polynomial/polynomial.h"
 
 

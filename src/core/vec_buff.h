@@ -1,6 +1,6 @@
 
 ///
-/// @file vec_buff.h Allocation and operations on data sets
+/// @file core/vec_buff.h Allocation and operations on data sets
 ///
 
 #ifndef UROBORO_VEC_BUFF_H

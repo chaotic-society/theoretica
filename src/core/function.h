@@ -1,13 +1,13 @@
 
 ///
-/// @file function.h Mathematical function pointers
+/// @file core/function.h Mathematical function pointers
 ///
 
 #ifndef UROBORO_FUNCTION_H
 #define UROBORO_FUNCTION_H
 
 #include "./constants.h"
-#include "./complex.h"
+#include "../complex/complex.h"
 #include "./vec_buff.h"
 
 

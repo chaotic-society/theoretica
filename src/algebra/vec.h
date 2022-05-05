@@ -13,9 +13,9 @@
 
 #include <array>
 
-#include "../error.h"
-#include "../real_analysis.h"
-#include "../vec_buff.h"
+#include "../core/error.h"
+#include "../core/real_analysis.h"
+#include "../core/vec_buff.h"
 
 
 namespace uroboro {

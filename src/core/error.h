@@ -1,6 +1,6 @@
 
 ///
-/// @file error.h Error handling
+/// @file core/error.h Error handling
 ///
 
 #ifndef UROBORO_ERROR_H
