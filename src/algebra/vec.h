@@ -38,21 +38,21 @@ namespace uroboro {
 
 		/// Initialize all elements to the same value
 		vec(T a) {
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				data[i] = a;
 			}
 		}
 
 		/// Copy constructor
 		vec(const vec<N, T>& other) {
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 		}
 
 		/// Copy from other
 		vec<N, T>& operator=(const vec<N, T>& other) {
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				data[i] = other.data[i];
 			}
 			return *this;
@@ -86,7 +86,7 @@ namespace uroboro {
 		inline vec<N, T> operator+(const vec<N, T>& other) const {
 			vec<N, T> result;
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				result.data[i] = data[i] + other.data[i];
 			}
 
@@ -101,7 +101,7 @@ namespace uroboro {
 		inline vec<N, T> operator-(const vec<N, T>& other) const {
 			vec<N, T> result;
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				result.data[i] = data[i] - other.data[i];
 			}
 
@@ -112,7 +112,7 @@ namespace uroboro {
 		inline vec<N, T> operator*(T scalar) const {
 			vec<N, T> result;
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				result.data[i] = scalar * data[i];
 			}
 
@@ -123,7 +123,7 @@ namespace uroboro {
 		inline vec<N, T> operator/(T scalar) const {
 			vec<N, T> result;
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				result.data[i] = data[i] / scalar;
 			}
 
@@ -136,7 +136,7 @@ namespace uroboro {
 
 			T result = 0;
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				result += data[i] * other.data[i];
 			}
 
@@ -169,25 +169,25 @@ namespace uroboro {
 
 		inline void operator+=(const vec<N, T>& other) {
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				data[i] += other.data[i];
 		}
 
 		inline void operator-=(const vec<N, T>& other) {
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				data[i] -= other.data[i];
 		}
 
 		inline void operator*=(T scalar) {
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				data[i] *= scalar;
 		}
 
 		inline void operator/=(T scalar) {
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				data[i] /= scalar;
 		}
 
@@ -196,7 +196,7 @@ namespace uroboro {
 		inline T magnitude() const {
 
 			T m = 0;
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				m += data[i] * data[i];
 
 			return sqrt(m);
@@ -210,7 +210,7 @@ namespace uroboro {
 		/// Square magnitude of vector (v * v)
 		inline T square_magnitude() const {
 			T m = 0;
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				m += data[i] * data[i];
 			}
 			return m;
@@ -223,22 +223,22 @@ namespace uroboro {
 		}
 
 		/// Access i-th component
-		inline T& operator[](int i) {
+		inline T& operator[](unsigned int i) {
 			return data[i];
 		}
 
 		/// Access i-th element
-		inline T& at(int i) {
+		inline T& at(unsigned int i) {
 			return data[i];
 		}
 
 		/// Getters and setters
-		inline T get(int i) const {
+		inline T get(unsigned int i) const {
 			return data[i];
 		}
 
 		/// Set the i-th element
-		inline void set(int i, T x) {
+		inline void set(unsigned int i, T x) {
 			data[i] = x;
 		}
 
@@ -253,7 +253,7 @@ namespace uroboro {
 				*this = vec<N, T>(nan());
 			}
 
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				data[i] /= m;
 			}
 		}
@@ -269,7 +269,7 @@ namespace uroboro {
 				return vec<N, T>(nan());
 			}
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				result[i] = data[i] / m;
 
 			return result;
@@ -278,7 +278,7 @@ namespace uroboro {
 
 		/// Check whether all elements of both vectors are equal
 		inline bool operator==(const vec<N, T>& other) const {
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				if(data[i] != other[i])
 					return false;
 			}
@@ -291,7 +291,7 @@ namespace uroboro {
 		inline vec_buff to_vec_buff() {
 			
 			vec_buff res;
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				res.push_back(static_cast<real>(data[i]));
 
 			return res;
@@ -329,7 +329,7 @@ namespace uroboro {
 			std::stringstream res;
 
 			res << "(";
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				res << data[i];
 				if(i != N - 1)
 					res << separator;

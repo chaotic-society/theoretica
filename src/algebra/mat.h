@@ -47,8 +47,8 @@ namespace uroboro {
 
 		/// Initialize a matrix from another one
 		inline mat(const mat<N, K>& other) {
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) = other.iget(i, j);
 				}
 			}
@@ -64,8 +64,8 @@ namespace uroboro {
 		// 		return;
 		// 	}
 
-		// 	for (int i = 0; i < N; ++i) {
-		// 		for (int j = 0; j < K; ++j) {
+		// 	for (unsigned int i = 0; i < N; ++i) {
+		// 		for (unsigned int j = 0; j < K; ++j) {
 		// 			iat(i, j) = rows[i].get(j);
 		// 		}
 		// 	}
@@ -73,8 +73,8 @@ namespace uroboro {
 
 		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) = other.iget(i, j);
 				}
 			}
@@ -84,8 +84,8 @@ namespace uroboro {
 		/// Construct a diagonal matrix
 		inline mat(real diagonal) {
 			make_null();
-			int diag_n = min(N, K);
-			for (int i = 0; i < diag_n; ++i) {
+			unsigned int diag_n = min(N, K);
+			for (unsigned int i = 0; i < diag_n; ++i) {
 				iat(i, i) = diagonal;
 			}
 		}
@@ -94,47 +94,47 @@ namespace uroboro {
 		inline ~mat() = default;
 
 		/// Get the l-th column of the matrix as a vector
-		inline vec<K> get_column(int l) const {
+		inline vec<K> get_column(unsigned int l) const {
 			
 			vec<K> column;
-			for (int i = 0; i < K; ++i)
+			for (unsigned int i = 0; i < K; ++i)
 				column.at(i) = iget(i, l);
 
 			return column;
 		}
 
 		/// Get the l-th row of the matrix as a vector
-		inline vec<N> get_row(int l) const {
+		inline vec<N> get_row(unsigned int l) const {
 			vec<N> row;
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				row.at(i) = iget(l, i);
 			}
 			return row;
 		}
 
 		/// Get the l-th row of the matrix as a vector
-		inline vec<K> operator[](int l) const {
+		inline vec<K> operator[](unsigned int l) const {
 			return get_row(l);
 		}
 
 		/// Se the l-th column of the matrix from a vector
 		inline void set_column(unsigned int l, const vec<N>& column) {
-			for (int i = 0; i < K; ++i) {
+			for (unsigned int i = 0; i < K; ++i) {
 				iat(i, l) = column.data[i];
 			}
 		}
 
 		/// Se the l-th row of the matrix from a vector
 		inline void set_row(unsigned int l, const vec<K>& row) {
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				iat(l, i) = row.data[i];
 			}
 		}
 
 		/// Set all elements to zero
 		inline void make_null() {
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) = 0;
 				}
 			}
@@ -143,8 +143,8 @@ namespace uroboro {
 		/// Matrix addition
 		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iget(i, j) + other.iget(i, j);
 				}
 			}
@@ -154,8 +154,8 @@ namespace uroboro {
 		/// Matrix subtraction
 		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iget(i, j) - other.iget(i, j);
 				}
 			}
@@ -165,8 +165,8 @@ namespace uroboro {
 		/// Scalar multiplication
 		inline mat<N, K> operator*(real scalar) const {
 			mat<N, K> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iget(i, j) * scalar;
 				}
 			}
@@ -188,8 +188,8 @@ namespace uroboro {
 			}
 
 			mat<N, K> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iget(i, j) / scalar;
 				}
 			}
@@ -199,9 +199,9 @@ namespace uroboro {
 		/// Transform a vector v by the matrix
 		inline vec<N> transform(const vec<K>& v) const {
 			vec<N> res;
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				res[i] = 0;
-				for (int j = 0; j < K; ++j) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res[i] += iget(i, j) * v.get(j);
 				}
 			}
@@ -219,9 +219,9 @@ namespace uroboro {
 
 			mat<N, M> res = mat<N, M>();
 			
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
-					for (int k = 0; k < M; ++k) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
+					for (unsigned int k = 0; k < M; ++k) {
 						res.iat(i, k) += iget(i, j) * B.iget(j, k);
 					}
 				}
@@ -240,8 +240,8 @@ namespace uroboro {
 		/// Matrix addition
 		inline mat<N, K>& operator+=(const mat<N, K>& other) {
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) += other.iat(i, j);
 				}
 			}
@@ -252,8 +252,8 @@ namespace uroboro {
 		/// Matrix subtraction
 		inline mat<N, K>& operator-=(const mat<N, K>& other) {
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) -= other.iat(i, j);
 				}
 			}
@@ -264,8 +264,8 @@ namespace uroboro {
 		/// Scalar multiplication
 		inline mat<N, K>& operator*=(real scalar) {
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) *= scalar;
 				}
 			}
@@ -281,8 +281,8 @@ namespace uroboro {
 				return mat<N, K>(nan());
 			}
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) /= scalar;
 				}
 			}
@@ -306,14 +306,14 @@ namespace uroboro {
 			}
 
 			mat<K, N> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iat(j, i);
 				}
 			}
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					iat(i, j) = res.iat(i, j);
 				}
 			}
@@ -328,8 +328,8 @@ namespace uroboro {
 			}
 
 			mat<K, N> res;
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					res.iat(i, j) = iget(j, i);
 				}
 			}
@@ -344,7 +344,7 @@ namespace uroboro {
 			vec<N> o = transform(v2);
 			real result = 0;
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				result += v1.data[i] * o.data[i];
 
 			return result;
@@ -424,8 +424,8 @@ namespace uroboro {
 		/// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					if(iat(i, j) != other.iat(i, j))
 						return false;
 				}
@@ -444,8 +444,8 @@ namespace uroboro {
 		/// Return whether the matrix is diagonal
 		inline bool is_diagonal() const {
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					if(i != j && iget(i, j) != 0)
 						return false;
 				}
@@ -459,8 +459,8 @@ namespace uroboro {
 			if(!is_square())
 				return false;
 
-			for (int i = 0; i < N; ++i) {
-				for (int j = 0; j < K; ++j) {
+			for (unsigned int i = 0; i < N; ++i) {
+				for (unsigned int j = 0; j < K; ++j) {
 					if(i != j && iget(i, j) != iget(j, i))
 						return false;
 				}
@@ -479,7 +479,7 @@ namespace uroboro {
 
 			real res = 0;
 
-			for (int i = 0; i < N; ++i)
+			for (unsigned int i = 0; i < N; ++i)
 				res += iget(i, i);
 
 			return res;
@@ -495,7 +495,7 @@ namespace uroboro {
 			}
 
 			real res = iat(0, 0);
-			for (int i = 1; i < N; ++i)
+			for (unsigned int i = 1; i < N; ++i)
 				res *= iget(i, i);
 
 			return res;
@@ -529,7 +529,7 @@ namespace uroboro {
 			mat<N, K> A = mat<N, K>(*this);
 
 			// Iterate on all columns
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
@@ -538,7 +538,7 @@ namespace uroboro {
 					bool flag = false;
 
 					// Iterate on all rows
-					for (int j = i + 1; j < N; ++j) {
+					for (unsigned int j = i + 1; j < N; ++j) {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero.
@@ -546,7 +546,7 @@ namespace uroboro {
 						// when adding a row to another one
 						if(A.iat(j, i) != 0) {
 
-							for (int k = 0; k < N; ++k) {
+							for (unsigned int k = 0; k < N; ++k) {
 								A.iat(i, k) += A.iat(j, k);
 							}
 
@@ -564,7 +564,7 @@ namespace uroboro {
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
-				for (int j = i + 1; j < N; ++j) {
+				for (unsigned int j = i + 1; j < N; ++j) {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
@@ -573,7 +573,7 @@ namespace uroboro {
 					// The coefficient does not change
 					// when adding a linear combination
 					// of a row to another
-					for (int k = 0; k < N; ++k) {
+					for (unsigned int k = 0; k < N; ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
 					}
 				}
@@ -642,7 +642,7 @@ namespace uroboro {
 			// Gauss-Jordan elimination
 
 			// Iterate on all columns
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
@@ -651,13 +651,13 @@ namespace uroboro {
 					bool flag = false;
 
 					// Iterate on all rows
-					for (int j = i + 1; j < N; ++j) {
+					for (unsigned int j = i + 1; j < N; ++j) {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
 						if(A.iat(j, i) != 0) {
 
-							for (int k = 0; k < N; ++k) {
+							for (unsigned int k = 0; k < N; ++k) {
 								A.iat(i, k) += A.iat(j, k);
 								B.iat(i, k) += B.iat(j, k);
 							}
@@ -677,7 +677,7 @@ namespace uroboro {
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
-				for (int j = 0; j < N; ++j) {
+				for (unsigned int j = 0; j < N; ++j) {
 
 					// Skip the current row
 					if(j == i)
@@ -687,14 +687,14 @@ namespace uroboro {
 					// the elision of Ajk
 					real coeff = A.iat(j, i) * inv_pivot;
 					
-					for (int k = 0; k < N; ++k) {
+					for (unsigned int k = 0; k < N; ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
 						B.iat(j, k) -= coeff * B.iat(i, k);
 					}
 				}
 
 				// Divide the current row by the pivot
-				for (int j = 0; j < N; ++j) {
+				for (unsigned int j = 0; j < N; ++j) {
 					A.iat(i, j) *= inv_pivot;
 					B.iat(i, j) *= inv_pivot;
 				}
@@ -725,7 +725,7 @@ namespace uroboro {
 			// Gauss-Jordan elimination
 
 			// Iterate on all columns
-			for (int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i) {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
@@ -734,13 +734,13 @@ namespace uroboro {
 					bool flag = false;
 
 					// Iterate on all rows
-					for (int j = i + 1; j < N; ++j) {
+					for (unsigned int j = i + 1; j < N; ++j) {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
 						if(A.iat(j, i) != 0) {
 
-							for (int k = 0; k < N; ++k) {
+							for (unsigned int k = 0; k < N; ++k) {
 								A.iat(i, k) += A.iat(j, k);
 								B.iat(i, k) += B.iat(j, k);
 							}
@@ -760,7 +760,7 @@ namespace uroboro {
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
-				for (int j = 0; j < N; ++j) {
+				for (unsigned int j = 0; j < N; ++j) {
 
 					// Skip the current row
 					if(j == i)
@@ -770,14 +770,14 @@ namespace uroboro {
 					// the elision of Ajk
 					real coeff = A.iat(j, i) * inv_pivot;
 					
-					for (int k = 0; k < N; ++k) {
+					for (unsigned int k = 0; k < N; ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
 						B.iat(j, k) -= coeff * B.iat(i, k);
 					}
 				}
 
 				// Divide the current row by the pivot
-				for (int j = 0; j < N; ++j) {
+				for (unsigned int j = 0; j < N; ++j) {
 					A.iat(i, j) *= inv_pivot;
 					B.iat(i, j) *= inv_pivot;
 				}
@@ -1048,7 +1048,7 @@ namespace uroboro {
 
 			mat<N, K> res = mat<N, K>(1.0);
 
-			for (int i = 0; i < min(min(M, N), K); ++i)
+			for (unsigned int i = 0; i < min(min(M, N), K); ++i)
 				res.iat(i, i) = v.get(i);
 
 			return res;
@@ -1145,15 +1145,15 @@ namespace uroboro {
 
 			mat<N, K> res = mat<N, K>();
 
-			for (int i = 0; i < N / 2; ++i) {	
-				for (int j = N / 2; j < N; ++j) {
+			for (unsigned int i = 0; i < N / 2; ++i) {	
+				for (unsigned int j = N / 2; j < N; ++j) {
 					if(i == (j - N / 2))
 						res.iat(i, j) = 1;
 				}
 			}
 
-			for (int i = N / 2; i < N; ++i) {
-				for (int j = 0; j < N / 2; ++j) {
+			for (unsigned int i = N / 2; i < N; ++i) {
+				for (unsigned int j = 0; j < N / 2; ++j) {
 					if((i - N / 2) == (j))
 						res.iat(i, j) = -1;
 				}
@@ -1171,7 +1171,7 @@ namespace uroboro {
 
 				std::stringstream res;
 
-				for (int i = 0; i < N; ++i)
+				for (unsigned int i = 0; i < N; ++i)
 					res << get_row(i).to_string(separator) << std::endl;
 
 				return res.str();
