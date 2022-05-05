@@ -168,6 +168,25 @@ namespace uroboro {
 		return res;
 	}
 
+
+	/// Computer the Sturm-Liouville operator on a generic function
+	/// of the form \f$f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$
+	/// with respect to a given Hamiltonian function of the form
+	/// \f$H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$ where
+	/// the first N arguments are the coordinates in phase space
+	/// and the last N arguments are the conjugate momenta,
+	/// for a given point in phase space.
+	///
+	/// @param f The function to apply the operator to
+	/// @param H The Hamiltonian
+	/// @param eta A vector containing M = 2N elements, where the first
+	/// N elements are the coordinates and the last N elements are the
+	/// conjugate momenta.
+	template<unsigned int M>
+	inline real sturm_liouville(dual(*f)(vec<M, dual>), dual(*H)(vec<M, dual>), vec<M> eta) {
+		return gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
+	}
+
 }
 
 #endif
