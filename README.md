@@ -87,8 +87,8 @@ These are the macros that can be defined to change the library's behaviour:
 ## Future development
 ### In progress
 These are features which are currently under development:
-- Pseudorandom Number Generation
-- Column/row precedence independence for matrices (let the user decide whether to use column/row-first storage and colexicographical/lexicographical representation)
+- Montecarlo integral approximation
+- Benchmarking (either implemented or integrated)
 
 ### Planned
 These are features which will be developed soon:
@@ -96,8 +96,6 @@ These are features which will be developed soon:
 - LU decomposition of matrices
 - Matrix eigenvalue finding
 - Arbitrary precision numbers
-- Montecarlo integral approximation
-- Benchmarking (either implemented or integrated)
 - Make the library independent from the C++ Standard Library (at least partially)
 - Metropolis pseudorandom number generation
 - Noise generation
