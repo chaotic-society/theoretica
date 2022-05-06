@@ -10,9 +10,9 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cube
   - [x] abs
   - [x] sgn
-  - [ ] max - Test cases
-  - [ ] min - Test cases
-  - [ ] clamp - Test cases
+  - [x] max
+  - [x] min
+  - [x] clamp
   - [ ] floor - Test cases
   - [ ] fract - Test cases
   - [ ] **log2** - **(only hardware implementation)**
@@ -109,7 +109,7 @@ A functionality is considered "fully implemented" when it has at least one imple
 - Calculus (_calculus/derivation.h_, _calculus/integration.h_) - **NO TEST CASES**
   - [x] Integral approximation using midpoint, trapezoid and Simpson
   - [ ] Romberg integral approximation
-  - [ ] Monte Carlo integral approximation
+  - [x] Monte Carlo integral approximation
   - [x] Derivative approximation
 
 - Approximation of roots and extrema (_approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
@@ -163,7 +163,9 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Congruential generator
   - [ ] Mersenne twister
   - [ ] Xorshift
-  - [ ] Lagged Fibonacci
+  - [x] Xoroshiro256++
+  - [x] Splitmix64
+  - [ ] Multiply-With-Carry
 
 - Statistical functions (_statistics/statistics.h_) - **NO TEST CASES**
   - [x] Mean and weighted mean

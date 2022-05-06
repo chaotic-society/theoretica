@@ -30,14 +30,23 @@ namespace uroboro {
 	class mat {
 		public:
 
+		/// Number of elements of the matrix
 		static const unsigned int SIZE = N * K;
+
+		/// Number of rows of the matrix
 		static const unsigned int ROW_SIZE = N;
+
+		/// Number of columns of the matrix
 		static const unsigned int COL_SIZE = K;
 
 #if defined(UROBORO_ROW_FIRST)
-		real data[K][N];
-#else
+
+		// Row-first allocation
 		real data[N][K];
+#else
+
+		// Column-first allocation
+		real data[K][N];
 #endif
 
 		/// Initialize a matrix to all zeroes
@@ -198,9 +207,8 @@ namespace uroboro {
 
 		/// Transform a vector v by the matrix
 		inline vec<N> transform(const vec<K>& v) const {
-			vec<N> res;
+			vec<N> res = vec<N>();
 			for (unsigned int i = 0; i < N; ++i) {
-				res[i] = 0;
 				for (unsigned int j = 0; j < K; ++j) {
 					res[i] += iget(i, j) * v.get(j);
 				}
@@ -220,9 +228,9 @@ namespace uroboro {
 			mat<N, M> res = mat<N, M>();
 			
 			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					for (unsigned int k = 0; k < M; ++k) {
-						res.iat(i, k) += iget(i, j) * B.iget(j, k);
+				for (unsigned int j = 0; j < M; ++j) {
+					for (unsigned int k = 0; k < K; ++k) {
+						res.iat(i, j) += iget(i, k) * B.iget(k, j);
 					}
 				}
 			}

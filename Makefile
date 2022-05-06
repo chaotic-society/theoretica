@@ -5,8 +5,8 @@ all: example test examples
 CXXFLAGS = -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -I./src/
 
 example:
-	g++ examples/example.cpp ${CXXFLAGS} -o ./example
-	./example
+	@echo Compiling main example program...
+	@g++ examples/example.cpp ${CXXFLAGS} -o ./example
 
 test_algebra:
 	@echo Compiling linear algebra test cases...
