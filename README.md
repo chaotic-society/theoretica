@@ -1,6 +1,6 @@
 # Uroboro Mathematical Library
 
-<img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/languages/code-size/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
+<img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
 A C++ numerical and automatic **mathematical library**, focused on **graphical** and **physical** applications. Includes **real** and **complex analysis** functions with x86 Assembly enhancements, **linear algebra** operations, **quaternions**, **statistical** functions and **numerical** and **automatic** methods for real functions. Many other features are also supported, see [Functionalities](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Functionalities) for an overview of the functionalities provided by the library.
 

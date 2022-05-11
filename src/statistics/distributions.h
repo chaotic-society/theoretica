@@ -55,7 +55,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for gaussian(real, real, real)
+		/// Wrapper for distribution::gaussian(real, real, real)
 		inline real gaussian(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
@@ -74,7 +74,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for bernoulli(unsigned int, real)
+		/// Wrapper for distribution::bernoulli(unsigned int, real)
 		inline real bernoulli(real k, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
@@ -94,7 +94,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for poisson(unsigned int, real)
+		/// Wrapper for distribution::poisson(unsigned int, real)
 		inline real poisson(real k, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
@@ -115,7 +115,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for binomial(unsigned int, unsigned int, real)
+		/// Wrapper for distribution::binomial(unsigned int, unsigned int, real)
 		inline real binomial(real nu, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
@@ -136,7 +136,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for log_normal(real, real, real)
+		/// Wrapper for distribution::log_normal(real, real, real)
 		inline real log_normal(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
@@ -158,7 +158,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for exponential(real, real)
+		/// Wrapper for distribution::exponential(real, real)
 		inline real exponential(real x, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
@@ -171,13 +171,13 @@ namespace uroboro {
 
 
 		/// Cauchy distribution
-		inline real cauchy(real x, real mu, real alfa) {
+		inline real cauchy(real x, real mu, real alpha) {
 
-			return 1.0 / (PI * alfa * (1 + (square(x - mu) / square(alfa))));
+			return 1.0 / (PI * alpha * (1 + (square(x - mu) / square(alpha))));
 		}
 
 
-		/// Wrapper for cauchy(real, real, real)
+		/// Wrapper for distribution::cauchy(real, real, real)
 		inline real cauchy(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
@@ -196,7 +196,7 @@ namespace uroboro {
 		}
 
 
-		/// Wrapper for breit_wigner(real, real, real)
+		/// Wrapper for distribution::breit_wigner(real, real, real)
 		inline real breit_wigner(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
@@ -205,6 +205,33 @@ namespace uroboro {
 			}
 
 			return breit_wigner(x, theta[0], theta[1]);
+		}
+
+
+		/// Pareto distribution
+		inline real pareto(real x, real x_m, real alpha) {
+
+			if(alpha <= 0) {
+				UMATH_ERROR("distribution::pareto", alpha, OUT_OF_DOMAIN);
+				return nan();
+			}
+
+			if(x < x_m)
+				return 0;
+
+			return alpha * powf(x_m, alpha) / powf(x, alpha + 1);
+		}
+
+
+		/// Wrapper for distribution::pareto(real, real, real)
+		inline real pareto(real x, const vec_buff& theta) {
+
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::pareto", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return pareto(x, theta[0], theta[1]);
 		}
 
 	}

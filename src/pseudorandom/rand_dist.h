@@ -14,7 +14,7 @@ namespace uroboro {
 
 	/// Generate a pseudorandom value following any
 	/// probability distribution function using the
-	/// Try-and-Catch algorithm.
+	/// Try-and-Catch (rejection) algorithm.
 	/// @param f A probability distribution function
 	/// @param theta The parameters of the pdf
 	/// @param x1 The left extreme of the rectangle
@@ -76,6 +76,35 @@ namespace uroboro {
 			s += rand_real(x1, x2, g);
 
 		return s / static_cast<real>(iter);
+	}
+
+
+	/// Generate a random number following an exponential
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_exponential(real lambda, PRNG& g) {
+
+		if(abs(lambda) < MACH_EPSILON) {
+			UMATH_ERROR("rand_exponential", lambda, DIV_BY_ZERO);
+			return nan();
+		}
+
+		return -ln(1 - rand_real(0, 1, g)) / lambda;
+	}
+
+
+	/// Generate a random number following a Cauchy
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_cauchy(real mu, real alpha, PRNG& g) {
+
+		return alpha * tan(PI * (rand_real(0, 1, g) - 0.5)) + mu;
+	}
+
+
+	/// Generate a random number following a Pareto
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_pareto(real x_m, real alpha, PRNG& g) {
+
+		return x_m / powf(1 - rand_real(0, 1, g), 1.0 / alpha);
 	}
 
 }
