@@ -28,6 +28,9 @@
 // All other headers
 #ifdef UROBORO_INCLUDE_ALL
 
+// Ratio
+#include "./core/ratio.h"
+
 // Data sets
 #include "./core/vec_buff.h"
 
