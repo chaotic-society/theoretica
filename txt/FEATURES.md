@@ -13,27 +13,27 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] max
   - [x] min
   - [x] clamp
-  - [ ] floor - Test cases
-  - [ ] fract - Test cases
+  - [x] floor - Needs test cases
+  - [x] fract - Needs test cases
   - [ ] **log2** - **(only hardware implementation)**
   - [ ] log10 - **(only hardware implementation)**
   - [ ] ln - **(only hardware implementation)**
   - [x] pow - (may be improved)
   - [x] fact
   - [ ] **powf** - **(only hardware implementation)**
-  - [ ] **exp** - **(only hardware implementation)**
+  - [ ] exp
   - [ ] sin - **(only hardware implementation)**
   - [ ] cos - **(only hardware implementation)**
   - [ ] tan - **(only hardware implementation)**
   - [ ] cot - **(only hardware implementation)**
-  - [ ] **atan** - Low precision
-  - [ ] asin - Low precision
-  - [ ] acos - Low precision
-  - [ ] **atan2** - Low precision
-  - [ ] sinh - Depends on exp
-  - [ ] cosh - Depends on exp
-  - [ ] tanh - Depends on exp
-  - [ ] coth - Depends on exp
+  - [x] atan - (Low precision)
+  - [x] asin - (Low precision)
+  - [x] acos - (Low precision)
+  - [x] atan2 - (Low precision)
+  - [x] sinh
+  - [x] cosh
+  - [x] tanh
+  - [x] coth
   - [x] binomial_coeff
   - [x] radians
   - [x] degrees
@@ -68,13 +68,13 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Conjugate and inverse
   - [x] Modulus
   - [x] Rotor construction
-  - [ ] Argument - (depends on atan2 implementation)
+  - [x] Argument
   - [x] Conversion to other types (matrix form, to vector)
 
 - Complex functions (_complex/complex_functions.h_) - **NO TEST CASES**
   - [x] square
   - [x] cube
-  - [ ] exp - Depends on real function
+  - [ ] exp - Depends on real sin and cos
   - [x] abs
   - [ ] sin - Depends on real function
   - [ ] cos - Depends on real function
@@ -108,7 +108,7 @@ A functionality is considered "fully implemented" when it has at least one imple
 
 - Calculus (_calculus/derivation.h_, _calculus/integration.h_) - **NO TEST CASES**
   - [x] Integral approximation using midpoint, trapezoid and Simpson
-  - [ ] Romberg integral approximation
+  - [x] Romberg integral approximation
   - [x] Monte Carlo integral approximation
   - [x] Derivative approximation
 
@@ -139,14 +139,23 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] cos - Depends on real function
   - [ ] tan - Depends on real function
   - [ ] cot - Depends on real function
-  - [ ] exp - Depends on real function
+  - [x] exp
   - [ ] ln - Depends on real function
   - [ ] log2 - Depends on real function
   - [ ] log10 - Depends on real function
-  - [ ] asin - Depends on real function
-  - [ ] acos - Depends on real function
-  - [ ] atan - Depends on real function
+  - [x] asin
+  - [x] acos
+  - [x] atan
   - [x] abs
+
+- Differential operators using automatic differentiation (_autodiff/autodiff.h_) - **NO TEST CASES**
+  - [x] Gradient
+  - [x] Directional derivative
+  - [x] Jacobian
+  - [x] Divergence
+  - [x] Curl
+  - [x] Laplacian
+  - [x] Sturm-Liouville
 
 - Interpolation (_interpolation/polyn_interp.h_, _interpolation/spline_interp.h_) - **NO TEST CASES**
   - [x] Polynomial interpolation
@@ -191,6 +200,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Breit Wigner
 
 - Random number-based algorithms (_pseudorandom/randstat.h_) - **NO TEST CASES**
+  - [x] Monte Carlo methods
   - [x] Try-and-catch number generation following a distribution
   - [ ] Inverse cumulative function method
   - [ ] Metropolis-Hastings Monte Carlo Markov Chain method

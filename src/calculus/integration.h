@@ -83,6 +83,46 @@ namespace uroboro {
 	}
 
 
+	// Approximate the definite integral of an arbitrary function
+	// using Romberg's method accurate to the given order
+	real approx_integral_romberg(real_function f, real a, real b, unsigned int order) {
+
+		if(order % 2 != 0) {
+			UMATH_ERROR("approx_integral_romberg", order, IMPOSSIBLE_OPERATION);
+			return nan();
+		}
+
+		unsigned int iter = order / 2;
+
+		real T[iter][iter];
+
+		for (int i = 0; i < iter; ++i) {
+			for (int j = 0; j < iter; ++j) {
+				T[i][j] = 0;
+			}
+		}
+
+		real f_a_b = f(a) + f(b);
+		T[0][0] = (f_a_b / 2) * (b - a);
+
+		for (int j = 1; j < iter; ++j) {
+			
+			// Composite Trapezoidal Rule
+			T[j][0] = approx_integral_trapezoid(f, a, b, 1 << j);
+
+			// Richardson extrapolation
+			for (int k = 1; k <= j; ++k) {
+				T[j][k] =
+					T[j][k - 1]
+					+ (T[j][k - 1] - T[j - 1][k - 1]) / ((1 << (2 * k)) - 1);
+			}
+
+		}
+
+		return T[iter - 1][iter - 1];
+	}
+
+
 	// Runge-Kutta integration of 4th order
 	namespace RK4 {
 
