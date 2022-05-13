@@ -90,7 +90,7 @@ namespace uroboro {
 			}
 
 			/// Get the generating function
-			inline pseudorandom_function get_function() {
+			inline pseudorandom_function get_function() const {
 				return f;
 			}
 
@@ -100,8 +100,13 @@ namespace uroboro {
 				param = v;
 			}
 
+			/// Set a specific parameter
+			inline void set_param(unsigned int i, uint64_t value) {
+				param[i] = value;
+			}
+
 			/// Get the generator's parameters
-			inline std::vector<uint64_t> get_param() {
+			inline std::vector<uint64_t> get_param() const {
 				return param;
 			}
 
@@ -153,8 +158,9 @@ namespace uroboro {
 	/// preexisting generator.
 	///
 	/// The algorithm generates natural numbers between 0 and prec,
-	/// scales the result to [0, 1] and then transforms it to [a, b]
-	inline real rand_real(real a, real b, PRNG& g, uint64_t prec = (1 << 30)) {
+	/// scales the result to [0, 1] and then transforms it to [a, b].
+	inline real rand_real(real a, real b, PRNG& g, uint64_t prec = RAND_REAL_PREC) {
+
 		return a + (b - a) * ((g.next() % prec) / static_cast<real>(prec));
 	}
 

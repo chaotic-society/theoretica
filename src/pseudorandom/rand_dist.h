@@ -57,6 +57,42 @@ namespace uroboro {
 	}
 
 
+	/// Generate a random number following a Gaussian distribution
+	/// using Marsaglia's polar method.
+	///
+	/// @note This function may not be thread-safe as it uses
+	/// static variables to keep track of spare generated values.
+	inline real rand_gaussian_polar(real mean, real sigma, PRNG& g) {
+
+		static real spare;
+		static double has_spare = false;
+
+		if(has_spare) {
+			has_spare = false;
+			return spare;
+		}
+
+		real x, y, s;
+
+		// Generate a random point inside the unit circle
+		do {
+
+			x = rand_real(-1, 1, g);
+			y = rand_real(-1, 1, g);
+			s = square(x) + square(y);
+
+		} while(s >= 1 || s <= MACH_EPSILON);
+
+		// Project the point onto the unit circumference
+		s = sqrt(-2 * ln(s) / s);
+
+		spare = y;
+		has_spare = true;
+
+		return mean + sigma * x * s;
+	}
+
+
 	/// Generate a random number in a range
 	/// following a Gaussian distribution by
 	/// exploiting the Central Limit Theorem.
@@ -76,6 +112,13 @@ namespace uroboro {
 			s += rand_real(x1, x2, g);
 
 		return s / static_cast<real>(iter);
+	}
+
+
+	/// Generate a random number following a Gaussian
+	/// distribution using the best available algorithm.
+	inline real rand_gaussian(real mean, real sigma, PRNG& g) {
+		return rand_gaussian_polar(mean, sigma, g);
 	}
 
 

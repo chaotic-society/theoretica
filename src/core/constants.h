@@ -8,6 +8,7 @@
 
 
 #include <limits>
+#include <cstdint>
 
 
 /// @macro UROBORO_X86 Define this macro if the
@@ -83,6 +84,11 @@
 /// Maximum number of failed iterations for the Try-and-Catch algorithm
 #ifndef UROBORO_MAX_TRYANDCATCH_ITER
 #define UROBORO_MAX_TRYANDCATCH_ITER 100
+#endif
+
+
+#ifndef UROBORO_RAND_REAL_PREC
+#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 23)
 #endif
 
 
@@ -215,6 +221,10 @@ namespace uroboro {
 
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = UROBORO_MAX_TRYANDCATCH_ITER;
+
+
+	/// Default precision for rand_real()
+	constexpr uint64_t RAND_REAL_PREC = UROBORO_RAND_REAL_PREC;
 
 }
 

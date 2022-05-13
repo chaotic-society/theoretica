@@ -1,5 +1,5 @@
 default_target: example
-.PHONY: all example test autodiff hamiltonian error_propagation stats
+.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample
 all: example test examples
 
 CXXFLAGS = -O2 -DUROBORO_INCLUDE_ALL -DUROBORO_X86 -I./src/
@@ -36,4 +36,8 @@ stats:
 	@echo Compiling \"stats\" example...
 	@g++ examples/stats.cpp ${CXXFLAGS} -o ./stats
 
-examples: autodiff hamiltonian error_propagation stats
+dist_sample:
+	@echo Compiling \"dist_sample\" example...
+	@g++ examples/dist_sample.cpp ${CXXFLAGS} -o ./dist_sample
+
+examples: autodiff hamiltonian error_propagation stats dist_sample
