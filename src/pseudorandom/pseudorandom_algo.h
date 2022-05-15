@@ -8,7 +8,7 @@
 
 #include <vector>
 #include <cstdint>
-
+#include "../core/bit_op.h"
 
 namespace uroboro {
 
@@ -130,6 +130,29 @@ namespace uroboro {
 	/// @param p Dummy variable (needed for function signature)
 	inline uint64_t rand_splitmix64(uint64_t x, std::vector<uint64_t>& p) {
 		return rand_splitmix64(x);
+	}
+
+
+	/// Wyrand pseudorandom number generation
+	/// @param seed The (changing) seed of the algorithm
+	/// @param p0 Additive constant (ideally a large prime number)
+	/// @param p1 Mask for the algorithm
+	inline uint64_t rand_wyrand(uint64_t& seed, uint64_t p1, uint64_t p2) {
+		seed += p1;
+		return mix_mum(seed ^ p2, seed);
+	}
+
+
+	/// Wyrand pseudorandom number generation
+	/// @param x Dummy variable
+	/// @param p Algorithm parameters
+	///
+	/// p[0] is the initial seed, p[1] a large prime number and
+	/// p[2] is the bit mask.
+	///
+	/// Algorithm by Yi Wang
+	inline uint64_t rand_wyrand(uint64_t x, std::vector<uint64_t>& p) {
+		return rand_wyrand(p[0], p[1], p[2]);
 	}
 
 }

@@ -150,6 +150,15 @@ namespace uroboro {
 			inline static PRNG splitmix64(uint64_t seed = 1) {
 				return PRNG(rand_splitmix64, seed);
 			}
+
+
+			inline static PRNG wyrand(uint64_t seed = 1, uint64_t p1 = 2549536629329, uint64_t p2 = 0) {
+
+				if(p2 == 0)
+					p2 = rand_splitmix64(seed);
+
+				return PRNG(rand_wyrand, 0, {seed, p1, p2});
+			}
 		
 	};
 

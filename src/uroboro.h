@@ -31,6 +31,9 @@
 // Ratio
 #include "./core/ratio.h"
 
+// Bit operations
+#include "./core/bit_op.h"
+
 // Data sets
 #include "./core/vec_buff.h"
 
