@@ -88,7 +88,7 @@
 
 
 #ifndef UROBORO_RAND_REAL_PREC
-#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 23)
+#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 32)
 #endif
 
 

@@ -16,9 +16,9 @@ namespace uroboro {
 	/// in two 64-bit variables, keeping 128 bits of the result.
 	/// @param a The first number to multiply
 	/// @param b The second number to multiply
-	/// @param c_low The reference where to store the lowest 64 bits
+	/// @param c_low The variable where to store the lowest 64 bits
 	/// of the result
-	/// @param c_high The reference where to store the highest 64 bits
+	/// @param c_high The variable where to store the highest 64 bits
 	/// of the result
 	inline void mul_uint128(
 		uint64_t a, uint64_t b,
@@ -63,6 +63,14 @@ namespace uroboro {
 		return c_high ^ c_low;
 	}
 
+
+	/// Bit rotation using shifting
+	/// @param x The variable to rotate the bits of
+	/// @param i The index of the rotated bits
+	template<typename ShiftableType>
+	inline ShiftableType bit_rotate(ShiftableType x, unsigned int i) {
+		return (x << i) | (x >> ((sizeof(ShiftableType) * 8) - i));
+	}
 
 }
 

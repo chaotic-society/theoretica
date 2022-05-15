@@ -64,48 +64,41 @@ namespace uroboro {
 	}
 
 
-	/// Xoroshift256++ pseudorandom number generation algorithm
+	/// Xoshiro256++ pseudorandom number generation algorithm
 	/// @param x Dummy parameter (needed for function signature)
 	/// @param state The four 64-bit integer state of the algorithm
 	///
 	/// Adapted from the reference implementation by Sebastiano Vigna
-	inline uint64_t rand_xoshiro256(uint64_t& a, uint64_t& b, uint64_t& c, uint64_t& d) {
+	inline uint64_t rand_xoshiro(uint64_t& a, uint64_t& b, uint64_t& c, uint64_t& d) {
 
-		// Rotate
-		const uint64_t res = ((a + d) << 23) |
-			(a + d >> (41)) + a;
+		// Add and rotate
+		const uint64_t result = bit_rotate(a + d, 23) + a;
+		const uint64_t temp = b << 17;
 
-		// Shift
-		const uint64_t t = b << 17;
-
-		// Xor
+		// Shift operations
 		c ^= a;
 		d ^= b;
 		b ^= c;
 		a ^= d;
 
-		c ^= t;
+		c ^= temp;
+		d = bit_rotate(d, 45);
 
-		// Rotate
-		d = (d << 45) | (d >> (19));
-
-		return res;
+		return result;
 	}
 
 
-	/// Xoroshift256++ pseudorandom number generation algorithm
-	/// adapted from the reference implementation by Sebastiano Vigna
-	///
+	/// Xoshiro256++ pseudorandom number generation algorithm
 	/// @param x Dummy parameter (needed for function signature)
 	/// @param state The four 64-bit integer state of the algorithm
-	inline uint64_t rand_xoshiro256(uint64_t x, std::vector<uint64_t>& state) {
+	inline uint64_t rand_xoshiro(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
-			UMATH_ERROR("rand_xoroshift256", state.size(), INVALID_ARGUMENT);
+			UMATH_ERROR("rand_xoroshift", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 
-		return rand_xoshiro256(state[0], state[1], state[2], state[3]);
+		return rand_xoshiro(state[0], state[1], state[2], state[3]);
 	}
 
 
@@ -137,6 +130,8 @@ namespace uroboro {
 	/// @param seed The (changing) seed of the algorithm
 	/// @param p0 Additive constant (ideally a large prime number)
 	/// @param p1 Mask for the algorithm
+	///
+	/// Algorithm by Yi Wang
 	inline uint64_t rand_wyrand(uint64_t& seed, uint64_t p1, uint64_t p2) {
 		seed += p1;
 		return mix_mum(seed ^ p2, seed);
@@ -149,8 +144,6 @@ namespace uroboro {
 	///
 	/// p[0] is the initial seed, p[1] a large prime number and
 	/// p[2] is the bit mask.
-	///
-	/// Algorithm by Yi Wang
 	inline uint64_t rand_wyrand(uint64_t x, std::vector<uint64_t>& p) {
 		return rand_wyrand(p[0], p[1], p[2]);
 	}

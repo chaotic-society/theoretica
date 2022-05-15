@@ -96,14 +96,7 @@ namespace uroboro {
 
 		real T[iter][iter];
 
-		for (int i = 0; i < iter; ++i) {
-			for (int j = 0; j < iter; ++j) {
-				T[i][j] = 0;
-			}
-		}
-
-		real f_a_b = f(a) + f(b);
-		T[0][0] = (f_a_b / 2) * (b - a);
+		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
 
 		for (int j = 1; j < iter; ++j) {
 			
@@ -116,9 +109,9 @@ namespace uroboro {
 					T[j][k - 1]
 					+ (T[j][k - 1] - T[j - 1][k - 1]) / ((1 << (2 * k)) - 1);
 			}
-
 		}
 
+		// Return the best approximation
 		return T[iter - 1][iter - 1];
 	}
 

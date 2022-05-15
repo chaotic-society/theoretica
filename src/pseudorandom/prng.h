@@ -115,44 +115,60 @@ namespace uroboro {
 			/// @param seed The seed to use for the generator (defaults to 1)
 			/// @return A standard linear congruential PRNG object
 			inline static PRNG linear_congruential(uint64_t seed = 1) {
+
+				if(seed == 0)
+					seed = 1;
+
 				return PRNG(rand_congruential, seed, {48271, 0, ((uint64_t) 1 << 31) - 1});
 			}
 
 
-			/// Returns a xoshiro256++ generator
+			/// Returns a Xoshiro256++ generator
 			/// @param p The four state parameters
-			/// @return A xoshiro256++ pseudorandom number generator
-			inline static PRNG xoshiro256(const std::vector<uint64_t>& p) {
-				return PRNG(rand_xoshiro256, 0, p);
+			/// @return A Xoshiro256++ pseudorandom number generator
+			inline static PRNG xoshiro(const std::vector<uint64_t>& p) {
+				return PRNG(rand_xoshiro, 0, p);
 			}
 
 
-			/// Returns a xoshiro256++ generator
+			/// Returns a Xoshiro256++ generator
 			/// @param seed The seed to use for the generator
-			/// @return A xoshiro256++ pseudorandom number generator
+			/// @return A Xoshiro256++ pseudorandom number generator
 			///
 			/// The four parameters for the Xoshiro256++ algorithm
-			/// are generated using the splitmix64 algorithm.
-			inline static PRNG xoshiro256(uint64_t seed = 1) {
+			/// are generated using the Splitmix64 algorithm.
+			inline static PRNG xoshiro(uint64_t seed = 1) {
+
+				if(seed == 0)
+					seed = 1;
 				
 				const uint64_t n1 = rand_splitmix64(seed);
 				const uint64_t n2 = rand_splitmix64(n1);
 				const uint64_t n3 = rand_splitmix64(n2);
 				const uint64_t n4 = rand_splitmix64(n3);
 
-				return PRNG(rand_xoshiro256, 0, {n1, n2, n3, n4});
+				return PRNG(rand_xoshiro, 0, {n1, n2, n3, n4});
 			}
 
 
-			/// Returns a splitmix64 generator
+			/// Returns a Splitmix64 generator
 			/// @param seed The seed to use for the generator
 			/// @return A splitmix64 pseudorandom number generator
 			inline static PRNG splitmix64(uint64_t seed = 1) {
+
+				if(seed == 0)
+					seed = 1;
+
 				return PRNG(rand_splitmix64, seed);
 			}
 
 
-			inline static PRNG wyrand(uint64_t seed = 1, uint64_t p1 = 2549536629329, uint64_t p2 = 0) {
+			/// Returns a Wyrand generator
+			inline static PRNG wyrand(uint64_t seed = 1,
+				uint64_t p1 = 2549536629329, uint64_t p2 = 136137137) {
+
+				if(seed == 0)
+					seed = 1;
 
 				if(p2 == 0)
 					p2 = rand_splitmix64(seed);
