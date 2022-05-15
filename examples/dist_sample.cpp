@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]) {
 	std::ofstream f_pareto = std::ofstream("./examples/data/pareto.csv");
 
 	// Pseudorandom Number Generator using Xoshiro256++
-	PRNG g = PRNG::xoshiro256(time(nullptr));
+	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	// Discard the first 10000 values
 	g.discard(10000);

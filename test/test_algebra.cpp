@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
 
 		std::cout << "\tTesting on " << N << " random matrices" << std::endl;
 
-		PRNG g = PRNG::xoshiro256(time(nullptr));
+		PRNG g = PRNG::xoshiro(time(nullptr));
 		g.discard(1000);
 
 		for (int i = 0; i < N; ++i) {
