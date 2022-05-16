@@ -18,9 +18,10 @@ This is an overview of the library's functionalities. For a more detailed list s
 - **Statistical** functions (including Least Squares Linearization) (`statistics/statistics.h`)
 - Probability distribution functions (`statistics/distributions.h`)
 - Pseudorandom number generation (`pseudorandom/prng.h`, `pseudorandom/pseudorandom_algo.h`)
+- Random distribution sampling (`pseudorandom/rand_dist.h`)
 - Approximation of **roots** and **extrema** of real functions (`approx/roots.h`, `approx/extrema.h`)
 - Derivative approximation (`calculus/derivation.h`)
-- Integral approximation, including **Runge-Kutta** of 4th order (`calculus/integration.h`)
+- Integral approximation, including **Runge-Kutta** of 4th order and **Romber integration** (`calculus/integration.h`)
 - Polynomial operations, including derivation and integration (`polynomial/polynomial.h`)
 - Spline curves, including Bezier curves (`interpolation/spline_interp.h`)
 - Polynomial interpolation with Chebyshev nodes (`interpolation/polyn_interp.h`)
@@ -89,17 +90,15 @@ These are the macros that can be defined to change the library's behaviour:
 ## Future development
 ### In progress
 These are features which are currently under development:
-- Montecarlo integral approximation
 - Benchmarking (either implemented or integrated)
 
 ### Planned
 These are features which will be developed soon:
-- Romberg integral approximation
 - LU decomposition of matrices
 - Matrix eigenvalue finding
 - Arbitrary precision numbers
 - Make the library independent from the C++ Standard Library (at least partially)
-- Metropolis pseudorandom number generation
+- Metropolis-Hastings method
 - Noise generation
 
 ### Potential
