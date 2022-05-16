@@ -9,22 +9,20 @@ The library has no dependencies. Only the C++ Standard Library is needed to use 
 
 ## Functionalities
 This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/uroboro/blob/master/txt/FEATURES.md)
-- **Real analysis** (`real_analysis.h`)
-- **Linear algebra** (vector and matrix operations, including common transformations) (`algebra/vec.h`, `algebra/mat.h`)
-- **Complex** numbers (in algebraic and exponential form) and complex analysis (`complex/complex.h`, `complex/phasor.h`, `complex/complex_analysis.h`)
-- **Quaternions** (`complex/quat.h`)
-- Dual numbers (`autodiff/dual.h`, `autodiff/dual_functions.h`)
-- Multivariable Automatic Differentiation and Differential Operators (`autodiff/multidual.h`, `autodiff/multidual_functions.h`, `autodiff/autodiff.h`)
-- **Statistical** functions (including Least Squares Linearization) (`statistics/statistics.h`)
-- Probability distribution functions (`statistics/distributions.h`)
-- Pseudorandom number generation (`pseudorandom/prng.h`, `pseudorandom/pseudorandom_algo.h`)
-- Random distribution sampling (`pseudorandom/rand_dist.h`)
-- Approximation of **roots** and **extrema** of real functions (`approx/roots.h`, `approx/extrema.h`)
-- Derivative approximation (`calculus/derivation.h`)
-- Integral approximation, including **Runge-Kutta** of 4th order and **Romber integration** (`calculus/integration.h`)
-- Polynomial operations, including derivation and integration (`polynomial/polynomial.h`)
-- Spline curves, including Bezier curves (`interpolation/spline_interp.h`)
-- Polynomial interpolation with Chebyshev nodes (`interpolation/polyn_interp.h`)
+- **Real analysis**
+- **Linear algebra** with vector and matrix operations
+- **Complex** numbers (in algebraic and exponential form) and complex analysis functions
+- **Quaternions**
+- Dual numbers, **Multivariable Automatic Differentiation** and Differential Operators
+- **Statistical** functions, including Least Squares Linearization
+- Probability distribution functions
+- Pseudorandom and Quasirandom number generation (LCG, Xoshiro256++, Splitmix64, Wyrand, Weyl)
+- Random distribution sampling
+- Approximation of **roots** and **extrema** of real functions
+- Derivative approximation
+- Integral approximation, including **Runge-Kutta** of 4th order and **Romberg integration**
+- Polynomial operations and **polynomial interpolation** with Chebyshev nodes
+- Spline curves, including generic Bezier curves
 
 ## Usage
 The library is header-only, so it is only needed to include the proper header files in your program to use it. To simplify the usage of the library, the `uroboro.h` file automatically includes common headers for real and complex analysis and linear algebra.
@@ -63,13 +61,6 @@ int main() {
 ## Error handling
 The library uses `errno` and `umath::MathException` (if it is enabled) to report errors. The behaviour of the library may be modified using the `UROBORO_THROW_EXCEPTIONS` and `UROBORO_ONLY_EXCEPTIONS`. See [Macros](https://github.com/mattiaisgro/uroboro/blob/master/README.md#Macros) to learn more.
 
-## Progress
-Most functionalities have already been implemented, but test cases and documentation are in need of writing. Benchmarking different algorithms may be also used to enchance the library. Core functions which are currently under development are:
-- powf, cos, tan (only the **architecture independent** versions, they already work properly on x86 machines)
-
-On x86 based architectures, if **UROBORO_X86** is defined, the library should be stable and precise for most applications.
-See [Future development](https://github.com/mattiaisgro/uroboro/blob/master/README.md#future-development) for information about new features which might get implemented.
-
 ## Macros
 These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_INCLUDE_ALL** - Including `uroboro.h` will include _all_ header files
@@ -87,30 +78,11 @@ These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_MATRIX_LEXIC** - Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.
 - See `constants.h` for more specific defines
 
-## Future development
-### In progress
-These are features which are currently under development:
-- Benchmarking (either implemented or integrated)
-
-### Planned
-These are features which will be developed soon:
-- LU decomposition of matrices
-- Matrix eigenvalue finding
-- Arbitrary precision numbers
-- Make the library independent from the C++ Standard Library (at least partially)
-- Metropolis-Hastings method
-- Noise generation
-
-### Potential
-These are interesting features which might or might not be implemented in the future.
-- Sorting algorithms
-- SSE implementations of vector and matrix operations
-
 ## Contributing
-Pull requests are well accepted, open an issue or discussion for feature requests, suggestions or to point out problems within the library.
+Contributions are welcome and appreciated, please read the [Contributing Guide](https://github.com/chaotic-society/uroboro/blob/master/CONTRIBUTING.md) to learn about how to contribute to the project.
 
 ## License
-This project is currently under the GNU Lesser General Public License 3.0
+This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/uroboro/blob/master/LICENSE).
 
 
 
