@@ -129,6 +129,9 @@ namespace uroboro {
 	/// The Phi (Golden Section) mathematical constant
 	constexpr real PHI = 1.6180339887498948482045868;
 
+	/// The inverse of the Golden Section mathematical constant
+	constexpr real INVPHI = 0.6180339887498948482045868;
+
 	/// The Pi mathematical constant
 	constexpr real PI = 3.141592653589793238462643;
 
