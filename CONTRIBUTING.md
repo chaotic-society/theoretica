@@ -1,4 +1,4 @@
-# Contributing Guidelines
+# Contributing Guide
 Contributions are welcome and appreciated. You don't necessarily have to contribute with code, as new ideas, algorithms and suggestions can be as useful as new code.
 
 ## Code of Conduct
@@ -15,6 +15,7 @@ Pinned issues are the most important features that need to be implemented.
 You can also suggest new features to be added to the library.
 You can do so by opening an issue and explaining what is the new features, how it may work and why it should be added.
 It might help to add some resources to further read about the subject if it refers to some algorithm, method or mathematical concept.
+Please make sure that your new issue is **not a duplicate** before opening it.
 
 ## Contributing with research
 The library needs active research of algorithms, approximations and new concepts.
@@ -45,6 +46,6 @@ namespace uroboro {
 - Write test cases for your code or at least leave information on how it could be tested and its expected behaviour.
 - Comment your code to make clear what it does, eventually adding links to resources.
 
-### Pull request
+## Pull request
 When you are sure about your contribution, make a pull request preferably following the [Pull Request Template](https://github.com/chaotic-society/uroboro/blob/master/.github/PULL_REQUEST_TEMPLATE.md) so that it may be reviewed.
 **Thank you for your contribution!**
