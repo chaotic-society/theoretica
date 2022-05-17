@@ -2,12 +2,13 @@
 #define UROBORO_MONTECARLO_H
 
 #include "./prng.h"
+#include "./quasirandom.h"
 
 
 namespace uroboro {
 
 
-	/// Approximate an integral using Monte Carlo integration
+	/// Approximate an integral by using Monte Carlo integration
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration

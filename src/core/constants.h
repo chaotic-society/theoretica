@@ -1,6 +1,6 @@
 
 ///
-/// @file core/constants.h Mathematical constants and algorithm parameters
+/// @file constants.h Mathematical constants and algorithm parameters
 ///
 
 #ifndef UROBORO_CONSTANTS_H
@@ -88,7 +88,14 @@
 
 
 #ifndef UROBORO_RAND_REAL_PREC
+
+/// Default precision for random number generation using rand_real()
+#ifdef UROBORO_FLOAT_PREC
+#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 23)
+#else
 #define UROBORO_RAND_REAL_PREC (uint64_t(1) << 32)
+#endif
+
 #endif
 
 
@@ -226,7 +233,7 @@ namespace uroboro {
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = UROBORO_MAX_TRYANDCATCH_ITER;
 
 
-	/// Default precision for rand_real()
+	/// Default precision for random number generation using rand_real()
 	constexpr uint64_t RAND_REAL_PREC = UROBORO_RAND_REAL_PREC;
 
 }
