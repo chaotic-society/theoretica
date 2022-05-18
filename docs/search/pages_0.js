@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['examples_0',['Examples',['../md_txt__e_x_a_m_p_l_e_s.html',1,'']]]
+  ['contributing_20guide_0',['Contributing Guide',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]]
 ];

@@ -116,13 +116,14 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aafbbfb16bfb464bc45d1aff0d1718bf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(F_NAME,  VALUE,  EXCEPTION)&#160;&#160;&#160;	errno = umath_errcode_to_errno(EXCEPTION);</td></tr>
-<tr class="memdesc:aafbbfb16bfb464bc45d1aff0d1718bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling options are defined)  <a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">More...</a><br /></td></tr>
+<tr class="memitem:aafbbfb16bfb464bc45d1aff0d1718bf6"><td class="memItemLeft" align="right" valign="top"><a id="aafbbfb16bfb464bc45d1aff0d1718bf6" name="aafbbfb16bfb464bc45d1aff0d1718bf6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UMATH_ERROR</b>(F_NAME,  VALUE,  EXCEPTION)&#160;&#160;&#160;	errno = umath_errcode_to_errno(EXCEPTION);</td></tr>
+<tr class="memdesc:aafbbfb16bfb464bc45d1aff0d1718bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling options are defined) <br /></td></tr>
 <tr class="separator:aafbbfb16bfb464bc45d1aff0d1718bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aa2ac8bbdb4f84c610c94a552eabad87f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">uroboro::UMATH_ERRCODE</a> { <br />
+<tr class="memitem:aa2ac8bbdb4f84c610c94a552eabad87f"><td class="memItemLeft" align="right" valign="top"><a id="aa2ac8bbdb4f84c610c94a552eabad87f" name="aa2ac8bbdb4f84c610c94a552eabad87f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">uroboro::UMATH_ERRCODE</a> { <br />
 &#160;&#160;<b>NO_ERROR</b> = 0x00
 , <b>DIV_BY_ZERO</b> = 0x01
 , <b>OUT_OF_DOMAIN</b> = 0x02
@@ -133,75 +134,37 @@ Enumerations</h2></td></tr>
 , <b>INVALID_ARGUMENT</b> = 0x20
 <br />
  }</td></tr>
-<tr class="memdesc:aa2ac8bbdb4f84c610c94a552eabad87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math error enumeration.  <a href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">More...</a><br /></td></tr>
+<tr class="memdesc:aa2ac8bbdb4f84c610c94a552eabad87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math error enumeration. <br /></td></tr>
 <tr class="separator:aa2ac8bbdb4f84c610c94a552eabad87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9bc9f9f90d3a3656d1a7169770210f29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a9bc9f9f90d3a3656d1a7169770210f29">uroboro::umath_errcode_to_errno</a> (UMATH_ERRCODE err)</td></tr>
-<tr class="memdesc:a9bc9f9f90d3a3656d1a7169770210f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a UMATH_ERRCODE to errno error codes.  <a href="namespaceuroboro.html#a9bc9f9f90d3a3656d1a7169770210f29">More...</a><br /></td></tr>
+<tr class="memitem:a9bc9f9f90d3a3656d1a7169770210f29"><td class="memItemLeft" align="right" valign="top"><a id="a9bc9f9f90d3a3656d1a7169770210f29" name="a9bc9f9f90d3a3656d1a7169770210f29"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::umath_errcode_to_errno</b> (UMATH_ERRCODE err)</td></tr>
+<tr class="memdesc:a9bc9f9f90d3a3656d1a7169770210f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a UMATH_ERRCODE to errno error codes. <br /></td></tr>
 <tr class="separator:a9bc9f9f90d3a3656d1a7169770210f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0261d15185aff18c120a43d1760a9323"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a> ()</td></tr>
-<tr class="memdesc:a0261d15185aff18c120a43d1760a9323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a quiet NaN number in floating point representation.  <a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">More...</a><br /></td></tr>
+<tr class="memitem:a0261d15185aff18c120a43d1760a9323"><td class="memItemLeft" align="right" valign="top"><a id="a0261d15185aff18c120a43d1760a9323" name="a0261d15185aff18c120a43d1760a9323"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::nan</b> ()</td></tr>
+<tr class="memdesc:a0261d15185aff18c120a43d1760a9323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a quiet NaN number in floating point representation. <br /></td></tr>
 <tr class="separator:a0261d15185aff18c120a43d1760a9323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb3e6b15ef5d38e836df947935f37a3d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abb3e6b15ef5d38e836df947935f37a3d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d">uroboro::is_nan</a> (const T &amp;x)</td></tr>
 <tr class="memdesc:abb3e6b15ef5d38e836df947935f37a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a generic variable is (equivalent to) a NaN number.  <a href="namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d">More...</a><br /></td></tr>
 <tr class="separator:abb3e6b15ef5d38e836df947935f37a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0dae8839058c4d6543da97ae099ea42"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ab0dae8839058c4d6543da97ae099ea42">uroboro::inf</a> ()</td></tr>
-<tr class="memdesc:ab0dae8839058c4d6543da97ae099ea42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return positive infinity in floating point representation.  <a href="namespaceuroboro.html#ab0dae8839058c4d6543da97ae099ea42">More...</a><br /></td></tr>
+<tr class="memitem:ab0dae8839058c4d6543da97ae099ea42"><td class="memItemLeft" align="right" valign="top"><a id="ab0dae8839058c4d6543da97ae099ea42" name="ab0dae8839058c4d6543da97ae099ea42"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::inf</b> ()</td></tr>
+<tr class="memdesc:ab0dae8839058c4d6543da97ae099ea42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return positive infinity in floating point representation. <br /></td></tr>
 <tr class="separator:ab0dae8839058c4d6543da97ae099ea42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Error handling. </p>
-
-<p class="definition">Definition in file <a class="el" href="error_8h_source.html">error.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aafbbfb16bfb464bc45d1aff0d1718bf6" name="aafbbfb16bfb464bc45d1aff0d1718bf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafbbfb16bfb464bc45d1aff0d1718bf6">&#9670;&nbsp;</a></span>UMATH_ERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UMATH_ERROR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">F_NAME, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">VALUE, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">EXCEPTION&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	errno = umath_errcode_to_errno(EXCEPTION);</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling options are defined) </p>
-
-<p class="definition">Definition at line <a class="el" href="error_8h_source.html#l00161">161</a> of file <a class="el" href="error_8h_source.html">error.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="error_8h.html">error.h</a></li>
-    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

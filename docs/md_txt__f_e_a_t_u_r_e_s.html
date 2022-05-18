@@ -104,30 +104,30 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 <li>[x] cube</li>
 <li>[x] abs</li>
 <li>[x] sgn</li>
-<li>[ ] max - Test cases</li>
-<li>[ ] min - Test cases</li>
-<li>[ ] clamp - Test cases</li>
-<li>[ ] floor - Test cases</li>
-<li>[ ] fract - Test cases</li>
+<li>[x] max</li>
+<li>[x] min</li>
+<li>[x] clamp</li>
+<li>[x] floor - Needs test cases</li>
+<li>[x] fract - Needs test cases</li>
 <li>[ ] <b>log2</b> - **(only hardware implementation)**</li>
 <li>[ ] log10 - **(only hardware implementation)**</li>
 <li>[ ] ln - **(only hardware implementation)**</li>
 <li>[x] pow - (may be improved)</li>
 <li>[x] fact</li>
 <li>[ ] <b>powf</b> - **(only hardware implementation)**</li>
-<li>[ ] <b>exp</b> - **(only hardware implementation)**</li>
+<li>[ ] exp</li>
 <li>[ ] sin - **(only hardware implementation)**</li>
 <li>[ ] cos - **(only hardware implementation)**</li>
 <li>[ ] tan - **(only hardware implementation)**</li>
 <li>[ ] cot - **(only hardware implementation)**</li>
-<li>[ ] <b>atan</b> - Low precision</li>
-<li>[ ] asin - Low precision</li>
-<li>[ ] acos - Low precision</li>
-<li>[ ] <b>atan2</b> - Low precision</li>
-<li>[ ] sinh - Depends on exp</li>
-<li>[ ] cosh - Depends on exp</li>
-<li>[ ] tanh - Depends on exp</li>
-<li>[ ] coth - Depends on exp</li>
+<li>[x] atan - (Low precision)</li>
+<li>[x] asin - (Low precision)</li>
+<li>[x] acos - (Low precision)</li>
+<li>[x] atan2 - (Low precision)</li>
+<li>[x] sinh</li>
+<li>[x] cosh</li>
+<li>[x] tanh</li>
+<li>[x] coth</li>
 <li>[x] binomial_coeff</li>
 <li>[x] radians</li>
 <li>[x] degrees</li>
@@ -165,14 +165,14 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 <li>[x] Conjugate and inverse</li>
 <li>[x] Modulus</li>
 <li>[x] Rotor construction</li>
-<li>[ ] Argument - (depends on atan2 implementation)</li>
+<li>[x] Argument</li>
 <li>[x] Conversion to other types (matrix form, to vector)</li>
 </ul>
 </li>
 <li>Complex functions (<em>complex/complex_functions.h</em>) - <b>NO TEST CASES</b><ul>
 <li>[x] square</li>
 <li>[x] cube</li>
-<li>[ ] exp - Depends on real function</li>
+<li>[ ] exp - Depends on real sin and cos</li>
 <li>[x] abs</li>
 <li>[ ] sin - Depends on real function</li>
 <li>[ ] cos - Depends on real function</li>
@@ -210,8 +210,8 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 </li>
 <li>Calculus (<em><a class="el" href="derivation_8h.html" title="Derivative approximation.">calculus/derivation.h</a></em>, <em><a class="el" href="integration_8h.html" title="Integral approximation.">calculus/integration.h</a></em>) - <b>NO TEST CASES</b><ul>
 <li>[x] Integral approximation using midpoint, trapezoid and Simpson</li>
-<li>[ ] Romberg integral approximation</li>
-<li>[ ] Monte Carlo integral approximation</li>
+<li>[x] Romberg integral approximation</li>
+<li>[x] Monte Carlo integral approximation</li>
 <li>[x] Derivative approximation</li>
 </ul>
 </li>
@@ -245,14 +245,24 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 <li>[ ] cos - Depends on real function</li>
 <li>[ ] tan - Depends on real function</li>
 <li>[ ] cot - Depends on real function</li>
-<li>[ ] exp - Depends on real function</li>
+<li>[x] exp</li>
 <li>[ ] ln - Depends on real function</li>
 <li>[ ] log2 - Depends on real function</li>
 <li>[ ] log10 - Depends on real function</li>
-<li>[ ] asin - Depends on real function</li>
-<li>[ ] acos - Depends on real function</li>
-<li>[ ] atan - Depends on real function</li>
+<li>[x] asin</li>
+<li>[x] acos</li>
+<li>[x] atan</li>
 <li>[x] abs</li>
+</ul>
+</li>
+<li>Differential operators using automatic differentiation (<em><a class="el" href="autodiff_8h.html" title="Differential operators using automatic differentiation.">autodiff/autodiff.h</a></em>) - <b>NO TEST CASES</b><ul>
+<li>[x] Gradient</li>
+<li>[x] Directional derivative</li>
+<li>[x] Jacobian</li>
+<li>[x] Divergence</li>
+<li>[x] Curl</li>
+<li>[x] Laplacian</li>
+<li>[x] Sturm-Liouville</li>
 </ul>
 </li>
 <li>Interpolation (<em><a class="el" href="polyn__interp_8h.html" title="Polynomial interpolation of real functions.">interpolation/polyn_interp.h</a></em>, <em><a class="el" href="spline__interp_8h.html" title="Spline interpolation.">interpolation/spline_interp.h</a></em>) - <b>NO TEST CASES</b><ul>
@@ -271,7 +281,9 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 <li>[x] Congruential generator</li>
 <li>[ ] Mersenne twister</li>
 <li>[ ] Xorshift</li>
-<li>[ ] Lagged Fibonacci</li>
+<li>[x] Xoroshiro256++</li>
+<li>[x] Splitmix64</li>
+<li>[ ] Multiply-With-Carry</li>
 </ul>
 </li>
 <li>Statistical functions (<em><a class="el" href="statistics_8h.html" title="Statistical functions.">statistics/statistics.h</a></em>) - <b>NO TEST CASES</b><ul>
@@ -300,6 +312,7 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 </ul>
 </li>
 <li>Random number-based algorithms (<em>pseudorandom/randstat.h</em>) - <b>NO TEST CASES</b><ul>
+<li>[x] Monte Carlo methods</li>
 <li>[x] Try-and-catch number generation following a distribution</li>
 <li>[ ] Inverse cumulative function method</li>
 <li>[ ] Metropolis-Hastings Monte Carlo Markov Chain method </li>
@@ -312,7 +325,7 @@ $(document).ready(function(){initNavTree('md_txt__f_e_a_t_u_r_e_s.html',''); ini
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 5 2022 15:25:10 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 18 2022 20:39:15 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

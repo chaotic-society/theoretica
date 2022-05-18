@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['max_5fbisection_5fiter_0',['MAX_BISECTION_ITER',['../namespaceuroboro.html#aa17f105414cd88ba48f91012df85eb86',1,'uroboro']]],
-  ['max_5fchebyshev_5fiter_1',['MAX_CHEBYSHEV_ITER',['../namespaceuroboro.html#a030d1788cf91e60de48a457faead1991',1,'uroboro']]],
-  ['max_5fgoldensection_5fiter_2',['MAX_GOLDENSECTION_ITER',['../namespaceuroboro.html#aa0ca52531bf3ea0820656d885aba5096',1,'uroboro']]],
-  ['max_5fhalley_5fiter_3',['MAX_HALLEY_ITER',['../namespaceuroboro.html#a557b85793a28f3937a6df4d69caa7b0f',1,'uroboro']]],
-  ['max_5fnewton_5fiter_4',['MAX_NEWTON_ITER',['../namespaceuroboro.html#a5c2221d8f7adec4e5c12e2b657eaa50a',1,'uroboro']]],
-  ['max_5fsteffensen_5fiter_5',['MAX_STEFFENSEN_ITER',['../namespaceuroboro.html#a06660e14506ab0f6e894e4b7743d343f',1,'uroboro']]],
-  ['max_5ftryandcatch_5fiter_6',['MAX_TRYANDCATCH_ITER',['../namespaceuroboro.html#a35f037d3e459f5e788e9d6711c96af85',1,'uroboro']]]
+  ['ln10_0',['LN10',['../namespaceuroboro.html#ad11d54326b8d63be423eebb1278d9d5b',1,'uroboro']]],
+  ['ln2_1',['LN2',['../namespaceuroboro.html#acc1ae05c314fcb378089d6ef27e2b8e0',1,'uroboro']]],
+  ['log10e_2',['LOG10E',['../namespaceuroboro.html#af5967b9622c8e94da0c383c62c2df052',1,'uroboro']]],
+  ['log210_3',['LOG210',['../namespaceuroboro.html#a165c94ca3b74aa19e23233d50d26c6a3',1,'uroboro']]],
+  ['log2e_4',['LOG2E',['../namespaceuroboro.html#a9466670e0bb260cdcf170f03c1f58a82',1,'uroboro']]]
 ];

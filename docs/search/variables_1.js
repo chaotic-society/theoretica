@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['deg2rad_0',['DEG2RAD',['../namespaceuroboro.html#a0ff7867de6b0b7a3500ecae1e6f6b103',1,'uroboro']]],
-  ['deriv_5fprec_1',['DERIV_PREC',['../namespaceuroboro.html#ad3f740899f85b84d64c4698f139cc61a',1,'uroboro']]]
+  ['col_5fsize_0',['COL_SIZE',['../classuroboro_1_1mat.html#a81f32486074d1ee05e3c5a8fd8e6750a',1,'uroboro::mat']]]
 ];

@@ -176,90 +176,125 @@ $(document).ready(function(){initNavTree('integration_8h_source.html',''); initR
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// Runge-Kutta integration of 4th order</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">namespace </span>RK4 {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// A kinematic state (position, velocity)</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">   90</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a> {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> v;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// Approximate the definite integral of an arbitrary function</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// using Romberg&#39;s method accurate to the given order</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> approx_integral_romberg(<a class="code hl_typedef" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> order) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">if</span>(order % 2 != 0) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;approx_integral_romberg&quot;</span>, order, IMPOSSIBLE_OPERATION);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>() : x(0), v(0) {}</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> v) : x(x), v(v) {}</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        };</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = order / 2;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> T[iter][iter];</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="comment">// A kinematic state derivative (dx, dv)</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">  101</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dv;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt; iter; ++j) {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="comment">// Composite Trapezoidal Rule</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            T[j][0] = approx_integral_trapezoid(f, a, b, 1 &lt;&lt; j);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>() : dx(0), dv(0) {}</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dv) : dx(dx), dv(dv) {}</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        };</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="comment">// Function type for acceleration functions</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">using</span> accel_function = <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>(*)(<span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>&amp;, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment">// Richardson extrapolation</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 1; k &lt;= j; ++k) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                T[j][k] =</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                    T[j][k - 1]</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    + (T[j][k - 1] - T[j - 1][k - 1]) / ((1 &lt;&lt; (2 * k)) - 1);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        }</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="comment">// Eval a single kinematic state with its derivative</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">inline</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> eval(</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>&amp; prec,</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> t, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dt,</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>&amp; deriv,</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            accel_function accel) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="comment">// Return the best approximation</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> T[iter - 1][iter - 1];</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// Runge-Kutta integration of 4th order</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">namespace </span>RK4 {</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a> state = <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>(</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                prec.x + deriv.dx * dt,</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                prec.v + deriv.dv * dt);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> res = <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>(state.v, accel(state, t + dt));</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="comment">// A kinematic state (position, velocity)</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">  123</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a> {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> v;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>() : x(0), v(0) {}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> v) : x(x), v(v) {}</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        };</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">// Runge-Kutta integration of 4th order</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> integrate(kinematic_state s, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> t, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dt, accel_function accel) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            kinematic_deriv a, b, c, d;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            a = eval(s, t, 0, kinematic_deriv(), accel);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            b = eval(s, t, dt * 0.5, a, accel);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            c = eval(s, t, dt * 0.5, b, accel);</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            d = eval(s, t, dt, c, accel);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="comment">// Approximate integration using 4 different points</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dxdt = 1.0f / 6.0f * (a.dx + 2.0f * (b.dx + c.dx) + d.dx);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dvdt = 1.0f / 6.0f * (a.dv + 2.0f * (b.dv + c.dv) + d.dv);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="comment">// Update state</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            s.x = s.x + dxdt * dt;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            s.v = s.v + dvdt * dt;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="comment">// A kinematic state derivative (dx, dv)</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">  134</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dv;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>() : dx(0), dv(0) {}</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dv) : dx(dx), dv(dv) {}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        };</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="comment">// Function type for acceleration functions</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keyword">using</span> accel_function = <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>(*)(<span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>&amp;, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="comment">// Eval a single kinematic state with its derivative</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keyword">inline</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> eval(</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>&amp; prec,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> t, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dt,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keyword">const</span> <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>&amp; deriv,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            accel_function accel) {</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> <a href="mat_8h_source.html#l00020">mat.h:20</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00112">constants.h:112</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_ac8897d90d47e126c9cb22d3116d42c5c"><div class="ttname"><a href="namespaceuroboro.html#ac8897d90d47e126c9cb22d3116d42c5c">uroboro::INTEGRATION_STEPS</a></div><div class="ttdeci">constexpr int INTEGRATION_STEPS</div><div class="ttdoc">Default number of steps for integral approximation.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8h_source.html#l00174">constants.h:174</a></div></div>
-<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> <a href="function_8h_source.html#l00017">function.h:17</a></div></div>
-<div class="ttc" id="astructuroboro_1_1_r_k4_1_1kinematic__deriv_html"><div class="ttname"><a href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">uroboro::RK4::kinematic_deriv</a></div><div class="ttdef"><b>Definition:</b> <a href="integration_8h_source.html#l00101">integration.h:101</a></div></div>
-<div class="ttc" id="astructuroboro_1_1_r_k4_1_1kinematic__state_html"><div class="ttname"><a href="structuroboro_1_1_r_k4_1_1kinematic__state.html">uroboro::RK4::kinematic_state</a></div><div class="ttdef"><b>Definition:</b> <a href="integration_8h_source.html#l00090">integration.h:90</a></div></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a> state = <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">kinematic_state</a>(</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                prec.x + deriv.dx * dt,</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                prec.v + deriv.dv * dt);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a> res = <a class="code hl_struct" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">kinematic_deriv</a>(state.v, accel(state, t + dt));</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">// Runge-Kutta integration of 4th order</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> integrate(kinematic_state s, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> t, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dt, accel_function accel) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            kinematic_deriv a, b, c, d;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            a = eval(s, t, 0, kinematic_deriv(), accel);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            b = eval(s, t, dt * 0.5, a, accel);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            c = eval(s, t, dt * 0.5, b, accel);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            d = eval(s, t, dt, c, accel);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="comment">// Approximate integration using 4 different points</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dxdt = 1.0f / 6.0f * (a.dx + 2.0f * (b.dx + c.dx) + d.dx);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dvdt = 1.0f / 6.0f * (a.dv + 2.0f * (b.dv + c.dv) + d.dv);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="comment">// Update state</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            s.x = s.x + dxdt * dt;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            s.v = s.v + dvdt * dt;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> error.h:161</div></div>
+<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
+<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
+<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:128</div></div>
+<div class="ttc" id="anamespaceuroboro_html_ac8897d90d47e126c9cb22d3116d42c5c"><div class="ttname"><a href="namespaceuroboro.html#ac8897d90d47e126c9cb22d3116d42c5c">uroboro::INTEGRATION_STEPS</a></div><div class="ttdeci">constexpr int INTEGRATION_STEPS</div><div class="ttdoc">Default number of steps for integral approximation.</div><div class="ttdef"><b>Definition:</b> constants.h:197</div></div>
+<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
+<div class="ttc" id="astructuroboro_1_1_r_k4_1_1kinematic__deriv_html"><div class="ttname"><a href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">uroboro::RK4::kinematic_deriv</a></div><div class="ttdef"><b>Definition:</b> integration.h:134</div></div>
+<div class="ttc" id="astructuroboro_1_1_r_k4_1_1kinematic__state_html"><div class="ttname"><a href="structuroboro_1_1_r_k4_1_1kinematic__state.html">uroboro::RK4::kinematic_state</a></div><div class="ttdef"><b>Definition:</b> integration.h:123</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

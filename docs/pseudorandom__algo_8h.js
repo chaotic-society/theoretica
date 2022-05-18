@@ -5,6 +5,8 @@ var pseudorandom__algo_8h =
     [ "rand_congruential", "pseudorandom__algo_8h.html#a47a560e276c218a0ce820f518c980dc0", null ],
     [ "rand_splitmix64", "pseudorandom__algo_8h.html#a16c27a458275c2673771bbce1a7f5d04", null ],
     [ "rand_splitmix64", "pseudorandom__algo_8h.html#abacd1560cd54a41e42189a13b8a81b78", null ],
-    [ "rand_xoshiro256", "pseudorandom__algo_8h.html#ab48efb0301843782ae1c34d9d8559940", null ],
-    [ "rand_xoshiro256", "pseudorandom__algo_8h.html#a27b17e8794fbe9e7b6a735abb7b1272a", null ]
+    [ "rand_wyrand", "pseudorandom__algo_8h.html#a02ca938508640fdcf88fe448dc48dd45", null ],
+    [ "rand_wyrand", "pseudorandom__algo_8h.html#a08008d55a3ca69f16b871a0363da040c", null ],
+    [ "rand_xoshiro", "pseudorandom__algo_8h.html#ac1d1b1f9b3b6b31ea68df5843921e70b", null ],
+    [ "rand_xoshiro", "pseudorandom__algo_8h.html#ad2c697f70338327c1768c09530f7254c", null ]
 ];

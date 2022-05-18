@@ -114,23 +114,40 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a247c322c30b6d3432d3e21371676af6a"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a247c322c30b6d3432d3e21371676af6a">uroboro::rand_dist_tac</a> (stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</td></tr>
-<tr class="memdesc:a247c322c30b6d3432d3e21371676af6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch algorithm.  <a href="namespaceuroboro.html#a247c322c30b6d3432d3e21371676af6a">More...</a><br /></td></tr>
+<tr class="memdesc:a247c322c30b6d3432d3e21371676af6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespaceuroboro.html#a247c322c30b6d3432d3e21371676af6a">More...</a><br /></td></tr>
 <tr class="separator:a247c322c30b6d3432d3e21371676af6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ffaca5f9582b9d4ef901f0ae8d5973"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a74ffaca5f9582b9d4ef901f0ae8d5973">uroboro::rand_gaussian_polar</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a74ffaca5f9582b9d4ef901f0ae8d5973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using Marsaglia's polar method.  <a href="namespaceuroboro.html#a74ffaca5f9582b9d4ef901f0ae8d5973">More...</a><br /></td></tr>
+<tr class="separator:a74ffaca5f9582b9d4ef901f0ae8d5973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12356ce5fd515bf9d776a375efc8bbc0"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a12356ce5fd515bf9d776a375efc8bbc0">uroboro::rand_gaussian_clt</a> (real x1, real x2, PRNG &amp;g, unsigned int iter=10)</td></tr>
 <tr class="memdesc:a12356ce5fd515bf9d776a375efc8bbc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespaceuroboro.html#a12356ce5fd515bf9d776a375efc8bbc0">More...</a><br /></td></tr>
 <tr class="separator:a12356ce5fd515bf9d776a375efc8bbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2b518c721fa2a68b19cea99efc3359"><td class="memItemLeft" align="right" valign="top"><a id="a5b2b518c721fa2a68b19cea99efc3359" name="a5b2b518c721fa2a68b19cea99efc3359"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::rand_gaussian</b> (real mean, real sigma, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a5b2b518c721fa2a68b19cea99efc3359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the best available algorithm. <br /></td></tr>
+<tr class="separator:a5b2b518c721fa2a68b19cea99efc3359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2807c71c72c72ea480c753f05161e1e2"><td class="memItemLeft" align="right" valign="top"><a id="a2807c71c72c72ea480c753f05161e1e2" name="a2807c71c72c72ea480c753f05161e1e2"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::rand_exponential</b> (real lambda, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a2807c71c72c72ea480c753f05161e1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following an exponential distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a2807c71c72c72ea480c753f05161e1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7252616285bfd168e813ed11882509b"><td class="memItemLeft" align="right" valign="top"><a id="ad7252616285bfd168e813ed11882509b" name="ad7252616285bfd168e813ed11882509b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::rand_cauchy</b> (real mu, real alpha, PRNG &amp;g)</td></tr>
+<tr class="memdesc:ad7252616285bfd168e813ed11882509b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Cauchy distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:ad7252616285bfd168e813ed11882509b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c396177a3c30d6216279cb1deb2f106"><td class="memItemLeft" align="right" valign="top"><a id="a8c396177a3c30d6216279cb1deb2f106" name="a8c396177a3c30d6216279cb1deb2f106"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::rand_pareto</b> (real x_m, real alpha, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a8c396177a3c30d6216279cb1deb2f106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Pareto distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a8c396177a3c30d6216279cb1deb2f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Random numbers following a pdf. </p>
-
-<p class="definition">Definition in file <a class="el" href="rand__dist_8h_source.html">rand_dist.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="rand__dist_8h.html">rand_dist.h</a></li>
-    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

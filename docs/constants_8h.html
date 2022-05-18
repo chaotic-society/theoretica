@@ -102,7 +102,9 @@ $(document).ready(function(){initNavTree('constants_8h.html',''); initResizable(
 
 <p>Mathematical constants and algorithm parameters.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+</div>
 <p><a href="constants_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -116,45 +118,62 @@ Macros</h2></td></tr>
 <tr class="memitem:a719626095b824ca3ca2007f1b3232876"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a719626095b824ca3ca2007f1b3232876">UROBORO_TAYLOR_ORDER</a>&#160;&#160;&#160;9</td></tr>
 <tr class="memdesc:a719626095b824ca3ca2007f1b3232876"><td class="mdescLeft">&#160;</td><td class="mdescRight">@macro UROBORO_X86 Define this macro if the machine has a x86 architecture to use hardware enhanced functions.  <a href="constants_8h.html#a719626095b824ca3ca2007f1b3232876">More...</a><br /></td></tr>
 <tr class="separator:a719626095b824ca3ca2007f1b3232876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ebb8ddac33ae652370f698ed1daf93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a48ebb8ddac33ae652370f698ed1daf93">UROBORO_DERIV_PREC</a>&#160;&#160;&#160;100000.0</td></tr>
-<tr class="memdesc:a48ebb8ddac33ae652370f698ed1daf93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative precision for derivative approximation.  <a href="constants_8h.html#a48ebb8ddac33ae652370f698ed1daf93">More...</a><br /></td></tr>
+<tr class="memitem:a48ebb8ddac33ae652370f698ed1daf93"><td class="memItemLeft" align="right" valign="top"><a id="a48ebb8ddac33ae652370f698ed1daf93" name="a48ebb8ddac33ae652370f698ed1daf93"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_DERIV_PREC</b>&#160;&#160;&#160;100000.0</td></tr>
+<tr class="memdesc:a48ebb8ddac33ae652370f698ed1daf93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative precision for derivative approximation. <br /></td></tr>
 <tr class="separator:a48ebb8ddac33ae652370f698ed1daf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf038debee3ad45cb5c48c8e4590cb18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#abf038debee3ad45cb5c48c8e4590cb18">UROBORO_INTEGRATION_STEPS</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:abf038debee3ad45cb5c48c8e4590cb18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of steps for integral approximation.  <a href="constants_8h.html#abf038debee3ad45cb5c48c8e4590cb18">More...</a><br /></td></tr>
+<tr class="memitem:abf038debee3ad45cb5c48c8e4590cb18"><td class="memItemLeft" align="right" valign="top"><a id="abf038debee3ad45cb5c48c8e4590cb18" name="abf038debee3ad45cb5c48c8e4590cb18"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_INTEGRATION_STEPS</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:abf038debee3ad45cb5c48c8e4590cb18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of steps for integral approximation. <br /></td></tr>
 <tr class="separator:abf038debee3ad45cb5c48c8e4590cb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1563743ef011c414b0f50c553310aefe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a1563743ef011c414b0f50c553310aefe">UROBORO_POWF_APPROX_TOL</a>&#160;&#160;&#160;0.00000001</td></tr>
-<tr class="memdesc:a1563743ef011c414b0f50c553310aefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biggest fractional part to ignore in powf computation.  <a href="constants_8h.html#a1563743ef011c414b0f50c553310aefe">More...</a><br /></td></tr>
+<tr class="memitem:a1563743ef011c414b0f50c553310aefe"><td class="memItemLeft" align="right" valign="top"><a id="a1563743ef011c414b0f50c553310aefe" name="a1563743ef011c414b0f50c553310aefe"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_POWF_APPROX_TOL</b>&#160;&#160;&#160;0.00000001</td></tr>
+<tr class="memdesc:a1563743ef011c414b0f50c553310aefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biggest fractional part to ignore in powf computation. <br /></td></tr>
 <tr class="separator:a1563743ef011c414b0f50c553310aefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c87e66b12be01e1fb6427642f2f36d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d">UROBORO_ROOT_APPROX_TOL</a>&#160;&#160;&#160;0.00000001</td></tr>
-<tr class="memdesc:a93c87e66b12be01e1fb6427642f2f36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for root finding.  <a href="constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d">More...</a><br /></td></tr>
+<tr class="memitem:a93c87e66b12be01e1fb6427642f2f36d"><td class="memItemLeft" align="right" valign="top"><a id="a93c87e66b12be01e1fb6427642f2f36d" name="a93c87e66b12be01e1fb6427642f2f36d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_ROOT_APPROX_TOL</b>&#160;&#160;&#160;0.00000001</td></tr>
+<tr class="memdesc:a93c87e66b12be01e1fb6427642f2f36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for root finding. <br /></td></tr>
 <tr class="separator:a93c87e66b12be01e1fb6427642f2f36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a379dde1cf9d8c6a47cf49785293ecc2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a379dde1cf9d8c6a47cf49785293ecc2a">UROBORO_NEWTON_RAPHSON_TOL</a>&#160;&#160;&#160;0.00000001</td></tr>
-<tr class="memdesc:a379dde1cf9d8c6a47cf49785293ecc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for Newton's method root finding.  <a href="constants_8h.html#a379dde1cf9d8c6a47cf49785293ecc2a">More...</a><br /></td></tr>
+<tr class="memitem:a379dde1cf9d8c6a47cf49785293ecc2a"><td class="memItemLeft" align="right" valign="top"><a id="a379dde1cf9d8c6a47cf49785293ecc2a" name="a379dde1cf9d8c6a47cf49785293ecc2a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_NEWTON_RAPHSON_TOL</b>&#160;&#160;&#160;0.00000001</td></tr>
+<tr class="memdesc:a379dde1cf9d8c6a47cf49785293ecc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for Newton's method root finding. <br /></td></tr>
 <tr class="separator:a379dde1cf9d8c6a47cf49785293ecc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98d37120deecb971cfb5ded128055019"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a98d37120deecb971cfb5ded128055019">UROBORO_BISECTION_APPROX_TOL</a>&#160;&#160;&#160;0.00000001</td></tr>
-<tr class="memdesc:a98d37120deecb971cfb5ded128055019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for bisection root finding.  <a href="constants_8h.html#a98d37120deecb971cfb5ded128055019">More...</a><br /></td></tr>
+<tr class="memitem:a98d37120deecb971cfb5ded128055019"><td class="memItemLeft" align="right" valign="top"><a id="a98d37120deecb971cfb5ded128055019" name="a98d37120deecb971cfb5ded128055019"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_BISECTION_APPROX_TOL</b>&#160;&#160;&#160;0.00000001</td></tr>
+<tr class="memdesc:a98d37120deecb971cfb5ded128055019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for bisection root finding. <br /></td></tr>
 <tr class="separator:a98d37120deecb971cfb5ded128055019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14f5701be7ec116724744b898f605006"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a14f5701be7ec116724744b898f605006">UROBORO_MAX_BISECTION_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a14f5701be7ec116724744b898f605006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for bisection.  <a href="constants_8h.html#a14f5701be7ec116724744b898f605006">More...</a><br /></td></tr>
+<tr class="memitem:a14f5701be7ec116724744b898f605006"><td class="memItemLeft" align="right" valign="top"><a id="a14f5701be7ec116724744b898f605006" name="a14f5701be7ec116724744b898f605006"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_BISECTION_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a14f5701be7ec116724744b898f605006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for bisection. <br /></td></tr>
 <tr class="separator:a14f5701be7ec116724744b898f605006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d54134993bfc7ed2b6db27ea9c01b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#ac5d54134993bfc7ed2b6db27ea9c01b4">UROBORO_MAX_GOLDENSECTION_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:ac5d54134993bfc7ed2b6db27ea9c01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for golden section search.  <a href="constants_8h.html#ac5d54134993bfc7ed2b6db27ea9c01b4">More...</a><br /></td></tr>
+<tr class="memitem:ac5d54134993bfc7ed2b6db27ea9c01b4"><td class="memItemLeft" align="right" valign="top"><a id="ac5d54134993bfc7ed2b6db27ea9c01b4" name="ac5d54134993bfc7ed2b6db27ea9c01b4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_GOLDENSECTION_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:ac5d54134993bfc7ed2b6db27ea9c01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for golden section search. <br /></td></tr>
 <tr class="separator:ac5d54134993bfc7ed2b6db27ea9c01b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bfe0b73bda1acdae546927fc6adcb73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a0bfe0b73bda1acdae546927fc6adcb73">UROBORO_MAX_HALLEY_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a0bfe0b73bda1acdae546927fc6adcb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Halley's method.  <a href="constants_8h.html#a0bfe0b73bda1acdae546927fc6adcb73">More...</a><br /></td></tr>
+<tr class="memitem:a0bfe0b73bda1acdae546927fc6adcb73"><td class="memItemLeft" align="right" valign="top"><a id="a0bfe0b73bda1acdae546927fc6adcb73" name="a0bfe0b73bda1acdae546927fc6adcb73"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_HALLEY_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a0bfe0b73bda1acdae546927fc6adcb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Halley's method. <br /></td></tr>
 <tr class="separator:a0bfe0b73bda1acdae546927fc6adcb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9dfa9e38ee4407b64a05d46ac7ea94e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#ab9dfa9e38ee4407b64a05d46ac7ea94e">UROBORO_MAX_NEWTON_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:ab9dfa9e38ee4407b64a05d46ac7ea94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Newton-Raphson.  <a href="constants_8h.html#ab9dfa9e38ee4407b64a05d46ac7ea94e">More...</a><br /></td></tr>
+<tr class="memitem:ab9dfa9e38ee4407b64a05d46ac7ea94e"><td class="memItemLeft" align="right" valign="top"><a id="ab9dfa9e38ee4407b64a05d46ac7ea94e" name="ab9dfa9e38ee4407b64a05d46ac7ea94e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_NEWTON_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:ab9dfa9e38ee4407b64a05d46ac7ea94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Newton-Raphson. <br /></td></tr>
 <tr class="separator:ab9dfa9e38ee4407b64a05d46ac7ea94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8adb76460cf356315272be56a13adfde"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a8adb76460cf356315272be56a13adfde">UROBORO_MAX_STEFFENSEN_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a8adb76460cf356315272be56a13adfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Steffensen.  <a href="constants_8h.html#a8adb76460cf356315272be56a13adfde">More...</a><br /></td></tr>
+<tr class="memitem:a8adb76460cf356315272be56a13adfde"><td class="memItemLeft" align="right" valign="top"><a id="a8adb76460cf356315272be56a13adfde" name="a8adb76460cf356315272be56a13adfde"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_STEFFENSEN_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a8adb76460cf356315272be56a13adfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Steffensen. <br /></td></tr>
 <tr class="separator:a8adb76460cf356315272be56a13adfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16c0d3d247a6960091a1df3a1b2d9d02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a16c0d3d247a6960091a1df3a1b2d9d02">UROBORO_MAX_CHEBYSHEV_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a16c0d3d247a6960091a1df3a1b2d9d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Chebyshev.  <a href="constants_8h.html#a16c0d3d247a6960091a1df3a1b2d9d02">More...</a><br /></td></tr>
+<tr class="memitem:a16c0d3d247a6960091a1df3a1b2d9d02"><td class="memItemLeft" align="right" valign="top"><a id="a16c0d3d247a6960091a1df3a1b2d9d02" name="a16c0d3d247a6960091a1df3a1b2d9d02"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_CHEBYSHEV_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a16c0d3d247a6960091a1df3a1b2d9d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Chebyshev. <br /></td></tr>
 <tr class="separator:a16c0d3d247a6960091a1df3a1b2d9d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f9f57cc9bde9760338dfa157cb5e579"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#a1f9f57cc9bde9760338dfa157cb5e579">UROBORO_MAX_TRYANDCATCH_ITER</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a1f9f57cc9bde9760338dfa157cb5e579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm.  <a href="constants_8h.html#a1f9f57cc9bde9760338dfa157cb5e579">More...</a><br /></td></tr>
+<tr class="memitem:a1f9f57cc9bde9760338dfa157cb5e579"><td class="memItemLeft" align="right" valign="top"><a id="a1f9f57cc9bde9760338dfa157cb5e579" name="a1f9f57cc9bde9760338dfa157cb5e579"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_MAX_TRYANDCATCH_ITER</b>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a1f9f57cc9bde9760338dfa157cb5e579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm. <br /></td></tr>
 <tr class="separator:a1f9f57cc9bde9760338dfa157cb5e579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4019570b389ae33b035133c5b94dc3eb"><td class="memItemLeft" align="right" valign="top"><a id="a4019570b389ae33b035133c5b94dc3eb" name="a4019570b389ae33b035133c5b94dc3eb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UROBORO_RAND_REAL_PREC</b>&#160;&#160;&#160;(uint64_t(1) &lt;&lt; 32)</td></tr>
+<tr class="memdesc:a4019570b389ae33b035133c5b94dc3eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespaceuroboro.html#a885e0c9d11f196124d2b237cd21dd734" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_real()</a> <br /></td></tr>
+<tr class="separator:a4019570b389ae33b035133c5b94dc3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -164,342 +183,150 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a5c7301c129fd0f759bebecbad725812b"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a5c7301c129fd0f759bebecbad725812b">uroboro::PHI</a> = 1.6180339887498948482045868</td></tr>
-<tr class="memdesc:a5c7301c129fd0f759bebecbad725812b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Phi (Golden Section) mathematical constant.  <a href="namespaceuroboro.html#a5c7301c129fd0f759bebecbad725812b">More...</a><br /></td></tr>
+<tr class="memitem:a17c3379f7aa70afd54319ffc59878cc1"><td class="memItemLeft" align="right" valign="top"><a id="a17c3379f7aa70afd54319ffc59878cc1" name="a17c3379f7aa70afd54319ffc59878cc1"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MACH_EPSILON</b> = std::numeric_limits&lt;real&gt;::epsilon()</td></tr>
+<tr class="memdesc:a17c3379f7aa70afd54319ffc59878cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Machine epsilon for the real type. <br /></td></tr>
+<tr class="separator:a17c3379f7aa70afd54319ffc59878cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7301c129fd0f759bebecbad725812b"><td class="memItemLeft" align="right" valign="top"><a id="a5c7301c129fd0f759bebecbad725812b" name="a5c7301c129fd0f759bebecbad725812b"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::PHI</b> = 1.6180339887498948482045868</td></tr>
+<tr class="memdesc:a5c7301c129fd0f759bebecbad725812b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Phi (Golden Section) mathematical constant. <br /></td></tr>
 <tr class="separator:a5c7301c129fd0f759bebecbad725812b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a0318aa958d120abbe441ed65e0798d"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a8a0318aa958d120abbe441ed65e0798d">uroboro::PI</a> = 3.141592653589793238462643</td></tr>
-<tr class="memdesc:a8a0318aa958d120abbe441ed65e0798d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Pi mathematical constant.  <a href="namespaceuroboro.html#a8a0318aa958d120abbe441ed65e0798d">More...</a><br /></td></tr>
+<tr class="memitem:a55eb634b54b535a5264520b414aa2e2e"><td class="memItemLeft" align="right" valign="top"><a id="a55eb634b54b535a5264520b414aa2e2e" name="a55eb634b54b535a5264520b414aa2e2e"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::INVPHI</b> = 0.6180339887498948482045868</td></tr>
+<tr class="memdesc:a55eb634b54b535a5264520b414aa2e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of the Golden Section mathematical constant. <br /></td></tr>
+<tr class="separator:a55eb634b54b535a5264520b414aa2e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0318aa958d120abbe441ed65e0798d"><td class="memItemLeft" align="right" valign="top"><a id="a8a0318aa958d120abbe441ed65e0798d" name="a8a0318aa958d120abbe441ed65e0798d"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::PI</b> = 3.141592653589793238462643</td></tr>
+<tr class="memdesc:a8a0318aa958d120abbe441ed65e0798d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Pi mathematical constant. <br /></td></tr>
 <tr class="separator:a8a0318aa958d120abbe441ed65e0798d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3121b61d64bc4af30cb130d4e56da464"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a3121b61d64bc4af30cb130d4e56da464">uroboro::PI2</a> = PI / 2.0</td></tr>
-<tr class="memdesc:a3121b61d64bc4af30cb130d4e56da464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half of Pi.  <a href="namespaceuroboro.html#a3121b61d64bc4af30cb130d4e56da464">More...</a><br /></td></tr>
+<tr class="memitem:a3121b61d64bc4af30cb130d4e56da464"><td class="memItemLeft" align="right" valign="top"><a id="a3121b61d64bc4af30cb130d4e56da464" name="a3121b61d64bc4af30cb130d4e56da464"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::PI2</b> = PI / 2.0</td></tr>
+<tr class="memdesc:a3121b61d64bc4af30cb130d4e56da464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half of Pi. <br /></td></tr>
 <tr class="separator:a3121b61d64bc4af30cb130d4e56da464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a982f5856e8832b88b5def88ea0dd678b"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">uroboro::PI4</a> = PI / 4.0</td></tr>
-<tr class="memdesc:a982f5856e8832b88b5def88ea0dd678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A quarter of Pi.  <a href="namespaceuroboro.html#a982f5856e8832b88b5def88ea0dd678b">More...</a><br /></td></tr>
+<tr class="memitem:a982f5856e8832b88b5def88ea0dd678b"><td class="memItemLeft" align="right" valign="top"><a id="a982f5856e8832b88b5def88ea0dd678b" name="a982f5856e8832b88b5def88ea0dd678b"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::PI4</b> = PI / 4.0</td></tr>
+<tr class="memdesc:a982f5856e8832b88b5def88ea0dd678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A quarter of Pi. <br /></td></tr>
 <tr class="separator:a982f5856e8832b88b5def88ea0dd678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81f3dfced48f0067c59a09d938076c08"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a81f3dfced48f0067c59a09d938076c08">uroboro::PIDOUBLE</a> = PI * 2</td></tr>
-<tr class="memdesc:a81f3dfced48f0067c59a09d938076c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pi multiplied by 2.  <a href="namespaceuroboro.html#a81f3dfced48f0067c59a09d938076c08">More...</a><br /></td></tr>
+<tr class="memitem:a81f3dfced48f0067c59a09d938076c08"><td class="memItemLeft" align="right" valign="top"><a id="a81f3dfced48f0067c59a09d938076c08" name="a81f3dfced48f0067c59a09d938076c08"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::PIDOUBLE</b> = PI * 2</td></tr>
+<tr class="memdesc:a81f3dfced48f0067c59a09d938076c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pi multiplied by 2. <br /></td></tr>
 <tr class="separator:a81f3dfced48f0067c59a09d938076c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3ef573ae89dc65f92c66c0bdfb1007"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a9f3ef573ae89dc65f92c66c0bdfb1007">uroboro::TAU</a> = PI * 2</td></tr>
-<tr class="memdesc:a9f3ef573ae89dc65f92c66c0bdfb1007"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Tau mathematical constant (Pi times 2)  <a href="namespaceuroboro.html#a9f3ef573ae89dc65f92c66c0bdfb1007">More...</a><br /></td></tr>
+<tr class="memitem:a9f3ef573ae89dc65f92c66c0bdfb1007"><td class="memItemLeft" align="right" valign="top"><a id="a9f3ef573ae89dc65f92c66c0bdfb1007" name="a9f3ef573ae89dc65f92c66c0bdfb1007"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::TAU</b> = PI * 2</td></tr>
+<tr class="memdesc:a9f3ef573ae89dc65f92c66c0bdfb1007"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Tau mathematical constant (Pi times 2) <br /></td></tr>
 <tr class="separator:a9f3ef573ae89dc65f92c66c0bdfb1007"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a79c6dacad8d058db167fc857619c9"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ad8a79c6dacad8d058db167fc857619c9">uroboro::INVPI</a> = 1.0 / PI</td></tr>
-<tr class="memdesc:ad8a79c6dacad8d058db167fc857619c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of Pi.  <a href="namespaceuroboro.html#ad8a79c6dacad8d058db167fc857619c9">More...</a><br /></td></tr>
+<tr class="memitem:ad8a79c6dacad8d058db167fc857619c9"><td class="memItemLeft" align="right" valign="top"><a id="ad8a79c6dacad8d058db167fc857619c9" name="ad8a79c6dacad8d058db167fc857619c9"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::INVPI</b> = 1.0 / PI</td></tr>
+<tr class="memdesc:ad8a79c6dacad8d058db167fc857619c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of Pi. <br /></td></tr>
 <tr class="separator:ad8a79c6dacad8d058db167fc857619c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169050db8a4c1aba3d352ce3db855ba4"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a169050db8a4c1aba3d352ce3db855ba4">uroboro::SQRTPI</a> = 1.772454</td></tr>
-<tr class="memdesc:a169050db8a4c1aba3d352ce3db855ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of Pi.  <a href="namespaceuroboro.html#a169050db8a4c1aba3d352ce3db855ba4">More...</a><br /></td></tr>
+<tr class="memitem:a169050db8a4c1aba3d352ce3db855ba4"><td class="memItemLeft" align="right" valign="top"><a id="a169050db8a4c1aba3d352ce3db855ba4" name="a169050db8a4c1aba3d352ce3db855ba4"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::SQRTPI</b> = 1.772454</td></tr>
+<tr class="memdesc:a169050db8a4c1aba3d352ce3db855ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of Pi. <br /></td></tr>
 <tr class="separator:a169050db8a4c1aba3d352ce3db855ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af271a1049cdb723622d9aca9b76826e8"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#af271a1049cdb723622d9aca9b76826e8">uroboro::E</a> = 2.718281828459045235360287</td></tr>
-<tr class="memdesc:af271a1049cdb723622d9aca9b76826e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Euler mathematical constant (e)  <a href="namespaceuroboro.html#af271a1049cdb723622d9aca9b76826e8">More...</a><br /></td></tr>
+<tr class="memitem:af271a1049cdb723622d9aca9b76826e8"><td class="memItemLeft" align="right" valign="top"><a id="af271a1049cdb723622d9aca9b76826e8" name="af271a1049cdb723622d9aca9b76826e8"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::E</b> = 2.718281828459045235360287</td></tr>
+<tr class="memdesc:af271a1049cdb723622d9aca9b76826e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Euler mathematical constant (e) <br /></td></tr>
 <tr class="separator:af271a1049cdb723622d9aca9b76826e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9466670e0bb260cdcf170f03c1f58a82"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a9466670e0bb260cdcf170f03c1f58a82">uroboro::LOG2E</a> = 1.44269504088896338700465094</td></tr>
-<tr class="memdesc:a9466670e0bb260cdcf170f03c1f58a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary logarithm of e.  <a href="namespaceuroboro.html#a9466670e0bb260cdcf170f03c1f58a82">More...</a><br /></td></tr>
+<tr class="memitem:a9466670e0bb260cdcf170f03c1f58a82"><td class="memItemLeft" align="right" valign="top"><a id="a9466670e0bb260cdcf170f03c1f58a82" name="a9466670e0bb260cdcf170f03c1f58a82"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::LOG2E</b> = 1.44269504088896338700465094</td></tr>
+<tr class="memdesc:a9466670e0bb260cdcf170f03c1f58a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary logarithm of e. <br /></td></tr>
 <tr class="separator:a9466670e0bb260cdcf170f03c1f58a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a165c94ca3b74aa19e23233d50d26c6a3"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a165c94ca3b74aa19e23233d50d26c6a3">uroboro::LOG210</a> = 3.32192809488736218170856773213</td></tr>
-<tr class="memdesc:a165c94ca3b74aa19e23233d50d26c6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary logarithm of 10.  <a href="namespaceuroboro.html#a165c94ca3b74aa19e23233d50d26c6a3">More...</a><br /></td></tr>
+<tr class="memitem:a165c94ca3b74aa19e23233d50d26c6a3"><td class="memItemLeft" align="right" valign="top"><a id="a165c94ca3b74aa19e23233d50d26c6a3" name="a165c94ca3b74aa19e23233d50d26c6a3"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::LOG210</b> = 3.32192809488736218170856773213</td></tr>
+<tr class="memdesc:a165c94ca3b74aa19e23233d50d26c6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary logarithm of 10. <br /></td></tr>
 <tr class="separator:a165c94ca3b74aa19e23233d50d26c6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5967b9622c8e94da0c383c62c2df052"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#af5967b9622c8e94da0c383c62c2df052">uroboro::LOG10E</a> = 0.434294481903</td></tr>
-<tr class="memdesc:af5967b9622c8e94da0c383c62c2df052"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base-10 logarithm of e.  <a href="namespaceuroboro.html#af5967b9622c8e94da0c383c62c2df052">More...</a><br /></td></tr>
+<tr class="memitem:af5967b9622c8e94da0c383c62c2df052"><td class="memItemLeft" align="right" valign="top"><a id="af5967b9622c8e94da0c383c62c2df052" name="af5967b9622c8e94da0c383c62c2df052"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::LOG10E</b> = 0.434294481903</td></tr>
+<tr class="memdesc:af5967b9622c8e94da0c383c62c2df052"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base-10 logarithm of e. <br /></td></tr>
 <tr class="separator:af5967b9622c8e94da0c383c62c2df052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc1ae05c314fcb378089d6ef27e2b8e0"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#acc1ae05c314fcb378089d6ef27e2b8e0">uroboro::LN2</a> = 0.69314718056</td></tr>
-<tr class="memdesc:acc1ae05c314fcb378089d6ef27e2b8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The natural logarithm of 2.  <a href="namespaceuroboro.html#acc1ae05c314fcb378089d6ef27e2b8e0">More...</a><br /></td></tr>
+<tr class="memitem:acc1ae05c314fcb378089d6ef27e2b8e0"><td class="memItemLeft" align="right" valign="top"><a id="acc1ae05c314fcb378089d6ef27e2b8e0" name="acc1ae05c314fcb378089d6ef27e2b8e0"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::LN2</b> = 0.69314718056</td></tr>
+<tr class="memdesc:acc1ae05c314fcb378089d6ef27e2b8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The natural logarithm of 2. <br /></td></tr>
 <tr class="separator:acc1ae05c314fcb378089d6ef27e2b8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11d54326b8d63be423eebb1278d9d5b"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ad11d54326b8d63be423eebb1278d9d5b">uroboro::LN10</a> = 2.30258509299</td></tr>
-<tr class="memdesc:ad11d54326b8d63be423eebb1278d9d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The natural logarithm of 10.  <a href="namespaceuroboro.html#ad11d54326b8d63be423eebb1278d9d5b">More...</a><br /></td></tr>
+<tr class="memitem:ad11d54326b8d63be423eebb1278d9d5b"><td class="memItemLeft" align="right" valign="top"><a id="ad11d54326b8d63be423eebb1278d9d5b" name="ad11d54326b8d63be423eebb1278d9d5b"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::LN10</b> = 2.30258509299</td></tr>
+<tr class="memdesc:ad11d54326b8d63be423eebb1278d9d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The natural logarithm of 10. <br /></td></tr>
 <tr class="separator:ad11d54326b8d63be423eebb1278d9d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ff7867de6b0b7a3500ecae1e6f6b103"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a0ff7867de6b0b7a3500ecae1e6f6b103">uroboro::DEG2RAD</a> = 0.017453292519943295474371680598</td></tr>
-<tr class="memdesc:a0ff7867de6b0b7a3500ecae1e6f6b103"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from degrees to radians.  <a href="namespaceuroboro.html#a0ff7867de6b0b7a3500ecae1e6f6b103">More...</a><br /></td></tr>
+<tr class="memitem:a0ff7867de6b0b7a3500ecae1e6f6b103"><td class="memItemLeft" align="right" valign="top"><a id="a0ff7867de6b0b7a3500ecae1e6f6b103" name="a0ff7867de6b0b7a3500ecae1e6f6b103"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::DEG2RAD</b> = 0.017453292519943295474371680598</td></tr>
+<tr class="memdesc:a0ff7867de6b0b7a3500ecae1e6f6b103"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from degrees to radians. <br /></td></tr>
 <tr class="separator:a0ff7867de6b0b7a3500ecae1e6f6b103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c9bf07250a20e0a7cea2e15c7f5ab9"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ad9c9bf07250a20e0a7cea2e15c7f5ab9">uroboro::RAD2DEG</a> = 57.2957795130823228646477218717</td></tr>
-<tr class="memdesc:ad9c9bf07250a20e0a7cea2e15c7f5ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from radians to degrees.  <a href="namespaceuroboro.html#ad9c9bf07250a20e0a7cea2e15c7f5ab9">More...</a><br /></td></tr>
+<tr class="memitem:ad9c9bf07250a20e0a7cea2e15c7f5ab9"><td class="memItemLeft" align="right" valign="top"><a id="ad9c9bf07250a20e0a7cea2e15c7f5ab9" name="ad9c9bf07250a20e0a7cea2e15c7f5ab9"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RAD2DEG</b> = 57.2957795130823228646477218717</td></tr>
+<tr class="memdesc:ad9c9bf07250a20e0a7cea2e15c7f5ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from radians to degrees. <br /></td></tr>
 <tr class="separator:ad9c9bf07250a20e0a7cea2e15c7f5ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b5aee93506daf9c9b72fab3e4266b2"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a55b5aee93506daf9c9b72fab3e4266b2">uroboro::SQRT2</a> = 1.41421356237</td></tr>
-<tr class="memdesc:a55b5aee93506daf9c9b72fab3e4266b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of 2.  <a href="namespaceuroboro.html#a55b5aee93506daf9c9b72fab3e4266b2">More...</a><br /></td></tr>
+<tr class="memitem:a55b5aee93506daf9c9b72fab3e4266b2"><td class="memItemLeft" align="right" valign="top"><a id="a55b5aee93506daf9c9b72fab3e4266b2" name="a55b5aee93506daf9c9b72fab3e4266b2"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::SQRT2</b> = 1.41421356237</td></tr>
+<tr class="memdesc:a55b5aee93506daf9c9b72fab3e4266b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of 2. <br /></td></tr>
 <tr class="separator:a55b5aee93506daf9c9b72fab3e4266b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca28dff8cbad4fc7d8b4b54e38ca3c17"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aca28dff8cbad4fc7d8b4b54e38ca3c17">uroboro::INVSQR2</a> = 0.707106781187</td></tr>
-<tr class="memdesc:aca28dff8cbad4fc7d8b4b54e38ca3c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of the square root of 2.  <a href="namespaceuroboro.html#aca28dff8cbad4fc7d8b4b54e38ca3c17">More...</a><br /></td></tr>
+<tr class="memitem:aca28dff8cbad4fc7d8b4b54e38ca3c17"><td class="memItemLeft" align="right" valign="top"><a id="aca28dff8cbad4fc7d8b4b54e38ca3c17" name="aca28dff8cbad4fc7d8b4b54e38ca3c17"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::INVSQR2</b> = 0.707106781187</td></tr>
+<tr class="memdesc:aca28dff8cbad4fc7d8b4b54e38ca3c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of the square root of 2. <br /></td></tr>
 <tr class="separator:aca28dff8cbad4fc7d8b4b54e38ca3c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a673a7e139f7458c1833f732ad9ee46fe"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a673a7e139f7458c1833f732ad9ee46fe">uroboro::TAYLOR_ORDER</a> = <a class="el" href="constants_8h.html#a719626095b824ca3ca2007f1b3232876">UROBORO_TAYLOR_ORDER</a></td></tr>
-<tr class="memdesc:a673a7e139f7458c1833f732ad9ee46fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order of Taylor series approximations.  <a href="namespaceuroboro.html#a673a7e139f7458c1833f732ad9ee46fe">More...</a><br /></td></tr>
+<tr class="memitem:a673a7e139f7458c1833f732ad9ee46fe"><td class="memItemLeft" align="right" valign="top"><a id="a673a7e139f7458c1833f732ad9ee46fe" name="a673a7e139f7458c1833f732ad9ee46fe"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::TAYLOR_ORDER</b> = <a class="el" href="constants_8h.html#a719626095b824ca3ca2007f1b3232876">UROBORO_TAYLOR_ORDER</a></td></tr>
+<tr class="memdesc:a673a7e139f7458c1833f732ad9ee46fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order of Taylor series approximations. <br /></td></tr>
 <tr class="separator:a673a7e139f7458c1833f732ad9ee46fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8897d90d47e126c9cb22d3116d42c5c"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ac8897d90d47e126c9cb22d3116d42c5c">uroboro::INTEGRATION_STEPS</a> = <a class="el" href="constants_8h.html#abf038debee3ad45cb5c48c8e4590cb18">UROBORO_INTEGRATION_STEPS</a></td></tr>
-<tr class="memdesc:ac8897d90d47e126c9cb22d3116d42c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of steps for integral approximation.  <a href="namespaceuroboro.html#ac8897d90d47e126c9cb22d3116d42c5c">More...</a><br /></td></tr>
+<tr class="memitem:ac8897d90d47e126c9cb22d3116d42c5c"><td class="memItemLeft" align="right" valign="top"><a id="ac8897d90d47e126c9cb22d3116d42c5c" name="ac8897d90d47e126c9cb22d3116d42c5c"></a>
+constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::INTEGRATION_STEPS</b> = <a class="el" href="constants_8h.html#abf038debee3ad45cb5c48c8e4590cb18">UROBORO_INTEGRATION_STEPS</a></td></tr>
+<tr class="memdesc:ac8897d90d47e126c9cb22d3116d42c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of steps for integral approximation. <br /></td></tr>
 <tr class="separator:ac8897d90d47e126c9cb22d3116d42c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f740899f85b84d64c4698f139cc61a"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#ad3f740899f85b84d64c4698f139cc61a">uroboro::DERIV_PREC</a> = <a class="el" href="constants_8h.html#a48ebb8ddac33ae652370f698ed1daf93">UROBORO_DERIV_PREC</a></td></tr>
-<tr class="memdesc:ad3f740899f85b84d64c4698f139cc61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative precision for derivative approximation.  <a href="namespaceuroboro.html#ad3f740899f85b84d64c4698f139cc61a">More...</a><br /></td></tr>
+<tr class="memitem:ad3f740899f85b84d64c4698f139cc61a"><td class="memItemLeft" align="right" valign="top"><a id="ad3f740899f85b84d64c4698f139cc61a" name="ad3f740899f85b84d64c4698f139cc61a"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::DERIV_PREC</b> = <a class="el" href="constants_8h.html#a48ebb8ddac33ae652370f698ed1daf93">UROBORO_DERIV_PREC</a></td></tr>
+<tr class="memdesc:ad3f740899f85b84d64c4698f139cc61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative precision for derivative approximation. <br /></td></tr>
 <tr class="separator:ad3f740899f85b84d64c4698f139cc61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a528d4de5bb63457cc26ad6888999e9"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a2a528d4de5bb63457cc26ad6888999e9">uroboro::POWF_POWER_TOLERANCE</a> = <a class="el" href="constants_8h.html#a1563743ef011c414b0f50c553310aefe">UROBORO_POWF_APPROX_TOL</a></td></tr>
-<tr class="memdesc:a2a528d4de5bb63457cc26ad6888999e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biggest fractional part to ignore in powf computation.  <a href="namespaceuroboro.html#a2a528d4de5bb63457cc26ad6888999e9">More...</a><br /></td></tr>
+<tr class="memitem:a2a528d4de5bb63457cc26ad6888999e9"><td class="memItemLeft" align="right" valign="top"><a id="a2a528d4de5bb63457cc26ad6888999e9" name="a2a528d4de5bb63457cc26ad6888999e9"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::POWF_POWER_TOLERANCE</b> = <a class="el" href="constants_8h.html#a1563743ef011c414b0f50c553310aefe">UROBORO_POWF_APPROX_TOL</a></td></tr>
+<tr class="memdesc:a2a528d4de5bb63457cc26ad6888999e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biggest fractional part to ignore in powf computation. <br /></td></tr>
 <tr class="separator:a2a528d4de5bb63457cc26ad6888999e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc169c401028ed65ab89d17fa5f68df9"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#afc169c401028ed65ab89d17fa5f68df9">uroboro::ROOT_APPROX_TOL</a> = <a class="el" href="constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d">UROBORO_ROOT_APPROX_TOL</a></td></tr>
-<tr class="memdesc:afc169c401028ed65ab89d17fa5f68df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for root finding.  <a href="namespaceuroboro.html#afc169c401028ed65ab89d17fa5f68df9">More...</a><br /></td></tr>
+<tr class="memitem:afc169c401028ed65ab89d17fa5f68df9"><td class="memItemLeft" align="right" valign="top"><a id="afc169c401028ed65ab89d17fa5f68df9" name="afc169c401028ed65ab89d17fa5f68df9"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::ROOT_APPROX_TOL</b> = <a class="el" href="constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d">UROBORO_ROOT_APPROX_TOL</a></td></tr>
+<tr class="memdesc:afc169c401028ed65ab89d17fa5f68df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for root finding. <br /></td></tr>
 <tr class="separator:afc169c401028ed65ab89d17fa5f68df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f597dae8df9cf55f04bff406e25cc0f"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a3f597dae8df9cf55f04bff406e25cc0f">uroboro::BISECTION_APPROX_TOL</a> = <a class="el" href="constants_8h.html#a98d37120deecb971cfb5ded128055019">UROBORO_BISECTION_APPROX_TOL</a></td></tr>
-<tr class="memdesc:a3f597dae8df9cf55f04bff406e25cc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for the bisection algorithm.  <a href="namespaceuroboro.html#a3f597dae8df9cf55f04bff406e25cc0f">More...</a><br /></td></tr>
+<tr class="memitem:a3f597dae8df9cf55f04bff406e25cc0f"><td class="memItemLeft" align="right" valign="top"><a id="a3f597dae8df9cf55f04bff406e25cc0f" name="a3f597dae8df9cf55f04bff406e25cc0f"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::BISECTION_APPROX_TOL</b> = <a class="el" href="constants_8h.html#a98d37120deecb971cfb5ded128055019">UROBORO_BISECTION_APPROX_TOL</a></td></tr>
+<tr class="memdesc:a3f597dae8df9cf55f04bff406e25cc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for the bisection algorithm. <br /></td></tr>
 <tr class="separator:a3f597dae8df9cf55f04bff406e25cc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfe8659811f4bfa3fa82e9855fa98e84"><td class="memItemLeft" align="right" valign="top">constexpr real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#acfe8659811f4bfa3fa82e9855fa98e84">uroboro::NEWTON_RAPHSON_TOL</a> = <a class="el" href="constants_8h.html#a379dde1cf9d8c6a47cf49785293ecc2a">UROBORO_NEWTON_RAPHSON_TOL</a></td></tr>
-<tr class="memdesc:acfe8659811f4bfa3fa82e9855fa98e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for the Newton-Raphson algorithm.  <a href="namespaceuroboro.html#acfe8659811f4bfa3fa82e9855fa98e84">More...</a><br /></td></tr>
+<tr class="memitem:acfe8659811f4bfa3fa82e9855fa98e84"><td class="memItemLeft" align="right" valign="top"><a id="acfe8659811f4bfa3fa82e9855fa98e84" name="acfe8659811f4bfa3fa82e9855fa98e84"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::NEWTON_RAPHSON_TOL</b> = <a class="el" href="constants_8h.html#a379dde1cf9d8c6a47cf49785293ecc2a">UROBORO_NEWTON_RAPHSON_TOL</a></td></tr>
+<tr class="memdesc:acfe8659811f4bfa3fa82e9855fa98e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximation tolerance for the Newton-Raphson algorithm. <br /></td></tr>
 <tr class="separator:acfe8659811f4bfa3fa82e9855fa98e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17f105414cd88ba48f91012df85eb86"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa17f105414cd88ba48f91012df85eb86">uroboro::MAX_BISECTION_ITER</a> = <a class="el" href="constants_8h.html#a14f5701be7ec116724744b898f605006">UROBORO_MAX_BISECTION_ITER</a></td></tr>
-<tr class="memdesc:aa17f105414cd88ba48f91012df85eb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the bisection algorithm.  <a href="namespaceuroboro.html#aa17f105414cd88ba48f91012df85eb86">More...</a><br /></td></tr>
+<tr class="memitem:aa17f105414cd88ba48f91012df85eb86"><td class="memItemLeft" align="right" valign="top"><a id="aa17f105414cd88ba48f91012df85eb86" name="aa17f105414cd88ba48f91012df85eb86"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_BISECTION_ITER</b> = <a class="el" href="constants_8h.html#a14f5701be7ec116724744b898f605006">UROBORO_MAX_BISECTION_ITER</a></td></tr>
+<tr class="memdesc:aa17f105414cd88ba48f91012df85eb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the bisection algorithm. <br /></td></tr>
 <tr class="separator:aa17f105414cd88ba48f91012df85eb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0ca52531bf3ea0820656d885aba5096"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#aa0ca52531bf3ea0820656d885aba5096">uroboro::MAX_GOLDENSECTION_ITER</a> = <a class="el" href="constants_8h.html#ac5d54134993bfc7ed2b6db27ea9c01b4">UROBORO_MAX_GOLDENSECTION_ITER</a></td></tr>
-<tr class="memdesc:aa0ca52531bf3ea0820656d885aba5096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the golden section search algorithm.  <a href="namespaceuroboro.html#aa0ca52531bf3ea0820656d885aba5096">More...</a><br /></td></tr>
+<tr class="memitem:aa0ca52531bf3ea0820656d885aba5096"><td class="memItemLeft" align="right" valign="top"><a id="aa0ca52531bf3ea0820656d885aba5096" name="aa0ca52531bf3ea0820656d885aba5096"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_GOLDENSECTION_ITER</b> = <a class="el" href="constants_8h.html#ac5d54134993bfc7ed2b6db27ea9c01b4">UROBORO_MAX_GOLDENSECTION_ITER</a></td></tr>
+<tr class="memdesc:aa0ca52531bf3ea0820656d885aba5096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the golden section search algorithm. <br /></td></tr>
 <tr class="separator:aa0ca52531bf3ea0820656d885aba5096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a557b85793a28f3937a6df4d69caa7b0f"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a557b85793a28f3937a6df4d69caa7b0f">uroboro::MAX_HALLEY_ITER</a> = <a class="el" href="constants_8h.html#a0bfe0b73bda1acdae546927fc6adcb73">UROBORO_MAX_HALLEY_ITER</a></td></tr>
-<tr class="memdesc:a557b85793a28f3937a6df4d69caa7b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Halley's method.  <a href="namespaceuroboro.html#a557b85793a28f3937a6df4d69caa7b0f">More...</a><br /></td></tr>
+<tr class="memitem:a557b85793a28f3937a6df4d69caa7b0f"><td class="memItemLeft" align="right" valign="top"><a id="a557b85793a28f3937a6df4d69caa7b0f" name="a557b85793a28f3937a6df4d69caa7b0f"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_HALLEY_ITER</b> = <a class="el" href="constants_8h.html#a0bfe0b73bda1acdae546927fc6adcb73">UROBORO_MAX_HALLEY_ITER</a></td></tr>
+<tr class="memdesc:a557b85793a28f3937a6df4d69caa7b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for Halley's method. <br /></td></tr>
 <tr class="separator:a557b85793a28f3937a6df4d69caa7b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c2221d8f7adec4e5c12e2b657eaa50a"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a5c2221d8f7adec4e5c12e2b657eaa50a">uroboro::MAX_NEWTON_ITER</a> = <a class="el" href="constants_8h.html#ab9dfa9e38ee4407b64a05d46ac7ea94e">UROBORO_MAX_NEWTON_ITER</a></td></tr>
-<tr class="memdesc:a5c2221d8f7adec4e5c12e2b657eaa50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Newton-Raphson algorithm.  <a href="namespaceuroboro.html#a5c2221d8f7adec4e5c12e2b657eaa50a">More...</a><br /></td></tr>
+<tr class="memitem:a5c2221d8f7adec4e5c12e2b657eaa50a"><td class="memItemLeft" align="right" valign="top"><a id="a5c2221d8f7adec4e5c12e2b657eaa50a" name="a5c2221d8f7adec4e5c12e2b657eaa50a"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_NEWTON_ITER</b> = <a class="el" href="constants_8h.html#ab9dfa9e38ee4407b64a05d46ac7ea94e">UROBORO_MAX_NEWTON_ITER</a></td></tr>
+<tr class="memdesc:a5c2221d8f7adec4e5c12e2b657eaa50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Newton-Raphson algorithm. <br /></td></tr>
 <tr class="separator:a5c2221d8f7adec4e5c12e2b657eaa50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06660e14506ab0f6e894e4b7743d343f"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a06660e14506ab0f6e894e4b7743d343f">uroboro::MAX_STEFFENSEN_ITER</a> = <a class="el" href="constants_8h.html#a8adb76460cf356315272be56a13adfde">UROBORO_MAX_STEFFENSEN_ITER</a></td></tr>
-<tr class="memdesc:a06660e14506ab0f6e894e4b7743d343f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Steffensen algorithm.  <a href="namespaceuroboro.html#a06660e14506ab0f6e894e4b7743d343f">More...</a><br /></td></tr>
+<tr class="memitem:a06660e14506ab0f6e894e4b7743d343f"><td class="memItemLeft" align="right" valign="top"><a id="a06660e14506ab0f6e894e4b7743d343f" name="a06660e14506ab0f6e894e4b7743d343f"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_STEFFENSEN_ITER</b> = <a class="el" href="constants_8h.html#a8adb76460cf356315272be56a13adfde">UROBORO_MAX_STEFFENSEN_ITER</a></td></tr>
+<tr class="memdesc:a06660e14506ab0f6e894e4b7743d343f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Steffensen algorithm. <br /></td></tr>
 <tr class="separator:a06660e14506ab0f6e894e4b7743d343f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030d1788cf91e60de48a457faead1991"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a030d1788cf91e60de48a457faead1991">uroboro::MAX_CHEBYSHEV_ITER</a> = <a class="el" href="constants_8h.html#a16c0d3d247a6960091a1df3a1b2d9d02">UROBORO_MAX_CHEBYSHEV_ITER</a></td></tr>
-<tr class="memdesc:a030d1788cf91e60de48a457faead1991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Chebyshev algorithm.  <a href="namespaceuroboro.html#a030d1788cf91e60de48a457faead1991">More...</a><br /></td></tr>
+<tr class="memitem:a030d1788cf91e60de48a457faead1991"><td class="memItemLeft" align="right" valign="top"><a id="a030d1788cf91e60de48a457faead1991" name="a030d1788cf91e60de48a457faead1991"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_CHEBYSHEV_ITER</b> = <a class="el" href="constants_8h.html#a16c0d3d247a6960091a1df3a1b2d9d02">UROBORO_MAX_CHEBYSHEV_ITER</a></td></tr>
+<tr class="memdesc:a030d1788cf91e60de48a457faead1991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Chebyshev algorithm. <br /></td></tr>
 <tr class="separator:a030d1788cf91e60de48a457faead1991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f037d3e459f5e788e9d6711c96af85"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html#a35f037d3e459f5e788e9d6711c96af85">uroboro::MAX_TRYANDCATCH_ITER</a> = <a class="el" href="constants_8h.html#a1f9f57cc9bde9760338dfa157cb5e579">UROBORO_MAX_TRYANDCATCH_ITER</a></td></tr>
-<tr class="memdesc:a35f037d3e459f5e788e9d6711c96af85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm.  <a href="namespaceuroboro.html#a35f037d3e459f5e788e9d6711c96af85">More...</a><br /></td></tr>
+<tr class="memitem:a35f037d3e459f5e788e9d6711c96af85"><td class="memItemLeft" align="right" valign="top"><a id="a35f037d3e459f5e788e9d6711c96af85" name="a35f037d3e459f5e788e9d6711c96af85"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::MAX_TRYANDCATCH_ITER</b> = <a class="el" href="constants_8h.html#a1f9f57cc9bde9760338dfa157cb5e579">UROBORO_MAX_TRYANDCATCH_ITER</a></td></tr>
+<tr class="memdesc:a35f037d3e459f5e788e9d6711c96af85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm. <br /></td></tr>
 <tr class="separator:a35f037d3e459f5e788e9d6711c96af85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae691e042d283ef8367795f8c5c446a71"><td class="memItemLeft" align="right" valign="top"><a id="ae691e042d283ef8367795f8c5c446a71" name="ae691e042d283ef8367795f8c5c446a71"></a>
+constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RAND_REAL_PREC</b> = <a class="el" href="constants_8h.html#a4019570b389ae33b035133c5b94dc3eb">UROBORO_RAND_REAL_PREC</a></td></tr>
+<tr class="memdesc:ae691e042d283ef8367795f8c5c446a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespaceuroboro.html#a885e0c9d11f196124d2b237cd21dd734" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_real()</a> <br /></td></tr>
+<tr class="separator:ae691e042d283ef8367795f8c5c446a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Mathematical constants and algorithm parameters. </p>
-
-<p class="definition">Definition in file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a98d37120deecb971cfb5ded128055019" name="a98d37120deecb971cfb5ded128055019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98d37120deecb971cfb5ded128055019">&#9670;&nbsp;</a></span>UROBORO_BISECTION_APPROX_TOL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_BISECTION_APPROX_TOL&#160;&#160;&#160;0.00000001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Approximation tolerance for bisection root finding. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00047">47</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a48ebb8ddac33ae652370f698ed1daf93" name="a48ebb8ddac33ae652370f698ed1daf93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ebb8ddac33ae652370f698ed1daf93">&#9670;&nbsp;</a></span>UROBORO_DERIV_PREC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_DERIV_PREC&#160;&#160;&#160;100000.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Relative precision for derivative approximation. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00022">22</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="abf038debee3ad45cb5c48c8e4590cb18" name="abf038debee3ad45cb5c48c8e4590cb18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf038debee3ad45cb5c48c8e4590cb18">&#9670;&nbsp;</a></span>UROBORO_INTEGRATION_STEPS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_INTEGRATION_STEPS&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Default number of steps for integral approximation. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00027">27</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a14f5701be7ec116724744b898f605006" name="a14f5701be7ec116724744b898f605006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14f5701be7ec116724744b898f605006">&#9670;&nbsp;</a></span>UROBORO_MAX_BISECTION_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_BISECTION_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for bisection. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00052">52</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a16c0d3d247a6960091a1df3a1b2d9d02" name="a16c0d3d247a6960091a1df3a1b2d9d02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16c0d3d247a6960091a1df3a1b2d9d02">&#9670;&nbsp;</a></span>UROBORO_MAX_CHEBYSHEV_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_CHEBYSHEV_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for Chebyshev. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00077">77</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="ac5d54134993bfc7ed2b6db27ea9c01b4" name="ac5d54134993bfc7ed2b6db27ea9c01b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d54134993bfc7ed2b6db27ea9c01b4">&#9670;&nbsp;</a></span>UROBORO_MAX_GOLDENSECTION_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_GOLDENSECTION_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for golden section search. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00057">57</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a0bfe0b73bda1acdae546927fc6adcb73" name="a0bfe0b73bda1acdae546927fc6adcb73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bfe0b73bda1acdae546927fc6adcb73">&#9670;&nbsp;</a></span>UROBORO_MAX_HALLEY_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_HALLEY_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for Halley's method. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00062">62</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="ab9dfa9e38ee4407b64a05d46ac7ea94e" name="ab9dfa9e38ee4407b64a05d46ac7ea94e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9dfa9e38ee4407b64a05d46ac7ea94e">&#9670;&nbsp;</a></span>UROBORO_MAX_NEWTON_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_NEWTON_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for Newton-Raphson. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00067">67</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a8adb76460cf356315272be56a13adfde" name="a8adb76460cf356315272be56a13adfde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8adb76460cf356315272be56a13adfde">&#9670;&nbsp;</a></span>UROBORO_MAX_STEFFENSEN_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_STEFFENSEN_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of iterations for Steffensen. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00072">72</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a1f9f57cc9bde9760338dfa157cb5e579" name="a1f9f57cc9bde9760338dfa157cb5e579"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f9f57cc9bde9760338dfa157cb5e579">&#9670;&nbsp;</a></span>UROBORO_MAX_TRYANDCATCH_ITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_MAX_TRYANDCATCH_ITER&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum number of failed iterations for the Try-and-Catch algorithm. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00082">82</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a379dde1cf9d8c6a47cf49785293ecc2a" name="a379dde1cf9d8c6a47cf49785293ecc2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a379dde1cf9d8c6a47cf49785293ecc2a">&#9670;&nbsp;</a></span>UROBORO_NEWTON_RAPHSON_TOL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_NEWTON_RAPHSON_TOL&#160;&#160;&#160;0.00000001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Approximation tolerance for Newton's method root finding. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00042">42</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a1563743ef011c414b0f50c553310aefe" name="a1563743ef011c414b0f50c553310aefe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1563743ef011c414b0f50c553310aefe">&#9670;&nbsp;</a></span>UROBORO_POWF_APPROX_TOL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_POWF_APPROX_TOL&#160;&#160;&#160;0.00000001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Biggest fractional part to ignore in powf computation. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00032">32</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a93c87e66b12be01e1fb6427642f2f36d" name="a93c87e66b12be01e1fb6427642f2f36d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93c87e66b12be01e1fb6427642f2f36d">&#9670;&nbsp;</a></span>UROBORO_ROOT_APPROX_TOL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UROBORO_ROOT_APPROX_TOL&#160;&#160;&#160;0.00000001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Approximation tolerance for root finding. </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00037">37</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
 <a id="a719626095b824ca3ca2007f1b3232876" name="a719626095b824ca3ca2007f1b3232876"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a719626095b824ca3ca2007f1b3232876">&#9670;&nbsp;</a></span>UROBORO_TAYLOR_ORDER</h2>
 
@@ -515,8 +342,6 @@ Variables</h2></td></tr>
 <p>@macro UROBORO_X86 Define this macro if the machine has a x86 architecture to use hardware enhanced functions. </p>
 <p >Order of Taylor series approximations </p>
 
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00017">17</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->
@@ -525,7 +350,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="constants_8h.html">constants.h</a></li>
-    <li class="footer">Generated on Thu May 5 2022 15:25:09 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

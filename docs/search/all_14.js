@@ -19,7 +19,8 @@ var searchData=
   ['uroboro_5fmax_5ftryandcatch_5fiter_16',['UROBORO_MAX_TRYANDCATCH_ITER',['../constants_8h.html#a1f9f57cc9bde9760338dfa157cb5e579',1,'constants.h']]],
   ['uroboro_5fnewton_5fraphson_5ftol_17',['UROBORO_NEWTON_RAPHSON_TOL',['../constants_8h.html#a379dde1cf9d8c6a47cf49785293ecc2a',1,'constants.h']]],
   ['uroboro_5fpowf_5fapprox_5ftol_18',['UROBORO_POWF_APPROX_TOL',['../constants_8h.html#a1563743ef011c414b0f50c553310aefe',1,'constants.h']]],
-  ['uroboro_5froot_5fapprox_5ftol_19',['UROBORO_ROOT_APPROX_TOL',['../constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d',1,'constants.h']]],
-  ['uroboro_5ftaylor_5forder_20',['UROBORO_TAYLOR_ORDER',['../constants_8h.html#a719626095b824ca3ca2007f1b3232876',1,'constants.h']]],
-  ['utility_2eh_21',['utility.h',['../utility_8h.html',1,'']]]
+  ['uroboro_5frand_5freal_5fprec_19',['UROBORO_RAND_REAL_PREC',['../constants_8h.html#a4019570b389ae33b035133c5b94dc3eb',1,'constants.h']]],
+  ['uroboro_5froot_5fapprox_5ftol_20',['UROBORO_ROOT_APPROX_TOL',['../constants_8h.html#a93c87e66b12be01e1fb6427642f2f36d',1,'constants.h']]],
+  ['uroboro_5ftaylor_5forder_21',['UROBORO_TAYLOR_ORDER',['../constants_8h.html#a719626095b824ca3ca2007f1b3232876',1,'constants.h']]],
+  ['utility_2eh_22',['utility.h',['../utility_8h.html',1,'']]]
 ];

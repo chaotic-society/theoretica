@@ -14,6 +14,7 @@ var annotated_dup =
       [ "polynomial", "classuroboro_1_1polynomial.html", "classuroboro_1_1polynomial" ],
       [ "PRNG", "classuroboro_1_1_p_r_n_g.html", "classuroboro_1_1_p_r_n_g" ],
       [ "quat", "classuroboro_1_1quat.html", "classuroboro_1_1quat" ],
+      [ "ratio", "classuroboro_1_1ratio.html", "classuroboro_1_1ratio" ],
       [ "vec", "classuroboro_1_1vec.html", "classuroboro_1_1vec" ]
     ] ]
 ];

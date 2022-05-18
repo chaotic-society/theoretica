@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_20of_20features_0',['List of features',['../md_txt__f_e_a_t_u_r_e_s.html',1,'']]]
+  ['examples_0',['Examples',['../md_txt__e_x_a_m_p_l_e_s.html',1,'']]]
 ];
