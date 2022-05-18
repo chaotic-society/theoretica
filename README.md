@@ -2,7 +2,15 @@
 
 <img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
-A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional-object oriented paradigm to mimic mathematical notation. Includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations, quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation.
+A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
+
+### A short example
+Given a Hamiltonian function **H(q, p)** and a function **f(q, p)** defined on its phase space, you can compute its _exact_ time derivative at a position _eta_ like this:
+```cpp
+real df_dt = gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
+```
+
+The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
 ## Dependencies
 The library has no dependencies. Only the C++ Standard Library is needed to use it. **You can include it in your project straight away!**
@@ -21,7 +29,11 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
 
 ## Setup
-You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.  Define **UROBORO_X86** if you are on an x86 architecture to enable Assembly instructions and **UROBORO_INCLUDE_ALL** if you intend to use most functionalities, as by default `uroboro.h` only includes base headers. All library functions are implemented in the `uroboro` namespace (`umath` is a shorter namespace alias).
+You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works. 
+- Define **UROBORO_X86** if you are on an x86 architecture to enable Assembly instructions
+- Define **UROBORO_INCLUDE_ALL** if you intend to use most functionalities, as by default `uroboro.h` only includes base headers
+
+All library functions are implemented in the `uroboro` namespace (`umath` is a shorter namespace alias).
 
 ## Examples
 Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/uroboro/blob/master/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
@@ -53,14 +65,11 @@ This project is currently under the [GNU Lesser General Public License 3.0](http
 ## Macros
 These are the macros that can be defined to change the library's behaviour:
 - **UROBORO_INCLUDE_ALL** - Including `uroboro.h` will include _all_ header files instead of base headers
-- **UROBORO_BRANCHLESS** - Branchless implementations will be preferred when possible (and computationally convenient)
 - **UROBORO_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
 - **UROBORO_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
-- **UROBORO_NO_NAMESPACE** - The `umath` namespace alias will **not** be defined
 - **UROBORO_X86** - **Assembly x86** implementations will be used whenever possible
 - **UROBORO_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
 - **UROBORO_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
-- **UROBORO_NO_PRINT** - Do **not** compile `to_string()` and `operator<<()` methods for all classes (to avoid including `<string>`, `<sstream>` and `<ostream>`)
 - **UROBORO_ROW_FIRST** - The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.
 - **UROBORO_MATRIX_LEXIC** - Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.
 - See `constants.h` for more specific defines
