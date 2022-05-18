@@ -181,12 +181,23 @@ namespace uroboro {
 
 	/// Generate a pseudorandom real number in [a, b] using a
 	/// preexisting generator.
+	/// @param a The lower extreme of the interval
+	/// @param b The higher extreme of the interval
+	/// @param g An already initialized pseudorandom number generator
+	/// @param prec Precision parameters for the normalization, defaults
+	/// to RAND_REAL_PREC.
 	///
-	/// The algorithm generates natural numbers between 0 and prec,
-	/// scales the result to [0, 1] and then transforms it to [a, b].
+	/// The algorithm generates a random integer number, computes
+	/// its modulus and divides it by prec:
+	/// \f$x = (n mod p) / 2^p\f$, where n is the random integer
+	/// and p is the prec parameter
 	inline real rand_real(real a, real b, PRNG& g, uint64_t prec = RAND_REAL_PREC) {
 
-		return a + (b - a) * ((g.next() % prec) / static_cast<real>(prec));
+		// Generate a uniform random real number in [0, 1]
+		real x = (g() % prec) / static_cast<real>(prec);
+
+		// Transform to target interval
+		return a + (b - a) * x;
 	}
 
 }

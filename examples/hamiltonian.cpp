@@ -1,7 +1,7 @@
 
 ///
 /// @file hamiltonian.cpp Automatically simulate an Hamiltonian system from
-/// its Hamiltonian function using automatical differentiation and
+/// its Hamiltonian function using automatic differentiation and
 /// numerical integration
 ///
 

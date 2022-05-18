@@ -6,6 +6,12 @@
 #ifndef UROBORO_RATIO_H
 #define UROBORO_RATIO_H
 
+#ifndef UROBORO_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
+
 namespace uroboro {
 
 	/// @class ratio A class representing a ratio between two objects,
