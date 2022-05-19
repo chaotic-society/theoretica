@@ -23,7 +23,7 @@ You can contribute greatly by opening a new [issue](https://github.com/chaotic-s
 the library. You can also write in the [Discussion](https://github.com/chaotic-society/uroboro/discussions) if you want to open a discussion about a certain topic and confront your ideas with others.
 
 ## Writing new code
-If you want to contribute by writing new code, make sure to add it in the right place.
+If you want to contribute by writing new code, make sure to add it in the right place and to follow the [Coding Standard](https://github.com/chaotic-society/uroboro/blob/master/txt/CODING_STANDARD.md).
 Please read the [Documentation](https://chaotic-society.github.io/uroboro) to know about the directory structure of the library.
 In the case that the new feature does not have an already existing header file to be added to, you can create a new header file following this template:
 ```cpp
