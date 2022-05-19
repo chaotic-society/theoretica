@@ -34,3 +34,4 @@ Descriptions should explain what the function or class does
 ## Other considerations
 - All functions except class constructors should be declared `inline` if implemented inside headers
 - Do not use the the GOTO statement
+- Procedures (deterministic functions without side effects, like in functional languages) should be preferred over functions whenever possible for mathematical algorithms and methods
