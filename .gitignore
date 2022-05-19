@@ -1,1 +1,3 @@
 *.exe
+uroboro-cppcheck-build-dir/*
+*.cppcheck
