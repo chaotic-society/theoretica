@@ -65,7 +65,7 @@ long double rel_err_sum = 0;
 unsigned int rel_err_n = 0;
 
 // Start testing a specific function
-void test_start(std::string f) {
+void test_start(const std::string& f) {
 
 	func_name = f;
 	std::cout << "Testing " << func_name << " ...\n" << std::endl;

@@ -40,10 +40,7 @@ namespace  uroboro {
 			complex(real real_part, real imag_part) : a(real_part), b(imag_part) {}
 
 			/// Initialize from a vec2
-			complex(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
-			}
+			complex(const vec2& v) : a(v.get(0)), b(v.get(1)) {}
 
 			/// Initialize a complex number from a vec2
 			inline complex& operator=(const vec2& v) {

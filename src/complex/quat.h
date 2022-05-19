@@ -28,22 +28,13 @@ namespace uroboro {
 			vec3 v;
 
 			/// Initialize as (0 + 0i + 0j + 0k)
-			quat() {
-				a = 0;
-				v = vec3();
-			}
+			quat() : a(0), v(vec3()) {}
 
 			/// Initialize from a real number and a vector
-			quat(real a, const vec3& v) {
-				this->a = a;
-				this->v = v;
-			}
+			quat(real a, const vec3& v) : a(a), v(v) {}
 
 			/// Initialize from another quaternion
-			quat(const quat& other) {
-				a = other.a;
-				v = other.v;
-			}
+			quat(const quat& other) : a(other.a), v(other.v) {}
 
 			inline quat& operator=(const quat& other) {
 				a = other.a;
@@ -60,8 +51,7 @@ namespace uroboro {
 			}
 
 			/// Initialize from four real numbers
-			quat(real a, real b, real c, real d) {
-				this-> a = a;
+			quat(real a, real b, real c, real d) : a(a) {
 				v.data[0] = b;
 				v.data[1] = c;
 				v.data[2] = d;

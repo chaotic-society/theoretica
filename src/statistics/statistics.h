@@ -94,12 +94,12 @@ namespace uroboro {
 		}
 
 		// Compute sum of squares of (i_sigma / i_mean)
-		real sum = 0;
+		real s = 0;
 		for (int i = 0; i < sigma.size(); ++i) {
-			sum += square(sigma[i] / abs(mean[i]));
+			s += square(sigma[i] / abs(mean[i]));
 		}
 
-		return sqrt(sum);
+		return sqrt(s);
 	}
 
 
@@ -125,13 +125,13 @@ namespace uroboro {
 			return nan();
 		}
 
-		real tss = 0;
+		real res = 0;
 		real x_m = mean(X);
 		for (auto x : X) {
-			tss += square(x - x_m);
+			res += square(x - x_m);
 		}
 
-		return tss;
+		return res;
 	}
 
 	/// Total sum of squares (TSS)
@@ -255,14 +255,14 @@ namespace uroboro {
 			return nan();
 		}
 
-		real sum = 0;
+		real s = 0;
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
 
 		for (int i = 0; i < X.size(); ++i)
-			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
+			s += (X[i] - X_mean) * (Y[i] - Y_mean);
 
-		return sum / (real) X.size();
+		return s / (real) X.size();
 	}
 
 
@@ -275,15 +275,15 @@ namespace uroboro {
 			return nan();
 		}
 
-		real sum = 0;
+		real s = 0;
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
 
 		for (int i = 0; i < X.size(); ++i)
-			sum += (X[i] - X_mean) * (Y[i] - Y_mean);
+			s += (X[i] - X_mean) * (Y[i] - Y_mean);
 
 		// Bessel correction (N - 1)
-		return sum / (real) (X.size() - 1);
+		return s / (real) (X.size() - 1);
 	}
 
 

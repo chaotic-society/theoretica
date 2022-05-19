@@ -31,26 +31,17 @@ namespace uroboro {
 
 			/// Construct a multidual number
 			/// as \f$(0 + \vec 0)\f$
-			multidual() {
-				a = 0;
-				v = vec<N>(0);
-			}
+			multidual() : a(0), v(vec<N>(0)) {}
 
 
 			/// Construct a multidual number from
 			/// a real number and an N dimensional vector
-			multidual(real r, vec<N> u) {
-				a = r;
-				v = u;
-			}
+			multidual(real r, vec<N> u) : a(r), v(u) {}
 
 
 			/// Construct a multidual number from
 			/// a real number
-			multidual(real r) {
-				a = r;
-				v = vec<N>(0);
-			}
+			multidual(real r) : a(r), v(vec<N>(0)) {}
 
 
 			/// Construct a multidual number from
@@ -278,7 +269,7 @@ namespace uroboro {
 
 			/// Convert the multidual number to string representation
 			/// @param epsilon The character to use to represent epsilon
-			inline std::string to_string(std::string epsilon = "e") const {
+			inline std::string to_string(const std::string& epsilon = "e") const {
 
 				std::stringstream res;
 				res << a << " + " << v << epsilon;

@@ -31,49 +31,43 @@ namespace uroboro {
 
 			/// Construct the object from the default contructors
 			/// of the two types
-			ratio() {
-				num = T1();
-				den = T2();
-			}
+			ratio() : num(T1()), den(T2()) {}
 
 			/// Construct the object from two objects
 			///
 			/// @param n The numerator
 			/// @param d The denominator
-			ratio(T1 n, T2 d){
-				num = n;
-				den = d;
-			}
+			ratio(const T1& n, const T2& d) : num(n), den(d) {}
 
 			~ratio() = default;
 
 			/// Multiply two ratios
-			inline ratio operator*(ratio r) const {
+			inline ratio operator*(const ratio& r) const {
 				return ratio(num * r.num, den * r.den);
 			}
 
 			/// Divide two ratios (without explicitly using division)
-			inline ratio operator/(ratio r) const {
+			inline ratio operator/(const ratio& r) const {
 				return ratio(num * r.den, den * r.num);
 			}
 
 			/// Add two ratios
-			inline ratio operator+(ratio r) const {
+			inline ratio operator+(const ratio& r) const {
 				return ratio(num * r.den + r.num * den, den * r.den);
 			}
 
 			/// Subtract two ratios
-			inline ratio operator-(ratio r) const {
+			inline ratio operator-(const ratio& r) const {
 				return ratio(num * r.den - r.num * den, den * r.den);
 			}
 
 			/// Multiply the ratio by a factor
-			inline ratio operator*(T1 a) const {
+			inline ratio operator*(const T1& a) const {
 				return ratio(num * a, den);
 			}
 
 			/// Divide the ratio by a factor
-			inline ratio operator/(T2 b) const {
+			inline ratio operator/(const T2& b) const {
 				return ratio(num, den * b);
 			}
 

@@ -84,15 +84,10 @@ namespace uroboro {
 		real val;
 
 	public:
-		MathException(UMATH_ERRCODE a_err, std::string a_func_name,
-			std::string a_file_name, unsigned int a_code_line, real a_val) {
-
-			err = a_err;
-			func_name = a_func_name;
-			file_name = a_file_name;
-			code_line = a_code_line;
-			val = a_val;
-		}
+		MathException(UMATH_ERRCODE a_err, const std::string& a_func_name,
+			const std::string& a_file_name, unsigned int a_code_line, real a_val)
+				: err(a_err), func_name(a_func_name), file_name(a_file_name),
+					code_line(a_code_line), val(a_val) {}
 
 		~MathException() = default;
 

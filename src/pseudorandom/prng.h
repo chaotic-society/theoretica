@@ -24,32 +24,18 @@ namespace uroboro {
 			/// generating algorithm p, seed x and parameters s
 			PRNG(pseudorandom_function p,
 				uint64_t seed,
-				const std::vector<uint64_t>& s) {
-
-				f = p;
-				x = seed;
-				param = s;
-			}
+				const std::vector<uint64_t>& s) : f(p), x(seed), param(s) {}
 
 			/// Construct a PRNG with the given
 			/// generating algorithm p and parameters s
 			///
 			/// The seed will be set to 1.
 			PRNG(pseudorandom_function p,
-				const std::vector<uint64_t>& s) {
-
-				f = p;
-				x = 1;
-				param = s;
-			}
+				const std::vector<uint64_t>& s) : f(p), x(1), param(s) {}
 
 			/// Construct a PRNG with the given
 			/// generating algorithm and seed
-			PRNG(pseudorandom_function p, uint64_t seed) {
-
-				f = p;
-				x = seed;
-			}
+			PRNG(pseudorandom_function p, uint64_t seed) : f(p), x(seed) {}
 
 			/// Seed the PRNG
 			inline void seed(uint64_t seed) {
@@ -96,7 +82,7 @@ namespace uroboro {
 
 
 			/// Set the generator's parameters
-			inline void set_param(std::vector<uint64_t> v) {
+			inline void set_param(const std::vector<uint64_t>& v) {
 				param = v;
 			}
 

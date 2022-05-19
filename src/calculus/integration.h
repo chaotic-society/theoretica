@@ -15,7 +15,7 @@ namespace uroboro {
 
 
 	// Integrate a polynomial
-	polynomial<real> integrate_polynomial(polynomial<real> p) {
+	polynomial<real> integrate_polynomial(const polynomial<real>& p) {
 
 		polynomial<real> Dp;
 		Dp.coeff.push_back(0);

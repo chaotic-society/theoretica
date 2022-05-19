@@ -65,7 +65,7 @@ namespace uroboro {
 	inline real rand_gaussian_polar(real mean, real sigma, PRNG& g) {
 
 		static real spare;
-		static double has_spare = false;
+		static bool has_spare = false;
 
 		if(has_spare) {
 			has_spare = false;

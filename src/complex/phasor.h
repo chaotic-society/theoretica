@@ -181,7 +181,7 @@ namespace uroboro {
 #ifndef UROBORO_NO_PRINT
 
 			/// Convert the phasor to string representation
-			inline std::string to_string(std::string separator = ", ") const {
+			inline std::string to_string(const std::string& separator = ", ") const {
 
 				std::stringstream res;
 				res << modulus << "/" << phase;
