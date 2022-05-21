@@ -46,9 +46,7 @@ namespace uroboro {
 
 			/// Construct a multidual number from
 			/// a (1 + N) dimensional vector
-			multidual(const vec<1 + N>& data) {
-				
-				a = data.get(0);
+			multidual(const vec<1 + N>& data) : a(data.get(0)) {
 
 				for (int i = 1; i < N + 1; ++i) {
 					v.at(i - 1) = data.get(i);

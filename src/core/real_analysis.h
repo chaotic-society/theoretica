@@ -259,9 +259,6 @@ namespace uroboro {
 	/// @param b The upper bound
 	/// @return Returns x if x is between a and b,
 	/// a if x is less than a, b if x is bigger than b
-	///
-	/// If `UROBORO_FORCE_BRANCHLESS` is defined,
-	/// a (potentially slower) implementation will be used.
 	inline real clamp(real x, real a, real b) {
 		return x > b ? b : (x < a ? a : x);
 	}
@@ -343,9 +340,43 @@ namespace uroboro {
 		}
 
 #ifdef UROBORO_X86
+
+		// Approximate the binary logarithm of x by
+		// exploiting x86 Assembly instructions
 		return fyl2x(x, 1.0);
 #else
-		return nan();
+
+		// Domain reduction to [1, +inf)
+		if(x < 1)
+			return -log2(1 / x);
+
+		// Compute the biggest power of 2
+		// so that x <= 2^i
+		int i = 0;
+		while(x > (1 << i))
+			i++;
+
+		// Domain reduction to [1, 2]
+		x /= static_cast<real>(1 << i);
+
+		// Use a polynomial approximation of log2(x)
+		// in [1, 2] to compute the logarithm of the
+		// remainder.
+		// Note: Choosing a better interval or applying
+		// some transformations on the function a better
+		// approximation might be found.
+		real lr = 0;
+
+		// Exact powers of 2 don't need further computation
+		if(abs(x - 1) > MACH_EPSILON) {
+
+			lr = -3.23585 + x * (7.08614
+					+ x * (-7.39388 + x * (5.6659
+						+ x * (-2.90591 + x * (0.945908
+							+ x * (-0.176734 + x * (0.0144404 * x)))))));
+		}
+
+		return static_cast<real>(i) + lr;
 #endif
 	}
 
@@ -371,9 +402,12 @@ namespace uroboro {
 		}
 
 #ifdef UROBORO_X86
+
+		// Approximate the binary logarithm of x by
+		// exploiting x86 Assembly instructions
 		return fyl2x(x, 1.0 / LOG210);
 #else
-		return nan();
+		return log2(x) / LOG210;
 #endif
 	}
 
@@ -399,9 +433,12 @@ namespace uroboro {
 		}
 
 #ifdef UROBORO_X86
+
+		// Approximate the binary logarithm of x by
+		// exploiting x86 Assembly instructions
 		return fyl2x(x, 1.0 / LOG2E);
 #else
-		return nan();
+		return log2(x) / LOG2E;
 #endif
 	}
 

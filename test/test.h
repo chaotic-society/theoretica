@@ -13,29 +13,13 @@ using namespace umath;
 
 // Absolute difference to tolerate
 
-#ifdef UROBORO_PRECISE
-
-// 10^-12
-constexpr real TOLERANCE = 0.000000000001;
-
-#elif defined(UROBORO_FAST)
-
-// 10^-6
-constexpr real TOLERANCE = 0.000001;
-
-#elif defined(UROBORO_ULTRAFAST)
-
-// 10^-4
-constexpr real TOLERANCE = 0.0001;
-
-#else
+#ifndef UROBORO_TOLERANCE
+#define UROBORO_TOLERANCE 0.00000001
+#endif
 
 // Default tolerance
 // 10^-8
-constexpr real TOLERANCE = 0.00000001;
-
-#endif
-
+constexpr real TOLERANCE = UROBORO_TOLERANCE;
 
 // Function name holder
 std::string func_name = "";
@@ -96,7 +80,7 @@ void test_end() {
 	std::cout << "Mean Error: " << (cum_err / (real) tolr_test_runs) << std::endl;
 	std::cout << "RMS Error: " << umath::sqrt(cum_sqr_err / (real) tolr_test_runs) << std::endl;
 	std::cout << "Maximum Error: " << max_err << std::endl;
-	std::cout << "Mean Relative Error: " << rel_err_sum / (real) tolr_test_runs << " %\n\n" << std::endl;
+	std::cout << "Mean Relative Error: " << rel_err_sum / (real) tolr_test_runs * 100 << " %\n\n" << std::endl;
 	func_name = "";
 }
 
