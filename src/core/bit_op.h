@@ -50,11 +50,6 @@ namespace uroboro {
 	/// MUM bit mixing function
 	/// @param a The first operand
 	/// @param b The second operand
-	///
-	/// This version of the function does not compute a full
-	/// 128-bit multiplication of the two numbers but instead
-	/// just the multiplication of the high and low bits
-	/// of the two numbers.
 	inline uint64_t mix_mum(uint64_t a, uint64_t b) {
 
 		uint64_t c_low, c_high;

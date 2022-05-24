@@ -524,9 +524,10 @@ namespace uroboro {
 
 
 	/// Compute the factorial of n
-	inline long long fact(unsigned int n) {
+	template<typename IntType = unsigned long long int>
+	inline IntType fact(unsigned int n) {
 
-		long long res = 1;
+		IntType res = 1;
 		for (int i = n; i > 1; --i)
 			res *= i;
 

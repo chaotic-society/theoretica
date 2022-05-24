@@ -331,9 +331,9 @@ namespace uroboro {
 				std::stringstream res;
 
 				res << a;
-				res << (v.get(0) >= 0 ? " + " : " - ") << "i" << v.get(0);
-				res << (v.get(1) >= 0 ? " + " : " - ") << "j" << v.get(1);
-				res << (v.get(2) >= 0 ? " + " : " - ") << "k" << v.get(2);
+				res << (v.get(0) >= 0 ? " + " : " - ") << "i" << abs(v.get(0));
+				res << (v.get(1) >= 0 ? " + " : " - ") << "j" << abs(v.get(1));
+				res << (v.get(2) >= 0 ? " + " : " - ") << "k" << abs(v.get(2));
 
 				return res.str();
 			}

@@ -16,6 +16,11 @@ namespace uroboro {
 	/// Approximate a function maximum using the Golden Section search algorithm
 	inline real approx_max_goldensection(real_function f, real a, real b) {
 
+		if(a > b) {
+			UMATH_ERROR("approx_max_goldensection", b, INVALID_ARGUMENT);
+			return nan();
+		}
+
 		real x1 = a;
 		real x2 = b;
 		real x3 = b - (b - a) / PHI;
@@ -48,6 +53,11 @@ namespace uroboro {
 
 	/// Approximate a function minimum using the Golden Section search algorithm
 	inline real approx_min_goldensection(real_function f, real a, real b) {
+
+		if(a > b) {
+			UMATH_ERROR("approx_min_goldensection", b, INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real x1 = a;
 		real x2 = b;
