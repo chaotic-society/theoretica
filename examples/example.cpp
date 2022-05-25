@@ -61,7 +61,6 @@ int main(int argc, char const *argv[]) {
 
 	// Phasor
 	std::cout << "Phasor\n" << std::endl;
-	phasor p = phasor(PI, SQRT2);
 
 	std::cout << phasor(1, PI) * phasor(1, PI2) << std::endl;
 	std::cout << phasor(1, PI) / phasor(1, PI2) << std::endl;
