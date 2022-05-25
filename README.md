@@ -1,6 +1,6 @@
 # Uroboro Math Library
 
-<img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
+[![CodeQL](https://github.com/chaotic-society/uroboro/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/chaotic-society/uroboro/actions/workflows/codeql-analysis.yml) [![C/C++ CI](https://github.com/chaotic-society/uroboro/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/chaotic-society/uroboro/actions/workflows/c-cpp.yml) <img alt="" src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/license/mattiaisgro/uroboro"> <img alt="" src="https://img.shields.io/github/issues/mattiaisgro/uroboro">
 
 A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
 
