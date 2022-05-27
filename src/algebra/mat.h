@@ -1122,17 +1122,17 @@ namespace uroboro {
 			res.iat(0, 0) = x_axis[0];
 			res.iat(0, 1) = x_axis[1];
 			res.iat(0, 2) = x_axis[2];
-			res.iat(0, 3) = -dot(x_axis, camera);
+			res.iat(0, 3) = -x_axis.dot(camera);
 
 			res.iat(1, 0) = y_axis[0];
 			res.iat(1, 1) = y_axis[1];
 			res.iat(1, 2) = y_axis[2];
-			res.iat(1, 3) = -dot(y_axis, camera);
+			res.iat(1, 3) = -y_axis.dot(camera);
 
 			res.iat(2, 0) = z_axis[0];
 			res.iat(2, 1) = z_axis[1];
 			res.iat(2, 2) = z_axis[2];
-			res.iat(2, 3) = -dot(z_axis, camera);
+			res.iat(2, 3) = -z_axis.dot(camera);
 
 			res.iat(3, 0) = 0;
 			res.iat(3, 1) = 0;
