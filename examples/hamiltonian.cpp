@@ -11,7 +11,8 @@ using namespace umath;
 
 
 // Hamiltonian for the harmonic oscillator (1D)
-multidual<2> harmonic_oscillator(vec<2, multidual<2>> eta) {
+template<typename NumType>
+NumType harmonic_oscillator(vec<2, NumType> eta) {
 
 	const real omega = 1;
 	const real m = 1;
@@ -21,7 +22,8 @@ multidual<2> harmonic_oscillator(vec<2, multidual<2>> eta) {
 
 
 // Hamiltonian for the simple pendulum
-multidual<2> pendulum(vec<2, multidual<2>> eta) {
+template<typename NumType>
+NumType pendulum(vec<2, NumType> eta) {
 
 	const real l = 1;
 	const real m = 1;

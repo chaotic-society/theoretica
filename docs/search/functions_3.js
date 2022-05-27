@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['degrees_0',['degrees',['../namespaceuroboro.html#a0fee867755bd6d2fc210d01ec543ede7',1,'uroboro']]],
+  ['degrees_0',['degrees',['../namespaceuroboro.html#a1ac2fd34d6cdfcdfb4b810921ca6457f',1,'uroboro']]],
   ['det_1',['det',['../classuroboro_1_1mat.html#a2d9c00e69c2c2b1588b3afe0971e6fb1',1,'uroboro::mat']]],
   ['det_5f2x2_2',['det_2x2',['../classuroboro_1_1mat.html#adc1af203725232ed07b2b7666549fd0b',1,'uroboro::mat']]],
   ['det_5f3x3_3',['det_3x3',['../classuroboro_1_1mat.html#a04c5062b575d3c763a0cab3dfbd50023',1,'uroboro::mat']]],

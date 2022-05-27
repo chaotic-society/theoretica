@@ -18,7 +18,7 @@ namespace uroboro {
 	/// @return The square of x
 	///
 	/// Domain: [-inf, +inf]
-	inline real square(real x) {
+	constexpr inline real square(real x) {
 		return x * x;
 	}
 
@@ -28,7 +28,7 @@ namespace uroboro {
 	/// @return The cube of x
 	///
 	/// Domain: [-inf, +inf]
-	inline real cube(real x) {
+	constexpr inline real cube(real x) {
 		return x * x * x;
 	}
 
@@ -175,7 +175,7 @@ namespace uroboro {
 	///
 	/// e.g. floor(1.6) = 1
 	/// e.g. floor(-0.3) = -1
-	inline int floor(real x) {
+	constexpr inline int floor(real x) {
 
 		if(x < 0 && x > -1)
 			return -1;
@@ -444,13 +444,13 @@ namespace uroboro {
 
 
 	/// Compute the n-th power of x (where n is natural)
-	/// @param x A real number
+	/// @param x Any element of a multiplicative algebra
 	/// @param n The integer exponent
 	/// @return x to the power n
 	template<typename T>
-	inline T pow(T x, int n) {
+	constexpr inline T pow(T x, int n) {
 
-		T res;
+		T res = T(0);
 		T x2 = x * x;
 		int i = 1;
 
@@ -525,7 +525,7 @@ namespace uroboro {
 
 	/// Compute the factorial of n
 	template<typename IntType = unsigned long long int>
-	inline IntType fact(unsigned int n) {
+	constexpr inline IntType fact(unsigned int n) {
 
 		IntType res = 1;
 		for (int i = n; i > 1; --i)
@@ -939,7 +939,8 @@ namespace uroboro {
 	/// @param m A natural number smaller than n
 	/// @return The binomial coefficient computed on (n, m)
 	/// as \f$\frac{n!}{m!(n - m)!}\f$
-	inline long long binomial_coeff(unsigned int n, unsigned int m) {
+	template<typename IntType = unsigned long long int>
+	constexpr inline IntType binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m) {
 			UMATH_ERROR("binomial_coeff", n, IMPOSSIBLE_OPERATION);
@@ -948,7 +949,7 @@ namespace uroboro {
 
 		// TO-DO Check out of range
 
-		long long res = 1;
+		IntType res = 1;
 
 		for (int i = n; i > m; --i)
 			res *= i;
@@ -962,7 +963,7 @@ namespace uroboro {
 	/// @return The converted angle in radians
 	///
 	/// The `DEG2RAD` scalar factor is used.
-	inline real radians(real degrees) {
+	constexpr inline real radians(real degrees) {
 		return degrees * DEG2RAD;
 	}
 
@@ -972,7 +973,7 @@ namespace uroboro {
 	/// @return The converted angle in degrees
 	///
 	/// The `RAD2DEG` scalar factor is used.
-	inline real degrees(real radians) {
+	constexpr inline real degrees(real radians) {
 		return radians * RAD2DEG;
 	}
 
@@ -982,7 +983,7 @@ namespace uroboro {
 	/// @param j The second value to compare
 	/// @return 1 if i is equal to j, 0 otherwise
 	template<typename T>
-	inline T kronecker_delta(T i, T j) {
+	constexpr inline T kronecker_delta(T i, T j) {
 		return i == j ? 1 : 0;
 	}
 

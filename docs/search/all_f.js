@@ -13,7 +13,7 @@ var searchData=
   ['polyn_5finterp_2eh_10',['polyn_interp.h',['../polyn__interp_8h.html',1,'']]],
   ['polynomial_11',['polynomial',['../classuroboro_1_1polynomial.html',1,'uroboro']]],
   ['polynomial_2eh_12',['polynomial.h',['../polynomial_8h.html',1,'']]],
-  ['pow_13',['pow',['../namespaceuroboro.html#a8dd48234c007a97cee57ec4406c02cac',1,'uroboro::pow(dual2 x, int n)'],['../namespaceuroboro.html#a20610cac6a2119040f21cb50cfece965',1,'uroboro::pow(dual x, int n)'],['../namespaceuroboro.html#a64d45c40b4a324d719c8b4a5f51de7d3',1,'uroboro::pow(multidual&lt; N &gt; x, int n)'],['../namespaceuroboro.html#a93c3ae5b8c783025bd7f678776f70f50',1,'uroboro::pow(T x, int n)']]],
+  ['pow_13',['pow',['../namespaceuroboro.html#a8dd48234c007a97cee57ec4406c02cac',1,'uroboro::pow(dual2 x, int n)'],['../namespaceuroboro.html#a20610cac6a2119040f21cb50cfece965',1,'uroboro::pow(dual x, int n)'],['../namespaceuroboro.html#a64d45c40b4a324d719c8b4a5f51de7d3',1,'uroboro::pow(multidual&lt; N &gt; x, int n)'],['../namespaceuroboro.html#a37da88226738bd07dd2fb0bd2d75078b',1,'uroboro::pow(T x, int n)']]],
   ['powf_14',['powf',['../namespaceuroboro.html#a028faad6699bfda36b6a0259bb46c461',1,'uroboro']]],
   ['powf_5fpower_5ftolerance_15',['POWF_POWER_TOLERANCE',['../namespaceuroboro.html#a2a528d4de5bb63457cc26ad6888999e9',1,'uroboro']]],
   ['print_5fsample_5fstats_16',['print_sample_stats',['../namespaceuroboro.html#aa2f82633fe73be530bb91bb516472426',1,'uroboro']]],
