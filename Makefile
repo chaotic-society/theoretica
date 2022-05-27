@@ -2,7 +2,7 @@ default_target: example
 .PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample
 all: example test examples
 
-CXXFLAGS = -O2 -DUROBORO_INCLUDE_ALL -I./src/
+CXXFLAGS = -DUROBORO_INCLUDE_ALL -std=c++14 -I./src/
 
 example:
 	@echo Compiling main example program...
