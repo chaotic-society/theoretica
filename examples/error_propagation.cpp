@@ -13,7 +13,7 @@ real product_sum(vec<N> g, vec<N> v) {
 
 	real res = 0;
 	for (int i = 0; i < N; ++i)
-		res += abs(g.at(i) * v.at(i));
+		res += umath::abs(g.at(i) * v.at(i));
 
 	return res;
 }
