@@ -1,5 +1,5 @@
 default_target: example
-.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample
+.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark
 all: example test examples
 
 CXXFLAGS = -DTHEORETICA_INCLUDE_ALL -std=c++14 -I./src/
@@ -41,3 +41,10 @@ dist_sample:
 	@g++ examples/dist_sample.cpp ${CXXFLAGS} -o ./dist_sample
 
 examples: autodiff hamiltonian error_propagation stats dist_sample
+
+benchmark_real_analysis:
+	@echo Compiling real analysis benchmark...
+	@g++ benchmark/benchmark_real_analysis.cpp ${CXXFLAGS} -O0 -o benchmark/benchmark_real_analysis
+	@./benchmark/benchmark_real_analysis
+
+benchmark: benchmark_real_analysis
