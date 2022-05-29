@@ -3,131 +3,131 @@
 /// @file constants.h Mathematical constants and algorithm parameters
 ///
 
-#ifndef UROBORO_CONSTANTS_H
-#define UROBORO_CONSTANTS_H
+#ifndef THEORETICA_CONSTANTS_H
+#define THEORETICA_CONSTANTS_H
 
 
 #include <limits>
 #include <cstdint>
 
 
-/// @macro UROBORO_X86 Define this macro if the
+/// @macro THEORETICA_X86 Define this macro if the
 /// machine has a x86 architecture to use hardware
 /// enhanced functions.
-#ifndef UROBORO_X86
+#ifndef THEORETICA_X86
 #if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) \
 	|| defined(_M_AMD64) || defined(_M_X64) || defined(i386) \
 	|| defined(__i386) || defined(__i386__) || defined(_M_IX86) \
 	|| defined(_X86_) || defined(_M_I86) || defined(__X86__)	
-#define UROBORO_X86
+#define THEORETICA_X86
 #endif
 #endif
 
 
 /// Order of Taylor series approximations
-#ifndef UROBORO_TAYLOR_ORDER
-#define UROBORO_TAYLOR_ORDER 9
+#ifndef THEORETICA_TAYLOR_ORDER
+#define THEORETICA_TAYLOR_ORDER 9
 #endif
 
 /// Relative precision for derivative approximation
-#ifndef UROBORO_DERIV_PREC
-#define UROBORO_DERIV_PREC 100000.0
+#ifndef THEORETICA_DERIV_PREC
+#define THEORETICA_DERIV_PREC 100000.0
 #endif
 
 /// Default number of steps for integral approximation
-#ifndef UROBORO_INTEGRATION_STEPS
-#define UROBORO_INTEGRATION_STEPS 100
+#ifndef THEORETICA_INTEGRATION_STEPS
+#define THEORETICA_INTEGRATION_STEPS 100
 #endif
 
 /// Biggest fractional part to ignore in powf computation
-#ifndef UROBORO_POWF_APPROX_TOL
-#define UROBORO_POWF_APPROX_TOL 0.00000001
+#ifndef THEORETICA_POWF_APPROX_TOL
+#define THEORETICA_POWF_APPROX_TOL 0.00000001
 #endif
 	
 /// Approximation tolerance for root finding
-#ifndef UROBORO_ROOT_APPROX_TOL
-#define UROBORO_ROOT_APPROX_TOL 0.00000001
+#ifndef THEORETICA_ROOT_APPROX_TOL
+#define THEORETICA_ROOT_APPROX_TOL 0.00000001
 #endif
 
 /// Approximation tolerance for Newton's method root finding
-#ifndef UROBORO_NEWTON_RAPHSON_TOL
-#define UROBORO_NEWTON_RAPHSON_TOL 0.00000001
+#ifndef THEORETICA_NEWTON_RAPHSON_TOL
+#define THEORETICA_NEWTON_RAPHSON_TOL 0.00000001
 #endif
 
 /// Approximation tolerance for bisection root finding
-#ifndef UROBORO_BISECTION_APPROX_TOL
-#define UROBORO_BISECTION_APPROX_TOL 0.00000001
+#ifndef THEORETICA_BISECTION_APPROX_TOL
+#define THEORETICA_BISECTION_APPROX_TOL 0.00000001
 #endif
 
 /// Maximum number of iterations for bisection
-#ifndef UROBORO_MAX_BISECTION_ITER
-#define UROBORO_MAX_BISECTION_ITER 100
+#ifndef THEORETICA_MAX_BISECTION_ITER
+#define THEORETICA_MAX_BISECTION_ITER 100
 #endif
 
 /// Maximum number of iterations for golden section search
-#ifndef UROBORO_MAX_GOLDENSECTION_ITER
-#define UROBORO_MAX_GOLDENSECTION_ITER 100
+#ifndef THEORETICA_MAX_GOLDENSECTION_ITER
+#define THEORETICA_MAX_GOLDENSECTION_ITER 100
 #endif
 
 /// Maximum number of iterations for Halley's method
-#ifndef UROBORO_MAX_HALLEY_ITER
-#define UROBORO_MAX_HALLEY_ITER 100
+#ifndef THEORETICA_MAX_HALLEY_ITER
+#define THEORETICA_MAX_HALLEY_ITER 100
 #endif
 
 /// Maximum number of iterations for Newton-Raphson
-#ifndef UROBORO_MAX_NEWTON_ITER
-#define UROBORO_MAX_NEWTON_ITER 100
+#ifndef THEORETICA_MAX_NEWTON_ITER
+#define THEORETICA_MAX_NEWTON_ITER 100
 #endif
 
 /// Maximum number of iterations for Steffensen
-#ifndef UROBORO_MAX_STEFFENSEN_ITER
-#define UROBORO_MAX_STEFFENSEN_ITER 100
+#ifndef THEORETICA_MAX_STEFFENSEN_ITER
+#define THEORETICA_MAX_STEFFENSEN_ITER 100
 #endif
 
 /// Maximum number of iterations for Chebyshev
-#ifndef UROBORO_MAX_CHEBYSHEV_ITER
-#define UROBORO_MAX_CHEBYSHEV_ITER 100
+#ifndef THEORETICA_MAX_CHEBYSHEV_ITER
+#define THEORETICA_MAX_CHEBYSHEV_ITER 100
 #endif
 
 /// Maximum number of failed iterations for the Try-and-Catch algorithm
-#ifndef UROBORO_MAX_TRYANDCATCH_ITER
-#define UROBORO_MAX_TRYANDCATCH_ITER 100
+#ifndef THEORETICA_MAX_TRYANDCATCH_ITER
+#define THEORETICA_MAX_TRYANDCATCH_ITER 100
 #endif
 
 
-#ifndef UROBORO_RAND_REAL_PREC
+#ifndef THEORETICA_RAND_REAL_PREC
 
 /// Default precision for random number generation using rand_real()
-#ifdef UROBORO_FLOAT_PREC
-#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 23)
+#ifdef THEORETICA_FLOAT_PREC
+#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 23)
 #else
-#define UROBORO_RAND_REAL_PREC (uint64_t(1) << 32)
+#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 32)
 #endif
 
 #endif
 
 
-/// @namespace uroboro Main namespace of the library which contains all functions and objects
-namespace uroboro {
+/// @namespace theoretica Main namespace of the library which contains all functions and objects
+namespace theoretica {
 
 
 	/// A real number, defined as a floating point type.
 	///
 	/// The underlying type is determined by the defined macros:
 	/// By default, `real` will be defined as the `double` type.
-	/// If `UROBORO_FLOAT_PREC` is defined, `real` will be defined as a `float`,
-	/// if `UROBORO_LONG_DOUBLE_PREC` is defined, `real` will be defined as a `long double`
-	/// @note The `UROBORO_ARBITRARY_PREC` option is currently unsupported
+	/// If `THEORETICA_FLOAT_PREC` is defined, `real` will be defined as a `float`,
+	/// if `THEORETICA_LONG_DOUBLE_PREC` is defined, `real` will be defined as a `long double`
+	/// @note The `THEORETICA_ARBITRARY_PREC` option is currently unsupported
 
-#ifdef UROBORO_LONG_DOUBLE_PREC
+#ifdef THEORETICA_LONG_DOUBLE_PREC
 
 	using real = long double;
 
-#elif defined(UROBORO_FLOAT_PREC)
+#elif defined(THEORETICA_FLOAT_PREC)
 
 	using real = float;
 
-#elif defined(UROBORO_ARBITRARY_PREC)
+#elif defined(THEORETICA_ARBITRARY_PREC)
 
 // TO-DO bigfloat arbitrary precision
 
@@ -199,50 +199,50 @@ namespace uroboro {
 	constexpr real INVSQR2 = 0.707106781187;
 
 	/// Order of Taylor series approximations
-	constexpr int TAYLOR_ORDER = UROBORO_TAYLOR_ORDER;
+	constexpr int TAYLOR_ORDER = THEORETICA_TAYLOR_ORDER;
 
 	/// Default number of steps for integral approximation
-	constexpr int INTEGRATION_STEPS = UROBORO_INTEGRATION_STEPS;
+	constexpr int INTEGRATION_STEPS = THEORETICA_INTEGRATION_STEPS;
 
 	/// Relative precision for derivative approximation
-	constexpr real DERIV_PREC = UROBORO_DERIV_PREC;
+	constexpr real DERIV_PREC = THEORETICA_DERIV_PREC;
 
 	/// Biggest fractional part to ignore in powf computation
-	constexpr real POWF_POWER_TOLERANCE = UROBORO_POWF_APPROX_TOL;
+	constexpr real POWF_POWER_TOLERANCE = THEORETICA_POWF_APPROX_TOL;
 
 	/// Approximation tolerance for root finding
-	constexpr real ROOT_APPROX_TOL = UROBORO_ROOT_APPROX_TOL;
+	constexpr real ROOT_APPROX_TOL = THEORETICA_ROOT_APPROX_TOL;
 
 	/// Approximation tolerance for the bisection algorithm
-	constexpr real BISECTION_APPROX_TOL = UROBORO_BISECTION_APPROX_TOL;
+	constexpr real BISECTION_APPROX_TOL = THEORETICA_BISECTION_APPROX_TOL;
 
 	/// Approximation tolerance for the Newton-Raphson algorithm
-	constexpr real NEWTON_RAPHSON_TOL = UROBORO_NEWTON_RAPHSON_TOL;
+	constexpr real NEWTON_RAPHSON_TOL = THEORETICA_NEWTON_RAPHSON_TOL;
 
 	/// Maximum number of iterations for the bisection algorithm
-	constexpr unsigned int MAX_BISECTION_ITER = UROBORO_MAX_BISECTION_ITER;
+	constexpr unsigned int MAX_BISECTION_ITER = THEORETICA_MAX_BISECTION_ITER;
 
 	/// Maximum number of iterations for the golden section search algorithm
-	constexpr unsigned int MAX_GOLDENSECTION_ITER = UROBORO_MAX_GOLDENSECTION_ITER;
+	constexpr unsigned int MAX_GOLDENSECTION_ITER = THEORETICA_MAX_GOLDENSECTION_ITER;
 
 	/// Maximum number of iterations for Halley's method
-	constexpr unsigned int MAX_HALLEY_ITER = UROBORO_MAX_HALLEY_ITER;
+	constexpr unsigned int MAX_HALLEY_ITER = THEORETICA_MAX_HALLEY_ITER;
 
 	/// Maximum number of iterations for the Newton-Raphson algorithm
-	constexpr unsigned int MAX_NEWTON_ITER = UROBORO_MAX_NEWTON_ITER;
+	constexpr unsigned int MAX_NEWTON_ITER = THEORETICA_MAX_NEWTON_ITER;
 
 	/// Maximum number of iterations for the Steffensen algorithm
-	constexpr unsigned int MAX_STEFFENSEN_ITER = UROBORO_MAX_STEFFENSEN_ITER;
+	constexpr unsigned int MAX_STEFFENSEN_ITER = THEORETICA_MAX_STEFFENSEN_ITER;
 
 	/// Maximum number of iterations for the Chebyshev algorithm
-	constexpr unsigned int MAX_CHEBYSHEV_ITER = UROBORO_MAX_CHEBYSHEV_ITER;
+	constexpr unsigned int MAX_CHEBYSHEV_ITER = THEORETICA_MAX_CHEBYSHEV_ITER;
 
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
-	constexpr unsigned int MAX_TRYANDCATCH_ITER = UROBORO_MAX_TRYANDCATCH_ITER;
+	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
 
 
 	/// Default precision for random number generation using rand_real()
-	constexpr uint64_t RAND_REAL_PREC = UROBORO_RAND_REAL_PREC;
+	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;
 
 }
 

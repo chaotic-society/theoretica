@@ -1,15 +1,15 @@
 var complex__analysis_8h =
 [
-    [ "abs", "complex__analysis_8h.html#a6b07c4ab9fed059070a16aef988ef47e", null ],
-    [ "acos", "complex__analysis_8h.html#ac540f3e3eb0eb81cdfe8a1e9fcc9ff89", null ],
-    [ "asin", "complex__analysis_8h.html#a2b448863f52ef5f436e1232280de7607", null ],
-    [ "atan", "complex__analysis_8h.html#a0a0667b772d76cbbb622a5a0fc1a5996", null ],
-    [ "cos", "complex__analysis_8h.html#a570ee927a447254fdfd1a4a1094bb6a4", null ],
-    [ "cube", "complex__analysis_8h.html#a5da2ee92d995ef6cb6b8049f2d201431", null ],
-    [ "exp", "complex__analysis_8h.html#a868bb7a7607e8298d1bece814ecdc15d", null ],
-    [ "ln", "complex__analysis_8h.html#a3443ec9e1caf87193013b7b1acaef7c9", null ],
-    [ "sin", "complex__analysis_8h.html#a393e051a38c35d2cb7347695be536eda", null ],
-    [ "sqrt", "complex__analysis_8h.html#a3b35749cf3679098c019135892a662fc", null ],
-    [ "square", "complex__analysis_8h.html#add1152ad0edbea0fa62a49c964e59caa", null ],
-    [ "tan", "complex__analysis_8h.html#adb4e1c13505e36b747d20779be614b44", null ]
+    [ "abs", "complex__analysis_8h.html#a0f49fa3c3999e2a64956c3cb44bf596c", null ],
+    [ "acos", "complex__analysis_8h.html#a8a281d198a95a4d2f0f85ccd003948f6", null ],
+    [ "asin", "complex__analysis_8h.html#ab6c4590079678ebac8a917eeda049bf4", null ],
+    [ "atan", "complex__analysis_8h.html#a423991094f40604ba94e6ae9275d5ea8", null ],
+    [ "cos", "complex__analysis_8h.html#a32015dfa47fc795e0fefcf26b5c0375d", null ],
+    [ "cube", "complex__analysis_8h.html#aa8a0b9841198983905b57496cad4869e", null ],
+    [ "exp", "complex__analysis_8h.html#a463ef7c6f8731bab9581d4021e92a60b", null ],
+    [ "ln", "complex__analysis_8h.html#ace32efc4e4b7b555c8cdc340e7adff4a", null ],
+    [ "sin", "complex__analysis_8h.html#a1b6f6e44aa2d8dabd4a2710e313f65d8", null ],
+    [ "sqrt", "complex__analysis_8h.html#a0f593debadf5736178434aa3fe476a5c", null ],
+    [ "square", "complex__analysis_8h.html#a9d09bcf107dc6230badf2b29e25ffcad", null ],
+    [ "tan", "complex__analysis_8h.html#abc57357e424703aa6ea643697c2f6d24", null ]
 ];

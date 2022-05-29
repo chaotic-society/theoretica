@@ -4,14 +4,14 @@
 /// automatic differentiation of multivariable real functions
 
 
-#ifndef UROBORO_MULTIDUAL_FUNCTIONS_H
-#define UROBORO_MULTIDUAL_FUNCTIONS_H
+#ifndef THEORETICA_MULTIDUAL_FUNCTIONS_H
+#define THEORETICA_MULTIDUAL_FUNCTIONS_H
 
 #include "./multidual.h"
 #include "../core/real_analysis.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Return the square of a multidual number

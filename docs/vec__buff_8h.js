@@ -1,12 +1,12 @@
 var vec__buff_8h =
 [
-    [ "vec_buff", "vec__buff_8h.html#a57bc43a753233fcd9835f097d49007f3", null ],
-    [ "apply", "vec__buff_8h.html#a2815e5cd41484e9d5f9c3b2775241f00", null ],
-    [ "product", "vec__buff_8h.html#a166b51a32f7ba1b543906137847cc219", null ],
-    [ "product_sum", "vec__buff_8h.html#abe24f033b584c1b42242ec517c87d881", null ],
-    [ "product_sum", "vec__buff_8h.html#ac0d6ea5a701e0926b6726e2e4fcb7660", null ],
-    [ "product_sum_squares", "vec__buff_8h.html#ad46b76319939547b2b284de717896299", null ],
-    [ "quotient_sum", "vec__buff_8h.html#a90e320e71051b5d2f1a143612265fa0d", null ],
-    [ "sum", "vec__buff_8h.html#a0f73518c0306034a40f7bda664b6c00e", null ],
-    [ "sum_squares", "vec__buff_8h.html#a9f027ac48f80103498beb71142481ebd", null ]
+    [ "vec_buff", "vec__buff_8h.html#a9a50102b320dcdc6a61e5a15234327a7", null ],
+    [ "apply", "vec__buff_8h.html#a77f1d3ea55880b60ec911458c6289aa0", null ],
+    [ "product", "vec__buff_8h.html#a87fed634613f9a7756b807368d316cd9", null ],
+    [ "product_sum", "vec__buff_8h.html#a9d272b1cd91c9ac9f1c2049bd627f90e", null ],
+    [ "product_sum", "vec__buff_8h.html#a0e2455c2163719c1f26553aeff27dfe4", null ],
+    [ "product_sum_squares", "vec__buff_8h.html#a8c8e23a7720015a774c4cdcd119a434b", null ],
+    [ "quotient_sum", "vec__buff_8h.html#ad506ec29923258e070ed286a31e2d9a6", null ],
+    [ "sum", "vec__buff_8h.html#a218096ebc25892ce56a9b64e1c9d38c0", null ],
+    [ "sum_squares", "vec__buff_8h.html#a2add9ac96bf83be926b67ac98871d519", null ]
 ];

@@ -3,23 +3,23 @@
 /// @file test.h Routines to test the precision of the library
 ///
 
-#ifndef UROBORO_TEST_H
-#define UROBORO_TEST_H
+#ifndef THEORETICA_TEST_H
+#define THEORETICA_TEST_H
 
-#include "../src/uroboro.h"
+#include "../src/theoretica.h"
 #include <iostream>
 
-using namespace umath;
+using namespace th;
 
 // Absolute difference to tolerate
 
-#ifndef UROBORO_TOLERANCE
-#define UROBORO_TOLERANCE 0.00000001
+#ifndef THEORETICA_TOLERANCE
+#define THEORETICA_TOLERANCE 0.00000001
 #endif
 
 // Default tolerance
 // 10^-8
-constexpr real TOLERANCE = UROBORO_TOLERANCE;
+constexpr real TOLERANCE = THEORETICA_TOLERANCE;
 
 // Function name holder
 std::string func_name = "";
@@ -78,7 +78,7 @@ void test_end() {
 	}
 
 	std::cout << "Mean Error: " << (cum_err / (real) tolr_test_runs) << std::endl;
-	std::cout << "RMS Error: " << umath::sqrt(cum_sqr_err / (real) tolr_test_runs) << std::endl;
+	std::cout << "RMS Error: " << th::sqrt(cum_sqr_err / (real) tolr_test_runs) << std::endl;
 	std::cout << "Maximum Error: " << max_err << std::endl;
 	std::cout << "Mean Relative Error: " << rel_err_sum / (real) tolr_test_runs * 100 << " %\n\n" << std::endl;
 	func_name = "";
@@ -88,7 +88,7 @@ void test_end() {
 // Check whether the given values differ only by a tolerance value or less
 template<typename T>
 bool good_enough(T a, T b, real tolerance = TOLERANCE) {
-	return umath::abs(b - a) < tolerance;
+	return th::abs(b - a) < tolerance;
 }
 
 
@@ -132,10 +132,10 @@ void test_equal_interval(real_function f, real_function f_exp, real a, real b,
 template<typename T1, typename T2>
 void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, bool silent = false) {
 
-	real diff = umath::abs(evaluated - expected);
+	real diff = th::abs(evaluated - expected);
 	cum_err += diff;
-	cum_sqr_err += umath::square(diff);
-	max_err = umath::max(diff, max_err);
+	cum_sqr_err += th::square(diff);
+	max_err = th::max(diff, max_err);
 	tolr_test_runs++;
 
 	// Absolute difference
@@ -143,8 +143,8 @@ void test_tol(T1 evaluated, T1 expected, T2 input, real tolerance = TOLERANCE, b
 
 	// If the expected value is not too small,
 	// use the relative error
-	if(umath::abs(expected) > tolerance) {
-		curr_err /= umath::abs(expected);
+	if(th::abs(expected) > tolerance) {
+		curr_err /= th::abs(expected);
 		rel_err_sum += curr_err;
 		rel_err_n++;
 	}
@@ -197,8 +197,8 @@ void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
 		test_tolr(f(x), f_exp(x), x, tolerance, true);
 	}
 
-	std::cout << "\tMean Error on Interval: " << (cum_err / umath::abs(b - a) / (real) steps) << std::endl;
-	std::cout << "\tRMS Error on Interval: " << umath::sqrt(cum_sqr_err / umath::abs(b - a) / (real) steps) << std::endl;
+	std::cout << "\tMean Error on Interval: " << (cum_err / th::abs(b - a) / (real) steps) << std::endl;
+	std::cout << "\tRMS Error on Interval: " << th::sqrt(cum_sqr_err / th::abs(b - a) / (real) steps) << std::endl;
 	std::cout << "\tMaximum Error on Interval: " << max_err << "\n" << std::endl;
 
 	real cum_err = cum_err_;

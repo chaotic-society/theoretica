@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: test/test.h File Reference</title>
+<title>Theoretica: test/test.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('test_8h.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">test.h File Reference</div></div>
@@ -100,45 +101,51 @@ $(document).ready(function(){initNavTree('test_8h.html',''); initResizable(); })
 
 <p>Routines to test the precision of the library.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="uroboro_8h_source.html">../src/uroboro.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="theoretica_8h_source.html">../src/theoretica.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="test_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aec963b1095afe0739845b11efd940905"><td class="memItemLeft" align="right" valign="top"><a id="aec963b1095afe0739845b11efd940905" name="aec963b1095afe0739845b11efd940905"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_TOLERANCE</b>&#160;&#160;&#160;0.00000001</td></tr>
+<tr class="separator:aec963b1095afe0739845b11efd940905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa9d3e99022f9f30b210350c30636d1cb"><td class="memItemLeft" align="right" valign="top"><a id="aa9d3e99022f9f30b210350c30636d1cb" name="aa9d3e99022f9f30b210350c30636d1cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_start</b> (std::string f)</td></tr>
-<tr class="separator:aa9d3e99022f9f30b210350c30636d1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeca62cc006d094ce1ed20e363ef7704"><td class="memItemLeft" align="right" valign="top"><a id="afeca62cc006d094ce1ed20e363ef7704" name="afeca62cc006d094ce1ed20e363ef7704"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test_start</b> (const std::string &amp;f)</td></tr>
+<tr class="separator:afeca62cc006d094ce1ed20e363ef7704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa54398df48848e082db164b9e73c67c5"><td class="memItemLeft" align="right" valign="top"><a id="aa54398df48848e082db164b9e73c67c5" name="aa54398df48848e082db164b9e73c67c5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>test_end</b> ()</td></tr>
 <tr class="separator:aa54398df48848e082db164b9e73c67c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplParams" colspan="2"><a id="a5bd1822afdbdedb55722859213bb8fc8" name="a5bd1822afdbdedb55722859213bb8fc8"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>good_enough</b> (T a, T b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE)</td></tr>
+<tr class="memitem:a5bd1822afdbdedb55722859213bb8fc8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>good_enough</b> (T a, T b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=TOLERANCE)</td></tr>
 <tr class="separator:a5bd1822afdbdedb55722859213bb8fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplParams" colspan="2"><a id="a4a301c9dbc21f509993db7ee6ab2b2f7" name="a4a301c9dbc21f509993db7ee6ab2b2f7"></a>
 template&lt;typename T1 , typename T2 &gt; </td></tr>
 <tr class="memitem:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_equal</b> (T1 evaluated, T1 expected, T2 input, bool silent=false)</td></tr>
 <tr class="separator:a4a301c9dbc21f509993db7ee6ab2b2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef97e3e1f19f5ce21edca4be08e224e9"><td class="memItemLeft" align="right" valign="top"><a id="aef97e3e1f19f5ce21edca4be08e224e9" name="aef97e3e1f19f5ce21edca4be08e224e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_equal_interval</b> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test_equal_interval</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f_exp, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
 <tr class="separator:aef97e3e1f19f5ce21edca4be08e224e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplParams" colspan="2"><a id="a1bd6c2a2cf4f2ba2a20a55645b132827" name="a1bd6c2a2cf4f2ba2a20a55645b132827"></a>
 template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_tol</b> (T1 evaluated, T1 expected, T2 input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
+<tr class="memitem:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_tol</b> (T1 evaluated, T1 expected, T2 input, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
 <tr class="separator:a1bd6c2a2cf4f2ba2a20a55645b132827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae85d12de41371bfd2f4e9df36ab96c87"><td class="memItemLeft" align="right" valign="top"><a id="ae85d12de41371bfd2f4e9df36ab96c87" name="ae85d12de41371bfd2f4e9df36ab96c87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr</b> (<a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> evaluated, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> expected, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> input, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> evaluated, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> expected, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> input, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=TOLERANCE, bool silent=false)</td></tr>
 <tr class="separator:ae85d12de41371bfd2f4e9df36ab96c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaba639c8f84053f4a4b3b9e72fead7ef"><td class="memItemLeft" align="right" valign="top"><a id="aaba639c8f84053f4a4b3b9e72fead7ef" name="aaba639c8f84053f4a4b3b9e72fead7ef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr_interval</b> (<a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="el" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f_exp, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test_tolr_interval</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f_exp, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=TOLERANCE, unsigned int steps=1000)</td></tr>
 <tr class="separator:aaba639c8f84053f4a4b3b9e72fead7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ad881398e9a291203b9602447d28dc3a4"><td class="memItemLeft" align="right" valign="top"><a id="ad881398e9a291203b9602447d28dc3a4" name="ad881398e9a291203b9602447d28dc3a4"></a>
-constexpr <a class="el" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TOLERANCE</b> = 0.00000001</td></tr>
+constexpr <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TOLERANCE</b> = THEORETICA_TOLERANCE</td></tr>
 <tr class="separator:ad881398e9a291203b9602447d28dc3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac713dd7ee953280e8bbd3bfe85fd7233"><td class="memItemLeft" align="right" valign="top"><a id="ac713dd7ee953280e8bbd3bfe85fd7233" name="ac713dd7ee953280e8bbd3bfe85fd7233"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>func_name</b> = &quot;&quot;</td></tr>
@@ -176,7 +183,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>rel_err_n</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="test_8h.html">test.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

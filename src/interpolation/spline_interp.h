@@ -3,13 +3,13 @@
 /// @file spline_interp.h Spline interpolation
 ///
 
-#ifndef UROBORO_INTERP_H
-#define UROBORO_INTERP_H
+#ifndef THEORETICA_INTERP_H
+#define THEORETICA_INTERP_H
 
 #include "../core/constants.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Linear interpolation

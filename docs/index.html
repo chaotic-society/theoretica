@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: Uroboro Math Library</title>
+<title>Theoretica: Theoretica</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -91,17 +91,23 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Uroboro Math Library </div></div>
+  <div class="headertitle"><div class="title">Theoretica </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://img.shields.io/github/license/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/last-commit/mattiaisgro/uroboro" alt="" class="inline"/> <img src="https://img.shields.io/github/issues/mattiaisgro/uroboro" alt="" class="inline"/></p>
-<p >A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional-object oriented paradigm to mimic mathematical notation. Includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations, quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation.</p>
-<h2><a class="anchor" id="autotoc_md0"></a>
-Dependencies</h2>
-<p >The library has no dependencies. Only the C++ Standard Library is needed to use it. <b>You can include it in your project straight away!</b></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://img.shields.io/github/last-commit/mattiaisgro/theoretica" alt="" class="inline"/> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/codeql-analysis.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/c-cpp.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/c-cpp.yml/badge.svg" alt="C/C++ CI" style="pointer-events: none;" class="inline"/></a> <a href="https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/license/mattiaisgro/theoretica" alt="" class="inline"/></p>
+<p >A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to <b>mimic elegant mathematical notation</b>.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Key Features</h2>
-<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/mattiaisgro/uroboro/blob/master/txt/FEATURES.md">FEATURES.md</a></p><ul>
+A short example</h2>
+<p >Given a Hamiltonian function <b>H(q, p)</b> and a function <b>f(q, p)</b> defined on its phase space, you can compute its <em>exact</em> time derivative at a position <em>eta</em> like this: </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> df_dt = <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(f, eta) * mat&lt;M, M&gt;::symplectic() * <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(H, eta);</div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ac29355ce24067808f588917c0e178408"><div class="ttname"><a href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">theoretica::gradient</a></div><div class="ttdeci">vec&lt; N &gt; gradient(multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</div><div class="ttdoc">Compute the gradient for a given  of a function of the form  using automatic differentiation.</div><div class="ttdef"><b>Definition:</b> autodiff.h:21</div></div>
+</div><!-- fragment --><p >The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Dependencies</h1>
+<p >The library has no dependencies. Only the C++ Standard Library is needed to use it. <b>You can include it in your project straight away!</b></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Key Features</h1>
+<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/FEATURES.md">FEATURES.md</a></p><ul>
 <li><b>Real and complex analysis</b></li>
 <li><b>Linear algebra</b> with common vector and matrix operations</li>
 <li>Complex numbers in algebraic and exponential form</li>
@@ -113,63 +119,63 @@ Key Features</h2>
 <li>Approximation of roots, extrema, derivatives and integrals of real functions</li>
 <li>Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Setup</h2>
-<p >You don't need anything other than your compiler to use the library. You can run <code>make all</code> in the root directory of the library to make sure it works. Define <b>UROBORO_X86</b> if you are on an x86 architecture to enable Assembly instructions and <b>UROBORO_INCLUDE_ALL</b> if you intend to use most functionalities, as by default <code><a class="el" href="uroboro_8h.html" title="General include file.">uroboro.h</a></code> only includes base headers. All library functions are implemented in the <code>uroboro</code> namespace (<code>umath</code> is a shorter namespace alias).</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Examples</h2>
-<p >Introductory examples can be found in <a href="https://github.com/mattiaisgro/uroboro/blob/master/txt/EXAMPLES.md">EXAMPLES.md</a> and more advanced examples can be found inside the <code>examples/</code> folder.</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Quickstart</h3>
-<p >You can try to compile this simple code to see if the library works properly: </p><div class="fragment"><div class="line"><span class="preprocessor">#define UROBORO_INCLUDE_ALL</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="uroboro_8h.html">uroboro.h</a>&quot;</span></div>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Setup</h1>
+<p >You don't need anything other than your compiler to use the library. You can run <code>make all</code> in the root directory of the library to make sure it works.</p><ul>
+<li>Define <b>THEORETICA_INCLUDE_ALL</b> if you intend to use most functionalities, as by default <code><a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a></code> only includes base headers</li>
+</ul>
+<p >All library functions are implemented in the <code>theoretica</code> namespace (<code>th</code> is a shorter namespace alias).</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Examples</h1>
+<p >Introductory examples can be found in <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/EXAMPLES.md">EXAMPLES.md</a> and more advanced examples can be found inside the <code>examples/</code> folder.</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Quickstart</h2>
+<p >You can try to compile this simple code to see if the library works properly: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a>;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">th</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_typedef" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> v = {1, 2, 3};</div>
-<div class="line">    <a class="code hl_typedef" href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">mat3</a> A = mat3::identity();</div>
-<div class="line">    <a class="code hl_typedef" href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">vec3</a> w = A * v;</div>
+<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> v = {1, 2, 3};</div>
+<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">mat3</a> A = mat3::identity();</div>
+<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> w = A * v;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a1b64d654616fd871c63b063761f7612e"><div class="ttname"><a href="namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e">uroboro::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> vec.h:358</div></div>
-<div class="ttc" id="anamespaceuroboro_html_af3c73efc6d8813649590ff43e814864a"><div class="ttname"><a href="namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a">uroboro::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> mat.h:1204</div></div>
-<div class="ttc" id="auroboro_8h_html"><div class="ttname"><a href="uroboro_8h.html">uroboro.h</a></div><div class="ttdoc">General include file.</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
-Contributing</h2>
-<p >Contributions are welcome and very appreciated! Make sure to read the <a href="https://github.com/chaotic-society/uroboro/blob/master/CONTRIBUTING.md">Contributing Guide</a> to know more about how you can help. If you participate, you are expected to follow the <a href="https://github.com/chaotic-society/uroboro/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-License</h2>
-<p >This project is currently under the <a href="https://github.com/chaotic-society/uroboro/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Macros</h2>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a3a9580d98118f2e1692c1f5d6dbf3ea5"><div class="ttname"><a href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">theoretica::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> vec.h:358</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ae2899e9929670cbd58f39d6f1642ce19"><div class="ttname"><a href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">theoretica::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> mat.h:1204</div></div>
+<div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+Contributing</h1>
+<p >Contributions are welcome and very appreciated! Make sure to read the <a href="https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md">Contributing Guide</a> to know more about how you can help. If you participate, you are expected to follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+License</h1>
+<p >This project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Macros</h1>
 <p >These are the macros that can be defined to change the library's behaviour:</p><ul>
-<li><b>UROBORO_INCLUDE_ALL</b> - Including <code><a class="el" href="uroboro_8h.html" title="General include file.">uroboro.h</a></code> will include <em>all</em> header files instead of base headers</li>
-<li><b>UROBORO_BRANCHLESS</b> - Branchless implementations will be preferred when possible (and computationally convenient)</li>
-<li><b>UROBORO_THROW_EXCEPTIONS</b> - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)</li>
-<li><b>UROBORO_ONLY_EXCEPTIONS</b> - Exceptions will be thrown on error (without modifying errno)</li>
-<li><b>UROBORO_NO_NAMESPACE</b> - The <code>umath</code> namespace alias will <b>not</b> be defined</li>
-<li><b>UROBORO_X86</b> - <b>Assembly x86</b> implementations will be used whenever possible</li>
-<li><b>UROBORO_FLOAT_PREC</b> - Floating point precision (<code>float</code>) will be used for the <code>real</code> type (by default <code>double</code> is used)</li>
-<li><b>UROBORO_LONG_DOUBLE_PREC</b> - Long double precision (<code>long double</code>) will be used</li>
-<li><b>UROBORO_NO_PRINT</b> - Do <b>not</b> compile <code>to_string()</code> and <code>operator&lt;&lt;()</code> methods for all classes (to avoid including <code>&lt;string&gt;</code>, <code>&lt;sstream&gt;</code> and <code>&lt;ostream&gt;</code>)</li>
-<li><b>UROBORO_ROW_FIRST</b> - The <code>mat&lt;N, K&gt;</code> class will use row-first storage of matrix data instead of column-first.</li>
-<li><b>UROBORO_MATRIX_LEXIC</b> - Lexicographical notation for matrices (column first access) will be used for matrix functions <code>at</code>, <code>get</code> and <code>set</code>. By default, matrix indices refer to row and column, in this order.</li>
+<li><b>THEORETICA_INCLUDE_ALL</b> - Including <code><a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a></code> will include <em>all</em> header files instead of base headers</li>
+<li><b>THEORETICA_THROW_EXCEPTIONS</b> - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)</li>
+<li><b>THEORETICA_ONLY_EXCEPTIONS</b> - Exceptions will be thrown on error (without modifying errno)</li>
+<li><b>THEORETICA_X86</b> - <b>Assembly x86</b> implementations will be used whenever possible</li>
+<li><b>THEORETICA_FLOAT_PREC</b> - Floating point precision (<code>float</code>) will be used for the <code>real</code> type (by default <code>double</code> is used)</li>
+<li><b>THEORETICA_LONG_DOUBLE_PREC</b> - Long double precision (<code>long double</code>) will be used</li>
+<li><b>THEORETICA_ROW_FIRST</b> - The <code>mat&lt;N, K&gt;</code> class will use row-first storage of matrix data instead of column-first.</li>
+<li><b>THEORETICA_MATRIX_LEXIC</b> - Lexicographical notation for matrices (column first access) will be used for matrix functions <code>at</code>, <code>get</code> and <code>set</code>. By default, matrix indices refer to row and column, in this order.</li>
+<li>If compile on an x86 architecture and the library doesn't automatically detect it, you may define <b>THEORETICA_X86</b> to enable x86 specific code.</li>
 <li>See <code><a class="el" href="constants_8h.html" title="Mathematical constants and algorithm parameters.">constants.h</a></code> for more specific defines</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Error handling</h2>
-<p >The library uses <code>errno</code> and <code>umath::MathException</code> (if it is enabled) to report errors. The behaviour of the library may be modified using the <code>UROBORO_THROW_EXCEPTIONS</code> and <code>UROBORO_ONLY_EXCEPTIONS</code>. See Macros to learn more. </p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Error handling</h1>
+<p >The library uses <code>errno</code> and <code>th::MathException</code> (if it is enabled) to report errors. The behaviour of the library may be modified using the <code>THEORETICA_THROW_EXCEPTIONS</code> and <code>THEORETICA_ONLY_EXCEPTIONS</code>. See Macros to learn more. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 18 2022 20:42:35 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

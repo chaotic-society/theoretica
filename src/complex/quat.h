@@ -3,10 +3,10 @@
 /// @file quat.h Quaternion algebra
 ///
 
-#ifndef UROBORO_QUATERNION_H
-#define UROBORO_QUATERNION_H
+#ifndef THEORETICA_QUATERNION_H
+#define THEORETICA_QUATERNION_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -15,7 +15,7 @@
 #include "../algebra/vec.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// @class quat
 	/// Quaternion in the form \f$a + bi + cj + dk\f$,
@@ -61,7 +61,7 @@ namespace uroboro {
 
 			/// Get the norm of a quaternion
 			inline real norm() const {
-				return uroboro::sqrt(a * a + v.square_magnitude());
+				return sqrt(a * a + v.square_magnitude());
 			}
 
 			/// Get the square norm of a quaternion
@@ -280,8 +280,8 @@ namespace uroboro {
 			/// Construct a quaternion which represents a rotation
 			/// of <rad> radians around the <axis> arbitrary axis
 			inline static quat rotation(real rad, const vec3& axis) {
-				return quat(uroboro::cos(rad / 2.0),
-							axis.normalized() * uroboro::sin(rad / 2.0));
+				return quat(cos(rad / 2.0),
+							axis.normalized() * sin(rad / 2.0));
 			}
 
 
@@ -291,11 +291,11 @@ namespace uroboro {
 
 				vec3 n_axis = axis.normalized();
 
-				quat q = quat(uroboro::cos(rad / 2.0),
-					n_axis * uroboro::sin(rad / 2.0));
+				quat q = quat(cos(rad / 2.0),
+					n_axis * sin(rad / 2.0));
 
-				quat q_inv = quat(uroboro::cos(rad / 2.0),
-					n_axis * (uroboro::sin(rad / 2.0) * -1));
+				quat q_inv = quat(cos(rad / 2.0),
+					n_axis * (sin(rad / 2.0) * -1));
 
 				quat p = quat(0, v);
 
@@ -323,7 +323,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the quaternion to string representation
 			inline std::string to_string() const {

@@ -3,8 +3,8 @@
 /// @file polyn_interp.h Polynomial interpolation of real functions
 ///
 
-#ifndef UROBORO_POLYN_INTERP_H
-#define UROBORO_POLYN_INTERP_H
+#ifndef THEORETICA_POLYN_INTERP_H
+#define THEORETICA_POLYN_INTERP_H
 
 #include <vector>
 #include "../core/real_analysis.h"
@@ -13,7 +13,7 @@
 #include "../core/function.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Compute the Lagrange polynomial

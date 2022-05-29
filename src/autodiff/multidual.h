@@ -1,12 +1,12 @@
-#ifndef UROBORO_MULTIDUAL_H
-#define UROBORO_MULTIDUAL_H
+#ifndef THEORETICA_MULTIDUAL_H
+#define THEORETICA_MULTIDUAL_H
 
 
 ///
 /// @file multidual.h Multidual numbers
 ///
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -14,7 +14,7 @@
 #include "../algebra/vec.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// 
 	/// @class multidual
@@ -263,7 +263,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the multidual number to string representation
 			/// @param epsilon The character to use to represent epsilon

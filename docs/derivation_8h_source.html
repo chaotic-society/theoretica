@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: calculus/derivation.h Source File</title>
+<title>Theoretica: calculus/derivation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -96,14 +96,14 @@ $(document).ready(function(){initNavTree('derivation_8h_source.html',''); initRe
 <div class="contents">
 <a href="derivation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DERIVATION_UROBORO_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DERIVATION_UROBORO_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DERIVATION_THEORETICA_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DERIVATION_THEORETICA_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../core/function.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../polynomial/polynomial.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Derivate a polynomial</span></div>
@@ -120,18 +120,18 @@ $(document).ready(function(){initNavTree('derivation_8h_source.html',''); initRe
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Central derivative approximation</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> approx_derivative_central(<a class="code hl_typedef" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx = 0.00000001) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> approx_derivative_central(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = 0.00000001) {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> (f(x + dx) - f(x - dx)) / (2.0 * dx);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Forward derivative approximation</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> approx_derivative_forward(<a class="code hl_typedef" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx = 0.00000001) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> approx_derivative_forward(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = 0.00000001) {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> (f(x + dx) - f(x)) / dx;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// Backward derivative approximation</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> approx_derivative_backward(<a class="code hl_typedef" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> dx = 0.00000001) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> approx_derivative_backward(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = 0.00000001) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> (f(x) - f(x - dx)) / dx;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
@@ -139,16 +139,16 @@ $(document).ready(function(){initNavTree('derivation_8h_source.html',''); initRe
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:128</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a55d24f1c0c8357b26e2ea168b80eabeb"><div class="ttname"><a href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">theoretica::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="derivation_8h.html">derivation.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -3,13 +3,13 @@
 /// @file bit_op.h Operations on bits
 ///
 
-#ifndef UROBORO_BIT_OP_H
-#define UROBORO_BIT_OP_H
+#ifndef THEORETICA_BIT_OP_H
+#define THEORETICA_BIT_OP_H
 
 #include <cstdint>
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Multiply two 64-bit integers and store the result

@@ -3,16 +3,16 @@
 /// @file distributions.h Probability distribution functions
 ///
 
-#ifndef UROBORO_DISTRIBUTIONS
-#define UROBORO_DISTRIBUTIONS
+#ifndef THEORETICA_DISTRIBUTIONS
+#define THEORETICA_DISTRIBUTIONS
 
 #include "../core/real_analysis.h"
 #include "./statistics.h"
 #include "../core/function.h"
 
 
-/// @namespace uroboro
-namespace uroboro {
+/// @namespace theoretica
+namespace theoretica {
 
 
 	/// Compute the likelihood of a distribution <f> with the given

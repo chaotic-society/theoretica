@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: core/bit_op.h Source File</title>
+<title>Theoretica: core/bit_op.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -96,16 +96,16 @@ $(document).ready(function(){initNavTree('bit__op_8h_source.html',''); initResiz
 <div class="contents">
 <a href="bit__op_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef UROBORO_BIT_OP_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define UROBORO_BIT_OP_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef THEORETICA_BIT_OP_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define THEORETICA_BIT_OP_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#aef4b94b0c849d7bcb9b3b87b51b95e12">   23</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceuroboro.html#aef4b94b0c849d7bcb9b3b87b51b95e12">mul_uint128</a>(</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">   23</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">mul_uint128</a>(</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        uint64_t a, uint64_t b,</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        uint64_t&amp; c_low, uint64_t&amp; c_high) {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
@@ -132,35 +132,35 @@ $(document).ready(function(){initNavTree('bit__op_8h_source.html',''); initResiz
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a44eaf87b7cb5c4f25e08c45b3d26ec43">   58</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespaceuroboro.html#a44eaf87b7cb5c4f25e08c45b3d26ec43">mix_mum</a>(uint64_t a, uint64_t b) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        uint64_t c_low, c_high;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="namespaceuroboro.html#aef4b94b0c849d7bcb9b3b87b51b95e12">mul_uint128</a>(a, b, c_low, c_high);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> c_high ^ c_low;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ShiftableType&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a1a2d812e66cde448c213eb47a3fe8762">   71</a></span>    <span class="keyword">inline</span> ShiftableType <a class="code hl_function" href="namespaceuroboro.html#a1a2d812e66cde448c213eb47a3fe8762">bit_rotate</a>(ShiftableType x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> (x &lt;&lt; i) | (x &gt;&gt; ((<span class="keyword">sizeof</span>(ShiftableType) * 8) - i));</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a1a2d812e66cde448c213eb47a3fe8762"><div class="ttname"><a href="namespaceuroboro.html#a1a2d812e66cde448c213eb47a3fe8762">uroboro::bit_rotate</a></div><div class="ttdeci">ShiftableType bit_rotate(ShiftableType x, unsigned int i)</div><div class="ttdoc">Bit rotation using shifting.</div><div class="ttdef"><b>Definition:</b> bit_op.h:71</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a44eaf87b7cb5c4f25e08c45b3d26ec43"><div class="ttname"><a href="namespaceuroboro.html#a44eaf87b7cb5c4f25e08c45b3d26ec43">uroboro::mix_mum</a></div><div class="ttdeci">uint64_t mix_mum(uint64_t a, uint64_t b)</div><div class="ttdoc">MUM bit mixing function.</div><div class="ttdef"><b>Definition:</b> bit_op.h:58</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aef4b94b0c849d7bcb9b3b87b51b95e12"><div class="ttname"><a href="namespaceuroboro.html#aef4b94b0c849d7bcb9b3b87b51b95e12">uroboro::mul_uint128</a></div><div class="ttdeci">void mul_uint128(uint64_t a, uint64_t b, uint64_t &amp;c_low, uint64_t &amp;c_high)</div><div class="ttdoc">Multiply two 64-bit integers and store the result in two 64-bit variables, keeping 128 bits of the re...</div><div class="ttdef"><b>Definition:</b> bit_op.h:23</div></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">   53</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">mix_mum</a>(uint64_t a, uint64_t b) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        uint64_t c_low, c_high;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_function" href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">mul_uint128</a>(a, b, c_low, c_high);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> c_high ^ c_low;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ShiftableType&gt;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a249d8d6497120d311e2abbfc11c5f54d">   66</a></span>    <span class="keyword">inline</span> ShiftableType <a class="code hl_function" href="namespacetheoretica.html#a249d8d6497120d311e2abbfc11c5f54d">bit_rotate</a>(ShiftableType x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> (x &lt;&lt; i) | (x &gt;&gt; ((<span class="keyword">sizeof</span>(ShiftableType) * 8) - i));</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a249d8d6497120d311e2abbfc11c5f54d"><div class="ttname"><a href="namespacetheoretica.html#a249d8d6497120d311e2abbfc11c5f54d">theoretica::bit_rotate</a></div><div class="ttdeci">ShiftableType bit_rotate(ShiftableType x, unsigned int i)</div><div class="ttdoc">Bit rotation using shifting.</div><div class="ttdef"><b>Definition:</b> bit_op.h:66</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a672dbbc0ea824c71d7ca0dc26b346200"><div class="ttname"><a href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">theoretica::mix_mum</a></div><div class="ttdeci">uint64_t mix_mum(uint64_t a, uint64_t b)</div><div class="ttdoc">MUM bit mixing function.</div><div class="ttdef"><b>Definition:</b> bit_op.h:53</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aca2b51694a7dd4ded3a140f92366aaed"><div class="ttname"><a href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">theoretica::mul_uint128</a></div><div class="ttdeci">void mul_uint128(uint64_t a, uint64_t b, uint64_t &amp;c_low, uint64_t &amp;c_high)</div><div class="ttdoc">Multiply two 64-bit integers and store the result in two 64-bit variables, keeping 128 bits of the re...</div><div class="ttdef"><b>Definition:</b> bit_op.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="bit__op_8h.html">bit_op.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

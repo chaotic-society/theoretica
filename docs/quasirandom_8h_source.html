@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: pseudorandom/quasirandom.h Source File</title>
+<title>Theoretica: pseudorandom/quasirandom.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -96,47 +96,47 @@ $(document).ready(function(){initNavTree('quasirandom_8h_source.html',''); initR
 <div class="contents">
 <a href="quasirandom_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef UROBORO_QUASIRANDOM_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define UROBORO_QUASIRANDOM_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef THEORETICA_QUASIRANDOM_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define THEORETICA_QUASIRANDOM_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../core/real_analysis.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#aa8c31e39eddca34502412e1377d45a5c">   23</a></span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="namespaceuroboro.html#aa8c31e39eddca34502412e1377d45a5c">qrand_weyl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> alpha = <a class="code hl_variable" href="namespaceuroboro.html#a55eb634b54b535a5264520b414aa2e2e">INVPHI</a>) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#ae98bae67d3b86e3a42bdf4dd041a866f">fract</a>(n * alpha);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">   23</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">qrand_weyl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha = <a class="code hl_variable" href="namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde">INVPHI</a>) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a">fract</a>(n * alpha);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a1900045039b2fc9bf50d3031f3cc56b5">   37</a></span>    <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="namespaceuroboro.html#a1900045039b2fc9bf50d3031f3cc56b5">qrand_weyl_recurr</a>(<a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> prev = 0, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> alpha = <a class="code hl_variable" href="namespaceuroboro.html#a55eb634b54b535a5264520b414aa2e2e">INVPHI</a>) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a6c5001951408c716ce4e6414cc45f420">   37</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a6c5001951408c716ce4e6414cc45f420">qrand_weyl_recurr</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> prev = 0, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha = <a class="code hl_variable" href="namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde">INVPHI</a>) {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">if</span>(prev == 0) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            prev = <a class="code hl_function" href="namespaceuroboro.html#aa8c31e39eddca34502412e1377d45a5c">qrand_weyl</a>(1, alpha);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            prev = <a class="code hl_function" href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">qrand_weyl</a>(1, alpha);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">return</span> prev;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceuroboro.html#ae98bae67d3b86e3a42bdf4dd041a866f">fract</a>(prev + alpha);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a">fract</a>(prev + alpha);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a1900045039b2fc9bf50d3031f3cc56b5"><div class="ttname"><a href="namespaceuroboro.html#a1900045039b2fc9bf50d3031f3cc56b5">uroboro::qrand_weyl_recurr</a></div><div class="ttdeci">real qrand_weyl_recurr(real prev=0, real alpha=INVPHI)</div><div class="ttdoc">Weyl quasi-random sequence (computed with recurrence relation)</div><div class="ttdef"><b>Definition:</b> quasirandom.h:37</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a55eb634b54b535a5264520b414aa2e2e"><div class="ttname"><a href="namespaceuroboro.html#a55eb634b54b535a5264520b414aa2e2e">uroboro::INVPHI</a></div><div class="ttdeci">constexpr real INVPHI</div><div class="ttdoc">The inverse of the Golden Section mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:140</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:128</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aa8c31e39eddca34502412e1377d45a5c"><div class="ttname"><a href="namespaceuroboro.html#aa8c31e39eddca34502412e1377d45a5c">uroboro::qrand_weyl</a></div><div class="ttdeci">real qrand_weyl(unsigned int n, real alpha=INVPHI)</div><div class="ttdoc">Weyl quasi-random sequence.</div><div class="ttdef"><b>Definition:</b> quasirandom.h:23</div></div>
-<div class="ttc" id="anamespaceuroboro_html_ae98bae67d3b86e3a42bdf4dd041a866f"><div class="ttname"><a href="namespaceuroboro.html#ae98bae67d3b86e3a42bdf4dd041a866f">uroboro::fract</a></div><div class="ttdeci">real fract(real x)</div><div class="ttdoc">Compute the fractional part of a real number.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:195</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a6a6de16e5ee81d340ff91dbadb99edde"><div class="ttname"><a href="namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde">theoretica::INVPHI</a></div><div class="ttdeci">constexpr real INVPHI</div><div class="ttdoc">The inverse of the Golden Section mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:148</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a6c5001951408c716ce4e6414cc45f420"><div class="ttname"><a href="namespacetheoretica.html#a6c5001951408c716ce4e6414cc45f420">theoretica::qrand_weyl_recurr</a></div><div class="ttdeci">real qrand_weyl_recurr(real prev=0, real alpha=INVPHI)</div><div class="ttdoc">Weyl quasi-random sequence (computed with recurrence relation)</div><div class="ttdef"><b>Definition:</b> quasirandom.h:37</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a85d079c3d95f2bc80c4619d13ff7263a"><div class="ttname"><a href="namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a">theoretica::fract</a></div><div class="ttdeci">real fract(real x)</div><div class="ttdoc">Compute the fractional part of a real number.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:195</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aa7e523c1cc3621e7cbc1ac0df01913c3"><div class="ttname"><a href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">theoretica::qrand_weyl</a></div><div class="ttdeci">real qrand_weyl(unsigned int n, real alpha=INVPHI)</div><div class="ttdoc">Weyl quasi-random sequence.</div><div class="ttdef"><b>Definition:</b> quasirandom.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="quasirandom_8h.html">quasirandom.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

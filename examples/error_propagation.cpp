@@ -3,8 +3,8 @@
 /// @file error_propagation.cpp Automatic error propagation using automatic differentiation
 ///
 
-#include "uroboro.h"
-using namespace umath;
+#include "theoretica.h"
+using namespace th;
 
 
 // Direct sum of the errors
@@ -13,7 +13,7 @@ real product_sum(vec<N> g, vec<N> v) {
 
 	real res = 0;
 	for (int i = 0; i < N; ++i)
-		res += umath::abs(g.at(i) * v.at(i));
+		res += th::abs(g.at(i) * v.at(i));
 
 	return res;
 }
@@ -26,7 +26,7 @@ real product_sum_quad(vec<N> g, vec<N> v) {
 	for (int i = 0; i < N; ++i)
 		res += square(g.at(i) * v.at(i));
 
-	return umath::sqrt(res);
+	return th::sqrt(res);
 }
 
 
@@ -38,7 +38,7 @@ NumType theta(vec<2, NumType> v) {
 	const NumType r = v[0];
 	const NumType d = v[1];
 
-	return umath::atan(r / (d - 1));
+	return th::atan(r / (d - 1));
 }
 
 
@@ -66,7 +66,7 @@ int main(int argc, char const *argv[]) {
 	vec2 err = {delta_r, delta_d};
 
 	// Compute the partial derivatives of the function
-	vec2 gradient = umath::gradient(theta, data);
+	vec2 gradient = th::gradient(theta, data);
 
 	std::cout << "Total error (direct sum): " <<
 		product_sum(gradient, err) << std::endl;

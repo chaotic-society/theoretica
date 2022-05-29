@@ -24,38 +24,47 @@
 */
 var NAVTREE =
 [
-  [ "Uroboro Math Library", "index.html", [
+  [ "Theoretica", "index.html", [
+    [ "Dependencies", "index.html#autotoc_md2", null ],
+    [ "Key Features", "index.html#autotoc_md3", null ],
+    [ "Setup", "index.html#autotoc_md4", null ],
+    [ "Examples", "index.html#autotoc_md5", [
+      [ "A short example", "index.html#autotoc_md1", null ],
+      [ "Quickstart", "index.html#autotoc_md6", null ]
+    ] ],
+    [ "Contributing", "index.html#autotoc_md7", null ],
+    [ "License", "index.html#autotoc_md8", null ],
+    [ "Macros", "index.html#autotoc_md9", null ],
+    [ "Error handling", "index.html#autotoc_md10", null ],
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Dependencies", "index.html#autotoc_md0", null ],
-      [ "Key Features", "index.html#autotoc_md1", null ],
-      [ "Setup", "index.html#autotoc_md2", null ],
-      [ "Examples", "index.html#autotoc_md3", [
-        [ "Quickstart", "index.html#autotoc_md4", null ]
+      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
+      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
+      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", null ],
+      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md15", null ],
+      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", [
+        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ]
       ] ],
-      [ "Contributing", "index.html#autotoc_md5", null ],
-      [ "License", "index.html#autotoc_md6", null ],
-      [ "Macros", "index.html#autotoc_md7", null ],
-      [ "Error handling", "index.html#autotoc_md8", null ],
-      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md10", null ],
-      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md11", null ],
-      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
-      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
-      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", [
-        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md15", null ]
-      ] ],
-      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", null ]
+      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ]
+    ] ],
+    [ "Coding standard", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html", [
+      [ "Scopes", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20", null ],
+      [ "Naming conventions", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md21", null ],
+      [ "Indentation", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md22", null ],
+      [ "Documentation", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md23", null ],
+      [ "Test cases", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md24", null ],
+      [ "Other considerations", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md25", null ]
     ] ],
     [ "Examples", "md_txt__e_x_a_m_p_l_e_s.html", [
-      [ "Including library headers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md18", null ],
-      [ "Using vectors", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md19", null ],
-      [ "Using matrices", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md20", null ],
-      [ "Using complex numbers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md21", null ],
-      [ "Using quaternions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md22", null ],
-      [ "Using polynomials", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md23", null ],
-      [ "Using statistical functions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md24", null ]
+      [ "Including library headers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md27", null ],
+      [ "Using vectors", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md28", null ],
+      [ "Using matrices", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md29", null ],
+      [ "Using complex numbers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md30", null ],
+      [ "Using quaternions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md31", null ],
+      [ "Using polynomials", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md32", null ],
+      [ "Using statistical functions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md33", null ]
     ] ],
     [ "Resources", "md_txt__r_e_s_o_u_r_c_e_s.html", [
-      [ "Pseudorandom and quasirandom generators", "md_txt__r_e_s_o_u_r_c_e_s.html#autotoc_md26", null ]
+      [ "Pseudorandom and quasirandom generators", "md_txt__r_e_s_o_u_r_c_e_s.html#autotoc_md35", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -89,13 +98,13 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classuroboro_1_1dual2.html#a9aa0865497747d76ac87c9a72dcef9b6",
-"classuroboro_1_1polynomial.html#adbd35b1cbe4e0f7dfae2db4740b0bc48",
-"distributions_8h.html#a9461c58a9a497a55776978ca49a2d904",
-"namespacemembers_type.html",
-"namespaceuroboro.html#ad1ab80d0f3577e491e4837b4beb2f051",
-"vec__buff_8h.html#ac0d6ea5a701e0926b6726e2e4fcb7660"
+"algebra_2algebra_8h_source.html",
+"classtheoretica_1_1dual2.html#aafa155f9a1ec7b437c4631c794199166",
+"classtheoretica_1_1polynomial.html#ab37d3946a2ef20303ad2cdf30e527c2d",
+"distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13",
+"namespacemembers_h.html",
+"namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba",
+"vec_8h.html#a51aa3252df8991054c7c1f301912176c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

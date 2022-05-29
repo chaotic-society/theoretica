@@ -3,10 +3,10 @@
 /// @file phasor.h Phasor (complex number in exponential form)
 ///
 
-#ifndef UROBORO_PHASOR
-#define UROBORO_PHASOR
+#ifndef THEORETICA_PHASOR
+#define THEORETICA_PHASOR
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -15,7 +15,7 @@
 #include "./complex.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// @class phasor
@@ -178,7 +178,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the phasor to string representation
 			inline std::string to_string(const std::string& separator = ", ") const {

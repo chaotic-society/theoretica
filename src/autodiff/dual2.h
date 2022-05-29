@@ -3,10 +3,10 @@
 /// @file dual2.h Second order dual number class
 ///
 
-#ifndef UROBORO_DUAL2_H
-#define UROBORO_DUAL2_H
+#ifndef THEORETICA_DUAL2_H
+#define THEORETICA_DUAL2_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -15,7 +15,7 @@
 #include "../core/constants.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	///
@@ -279,7 +279,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the dual number to string representation
 			/// @param epsilon1 The character to use to represent epsilon1

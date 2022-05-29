@@ -3,13 +3,13 @@
 /// @file prng.h Pseudorandom number generator class
 ///
 
-#ifndef UROBORO_PRNG_H
-#define UROBORO_PRNG_H
+#ifndef THEORETICA_PRNG_H
+#define THEORETICA_PRNG_H
 
 #include <vector>
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// @class PRNG
 	/// A pseudorandom number generator

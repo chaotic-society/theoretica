@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: calculus/integration.h File Reference</title>
+<title>Theoretica: calculus/integration.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -110,46 +110,46 @@ $(document).ready(function(){initNavTree('integration_8h.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuroboro_1_1_r_k4_1_1kinematic__state.html">uroboro::RK4::kinematic_state</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1_r_k4_1_1kinematic__state.html">theoretica::RK4::kinematic_state</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuroboro_1_1_r_k4_1_1kinematic__deriv.html">uroboro::RK4::kinematic_deriv</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1_r_k4_1_1kinematic__deriv.html">theoretica::RK4::kinematic_deriv</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespaceuroboro"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html">uroboro</a></td></tr>
-<tr class="memdesc:namespaceuroboro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
+<tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
+<tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a1a4af659705befe34c4fd67f5d5d5b84"><td class="memItemLeft" align="right" valign="top"><a id="a1a4af659705befe34c4fd67f5d5d5b84" name="a1a4af659705befe34c4fd67f5d5d5b84"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RK4::accel_function</b> = real(*)(const kinematic_state &amp;, real)</td></tr>
-<tr class="separator:a1a4af659705befe34c4fd67f5d5d5b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af28db10a0e6b1d68f1ab6f2a198dcc65"><td class="memItemLeft" align="right" valign="top"><a id="af28db10a0e6b1d68f1ab6f2a198dcc65" name="af28db10a0e6b1d68f1ab6f2a198dcc65"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::RK4::accel_function</b> = real(*)(const kinematic_state &amp;, real)</td></tr>
+<tr class="separator:af28db10a0e6b1d68f1ab6f2a198dcc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7f7a53e9544695366f9f050876632c44"><td class="memItemLeft" align="right" valign="top"><a id="a7f7a53e9544695366f9f050876632c44" name="a7f7a53e9544695366f9f050876632c44"></a>
-polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::integrate_polynomial</b> (polynomial&lt; real &gt; p)</td></tr>
-<tr class="separator:a7f7a53e9544695366f9f050876632c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da45cb1a35b03a4fba6731acc2598f4"><td class="memItemLeft" align="right" valign="top"><a id="a9da45cb1a35b03a4fba6731acc2598f4" name="a9da45cb1a35b03a4fba6731acc2598f4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_integral_midpoint</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="separator:a9da45cb1a35b03a4fba6731acc2598f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5db9e1a6e60ca252e8d0458f38c7877"><td class="memItemLeft" align="right" valign="top"><a id="aa5db9e1a6e60ca252e8d0458f38c7877" name="aa5db9e1a6e60ca252e8d0458f38c7877"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_integral_trapezoid</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="separator:aa5db9e1a6e60ca252e8d0458f38c7877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3febd49844a1fec1f815c6510636659b"><td class="memItemLeft" align="right" valign="top"><a id="a3febd49844a1fec1f815c6510636659b" name="a3febd49844a1fec1f815c6510636659b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_integral_simpson</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="separator:a3febd49844a1fec1f815c6510636659b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac73056a145c9f5204466a79b4f4b3f2a"><td class="memItemLeft" align="right" valign="top"><a id="ac73056a145c9f5204466a79b4f4b3f2a" name="ac73056a145c9f5204466a79b4f4b3f2a"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::approx_integral_romberg</b> (real_function f, real a, real b, unsigned int order)</td></tr>
-<tr class="separator:ac73056a145c9f5204466a79b4f4b3f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67cc80a6f873d9969c73136bb0d609a9"><td class="memItemLeft" align="right" valign="top"><a id="a67cc80a6f873d9969c73136bb0d609a9" name="a67cc80a6f873d9969c73136bb0d609a9"></a>
-kinematic_deriv&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RK4::eval</b> (const kinematic_state &amp;prec, real t, real dt, const kinematic_deriv &amp;deriv, accel_function accel)</td></tr>
-<tr class="separator:a67cc80a6f873d9969c73136bb0d609a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd6562e5e4d3410be6687b9a319ed62c"><td class="memItemLeft" align="right" valign="top"><a id="abd6562e5e4d3410be6687b9a319ed62c" name="abd6562e5e4d3410be6687b9a319ed62c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RK4::integrate</b> (kinematic_state s, real t, real dt, accel_function accel)</td></tr>
-<tr class="separator:abd6562e5e4d3410be6687b9a319ed62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af57e86214e047cc08e30d7d19e4410"><td class="memItemLeft" align="right" valign="top"><a id="a0af57e86214e047cc08e30d7d19e4410" name="a0af57e86214e047cc08e30d7d19e4410"></a>
+polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integrate_polynomial</b> (const polynomial&lt; real &gt; &amp;p)</td></tr>
+<tr class="separator:a0af57e86214e047cc08e30d7d19e4410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6a06e57043ca1271f70ab0e30f254c6"><td class="memItemLeft" align="right" valign="top"><a id="ad6a06e57043ca1271f70ab0e30f254c6" name="ad6a06e57043ca1271f70ab0e30f254c6"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_integral_midpoint</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="separator:ad6a06e57043ca1271f70ab0e30f254c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8f86464826de8abb7f63ac97d84872"><td class="memItemLeft" align="right" valign="top"><a id="adb8f86464826de8abb7f63ac97d84872" name="adb8f86464826de8abb7f63ac97d84872"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_integral_trapezoid</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="separator:adb8f86464826de8abb7f63ac97d84872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e821b7930d9f65671c2812b0a7e0ea9"><td class="memItemLeft" align="right" valign="top"><a id="a5e821b7930d9f65671c2812b0a7e0ea9" name="a5e821b7930d9f65671c2812b0a7e0ea9"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_integral_simpson</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="separator:a5e821b7930d9f65671c2812b0a7e0ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a373859daf532daffbe84697d1f61e2e7"><td class="memItemLeft" align="right" valign="top"><a id="a373859daf532daffbe84697d1f61e2e7" name="a373859daf532daffbe84697d1f61e2e7"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_integral_romberg</b> (real_function f, real a, real b, unsigned int order)</td></tr>
+<tr class="separator:a373859daf532daffbe84697d1f61e2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87195e4df562601781b688d04bac024"><td class="memItemLeft" align="right" valign="top"><a id="af87195e4df562601781b688d04bac024" name="af87195e4df562601781b688d04bac024"></a>
+kinematic_deriv&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::RK4::eval</b> (const kinematic_state &amp;prec, real t, real dt, const kinematic_deriv &amp;deriv, accel_function accel)</td></tr>
+<tr class="separator:af87195e4df562601781b688d04bac024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f44c5d013b640903cda516d19d08ec"><td class="memItemLeft" align="right" valign="top"><a id="a01f44c5d013b640903cda516d19d08ec" name="a01f44c5d013b640903cda516d19d08ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::RK4::integrate</b> (kinematic_state s, real t, real dt, accel_function accel)</td></tr>
+<tr class="separator:a01f44c5d013b640903cda516d19d08ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Integral approximation. </p>
@@ -159,7 +159,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::RK4::integra
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

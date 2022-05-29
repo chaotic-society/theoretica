@@ -3,8 +3,8 @@
 /// @file statistics.h Statistical functions
 ///
 
-#ifndef UROBORO_STATISTICS_H
-#define UROBORO_STATISTICS_H
+#ifndef THEORETICA_STATISTICS_H
+#define THEORETICA_STATISTICS_H
 
 #include "../core/constants.h"
 #include "../algebra/vec.h"
@@ -12,7 +12,7 @@
 #include "../core/real_analysis.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Compute the arithmetic mean of a set of values

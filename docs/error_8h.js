@@ -1,17 +1,17 @@
 var error_8h =
 [
     [ "UMATH_ERROR", "error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6", null ],
-    [ "UMATH_ERRCODE", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87f", [
-      [ "NO_ERROR", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fa9a1963f17370fd77dbe0d8147004f269", null ],
-      [ "DIV_BY_ZERO", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fae85e38f900d3b9e60d46522cddcc9827", null ],
-      [ "OUT_OF_DOMAIN", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fa4bda244cb3a86fd51434996100f3a2e8", null ],
-      [ "OUT_OF_RANGE", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fa9e81e47058e4212c23cdcf5e178bc661", null ],
-      [ "IMPOSSIBLE_OPERATION", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fa1c9f5a6c0dc41d5c69326c9e520fd780", null ],
-      [ "NO_ALGO_CONVERGENCE", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fa67a2b604a3be9867ed8fc4092de37db0", null ],
-      [ "INVALID_ARGUMENT", "error_8h.html#aa2ac8bbdb4f84c610c94a552eabad87fad78a455a56701b98a0416621ae5db597", null ]
+    [ "UMATH_ERRCODE", "error_8h.html#a93838376629bab0a3f0b1a933178300d", [
+      [ "NO_ERROR", "error_8h.html#a93838376629bab0a3f0b1a933178300daf8b1ea5551e4f94a00bc423850412b8d", null ],
+      [ "DIV_BY_ZERO", "error_8h.html#a93838376629bab0a3f0b1a933178300da51f6a269aa3a6f92215230ceb2212758", null ],
+      [ "OUT_OF_DOMAIN", "error_8h.html#a93838376629bab0a3f0b1a933178300daa73d82a0b87d50b7e55a153c532cfc26", null ],
+      [ "OUT_OF_RANGE", "error_8h.html#a93838376629bab0a3f0b1a933178300da2b59a7dcf481a7370abf13a0071934ce", null ],
+      [ "IMPOSSIBLE_OPERATION", "error_8h.html#a93838376629bab0a3f0b1a933178300dafd348681772c32b0908c924682081f29", null ],
+      [ "NO_ALGO_CONVERGENCE", "error_8h.html#a93838376629bab0a3f0b1a933178300daa44cd766f82e41f0989c8cdfd4ce84b3", null ],
+      [ "INVALID_ARGUMENT", "error_8h.html#a93838376629bab0a3f0b1a933178300dab55b853abe3dcd1dc17989d01cd55ce3", null ]
     ] ],
-    [ "inf", "error_8h.html#ab0dae8839058c4d6543da97ae099ea42", null ],
-    [ "is_nan", "error_8h.html#abb3e6b15ef5d38e836df947935f37a3d", null ],
-    [ "nan", "error_8h.html#a0261d15185aff18c120a43d1760a9323", null ],
-    [ "umath_errcode_to_errno", "error_8h.html#a9bc9f9f90d3a3656d1a7169770210f29", null ]
+    [ "inf", "error_8h.html#a252ec9220e4dab52b18b400381624538", null ],
+    [ "is_nan", "error_8h.html#a22e311a811c0c7e23c30e4496cfbe63d", null ],
+    [ "nan", "error_8h.html#ae95680d1669eee1549fe112b9a846519", null ],
+    [ "th_errcode_to_errno", "error_8h.html#a72fbdb4020853ffb29758ae00f515fb4", null ]
 ];

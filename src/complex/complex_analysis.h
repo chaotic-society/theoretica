@@ -3,13 +3,13 @@
 /// @file complex_analysis.h Functions of complex variable
 ///
 
-#ifndef UROBORO_COMPLEX_FUNCTIONS
-#define UROBORO_COMPLEX_FUNCTIONS
+#ifndef THEORETICA_COMPLEX_FUNCTIONS
+#define THEORETICA_COMPLEX_FUNCTIONS
 
 #include "./complex.h"
 #include "../core/real_analysis.h"
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Compute the square of a complex number

@@ -3,10 +3,10 @@
 /// @file core/error.h Error handling
 ///
 
-#ifndef UROBORO_ERROR_H
-#define UROBORO_ERROR_H
+#ifndef THEORETICA_ERROR_H
+#define THEORETICA_ERROR_H
 
-#if defined(UROBORO_THROW_EXCEPTIONS) || defined(UROBORO_ONLY_EXCEPTIONS)
+#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
 #include <exception>
 #include <string>
 #include <sstream>
@@ -17,7 +17,7 @@
 #include "./constants.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// Math error enumeration
 	enum UMATH_ERRCODE{
@@ -32,7 +32,7 @@ namespace uroboro {
 
 
 	/// Convert a UMATH_ERRCODE to errno error codes
-	int umath_errcode_to_errno(UMATH_ERRCODE err) {
+	int th_errcode_to_errno(UMATH_ERRCODE err) {
 		switch(err) {
 			case NO_ERROR: return 0; break;
 			case DIV_BY_ZERO: return ERANGE; break;
@@ -72,7 +72,7 @@ namespace uroboro {
 	}
 
 
-#if defined(UROBORO_THROW_EXCEPTIONS) || defined(UROBORO_ONLY_EXCEPTIONS)
+#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
 
 	class MathException : std::exception {
 
@@ -134,7 +134,7 @@ namespace uroboro {
 
 	
 // Only throw exceptions, without modifying errno
-#ifdef UROBORO_ONLY_EXCEPTIONS
+#ifdef THEORETICA_ONLY_EXCEPTIONS
 
 #define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
@@ -143,10 +143,10 @@ namespace uroboro {
 	UMATH_ERROR(F_NAME, VALUE, EXCEPTION)
 
 // Throw exceptions and modify errno
-#elif defined(UROBORO_THROW_EXCEPTIONS)
+#elif defined(THEORETICA_THROW_EXCEPTIONS)
 
 #define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	errno = umath_errcode_to_errno(EXCEPTION); \
+	errno = th_errcode_to_errno(EXCEPTION); \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
 // Modify errno only
@@ -154,7 +154,7 @@ namespace uroboro {
 
 // For a generic function (NO return statement)
 #define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	errno = umath_errcode_to_errno(EXCEPTION);
+	errno = th_errcode_to_errno(EXCEPTION);
 
 #endif
 

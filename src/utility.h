@@ -1,11 +1,11 @@
 
 ///
 /// @file utility.h Utility functions to print or insert vec_buff data sets.
-/// This header file is **not** automatically included by uroboro.h
+/// This header file is **not** automatically included by theoretica.h
 ///
 
-#ifndef UROBORO_UTILITY_H
-#define UROBORO_UTILITY_H
+#ifndef THEORETICA_UTILITY_H
+#define THEORETICA_UTILITY_H
 
 #include <iostream>
 #include <string>
@@ -15,7 +15,7 @@
 #include "./statistics/statistics.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Print a `vec_buff` data set to standard output

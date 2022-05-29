@@ -3,10 +3,10 @@
 /// @file example.cpp Example file
 ///
 
-#include "uroboro.h"
+#include "theoretica.h"
 #include "utility.h"
 
-using namespace umath;
+using namespace th;
 
 
 int main(int argc, char const *argv[]) {

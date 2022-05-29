@@ -3,13 +3,13 @@
 /// @file quasirandom.h Quasi-random sequences
 ///
 
-#ifndef UROBORO_QUASIRANDOM_H
-#define UROBORO_QUASIRANDOM_H
+#ifndef THEORETICA_QUASIRANDOM_H
+#define THEORETICA_QUASIRANDOM_H
 
 #include "../core/real_analysis.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Weyl quasi-random sequence

@@ -3,16 +3,16 @@
 /// @file ratio.h A ratio between objects
 ///
 
-#ifndef UROBORO_RATIO_H
-#define UROBORO_RATIO_H
+#ifndef THEORETICA_RATIO_H
+#define THEORETICA_RATIO_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// @class ratio A class representing a ratio between two objects,
 	/// like a fraction or a rational polynomial.
@@ -84,7 +84,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the ratio to string representation
 			inline std::string to_string() const {

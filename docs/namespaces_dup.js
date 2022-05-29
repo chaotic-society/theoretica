@@ -1,6 +1,9 @@
 var namespaces_dup =
 [
+    [ "a", null, [
+      [ "mat", "classa_1_1mat.html", null ]
+    ] ],
     [ "distribution", "namespacedistribution.html", null ],
-    [ "umath", "namespaceumath.html", null ],
-    [ "uroboro", "namespaceuroboro.html", "namespaceuroboro" ]
+    [ "th", "namespaceth.html", null ],
+    [ "theoretica", "namespacetheoretica.html", "namespacetheoretica" ]
 ];

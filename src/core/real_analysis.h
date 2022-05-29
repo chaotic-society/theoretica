@@ -3,14 +3,14 @@
 /// @file core/real_analysis.h Real functions
 ///
 
-#ifndef UROBORO_COMMON_H
-#define UROBORO_COMMON_H
+#ifndef THEORETICA_COMMON_H
+#define THEORETICA_COMMON_H
 
 #include "./constants.h"
 #include "./error.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Compute the square of a real number
@@ -40,10 +40,10 @@ namespace uroboro {
 	/// Domain: [0, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
 	/// the square root and limited by the
-	/// `UROBORO_MAX_NEWTON_ITER` macro constant, is used.
+	/// `THEORETICA_MAX_NEWTON_ITER` macro constant, is used.
 	/// Domain reduction to [0, 1] is applied
 	/// to ensure convergence of the algorithm.
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fsqrt` instruction will be used.
 	inline real sqrt(real x) {
 
@@ -52,7 +52,7 @@ namespace uroboro {
 			return nan();
 		}
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 	#ifdef MSVC_ASM
 		__asm {
@@ -99,7 +99,7 @@ namespace uroboro {
 	/// Domain: [-inf, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
 	/// the cubic root and limited by the
-	/// `UROBORO_MAX_NEWTON_ITER` macro constant, is used.
+	/// `THEORETICA_MAX_NEWTON_ITER` macro constant, is used.
 	/// Domain reduction to [0, 1] is applied
 	/// to ensure convergence of the algorithm.
 	inline real cbrt(real x) {
@@ -137,11 +137,11 @@ namespace uroboro {
 	/// @param x A real number
 	/// @return The absolute value of x
 	///
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fabs` instruction will be used.
 	inline real abs(real x) {
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 	#ifdef MSVC_ASM
 		__asm {
@@ -202,11 +202,11 @@ namespace uroboro {
 	/// @param y A real number
 	/// @return The greatest number between x and y
 	///
-	/// If `UROBORO_BRANCHLESS` is defined, a branchless
+	/// If `THEORETICA_BRANCHLESS` is defined, a branchless
 	/// implementation will be used
 	inline real max(real x, real y) {
 		
-		#ifdef UROBORO_BRANCHLESS
+		#ifdef THEORETICA_BRANCHLESS
 			return (x + y + abs(x - y)) / 2.0;
 		#else
 			return x > y ? x : y;
@@ -230,11 +230,11 @@ namespace uroboro {
 	/// @param y A real number
 	/// @return The smallest number between x and y
 	///
-	/// If `UROBORO_BRANCHLESS` is defined, a branchless
+	/// If `THEORETICA_BRANCHLESS` is defined, a branchless
 	/// implementation will be used
 	inline real min(real x, real y) {
 
-		#ifdef UROBORO_BRANCHLESS
+		#ifdef THEORETICA_BRANCHLESS
 			return (x + y - abs(x - y)) / 2.0;
 		#else
 			return x > y ? y : x;
@@ -280,7 +280,7 @@ namespace uroboro {
 
 	// x86 instruction wrappers
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 	/// Compute \f$y log2(x)\f$ using x86 Assembly instructions
 	inline real fyl2x(real x, real y) {
@@ -324,7 +324,7 @@ namespace uroboro {
 	/// @return The binary logarithm of x
 	///
 	/// Domain: (0, +inf] \n
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fyl2x` instruction will be used.
 	inline real log2(real x) {
 
@@ -339,7 +339,7 @@ namespace uroboro {
 			return nan();
 		}
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		// Approximate the binary logarithm of x by
 		// exploiting x86 Assembly instructions
@@ -386,7 +386,7 @@ namespace uroboro {
 	/// @return The base-10 logarithm of x
 	///
 	/// Domain: (0, +inf] \n
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fyl2x` instruction will be used.
 	inline real log10(real x) {
 
@@ -401,7 +401,7 @@ namespace uroboro {
 			return nan();
 		}
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		// Approximate the binary logarithm of x by
 		// exploiting x86 Assembly instructions
@@ -417,7 +417,7 @@ namespace uroboro {
 	/// @return The natural logarithm of x
 	///
 	/// Domain: (0, +inf] \n
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fyl2x` instruction will be used.
 	inline real ln(real x) {
 
@@ -432,7 +432,7 @@ namespace uroboro {
 			return nan();
 		}
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		// Approximate the binary logarithm of x by
 		// exploiting x86 Assembly instructions
@@ -487,7 +487,7 @@ namespace uroboro {
 	/// @return The n-th real root of x
 	///
 	/// The Newton-Raphson method is used, limited by the
-	/// `UROBORO_MAX_NEWTON_ITER` macro constant.
+	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
 
 		if(n % 2 == 0 && x < 0 || n == 0) {
@@ -535,7 +535,7 @@ namespace uroboro {
 	}
 
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 	/// Approximate \f$e^x\f$ using x86 Assembly instructions
 	/// in the domain [0, 1]
@@ -555,7 +555,7 @@ namespace uroboro {
 	/// The exponential is computed as \f$e^{floor(x)} e^{fract(x)}\f$,
 	/// where \f$e^{floor(x)} = pow(e, floor(x))\f$ and \f$e^{fract(x)}\f$
 	/// is either approximated using Taylor series on [0, 0.5] or,
-	/// if `UROBORO_X86` is defined, using the `f2xm1` x86 assembly instruction.
+	/// if `THEORETICA_X86` is defined, using the `f2xm1` x86 assembly instruction.
 	inline real exp(real x) {
 
 	// Domain reduction to [0, +inf]
@@ -564,7 +564,7 @@ namespace uroboro {
 
 	real fract_x = fract(x);
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		return pow(E, floor(x)) * exp_x86_norm(fract_x);
 
@@ -609,11 +609,11 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The sine of x
 	///
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fsin` instruction will be used.
 	inline real sin(real x) {
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 	#ifdef MSVC_ASM
 		__asm {
@@ -662,11 +662,11 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The cosine of x
 	///
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fcos` instruction will be used.
 	inline real cos(real x) {
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		#ifdef MSVC_ASM
 		__asm {
@@ -689,13 +689,13 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The tangent of x
 	///
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fsincos` instruction will be used.
 	inline real tan(real x) {
 
 		real s, c;
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		#ifdef MSVC_ASM
 
@@ -723,13 +723,13 @@ namespace uroboro {
 	/// @param x An angle in **radians**
 	/// @return The cotangent of x
 	///
-	/// On x86 architectures, if `UROBORO_X86` is defined,
+	/// On x86 architectures, if `THEORETICA_X86` is defined,
 	/// the `fsincos` instruction will be used.
 	inline real cot(real x) {
 
 		real s, c;
 
-#ifdef UROBORO_X86
+#ifdef THEORETICA_X86
 
 		#ifdef MSVC_ASM
 

@@ -3,14 +3,14 @@
 /// @file montecarlo.h Monte Carlo methods
 ///
 
-#ifndef UROBORO_MONTECARLO_H
-#define UROBORO_MONTECARLO_H
+#ifndef THEORETICA_MONTECARLO_H
+#define THEORETICA_MONTECARLO_H
 
 #include "./prng.h"
 #include "./quasirandom.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Approximate an integral by using Monte Carlo integration

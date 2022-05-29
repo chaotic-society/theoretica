@@ -14,14 +14,14 @@
 /// to the first derivative evaluated for the given argument.
 
 
-#ifndef UROBORO_DUAL_FUNCTIONS_H
-#define UROBORO_DUAL_FUNCTIONS_H
+#ifndef THEORETICA_DUAL_FUNCTIONS_H
+#define THEORETICA_DUAL_FUNCTIONS_H
 
 #include "./dual.h"
 #include "../core/real_analysis.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Return the square of a dual number

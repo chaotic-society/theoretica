@@ -3,14 +3,14 @@
 /// @file extrema.h Extrema approximation of real functions
 /// 
 
-#ifndef UROBORO_EXTREMA_H
-#define UROBORO_EXTREMA_H
+#ifndef THEORETICA_EXTREMA_H
+#define THEORETICA_EXTREMA_H
 
 #include "../core/constants.h"
 #include "./roots.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Approximate a function maximum using the Golden Section search algorithm

@@ -3,15 +3,15 @@
 /// @file integration.h Integral approximation
 ///
 
-#ifndef UROBORO_INTEGRATION_H
-#define UROBORO_INTEGRATION_H
+#ifndef THEORETICA_INTEGRATION_H
+#define THEORETICA_INTEGRATION_H
 
 #include "../core/constants.h"
 #include "../core/function.h"
 #include "../polynomial/polynomial.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	// Integrate a polynomial

@@ -4,11 +4,11 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "Uroboro Math Library"
+PROJECT_NAME           = "Theoretica"
 PROJECT_NUMBER         =
 PROJECT_BRIEF          = "A C++ mathematical library"
 PROJECT_LOGO           =
-OUTPUT_DIRECTORY       = ./uroboro/doc
+OUTPUT_DIRECTORY       = ./docs
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
@@ -119,8 +119,8 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = ./uroboro/README.md \
-                         ./uroboro
+INPUT                  = ./README.md \
+                         ./
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
@@ -213,7 +213,7 @@ HTML_FILE_EXTENSION    = .html
 HTML_HEADER            =
 HTML_FOOTER            =
 HTML_STYLESHEET        =
-HTML_EXTRA_STYLESHEET  = ./uroboro/doc/doxygen-awesome.css
+HTML_EXTRA_STYLESHEET  = ./docs/doxygen-awesome.css
 HTML_EXTRA_FILES       =
 HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100

@@ -3,15 +3,15 @@
 /// @file autodiff.h Differential operators using automatic differentiation
 ///
 
-#ifndef UROBORO_AUTODIFF_H
-#define UROBORO_AUTODIFF_H
+#ifndef THEORETICA_AUTODIFF_H
+#define THEORETICA_AUTODIFF_H
 
 #include "dual.h"
 #include "multidual.h"
 #include "dual2.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Compute the gradient for a given \f$\vec x\f$ of a function
@@ -186,6 +186,48 @@ namespace uroboro {
 	inline real sturm_liouville(dual(*f)(vec<M, dual>), dual(*H)(vec<M, dual>), vec<M> eta) {
 		return gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
 	}
+
+
+	// @class func_gradient
+	// A functor representing the gradient of a function
+	// template<unsigned int N>
+	// struct func_gradient {
+
+	// 		/// Encapsulated function
+	// 		multidual<N>(*f)(vec<N, multidual<N>>) = nullptr;
+
+
+	// 		/// Construct with the differentiated function
+	// 		func_gradient(multidual<N>(*func)(vec<N, multidual<N>>)) : f(func) {}
+
+
+	// 		~func_gradient() = default;
+
+
+	// 		/// Compute the gradient for a given \f$\vec x\f$ of a function
+	// 		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+	// 		/// using automatic differentiation.
+	// 		inline vec<N> operator()(const vec<N>& x) {
+
+	// 			if(f == nullptr) {
+	// 				UMATH_ERROR("func_gradient::operator()", f, INVALID_ARGUMENT);
+	// 				return nan();
+	// 			}
+
+	// 			return gradient(f, x);
+	// 		}
+	// };
+
+
+	// Compute the gradient of a function of the form
+	// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+	// using automatic differentiation.
+	// A func_gradient object is returned which works
+	// as a functor, that is, it can be called like a function.
+	// template<unsigned int N>
+	// inline func_gradient<N> gradient(multidual<N>(*f)(vec<N, multidual<N>>)) {
+	// 	return func_gradient<N>(f);
+	// }
 
 }
 

@@ -3,10 +3,10 @@
 /// @file complex.h Complex numbers
 ///
 
-#ifndef UROBORO_COMPLEX_H
-#define UROBORO_COMPLEX_H
+#ifndef THEORETICA_COMPLEX_H
+#define THEORETICA_COMPLEX_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -19,7 +19,7 @@
 #include "../algebra/mat.h"
 
 
-namespace  uroboro {
+namespace  theoretica {
 
 
 	/// @class complex
@@ -70,7 +70,7 @@ namespace  uroboro {
 
 			/// Get the modulus of a complex number
 			inline real modulus() const {
-				return uroboro::sqrt(a * a + b * b);
+				return sqrt(a * a + b * b);
 			}
 
 			/// Get the square modulus of a complex number
@@ -280,7 +280,7 @@ namespace  uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the complex number to string representation
 			inline std::string to_string() const {

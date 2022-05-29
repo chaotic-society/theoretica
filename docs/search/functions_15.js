@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['variance_0',['variance',['../namespaceuroboro.html#ad07e65866198fe86c365684f8a86ac83',1,'uroboro']]],
-  ['vec_1',['vec',['../classuroboro_1_1vec.html#a2f3118cf3a7912b46e67af474efe4ef3',1,'uroboro::vec::vec(T a)'],['../classuroboro_1_1vec.html#a7225174939ca8fc4213f350455c120ab',1,'uroboro::vec::vec(const vec&lt; N, T &gt; &amp;other)'],['../classuroboro_1_1vec.html#a1893e3e1c03b88e7db69389556561329',1,'uroboro::vec::vec(std::initializer_list&lt; T &gt; l)']]]
+  ['weighted_5fmean_0',['weighted_mean',['../namespacetheoretica.html#a301b9526d5e857f82786aa83af8f0d44',1,'theoretica']]],
+  ['wyrand_1',['wyrand',['../classtheoretica_1_1_p_r_n_g.html#a5c413fb28202cbdb83a50c690d5a81f0',1,'theoretica::PRNG']]]
 ];

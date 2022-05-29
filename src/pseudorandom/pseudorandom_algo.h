@@ -3,14 +3,14 @@
 /// @file pseudorandom_algo.h Pseudorandom number generation algorithms
 ///
 
-#ifndef UROBORO_PSEUDO_RANDOM_H
-#define UROBORO_PSEUDO_RANDOM_H
+#ifndef THEORETICA_PSEUDO_RANDOM_H
+#define THEORETICA_PSEUDO_RANDOM_H
 
 #include <vector>
 #include <cstdint>
 #include "../core/bit_op.h"
 
-namespace uroboro {
+namespace theoretica {
 
 
     /// A pseudorandom function pointer

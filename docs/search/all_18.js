@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7emat_0',['~mat',['../classuroboro_1_1mat.html#abd99ee7373c0327a21a097f629f60190',1,'uroboro::mat']]]
+  ['_7emat_0',['~mat',['../classtheoretica_1_1mat.html#a8b872e48bf32a70a65515478bf37b69f',1,'theoretica::mat']]]
 ];

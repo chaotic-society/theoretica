@@ -6,8 +6,8 @@
 ///
 
 #include <fstream>
-#include "uroboro.h"
-using namespace umath;
+#include "theoretica.h"
+using namespace th;
 
 
 // Hamiltonian for the harmonic oscillator (1D)

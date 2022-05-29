@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mat2_0',['mat2',['../namespaceuroboro.html#aa35687113c6726f98778bd6f7738ab5f',1,'uroboro']]],
-  ['mat3_1',['mat3',['../namespaceuroboro.html#af3c73efc6d8813649590ff43e814864a',1,'uroboro']]],
-  ['mat4_2',['mat4',['../namespaceuroboro.html#ad35c7a18020d7b6294e61a4f7290134d',1,'uroboro']]]
+  ['mat2_0',['mat2',['../namespacetheoretica.html#a33850a221dc370e7a23083dd94a9abed',1,'theoretica']]],
+  ['mat3_1',['mat3',['../namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19',1,'theoretica']]],
+  ['mat4_2',['mat4',['../namespacetheoretica.html#ae28e3d5a1e0743ea34a6c627c47b421b',1,'theoretica']]]
 ];

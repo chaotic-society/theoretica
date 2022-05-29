@@ -2,7 +2,7 @@
 If you contribute to the project, please follow this coding standard to help improve code quality, readability and uniformity.
 
 ## Scopes
-- Declare all functions and classes inside the `uroboro` namespace and eventually other sub-namespaces (only if needed)
+- Declare all functions and classes inside the `theoretica` namespace and eventually other sub-namespaces (only if needed)
 - Do not declare global variable unless truly necessary. Only global constants are accepted and should be declared with capital letters only.
 
 ## Naming conventions

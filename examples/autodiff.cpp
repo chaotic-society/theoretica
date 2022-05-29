@@ -3,8 +3,8 @@
 /// @file autodiff.cpp Automatic differentiation example
 ///
 
-#include "uroboro.h"
-using namespace umath;
+#include "theoretica.h"
+using namespace th;
 
 
 // A function from R^2 to R
@@ -14,7 +14,7 @@ NumType f(vec<2, NumType> v) {
 	const NumType x = v[0];
 	const NumType y = v[1];
 
-	return umath::sqrt(x * y) * umath::tan(x);
+	return th::sqrt(x * y) * th::tan(x);
 }
 
 
@@ -25,7 +25,7 @@ vec<2, NumType> g(vec<2, NumType> v) {
 	const NumType x = v[0];
 	const NumType y = v[1];
 
-	return {umath::sqrt(x * y), x / y};
+	return {th::sqrt(x * y), x / y};
 }
 
 

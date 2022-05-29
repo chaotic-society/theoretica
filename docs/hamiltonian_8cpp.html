@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: examples/hamiltonian.cpp File Reference</title>
+<title>Theoretica: examples/hamiltonian.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -100,16 +100,18 @@ $(document).ready(function(){initNavTree('hamiltonian_8cpp.html',''); initResiza
 <p>Automatically simulate an Hamiltonian system from its Hamiltonian function using automatic differentiation and numerical integration.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;fstream&gt;</code><br />
-<code>#include &quot;<a class="el" href="uroboro_8h_source.html">uroboro.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="theoretica_8h_source.html">theoretica.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a263cfb996610b93c9988a7f0d28d2dc9"><td class="memItemLeft" align="right" valign="top"><a id="a263cfb996610b93c9988a7f0d28d2dc9" name="a263cfb996610b93c9988a7f0d28d2dc9"></a>
-<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>harmonic_oscillator</b> (<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; 2, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; 2 &gt; &gt; eta)</td></tr>
-<tr class="separator:a263cfb996610b93c9988a7f0d28d2dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9bb28aa762dc235805dff769ef00f5c"><td class="memItemLeft" align="right" valign="top"><a id="aa9bb28aa762dc235805dff769ef00f5c" name="aa9bb28aa762dc235805dff769ef00f5c"></a>
-<a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pendulum</b> (<a class="el" href="classuroboro_1_1vec.html">vec</a>&lt; 2, <a class="el" href="classuroboro_1_1multidual.html">multidual</a>&lt; 2 &gt; &gt; eta)</td></tr>
-<tr class="separator:aa9bb28aa762dc235805dff769ef00f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec729e2c118a2570164a39007be7052"><td class="memTemplParams" colspan="2"><a id="afec729e2c118a2570164a39007be7052" name="afec729e2c118a2570164a39007be7052"></a>
+template&lt;typename NumType &gt; </td></tr>
+<tr class="memitem:afec729e2c118a2570164a39007be7052"><td class="memTemplItemLeft" align="right" valign="top">NumType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>harmonic_oscillator</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; 2, NumType &gt; eta)</td></tr>
+<tr class="separator:afec729e2c118a2570164a39007be7052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0520e45ba6e71b8f2ec961f968a4200a"><td class="memTemplParams" colspan="2"><a id="a0520e45ba6e71b8f2ec961f968a4200a" name="a0520e45ba6e71b8f2ec961f968a4200a"></a>
+template&lt;typename NumType &gt; </td></tr>
+<tr class="memitem:a0520e45ba6e71b8f2ec961f968a4200a"><td class="memTemplItemLeft" align="right" valign="top">NumType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>pendulum</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; 2, NumType &gt; eta)</td></tr>
+<tr class="separator:a0520e45ba6e71b8f2ec961f968a4200a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top"><a id="abf9e6b7e6f15df4b525a2e7705ba3089" name="abf9e6b7e6f15df4b525a2e7705ba3089"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char const *argv[])</td></tr>
 <tr class="separator:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +124,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="hamiltonian_8cpp.html">hamiltonian.cpp</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

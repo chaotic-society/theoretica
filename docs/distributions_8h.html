@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: statistics/distributions.h File Reference</title>
+<title>Theoretica: statistics/distributions.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -108,8 +108,8 @@ $(document).ready(function(){initNavTree('distributions_8h.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespaceuroboro"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceuroboro.html">uroboro</a></td></tr>
-<tr class="memdesc:namespaceuroboro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
+<tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
+<tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedistribution"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedistribution.html">distribution</a></td></tr>
 <tr class="memdesc:namespacedistribution"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probability distribution functions. <br /></td></tr>
@@ -117,86 +117,86 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3e05c5fee6a4322050e1dc3a7c19e102"><td class="memItemLeft" align="right" valign="top"><a id="a3e05c5fee6a4322050e1dc3a7c19e102" name="a3e05c5fee6a4322050e1dc3a7c19e102"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::likelihood</b> (const vec_buff &amp;X, const vec_buff &amp;theta, stat_function f)</td></tr>
-<tr class="memdesc:a3e05c5fee6a4322050e1dc3a7c19e102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; <br /></td></tr>
-<tr class="separator:a3e05c5fee6a4322050e1dc3a7c19e102"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2a97f7ee4aea667cf8638c1113cfc69"><td class="memItemLeft" align="right" valign="top"><a id="ae2a97f7ee4aea667cf8638c1113cfc69" name="ae2a97f7ee4aea667cf8638c1113cfc69"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::log_likelihood</b> (const vec_buff &amp;X, const vec_buff &amp;theta, stat_function f)</td></tr>
-<tr class="memdesc:ae2a97f7ee4aea667cf8638c1113cfc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the log likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; <br /></td></tr>
-<tr class="separator:ae2a97f7ee4aea667cf8638c1113cfc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ff7cf3801953d89810d2f515cb7353f"><td class="memItemLeft" align="right" valign="top"><a id="a3ff7cf3801953d89810d2f515cb7353f" name="a3ff7cf3801953d89810d2f515cb7353f"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::gaussian</b> (real x, real X, real sigma)</td></tr>
-<tr class="memdesc:a3ff7cf3801953d89810d2f515cb7353f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian distribution function. <br /></td></tr>
-<tr class="separator:a3ff7cf3801953d89810d2f515cb7353f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac841d3cf14b1bbdd6567430a206d9b2f"><td class="memItemLeft" align="right" valign="top"><a id="ac841d3cf14b1bbdd6567430a206d9b2f" name="ac841d3cf14b1bbdd6567430a206d9b2f"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::gaussian</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:ac841d3cf14b1bbdd6567430a206d9b2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::gaussian(real, real, real) <br /></td></tr>
-<tr class="separator:ac841d3cf14b1bbdd6567430a206d9b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26010a85cccb4454a43bb6864933ca1"><td class="memItemLeft" align="right" valign="top"><a id="ad26010a85cccb4454a43bb6864933ca1" name="ad26010a85cccb4454a43bb6864933ca1"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::bernoulli</b> (unsigned int k, real p)</td></tr>
-<tr class="memdesc:ad26010a85cccb4454a43bb6864933ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bernoulli distribution. <br /></td></tr>
-<tr class="separator:ad26010a85cccb4454a43bb6864933ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab190bd5ee6e9af5c659b8f3a13a029a5"><td class="memItemLeft" align="right" valign="top"><a id="ab190bd5ee6e9af5c659b8f3a13a029a5" name="ab190bd5ee6e9af5c659b8f3a13a029a5"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::bernoulli</b> (real k, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:ab190bd5ee6e9af5c659b8f3a13a029a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::bernoulli(unsigned int, real) <br /></td></tr>
-<tr class="separator:ab190bd5ee6e9af5c659b8f3a13a029a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe6843f43234623ed636c21375b94cc0"><td class="memItemLeft" align="right" valign="top"><a id="abe6843f43234623ed636c21375b94cc0" name="abe6843f43234623ed636c21375b94cc0"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::poisson</b> (unsigned int k, real lambda)</td></tr>
-<tr class="memdesc:abe6843f43234623ed636c21375b94cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poisson distribution. <br /></td></tr>
-<tr class="separator:abe6843f43234623ed636c21375b94cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0e082af852c27a3830422ea51d3af93"><td class="memItemLeft" align="right" valign="top"><a id="ad0e082af852c27a3830422ea51d3af93" name="ad0e082af852c27a3830422ea51d3af93"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::poisson</b> (real k, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:ad0e082af852c27a3830422ea51d3af93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::poisson(unsigned int, real) <br /></td></tr>
-<tr class="separator:ad0e082af852c27a3830422ea51d3af93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ff97319da7c94324f6cc1b208e77fd7"><td class="memItemLeft" align="right" valign="top"><a id="a8ff97319da7c94324f6cc1b208e77fd7" name="a8ff97319da7c94324f6cc1b208e77fd7"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::binomial</b> (unsigned int nu, unsigned int n, real p)</td></tr>
-<tr class="memdesc:a8ff97319da7c94324f6cc1b208e77fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binomial distribution function. <br /></td></tr>
-<tr class="separator:a8ff97319da7c94324f6cc1b208e77fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc2af0de9331ae371f790dfaa6089ee2"><td class="memItemLeft" align="right" valign="top"><a id="afc2af0de9331ae371f790dfaa6089ee2" name="afc2af0de9331ae371f790dfaa6089ee2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::binomial</b> (real nu, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:afc2af0de9331ae371f790dfaa6089ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::binomial(unsigned int, unsigned int, real) <br /></td></tr>
-<tr class="separator:afc2af0de9331ae371f790dfaa6089ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad12ae0e65470783ea457fc8d1a7ef76e"><td class="memItemLeft" align="right" valign="top"><a id="ad12ae0e65470783ea457fc8d1a7ef76e" name="ad12ae0e65470783ea457fc8d1a7ef76e"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::log_normal</b> (real x, real mu, real sigma)</td></tr>
-<tr class="memdesc:ad12ae0e65470783ea457fc8d1a7ef76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log-normal distribution. <br /></td></tr>
-<tr class="separator:ad12ae0e65470783ea457fc8d1a7ef76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96fb56514b1e35e1880d29ed96e76f78"><td class="memItemLeft" align="right" valign="top"><a id="a96fb56514b1e35e1880d29ed96e76f78" name="a96fb56514b1e35e1880d29ed96e76f78"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::log_normal</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a96fb56514b1e35e1880d29ed96e76f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::log_normal(real, real, real) <br /></td></tr>
-<tr class="separator:a96fb56514b1e35e1880d29ed96e76f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fbd7e5cec874088f7df9668bf74e9c9"><td class="memItemLeft" align="right" valign="top"><a id="a5fbd7e5cec874088f7df9668bf74e9c9" name="a5fbd7e5cec874088f7df9668bf74e9c9"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::exponential</b> (real x, real lambda)</td></tr>
-<tr class="memdesc:a5fbd7e5cec874088f7df9668bf74e9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exponential distribution. <br /></td></tr>
-<tr class="separator:a5fbd7e5cec874088f7df9668bf74e9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a121b4d7f22e2ae351c56333d7a92868a"><td class="memItemLeft" align="right" valign="top"><a id="a121b4d7f22e2ae351c56333d7a92868a" name="a121b4d7f22e2ae351c56333d7a92868a"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::exponential</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a121b4d7f22e2ae351c56333d7a92868a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::exponential(real, real) <br /></td></tr>
-<tr class="separator:a121b4d7f22e2ae351c56333d7a92868a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9baf77da19fe594b838ba9fbfcbe514c"><td class="memItemLeft" align="right" valign="top"><a id="a9baf77da19fe594b838ba9fbfcbe514c" name="a9baf77da19fe594b838ba9fbfcbe514c"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::cauchy</b> (real x, real mu, real alpha)</td></tr>
-<tr class="memdesc:a9baf77da19fe594b838ba9fbfcbe514c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cauchy distribution. <br /></td></tr>
-<tr class="separator:a9baf77da19fe594b838ba9fbfcbe514c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82aa9d64e38c5ad20dc21fa88939d262"><td class="memItemLeft" align="right" valign="top"><a id="a82aa9d64e38c5ad20dc21fa88939d262" name="a82aa9d64e38c5ad20dc21fa88939d262"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::cauchy</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a82aa9d64e38c5ad20dc21fa88939d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::cauchy(real, real, real) <br /></td></tr>
-<tr class="separator:a82aa9d64e38c5ad20dc21fa88939d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b51a61502bce2b549a3a254166e132b"><td class="memItemLeft" align="right" valign="top"><a id="a6b51a61502bce2b549a3a254166e132b" name="a6b51a61502bce2b549a3a254166e132b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::breit_wigner</b> (real x, real M, real Gamma)</td></tr>
-<tr class="memdesc:a6b51a61502bce2b549a3a254166e132b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breit Wigner distribution. <br /></td></tr>
-<tr class="separator:a6b51a61502bce2b549a3a254166e132b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9461c58a9a497a55776978ca49a2d904"><td class="memItemLeft" align="right" valign="top"><a id="a9461c58a9a497a55776978ca49a2d904" name="a9461c58a9a497a55776978ca49a2d904"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::breit_wigner</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a9461c58a9a497a55776978ca49a2d904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::breit_wigner(real, real, real) <br /></td></tr>
-<tr class="separator:a9461c58a9a497a55776978ca49a2d904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a9b19dea2a8d63275db6be0fa909887"><td class="memItemLeft" align="right" valign="top"><a id="a0a9b19dea2a8d63275db6be0fa909887" name="a0a9b19dea2a8d63275db6be0fa909887"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::pareto</b> (real x, real x_m, real alpha)</td></tr>
-<tr class="memdesc:a0a9b19dea2a8d63275db6be0fa909887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pareto distribution. <br /></td></tr>
-<tr class="separator:a0a9b19dea2a8d63275db6be0fa909887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e563715bfc9a215e8c46d3583353da2"><td class="memItemLeft" align="right" valign="top"><a id="a1e563715bfc9a215e8c46d3583353da2" name="a1e563715bfc9a215e8c46d3583353da2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution::pareto</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a1e563715bfc9a215e8c46d3583353da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::pareto(real, real, real) <br /></td></tr>
-<tr class="separator:a1e563715bfc9a215e8c46d3583353da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8a4ddbcba09177b1ba63397ead6119"><td class="memItemLeft" align="right" valign="top"><a id="a8e8a4ddbcba09177b1ba63397ead6119" name="a8e8a4ddbcba09177b1ba63397ead6119"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::likelihood</b> (const vec_buff &amp;X, const vec_buff &amp;theta, stat_function f)</td></tr>
+<tr class="memdesc:a8e8a4ddbcba09177b1ba63397ead6119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; <br /></td></tr>
+<tr class="separator:a8e8a4ddbcba09177b1ba63397ead6119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4a7d7ea9328cce28ccedceb3cbfe806"><td class="memItemLeft" align="right" valign="top"><a id="ad4a7d7ea9328cce28ccedceb3cbfe806" name="ad4a7d7ea9328cce28ccedceb3cbfe806"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::log_likelihood</b> (const vec_buff &amp;X, const vec_buff &amp;theta, stat_function f)</td></tr>
+<tr class="memdesc:ad4a7d7ea9328cce28ccedceb3cbfe806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the log likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; <br /></td></tr>
+<tr class="separator:ad4a7d7ea9328cce28ccedceb3cbfe806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2af3da7ff28656b64d06b16c8063b00"><td class="memItemLeft" align="right" valign="top"><a id="ae2af3da7ff28656b64d06b16c8063b00" name="ae2af3da7ff28656b64d06b16c8063b00"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::gaussian</b> (real x, real X, real sigma)</td></tr>
+<tr class="memdesc:ae2af3da7ff28656b64d06b16c8063b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian distribution function. <br /></td></tr>
+<tr class="separator:ae2af3da7ff28656b64d06b16c8063b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="memItemLeft" align="right" valign="top"><a id="a579e95149f4d7e0a6b3bbdcf60e2e1bd" name="a579e95149f4d7e0a6b3bbdcf60e2e1bd"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::gaussian</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::gaussian(real, real, real) <br /></td></tr>
+<tr class="separator:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e1d320249b8efb3dfb78d7ae3a08aa9"><td class="memItemLeft" align="right" valign="top"><a id="a2e1d320249b8efb3dfb78d7ae3a08aa9" name="a2e1d320249b8efb3dfb78d7ae3a08aa9"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::bernoulli</b> (unsigned int k, real p)</td></tr>
+<tr class="memdesc:a2e1d320249b8efb3dfb78d7ae3a08aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bernoulli distribution. <br /></td></tr>
+<tr class="separator:a2e1d320249b8efb3dfb78d7ae3a08aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="memItemLeft" align="right" valign="top"><a id="a9e23e3fc149d4f556dd7d9b8c358f98d" name="a9e23e3fc149d4f556dd7d9b8c358f98d"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::bernoulli</b> (real k, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::bernoulli(unsigned int, real) <br /></td></tr>
+<tr class="separator:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207d9c3c111231ffa5ff27efb5a0be13"><td class="memItemLeft" align="right" valign="top"><a id="a207d9c3c111231ffa5ff27efb5a0be13" name="a207d9c3c111231ffa5ff27efb5a0be13"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::poisson</b> (unsigned int k, real lambda)</td></tr>
+<tr class="memdesc:a207d9c3c111231ffa5ff27efb5a0be13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poisson distribution. <br /></td></tr>
+<tr class="separator:a207d9c3c111231ffa5ff27efb5a0be13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e87f600ef1d97795266138301b13344"><td class="memItemLeft" align="right" valign="top"><a id="a3e87f600ef1d97795266138301b13344" name="a3e87f600ef1d97795266138301b13344"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::poisson</b> (real k, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a3e87f600ef1d97795266138301b13344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::poisson(unsigned int, real) <br /></td></tr>
+<tr class="separator:a3e87f600ef1d97795266138301b13344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a9c35d2cc3431dc4441029cb3c2cea"><td class="memItemLeft" align="right" valign="top"><a id="a05a9c35d2cc3431dc4441029cb3c2cea" name="a05a9c35d2cc3431dc4441029cb3c2cea"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::binomial</b> (unsigned int nu, unsigned int n, real p)</td></tr>
+<tr class="memdesc:a05a9c35d2cc3431dc4441029cb3c2cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binomial distribution function. <br /></td></tr>
+<tr class="separator:a05a9c35d2cc3431dc4441029cb3c2cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="memItemLeft" align="right" valign="top"><a id="a0b8aba4dd6ccb377552f4c0965772aa3" name="a0b8aba4dd6ccb377552f4c0965772aa3"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::binomial</b> (real nu, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::binomial(unsigned int, unsigned int, real) <br /></td></tr>
+<tr class="separator:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa283c0a58642f4489afa208423dc2838"><td class="memItemLeft" align="right" valign="top"><a id="aa283c0a58642f4489afa208423dc2838" name="aa283c0a58642f4489afa208423dc2838"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::log_normal</b> (real x, real mu, real sigma)</td></tr>
+<tr class="memdesc:aa283c0a58642f4489afa208423dc2838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log-normal distribution. <br /></td></tr>
+<tr class="separator:aa283c0a58642f4489afa208423dc2838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="memItemLeft" align="right" valign="top"><a id="ae05edc9f017a24ba247fb3a25f2dce8b" name="ae05edc9f017a24ba247fb3a25f2dce8b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::log_normal</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::log_normal(real, real, real) <br /></td></tr>
+<tr class="separator:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a806f46c9f29aa7c9fea59e5327511"><td class="memItemLeft" align="right" valign="top"><a id="a08a806f46c9f29aa7c9fea59e5327511" name="a08a806f46c9f29aa7c9fea59e5327511"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::exponential</b> (real x, real lambda)</td></tr>
+<tr class="memdesc:a08a806f46c9f29aa7c9fea59e5327511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exponential distribution. <br /></td></tr>
+<tr class="separator:a08a806f46c9f29aa7c9fea59e5327511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd74cec6dc4225139e60365c8bee8e4"><td class="memItemLeft" align="right" valign="top"><a id="a5bd74cec6dc4225139e60365c8bee8e4" name="a5bd74cec6dc4225139e60365c8bee8e4"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::exponential</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a5bd74cec6dc4225139e60365c8bee8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::exponential(real, real) <br /></td></tr>
+<tr class="separator:a5bd74cec6dc4225139e60365c8bee8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1258a2337487752e60aae93ba6e7391"><td class="memItemLeft" align="right" valign="top"><a id="ae1258a2337487752e60aae93ba6e7391" name="ae1258a2337487752e60aae93ba6e7391"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::cauchy</b> (real x, real mu, real alpha)</td></tr>
+<tr class="memdesc:ae1258a2337487752e60aae93ba6e7391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cauchy distribution. <br /></td></tr>
+<tr class="separator:ae1258a2337487752e60aae93ba6e7391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2725a6ffef76e837cfce38302c8a2d35"><td class="memItemLeft" align="right" valign="top"><a id="a2725a6ffef76e837cfce38302c8a2d35" name="a2725a6ffef76e837cfce38302c8a2d35"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::cauchy</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a2725a6ffef76e837cfce38302c8a2d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::cauchy(real, real, real) <br /></td></tr>
+<tr class="separator:a2725a6ffef76e837cfce38302c8a2d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42e5e398dee6f6ba80e176a262a99fd6"><td class="memItemLeft" align="right" valign="top"><a id="a42e5e398dee6f6ba80e176a262a99fd6" name="a42e5e398dee6f6ba80e176a262a99fd6"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::breit_wigner</b> (real x, real M, real Gamma)</td></tr>
+<tr class="memdesc:a42e5e398dee6f6ba80e176a262a99fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breit Wigner distribution. <br /></td></tr>
+<tr class="separator:a42e5e398dee6f6ba80e176a262a99fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9779ed8e6e8a2a5706c474f097036d4"><td class="memItemLeft" align="right" valign="top"><a id="ab9779ed8e6e8a2a5706c474f097036d4" name="ab9779ed8e6e8a2a5706c474f097036d4"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::breit_wigner</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:ab9779ed8e6e8a2a5706c474f097036d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::breit_wigner(real, real, real) <br /></td></tr>
+<tr class="separator:ab9779ed8e6e8a2a5706c474f097036d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29239d9f6fa2ece48c655c977ec77561"><td class="memItemLeft" align="right" valign="top"><a id="a29239d9f6fa2ece48c655c977ec77561" name="a29239d9f6fa2ece48c655c977ec77561"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::pareto</b> (real x, real x_m, real alpha)</td></tr>
+<tr class="memdesc:a29239d9f6fa2ece48c655c977ec77561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pareto distribution. <br /></td></tr>
+<tr class="separator:a29239d9f6fa2ece48c655c977ec77561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69867ea1e1cc4e23172a352aae45c7f6"><td class="memItemLeft" align="right" valign="top"><a id="a69867ea1e1cc4e23172a352aae45c7f6" name="a69867ea1e1cc4e23172a352aae45c7f6"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::pareto</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a69867ea1e1cc4e23172a352aae45c7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::pareto(real, real, real) <br /></td></tr>
+<tr class="separator:a69867ea1e1cc4e23172a352aae45c7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Probability distribution functions. </p>
@@ -206,7 +206,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>uroboro::distribution
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="distributions_8h.html">distributions.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -3,14 +3,14 @@
 /// @file derivation.h Derivative approximation
 ///
 
-#ifndef DERIVATION_UROBORO_H
-#define DERIVATION_UROBORO_H
+#ifndef DERIVATION_THEORETICA_H
+#define DERIVATION_THEORETICA_H
 
 #include "../core/function.h"
 #include "../polynomial/polynomial.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	// Derivate a polynomial

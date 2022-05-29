@@ -3,10 +3,10 @@
 /// @file mat.h Matrix class and operations
 ///
 
-#ifndef UROBORO_MATRIX_H
-#define UROBORO_MATRIX_H
+#ifndef THEORETICA_MATRIX_H
+#define THEORETICA_MATRIX_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -17,7 +17,7 @@
 #include "./vec.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// 
 	/// @class mat
@@ -39,7 +39,7 @@ namespace uroboro {
 		/// Number of columns of the matrix
 		static const unsigned int COL_SIZE = K;
 
-#if defined(UROBORO_ROW_FIRST)
+#if defined(THEORETICA_ROW_FIRST)
 
 		// Row-first allocation
 		real data[N][K];
@@ -367,10 +367,10 @@ namespace uroboro {
 		/// This function is used inside of the library
 		/// to access matrix elements independently from
 		/// the specific setup of storage or notation
-		/// (regardless of UROBORO_MATRIX_LEXIC and UROBORO_ROW_FIRST)
+		/// (regardless of THEORETICA_MATRIX_LEXIC and THEORETICA_ROW_FIRST)
 		inline real& iat(unsigned int i, unsigned int j) {
 
-#ifdef UROBORO_ROW_FIRST
+#ifdef THEORETICA_ROW_FIRST
 			return data[i][j];
 #else
 			return data[j][i];
@@ -382,12 +382,12 @@ namespace uroboro {
 		///
 		/// By default, i is the index on rows and
 		/// j is the index on columns.
-		/// If UROBORO_MATRIX_LEXIC is defined,
+		/// If THEORETICA_MATRIX_LEXIC is defined,
 		/// the indices will instead refer to columns
 		/// and rows respectively.
 		inline real& at(unsigned int i, unsigned int j) {
 
-#ifdef UROBORO_MATRIX_LEXIC
+#ifdef THEORETICA_MATRIX_LEXIC
 			return iat(j, i);
 #else
 			return iat(i, j);
@@ -404,7 +404,7 @@ namespace uroboro {
 		/// Getters and setters
 		inline real iget(unsigned int i, unsigned int j) const {
 
-#ifdef UROBORO_ROW_FIRST
+#ifdef THEORETICA_ROW_FIRST
 			return data[i][j];
 #else
 			return data[j][i];
@@ -415,7 +415,7 @@ namespace uroboro {
 		/// Getters and setters
 		inline real get(unsigned int i, unsigned int j) const {
 
-#ifdef UROBORO_MATRIX_LEXIC
+#ifdef THEORETICA_MATRIX_LEXIC
 			return iget(j, i);
 #else
 			return iget(i, j);
@@ -837,8 +837,8 @@ namespace uroboro {
 		/// Get a matrix which rotates the 2D plane of <theta> radians
 		inline static mat<2, 2> rotation_2x2(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<2, 2> res;
 			res.iat(0, 0) = c;
@@ -852,8 +852,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the x axis
 		inline static mat<4, 4> rotation_x_4x4(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
 			res.iat(0, 0) = 1;
@@ -870,8 +870,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the x axis
 		inline static mat<3, 3> rotation_x_3x3(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
 			res.iat(0, 0) = 1;
@@ -887,8 +887,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the y axis
 		inline static mat<4, 4> rotation_y_4x4(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
 			res.iat(0, 0) = c;
@@ -905,8 +905,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the y axis
 		inline static mat<3, 3> rotation_y_3x3(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
 			res.iat(0, 0) = c;
@@ -922,8 +922,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the z axis
 		inline static mat<4, 4> rotation_z_4x4(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<4, 4> res = mat<4, 4>(1.0);
 			res.iat(0, 0) = c;
@@ -940,8 +940,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the z axis
 		inline static mat<3, 3> rotation_z_3x3(real theta) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			mat<3, 3> res = mat<3, 3>(1.0);
 			res.iat(0, 0) = c;
@@ -957,8 +957,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<4, 4> rotation_4x4(real theta, const vec3& axis) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			real Rx = axis.get(0);
 			real Ry = axis.get(1);
@@ -995,8 +995,8 @@ namespace uroboro {
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		inline static mat<3, 3> rotation_3x3(real theta, const vec3& axis) {
 
-			real s = uroboro::sin(theta);
-			real c = uroboro::cos(theta);
+			real s = theoretica::sin(theta);
+			real c = theoretica::cos(theta);
 
 			real Rx = axis.get(0);
 			real Ry = axis.get(1);
@@ -1172,7 +1172,7 @@ namespace uroboro {
 
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the matrix to string representation
 			inline std::string to_string(std::string separator = ", ") const {

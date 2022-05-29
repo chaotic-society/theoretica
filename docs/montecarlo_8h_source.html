@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: pseudorandom/montecarlo.h Source File</title>
+<title>Theoretica: pseudorandom/montecarlo.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -96,45 +96,45 @@ $(document).ready(function(){initNavTree('montecarlo_8h_source.html',''); initRe
 <div class="contents">
 <a href="montecarlo_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef UROBORO_MONTECARLO_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define UROBORO_MONTECARLO_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef THEORETICA_MONTECARLO_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define THEORETICA_MONTECARLO_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="prng_8h.html">./prng.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="quasirandom_8h.html">./quasirandom.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#aa21c3775ceda166e2e0c4d03ac2d8338">   23</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="namespaceuroboro.html#aa21c3775ceda166e2e0c4d03ac2d8338">approx_integral_montecarlo</a>(</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_typedef" href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">real_function</a> f,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> b, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> f_max,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_class" href="classuroboro_1_1_p_r_n_g.html">PRNG</a>&amp; g, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 10000) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ab99c87ef0ca077098ba3428a6e80956a">   23</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ab99c87ef0ca077098ba3428a6e80956a">approx_integral_montecarlo</a>(</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> f_max,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_class" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a>&amp; g, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 10000) {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N_inside = 0;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> x_n = <a class="code hl_function" href="namespaceuroboro.html#a885e0c9d11f196124d2b237cd21dd734">rand_real</a>(a, b, g);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> y_n = <a class="code hl_function" href="namespaceuroboro.html#a885e0c9d11f196124d2b237cd21dd734">rand_real</a>(0, f_max, g);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x_n = <a class="code hl_function" href="namespacetheoretica.html#aae266dabbc97f85eddaeb0466a07d325">rand_real</a>(a, b, g);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> y_n = <a class="code hl_function" href="namespacetheoretica.html#aae266dabbc97f85eddaeb0466a07d325">rand_real</a>(0, f_max, g);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">if</span>(f(x_n) &gt; y_n)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                N_inside++;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> (N_inside / <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a><span class="keyword">&gt;</span>(N)) * (b - a) * f_max;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> (N_inside / <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a><span class="keyword">&gt;</span>(N)) * (b - a) * f_max;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassuroboro_1_1_p_r_n_g_html"><div class="ttname"><a href="classuroboro_1_1_p_r_n_g.html">uroboro::PRNG</a></div><div class="ttdoc">A pseudorandom number generator.</div><div class="ttdef"><b>Definition:</b> prng.h:16</div></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a885e0c9d11f196124d2b237cd21dd734"><div class="ttname"><a href="namespaceuroboro.html#a885e0c9d11f196124d2b237cd21dd734">uroboro::rand_real</a></div><div class="ttdeci">real rand_real(real a, real b, PRNG &amp;g, uint64_t prec=RAND_REAL_PREC)</div><div class="ttdoc">Generate a pseudorandom real number in [a, b] using a preexisting generator.</div><div class="ttdef"><b>Definition:</b> prng.h:194</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:128</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aa21c3775ceda166e2e0c4d03ac2d8338"><div class="ttname"><a href="namespaceuroboro.html#aa21c3775ceda166e2e0c4d03ac2d8338">uroboro::approx_integral_montecarlo</a></div><div class="ttdeci">real approx_integral_montecarlo(real_function f, real a, real b, real f_max, PRNG &amp;g, unsigned int N=10000)</div><div class="ttdoc">Approximate an integral by using Monte Carlo integration.</div><div class="ttdef"><b>Definition:</b> montecarlo.h:23</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aeb65c4f3f361aa3dedc55fb04edfae4d"><div class="ttname"><a href="namespaceuroboro.html#aeb65c4f3f361aa3dedc55fb04edfae4d">uroboro::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
+<div class="ttc" id="aclasstheoretica_1_1_p_r_n_g_html"><div class="ttname"><a href="classtheoretica_1_1_p_r_n_g.html">theoretica::PRNG</a></div><div class="ttdoc">A pseudorandom number generator.</div><div class="ttdef"><b>Definition:</b> prng.h:16</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a55d24f1c0c8357b26e2ea168b80eabeb"><div class="ttname"><a href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">theoretica::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aae266dabbc97f85eddaeb0466a07d325"><div class="ttname"><a href="namespacetheoretica.html#aae266dabbc97f85eddaeb0466a07d325">theoretica::rand_real</a></div><div class="ttdeci">real rand_real(real a, real b, PRNG &amp;g, uint64_t prec=RAND_REAL_PREC)</div><div class="ttdoc">Generate a pseudorandom real number in [a, b] using a preexisting generator.</div><div class="ttdef"><b>Definition:</b> prng.h:180</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ab99c87ef0ca077098ba3428a6e80956a"><div class="ttname"><a href="namespacetheoretica.html#ab99c87ef0ca077098ba3428a6e80956a">theoretica::approx_integral_montecarlo</a></div><div class="ttdeci">real approx_integral_montecarlo(real_function f, real a, real b, real f_max, PRNG &amp;g, unsigned int N=10000)</div><div class="ttdoc">Approximate an integral by using Monte Carlo integration.</div><div class="ttdef"><b>Definition:</b> montecarlo.h:23</div></div>
 <div class="ttc" id="aprng_8h_html"><div class="ttname"><a href="prng_8h.html">prng.h</a></div><div class="ttdoc">Pseudorandom number generator class.</div></div>
 <div class="ttc" id="aquasirandom_8h_html"><div class="ttname"><a href="quasirandom_8h.html">quasirandom.h</a></div><div class="ttdoc">Quasi-random sequences.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('montecarlo_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="montecarlo_8h.html">montecarlo.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

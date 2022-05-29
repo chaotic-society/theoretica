@@ -1,7 +1,7 @@
 
 /// @file test_algebra.cpp Test cases for linear algebra
 
-#include "../src/uroboro.h"
+#include "../src/theoretica.h"
 #include <cmath>
 
 #include "test.h"
@@ -13,13 +13,13 @@ constexpr real FAIL_THRESHOLD_PERC = 1E-04;
 
 int main(int argc, char const *argv[]) {
 
-	std::cout << "Starting testing of uroboro library..." << std::endl;
+	std::cout << "Starting testing of theoretica library..." << std::endl;
 	std::cout << "Testing algebra/mat\n" << std::endl;
 
 	std::cout.precision(12);
 
 
-	test_start("umath::mat::inverse");
+	test_start("th::mat::inverse");
 
 		unsigned int N = 1000000;
 

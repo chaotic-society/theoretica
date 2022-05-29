@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Uroboro Math Library: core/error.h Source File</title>
+<title>Theoretica: core/error.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Uroboro Math Library
+   <div id="projectname">Theoretica
    </div>
    <div id="projectbrief">A C++ numerical and automatic mathematical library</div>
   </td>
@@ -96,10 +96,10 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="contents">
 <a href="error_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef UROBORO_ERROR_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define UROBORO_ERROR_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef THEORETICA_ERROR_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define THEORETICA_ERROR_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#if defined(UROBORO_THROW_EXCEPTIONS) || defined(UROBORO_ONLY_EXCEPTIONS)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;exception&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
@@ -110,9 +110,9 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">./constants.h</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuroboro.html">uroboro</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">   23</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">UMATH_ERRCODE</a>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">   23</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">UMATH_ERRCODE</a>{</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        NO_ERROR = 0x00, <span class="comment">// No error</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        DIV_BY_ZERO = 0x01, <span class="comment">// Division by zero</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        OUT_OF_DOMAIN = 0x02, <span class="comment">// An argument is out of range</span></div>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    };</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a9bc9f9f90d3a3656d1a7169770210f29">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceuroboro.html#a9bc9f9f90d3a3656d1a7169770210f29">umath_errcode_to_errno</a>(<a class="code hl_enumeration" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">UMATH_ERRCODE</a> err) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a72fbdb4020853ffb29758ae00f515fb4">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacetheoretica.html#a72fbdb4020853ffb29758ae00f515fb4">th_errcode_to_errno</a>(<a class="code hl_enumeration" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">UMATH_ERRCODE</a> err) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">switch</span>(err) {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">case</span> NO_ERROR: <span class="keywordflow">return</span> 0; <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">case</span> DIV_BY_ZERO: <span class="keywordflow">return</span> ERANGE; <span class="keywordflow">break</span>;</div>
@@ -137,126 +137,121 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">   50</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">nan</a>() {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">   50</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>() {</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;real&gt;::quiet_NaN();</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d">   64</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d">is_nan</a>(<span class="keyword">const</span> T&amp; x) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d">   64</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d">is_nan</a>(<span class="keyword">const</span> T&amp; x) {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> !(x == x);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespaceuroboro.html#ab0dae8839058c4d6543da97ae099ea42">   70</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> <a class="code hl_function" href="namespaceuroboro.html#ab0dae8839058c4d6543da97ae099ea42">inf</a>() {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a252ec9220e4dab52b18b400381624538">   70</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a252ec9220e4dab52b18b400381624538">inf</a>() {</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> std::numeric_limits&lt;real&gt;::infinity();</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#if defined(UROBORO_THROW_EXCEPTIONS) || defined(UROBORO_ONLY_EXCEPTIONS)</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">class </span>MathException : std::exception {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_enumeration" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">UMATH_ERRCODE</a> err;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_enumeration" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">UMATH_ERRCODE</a> err;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        std::string func_name;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        std::string file_name;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> code_line;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> val;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> val;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        MathException(<a class="code hl_enumeration" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">UMATH_ERRCODE</a> a_err, std::string a_func_name,</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            std::string a_file_name, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a_code_line, <a class="code hl_typedef" href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">real</a> a_val) {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            err = a_err;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            func_name = a_func_name;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            file_name = a_file_name;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            code_line = a_code_line;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            val = a_val;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        ~MathException() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        MathException(<a class="code hl_enumeration" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">UMATH_ERRCODE</a> a_err, <span class="keyword">const</span> std::string&amp; a_func_name,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keyword">const</span> std::string&amp; a_file_name, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a_code_line, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a_val)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                : err(a_err), func_name(a_func_name), file_name(a_file_name),</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                    code_line(a_code_line), val(a_val) {}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        ~MathException() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* what() {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="comment">// std::string w = std::string(file_name);</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* what() {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="comment">// std::string w = std::string(file_name);</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="comment">// w += &quot;:&quot;;</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment">// w += func_name;</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment">// w += &quot;: &quot;;</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">switch</span>(err) {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                <span class="keywordflow">case</span> NO_ERROR: <span class="keywordflow">return</span> <span class="stringliteral">&quot;No error&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                <span class="keywordflow">case</span> DIV_BY_ZERO: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Division by zero&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <span class="keywordflow">case</span> OUT_OF_DOMAIN:</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    <span class="keywordflow">return</span> <span class="stringliteral">&quot;An argument was out of the domain of the called function&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="keywordflow">case</span> IMPOSSIBLE_OPERATION:</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    <span class="keywordflow">return</span> <span class="stringliteral">&quot;A mathematically impossible operation was requested&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                <span class="keywordflow">case</span> NO_ALGO_CONVERGENCE: <span class="keywordflow">return</span> <span class="stringliteral">&quot;The algorithm did not converge&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="keywordflow">case</span> INVALID_ARGUMENT: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Invalid argument size or value&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <span class="keywordflow">default</span>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Unknown error&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            }</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="comment">// return w.c_str();</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="comment">// w += &quot;:&quot;;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// w += func_name;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="comment">// w += &quot;: &quot;;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">switch</span>(err) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <span class="keywordflow">case</span> NO_ERROR: <span class="keywordflow">return</span> <span class="stringliteral">&quot;No error&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="keywordflow">case</span> DIV_BY_ZERO: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Division by zero&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keywordflow">case</span> OUT_OF_DOMAIN:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                    <span class="keywordflow">return</span> <span class="stringliteral">&quot;An argument was out of the domain of the called function&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                <span class="keywordflow">case</span> IMPOSSIBLE_OPERATION:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    <span class="keywordflow">return</span> <span class="stringliteral">&quot;A mathematically impossible operation was requested&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                <span class="keywordflow">case</span> NO_ALGO_CONVERGENCE: <span class="keywordflow">return</span> <span class="stringliteral">&quot;The algorithm did not converge&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <span class="keywordflow">case</span> INVALID_ARGUMENT: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Invalid argument size or value&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="keywordflow">default</span>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Unknown error&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="comment">// return w.c_str();</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">inline</span> <a class="code hl_enumeration" href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">UMATH_ERRCODE</a> err_code() {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">return</span> err;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keyword">inline</span> <a class="code hl_enumeration" href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">UMATH_ERRCODE</a> err_code() {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">return</span> err;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        }</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    };</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    };</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">// Only throw exceptions, without modifying errno</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#ifdef UROBORO_ONLY_EXCEPTIONS</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">    throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">#define UMATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">    UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">// Throw exceptions and modify errno</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#elif defined(UROBORO_THROW_EXCEPTIONS)</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">    errno = umath_errcode_to_errno(EXCEPTION); \</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">    throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">// Modify errno only</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">// For a generic function (NO return statement)</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">  161</a></span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">    errno = umath_errcode_to_errno(EXCEPTION);</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">// Only throw exceptions, without modifying errno</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#ifdef THEORETICA_ONLY_EXCEPTIONS</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">    throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#define UMATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">    UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">// Throw exceptions and modify errno</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#elif defined(THEORETICA_THROW_EXCEPTIONS)</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">    errno = th_errcode_to_errno(EXCEPTION); \</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">    throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">// Modify errno only</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">// For a generic function (NO return statement)</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">  156</a></span><span class="preprocessor">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">    errno = th_errcode_to_errno(EXCEPTION);</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div><div class="ttdoc">Mathematical constants and algorithm parameters.</div></div>
-<div class="ttc" id="anamespaceuroboro_html"><div class="ttname"><a href="namespaceuroboro.html">uroboro</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a0261d15185aff18c120a43d1760a9323"><div class="ttname"><a href="namespaceuroboro.html#a0261d15185aff18c120a43d1760a9323">uroboro::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a8b7326e30e885ae83295abc8e8f708d4"><div class="ttname"><a href="namespaceuroboro.html#a8b7326e30e885ae83295abc8e8f708d4">uroboro::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:128</div></div>
-<div class="ttc" id="anamespaceuroboro_html_a9bc9f9f90d3a3656d1a7169770210f29"><div class="ttname"><a href="namespaceuroboro.html#a9bc9f9f90d3a3656d1a7169770210f29">uroboro::umath_errcode_to_errno</a></div><div class="ttdeci">int umath_errcode_to_errno(UMATH_ERRCODE err)</div><div class="ttdoc">Convert a UMATH_ERRCODE to errno error codes.</div><div class="ttdef"><b>Definition:</b> error.h:35</div></div>
-<div class="ttc" id="anamespaceuroboro_html_aa2ac8bbdb4f84c610c94a552eabad87f"><div class="ttname"><a href="namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f">uroboro::UMATH_ERRCODE</a></div><div class="ttdeci">UMATH_ERRCODE</div><div class="ttdoc">Math error enumeration.</div><div class="ttdef"><b>Definition:</b> error.h:23</div></div>
-<div class="ttc" id="anamespaceuroboro_html_ab0dae8839058c4d6543da97ae099ea42"><div class="ttname"><a href="namespaceuroboro.html#ab0dae8839058c4d6543da97ae099ea42">uroboro::inf</a></div><div class="ttdeci">real inf()</div><div class="ttdoc">Return positive infinity in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:70</div></div>
-<div class="ttc" id="anamespaceuroboro_html_abb3e6b15ef5d38e836df947935f37a3d"><div class="ttname"><a href="namespaceuroboro.html#abb3e6b15ef5d38e836df947935f37a3d">uroboro::is_nan</a></div><div class="ttdeci">bool is_nan(const T &amp;x)</div><div class="ttdoc">Check whether a generic variable is (equivalent to) a NaN number.</div><div class="ttdef"><b>Definition:</b> error.h:64</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a22e311a811c0c7e23c30e4496cfbe63d"><div class="ttname"><a href="namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d">theoretica::is_nan</a></div><div class="ttdeci">bool is_nan(const T &amp;x)</div><div class="ttdoc">Check whether a generic variable is (equivalent to) a NaN number.</div><div class="ttdef"><b>Definition:</b> error.h:64</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a252ec9220e4dab52b18b400381624538"><div class="ttname"><a href="namespacetheoretica.html#a252ec9220e4dab52b18b400381624538">theoretica::inf</a></div><div class="ttdeci">real inf()</div><div class="ttdoc">Return positive infinity in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:70</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a72fbdb4020853ffb29758ae00f515fb4"><div class="ttname"><a href="namespacetheoretica.html#a72fbdb4020853ffb29758ae00f515fb4">theoretica::th_errcode_to_errno</a></div><div class="ttdeci">int th_errcode_to_errno(UMATH_ERRCODE err)</div><div class="ttdoc">Convert a UMATH_ERRCODE to errno error codes.</div><div class="ttdef"><b>Definition:</b> error.h:35</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a93838376629bab0a3f0b1a933178300d"><div class="ttname"><a href="namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d">theoretica::UMATH_ERRCODE</a></div><div class="ttdeci">UMATH_ERRCODE</div><div class="ttdoc">Math error enumeration.</div><div class="ttdef"><b>Definition:</b> error.h:23</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ae95680d1669eee1549fe112b9a846519"><div class="ttname"><a href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">theoretica::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="error_8h.html">error.h</a></li>
-    <li class="footer">Generated on Wed May 18 2022 20:42:34 for Uroboro Math Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat May 28 2022 19:56:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

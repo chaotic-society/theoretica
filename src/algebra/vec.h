@@ -3,10 +3,10 @@
 /// @file vec.h Vector class and operations
 /// 
 
-#ifndef UROBORO_VECTOR_H
-#define UROBORO_VECTOR_H
+#ifndef THEORETICA_VECTOR_H
+#define THEORETICA_VECTOR_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -18,7 +18,7 @@
 #include "../core/vec_buff.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// 
 	/// @class vec
@@ -321,7 +321,7 @@ namespace uroboro {
 		}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation
 		inline std::string to_string(const std::string& separator = ", ") const {

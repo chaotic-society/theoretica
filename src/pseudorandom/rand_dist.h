@@ -1,15 +1,15 @@
 
 /// @file rand_dist.h Random numbers following a pdf
 
-#ifndef UROBORO_RAND_DIST_H
-#define UROBORO_RAND_DIST_H
+#ifndef THEORETICA_RAND_DIST_H
+#define THEORETICA_RAND_DIST_H
 
 
 #include "../core/function.h"
 #include "./prng.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Generate a pseudorandom value following any

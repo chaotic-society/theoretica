@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bisection_5fapprox_5ftol_0',['BISECTION_APPROX_TOL',['../namespaceuroboro.html#a3f597dae8df9cf55f04bff406e25cc0f',1,'uroboro']]]
+  ['bisection_5fapprox_5ftol_0',['BISECTION_APPROX_TOL',['../namespacetheoretica.html#a28fc38a93f999c3c98056f3dac665f42',1,'theoretica']]]
 ];

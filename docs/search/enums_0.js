@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['umath_5ferrcode_0',['UMATH_ERRCODE',['../namespaceuroboro.html#aa2ac8bbdb4f84c610c94a552eabad87f',1,'uroboro']]]
+  ['umath_5ferrcode_0',['UMATH_ERRCODE',['../namespacetheoretica.html#a93838376629bab0a3f0b1a933178300d',1,'theoretica']]]
 ];

@@ -5,15 +5,15 @@
 /// differentiation.
 ///
 
-#ifndef UROBORO_TAYLOR_EXPANSION_H
-#define UROBORO_TAYLOR_EXPANSION_H
+#ifndef THEORETICA_TAYLOR_EXPANSION_H
+#define THEORETICA_TAYLOR_EXPANSION_H
 
 #include "../polynomial/polynomial.h"
 #include "../autodiff/dual.h"
 #include "../autodiff/dual2.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Computes the first order Taylor expansion of a generic function

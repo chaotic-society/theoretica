@@ -3,14 +3,14 @@
 /// @file core/vec_buff.h Allocation and operations on data sets
 ///
 
-#ifndef UROBORO_VEC_BUFF_H
-#define UROBORO_VEC_BUFF_H
+#ifndef THEORETICA_VEC_BUFF_H
+#define THEORETICA_VEC_BUFF_H
 
 #include <vector>
 #include "./constants.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// A dynamically allocated variable-size container

@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['variance_0',['variance',['../namespaceuroboro.html#ad07e65866198fe86c365684f8a86ac83',1,'uroboro']]],
-  ['vec_1',['vec',['../classuroboro_1_1vec.html',1,'uroboro::vec&lt; N, T &gt;'],['../classuroboro_1_1vec.html#a2f3118cf3a7912b46e67af474efe4ef3',1,'uroboro::vec::vec(T a)'],['../classuroboro_1_1vec.html#a7225174939ca8fc4213f350455c120ab',1,'uroboro::vec::vec(const vec&lt; N, T &gt; &amp;other)'],['../classuroboro_1_1vec.html#a1893e3e1c03b88e7db69389556561329',1,'uroboro::vec::vec(std::initializer_list&lt; T &gt; l)']]],
+  ['variance_0',['variance',['../namespacetheoretica.html#a17c4321efb6e8ba42e62eef768e30924',1,'theoretica']]],
+  ['vec_1',['vec',['../classtheoretica_1_1vec.html',1,'theoretica::vec&lt; N, T &gt;'],['../classtheoretica_1_1vec.html#ae2a568d0df9d5aaceed7774f144b28e5',1,'theoretica::vec::vec(T a)'],['../classtheoretica_1_1vec.html#a35a6f85bf3c918907d2a132f3e0acaee',1,'theoretica::vec::vec(const vec&lt; N, T &gt; &amp;other)'],['../classtheoretica_1_1vec.html#a8b890b32267e46682c144da03ab5c6cd',1,'theoretica::vec::vec(std::initializer_list&lt; T &gt; l)']]],
   ['vec_2eh_2',['vec.h',['../vec_8h.html',1,'']]],
-  ['vec2_3',['vec2',['../namespaceuroboro.html#aff83f1407e4d6cf70908f8ba015b1c38',1,'uroboro']]],
-  ['vec3_4',['vec3',['../namespaceuroboro.html#a1b64d654616fd871c63b063761f7612e',1,'uroboro']]],
-  ['vec4_5',['vec4',['../namespaceuroboro.html#ae81d803db01b5dabb64d403ee1f093fd',1,'uroboro']]],
-  ['vec_3c_203_2c_20real_20_3e_6',['vec&lt; 3, real &gt;',['../classuroboro_1_1vec.html',1,'uroboro']]],
-  ['vec_5fbuff_7',['vec_buff',['../namespaceuroboro.html#a57bc43a753233fcd9835f097d49007f3',1,'uroboro']]],
+  ['vec2_3',['vec2',['../namespacetheoretica.html#a78450ba4db2e132788cc0566b22848b9',1,'theoretica']]],
+  ['vec3_4',['vec3',['../namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5',1,'theoretica']]],
+  ['vec4_5',['vec4',['../namespacetheoretica.html#aa5b773a1d88bcfb2a577b25224fe5477',1,'theoretica']]],
+  ['vec_3c_203_2c_20real_20_3e_6',['vec&lt; 3, real &gt;',['../classtheoretica_1_1vec.html',1,'theoretica']]],
+  ['vec_5fbuff_7',['vec_buff',['../namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7',1,'theoretica']]],
   ['vec_5fbuff_2eh_8',['vec_buff.h',['../vec__buff_8h.html',1,'']]]
 ];

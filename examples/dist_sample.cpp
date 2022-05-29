@@ -3,9 +3,9 @@
 /// @file dist_sample.cpp Distribution sampling
 ///
 
-#include "uroboro.h"
+#include "theoretica.h"
 
-using namespace umath;
+using namespace th;
 
 #include <fstream>
 #include <ctime>

@@ -3,15 +3,15 @@
 /// @file core/function.h Mathematical function pointers
 ///
 
-#ifndef UROBORO_FUNCTION_H
-#define UROBORO_FUNCTION_H
+#ifndef THEORETICA_FUNCTION_H
+#define THEORETICA_FUNCTION_H
 
 #include "./constants.h"
 #include "../complex/complex.h"
 #include "./vec_buff.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// Function pointer to a real function
 	using real_function = real(*)(real);

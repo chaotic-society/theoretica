@@ -6,10 +6,10 @@
 // Include all headers instead
 // of basic functionalities
 
-#define UROBORO_INCLUDE_ALL
-#include "uroboro.h"
+#define THEORETICA_INCLUDE_ALL
+#include "theoretica.h"
 
-using namespace uroboro;
+using namespace theoretica;
 ```
 
 ## Using vectors

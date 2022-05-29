@@ -3,10 +3,10 @@
 /// @file polynomial.h Polynomial storage and manipulation
 ///
 
-#ifndef UROBORO_POLYNOMIAL_H
-#define UROBORO_POLYNOMIAL_H
+#ifndef THEORETICA_POLYNOMIAL_H
+#define THEORETICA_POLYNOMIAL_H
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
@@ -18,7 +18,7 @@
 #include "../complex/complex_analysis.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 	/// @class polynomial
 	/// A polynomial of arbitrary order
@@ -119,7 +119,7 @@ namespace uroboro {
 
 				polynomial r(coeff);
 
-				for (int i = 0; i < uroboro::min(r.size(), p.size()); ++i) {
+				for (int i = 0; i < min(r.size(), p.size()); ++i) {
 					r[i] += p.get(i);
 				}
 
@@ -132,7 +132,7 @@ namespace uroboro {
 				
 				polynomial r(coeff);
 
-				for (int i = 0; i < uroboro::min(r.size(), p.size()); ++i) {
+				for (int i = 0; i < min(r.size(), p.size()); ++i) {
 					r[i] -= p.get(i);
 				}
 
@@ -194,7 +194,7 @@ namespace uroboro {
 				if(coeff.size() < p.size())
 					coeff.resize(p.size(), T(0));
 
-				for (int i = 0; i < uroboro::min(size(), p.size()); ++i)
+				for (int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] += p.get(i);
 
 				return *this;
@@ -208,7 +208,7 @@ namespace uroboro {
 				if(coeff.size() < p.size())
 					coeff.resize(p.size(), T(0));
 
-				for (int i = 0; i < uroboro::min(size(), p.size()); ++i)
+				for (int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] -= p.get(i);
 
 				return *this;
@@ -340,7 +340,7 @@ namespace uroboro {
 			}
 
 
-#ifndef UROBORO_NO_PRINT
+#ifndef THEORETICA_NO_PRINT
 
 			/// Convert the polynomial to string representation
 			inline std::string to_string(const std::string& unknown = "x") const {

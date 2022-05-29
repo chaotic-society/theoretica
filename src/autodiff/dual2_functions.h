@@ -5,8 +5,8 @@
 ///
 
 
-#ifndef UROBORO_DUAL2_FUNCTIONS_H
-#define UROBORO_DUAL2_FUNCTIONS_H
+#ifndef THEORETICA_DUAL2_FUNCTIONS_H
+#define THEORETICA_DUAL2_FUNCTIONS_H
 
 #include "./dual2.h"
 #include "../core/real_analysis.h"
@@ -14,7 +14,7 @@
 #include <iostream>
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	// Second derivative of the composite function:

@@ -1,6 +1,6 @@
 var function_8h =
 [
-    [ "complex_function", "function_8h.html#a2a223e0b49ec00dd5aacb80e00274a4f", null ],
-    [ "real_function", "function_8h.html#aeb65c4f3f361aa3dedc55fb04edfae4d", null ],
-    [ "stat_function", "function_8h.html#acfbf85e05ce2bdbe8b7ef675141b3b6c", null ]
+    [ "complex_function", "function_8h.html#a5a59298cc8c996dcc372b55cc74fea43", null ],
+    [ "real_function", "function_8h.html#a55d24f1c0c8357b26e2ea168b80eabeb", null ],
+    [ "stat_function", "function_8h.html#a007564925b46b1a8a4038ad371e9052b", null ]
 ];

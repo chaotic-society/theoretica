@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['integration_5fsteps_0',['INTEGRATION_STEPS',['../namespaceuroboro.html#ac8897d90d47e126c9cb22d3116d42c5c',1,'uroboro']]],
-  ['invphi_1',['INVPHI',['../namespaceuroboro.html#a55eb634b54b535a5264520b414aa2e2e',1,'uroboro']]],
-  ['invpi_2',['INVPI',['../namespaceuroboro.html#ad8a79c6dacad8d058db167fc857619c9',1,'uroboro']]],
-  ['invsqr2_3',['INVSQR2',['../namespaceuroboro.html#aca28dff8cbad4fc7d8b4b54e38ca3c17',1,'uroboro']]]
+  ['integration_5fsteps_0',['INTEGRATION_STEPS',['../namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4',1,'theoretica']]],
+  ['invphi_1',['INVPHI',['../namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde',1,'theoretica']]],
+  ['invpi_2',['INVPI',['../namespacetheoretica.html#a4d6916417c8d2b817cfc48b8e2a1abb5',1,'theoretica']]],
+  ['invsqr2_3',['INVSQR2',['../namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d',1,'theoretica']]]
 ];
