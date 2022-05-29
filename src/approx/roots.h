@@ -3,14 +3,16 @@
 /// @file roots.h Root approximation of real functions
 ///
 
-#ifndef UROBORO_ROOTS_H
-#define UROBORO_ROOTS_H
+#ifndef THEORETICA_ROOTS_H
+#define THEORETICA_ROOTS_H
 
 #include "../core/function.h"
 #include "../calculus/derivation.h"
+#include "../autodiff/dual.h"
+#include "../autodiff/dual2.h"
 
 
-namespace uroboro {
+namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using bisection
@@ -71,6 +73,33 @@ namespace uroboro {
 	}
 
 
+	/// Approximate a root of an arbitrary function using Newthon's method,
+	/// computing the derivative using automatic differentiation
+	inline real approx_root_newton(dual(*f)(dual), real guess = 0) {
+
+
+		real x = guess;
+		int iter = 0;
+
+		dual s = f(dual(x, 1));
+
+		while(abs(s.Re()) > NEWTON_RAPHSON_TOL && iter <= MAX_NEWTON_ITER) {
+
+			s = f(dual(x, 1));
+
+			x = x - (s.Re() / s.Dual());
+			iter++;
+		}
+
+		if(iter > MAX_NEWTON_ITER) {
+			UMATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
 	/// Approximate a root of a polynomial using Newthon's method
 	inline real approx_polyn_root_newton(polynomial<real> p, real guess = 0) {
 
@@ -113,6 +142,32 @@ namespace uroboro {
 	}
 
 
+	/// Approximate a root of an arbitrary function using Halley's method
+	inline real approx_root_halley(dual2(*f)(dual2), real guess = 0) {
+
+		real x = guess;
+		int iter = 0;
+
+		dual2 s = f(dual2(x, 1, 0));
+
+		while(abs(s.Re()) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+
+			s = f(dual2(x, 1, 0));
+
+			x = x - (2 * s.Re() * s.Dual1())
+						/ (2 * s.Dual1() - s.Re() * s.Dual2());
+			iter++;
+		}
+
+		if(iter > MAX_HALLEY_ITER) {
+			UMATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
 	/// Approximate a root of a polynomial using Halley's method
 	inline real approx_polyn_root_halley(polynomial<real> p, real guess = 0) {
 
@@ -136,7 +191,7 @@ namespace uroboro {
 
 
 	/// Approximate a root of an arbitrary function using Steffensen's method
-	inline real approx_root_steffensen(real_function f, real_function Df, real guess = 0) {
+	inline real approx_root_steffensen(real_function f, real guess = 0) {
 
 
 		real x = guess;
@@ -185,6 +240,33 @@ namespace uroboro {
 
 		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
 			x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));
+			iter++;
+		}
+
+		if(iter > MAX_CHEBYSHEV_ITER) {
+			UMATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
+	/// Approximate a root of an arbitrary function using Chebyshev's method
+	inline real approx_root_chebyshev(dual2(*f)(dual2), real guess = 0) {
+
+		real x = guess;
+		int iter = 0;
+
+		dual2 s = f(dual2(x, 1, 0));
+
+		while(abs(s.Re()) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
+
+			s = f(dual2(x, 1, 0));
+
+			x = x - (s.Re() / s.Dual1())
+						- square((s.Re() / s.Dual1()))
+							* (s.Dual1() / (s.Dual2() * 2));
 			iter++;
 		}
 
