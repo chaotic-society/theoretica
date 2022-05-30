@@ -370,6 +370,7 @@ namespace theoretica {
 		// Exact powers of 2 don't need further computation
 		if(abs(x - 1) > MACH_EPSILON) {
 
+			// Chebyshev interpolating polynomial of degree 8
 			lr = -3.23585 + x * (7.08614
 					+ x * (-7.39388 + x * (5.6659
 						+ x * (-2.90591 + x * (0.945908

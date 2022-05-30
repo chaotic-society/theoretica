@@ -20,13 +20,14 @@ namespace theoretica {
 			}
 
 
+			/// Start the timer
 			void start() {
 				s = std::chrono::high_resolution_clock::now();
 			}
 
 
-			/// Returns the elapsed time since construction of
-			/// the timer in milliseconds
+			/// Returns the elapsed time since construction or
+			/// start of the timer in milliseconds
 			inline long double get() const {
 
 				auto start = std::chrono::time_point_cast<std::chrono::milliseconds>(s)
@@ -40,8 +41,8 @@ namespace theoretica {
 			}
 
 
-			/// Returns the elapsed time since construction of
-			/// the timer in milliseconds
+			/// Returns the elapsed time since construction or
+			/// start of the timer in milliseconds
 			/// @see get
 			inline long double operator()() {
 				return get();

@@ -68,6 +68,11 @@ int main(int argc, char const *argv[]) {
 	// Compute the partial derivatives of the function
 	vec2 gradient = th::gradient(theta, data);
 
+	// Propagate the error on the function by adding
+	// the absolute values of the partial derivative
+	// times the error on the variable
+	// (either in direct sum or quadrature)
+
 	std::cout << "Total error (direct sum): " <<
 		product_sum(gradient, err) << std::endl;
 

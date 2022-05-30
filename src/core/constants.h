@@ -14,12 +14,14 @@
 /// @macro THEORETICA_X86 Define this macro if the
 /// machine has a x86 architecture to use hardware
 /// enhanced functions.
+#ifndef THEORETICA_DISABLE_X86
 #ifndef THEORETICA_X86
 #if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) \
 	|| defined(_M_AMD64) || defined(_M_X64) || defined(i386) \
 	|| defined(__i386) || defined(__i386__) || defined(_M_IX86) \
 	|| defined(_X86_) || defined(_M_I86) || defined(__X86__)	
 #define THEORETICA_X86
+#endif
 #endif
 #endif
 

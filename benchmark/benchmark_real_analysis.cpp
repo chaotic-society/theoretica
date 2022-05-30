@@ -8,6 +8,7 @@
 
 #include "./timer.h"
 #include <iostream>
+#include <iomanip>
 
 #include "theoretica.h"
 using namespace th;
@@ -26,20 +27,26 @@ const char* module_name = "real_analysis";
 std::string curr_func_name = "";
 
 
+// Initialize benchmark of a specific function
 void init_benchmark(const std::string& func_name) {
 	curr_func_name = func_name;
-	std::cout << "\nBenchmarking " << func_name << "..." << std::endl;
+	std::cout << std::setw(12) << func_name << "\t\t";
 }
 
 
+// End benchmark of a specific function
 void end_benchmark(long double elapsed) {
-	std::cout << "\n\tElapsed time: " << elapsed << " ms";
-	std::cout << "\n\tComputations per second: "
-			  << 1.0 / (elapsed * 0.001) << " /s\n" << std::endl;
-	std::cout << "Ended benchmarking on " << curr_func_name << std::endl;
+
+	unsigned long int comp_sec = floor(1.0 / (elapsed * 0.001));
+
+	std::cout << std::setw(8) << elapsed
+			  << "\t" << std::setw(8) << comp_sec << std::endl;
+	
+	curr_func_name = "";
 }
 
 
+// Automatically benchmark a real function
 void benchmark_real_function(std::string func_name, real_function f,
 							 const std::vector<real>& input) {
 
@@ -69,10 +76,26 @@ void benchmark_real_function(std::string func_name, real_function f,
 
 int main(int argc, char const *argv[]) {
 
-	std::cout << "Starting benchmark of real analysis" << std::endl;
+	std::cout.precision(8);
+
+	std::cout << "Starting benchmark of " << module_name << std::endl;
+	std::cout << "Parameters: N = " << N << ", M = " << M << std::endl;
+
+	// Print header
+	for (int i = 0; i < 80; ++i)
+		std::cout << '-';
+	std::cout << std::endl;
+
+	std::cout << std::left << "Function\t\tTime (ms)\tRuns/sec" << std::endl;
+
+	for (int i = 0; i < 80; ++i)
+		std::cout << '-';
+	std::cout << std::endl;
 
 	std::vector<real> input;
 	input.resize(N);
+	std::vector<real> input_norm;
+	input_norm.resize(N);
 
 	PRNG g = PRNG::xoshiro(
 			std::chrono::duration_cast<std::chrono::seconds>(
@@ -81,10 +104,11 @@ int main(int argc, char const *argv[]) {
 	// Initialize input pool with random numbers in the interval [0, 1000000]
 	for (int i = 0; i < N; ++i) {
 		input[i] = rand_real(0, 1000000, g);
+		input_norm[i] = rand_real(0, 1, g);
 	}
 
 
-	benchmark_real_function("th::square", th::sqrt, input);
+	benchmark_real_function("th::square", th::square, input);
 	benchmark_real_function("th::cube", th::cube, input);
 	benchmark_real_function("th::sqrt", th::sqrt, input);
 	benchmark_real_function("th::cbrt", th::cbrt, input);
@@ -94,8 +118,11 @@ int main(int argc, char const *argv[]) {
 	benchmark_real_function("th::log2", th::log2, input);
 	benchmark_real_function("th::log10", th::log10, input);
 	benchmark_real_function("th::atan", th::atan, input);
-	benchmark_real_function("th::asin", th::asin, input);
-	benchmark_real_function("th::acos", th::acos, input);
+	benchmark_real_function("th::asin", th::asin, input_norm);
+	benchmark_real_function("th::acos", th::acos, input_norm);
+	benchmark_real_function("th::exp", th::exp, input_norm);
+
+	std::cout << "\nFinished benchmark of " << module_name << std::endl;
 	
 	return 0;
 }
