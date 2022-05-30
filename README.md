@@ -1,6 +1,6 @@
 # Theoretica
 
-![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub branch checks state](https://img.shields.io/github/checks-status/chaotic-society/theoretica/master?label=build) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
+![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
 
 A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
 
@@ -29,10 +29,8 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
 
 ## Setup
-You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works. 
-- Define **THEORETICA_X86** if you are on an x86 architecture to enable Assembly instructions
-- Define **THEORETICA_INCLUDE_ALL** if you intend to use most functionalities, as by default `theoretica.h` only includes base headers
-
+You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
+Define **THEORETICA_INCLUDE_ALL** if you intend to use most functionalities, as by default `theoretica.h` only includes base headers.
 All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
 ## Examples
@@ -62,17 +60,18 @@ Contributions are welcome and very appreciated! Make sure to read the [Contribut
 ## License
 This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
 
-## Testing
+## Testing precision and performance
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
 The library uses custom testing code inside the `test` folder to test functions for precision. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Different parts of the library are tested in different programs (e.g. real functions are tested in `test/test_real_analysis.cpp`).
+Performance is measured using benchmarks inside the `benchmark` folder.
 
 ## Macros
 These are the macros that can be defined to change the library's behaviour:
 - **THEORETICA_INCLUDE_ALL** - Including `theoretica.h` will include _all_ header files instead of base headers
 - **THEORETICA_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
 - **THEORETICA_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
-- **THEORETICA_X86** - **Assembly x86** implementations will be used whenever possible
+- **THEORETICA_X86** - **Assembly x86** implementations will be used whenever possible (automatically detected by the library)
 - **THEORETICA_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
 - **THEORETICA_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
 - **THEORETICA_ROW_FIRST** - The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.
