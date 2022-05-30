@@ -7,6 +7,7 @@
 #define THEORETICA_QUASIRANDOM_H
 
 #include "../core/real_analysis.h"
+#include "../algebra/vec.h"
 
 
 namespace theoretica {
@@ -42,6 +43,32 @@ namespace theoretica {
 		}
 
 		return fract(prev + alpha);
+	}
+
+
+	/// Weyl quasi-random sequence in N dimensions
+	/// @param n The index of the element in the sequence
+	/// @param alpha The base of the sequence
+	/// 
+	/// @note The alpha argument should be an irrational number.
+	template<unsigned int N>
+	vec<N> qrand_weyl_multi(unsigned int n, real alpha) {
+		
+		vec<N> r;
+		for (unsigned int i = 0; i < N; ++i)
+			r[i] = fract(n * pow(alpha, i + 1));
+
+		return r;
+	}
+
+
+	/// Weyl quasi-random sequence in 2 dimensions
+	/// @param n The index of the element in the sequence
+	/// @param alpha The base of the sequence
+	/// 
+	/// @note The alpha argument should be an irrational number.
+	vec2 qrand_weyl2(unsigned int n, real alpha = 0.7548776662466927) {
+		return {fract(n * alpha), fract(n * square(alpha))};
 	}
 
 
