@@ -136,6 +136,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1ratio.html">ratio</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representing a ratio between two objects, like a fraction or a rational polynomial.  <a href="classtheoretica_1_1ratio.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1timer.html">timer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class for benchmarks.  <a href="classtheoretica_1_1timer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html">vec</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An N-dimensional vector of T type elements.  <a href="classtheoretica_1_1vec.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,10 +188,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>stat_function</b> = 
 using&#160;</td><td class="memItemRight" valign="bottom"><b>vec_buff</b> = std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;</td></tr>
 <tr class="memdesc:a9a50102b320dcdc6a61e5a15234327a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dynamically allocated variable-size container Defined by default as an alias for <code>std::vector&lt;real&gt;</code> <br /></td></tr>
 <tr class="separator:a9a50102b320dcdc6a61e5a15234327a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc230dfc9709da95a25790f260f0b95c"><td class="memItemLeft" align="right" valign="top"><a id="afc230dfc9709da95a25790f260f0b95c" name="afc230dfc9709da95a25790f260f0b95c"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>rational_polynomial</b> = <a class="el" href="classtheoretica_1_1ratio.html">ratio</a>&lt; <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;, <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &gt;</td></tr>
-<tr class="memdesc:afc230dfc9709da95a25790f260f0b95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A rational polynomial of real coefficients. <br /></td></tr>
-<tr class="separator:afc230dfc9709da95a25790f260f0b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99f8bd44356f8184466e4cc0d6986fe5"><td class="memItemLeft" align="right" valign="top"><a id="a99f8bd44356f8184466e4cc0d6986fe5" name="a99f8bd44356f8184466e4cc0d6986fe5"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>pseudorandom_function</b> = uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;)</td></tr>
 <tr class="memdesc:a99f8bd44356f8184466e4cc0d6986fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom function pointer. <br /></td></tr>
@@ -212,11 +211,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a329afffbc3c9e07e77e941d0f70d7467"><td class="memTemplParams" colspan="2"><a id="a329afffbc3c9e07e77e941d0f70d7467" name="a329afffbc3c9e07e77e941d0f70d7467"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a329afffbc3c9e07e77e941d0f70d7467"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>commuter</b> (T A, T B)</td></tr>
-<tr class="memdesc:a329afffbc3c9e07e77e941d0f70d7467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring commute of two elements A and B \([A, B] = AB - BA\). <br /></td></tr>
-<tr class="separator:a329afffbc3c9e07e77e941d0f70d7467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46133a50196ddb171e0cf6a16321c92c"><td class="memTemplParams" colspan="2"><a id="a46133a50196ddb171e0cf6a16321c92c" name="a46133a50196ddb171e0cf6a16321c92c"></a>
 template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a46133a50196ddb171e0cf6a16321c92c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>solve</b> (<a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, N &gt; A, <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; b)</td></tr>
@@ -293,6 +287,10 @@ template&lt;unsigned int N, typename T &gt; </td></tr>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_newton</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:a031c5b6433038d5bd4e6d613c11d5adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method. <br /></td></tr>
 <tr class="separator:a031c5b6433038d5bd4e6d613c11d5adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4ac513ec5910fb28aaacbdd75583b1"><td class="memItemLeft" align="right" valign="top"><a id="a0a4ac513ec5910fb28aaacbdd75583b1" name="a0a4ac513ec5910fb28aaacbdd75583b1"></a>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_newton</b> (<a class="el" href="classtheoretica_1_1dual.html">dual</a>(*f)(<a class="el" href="classtheoretica_1_1dual.html">dual</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
+<tr class="memdesc:a0a4ac513ec5910fb28aaacbdd75583b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method, computing the derivative using automatic differentiation. <br /></td></tr>
+<tr class="separator:a0a4ac513ec5910fb28aaacbdd75583b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69a99a3c1aefa232bd14f4153eb4183c"><td class="memItemLeft" align="right" valign="top"><a id="a69a99a3c1aefa232bd14f4153eb4183c" name="a69a99a3c1aefa232bd14f4153eb4183c"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_polyn_root_newton</b> (<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:a69a99a3c1aefa232bd14f4153eb4183c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Newthon's method. <br /></td></tr>
@@ -301,14 +299,18 @@ template&lt;unsigned int N, typename T &gt; </td></tr>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_halley</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> Df, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> D2f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:a08ba3edd52e5cb42f73cb2f3009ad885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method. <br /></td></tr>
 <tr class="separator:a08ba3edd52e5cb42f73cb2f3009ad885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9fa575e8737274611d740292c1c8a4e"><td class="memItemLeft" align="right" valign="top"><a id="ad9fa575e8737274611d740292c1c8a4e" name="ad9fa575e8737274611d740292c1c8a4e"></a>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_halley</b> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
+<tr class="memdesc:ad9fa575e8737274611d740292c1c8a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method. <br /></td></tr>
+<tr class="separator:ad9fa575e8737274611d740292c1c8a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93e0bd719d5274d2179dbcd1be6988b3"><td class="memItemLeft" align="right" valign="top"><a id="a93e0bd719d5274d2179dbcd1be6988b3" name="a93e0bd719d5274d2179dbcd1be6988b3"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_polyn_root_halley</b> (<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:a93e0bd719d5274d2179dbcd1be6988b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Halley's method. <br /></td></tr>
 <tr class="separator:a93e0bd719d5274d2179dbcd1be6988b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f085ca3372ca993ae9c09ef0bbcd87f"><td class="memItemLeft" align="right" valign="top"><a id="a4f085ca3372ca993ae9c09ef0bbcd87f" name="a4f085ca3372ca993ae9c09ef0bbcd87f"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_steffensen</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
-<tr class="memdesc:a4f085ca3372ca993ae9c09ef0bbcd87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method. <br /></td></tr>
-<tr class="separator:a4f085ca3372ca993ae9c09ef0bbcd87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2187066de6efeecd17060236ad082194"><td class="memItemLeft" align="right" valign="top"><a id="a2187066de6efeecd17060236ad082194" name="a2187066de6efeecd17060236ad082194"></a>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_steffensen</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
+<tr class="memdesc:a2187066de6efeecd17060236ad082194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method. <br /></td></tr>
+<tr class="separator:a2187066de6efeecd17060236ad082194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c661fbdbe2cadaddfbcbb844d8ff011"><td class="memItemLeft" align="right" valign="top"><a id="a0c661fbdbe2cadaddfbcbb844d8ff011" name="a0c661fbdbe2cadaddfbcbb844d8ff011"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_polyn_root_steffensen</b> (<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:a0c661fbdbe2cadaddfbcbb844d8ff011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Steffensen's method. <br /></td></tr>
@@ -317,6 +319,10 @@ template&lt;unsigned int N, typename T &gt; </td></tr>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_chebyshev</b> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> Df, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> D2f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:ad1781e383c98150952fc22685b8c0b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
 <tr class="separator:ad1781e383c98150952fc22685b8c0b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b5bb061cace814539be47c2b389470"><td class="memItemLeft" align="right" valign="top"><a id="ac8b5bb061cace814539be47c2b389470" name="ac8b5bb061cace814539be47c2b389470"></a>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_root_chebyshev</b> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
+<tr class="memdesc:ac8b5bb061cace814539be47c2b389470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
+<tr class="separator:ac8b5bb061cace814539be47c2b389470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ad6e0cf459b4fb68c41f781b0e7afc"><td class="memItemLeft" align="right" valign="top"><a id="ac1ad6e0cf459b4fb68c41f781b0e7afc" name="ac1ad6e0cf459b4fb68c41f781b0e7afc"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>approx_polyn_root_chebyshev</b> (<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0)</td></tr>
 <tr class="memdesc:ac1ad6e0cf459b4fb68c41f781b0e7afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method. <br /></td></tr>
@@ -632,10 +638,6 @@ template&lt;typename T &gt; </td></tr>
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>taylor_quadratic_expansion</b> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x0=0)</td></tr>
 <tr class="memdesc:af083224f6ac10dfbc4a9b80f65c1172b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the second order Taylor expansion of a generic function around x0, computed using dual numbers (of second order). <br /></td></tr>
 <tr class="separator:af083224f6ac10dfbc4a9b80f65c1172b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bb4b91af4396da05389a6af367c162f"><td class="memItemLeft" align="right" valign="top"><a id="a1bb4b91af4396da05389a6af367c162f" name="a1bb4b91af4396da05389a6af367c162f"></a>
-<a class="el" href="classtheoretica_1_1complex.html">complex</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&quot;&quot;_i</b> (long double b)</td></tr>
-<tr class="memdesc:a1bb4b91af4396da05389a6af367c162f"><td class="mdescLeft">&#160;</td><td class="mdescRight">String literal template to enable notations like a + bi;. <br /></td></tr>
-<tr class="separator:a1bb4b91af4396da05389a6af367c162f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d09bcf107dc6230badf2b29e25ffcad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9d09bcf107dc6230badf2b29e25ffcad">square</a> (<a class="el" href="classtheoretica_1_1complex.html">complex</a> z)</td></tr>
 <tr class="memdesc:a9d09bcf107dc6230badf2b29e25ffcad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the square of a complex number.  <a href="namespacetheoretica.html#a9d09bcf107dc6230badf2b29e25ffcad">More...</a><br /></td></tr>
 <tr class="separator:a9d09bcf107dc6230badf2b29e25ffcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -812,6 +814,9 @@ template&lt;typename IntType  = unsigned long long int&gt; </td></tr>
 <tr class="memitem:a1efe3bd7ff87719aab92b67cec535096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1efe3bd7ff87719aab92b67cec535096">sinc</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:a1efe3bd7ff87719aab92b67cec535096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normalized sinc function.  <a href="namespacetheoretica.html#a1efe3bd7ff87719aab92b67cec535096">More...</a><br /></td></tr>
 <tr class="separator:a1efe3bd7ff87719aab92b67cec535096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024554cae44fb42700e8f68d235f0f15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a024554cae44fb42700e8f68d235f0f15">heaviside</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memdesc:a024554cae44fb42700e8f68d235f0f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the heaviside function.  <a href="namespacetheoretica.html#a024554cae44fb42700e8f68d235f0f15">More...</a><br /></td></tr>
+<tr class="separator:a024554cae44fb42700e8f68d235f0f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65be0b914abdafbb96aa05d6fda14f98"><td class="memTemplParams" colspan="2">template&lt;typename IntType  = unsigned long long int&gt; </td></tr>
 <tr class="memitem:a65be0b914abdafbb96aa05d6fda14f98"><td class="memTemplItemLeft" align="right" valign="top">constexpr IntType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a65be0b914abdafbb96aa05d6fda14f98">binomial_coeff</a> (unsigned int n, unsigned int m)</td></tr>
 <tr class="memdesc:a65be0b914abdafbb96aa05d6fda14f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the binomial coefficient.  <a href="namespacetheoretica.html#a65be0b914abdafbb96aa05d6fda14f98">More...</a><br /></td></tr>
@@ -871,10 +876,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="
 <tr class="memitem:a88f9a26f1ee40dea3fced3ee7e0c9aa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a88f9a26f1ee40dea3fced3ee7e0c9aa9">interpolate_chebyshev</a> (<a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, unsigned int order)</td></tr>
 <tr class="memdesc:a88f9a26f1ee40dea3fced3ee7e0c9aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the interpolating polynomial of a real function using Chebyshev nodes as sampling points.  <a href="namespacetheoretica.html#a88f9a26f1ee40dea3fced3ee7e0c9aa9">More...</a><br /></td></tr>
 <tr class="separator:a88f9a26f1ee40dea3fced3ee7e0c9aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b3565670d1234796d942171af74e3b9"><td class="memItemLeft" align="right" valign="top"><a id="a0b3565670d1234796d942171af74e3b9" name="a0b3565670d1234796d942171af74e3b9"></a>
-<a class="el" href="namespacetheoretica.html#afc230dfc9709da95a25790f260f0b95c">rational_polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>interpolate_rational_sw</b> (const std::vector&lt; <a class="el" href="namespacetheoretica.html#a78450ba4db2e132788cc0566b22848b9">vec2</a> &gt; &amp;points)</td></tr>
-<tr class="memdesc:a0b3565670d1234796d942171af74e3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the ratio. <br /></td></tr>
-<tr class="separator:a0b3565670d1234796d942171af74e3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0edd44311fc206d96919ab11d1977a9"><td class="memItemLeft" align="right" valign="top"><a id="aa0edd44311fc206d96919ab11d1977a9" name="aa0edd44311fc206d96919ab11d1977a9"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lerp</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x2, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> interp)</td></tr>
 <tr class="memdesc:aa0edd44311fc206d96919ab11d1977a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation. <br /></td></tr>
@@ -970,6 +971,13 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a6c5001951408c716ce4e6414cc45f420"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6c5001951408c716ce4e6414cc45f420">qrand_weyl_recurr</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> prev=0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha=<a class="el" href="namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde">INVPHI</a>)</td></tr>
 <tr class="memdesc:a6c5001951408c716ce4e6414cc45f420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weyl quasi-random sequence (computed with recurrence relation)  <a href="namespacetheoretica.html#a6c5001951408c716ce4e6414cc45f420">More...</a><br /></td></tr>
 <tr class="separator:a6c5001951408c716ce4e6414cc45f420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52264b77696ac2b3b8a78ed540f092d"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:ab52264b77696ac2b3b8a78ed540f092d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab52264b77696ac2b3b8a78ed540f092d">qrand_weyl_multi</a> (unsigned int n, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha)</td></tr>
+<tr class="memdesc:ab52264b77696ac2b3b8a78ed540f092d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weyl quasi-random sequence in N dimensions.  <a href="namespacetheoretica.html#ab52264b77696ac2b3b8a78ed540f092d">More...</a><br /></td></tr>
+<tr class="separator:ab52264b77696ac2b3b8a78ed540f092d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d4be50bf77c6b368c94bb627305224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a78450ba4db2e132788cc0566b22848b9">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac1d4be50bf77c6b368c94bb627305224">qrand_weyl2</a> (unsigned int n, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha=0.7548776662466927)</td></tr>
+<tr class="memdesc:ac1d4be50bf77c6b368c94bb627305224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weyl quasi-random sequence in 2 dimensions.  <a href="namespacetheoretica.html#ac1d4be50bf77c6b368c94bb627305224">More...</a><br /></td></tr>
+<tr class="separator:ac1d4be50bf77c6b368c94bb627305224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaab56ddec7d197600964cb78ada9a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">rand_dist_tac</a> (<a class="el" href="namespacetheoretica.html#a007564925b46b1a8a4038ad371e9052b">stat_function</a> f, const <a class="el" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a> &amp;theta, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x2, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> y1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> y2, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#a3299f783527ae72a24c832a7b1cd8ef8">MAX_TRYANDCATCH_ITER</a>)</td></tr>
 <tr class="memdesc:aeaab56ddec7d197600964cb78ada9a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">More...</a><br /></td></tr>
 <tr class="separator:aeaab56ddec7d197600964cb78ada9a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2688,6 +2696,41 @@ template&lt;unsigned int N&gt; </div>
 
 </div>
 </div>
+<a id="a024554cae44fb42700e8f68d235f0f15" name="a024554cae44fb42700e8f68d235f0f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024554cae44fb42700e8f68d235f0f15">&#9670;&nbsp;</a></span>heaviside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::heaviside </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the heaviside function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>A real number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The heaviside function for x, equal to 1 if x &gt; 0, 0 if x &lt; 0 and 1/2 if x = 0 </dd></dl>
+
+</div>
+</div>
 <a id="a88f9a26f1ee40dea3fced3ee7e0c9aa9" name="a88f9a26f1ee40dea3fced3ee7e0c9aa9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88f9a26f1ee40dea3fced3ee7e0c9aa9">&#9670;&nbsp;</a></span>interpolate_chebyshev()</h2>
 
@@ -3556,6 +3599,84 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ac1d4be50bf77c6b368c94bb627305224" name="ac1d4be50bf77c6b368c94bb627305224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1d4be50bf77c6b368c94bb627305224">&#9670;&nbsp;</a></span>qrand_weyl2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a78450ba4db2e132788cc0566b22848b9">vec2</a> theoretica::qrand_weyl2 </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>alpha</em> = <code>0.7548776662466927</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Weyl quasi-random sequence in 2 dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The index of the element in the sequence </td></tr>
+    <tr><td class="paramname">alpha</td><td>The base of the sequence</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The alpha argument should be an irrational number. </dd></dl>
+
+</div>
+</div>
+<a id="ab52264b77696ac2b3b8a78ed540f092d" name="ab52264b77696ac2b3b8a78ed540f092d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52264b77696ac2b3b8a78ed540f092d">&#9670;&nbsp;</a></span>qrand_weyl_multi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; theoretica::qrand_weyl_multi </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Weyl quasi-random sequence in N dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The index of the element in the sequence </td></tr>
+    <tr><td class="paramname">alpha</td><td>The base of the sequence</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The alpha argument should be an irrational number. </dd></dl>
+
+</div>
+</div>
 <a id="a6c5001951408c716ce4e6414cc45f420" name="a6c5001951408c716ce4e6414cc45f420"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c5001951408c716ce4e6414cc45f420">&#9670;&nbsp;</a></span>qrand_weyl_recurr()</h2>
 
@@ -4380,7 +4501,7 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The sigmoid function for x defined as \(\frac{1}{1 - e^{-x}}\) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The sigmoid function for x defined as \(\frac{1}{1 + e^{-x}}\) </dd></dl>
 
 </div>
 </div>
@@ -4905,7 +5026,7 @@ template&lt;unsigned int M&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Jun 1 2022 20:06:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

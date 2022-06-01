@@ -1,8 +1,5 @@
 var annotated_dup =
 [
-    [ "a", null, [
-      [ "mat", "classa_1_1mat.html", null ]
-    ] ],
     [ "theoretica", "namespacetheoretica.html", [
       [ "RK4", null, [
         [ "kinematic_deriv", "structtheoretica_1_1_r_k4_1_1kinematic__deriv.html", null ],
@@ -18,6 +15,7 @@ var annotated_dup =
       [ "PRNG", "classtheoretica_1_1_p_r_n_g.html", "classtheoretica_1_1_p_r_n_g" ],
       [ "quat", "classtheoretica_1_1quat.html", "classtheoretica_1_1quat" ],
       [ "ratio", "classtheoretica_1_1ratio.html", "classtheoretica_1_1ratio" ],
+      [ "timer", "classtheoretica_1_1timer.html", "classtheoretica_1_1timer" ],
       [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ]
     ] ]
 ];

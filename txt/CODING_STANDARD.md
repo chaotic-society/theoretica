@@ -26,7 +26,7 @@ inline int nothing(int x) {
   return 0;
 }
 ```
-Descriptions should explain what the function or class does 
+Descriptions should explain what the function or class does, describing its parameters and return value.
 
 ## Test cases
 - Write test cases for the code you write or at least leave information on how it could be tested

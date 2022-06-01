@@ -25,18 +25,19 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Dependencies", "index.html#autotoc_md2", null ],
-    [ "Key Features", "index.html#autotoc_md3", null ],
-    [ "Setup", "index.html#autotoc_md4", null ],
-    [ "Examples", "index.html#autotoc_md5", [
-      [ "A short example", "index.html#autotoc_md1", null ],
-      [ "Quickstart", "index.html#autotoc_md6", null ]
-    ] ],
-    [ "Contributing", "index.html#autotoc_md7", null ],
-    [ "License", "index.html#autotoc_md8", null ],
-    [ "Macros", "index.html#autotoc_md9", null ],
-    [ "Error handling", "index.html#autotoc_md10", null ],
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
+      [ "Dependencies", "index.html#autotoc_md1", null ],
+      [ "Key Features", "index.html#autotoc_md2", null ],
+      [ "Setup", "index.html#autotoc_md3", null ],
+      [ "Examples", "index.html#autotoc_md4", [
+        [ "A short example", "index.html#autotoc_md0", null ],
+        [ "Quickstart", "index.html#autotoc_md5", null ]
+      ] ],
+      [ "Contributing", "index.html#autotoc_md6", null ],
+      [ "License", "index.html#autotoc_md7", null ],
+      [ "Testing precision and performance", "index.html#autotoc_md8", null ],
+      [ "Macros", "index.html#autotoc_md9", null ],
+      [ "Error handling", "index.html#autotoc_md10", null ],
       [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
       [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
       [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", null ],
@@ -98,13 +99,13 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"algebra_2algebra_8h_source.html",
-"classtheoretica_1_1dual2.html#aafa155f9a1ec7b437c4631c794199166",
-"classtheoretica_1_1polynomial.html#ab37d3946a2ef20303ad2cdf30e527c2d",
-"distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13",
-"namespacemembers_h.html",
-"namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba",
-"vec_8h.html#a51aa3252df8991054c7c1f301912176c"
+"annotated.html",
+"classtheoretica_1_1dual2.html#ad3edbb911be4c5f9f26ec95e4a8c3cc0",
+"classtheoretica_1_1polynomial.html#ae41dabedea3d8ae05399ee6bbd237c95",
+"distributions_8h.html#a0b8aba4dd6ccb377552f4c0965772aa3",
+"namespacemembers_func_m.html",
+"namespacetheoretica.html#abc57357e424703aa6ea643697c2f6d24",
+"test_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

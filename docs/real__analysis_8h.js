@@ -19,6 +19,7 @@ var real__analysis_8h =
     [ "fact", "real__analysis_8h.html#ab9f95b4f90f63e762ffddbf649015ecf", null ],
     [ "floor", "real__analysis_8h.html#a944a1ca627ace27061946b1fbf572545", null ],
     [ "fract", "real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a", null ],
+    [ "heaviside", "real__analysis_8h.html#a024554cae44fb42700e8f68d235f0f15", null ],
     [ "kronecker_delta", "real__analysis_8h.html#a93fd0f7d8ed7baa75f8f2a3d6632132a", null ],
     [ "ln", "real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91", null ],
     [ "log10", "real__analysis_8h.html#adb04217fd0bd9dd23daaa186d3756d1e", null ],

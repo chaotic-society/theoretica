@@ -915,7 +915,7 @@ namespace theoretica {
 	/// Compute the sigmoid function
 	/// @param x A real number
 	/// @return The sigmoid function for x defined as
-	/// \f$\frac{1}{1 - e^{-x}}\f$
+	/// \f$\frac{1}{1 + e^{-x}}\f$
 	inline real sigmoid(real x) {
 		return 1.0 / (1.0 + 1.0 / exp(x));
 	}
@@ -932,6 +932,20 @@ namespace theoretica {
 		}
 
 		return sin(PI * x) / (PI * x);
+	}
+
+
+	/// Compute the heaviside function
+	/// @param x A real number
+	/// @return The heaviside function for x, equal
+	/// to 1 if x > 0, 0 if x < 0 and 1/2 if x = 0
+	inline real heaviside(real x) {
+
+		if(abs(x) < MACH_EPSILON) {
+			return 0.5;
+		}
+
+		return x > 0 ? 1 : 0;
 	}
 
 

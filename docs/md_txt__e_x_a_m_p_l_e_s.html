@@ -103,7 +103,7 @@ Including library headers</h1>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a>;</div>
-<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:14</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
 <div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
 Using vectors</h1>
@@ -142,7 +142,7 @@ Using vectors</h1>
 <div class="line"><span class="comment">// Meanwhile normalize() normalizes the vector itself</span></div>
 <div class="line">v1.normalize()</div>
 <div class="ttc" id="aclasstheoretica_1_1vec_html_af8758bb09de2f785dffc493c37b99b2e"><div class="ttname"><a href="classtheoretica_1_1vec.html#af8758bb09de2f785dffc493c37b99b2e">theoretica::vec::normalized</a></div><div class="ttdeci">vec&lt; N, T &gt; normalized() const</div><div class="ttdoc">Return the normalized vector (v / |v|)</div><div class="ttdef"><b>Definition:</b> vec.h:262</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:138</div></div>
 </div><!-- fragment --><p >Dot product: </p><div class="fragment"><div class="line"><span class="comment">// You can use the class method</span></div>
 <div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> d = v1.dot(v2);</div>
 <div class="line"> </div>
@@ -220,9 +220,9 @@ Using matrices</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// perspective(), ortho(), scaling_3x3(), scaling_4x4(),</span></div>
 <div class="line"><span class="comment">// lookAt() functions are also supported</span></div>
-<div class="ttc" id="anamespacetheoretica_html_a27b5dac597409564afdc448fbef23eae"><div class="ttname"><a href="namespacetheoretica.html#a27b5dac597409564afdc448fbef23eae">theoretica::PI2</a></div><div class="ttdeci">constexpr real PI2</div><div class="ttdoc">Half of Pi.</div><div class="ttdef"><b>Definition:</b> constants.h:154</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a4ee874cdb0b2a00881f01de91e931854"><div class="ttname"><a href="namespacetheoretica.html#a4ee874cdb0b2a00881f01de91e931854">theoretica::radians</a></div><div class="ttdeci">constexpr real radians(real degrees)</div><div class="ttdoc">Convert degrees to radians.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:966</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ac7f9025deb90bc4fd64fb9260340e3f2"><div class="ttname"><a href="namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2">theoretica::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> constants.h:157</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a27b5dac597409564afdc448fbef23eae"><div class="ttname"><a href="namespacetheoretica.html#a27b5dac597409564afdc448fbef23eae">theoretica::PI2</a></div><div class="ttdeci">constexpr real PI2</div><div class="ttdoc">Half of Pi.</div><div class="ttdef"><b>Definition:</b> constants.h:156</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a4ee874cdb0b2a00881f01de91e931854"><div class="ttname"><a href="namespacetheoretica.html#a4ee874cdb0b2a00881f01de91e931854">theoretica::radians</a></div><div class="ttdeci">constexpr real radians(real degrees)</div><div class="ttdoc">Convert degrees to radians.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:981</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ac7f9025deb90bc4fd64fb9260340e3f2"><div class="ttname"><a href="namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2">theoretica::PI4</a></div><div class="ttdeci">constexpr real PI4</div><div class="ttdoc">A quarter of Pi.</div><div class="ttdef"><b>Definition:</b> constants.h:159</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md30"></a>
 Using complex numbers</h1>
 <p >Declare a complex number using the <code>complex</code> class. </p><div class="fragment"><div class="line"><span class="comment">// You can initialize a complex number</span></div>
@@ -248,7 +248,7 @@ Using complex numbers</h1>
 <div class="line"><span class="comment">// Complex analysis functions</span></div>
 <div class="line">complex z5 = <a class="code hl_function" href="namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16">ln</a>(z3) + <a class="code hl_function" href="namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292">atan</a>(z3);</div>
 <div class="ttc" id="anamespacetheoretica_html_a1ec5b4f8c9f0d58d65415cec30915d16"><div class="ttname"><a href="namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16">theoretica::ln</a></div><div class="ttdeci">dual2 ln(dual2 x)</div><div class="ttdoc">Compute the natural logarithm of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:135</div></div>
-<div class="ttc" id="anamespacetheoretica_html_aeb6a742ab030fe585063215a644f60df"><div class="ttname"><a href="namespacetheoretica.html#aeb6a742ab030fe585063215a644f60df">theoretica::TAU</a></div><div class="ttdeci">constexpr real TAU</div><div class="ttdoc">The Tau mathematical constant (Pi times 2)</div><div class="ttdef"><b>Definition:</b> constants.h:163</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aeb6a742ab030fe585063215a644f60df"><div class="ttname"><a href="namespacetheoretica.html#aeb6a742ab030fe585063215a644f60df">theoretica::TAU</a></div><div class="ttdeci">constexpr real TAU</div><div class="ttdoc">The Tau mathematical constant (Pi times 2)</div><div class="ttdef"><b>Definition:</b> constants.h:165</div></div>
 <div class="ttc" id="anamespacetheoretica_html_af0493013e208bb00505abbc4ca37f292"><div class="ttname"><a href="namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292">theoretica::atan</a></div><div class="ttdeci">dual2 atan(dual2 x)</div><div class="ttdoc">Compute the arctangent of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:219</div></div>
 </div><!-- fragment --><p> Common complex functions such as <code>sqrt</code>, <code>ln</code>, complex trigonometric functions and many more are also supported (<code><a class="el" href="complex__analysis_8h.html" title="Functions of complex variable.">complex_analysis.h</a></code>).</p>
 <h1><a class="anchor" id="autotoc_md31"></a>
@@ -270,7 +270,7 @@ Using quaternions</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Rotate a vector around an arbitrary axis using quaternions</span></div>
 <div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> v_1 = quat::rotate(w, <a class="code hl_variable" href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">PI</a> / 2.0, v);</div>
-<div class="ttc" id="anamespacetheoretica_html_ae93349020a59cf77efcca5bb77c0e7f9"><div class="ttname"><a href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">theoretica::PI</a></div><div class="ttdeci">constexpr real PI</div><div class="ttdoc">The Pi mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:151</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ae93349020a59cf77efcca5bb77c0e7f9"><div class="ttname"><a href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">theoretica::PI</a></div><div class="ttdeci">constexpr real PI</div><div class="ttdoc">The Pi mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:153</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md32"></a>
 Using polynomials</h1>
 <p >Polynomials are stored and manipulated using the <code>polynomial&lt;T = real&gt;</code> class, where <code>T</code> is the type of the coefficients of the polynomial (<code>real</code> by default). </p><div class="fragment"><div class="line"><span class="comment">// Represents the polynomial 1 + 2x + 3x^2</span></div>
@@ -349,7 +349,7 @@ Using statistical functions</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 28 2022 19:56:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Jun 1 2022 20:06:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -3,6 +3,7 @@ var files_dup =
     [ "algebra", "dir_086a664662017844fa76bd8f66ac71cd.html", "dir_086a664662017844fa76bd8f66ac71cd" ],
     [ "approx", "dir_22ceb20c45c71f6098f33f7a3e928471.html", "dir_22ceb20c45c71f6098f33f7a3e928471" ],
     [ "autodiff", "dir_42425a70e384b694fde5273f8252c9aa.html", "dir_42425a70e384b694fde5273f8252c9aa" ],
+    [ "benchmark", "dir_44cec6e3ea30e076b9313c4641539d9f.html", "dir_44cec6e3ea30e076b9313c4641539d9f" ],
     [ "calculus", "dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html", "dir_9a0a70b22cd06b0ba8c72fe77098c2e0" ],
     [ "complex", "dir_29641e2b57f535eff702a8afdf10c5ec.html", "dir_29641e2b57f535eff702a8afdf10c5ec" ],
     [ "core", "dir_aebb8dcc11953d78e620bbef0b9e2183.html", "dir_aebb8dcc11953d78e620bbef0b9e2183" ],
@@ -11,7 +12,6 @@ var files_dup =
     [ "polynomial", "dir_80b12a04080342cac66dddc13ab3e1e7.html", "dir_80b12a04080342cac66dddc13ab3e1e7" ],
     [ "pseudorandom", "dir_7abfcc991e7b5ee9bf0b7bf536481a35.html", "dir_7abfcc991e7b5ee9bf0b7bf536481a35" ],
     [ "statistics", "dir_65ad14ba617219a91653797a9020c4d5.html", "dir_65ad14ba617219a91653797a9020c4d5" ],
-    [ "test", "dir_120ed4da3e3217b1e7fc0b4f48568e79.html", "dir_120ed4da3e3217b1e7fc0b4f48568e79" ],
     [ "test", "dir_13e138d54eb8818da29c3992edef070a.html", "dir_13e138d54eb8818da29c3992edef070a" ],
     [ "theoretica.h", "theoretica_8h.html", null ],
     [ "utility.h", "utility_8h.html", "utility_8h" ]

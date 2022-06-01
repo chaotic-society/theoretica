@@ -13,16 +13,11 @@
 int main(int argc, char const *argv[]) {
 
 	// Setup
-	N = 1000000;
-	M = 10;
-	module_name = "real_analysis";
-
-	std::cout.precision(8);
-
-	std::cout << "Starting benchmark of " << module_name << std::endl;
-	std::cout << "Parameters: N = " << N << ", M = " << M << std::endl;
-
+	setup_benchmark("real_analysis");
 	print_benchmark_header();
+
+
+	// Initialize random input data
 
 	std::vector<real> input;
 	input.resize(N);
@@ -41,6 +36,8 @@ int main(int argc, char const *argv[]) {
 	}
 
 
+	// Benchmark real functions
+
 	benchmark_real_function("th::square", th::square, input);
 	benchmark_real_function("th::cube", th::cube, input);
 	benchmark_real_function("th::sqrt", th::sqrt, input);
@@ -56,7 +53,7 @@ int main(int argc, char const *argv[]) {
 	benchmark_real_function("th::exp", th::exp, input_norm);
 	benchmark_real_function("th::powf", th::powf, input, input_norm);
 
-	std::cout << "\nFinished benchmark of " << module_name << std::endl;
+	terminate_benchmark();
 	
 	return 0;
 }
