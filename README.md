@@ -30,7 +30,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
-Define **THEORETICA_INCLUDE_ALL** if you intend to use most functionalities, as by default `theoretica.h` only includes base headers.
+Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default `theoretica.h` includes all headers.
 All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
 ## Examples
@@ -39,7 +39,6 @@ Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisg
 ### Quickstart
 You can try to compile this simple code to see if the library works properly:
 ```cpp
-#define THEORETICA_INCLUDE_ALL
 #include "theoretica.h"
 
 using namespace theoretica;
@@ -68,7 +67,7 @@ Performance is measured using benchmarks inside the `benchmark` folder.
 
 ## Macros
 These are the macros that can be defined to change the library's behaviour:
-- **THEORETICA_INCLUDE_ALL** - Including `theoretica.h` will include _all_ header files instead of base headers
+- **THEORETICA_INCLUDE_BASE** - Including `theoretica.h` will only include base headers
 - **THEORETICA_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
 - **THEORETICA_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
 - **THEORETICA_X86** - **Assembly x86** implementations will be used whenever possible (automatically detected by the library)

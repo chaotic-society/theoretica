@@ -3,10 +3,6 @@
 ## Including library headers
 
 ```c
-// Include all headers instead
-// of basic functionalities
-
-#define THEORETICA_INCLUDE_ALL
 #include "theoretica.h"
 
 using namespace theoretica;

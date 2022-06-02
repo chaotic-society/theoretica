@@ -2,7 +2,7 @@ default_target: example
 .PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark
 all: example test examples
 
-CXXFLAGS = -DTHEORETICA_INCLUDE_ALL -std=c++14 -I./src/
+CXXFLAGS = -std=c++14 -I./src/
 
 example:
 	@echo Compiling main example program...

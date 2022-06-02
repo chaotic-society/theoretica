@@ -2,8 +2,7 @@
 ///
 /// @file theoretica.h General include file
 ///
-/// This file will include core header files.
-/// If `THEORETICA_INCLUDE_ALL` is defined, it will include all header files of the library
+/// If `THEORETICA_INCLUDE_BASE` is defined, only core headers will be included
 ///
 
 #ifndef THEORETICA_H
@@ -26,7 +25,7 @@
 
 
 // All other headers
-#ifdef THEORETICA_INCLUDE_ALL
+#ifndef THEORETICA_INCLUDE_BASE
 
 // Ratio
 #include "./core/ratio.h"
@@ -56,6 +55,7 @@
 // Derivative and integral approximation
 #include "./calculus/derivation.h"
 #include "./calculus/integration.h"
+#include "./calculus/odes.h"
 #include "./calculus/taylor_expansion.h"
 
 // Polynomial class
@@ -80,8 +80,8 @@
 
 #endif
 
-/// @namespace th Alias for the theoretica namespace
 #ifndef THEORETICA_NO_NAMESPACE
+/// @namespace th Alias for the theoretica namespace
 namespace th = theoretica;
 #endif
 
