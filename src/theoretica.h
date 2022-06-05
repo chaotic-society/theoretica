@@ -60,6 +60,7 @@
 
 // Polynomial class
 #include "./polynomial/polynomial.h"
+#include "./polynomial/ortho_polyn.h"
 
 // Dual numbers and automatic differentiation
 #include "./autodiff/dual.h"

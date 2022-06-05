@@ -34,7 +34,13 @@ void setup_benchmark(std::string module, unsigned int iter = 1000000, unsigned i
 	module_name = module;
 	N = iter;
 	M = runs;
-	output_file.open(std::string("./benchmark/") + module_name + ".csv");
+	output_file.open(std::string("benchmark/") + module_name + ".csv");
+
+	if(!output_file.is_open()) {
+		std::cout << "Can't open output file" << std::endl;
+		exit(1);
+	}
+
 }
 
 

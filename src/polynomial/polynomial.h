@@ -348,11 +348,21 @@ namespace theoretica {
 				std::stringstream res;
 
 				for (int i = 0; i < coeff.size(); ++i) {
+
+					if(coeff[i] == 0)
+						continue;
+
 					if(i) {
-						res << (coeff[i] >= 0 ? " + " : " - ")
+
+						res << (coeff[i] >= 0 ? "+ " : "- ")
 							 << abs(coeff[i]) << unknown << "^" << i;
+
+						if(i != coeff.size() - 1)
+							res << " ";
+					
 					} else {
-						res << coeff[i];
+						res << (coeff[i] >= 0 ? "+ " : "- ")
+							 << abs(coeff[i]) << " ";
 					}	
 				}
 
