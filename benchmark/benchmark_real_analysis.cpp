@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]) {
 
 	// Initialize input pool with random numbers in the interval [0, 1000000]
 	// and input_norm in the interval [0, 1]
-	for (int i = 0; i < N; ++i) {
+	for (unsigned int i = 0; i < N; ++i) {
 		input[i] = rand_real(0, 1000000, g);
 		input_norm[i] = rand_real(0, 1, g);
 	}
@@ -50,6 +50,7 @@ int main(int argc, char const *argv[]) {
 	benchmark_real_function("th::atan", th::atan, input);
 	benchmark_real_function("th::asin", th::asin, input_norm);
 	benchmark_real_function("th::acos", th::acos, input_norm);
+	benchmark_real_function("th::atan2", th::atan2, input, input);
 	benchmark_real_function("th::exp", th::exp, input_norm);
 	benchmark_real_function("th::powf", th::powf, input, input_norm);
 

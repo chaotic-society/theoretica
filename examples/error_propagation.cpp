@@ -12,7 +12,7 @@ template<unsigned int N>
 real product_sum(vec<N> g, vec<N> v) {
 
 	real res = 0;
-	for (int i = 0; i < N; ++i)
+	for (unsigned int i = 0; i < N; ++i)
 		res += th::abs(g.at(i) * v.at(i));
 
 	return res;
@@ -23,7 +23,7 @@ template<unsigned int N>
 real product_sum_quad(vec<N> g, vec<N> v) {
 
 	real res = 0;
-	for (int i = 0; i < N; ++i)
+	for (unsigned int i = 0; i < N; ++i)
 		res += square(g.at(i) * v.at(i));
 
 	return th::sqrt(res);

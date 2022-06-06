@@ -4,11 +4,11 @@
 ///
 
 #include "theoretica.h"
+#include <fstream>
+#include <ctime>
 
 using namespace th;
 
-#include <fstream>
-#include <ctime>
 
 int main(int argc, char const *argv[]) {
 
