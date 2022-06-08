@@ -1,3 +1,8 @@
+
+///
+/// @file ortho_polyn.h Orthogonal polynomial bases
+///
+
 #ifndef THEORETICA_ORTHO_POLYN_H
 #define THEORETICA_ORTHO_POLYN_H
 
@@ -5,6 +10,12 @@
 
 
 namespace theoretica {
+
+
+	/// Polynomial sequence recurrence formula type
+	/// Used for computing orthogonal polynomial basis elements
+	using polyn_recurr_formula
+		= polynomial<real>(*)(polynomial<real>, polynomial<real>, unsigned int);
 
 
 	/// Generate a polynomial basis using a recursion formula
@@ -15,7 +26,7 @@ namespace theoretica {
 	inline polynomial<real> gen_polyn_recurr(
 		polynomial<real> P0,
 		polynomial<real> P1,
-		polynomial<real>(*f)(polynomial<real>, polynomial<real>, unsigned int),
+		polyn_recurr_formula f,
 		unsigned int n) {
 
 		if(n == 0)
@@ -35,6 +46,9 @@ namespace theoretica {
 
 		return Pl;
 	}
+
+
+	// Legendre polynomials
 
 
 	/// Recursion formula for Legendre polynomials
@@ -63,6 +77,9 @@ namespace theoretica {
 	}
 
 
+	// Laguerre polynomials
+
+
 	/// Recursion formula for Laguerre polynomials
 	inline polynomial<real> laguerre_polyn_recurr(
 		polynomial<real> L0, polynomial<real> L1, unsigned int i) {
@@ -79,6 +96,9 @@ namespace theoretica {
 
 		return gen_polyn_recurr({1}, {1, -1}, laguerre_polyn_recurr, n);
 	}
+
+
+	// Hermite polynomials
 
 
 	/// Recursion formula for Hermite polynomials
@@ -105,6 +125,9 @@ namespace theoretica {
 
 		return 1.0 / sqrt((1 << n) * fact(n) * SQRTPI);
 	}
+
+
+	// Chebyshev polynomials
 
 
 	/// Recursion formula for Chebyshev polynomials

@@ -8,6 +8,7 @@
 
 #include "./constants.h"
 #include "./error.h"
+#include "./bit_op.h"
 
 
 namespace theoretica {
@@ -30,6 +31,86 @@ namespace theoretica {
 	/// Domain: [-inf, +inf]
 	constexpr inline real cube(real x) {
 		return x * x * x;
+	}
+
+
+	/// Compute the integer square root of a positive integer
+	/// @param n A positive integer number
+	/// @return The rounded down square root of n
+	/// A binary search algorithm is used.
+	template<typename UnsignedIntType = uint64_t>
+	inline UnsignedIntType isqrt(UnsignedIntType n) {
+
+		// Upper bound
+		UnsignedIntType upper = n + 1;
+		
+		// Lower bound
+		UnsignedIntType lower = 0;
+		
+		// Carry for safe long division
+		UnsignedIntType c = 0;
+
+		while(lower != upper - 1) {
+
+			// Compute carry for long division by 2
+			c = ((lower % 2 != 0) && (upper % 2 != 0)) ? 1 : 0;
+
+			// Safer division by 2 for big numbers
+			const UnsignedIntType m = (lower >> 1) + (upper >> 1) + c;
+
+			// Using division instead of multiplication avoids
+			// overflows which would remove significant bits
+			const UnsignedIntType q = n / m;
+
+			if(m > q)
+				upper = m;
+			else if(m < q)
+				lower = m;
+			else
+				return m;
+		}
+
+		return lower;
+	}
+
+
+	/// Compute the integer cubic root of a positive integer
+	/// @param n A positive integer number
+	/// @return The rounded down cubic root of n
+	/// A binary search algorithm is used.
+	template<typename UnsignedIntType = uint64_t>
+	inline UnsignedIntType icbrt(UnsignedIntType n) {
+
+		// Upper bound
+		UnsignedIntType upper = n + 1;
+		
+		// Lower bound
+		UnsignedIntType lower = 0;
+		
+		// Carry for safe long division
+		UnsignedIntType c = 0;
+
+		while(lower != upper - 1) {
+
+			// Compute carry for long division by 2
+			c = ((lower % 2 != 0) && (upper % 2 != 0)) ? 1 : 0;
+
+			// Safer division by 2 for big numbers
+			const UnsignedIntType m = (lower >> 1) + (upper >> 1) + c;
+
+			// Using division instead of multiplication avoids
+			// overflows which would remove significant bits
+			const UnsignedIntType q = (n / m) / m;
+
+			if(m > q)
+				upper = m;
+			else if(m < q)
+				lower = m;
+			else
+				return m;
+		}
+
+		return lower;
 	}
 
 
@@ -120,7 +201,6 @@ namespace theoretica {
 		}
 
 		// Approximate cbrt(x) using Newton-Raphson
-
 		real y = x;
 		int i = 0;
 
