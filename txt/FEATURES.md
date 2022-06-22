@@ -8,6 +8,8 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cbrt
   - [x] square
   - [x] cube
+  - [x] isqrt - No test cases
+  - [x] icbrt - No test cases
   - [x] abs
   - [x] sgn
   - [x] max
@@ -15,17 +17,17 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] clamp
   - [x] floor - Needs test cases
   - [x] fract - Needs test cases
-  - [ ] **log2** - **(only hardware implementation)**
-  - [ ] log10 - **(only hardware implementation)**
-  - [ ] ln - **(only hardware implementation)**
-  - [x] pow - (may be improved)
+  - [ ] log2 - Architecture-independent version has low precision
+  - [ ] log10 - Architecture-independent version has low precision
+  - [ ] ln - Architecture-independent version has low precision
+  - [x] pow
   - [x] fact
-  - [ ] **powf** - **(only hardware implementation)**
-  - [ ] exp
-  - [ ] sin - **(only hardware implementation)**
-  - [ ] cos - **(only hardware implementation)**
-  - [ ] tan - **(only hardware implementation)**
-  - [ ] cot - **(only hardware implementation)**
+  - [x] powf
+  - [x] exp
+  - [x] sin - Architecture-independent version has low precision
+  - [x] cos - Architecture-independent version has low precision
+  - [x] tan - Architecture-independent version has low precision
+  - [x] cot - Architecture-independent version has low precision
   - [x] atan - (Low precision)
   - [x] asin - (Low precision)
   - [x] acos - (Low precision)
@@ -74,16 +76,16 @@ A functionality is considered "fully implemented" when it has at least one imple
 - Complex functions (_complex/complex_functions.h_) - **NO TEST CASES**
   - [x] square
   - [x] cube
-  - [ ] exp - Depends on real sin and cos
+  - [x] exp
   - [x] abs
-  - [ ] sin - Depends on real function
-  - [ ] cos - Depends on real function
-  - [ ] tan - Depends on real function
+  - [x] sin - Architecture-independent version has low precision
+  - [x] cos - Architecture-independent version has low precision
+  - [x] tan - Architecture-independent version has low precision
   - [x] sqrt
   - [ ] ln - Depends on real function
-  - [ ] asin - Depends on real function
-  - [ ] acos - Depends on real function
-  - [ ] atan - Depends on real function
+  - [x] asin - (Low precision)
+  - [x] acos - (Low precision)
+  - [x] atan - (Low precision)
 
 - Phasors (_complex/phasor.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -106,22 +108,29 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Integration
   - [ ] Division
 
+- Orthogonal polynomials (_ortho_polyn.h_) - **NO TEST CASES**
+  - [x] Laguerre polynomials
+  - [x] Legendre polynomials
+  - [x] Hermite polynomials
+  - [x] Chebyshev polynomials
+
 - Calculus (_calculus/derivation.h_, _calculus/integration.h_) - **NO TEST CASES**
   - [x] Integral approximation using midpoint, trapezoid and Simpson
   - [x] Romberg integral approximation
   - [x] Monte Carlo integral approximation
   - [x] Derivative approximation
+  - [x] Ordinary Differential Equations numerical integration methods
 
 - Approximation of roots and extrema (_approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton, bisection and golden section search
 
-- Dual numbers (_autodiff/dual.h_) - **NO TEST CASES**
+- Dual numbers (_autodiff/dual.h_, _autodiff/dual2.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
   - [x] Multiplication and division
   - [x] Conjugate and inverse
   - [x] Conversion from and to vector
-  - [x] Matrix form
+  - [x] Matrix form (only first order duals)
 
 - Multidual numbers (_autodiff/multidual.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -135,10 +144,10 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cube
   - [x] pow
   - [x] sqrt
-  - [ ] sin - Depends on real function
-  - [ ] cos - Depends on real function
-  - [ ] tan - Depends on real function
-  - [ ] cot - Depends on real function
+  - [x] sin - Architecture-independent version has low precision
+  - [x] cos - Architecture-independent version has low precision
+  - [x] tan - Architecture-independent version has low precision
+  - [x] cot - Architecture-independent version has low precision
   - [x] exp
   - [ ] ln - Depends on real function
   - [ ] log2 - Depends on real function
@@ -170,11 +179,14 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] PRNG class
   - [x] Random real numbers on a range
   - [x] Congruential generator
-  - [ ] Mersenne twister
-  - [ ] Xorshift
   - [x] Xoroshiro256++
   - [x] Splitmix64
-  - [ ] Multiply-With-Carry
+  - [x] Wyrand
+
+- Quasirandom numbers (_pseudorandom/quasirandom.h_) - **NO TEST CASES**
+  - [x] Weyl sequence
+  - [ ] Sobol sequence
+  - [ ] Halton sequence
 
 - Statistical functions (_statistics/statistics.h_) - **NO TEST CASES**
   - [x] Mean and weighted mean
@@ -198,9 +210,20 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Exponential
   - [x] Cauchy
   - [x] Breit Wigner
+  - [x] Pareto
+  - [ ] Chi-square
 
-- Random number-based algorithms (_pseudorandom/randstat.h_) - **NO TEST CASES**
+- Random number-based algorithms (_pseudorandom/rand_dist.h_, _pseudorandom/montecarlo.h_) - **NO TEST CASES**
   - [x] Monte Carlo methods
   - [x] Try-and-catch number generation following a distribution
-  - [ ] Inverse cumulative function method
+  - [x] Uniform sampling
+  - [x] Gaussian sampling
+  - [x] Exponential sampling
+  - [x] Cauchy sampling
+  - [x] Pareto sampling
   - [ ] Metropolis-Hastings Monte Carlo Markov Chain method
+
+- Operations on bits (_core/bit_op.h_) - **NO TEST CASES*
+  - [x] 128-bit multiplication
+  - [x] MUM bit mixing
+  - [x] Bit rotation
