@@ -108,7 +108,7 @@ namespace theoretica {
 	inline real rand_gaussian_clt(real x1, real x2, PRNG& g, unsigned int iter = 10) {
 
 		real s = 0;
-		for (int i = 0; i < iter; ++i)
+		for (unsigned int i = 0; i < iter; ++i)
 			s += rand_real(x1, x2, g);
 
 		return s / static_cast<real>(iter);

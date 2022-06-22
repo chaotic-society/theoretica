@@ -9,6 +9,8 @@
 #include "theoretica.h"
 using namespace th;
 
+#include "timer.h"
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>

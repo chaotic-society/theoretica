@@ -62,7 +62,7 @@ namespace theoretica {
 				T sum = 0;
 
 				// Evaluate using Horner's method
-				for (int i = 0; i < coeff.size(); ++i)
+				for (unsigned int i = 0; i < coeff.size(); ++i)
 					sum = coeff[coeff.size() - i - 1] + x * sum;
 
 				// TO-DO Compare performance using fma x86 Assembly instruction
@@ -87,7 +87,7 @@ namespace theoretica {
 			/// Find the true order of the polynomial (ignoring null coefficients)
 			inline int find_order() const {
 
-				for (int i = coeff.size() - 1; i >= 0; --i) {
+				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
 					if(coeff[i] != 0)
 						return i;
 				}
@@ -99,7 +99,7 @@ namespace theoretica {
 			/// Remove higher order null coefficients
 			inline void trim() {
 
-				for (int i = coeff.size() - 1; i >= 0; --i) {
+				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
 					if(coeff[i] != 0)
 						break;
 
@@ -119,7 +119,7 @@ namespace theoretica {
 
 				polynomial r(coeff);
 
-				for (int i = 0; i < min(r.size(), p.size()); ++i) {
+				for (unsigned int i = 0; i < min(r.size(), p.size()); ++i) {
 					r[i] += p.get(i);
 				}
 
@@ -132,7 +132,7 @@ namespace theoretica {
 				
 				polynomial r(coeff);
 
-				for (int i = 0; i < min(r.size(), p.size()); ++i) {
+				for (unsigned int i = 0; i < min(r.size(), p.size()); ++i) {
 					r[i] -= p.get(i);
 				}
 
@@ -146,7 +146,7 @@ namespace theoretica {
 				polynomial r = polynomial();
 				r.coeff.resize(this->size() + p.size() - 1);
 
-				for (int i = 0; i < size(); ++i) {
+				for (unsigned int i = 0; i < size(); ++i) {
 					for (int j = 0; j < p.size(); ++j) {
 						r[i + j] += coeff[i] * p.get(j);
 					}
@@ -161,7 +161,7 @@ namespace theoretica {
 
 				polynomial r = polynomial(*this);
 
-				for (int i = 0; i < size(); ++i)
+				for (unsigned int i = 0; i < size(); ++i)
 					r.coeff[i] *= a;
 
 				return r;
@@ -177,7 +177,7 @@ namespace theoretica {
 
 				polynomial r = polynomial(*this);
 
-				for (int i = 0; i < size(); ++i)
+				for (unsigned int i = 0; i < size(); ++i)
 					r.coeff[i] /= a;
 
 				return r;
@@ -194,7 +194,7 @@ namespace theoretica {
 				if(coeff.size() < p.size())
 					coeff.resize(p.size(), T(0));
 
-				for (int i = 0; i < min(size(), p.size()); ++i)
+				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] += p.get(i);
 
 				return *this;
@@ -208,7 +208,7 @@ namespace theoretica {
 				if(coeff.size() < p.size())
 					coeff.resize(p.size(), T(0));
 
-				for (int i = 0; i < min(size(), p.size()); ++i)
+				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] -= p.get(i);
 
 				return *this;
@@ -221,7 +221,7 @@ namespace theoretica {
 				polynomial r = polynomial();
 				r.coeff.resize(this->size() + p.size() - 1);
 
-				for (int i = 0; i < size(); ++i) {
+				for (unsigned int i = 0; i < size(); ++i) {
 					for (int j = 0; j < p.size(); ++j) {
 						r[i + j] += coeff[i] * p.get(j);
 					}
@@ -235,7 +235,7 @@ namespace theoretica {
 			/// Multiply a polynomial by a scalar value
 			inline polynomial& operator*=(T a) {
 
-				for (int i = 0; i < coeff.size(); ++i)
+				for (unsigned int i = 0; i < coeff.size(); ++i)
 					coeff[i] *= a;
 				
 				return *this;
@@ -250,7 +250,7 @@ namespace theoretica {
 					return *this;
 				}
 
-				for (int i = 0; i < coeff.size(); ++i)
+				for (unsigned int i = 0; i < coeff.size(); ++i)
 					coeff[i] /= a;
 				
 				return *this;
@@ -260,18 +260,18 @@ namespace theoretica {
 			/// Check whether two polynomials are equal
 			inline bool operator==(const polynomial& other) const {
 
-				for (int i = 0; i < min(other.size(), this->size()); ++i) {
+				for (unsigned int i = 0; i < min(other.size(), this->size()); ++i) {
 					if(other.coeff[i] != coeff[i])
 						return false;
 				}
 
 				if(size() > other.size()) {
-					for (int i = 0; i < size(); ++i) {
+					for (unsigned int i = 0; i < size(); ++i) {
 						if(coeff[i] != 0)
 							return false;
 					}
 				} else {
-					for (int i = 0; i < other.size(); ++i) {
+					for (unsigned int i = 0; i < other.size(); ++i) {
 						if(other.coeff[i] != 0)
 							return false;
 					}
@@ -317,7 +317,7 @@ namespace theoretica {
 				polynomial<T> P = {1};
 
 				// P = product((x - r_i))
-				for (int i = 0; i < roots.size(); ++i)
+				for (unsigned int i = 0; i < roots.size(); ++i)
 					P *= polynomial<T>({roots[i] * -1, 1});
 
 				return P;
@@ -347,7 +347,7 @@ namespace theoretica {
 
 				std::stringstream res;
 
-				for (int i = 0; i < coeff.size(); ++i) {
+				for (unsigned int i = 0; i < coeff.size(); ++i) {
 
 					if(coeff[i] == 0)
 						continue;

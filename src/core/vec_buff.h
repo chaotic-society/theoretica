@@ -27,7 +27,7 @@ namespace theoretica {
 		}
 
 		real res = 1;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res *= X[i];
 
 		return res;
@@ -43,7 +43,7 @@ namespace theoretica {
 		}
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i];
 
 		return res;
@@ -59,7 +59,7 @@ namespace theoretica {
 		}
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res += square(X[i]) * square(Y[i]);
 
 		return res;
@@ -75,7 +75,7 @@ namespace theoretica {
 		}
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i] * Z[i];
 
 		return res;
@@ -91,7 +91,7 @@ namespace theoretica {
 		}
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++) {
+		for(unsigned int i = 0; i < X.size(); i++) {
 
 			if(Y[i] == 0) {
 				UMATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
@@ -109,7 +109,7 @@ namespace theoretica {
     inline real sum_squares(const vec_buff& X) {
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * X[i];
 
 		return res;
@@ -120,7 +120,7 @@ namespace theoretica {
 	inline real sum(const vec_buff& X) {
 
 		real res = 0;
-		for(int i = 0; i < X.size(); i++)
+		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i];
 
 		return res;

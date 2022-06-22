@@ -29,7 +29,7 @@ namespace theoretica {
 		real x_min = a;
 		real x_max = b;
 
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(x_max - x_min > BISECTION_APPROX_TOL && iter <= MAX_BISECTION_ITER) {
 
@@ -57,7 +57,7 @@ namespace theoretica {
 
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(f(x)) > NEWTON_RAPHSON_TOL && iter <= MAX_NEWTON_ITER) {
 			x = x - (f(x) / Df(x));
@@ -79,7 +79,7 @@ namespace theoretica {
 
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		dual s = f(dual(x, 1));
 
@@ -105,7 +105,7 @@ namespace theoretica {
 
 		real x = guess;
 		polynomial<> Dp = differentiate_polynomial(p);
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
 			x = x - (p(x) / Dp(x));
@@ -126,7 +126,7 @@ namespace theoretica {
 		real_function D2f, real guess = 0) {
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
 			x = x - (2 * f(x) * Df(x)) / (2 * Df(x) - f(x) * D2f(x));
@@ -146,7 +146,7 @@ namespace theoretica {
 	inline real approx_root_halley(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		dual2 s = f(dual2(x, 1, 0));
 
@@ -174,7 +174,7 @@ namespace theoretica {
 		polynomial<> Dp = differentiate_polynomial(p);
 		polynomial<> D2p = differentiate_polynomial(Dp);
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
 			x = x - (2 * p(x) * Dp(x)) / (2 * Dp(x) - p(x) * D2p(x));
@@ -195,7 +195,7 @@ namespace theoretica {
 
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
 			x = x - (f(x) / ((f(x + f(x)) / f(x)) - 1));
@@ -215,7 +215,7 @@ namespace theoretica {
 	inline real approx_polyn_root_steffensen(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
 			x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));
@@ -236,7 +236,7 @@ namespace theoretica {
 		real_function D2f, real guess = 0) {
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
 			x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));
@@ -256,7 +256,7 @@ namespace theoretica {
 	inline real approx_root_chebyshev(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
-		int iter = 0;
+		unsigned int iter = 0;
 
 		dual2 s = f(dual2(x, 1, 0));
 
@@ -285,7 +285,7 @@ namespace theoretica {
 		real x = guess;
 		polynomial<> Dp = differentiate_polynomial(p);
 		polynomial<> D2p = differentiate_polynomial(p);
-		int iter = 0;
+		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
 			x = x - (p(x) / Dp(x)) - square((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));

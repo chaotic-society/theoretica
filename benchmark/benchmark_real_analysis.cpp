@@ -6,14 +6,13 @@
 #ifndef THEORETICA_BENCHMARK_REAL_ANALYSIS
 #define THEORETICA_BENCHMARK_REAL_ANALYSIS
 
-#include "./timer.h"
 #include "./benchmark.h"
 
 
 int main(int argc, char const *argv[]) {
 
 	// Setup
-	setup_benchmark("real_analysis");
+	setup_benchmark("real_analysis", 1000000, 10);
 	print_benchmark_header();
 
 

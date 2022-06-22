@@ -8,7 +8,6 @@
 
 #include "./constants.h"
 #include "./error.h"
-#include "./bit_op.h"
 
 
 namespace theoretica {
@@ -160,7 +159,7 @@ namespace theoretica {
 
 		// Approximate sqrt(x) using Newton-Raphson
 		real y = x;
-		int i = 0;
+		unsigned int i = 0;
 
 		while((square(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
 			y = (y + x / y) / 2.0;
@@ -202,7 +201,7 @@ namespace theoretica {
 
 		// Approximate cbrt(x) using Newton-Raphson
 		real y = x;
-		int i = 0;
+		unsigned int i = 0;
 
 		while((cube(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
 			y = (y * 2.0 + x / (y * y)) / 3.0;
@@ -571,7 +570,7 @@ namespace theoretica {
 	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
 
-		if(n % 2 == 0 && x < 0 || n == 0) {
+		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
 			UMATH_ERROR("root", n, OUT_OF_DOMAIN);
 			return nan();
 		}
@@ -593,7 +592,7 @@ namespace theoretica {
 		// Approximate n-th root using Newton-Raphson
 
 		real y = x;
-		int i = 0;
+		unsigned int i = 0;
 
 		while((pow(y, n) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
 			y = (y * (n - 1) + x / pow(y, n - 1)) / (real) n;
@@ -1046,7 +1045,7 @@ namespace theoretica {
 
 		IntType res = 1;
 
-		for (int i = n; i > m; --i)
+		for (unsigned int i = n; i > m; --i)
 			res *= i;
 
 		return res / fact(n - m);

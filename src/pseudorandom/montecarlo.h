@@ -27,7 +27,7 @@ namespace theoretica {
 
 		unsigned int N_inside = 0;
 
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 		
 			real x_n = rand_real(a, b, g);
 			real y_n = rand_real(0, f_max, g);

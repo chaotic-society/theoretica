@@ -20,7 +20,7 @@ namespace theoretica {
 		polynomial<real> Dp;
 		Dp.coeff.push_back(0);
 
-		for (int i = 0; i < p.size(); ++i)
+		for (unsigned int i = 0; i < p.size(); ++i)
 			Dp.coeff.push_back(p.get(i) / (real) (i + 1));
 
 		return Dp;
@@ -35,7 +35,7 @@ namespace theoretica {
 		real dx = (b - a) / steps;
 		real res = 0;
 
-		for (int i = 0; i < steps; ++i)
+		for (unsigned int i = 0; i < steps; ++i)
 			res += f(a + (i + 0.5) * dx);
 
 		return res * dx;
@@ -52,7 +52,7 @@ namespace theoretica {
 
 		res += 0.5 * f(a);
 
-		for (int i = 1; i < steps; ++i)
+		for (unsigned int i = 1; i < steps; ++i)
 			res += f(a + i * dx);
 
 		res += 0.5 * f(b);
@@ -71,7 +71,7 @@ namespace theoretica {
 
 		res += f(a) + f(b);
 
-		for (int i = 1; i < steps; ++i) {
+		for (unsigned int i = 1; i < steps; ++i) {
 
 			if(i % 2 == 0)
 				res += 2.0 * f(a + i * dx);

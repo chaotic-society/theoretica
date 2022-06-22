@@ -23,9 +23,14 @@ namespace theoretica {
 	template<typename T>
 	inline polynomial<T> lagrange_polynomial(const std::vector<vec<2, T>>& points) {
 
+		if(!points.size()) {
+			UMATH_ERROR("lagrange_polynomial", points.size(), INVALID_ARGUMENT);
+			return polynomial<T>({T(nan())});
+		}
+
 		// Check that all x_i are different to prevent
 		// division by zero
-		for (int i = 0; i < points.size() - 1; ++i) {
+		for (unsigned int i = 0; i < points.size() - 1; ++i) {
 			if(points[i].get(0) == points[i + 1].get(0)) {
 				UMATH_ERROR("lagrange_polynomial", points[i].get(0), INVALID_ARGUMENT);
 				return polynomial<T>({T(nan())});
@@ -35,7 +40,7 @@ namespace theoretica {
 		// Lagrange polynomial to construct
 		polynomial<T> L = {0};
 
-		for (int j = 0; j < points.size(); ++j) {
+		for (unsigned int j = 0; j < points.size(); ++j) {
 			
 			// The Lagrange polynomial is a linear
 			// combination of all l_j
@@ -72,7 +77,7 @@ namespace theoretica {
 		real m = (b + a) / 2.0;
 		real c = (b - a) / 2.0;
 
-		for (int i = 1; i < n + 1; ++i)
+		for (unsigned int i = 1; i < n + 1; ++i)
 			nodes[i - 1] = m + c * cos(real(2 * i - 1) / real(2 * n) * PI);
 
 		return nodes;
@@ -92,7 +97,7 @@ namespace theoretica {
 		points.resize(order + 1);
 
 		// Sample <order + 1> equidistant points
-		for (int i = 0; i < order + 1; ++i) {
+		for (unsigned int i = 0; i < order + 1; ++i) {
 			real x = (b - a) / real(order) * real(i);
 			points[i] = {x, f(x)};
 		}
@@ -120,7 +125,7 @@ namespace theoretica {
 		vec_buff nodes = chebyshev_nodes(a, b, order + 1);
 
 		// Sample <order + 1> equidistant points
-		for (int i = 0; i < order + 1; ++i)
+		for (unsigned int i = 0; i < order + 1; ++i)
 			points[i] = {nodes[i], f(nodes[i])};
 
 		return lagrange_polynomial(points);

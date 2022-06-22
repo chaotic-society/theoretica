@@ -39,10 +39,10 @@ namespace theoretica {
 		vec<N, real> res;
 		vec<N, dual> dual_x;
 
-		for (int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < N; ++i)
 			dual_x[i] = x.get(i);
 
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 			dual_x[i].b = 1;
 			res.at(i) = f(dual_x).Dual();
 			dual_x[i].b = 0;
@@ -61,7 +61,7 @@ namespace theoretica {
 		multidual<N> d = f(multidual<N>::pack_function_arg(x));
 
 		real div = 0;
-		for (int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < N; ++i)
 			div += d.v.at(i);
 
 		return div;
@@ -84,10 +84,10 @@ namespace theoretica {
 		real res = 0;
 		vec<N, dual> dual_x;
 
-		for (int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < N; ++i)
 			dual_x[i] = x.get(i);
 
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 			dual_x[i].b = 1;
 			res += f(dual_x).Dual();
 			dual_x[i].b = 0;
@@ -106,7 +106,7 @@ namespace theoretica {
 
 		// Construct the jacobian matrix
 		mat<M, N> J;
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 			for (int j = 0; j < M; ++j) {
 				J.iat(j, i) = res.at(j).Dual().at(i);
 			}
@@ -156,10 +156,10 @@ namespace theoretica {
 		real res = 0;
 		vec<N, dual2> dual_x;
 
-		for (int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < N; ++i)
 			dual_x[i] = x.get(i);
 
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 			dual_x[i].b = 1;
 			res += f(dual_x).Dual2();
 			dual_x[i].b = 0;

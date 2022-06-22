@@ -19,7 +19,7 @@ namespace theoretica {
 
 		polynomial<T> Dp;
 
-		for (int i = 1; i < p.size(); ++i)
+		for (unsigned int i = 1; i < p.size(); ++i)
 			Dp.coeff.push_back(p[i] * i);
 
 		return Dp;
