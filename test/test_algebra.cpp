@@ -28,12 +28,12 @@ int main(int argc, char const *argv[]) {
 		PRNG g = PRNG::xoshiro(time(nullptr));
 		g.discard(1000);
 
-		for (int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < N; ++i) {
 			
 			mat4 A;
 
 			// Generate a random matrix
-			for (int j = 0; j < 4; ++j) {
+			for (unsigned int j = 0; j < 4; ++j) {
 				for (int k = 0; k < 4; ++k) {
 					A.iat(j, k) = rand_real(-1000000, 1000000, g);
 				}
@@ -49,8 +49,8 @@ int main(int argc, char const *argv[]) {
 			mat4 res = A * Ainv;
 
 			// Check that all entries are zero
-			for (int j = 0; j < 4; ++j) {
-				for (int k = 0; k < 4; ++k) {
+			for (unsigned int j = 0; j < 4; ++j) {
+				for (unsigned int k = 0; k < 4; ++k) {
 					test_tolr(
 						res.iat(j, k),
 						kronecker_delta(j, k),

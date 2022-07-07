@@ -21,7 +21,7 @@ namespace theoretica {
 
 		real res = 1;
 
-		for (int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i) {
 			res *= f(X[i], theta);
 		}
 
@@ -35,7 +35,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i) {
 			res += ln(f(X[i], theta));
 		}
 

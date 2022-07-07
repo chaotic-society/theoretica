@@ -119,7 +119,7 @@ void test_equal_interval(real_function f, real_function f_exp, real a, real b,
 
 	real dx = (b - a) / (real) steps;
 
-	for (int i = 0; i <= steps; ++i) {
+	for (unsigned int i = 0; i <= steps; ++i) {
 
 		real x = a + i * dx;
 
@@ -190,7 +190,7 @@ void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
 	cum_sqr_err = 0;
 	max_err = 0;
 
-	for (int i = 0; i <= steps; ++i) {
+	for (unsigned int i = 0; i <= steps; ++i) {
 
 		real x = a + i * dx;
 
@@ -201,9 +201,9 @@ void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
 	std::cout << "\tRMS Error on Interval: " << th::sqrt(cum_sqr_err / th::abs(b - a) / (real) steps) << std::endl;
 	std::cout << "\tMaximum Error on Interval: " << max_err << "\n" << std::endl;
 
-	real cum_err = cum_err_;
-	real cum_sqr_err = cum_sqr_err_;
-	real max_err = max_err_;
+	cum_err = cum_err_;
+	cum_sqr_err = cum_sqr_err_;
+	max_err = max_err_;
 }
 
 

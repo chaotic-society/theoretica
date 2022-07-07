@@ -236,7 +236,7 @@ namespace theoretica {
 			inline static vec<N, multidual<N>> pack_function_arg(const vec<N, real>& x) {
 
 				vec<N, multidual<N>> arg;
-				for (int i = 0; i < N; ++i)
+				for (unsigned int i = 0; i < N; ++i)
 					arg.at(i) = multidual<N>(x.get(i), vec<N>::euclidean_base(i));
 
 				return arg;

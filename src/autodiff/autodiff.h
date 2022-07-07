@@ -107,7 +107,7 @@ namespace theoretica {
 		// Construct the jacobian matrix
 		mat<M, N> J;
 		for (unsigned int i = 0; i < N; ++i) {
-			for (int j = 0; j < M; ++j) {
+			for (unsigned int j = 0; j < M; ++j) {
 				J.iat(j, i) = res.at(j).Dual().at(i);
 			}
 		}

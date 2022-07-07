@@ -45,7 +45,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (int i = 0; i < data.size(); ++i) {
+		for (unsigned int i = 0; i < data.size(); ++i) {
 
 			if(data[i] == 0) {
 				UMATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
@@ -117,7 +117,7 @@ namespace theoretica {
 
 		// Compute sum of squares of (i_sigma / i_mean)
 		real s = 0;
-		for (int i = 0; i < sigma.size(); ++i) {
+		for (unsigned int i = 0; i < sigma.size(); ++i) {
 
 			if(mean[i] == 0) {
 				UMATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
@@ -142,9 +142,9 @@ namespace theoretica {
 
 		real res = 0;
 		real x_m = mean(X);
-		for (auto x : X) {
-			res += square(x - x_m);
-		}
+		
+		for (unsigned int i = 0; i < X.size(); ++i)
+			res += square(X[i] - x_m);
 
 		return res;
 	}
@@ -275,7 +275,7 @@ namespace theoretica {
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
 
-		for (int i = 0; i < X.size(); ++i)
+		for (unsigned int i = 0; i < X.size(); ++i)
 			s += (X[i] - X_mean) * (Y[i] - Y_mean);
 
 		return s / (real) X.size();
@@ -295,7 +295,7 @@ namespace theoretica {
 		real X_mean = mean(X);
 		real Y_mean = mean(Y);
 
-		for (int i = 0; i < X.size(); ++i)
+		for (unsigned int i = 0; i < X.size(); ++i)
 			s += (X[i] - X_mean) * (Y[i] - Y_mean);
 
 		// Bessel correction (N - 1)
@@ -429,7 +429,7 @@ namespace theoretica {
 		}
 
 		real err = 0;
-		for (int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i) {
 			err += square(Y[i] - intercept - slope * X[i]);
 		}
 
@@ -459,7 +459,7 @@ namespace theoretica {
 		}
 
 		real chi_squared = 0;
-		for (int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i) {
 			chi_squared += square((Y[i] - intercept - slope * X[i]) / sigma[i]);
 		}
 

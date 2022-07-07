@@ -46,7 +46,7 @@ namespace theoretica {
 			// combination of all l_j
 			polynomial<T> l_j = {1};
 
-			for (int m = 0; m < points.size(); ++m) {
+			for (unsigned int m = 0; m < points.size(); ++m) {
 				
 				if(m == j)
 					continue;

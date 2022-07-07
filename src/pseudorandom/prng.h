@@ -59,7 +59,7 @@ namespace theoretica {
 			/// Discard n numbers from the generator.
 			/// Equivalent to calling next() n times.
 			inline void discard(uint64_t n) {
-				for (int i = 0; i < n; ++i)
+				for (uint64_t i = 0; i < n; ++i)
 					next();
 			}
 

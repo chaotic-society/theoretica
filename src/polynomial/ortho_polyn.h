@@ -36,7 +36,7 @@ namespace theoretica {
 			return P1;
 
 		polynomial<real> Pl;
-		for (int l = 2; l <= n; ++l) {
+		for (unsigned int l = 2; l <= n; ++l) {
 			
 			Pl = f(P0, P1, l);
 

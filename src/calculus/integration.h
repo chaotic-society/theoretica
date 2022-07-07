@@ -99,13 +99,13 @@ namespace theoretica {
 
 		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
 
-		for (int j = 1; j < iter; ++j) {
+		for (unsigned int j = 1; j < iter; ++j) {
 			
 			// Composite Trapezoidal Rule
 			T[j][0] = approx_integral_trapezoid(f, a, b, 1 << j);
 
 			// Richardson extrapolation
-			for (int k = 1; k <= j; ++k) {
+			for (unsigned int k = 1; k <= j; ++k) {
 				T[j][k] =
 					T[j][k - 1]
 					+ (T[j][k - 1] - T[j - 1][k - 1]) / ((1 << (2 * k)) - 1);

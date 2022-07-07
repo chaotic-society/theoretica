@@ -20,7 +20,7 @@ namespace theoretica {
 
 	/// Print a `vec_buff` data set to standard output
 	void print_vec_buff(const vec_buff& v) {
-		for(int i = 0; i < v.size(); i++) {
+		for(unsigned int i = 0; i < v.size(); i++) {
 			std::cout << v[i] << std::endl;
 		}
 	}
@@ -29,7 +29,7 @@ namespace theoretica {
 	/// Print a `vec_buff` data set to standard output on a single row
 	void print_vec_buff_row(const vec_buff& v) {
 		std::cout << "{ ";
-		for(int i = 0; i < v.size(); i++) {
+		for(unsigned int i = 0; i < v.size(); i++) {
 			std::cout << v[i];
 
 			if(i != v.size() - 1)

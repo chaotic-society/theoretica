@@ -111,8 +111,8 @@ int main(int argc, char const *argv[]) {
 		const unsigned int N = 7;
 		const unsigned int MAX_POW = 10;
 
-		for (int i = 0; i < N; ++i) {
-			for (int j = 0; j < 100; ++j) {
+		for (unsigned int i = 0; i < N; ++i) {
+			for (unsigned int j = 0; j < 100; ++j) {
 				real x = 20 * i / N;
 				real p = MAX_POW * j / 100;
 				test_tol(th::pow(x, p), std::pow(x, p), x, TOLERANCE, true);

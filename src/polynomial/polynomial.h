@@ -147,7 +147,7 @@ namespace theoretica {
 				r.coeff.resize(this->size() + p.size() - 1);
 
 				for (unsigned int i = 0; i < size(); ++i) {
-					for (int j = 0; j < p.size(); ++j) {
+					for (unsigned int j = 0; j < p.size(); ++j) {
 						r[i + j] += coeff[i] * p.get(j);
 					}
 				}
@@ -222,7 +222,7 @@ namespace theoretica {
 				r.coeff.resize(this->size() + p.size() - 1);
 
 				for (unsigned int i = 0; i < size(); ++i) {
-					for (int j = 0; j < p.size(); ++j) {
+					for (unsigned int j = 0; j < p.size(); ++j) {
 						r[i + j] += coeff[i] * p.get(j);
 					}
 				}
