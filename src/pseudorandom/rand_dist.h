@@ -69,7 +69,7 @@ namespace theoretica {
 
 		if(has_spare) {
 			has_spare = false;
-			return spare;
+			return mean + spare * sigma;
 		}
 
 		real x, y, s;
@@ -86,7 +86,7 @@ namespace theoretica {
 		// Project the point onto the unit circumference
 		s = sqrt(-2 * ln(s) / s);
 
-		spare = y;
+		spare = y * s;
 		has_spare = true;
 
 		return mean + sigma * x * s;

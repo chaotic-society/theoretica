@@ -75,6 +75,28 @@ namespace theoretica {
 	}
 
 
+	/// Compute the quadratic mean (Root Mean Square) of a set of values
+	/// m_q = sqrt(x1^2 + x2^2 + ...)
+	inline real quadratic_mean(const vec_buff& data) {
+
+		if(!data.size()) {
+			UMATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return sqrt(sum_squares(data) / data.size());
+	}
+
+
+	/// Compute the quadratic mean (Root Mean Square) of a set of values
+	/// m_q = sqrt(x1^2 + x2^2 + ...)
+	/// @see quadratic_mean
+	inline real rms(const vec_buff& data) {
+
+		return quadratic_mean(data);
+	}
+
+
 	/// Propagate error of a sum of values
 	/// as sqrt(sigma_x^2 + sigma_y^2 + ...)
 	inline real propagate_sum(const vec_buff& sigma) {
@@ -96,23 +118,16 @@ namespace theoretica {
 		// Compute sum of squares of (i_sigma / i_mean)
 		real s = 0;
 		for (int i = 0; i < sigma.size(); ++i) {
+
+			if(mean[i] == 0) {
+				UMATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
+				return nan();
+			}
+
 			s += square(sigma[i] / abs(mean[i]));
 		}
 
 		return sqrt(s);
-	}
-
-
-	/// Root Mean Square
-	/// Computed as sqrt(sum(x_i^2) / N)
-	inline real rms(const vec_buff& X) {
-
-		if(!X.size()) {
-			UMATH_ERROR("rms", X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		return sqrt(sum_squares(X) / X.size());
 	}
 
 
@@ -136,6 +151,7 @@ namespace theoretica {
 
 	/// Total sum of squares (TSS)
 	/// Computed as sum(square(x_i - x_mean))
+	/// @see total_sum_squares
 	inline real tss(const vec_buff& X) {
 		return total_sum_squares(X);
 	}
