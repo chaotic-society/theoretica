@@ -1,6 +1,6 @@
 default_target: example
 .PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark
-all: example test examples
+all: example examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
 
@@ -10,13 +10,13 @@ example:
 
 test_algebra:
 	@echo Compiling linear algebra test cases...
-	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test/test_algebra_e
-	@./test/test_algebra_e
+	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test/test_algebra
+	@./test/test_algebra
 
 test_real_analysis:
 	@echo Compiling real analysis test cases...
-	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test/test_real_analysis_e
-	@./test/test_real_analysis_e
+	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test/test_real_analysis
+	@./test/test_real_analysis
 
 test: test_real_analysis test_algebra
 
