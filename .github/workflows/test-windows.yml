@@ -48,7 +48,7 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
-    - run: make all
+    - run: make all EXE_FORMAT=.exe
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
