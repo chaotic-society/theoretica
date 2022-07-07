@@ -51,14 +51,14 @@ void print_benchmark_header() {
 	std::cout << "Starting benchmark of " << module_name << std::endl;
 	std::cout << "Parameters: N = " << N << ", M = " << M << std::endl;
 	
-	for (int i = 0; i < 80; ++i)
+	for (unsigned int i = 0; i < 80; ++i)
 		std::cout << '-';
 	std::cout << std::endl;
 
 	std::cout << std::left << "Function\t\tTime (ms)\tRuns/sec" << std::endl;
 	output_file << "Function, Time(ms), Runs/sec" << std::endl;
 
-	for (int i = 0; i < 80; ++i)
+	for (unsigned int i = 0; i < 80; ++i)
 		std::cout << '-';
 	std::cout << std::endl;
 }
@@ -106,11 +106,11 @@ void benchmark_real_function(std::string func_name, real_function f,
 	// Sum of M runs with N iterations each
 	long double sum = 0;
 
-	for (int i = 0; i < M; ++i) {
+	for (unsigned int i = 0; i < M; ++i) {
 
 		timer t = timer();
 
-		for (int j = 0; j < N; ++j) {
+		for (unsigned int j = 0; j < N; ++j) {
 			c += f(input[j]);
 		}
 
@@ -135,11 +135,11 @@ void benchmark_real_function(std::string func_name, real(*f)(real, real),
 	// Sum of M runs with N iterations each
 	long double sum = 0;
 
-	for (int i = 0; i < M; ++i) {
+	for (unsigned int i = 0; i < M; ++i) {
 
 		timer t = timer();
 
-		for (int j = 0; j < N; ++j) {
+		for (unsigned int j = 0; j < N; ++j) {
 			c += f(input1[j], input2[j]);
 		}
 
