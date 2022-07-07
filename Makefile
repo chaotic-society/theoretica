@@ -1,6 +1,6 @@
 default_target: example
 .PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark
-all: example examples
+all: example test examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
 EXE_FORMAT = 
