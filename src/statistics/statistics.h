@@ -97,6 +97,22 @@ namespace theoretica {
 	}
 
 
+	/// Computes the range of a data set
+	/// defined as x_max - x_min
+	inline real range(const vec_buff& data) {
+
+		return max(data) - min(data);
+	}
+
+
+	/// Computes the maximum semidispersion of a data set
+	/// defined as (x_max - x_min) / 2
+	inline real semidispersion(const vec_buff& data) {
+
+		return range(data) / 2.0;
+	}
+
+
 	/// Propagate error of a sum of values
 	/// as sqrt(sigma_x^2 + sigma_y^2 + ...)
 	inline real propagate_sum(const vec_buff& sigma) {

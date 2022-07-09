@@ -234,6 +234,31 @@ namespace theoretica {
 			return pareto(x, theta[0], theta[1]);
 		}
 
+
+		/// Erlang distribution
+		inline real erlang(real x, unsigned int k, real lambda) {
+
+			if(!k) {
+				UMATH_ERROR("distribution::erlang", k, INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return pow(lambda, k) * pow(x, k - 1)
+					* exp(-lambda * x) / fact(k - 1);
+		}
+
+
+		/// Wrapper for distribution::erlang(real, unsigned int, real)
+		inline real erlang(real x, const vec_buff& theta) {
+
+			if(theta.size() != 2) {
+				UMATH_ERROR("distribution::erlang", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return erlang(x, static_cast<unsigned int>(theta[0]), theta[1]);
+		}
+
 	}
 }
 

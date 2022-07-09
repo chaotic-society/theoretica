@@ -134,6 +134,42 @@ namespace theoretica {
 			x = f(x);
 	}
 
+
+	/// Finds the maximum value inside a dataset
+	inline real max(const vec_buff& X) {
+
+		if(!X.size()) {
+			UMATH_ERROR("max", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real curr = X[0];
+
+		for (unsigned int i = 1; i < X.size(); ++i)
+			if(X[i] > curr)
+				curr = X[i];
+
+		return curr;
+	}
+
+
+	/// Finds the minimum value inside a dataset
+	inline real min(const vec_buff& X) {
+
+		if(!X.size()) {
+			UMATH_ERROR("min", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real curr = X[0];
+
+		for (unsigned int i = 1; i < X.size(); ++i)
+			if(X[i] < curr)
+				curr = X[i];
+
+		return curr;
+	}
+
 }
 
 #endif

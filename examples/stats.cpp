@@ -24,11 +24,6 @@ int main(int argc, char const *argv[]) {
 	std::cout << "1: Single dataset\n" << "2: Two datasets\n" << "3: Three datasets\n";
 	std::cin >> n;
 
-	if(n < 1 || n > 3) {
-		std::cout << "Input error" << std::endl;
-		exit(1);
-	}
-
 	if(n == 1) {
 
 		std::cout << "Insert X (write END to stop):" << std::endl;
@@ -89,6 +84,10 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Linearization Error = " << least_squares_linear_error(X, Y, A, B) << std::endl;
 
 		std::cout << "Linearization Chi-Square = " << chi_square_linearization(X, Y, Z, A, B) << std::endl;
+		
+	} else {
+		std::cout << "Input error" << std::endl;
+		return 1;
 	}
 
 	return 0;

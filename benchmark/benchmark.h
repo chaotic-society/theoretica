@@ -31,7 +31,7 @@ std::string curr_func_name = "unknown";
 std::ofstream output_file;
 
 
-void setup_benchmark(std::string module, unsigned int iter = 1000000, unsigned int runs = 10) {
+void setup_benchmark(const std::string& module, unsigned int iter = 1000000, unsigned int runs = 10) {
 
 	module_name = module;
 	N = iter;
@@ -95,7 +95,7 @@ void end_benchmark(long double elapsed) {
 
 
 // Automatically benchmark a real function
-void benchmark_real_function(std::string func_name, real_function f,
+void benchmark_real_function(const std::string& func_name, real_function f,
 							 const std::vector<real>& input) {
 
 	init_benchmark(func_name);
@@ -123,7 +123,7 @@ void benchmark_real_function(std::string func_name, real_function f,
 
 
 // Automatically benchmark a real function of two real parameters
-void benchmark_real_function(std::string func_name, real(*f)(real, real),
+void benchmark_real_function(const std::string& func_name, real(*f)(real, real),
 							 const std::vector<real>& input1,
 							 const std::vector<real>& input2) {
 
