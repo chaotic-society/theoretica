@@ -13,7 +13,7 @@ real df_dt = gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
 ## Dependencies
-The library has no dependencies. Only the C++ Standard Library is needed to use it. **You can include it in your project straight away!**
+The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Key Features
 This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/theoretica/blob/master/txt/FEATURES.md)
@@ -66,16 +66,19 @@ The library uses custom testing code inside the `test` folder to test functions 
 Performance is measured using benchmarks inside the `benchmark` folder.
 
 ## Macros
-These are the macros that can be defined to change the library's behaviour:
-- **THEORETICA_INCLUDE_BASE** - Including `theoretica.h` will only include base headers
-- **THEORETICA_THROW_EXCEPTIONS** - Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)
-- **THEORETICA_ONLY_EXCEPTIONS** - Exceptions will be thrown on error (without modifying errno)
-- **THEORETICA_X86** - **Assembly x86** implementations will be used whenever possible (automatically detected by the library)
-- **THEORETICA_FLOAT_PREC** - Floating point precision (`float`) will be used for the `real` type (by default `double` is used)
-- **THEORETICA_LONG_DOUBLE_PREC** - Long double precision (`long double`) will be used
-- **THEORETICA_ROW_FIRST** - The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.
-- **THEORETICA_MATRIX_LEXIC** - Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.
-- See `constants.h` for more specific defines
+These are common macros that can be defined to change the library's behaviour:
+| Macro | Description |
+| ----- | ----------- |
+|**THEORETICA_INCLUDE_BASE**|Including `theoretica.h` will only include base headers|
+|**THEORETICA_THROW_EXCEPTIONS**|Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)|
+|**THEORETICA_ONLY_EXCEPTIONS**|Exceptions will be thrown on error (without modifying errno)|
+|**THEORETICA_X86**|**Assembly x86** implementations will be used whenever possible (automatically defined on most compilers by the library)|
+|**THEORETICA_FLOAT_PREC**|Floating point precision (`float`) will be used for the `real` type (by default `double` is used)|
+|**THEORETICA_LONG_DOUBLE_PREC**|Long double precision (`long double`) will be used|
+|**THEORETICA_ROW_FIRST**|The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.|
+|**THEORETICA_MATRIX_LEXIC**|Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.|
+
+See `constants.h` for more specific macros.
 
 ## Error handling
 The library uses `errno` and `th::MathException` (if it is enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.
