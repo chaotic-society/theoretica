@@ -30,8 +30,8 @@ int main(int argc, char const *argv[]) {
 	// Initialize input pool with random numbers in the interval [0, 1000000]
 	// and input_norm in the interval [0, 1]
 	for (unsigned int i = 0; i < N; ++i) {
-		input[i] = rand_real(0, 1000000, g);
-		input_norm[i] = rand_real(0, 1, g);
+		input[i] = rand_uniform(0, 1000000, g);
+		input_norm[i] = rand_uniform(0, 1, g);
 	}
 
 
