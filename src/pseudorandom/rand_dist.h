@@ -151,22 +151,30 @@ namespace theoretica {
 	/// Generate a random number in a range
 	/// following a Gaussian distribution by
 	/// exploiting the Central Limit Theorem.
-	/// @param x1 Lower extreme of the interval of generation
-	/// @param x2 Upper extreme of the interval of generation
+	/// @param mean The mean of the target distribution
+	/// @param sigma The sigma of the target distribution
 	/// @param g An already initialized PRNG to use
-	/// @param iter The number of random number to generate
+	/// @param N The number of random number to generate
 	///
 	/// Many real numbers in a range are generated
 	/// and the mean is computed to get a single
 	/// real number following (asymptotically) a
 	/// Gaussian distribution.
-	inline real rand_gaussian_clt(real x1, real x2, PRNG& g, unsigned int iter = 10) {
+	///
+	/// @todo Needs testing to check convergence to a gaussian
+	inline real rand_gaussian_clt(
+		real mean, real sigma,
+		PRNG& g, unsigned int N = 10) {
 
 		real s = 0;
-		for (unsigned int i = 0; i < iter; ++i)
-			s += rand_real(x1, x2, g);
+		for (unsigned int i = 0; i < N; ++i)
+			s += rand_uniform(-1, 1, g);
 
-		return s / static_cast<real>(iter);
+		// f(u) = 1/2 (in [-1, 1])
+		// E[u] = 0
+		// V[u] = 1 / sqrt(3N)
+
+		return mean + (s / N) * sigma * sqrt(3 * N);
 	}
 
 
