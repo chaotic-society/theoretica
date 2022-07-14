@@ -12,6 +12,28 @@
 namespace theoretica {
 
 
+	/// Generate a pseudorandom real number in [a, b] using a
+	/// preexisting generator.
+	/// @param a The lower extreme of the interval
+	/// @param b The higher extreme of the interval
+	/// @param g An already initialized pseudorandom number generator
+	/// @param prec Precision parameters for the normalization, defaults
+	/// to rand_uniform_PREC.
+	///
+	/// The algorithm generates a random integer number, computes
+	/// its modulus and divides it by prec:
+	/// \f$x = \frac{(n mod p)}{2^p}\f$, where n is the random integer
+	/// and p is the prec parameter
+	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = RAND_REAL_PREC) {
+
+		// Generate a uniform random real number in [0, 1]
+		real x = (g() % prec) / static_cast<real>(prec);
+
+		// Transform to target interval
+		return a + (b - a) * x;
+	}
+
+
 	/// Generate a pseudorandom value following any
 	/// probability distribution function using the
 	/// Try-and-Catch (rejection) algorithm.
@@ -43,8 +65,8 @@ namespace theoretica {
 		unsigned int iter = 0;
 
 		do {
-			x = rand_real(x1, x2, g);
-			y = rand_real(y1, y2, g);
+			x = rand_uniform(x1, x2, g);
+			y = rand_uniform(y1, y2, g);
 			iter++;
 		} while(y > f(x, theta) && iter <= max_iter);
 
@@ -77,19 +99,52 @@ namespace theoretica {
 		// Generate a random point inside the unit circle
 		do {
 
-			x = rand_real(-1, 1, g);
-			y = rand_real(-1, 1, g);
+			x = rand_uniform(-1, 1, g);
+			y = rand_uniform(-1, 1, g);
 			s = square(x) + square(y);
 
 		} while(s >= 1 || s <= MACH_EPSILON);
 
-		// Project the point onto the unit circumference
+		// Project the point
 		s = sqrt(-2 * ln(s) / s);
 
+		// Keep the second generated value for future calls
 		spare = y * s;
 		has_spare = true;
 
 		return mean + sigma * x * s;
+	}
+
+
+	/// Generate a random number following a Gaussian distribution
+	/// using the Box-Muller method.
+	///
+	/// @note This function may not be thread-safe as it uses
+	/// static variables to keep track of spare generated values.
+	inline real rand_gaussian_boxmuller(real mean, real sigma, PRNG& g) {
+
+		static real spare;
+		static bool has_spare = false;
+
+		if(has_spare) {
+			has_spare = false;
+			return mean + spare * sigma;
+		}
+
+		// Generate a random point inside the unit circle
+		
+		const real x = rand_uniform(0, 1, g);
+		const real y = rand_uniform(0, 1, g);
+
+		const real x_transf = sqrt(-2 * ln(x));
+
+		const real u = x_transf * cos(TAU * y);
+		const real v = x_transf * sin(TAU * y);
+
+		spare = v;
+		has_spare = true;
+
+		return mean + sigma * u;
 	}
 
 
@@ -131,7 +186,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		return -ln(1 - rand_real(0, 1, g)) / lambda;
+		return -ln(1 - rand_uniform(0, 1, g)) / lambda;
 	}
 
 
@@ -139,7 +194,7 @@ namespace theoretica {
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_cauchy(real mu, real alpha, PRNG& g) {
 
-		return alpha * tan(PI * (rand_real(0, 1, g) - 0.5)) + mu;
+		return alpha * tan(PI * (rand_uniform(0, 1, g) - 0.5)) + mu;
 	}
 
 
@@ -147,7 +202,7 @@ namespace theoretica {
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_pareto(real x_m, real alpha, PRNG& g) {
 
-		return x_m / powf(1 - rand_real(0, 1, g), 1.0 / alpha);
+		return x_m / powf(1 - rand_uniform(0, 1, g), 1.0 / alpha);
 	}
 
 }

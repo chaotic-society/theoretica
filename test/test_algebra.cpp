@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]) {
 			// Generate a random matrix
 			for (unsigned int j = 0; j < 4; ++j) {
 				for (int k = 0; k < 4; ++k) {
-					A.iat(j, k) = rand_real(-1000000, 1000000, g);
+					A.iat(j, k) = rand_uniform(-1000000, 1000000, g);
 				}
 			}
 

@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
 
 		// Generate a random variable following a uniform distribution
 		// in the interval [0, 1]
-		f_uniform << rand_real(0, 1, g) << ",\n";
+		f_uniform << rand_uniform(0, 1, g) << ",\n";
 		
 		// Generate a random variable following a gaussian distribution
 		// with mean = 0 and standard deviation = 1

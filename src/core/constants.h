@@ -243,7 +243,7 @@ namespace theoretica {
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
 
 
-	/// Default precision for random number generation using rand_real()
+	/// Default precision for random number generation using rand_uniform()
 	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;
 
 }
