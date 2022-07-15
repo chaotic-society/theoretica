@@ -104,7 +104,7 @@ namespace theoretica {
 	inline real approx_polyn_root_newton(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial<> Dp = differentiate_polynomial(p);
+		polynomial<> Dp = deriv_polynomial(p);
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
@@ -171,8 +171,8 @@ namespace theoretica {
 	/// Approximate a root of a polynomial using Halley's method
 	inline real approx_polyn_root_halley(polynomial<real> p, real guess = 0) {
 
-		polynomial<> Dp = differentiate_polynomial(p);
-		polynomial<> D2p = differentiate_polynomial(Dp);
+		polynomial<> Dp = deriv_polynomial(p);
+		polynomial<> D2p = deriv_polynomial(Dp);
 		real x = guess;
 		unsigned int iter = 0;
 
@@ -283,8 +283,8 @@ namespace theoretica {
 	inline real approx_polyn_root_chebyshev(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial<> Dp = differentiate_polynomial(p);
-		polynomial<> D2p = differentiate_polynomial(p);
+		polynomial<> Dp = deriv_polynomial(p);
+		polynomial<> D2p = deriv_polynomial(p);
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {

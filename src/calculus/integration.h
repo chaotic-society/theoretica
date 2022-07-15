@@ -29,7 +29,7 @@ namespace theoretica {
 
 	// Approximate the definite integral of an arbitrary function
 	// using the midpoint method
-	real approx_integral_midpoint(real_function f, real a, real b,
+	real integral_midpoint(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -44,7 +44,7 @@ namespace theoretica {
 
 	// Approximate the definite integral of an arbitrary function
 	// using the trapezoid method
-	real approx_integral_trapezoid(real_function f, real a, real b,
+	real integral_trapezoid(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -63,7 +63,7 @@ namespace theoretica {
 
 	// Approximate the definite integral of an arbitrary function
 	// using Simpson's method
-	real approx_integral_simpson(real_function f, real a, real b,
+	real integral_simpson(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / (real) steps;
@@ -86,10 +86,10 @@ namespace theoretica {
 
 	// Approximate the definite integral of an arbitrary function
 	// using Romberg's method accurate to the given order
-	real approx_integral_romberg(real_function f, real a, real b, unsigned int order) {
+	real integral_romberg(real_function f, real a, real b, unsigned int order) {
 
 		if(order % 2 != 0) {
-			UMATH_ERROR("approx_integral_romberg", order, IMPOSSIBLE_OPERATION);
+			UMATH_ERROR("integral_romberg", order, IMPOSSIBLE_OPERATION);
 			return nan();
 		}
 
@@ -102,7 +102,7 @@ namespace theoretica {
 		for (unsigned int j = 1; j < iter; ++j) {
 			
 			// Composite Trapezoidal Rule
-			T[j][0] = approx_integral_trapezoid(f, a, b, 1 << j);
+			T[j][0] = integral_trapezoid(f, a, b, 1 << j);
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {

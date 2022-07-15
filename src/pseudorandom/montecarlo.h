@@ -19,7 +19,7 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param g An already initialized PRNG
 	/// @param N The number of points to generate
-	inline real approx_integral_crude(
+	inline real integral_crude(
 		real_function f,
 		real a, real b,
 		PRNG& g, unsigned int N = 10000) {
@@ -40,7 +40,7 @@ namespace theoretica {
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
 	/// @param N The number of points to generate
-	inline real approx_integral_crude_quasi(
+	inline real integral_quasi_crude(
 		real_function f,
 		real a, real b,
 		unsigned int N = 10000) {
@@ -61,7 +61,7 @@ namespace theoretica {
 	/// @param f_max The function maximum in the [a, b] interval
 	/// @param g An already initialized PRNG
 	/// @param N The number of points to generate
-	inline real approx_integral_hom(
+	inline real integral_hom(
 		real_function f,
 		real a, real b, real f_max,
 		PRNG& g, unsigned int N = 10000) {
@@ -89,7 +89,7 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param f_max The function maximum in the [a, b] interval
 	/// @param N The number of points to generate
-	inline real approx_integral_hom_quasi(
+	inline real integral_quasi_hom(
 		real_function f,
 		real a, real b, real f_max,
 		unsigned int N = 10000) {

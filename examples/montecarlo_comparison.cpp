@@ -28,16 +28,16 @@ int main() {
     for (; N <= 100000; N *= 10) {
 
         // Hit-or-Miss Monte Carlo
-        real hom = approx_integral_hom(f, 0, PI/2, 1, g, N);
+        real hom = integral_hom(f, 0, PI/2, 1, g, N);
 
         // Crude Monte-Carlo
-        real crude = approx_integral_crude(f, 0, PI/2, g, N);
+        real crude = integral_crude(f, 0, PI/2, g, N);
 
         // Hit-or-Miss Quasi-Monte Carlo
-        real q_hom = approx_integral_hom_quasi(f, 0, PI/2, 1, N);
+        real q_hom = integral_hom_quasi(f, 0, PI/2, 1, N);
 
         // Crude Quasi-Monte Carlo
-        real q_crude = approx_integral_crude_quasi(f, 0, PI/2, N);
+        real q_crude = integral_crude_quasi(f, 0, PI/2, N);
 
         // Print absolute error
         std::cout << " "  << N << "\t"

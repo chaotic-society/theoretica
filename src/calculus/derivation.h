@@ -15,7 +15,7 @@ namespace theoretica {
 
 	// Derivate a polynomial
 	template<typename T>
-	polynomial<T> differentiate_polynomial(polynomial<T> p) {
+	polynomial<T> deriv_polynomial(polynomial<T> p) {
 
 		polynomial<T> Dp;
 
@@ -27,18 +27,18 @@ namespace theoretica {
 
 
 	// Central derivative approximation
-	real approx_derivative_central(real_function f, real x, real dx = 0.00000001) {
+	real deriv_central(real_function f, real x, real dx = 0.00000001) {
 		return (f(x + dx) - f(x - dx)) / (2.0 * dx);
 	}
 
 
 	// Forward derivative approximation
-	real approx_derivative_forward(real_function f, real x, real dx = 0.00000001) {
+	real deriv_forward(real_function f, real x, real dx = 0.00000001) {
 		return (f(x + dx) - f(x)) / dx;
 	}
 
 	// Backward derivative approximation
-	real approx_derivative_backward(real_function f, real x, real dx = 0.00000001) {
+	real deriv_backward(real_function f, real x, real dx = 0.00000001) {
 		return (f(x) - f(x - dx)) / dx;
 	}
 
