@@ -8,6 +8,8 @@ var distributions_8h =
     [ "breit_wigner", "distributions_8h.html#a42e5e398dee6f6ba80e176a262a99fd6", null ],
     [ "cauchy", "distributions_8h.html#a2725a6ffef76e837cfce38302c8a2d35", null ],
     [ "cauchy", "distributions_8h.html#ae1258a2337487752e60aae93ba6e7391", null ],
+    [ "erlang", "distributions_8h.html#abee3aafcd0c21bf991d64912c3418fb0", null ],
+    [ "erlang", "distributions_8h.html#a4cf38559e21277391f97c36688413f68", null ],
     [ "exponential", "distributions_8h.html#a5bd74cec6dc4225139e60365c8bee8e4", null ],
     [ "exponential", "distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511", null ],
     [ "gaussian", "distributions_8h.html#a579e95149f4d7e0a6b3bbdcf60e2e1bd", null ],

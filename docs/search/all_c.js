@@ -8,7 +8,7 @@ var searchData=
   ['mat2_5',['mat2',['../namespacetheoretica.html#a33850a221dc370e7a23083dd94a9abed',1,'theoretica']]],
   ['mat3_6',['mat3',['../namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19',1,'theoretica']]],
   ['mat4_7',['mat4',['../namespacetheoretica.html#ae28e3d5a1e0743ea34a6c627c47b421b',1,'theoretica']]],
-  ['max_8',['max',['../namespacetheoretica.html#a07569756dda099ecabf425371da6a31d',1,'theoretica::max(real x, real y)'],['../namespacetheoretica.html#a5e295404d1712fb17851fe105715766e',1,'theoretica::max(T x, T y)']]],
+  ['max_8',['max',['../namespacetheoretica.html#a07569756dda099ecabf425371da6a31d',1,'theoretica::max(real x, real y)'],['../namespacetheoretica.html#a5e295404d1712fb17851fe105715766e',1,'theoretica::max(T x, T y)'],['../namespacetheoretica.html#a983d37129521ddc1e34a1490a7994ddb',1,'theoretica::max(const vec_buff &amp;X)']]],
   ['max_5fbisection_5fiter_9',['MAX_BISECTION_ITER',['../namespacetheoretica.html#acf0df4d0b21cc7dbcfaf869e88da40af',1,'theoretica']]],
   ['max_5fchebyshev_5fiter_10',['MAX_CHEBYSHEV_ITER',['../namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43',1,'theoretica']]],
   ['max_5fgoldensection_5fiter_11',['MAX_GOLDENSECTION_ITER',['../namespacetheoretica.html#ac71451b0e74e1fe8a28d1c41bc954804',1,'theoretica']]],
@@ -18,12 +18,13 @@ var searchData=
   ['max_5ftryandcatch_5fiter_15',['MAX_TRYANDCATCH_ITER',['../namespacetheoretica.html#a3299f783527ae72a24c832a7b1cd8ef8',1,'theoretica']]],
   ['mean_16',['mean',['../namespacetheoretica.html#a63412fa6d4323c24f2c571dfc6b14e1d',1,'theoretica']]],
   ['mean_5fstandard_5fdeviation_17',['mean_standard_deviation',['../namespacetheoretica.html#a3ac12b99fe1e96268796f1d2100f7649',1,'theoretica']]],
-  ['min_18',['min',['../namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba',1,'theoretica::min(real x, real y)'],['../namespacetheoretica.html#a70f4122359c1f32ba0741d098a5fbe69',1,'theoretica::min(T x, T y)']]],
+  ['min_18',['min',['../namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba',1,'theoretica::min(real x, real y)'],['../namespacetheoretica.html#a70f4122359c1f32ba0741d098a5fbe69',1,'theoretica::min(T x, T y)'],['../namespacetheoretica.html#a36a7e33426590d28749cc79608f5a3a6',1,'theoretica::min(const vec_buff &amp;X)']]],
   ['mix_5fmum_19',['mix_mum',['../namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200',1,'theoretica']]],
   ['modulus_20',['modulus',['../classtheoretica_1_1complex.html#a208a8af65378c233f23fc1b7351640f1',1,'theoretica::complex']]],
   ['montecarlo_2eh_21',['montecarlo.h',['../montecarlo_8h.html',1,'']]],
-  ['mul_5fuint128_22',['mul_uint128',['../namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed',1,'theoretica']]],
-  ['multidual_23',['multidual',['../classtheoretica_1_1multidual.html#af9e0465d651001b25de2872d5e6d8e3a',1,'theoretica::multidual::multidual()'],['../classtheoretica_1_1multidual.html#ae57559ddf564bc0104e7a22f9b0d8cd9',1,'theoretica::multidual::multidual(real r, vec&lt; N &gt; u)'],['../classtheoretica_1_1multidual.html#ab189d796f9f13a25d89e0e6fb41e38ef',1,'theoretica::multidual::multidual(real r)'],['../classtheoretica_1_1multidual.html#aae6910a16d6caed3de974fbf5a349426',1,'theoretica::multidual::multidual(const vec&lt; 1+N &gt; &amp;data)'],['../classtheoretica_1_1multidual.html',1,'theoretica::multidual&lt; N &gt;']]],
-  ['multidual_2eh_24',['multidual.h',['../multidual_8h.html',1,'']]],
-  ['multidual_5ffunctions_2eh_25',['multidual_functions.h',['../multidual__functions_8h.html',1,'']]]
+  ['montecarlo_5fcomparison_2ecpp_22',['montecarlo_comparison.cpp',['../montecarlo__comparison_8cpp.html',1,'']]],
+  ['mul_5fuint128_23',['mul_uint128',['../namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed',1,'theoretica']]],
+  ['multidual_24',['multidual',['../classtheoretica_1_1multidual.html#af9e0465d651001b25de2872d5e6d8e3a',1,'theoretica::multidual::multidual()'],['../classtheoretica_1_1multidual.html#ae57559ddf564bc0104e7a22f9b0d8cd9',1,'theoretica::multidual::multidual(real r, vec&lt; N &gt; u)'],['../classtheoretica_1_1multidual.html#ab189d796f9f13a25d89e0e6fb41e38ef',1,'theoretica::multidual::multidual(real r)'],['../classtheoretica_1_1multidual.html#aae6910a16d6caed3de974fbf5a349426',1,'theoretica::multidual::multidual(const vec&lt; 1+N &gt; &amp;data)'],['../classtheoretica_1_1multidual.html',1,'theoretica::multidual&lt; N &gt;']]],
+  ['multidual_2eh_25',['multidual.h',['../multidual_8h.html',1,'']]],
+  ['multidual_5ffunctions_2eh_26',['multidual_functions.h',['../multidual__functions_8h.html',1,'']]]
 ];

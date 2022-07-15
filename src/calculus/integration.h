@@ -14,7 +14,7 @@
 namespace theoretica {
 
 
-	// Integrate a polynomial
+	/// Integrate a polynomial
 	polynomial<real> integrate_polynomial(const polynomial<real>& p) {
 
 		polynomial<real> Dp;
@@ -27,8 +27,8 @@ namespace theoretica {
 	}
 
 
-	// Approximate the definite integral of an arbitrary function
-	// using the midpoint method
+	/// Approximate the definite integral of an arbitrary function
+	/// using the midpoint method
 	real integral_midpoint(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
@@ -42,8 +42,8 @@ namespace theoretica {
 	}
 
 
-	// Approximate the definite integral of an arbitrary function
-	// using the trapezoid method
+	/// Approximate the definite integral of an arbitrary function
+	/// using the trapezoid method
 	real integral_trapezoid(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
@@ -61,8 +61,8 @@ namespace theoretica {
 	}
 
 
-	// Approximate the definite integral of an arbitrary function
-	// using Simpson's method
+	/// Approximate the definite integral of an arbitrary function
+	/// using Simpson's method
 	real integral_simpson(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
@@ -84,8 +84,8 @@ namespace theoretica {
 	}
 
 
-	// Approximate the definite integral of an arbitrary function
-	// using Romberg's method accurate to the given order
+	/// Approximate the definite integral of an arbitrary function
+	/// using Romberg's method accurate to the given order
 	real integral_romberg(real_function f, real a, real b, unsigned int order) {
 
 		if(order % 2 != 0) {

@@ -2,6 +2,8 @@ var vec__buff_8h =
 [
     [ "vec_buff", "vec__buff_8h.html#a9a50102b320dcdc6a61e5a15234327a7", null ],
     [ "apply", "vec__buff_8h.html#a77f1d3ea55880b60ec911458c6289aa0", null ],
+    [ "max", "vec__buff_8h.html#a983d37129521ddc1e34a1490a7994ddb", null ],
+    [ "min", "vec__buff_8h.html#a36a7e33426590d28749cc79608f5a3a6", null ],
     [ "product", "vec__buff_8h.html#a87fed634613f9a7756b807368d316cd9", null ],
     [ "product_sum", "vec__buff_8h.html#a9d272b1cd91c9ac9f1c2049bd627f90e", null ],
     [ "product_sum", "vec__buff_8h.html#a0e2455c2163719c1f26553aeff27dfe4", null ],

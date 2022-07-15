@@ -34,10 +34,10 @@ int main() {
         real crude = integral_crude(f, 0, PI/2, g, N);
 
         // Hit-or-Miss Quasi-Monte Carlo
-        real q_hom = integral_hom_quasi(f, 0, PI/2, 1, N);
+        real q_hom = integral_quasi_hom(f, 0, PI/2, 1, N);
 
         // Crude Quasi-Monte Carlo
-        real q_crude = integral_crude_quasi(f, 0, PI/2, N);
+        real q_crude = integral_quasi_crude(f, 0, PI/2, N);
 
         // Print absolute error
         std::cout << " "  << N << "\t"

@@ -113,9 +113,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab99c87ef0ca077098ba3428a6e80956a"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab99c87ef0ca077098ba3428a6e80956a">theoretica::approx_integral_montecarlo</a> (real_function f, real a, real b, real f_max, PRNG &amp;g, unsigned int N=10000)</td></tr>
-<tr class="memdesc:ab99c87ef0ca077098ba3428a6e80956a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Monte Carlo integration.  <a href="namespacetheoretica.html#ab99c87ef0ca077098ba3428a6e80956a">More...</a><br /></td></tr>
-<tr class="separator:ab99c87ef0ca077098ba3428a6e80956a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d9d3758ff38fa704a20a69acf52fa9"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab8d9d3758ff38fa704a20a69acf52fa9">theoretica::integral_crude</a> (real_function f, real a, real b, PRNG &amp;g, unsigned int N=10000)</td></tr>
+<tr class="memdesc:ab8d9d3758ff38fa704a20a69acf52fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Crude Monte Carlo integration.  <a href="namespacetheoretica.html#ab8d9d3758ff38fa704a20a69acf52fa9">More...</a><br /></td></tr>
+<tr class="separator:ab8d9d3758ff38fa704a20a69acf52fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a209c9b01ff5ed0f29ffc62af1f53be9e"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a209c9b01ff5ed0f29ffc62af1f53be9e">theoretica::integral_quasi_crude</a> (real_function f, real a, real b, unsigned int N=10000)</td></tr>
+<tr class="memdesc:a209c9b01ff5ed0f29ffc62af1f53be9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Crude Quasi-Monte Carlo integration by sampling from the Weyl sequence.  <a href="namespacetheoretica.html#a209c9b01ff5ed0f29ffc62af1f53be9e">More...</a><br /></td></tr>
+<tr class="separator:a209c9b01ff5ed0f29ffc62af1f53be9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a967dd449e256761db7b35e735293eced"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a967dd449e256761db7b35e735293eced">theoretica::integral_hom</a> (real_function f, real a, real b, real f_max, PRNG &amp;g, unsigned int N=10000)</td></tr>
+<tr class="memdesc:a967dd449e256761db7b35e735293eced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Hit-or-miss Monte Carlo integration.  <a href="namespacetheoretica.html#a967dd449e256761db7b35e735293eced">More...</a><br /></td></tr>
+<tr class="separator:a967dd449e256761db7b35e735293eced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74aacdc1b73b70ecb0d8a2c9890b8371"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a74aacdc1b73b70ecb0d8a2c9890b8371">theoretica::integral_quasi_hom</a> (real_function f, real a, real b, real f_max, unsigned int N=10000)</td></tr>
+<tr class="memdesc:a74aacdc1b73b70ecb0d8a2c9890b8371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Hit-or-miss Quasi-Monte Carlo integration, sampling points from the Weyl bi-dimensional sequence.  <a href="namespacetheoretica.html#a74aacdc1b73b70ecb0d8a2c9890b8371">More...</a><br /></td></tr>
+<tr class="separator:a74aacdc1b73b70ecb0d8a2c9890b8371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Monte Carlo methods. </p>
@@ -125,7 +134,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="montecarlo_8h.html">montecarlo.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2022 20:06:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

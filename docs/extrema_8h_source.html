@@ -216,7 +216,7 @@ $(document).ready(function(){initNavTree('extrema_8h_source.html',''); initResiz
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> z = <a class="code hl_function" href="namespacetheoretica.html#a2eb3b820ae998f3e0bc9e66ac2337a91">approx_root_bisection</a>(Df, a, b);</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">if</span>(deriv_central(Df, z) &gt; 0) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="namespacetheoretica.html#ad7b8a772085c73d15625bd1f298ba949">deriv_central</a>(Df, z) &gt; 0) {</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;approx_max_bisection&quot;</span>, z, NO_ALGO_CONVERGENCE);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('extrema_8h_source.html',''); initResiz
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> z = <a class="code hl_function" href="namespacetheoretica.html#a2eb3b820ae998f3e0bc9e66ac2337a91">approx_root_bisection</a>(Df, a, b);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span>(deriv_central(Df, z) &lt; 0) {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="namespacetheoretica.html#ad7b8a772085c73d15625bd1f298ba949">deriv_central</a>(Df, z) &lt; 0) {</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;approx_min_bisection&quot;</span>, z, NO_ALGO_CONVERGENCE);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">return</span> z;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        }</div>
@@ -256,6 +256,7 @@ $(document).ready(function(){initNavTree('extrema_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_html_aa4aa38ca4a41e22c4eeac0970da9b195"><div class="ttname"><a href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">theoretica::ROOT_APPROX_TOL</a></div><div class="ttdeci">constexpr real ROOT_APPROX_TOL</div><div class="ttdoc">Approximation tolerance for root finding.</div><div class="ttdef"><b>Definition:</b> constants.h:216</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ac71451b0e74e1fe8a28d1c41bc954804"><div class="ttname"><a href="namespacetheoretica.html#ac71451b0e74e1fe8a28d1c41bc954804">theoretica::MAX_GOLDENSECTION_ITER</a></div><div class="ttdeci">constexpr unsigned int MAX_GOLDENSECTION_ITER</div><div class="ttdoc">Maximum number of iterations for the golden section search algorithm.</div><div class="ttdef"><b>Definition:</b> constants.h:228</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ace8245ba56baa7620ff9d0d9ccfbc53f"><div class="ttname"><a href="namespacetheoretica.html#ace8245ba56baa7620ff9d0d9ccfbc53f">theoretica::PHI</a></div><div class="ttdeci">constexpr real PHI</div><div class="ttdoc">The Phi (Golden Section) mathematical constant.</div><div class="ttdef"><b>Definition:</b> constants.h:147</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ad7b8a772085c73d15625bd1f298ba949"><div class="ttname"><a href="namespacetheoretica.html#ad7b8a772085c73d15625bd1f298ba949">theoretica::deriv_central</a></div><div class="ttdeci">real deriv_central(real_function f, real x, real dx=0.00000001)</div><div class="ttdoc">Central derivative approximation.</div><div class="ttdef"><b>Definition:</b> derivation.h:30</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae95680d1669eee1549fe112b9a846519"><div class="ttname"><a href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">theoretica::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
 <div class="ttc" id="aroots_8h_html"><div class="ttname"><a href="roots_8h.html">roots.h</a></div><div class="ttdoc">Root approximation of real functions.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -264,7 +265,7 @@ $(document).ready(function(){initNavTree('extrema_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_22ceb20c45c71f6098f33f7a3e928471.html">approx</a></li><li class="navelem"><a class="el" href="extrema_8h.html">extrema.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2022 20:06:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Jul 15 2022 12:35:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

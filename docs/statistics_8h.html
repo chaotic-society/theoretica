@@ -135,6 +135,21 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::geometric
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::weighted_mean</b> (const vec_buff &amp;data, const vec_buff &amp;weights)</td></tr>
 <tr class="memdesc:a301b9526d5e857f82786aa83af8f0d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size. <br /></td></tr>
 <tr class="separator:a301b9526d5e857f82786aa83af8f0d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="memItemLeft" align="right" valign="top"><a id="a9e5247854c4b50f7ac1d71e7d23a9ef4" name="a9e5247854c4b50f7ac1d71e7d23a9ef4"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::quadratic_mean</b> (const vec_buff &amp;data)</td></tr>
+<tr class="memdesc:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values m_q = sqrt(x1^2 + x2^2 + ...) <br /></td></tr>
+<tr class="separator:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac984b5416b7e1b86cb772f735d4cb42d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac984b5416b7e1b86cb772f735d4cb42d">theoretica::rms</a> (const vec_buff &amp;data)</td></tr>
+<tr class="memdesc:ac984b5416b7e1b86cb772f735d4cb42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values m_q = sqrt(x1^2 + x2^2 + ...)  <a href="namespacetheoretica.html#ac984b5416b7e1b86cb772f735d4cb42d">More...</a><br /></td></tr>
+<tr class="separator:ac984b5416b7e1b86cb772f735d4cb42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="memItemLeft" align="right" valign="top"><a id="a4e1e037e416f8f9c3ee70909e3eca4c5" name="a4e1e037e416f8f9c3ee70909e3eca4c5"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::range</b> (const vec_buff &amp;data)</td></tr>
+<tr class="memdesc:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the range of a data set defined as x_max - x_min. <br /></td></tr>
+<tr class="separator:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec64d95066eeb32de65ceda8ce135b84"><td class="memItemLeft" align="right" valign="top"><a id="aec64d95066eeb32de65ceda8ce135b84" name="aec64d95066eeb32de65ceda8ce135b84"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::semidispersion</b> (const vec_buff &amp;data)</td></tr>
+<tr class="memdesc:aec64d95066eeb32de65ceda8ce135b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum semidispersion of a data set defined as (x_max - x_min) / 2. <br /></td></tr>
+<tr class="separator:aec64d95066eeb32de65ceda8ce135b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c42fd9cadef340b3420309453758078"><td class="memItemLeft" align="right" valign="top"><a id="a5c42fd9cadef340b3420309453758078" name="a5c42fd9cadef340b3420309453758078"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::propagate_sum</b> (const vec_buff &amp;sigma)</td></tr>
 <tr class="memdesc:a5c42fd9cadef340b3420309453758078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a sum of values as sqrt(sigma_x^2 + sigma_y^2 + ...) <br /></td></tr>
@@ -143,17 +158,12 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::propagate
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::propagate_product</b> (const vec_buff &amp;sigma, const vec_buff &amp;mean)</td></tr>
 <tr class="memdesc:aad8729f104e3aec72c05706a8d56a1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a product (or quotient) of values as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...) The result is the propagated relative error. <br /></td></tr>
 <tr class="separator:aad8729f104e3aec72c05706a8d56a1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a139baf6d0864102002eb1f7973570f8a"><td class="memItemLeft" align="right" valign="top"><a id="a139baf6d0864102002eb1f7973570f8a" name="a139baf6d0864102002eb1f7973570f8a"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rms</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a139baf6d0864102002eb1f7973570f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root Mean Square Computed as sqrt(sum(x_i^2) / N) <br /></td></tr>
-<tr class="separator:a139baf6d0864102002eb1f7973570f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0857f4b940f5790cd733317780b8ad3"><td class="memItemLeft" align="right" valign="top"><a id="ad0857f4b940f5790cd733317780b8ad3" name="ad0857f4b940f5790cd733317780b8ad3"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::total_sum_squares</b> (const vec_buff &amp;X)</td></tr>
 <tr class="memdesc:ad0857f4b940f5790cd733317780b8ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as sum(square(x_i - x_mean)) <br /></td></tr>
 <tr class="separator:ad0857f4b940f5790cd733317780b8ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="memItemLeft" align="right" valign="top"><a id="a2a3acaf39bd4f7e9c87e1fb72768de32" name="a2a3acaf39bd4f7e9c87e1fb72768de32"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::tss</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as sum(square(x_i - x_mean)) <br /></td></tr>
+<tr class="memitem:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2a3acaf39bd4f7e9c87e1fb72768de32">theoretica::tss</a> (const vec_buff &amp;X)</td></tr>
+<tr class="memdesc:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as sum(square(x_i - x_mean))  <a href="namespacetheoretica.html#a2a3acaf39bd4f7e9c87e1fb72768de32">More...</a><br /></td></tr>
 <tr class="separator:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17c4321efb6e8ba42e62eef768e30924"><td class="memItemLeft" align="right" valign="top"><a id="a17c4321efb6e8ba42e62eef768e30924" name="a17c4321efb6e8ba42e62eef768e30924"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::variance</b> (const vec_buff &amp;data)</td></tr>
@@ -288,7 +298,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="statistics_8h.html">statistics.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2022 20:06:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

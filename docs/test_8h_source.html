@@ -212,7 +212,7 @@ $(document).ready(function(){initNavTree('test_8h_source.html',''); initResizabl
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) steps;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;= steps; ++i) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt;= steps; ++i) {</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = a + i * dx;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('test_8h_source.html',''); initResizabl
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    cum_sqr_err = 0;</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    max_err = 0;</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;= steps; ++i) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt;= steps; ++i) {</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = a + i * dx;</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
@@ -294,16 +294,16 @@ $(document).ready(function(){initNavTree('test_8h_source.html',''); initResizabl
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\tRMS Error on Interval: &quot;</span> &lt;&lt; <a class="code hl_function" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">th::sqrt</a>(cum_sqr_err / <a class="code hl_function" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">th::abs</a>(b - a) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) steps) &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\tMaximum Error on Interval: &quot;</span> &lt;&lt; max_err &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> cum_err = cum_err_;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> cum_sqr_err = cum_sqr_err_;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> max_err = max_err_;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    cum_err = cum_err_;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    cum_sqr_err = cum_sqr_err_;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    max_err = max_err_;</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:138</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a07569756dda099ecabf425371da6a31d"><div class="ttname"><a href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">theoretica::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:207</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a07569756dda099ecabf425371da6a31d"><div class="ttname"><a href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">theoretica::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:286</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a19dd33456cffdbba3f29d85061779e7c"><div class="ttname"><a href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a></div><div class="ttdeci">dual2 sqrt(dual2 x)</div><div class="ttdoc">Compute the square root of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:50</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a29720d3e71b280bb3ea048aa71bc3655"><div class="ttname"><a href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a></div><div class="ttdeci">dual2 abs(dual2 x)</div><div class="ttdoc">Compute the absolute value of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:179</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a55d24f1c0c8357b26e2ea168b80eabeb"><div class="ttname"><a href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">theoretica::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
@@ -314,7 +314,7 @@ $(document).ready(function(){initNavTree('test_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="test_8h.html">test.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2022 20:06:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -113,15 +113,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a6a35e29644875a5421b3ac4d7203c28a"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a">theoretica::rand_uniform</a> (real a, real b, PRNG &amp;g, uint64_t prec=RAND_REAL_PREC)</td></tr>
+<tr class="memdesc:a6a35e29644875a5421b3ac4d7203c28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom real number in [a, b] using a preexisting generator.  <a href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a">More...</a><br /></td></tr>
+<tr class="separator:a6a35e29644875a5421b3ac4d7203c28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaab56ddec7d197600964cb78ada9a86"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">theoretica::rand_dist_tac</a> (stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</td></tr>
 <tr class="memdesc:aeaab56ddec7d197600964cb78ada9a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">More...</a><br /></td></tr>
 <tr class="separator:aeaab56ddec7d197600964cb78ada9a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac8bdf0dc89459fedaf6950c0f9b96df5">theoretica::rand_gaussian_polar</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
 <tr class="memdesc:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using Marsaglia's polar method.  <a href="namespacetheoretica.html#ac8bdf0dc89459fedaf6950c0f9b96df5">More...</a><br /></td></tr>
 <tr class="separator:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae595e5ecfb8203ca342082a721180331"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae595e5ecfb8203ca342082a721180331">theoretica::rand_gaussian_clt</a> (real x1, real x2, PRNG &amp;g, unsigned int iter=10)</td></tr>
-<tr class="memdesc:ae595e5ecfb8203ca342082a721180331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespacetheoretica.html#ae595e5ecfb8203ca342082a721180331">More...</a><br /></td></tr>
-<tr class="separator:ae595e5ecfb8203ca342082a721180331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d0c9531b268c00e759cb571422e01f"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a91d0c9531b268c00e759cb571422e01f">theoretica::rand_gaussian_boxmuller</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a91d0c9531b268c00e759cb571422e01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the Box-Muller method.  <a href="namespacetheoretica.html#a91d0c9531b268c00e759cb571422e01f">More...</a><br /></td></tr>
+<tr class="separator:a91d0c9531b268c00e759cb571422e01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a8326a1bda735015190c87c1f9f6429"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7a8326a1bda735015190c87c1f9f6429">theoretica::rand_gaussian_clt</a> (real mean, real sigma, PRNG &amp;g, unsigned int N=10)</td></tr>
+<tr class="memdesc:a7a8326a1bda735015190c87c1f9f6429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespacetheoretica.html#a7a8326a1bda735015190c87c1f9f6429">More...</a><br /></td></tr>
+<tr class="separator:a7a8326a1bda735015190c87c1f9f6429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a856e584fd661d664a36cb185c8abd6ba"><td class="memItemLeft" align="right" valign="top"><a id="a856e584fd661d664a36cb185c8abd6ba" name="a856e584fd661d664a36cb185c8abd6ba"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_gaussian</b> (real mean, real sigma, PRNG &amp;g)</td></tr>
 <tr class="memdesc:a856e584fd661d664a36cb185c8abd6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the best available algorithm. <br /></td></tr>
@@ -147,7 +153,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_pare
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="rand__dist_8h.html">rand_dist.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2022 20:06:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
