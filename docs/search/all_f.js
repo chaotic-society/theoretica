@@ -26,6 +26,6 @@ var searchData=
   ['product_5fsum_5fsquares_23',['product_sum_squares',['../namespacetheoretica.html#a8c8e23a7720015a774c4cdcd119a434b',1,'theoretica']]],
   ['propagate_5fproduct_24',['propagate_product',['../namespacetheoretica.html#aad8729f104e3aec72c05706a8d56a1de',1,'theoretica']]],
   ['propagate_5fsum_25',['propagate_sum',['../namespacetheoretica.html#a5c42fd9cadef340b3420309453758078',1,'theoretica']]],
-  ['pseudorandom_5falgo_2eh_26',['pseudorandom_algo.h',['../pseudorandom__algo_8h.html',1,'']]],
+  ['pseudorandom_5falgo_2eh_26',['pseudorandom.h',['../pseudorandom__algo_8h.html',1,'']]],
   ['pseudorandom_5ffunction_27',['pseudorandom_function',['../namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5',1,'theoretica']]]
 ];

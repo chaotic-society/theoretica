@@ -1,5 +1,5 @@
 default_target: example
-.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark
+.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark clean
 all: example test examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
@@ -8,21 +8,25 @@ example:
 	@echo Compiling main example program...
 	@g++ examples/example.cpp ${CXXFLAGS} -o ./example
 
+
+# Tests
+
 test_algebra:
 	@echo Compiling linear algebra test cases...
-	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test/test_algebra
-ifndef windows_build
-	@./test/test_algebra
-endif
+	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test_algebra
+	@./test_algebra
 
 test_real_analysis:
-	@echo Compiling real analysis test cases...
-	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test/test_real_analysis
 ifndef windows_build
-		@./test/test_real_analysis
+	@echo Compiling real analysis test cases...
+	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test_real_analysis
+	@./test_real_analysis
 endif
 
 test: test_real_analysis test_algebra
+
+
+# Example programs
 
 autodiff:
 	@echo Compiling \"autodiff\" example...
@@ -44,7 +48,14 @@ dist_sample:
 	@echo Compiling \"dist_sample\" example...
 	@g++ examples/dist_sample.cpp ${CXXFLAGS} -o ./dist_sample
 
-examples: autodiff hamiltonian error_propagation stats dist_sample
+montecarlo_comparison:
+	@echo Compiling \"montecarlo_comparison\" example...
+	@g++ examples/montecarlo_comparison.cpp ${CXXFLAGS} -o ./montecarlo_comparison
+
+examples: autodiff hamiltonian error_propagation stats dist_sample montecarlo_comparison
+
+
+# Benchmarks
 
 benchmark_real_analysis:
 	@echo Compiling real analysis benchmark...

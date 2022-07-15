@@ -33,6 +33,27 @@ namespace theoretica {
 	}
 
 
+	/// Approximate an integral by using Crude
+	/// Quasi-Monte Carlo integration by sampling
+	/// from the Weyl sequence
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param N The number of points to generate
+	inline real approx_integral_crude_quasi(
+		real_function f,
+		real a, real b,
+		unsigned int N = 10000) {
+
+		real sum_y = 0;
+
+		for (unsigned int i = 0; i < N; ++i)			
+			sum_y += f(a + qrand_weyl(i + 1) * (b - a));
+
+		return (b - a) * sum_y / static_cast<real>(N);
+	}
+
+
 	/// Approximate an integral by using Hit-or-miss Monte Carlo integration
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -51,6 +72,36 @@ namespace theoretica {
 		
 			real x_n = rand_uniform(a, b, g);
 			real y_n = rand_uniform(0, f_max, g);
+
+			if(f(x_n) > y_n)
+				N_inside++;
+		}
+
+		return (N_inside / static_cast<real>(N)) * (b - a) * f_max;
+	}
+
+
+	/// Approximate an integral by using Hit-or-miss
+	/// Quasi-Monte Carlo integration, sampling points
+	/// from the Weyl bi-dimensional sequence
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param f_max The function maximum in the [a, b] interval
+	/// @param N The number of points to generate
+	inline real approx_integral_hom_quasi(
+		real_function f,
+		real a, real b, real f_max,
+		unsigned int N = 10000) {
+
+		unsigned int N_inside = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+
+			vec2 v = qrand_weyl2(i + 1);
+		
+			const real x_n = a + (b - a) * v[0];
+			const real y_n = v[1] * f_max;
 
 			if(f(x_n) > y_n)
 				N_inside++;

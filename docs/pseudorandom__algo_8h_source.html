@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: pseudorandom/pseudorandom_algo.h Source File</title>
+<title>Theoretica: pseudorandom/pseudorandom.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('pseudorandom__algo_8h_source.html','')
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">pseudorandom_algo.h</div></div>
+  <div class="headertitle"><div class="title">pseudorandom.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="pseudorandom__algo_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -202,20 +202,20 @@ $(document).ready(function(){initNavTree('pseudorandom__algo_8h_source.html','')
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> error.h:156</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a058181f973ba2744704e6c6211477a35"><div class="ttname"><a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">theoretica::rand_splitmix64</a></div><div class="ttdeci">uint64_t rand_splitmix64(uint64_t x)</div><div class="ttdoc">SplitMix64 pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom_algo.h:109</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a058181f973ba2744704e6c6211477a35"><div class="ttname"><a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">theoretica::rand_splitmix64</a></div><div class="ttdeci">uint64_t rand_splitmix64(uint64_t x)</div><div class="ttdoc">SplitMix64 pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:109</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a07569756dda099ecabf425371da6a31d"><div class="ttname"><a href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">theoretica::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:207</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a249d8d6497120d311e2abbfc11c5f54d"><div class="ttname"><a href="namespacetheoretica.html#a249d8d6497120d311e2abbfc11c5f54d">theoretica::bit_rotate</a></div><div class="ttdeci">ShiftableType bit_rotate(ShiftableType x, unsigned int i)</div><div class="ttdoc">Bit rotation using shifting.</div><div class="ttdef"><b>Definition:</b> bit_op.h:66</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a470e255aed45a7dba74af4af68b31d0d"><div class="ttname"><a href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">theoretica::rand_wyrand</a></div><div class="ttdeci">uint64_t rand_wyrand(uint64_t &amp;seed, uint64_t p1, uint64_t p2)</div><div class="ttdoc">Wyrand pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom_algo.h:135</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a470e255aed45a7dba74af4af68b31d0d"><div class="ttname"><a href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">theoretica::rand_wyrand</a></div><div class="ttdeci">uint64_t rand_wyrand(uint64_t &amp;seed, uint64_t p1, uint64_t p2)</div><div class="ttdoc">Wyrand pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:135</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a672dbbc0ea824c71d7ca0dc26b346200"><div class="ttname"><a href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">theoretica::mix_mum</a></div><div class="ttdeci">uint64_t mix_mum(uint64_t a, uint64_t b)</div><div class="ttdoc">MUM bit mixing function.</div><div class="ttdef"><b>Definition:</b> bit_op.h:53</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a99f8bd44356f8184466e4cc0d6986fe5"><div class="ttname"><a href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">theoretica::pseudorandom_function</a></div><div class="ttdeci">uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;) pseudorandom_function</div><div class="ttdoc">A pseudorandom function pointer.</div><div class="ttdef"><b>Definition:</b> pseudorandom_algo.h:17</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ab1025a8b933cfe7077936c4be27971c1"><div class="ttname"><a href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">theoretica::rand_congruential</a></div><div class="ttdeci">uint64_t rand_congruential(uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</div><div class="ttdoc">Congruential pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom_algo.h:31</div></div>
-<div class="ttc" id="anamespacetheoretica_html_aed6faedb3d913a589365b108f5ec304e"><div class="ttname"><a href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">theoretica::rand_xoshiro</a></div><div class="ttdeci">uint64_t rand_xoshiro(uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</div><div class="ttdoc">Xoshiro256++ pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom_algo.h:72</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a99f8bd44356f8184466e4cc0d6986fe5"><div class="ttname"><a href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">theoretica::pseudorandom_function</a></div><div class="ttdeci">uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;) pseudorandom_function</div><div class="ttdoc">A pseudorandom function pointer.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:17</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ab1025a8b933cfe7077936c4be27971c1"><div class="ttname"><a href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">theoretica::rand_congruential</a></div><div class="ttdeci">uint64_t rand_congruential(uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</div><div class="ttdoc">Congruential pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:31</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aed6faedb3d913a589365b108f5ec304e"><div class="ttname"><a href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">theoretica::rand_xoshiro</a></div><div class="ttdeci">uint64_t rand_xoshiro(uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</div><div class="ttdoc">Xoshiro256++ pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom__algo_8h.html">pseudorandom_algo.h</a></li>
+    <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom__algo_8h.html">pseudorandom.h</a></li>
     <li class="footer">Generated on Wed Jun 1 2022 20:06:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

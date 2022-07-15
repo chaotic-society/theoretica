@@ -1,10 +1,10 @@
 
 ///
-/// @file pseudorandom_algo.h Pseudorandom number generation algorithms
+/// @file pseudorandom.h Pseudorandom number generation algorithms
 ///
 
-#ifndef THEORETICA_PSEUDO_RANDOM_H
-#define THEORETICA_PSEUDO_RANDOM_H
+#ifndef THEORETICA_PSEUDORANDOM_H
+#define THEORETICA_PSEUDORANDOM_H
 
 #include <vector>
 #include <cstdint>

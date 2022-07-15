@@ -175,7 +175,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Cubic Bezier
   - [x] Generic Bezier
 
-- Pseudorandom numbers (_pseudorandom/pseudorandom_algo.h_, _pseudorandom/prng.h_) - **NO TEST CASES**
+- Pseudorandom numbers (_pseudorandom/pseudorandom.h_, _pseudorandom/prng.h_) - **NO TEST CASES**
   - [x] PRNG class
   - [x] Random real numbers on a range
   - [x] Congruential generator

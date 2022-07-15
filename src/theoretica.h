@@ -18,6 +18,7 @@
 // Vector and matrix algebra
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"
+#include "./algebra/algebra.h"
 
 // Complex and quaternion classes
 #include "./complex/complex.h"
@@ -72,7 +73,7 @@
 #include "./autodiff/autodiff.h"
 
 // Pseudorandom number generation
-#include "./pseudorandom/pseudorandom_algo.h"
+#include "./pseudorandom/pseudorandom.h"
 #include "./pseudorandom/prng.h"
 #include "./pseudorandom/rand_dist.h"
 
