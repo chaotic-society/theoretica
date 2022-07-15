@@ -12,9 +12,11 @@ example:
 # Tests
 
 test_algebra:
+ifndef windows_build
 	@echo Compiling linear algebra test cases...
 	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test_algebra
 	@./test_algebra
+endif
 
 test_real_analysis:
 ifndef windows_build
