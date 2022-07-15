@@ -41,10 +41,10 @@ int main() {
 
         // Print absolute error
         std::cout << " "  << N << "\t"
-                << abs(1 - hom) << "\t"
-                << abs(1 - crude) << "\t"
-                << abs(1 - q_hom) << "\t"
-                << abs(1 - q_crude) << std::endl;
+                << th::abs(1 - hom) << "\t"
+                << th::abs(1 - crude) << "\t"
+                << th::abs(1 - q_hom) << "\t"
+                << th::abs(1 - q_crude) << std::endl;
     }
 
     std::cout << std::endl;
