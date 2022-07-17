@@ -153,18 +153,48 @@ namespace theoretica {
 	/// exploiting the Central Limit Theorem.
 	/// @param mean The mean of the target distribution
 	/// @param sigma The sigma of the target distribution
-	/// @param g An already initialized PRNG to use
-	/// @param N The number of random number to generate
+	/// @param g An already initialized PRNG
+	///
+	/// Many real numbers in a range are generated
+	/// and the mean is computed to get a single
+	/// real number following (asymptotically) a
+	/// Gaussian distribution.
+	inline real rand_gaussian_clt(real mean, real sigma, PRNG& g) {
+
+		// Fixed N = 12
+		constexpr unsigned int N = 12;
+
+		real s = 0;
+		for (unsigned int i = 0; i < N; ++i)
+			s += rand_uniform(-1, 1, g);
+
+		// f(u) = 1/2 (in [-1, 1])
+		// E[u] = 0
+		// V[u] = 1 / sqrt(3N) = 1 / 6
+
+		return mean + (s / static_cast<real>(N)) * sigma * 6;
+	}
+
+
+	/// Generate a random number in a range
+	/// following a Gaussian distribution by
+	/// exploiting the Central Limit Theorem.
+	/// @param mean The mean of the target distribution
+	/// @param sigma The sigma of the target distribution
+	/// @param g An already initialized PRNG
+	/// @param N The number of random numbers to generate
 	///
 	/// Many real numbers in a range are generated
 	/// and the mean is computed to get a single
 	/// real number following (asymptotically) a
 	/// Gaussian distribution.
 	///
-	/// @todo Needs testing to check convergence to a gaussian
+	/// @note This function uses a square root (th::sqrt)
+	/// to rescale the output for variable N,
+	/// the constant N implementation has better performance.
 	inline real rand_gaussian_clt(
 		real mean, real sigma,
-		PRNG& g, unsigned int N = 10) {
+		PRNG& g, unsigned int N) {
 
 		real s = 0;
 		for (unsigned int i = 0; i < N; ++i)
@@ -174,7 +204,7 @@ namespace theoretica {
 		// E[u] = 0
 		// V[u] = 1 / sqrt(3N)
 
-		return mean + (s / N) * sigma * sqrt(3 * N);
+		return mean + (s / static_cast<real>(N)) * sigma * sqrt(3 * N);
 	}
 
 

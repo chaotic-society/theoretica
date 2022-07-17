@@ -110,6 +110,39 @@ namespace theoretica {
 		return (N_inside / static_cast<real>(N)) * (b - a) * f_max;
 	}
 
+
+	/// Use the Hit-or-Miss Monte Carlo method
+	/// to approximate a double integral
+	/// @param f The multivariate function to integrate
+	/// @param a The lower extreme of integration on x
+	/// @param b The upper extreme of integration on x
+	/// @param c The lower extreme of integration on y
+	/// @param d The upper extreme of integration on y
+	/// @param f_max The function maximum in the [a, b]x[c, d] interval
+	/// @param g An already initialized PRNG
+	/// @param N The number of points to generate
+	inline real integral_hom_2d(
+		real(*f)(real, real),
+		real a, real b,
+		real c, real d,
+		real f_max, PRNG& g,
+		unsigned int N = 10000) {
+
+		unsigned int N_inside = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+
+			real x = rand_uniform(a, b, g);
+			real y = rand_uniform(c, d, g);
+			real z = rand_uniform(0, f_max, g);
+
+			if(f(x, y) > z)
+				N_inside++;
+		}
+
+		return (N_inside / static_cast<real>(N)) * (b - a) * (d - c) * f_max;
+	}
+
 }
 
 
