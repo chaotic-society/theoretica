@@ -97,6 +97,11 @@
 #endif
 
 
+#ifndef THEORETICA_DERIV_DX
+#define THEORETICA_DERIV_DX 0.00000001
+#endif
+
+
 #ifndef THEORETICA_RAND_REAL_PREC
 
 /// Default precision for random number generation using rand_real()
@@ -242,6 +247,9 @@ namespace theoretica {
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
 
+
+	/// Default variation for derivative approximation
+	constexpr real DERIV_DX = THEORETICA_DERIV_DX;
 
 	/// Default precision for random number generation using rand_uniform()
 	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;

@@ -50,8 +50,8 @@ namespace theoretica {
 		/// Gaussian distribution function
 		inline real gaussian(real x, real X, real sigma) {
 
-			return (1.0 / (sigma *
-				sqrt(2 * PI))) * exp(-square(x - X) / (2 * square(sigma)));
+			return (1.0 / (sigma * SQRT2 * SQRTPI))
+				* exp(-square(x - X) / (2 * square(sigma)));
 		}
 
 

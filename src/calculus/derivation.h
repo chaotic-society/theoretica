@@ -13,9 +13,12 @@
 namespace theoretica {
 
 
-	/// Derivate a polynomial
+	/// Compute the derivative of a polynomial
+	///
+	/// @param p The polynomial to differentiate
+	/// @return The derivative polynomial
 	template<typename T>
-	polynomial<T> deriv_polynomial(polynomial<T> p) {
+	inline polynomial<T> deriv_polynomial(polynomial<T> p) {
 
 		polynomial<T> Dp;
 
@@ -26,20 +29,43 @@ namespace theoretica {
 	}
 
 
-	/// Central derivative approximation
-	real deriv_central(real_function f, real x, real dx = 0.00000001) {
+	/// Central derivative approximation using the central method
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	/// @param dx The difference in x to use
+	inline real deriv_central(real_function f, real x, real dx = DERIV_DX) {
 		return (f(x + dx) - f(x - dx)) / (2.0 * dx);
 	}
 
 
-	/// Forward derivative approximation
-	real deriv_forward(real_function f, real x, real dx = 0.00000001) {
+	/// Forward derivative approximation using the forward method
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	/// @param dx The difference in x to use
+	inline real deriv_forward(real_function f, real x, real dx = DERIV_DX) {
 		return (f(x + dx) - f(x)) / dx;
 	}
 
-	/// Backward derivative approximation
-	real deriv_backward(real_function f, real x, real dx = 0.00000001) {
+
+	/// Backward derivative approximation using the backward method
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	/// @param dx The difference in x to use
+	inline real deriv_backward(real_function f, real x, real dx = DERIV_DX) {
 		return (f(x) - f(x - dx)) / dx;
+	}
+
+
+	/// Use the best available algorithm to approximate
+	/// the derivative of a real function
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	inline real deriv(real_function f, real x) {
+		return deriv_central(f, x);
 	}
 
 }

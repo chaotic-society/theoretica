@@ -14,8 +14,11 @@
 namespace theoretica {
 
 
-	/// Integrate a polynomial
-	polynomial<real> integrate_polynomial(const polynomial<real>& p) {
+	/// Compute the indefinite integral of a polynomial
+	///
+	/// @param p The polynomial to integrate
+	/// @return The indefinite polynomial integral
+	inline polynomial<real> integrate_polynomial(const polynomial<real>& p) {
 
 		polynomial<real> Dp;
 		Dp.coeff.push_back(0);
@@ -29,7 +32,13 @@ namespace theoretica {
 
 	/// Approximate the definite integral of an arbitrary function
 	/// using the midpoint method
-	real integral_midpoint(real_function f, real a, real b,
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param steps The number of steps
+	/// @return An approximation of the integral of f
+	inline real integral_midpoint(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -44,7 +53,13 @@ namespace theoretica {
 
 	/// Approximate the definite integral of an arbitrary function
 	/// using the trapezoid method
-	real integral_trapezoid(real_function f, real a, real b,
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param steps The number of steps
+	/// @return An approximation of the integral of f
+	inline real integral_trapezoid(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -63,7 +78,13 @@ namespace theoretica {
 
 	/// Approximate the definite integral of an arbitrary function
 	/// using Simpson's method
-	real integral_simpson(real_function f, real a, real b,
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param steps The number of steps
+	/// @return An approximation of the integral of f
+	inline real integral_simpson(real_function f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / (real) steps;
@@ -86,7 +107,16 @@ namespace theoretica {
 
 	/// Approximate the definite integral of an arbitrary function
 	/// using Romberg's method accurate to the given order
-	real integral_romberg(real_function f, real a, real b, unsigned int order) {
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param order The order of accuracy
+	/// @return An approximation of the integral of f
+	inline real integral_romberg(
+		real_function f,
+		real a, real b,
+		unsigned int order = 16) {
 
 		if(order % 2 != 0) {
 			UMATH_ERROR("integral_romberg", order, IMPOSSIBLE_OPERATION);
@@ -114,6 +144,18 @@ namespace theoretica {
 
 		// Return the best approximation
 		return T[iter - 1][iter - 1];
+	}
+
+
+	/// Use the best available algorithm to approximate
+	/// the definite integral of a real function.
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @return An approximation of the integral of f
+	inline real integral(real_function f, real a, real b) {
+		return integral_simpson(f, a, b);
 	}
 
 }
