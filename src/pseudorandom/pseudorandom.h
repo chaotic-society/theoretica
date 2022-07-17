@@ -94,7 +94,7 @@ namespace theoretica {
 	inline uint64_t rand_xoshiro(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
-			UMATH_ERROR("rand_xoroshift", state.size(), INVALID_ARGUMENT);
+			UMATH_ERROR("rand_xoshiro", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 

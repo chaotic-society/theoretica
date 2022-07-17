@@ -12,13 +12,19 @@
 namespace theoretica {
 
 
+	/// A p.d.f sampling function taking as input
+	/// the parameters of the distribution and
+	/// a pseudorandom number generator.
+	using pdf_sampling_function = real(*)(const std::vector<real>&, PRNG&);
+
+
 	/// Generate a pseudorandom real number in [a, b] using a
 	/// preexisting generator.
 	/// @param a The lower extreme of the interval
 	/// @param b The higher extreme of the interval
 	/// @param g An already initialized pseudorandom number generator
 	/// @param prec Precision parameters for the normalization, defaults
-	/// to rand_uniform_PREC.
+	/// to RAND_REAL_PREC.
 	///
 	/// The algorithm generates a random integer number, computes
 	/// its modulus and divides it by prec:
@@ -31,6 +37,21 @@ namespace theoretica {
 
 		// Transform to target interval
 		return a + (b - a) * x;
+	}
+
+
+	/// Wrapper for rand_uniform(real, real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_uniform(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 2) {
+			UMATH_ERROR("rand_uniform", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_uniform(theta[0], theta[1], g);
 	}
 
 
@@ -215,6 +236,21 @@ namespace theoretica {
 	}
 
 
+	/// Wrapper for rand_gaussian(real, real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_gaussian(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 2) {
+			UMATH_ERROR("rand_gaussian", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_gaussian(theta[0], theta[1], g);
+	}
+
+
 	/// Generate a random number following an exponential
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_exponential(real lambda, PRNG& g) {
@@ -228,11 +264,41 @@ namespace theoretica {
 	}
 
 
+	/// Wrapper for rand_exponential(real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_exponential(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 1) {
+			UMATH_ERROR("rand_exponential", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_exponential(theta[0], g);
+	}
+
+
 	/// Generate a random number following a Cauchy
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_cauchy(real mu, real alpha, PRNG& g) {
 
 		return alpha * tan(PI * (rand_uniform(0, 1, g) - 0.5)) + mu;
+	}
+
+
+	/// Wrapper for rand_cauchy(real, real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_cauchy(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 2) {
+			UMATH_ERROR("rand_cauchy", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_cauchy(theta[0], theta[1], g);
 	}
 
 
@@ -242,6 +308,80 @@ namespace theoretica {
 
 		return x_m / powf(1 - rand_uniform(0, 1, g), 1.0 / alpha);
 	}
+
+
+	/// Wrapper for rand_pareto(real, real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_pareto(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 2) {
+			UMATH_ERROR("rand_pareto", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_pareto(theta[0], theta[1], g);
+	}
+
+
+	/// A probability density function sampler which
+	/// generates pseudorandom numbers following
+	/// asymptotically a given distribution
+	struct pdf_sampler {
+
+		/// A p.d.f sampling function
+		pdf_sampling_function f;
+
+		/// The parameters of the target distribution
+		std::vector<real> theta;
+
+		/// A pseudorandom number generator
+		PRNG g;
+
+
+		/// Initialize the sampler with the given parameters
+		pdf_sampler(
+			pdf_sampling_function f,
+			const std::vector<real>& theta,
+			const PRNG& g) : f(f), theta(theta), g(g) {}
+
+
+		/// Generate the next number
+		real next() {
+			return f(theta, g);
+		}
+
+		/// Generate the next number
+		real operator()() {
+			return next();
+		}
+
+
+		/// Returns a Gaussian distribution sampler
+		static pdf_sampler gaussian(real mean, real sigma, const PRNG& g) {
+			return pdf_sampler(rand_gaussian, {mean, sigma}, g);
+		}
+
+
+		/// Returns an exponential distribution sampler
+		static pdf_sampler exponential(real lambda, const PRNG& g) {
+			return pdf_sampler(rand_exponential, {lambda}, g);
+		}
+
+
+		/// Returns a Cauchy distribution sampler
+		static pdf_sampler cauchy(real mu, real alpha, const PRNG& g) {
+			return pdf_sampler(rand_cauchy, {mu, alpha}, g);
+		}
+
+
+		/// Returns a Pareto distribution sampler
+		static pdf_sampler pareto(real x_m, real alpha, const PRNG& g) {
+			return pdf_sampler(rand_pareto, {x_m, alpha}, g);
+		}
+
+	};
 
 }
 
