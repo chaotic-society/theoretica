@@ -121,7 +121,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Derivative approximation
   - [x] Ordinary Differential Equations numerical integration methods
 
-- Approximation of roots and extrema (_approx/roots.h_, _approx/extrema.h_) - **NO TEST CASES**
+- Approximation of roots and extrema (_optimization/roots.h_, _optimization/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton, bisection and golden section search
 

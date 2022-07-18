@@ -1,5 +1,5 @@
 default_target: example
-.PHONY: all example test autodiff hamiltonian error_propagation stats dist_sample benchmark clean
+.PHONY: all example test_real_analysis test_algebra autodiff hamiltonian error_propagation stats dist_sample benchmark clean
 all: example test examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
@@ -54,7 +54,11 @@ montecarlo_comparison:
 	@echo Compiling \"montecarlo_comparison\" example...
 	@g++ examples/montecarlo_comparison.cpp ${CXXFLAGS} -o ./montecarlo_comparison
 
-examples: autodiff hamiltonian error_propagation stats dist_sample montecarlo_comparison
+min_grad:
+	@echo Compiling \"min_grad\" example...
+	@g++ examples/min_grad.cpp ${CXXFLAGS} -o ./min_grad
+
+examples: autodiff hamiltonian error_propagation stats dist_sample montecarlo_comparison min_grad
 
 
 # Benchmarks

@@ -18,7 +18,7 @@ namespace theoretica {
 	/// @return The square of x
 	///
 	/// Domain: [-inf, +inf]
-	constexpr inline real square(real x) {
+	TH_CONSTEXPR inline real square(real x) {
 		return x * x;
 	}
 
@@ -28,7 +28,7 @@ namespace theoretica {
 	/// @return The cube of x
 	///
 	/// Domain: [-inf, +inf]
-	constexpr inline real cube(real x) {
+	TH_CONSTEXPR inline real cube(real x) {
 		return x * x * x;
 	}
 
@@ -254,7 +254,7 @@ namespace theoretica {
 	///
 	/// e.g. floor(1.6) = 1
 	/// e.g. floor(-0.3) = -1
-	constexpr inline int floor(real x) {
+	TH_CONSTEXPR inline int floor(real x) {
 
 		if(x < 0 && x > -1)
 			return -1;
@@ -528,7 +528,7 @@ namespace theoretica {
 	/// @param n The integer exponent
 	/// @return x to the power n
 	template<typename T>
-	constexpr inline T pow(T x, int n) {
+	TH_CONSTEXPR inline T pow(T x, int n) {
 
 		T res = T(0);
 		T x2 = x * x;
@@ -605,7 +605,7 @@ namespace theoretica {
 
 	/// Compute the factorial of n
 	template<typename IntType = unsigned long long int>
-	constexpr inline IntType fact(unsigned int n) {
+	TH_CONSTEXPR inline IntType fact(unsigned int n) {
 
 		IntType res = 1;
 		for (int i = n; i > 1; --i)
@@ -1034,7 +1034,7 @@ namespace theoretica {
 	/// @return The binomial coefficient computed on (n, m)
 	/// as \f$\frac{n!}{m!(n - m)!}\f$
 	template<typename IntType = unsigned long long int>
-	constexpr inline IntType binomial_coeff(unsigned int n, unsigned int m) {
+	TH_CONSTEXPR inline IntType binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m) {
 			UMATH_ERROR("binomial_coeff", n, IMPOSSIBLE_OPERATION);
@@ -1057,7 +1057,7 @@ namespace theoretica {
 	/// @return The converted angle in radians
 	///
 	/// The `DEG2RAD` scalar factor is used.
-	constexpr inline real radians(real degrees) {
+	TH_CONSTEXPR inline real radians(real degrees) {
 		return degrees * DEG2RAD;
 	}
 
@@ -1067,7 +1067,7 @@ namespace theoretica {
 	/// @return The converted angle in degrees
 	///
 	/// The `RAD2DEG` scalar factor is used.
-	constexpr inline real degrees(real radians) {
+	TH_CONSTEXPR inline real degrees(real radians) {
 		return radians * RAD2DEG;
 	}
 
@@ -1077,7 +1077,7 @@ namespace theoretica {
 	/// @param j The second value to compare
 	/// @return 1 if i is equal to j, 0 otherwise
 	template<typename T>
-	constexpr inline T kronecker_delta(T i, T j) {
+	TH_CONSTEXPR inline T kronecker_delta(T i, T j) {
 		return i == j ? 1 : 0;
 	}
 

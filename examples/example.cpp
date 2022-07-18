@@ -5,7 +5,7 @@
 
 #include "theoretica.h"
 
-using namespace theoretica;
+using namespace th;
 
 int main() {
  

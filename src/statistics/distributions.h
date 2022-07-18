@@ -128,6 +128,27 @@ namespace theoretica {
 		}
 
 
+		/// Multinomial distribution
+		inline real multinomial(
+			std::vector<unsigned int> x,
+			unsigned int n,
+			unsigned int k,
+			std::vector<real> p) {
+
+			if(x.size() != p.size() || x.size() != k) {
+				UMATH_ERROR("distribution::multinomial", x.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			real res = fact(n);
+
+			for (unsigned int i = 0; i < k; ++i)
+				res *= pow(p[i], x[i]) / fact(x[i]);
+
+			return res;
+		}
+
+
 		/// Log-normal distribution
 		inline real log_normal(real x, real mu, real sigma) {
 

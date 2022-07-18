@@ -96,21 +96,44 @@
 #define THEORETICA_MAX_TRYANDCATCH_ITER 100
 #endif
 
-
+/// Default variation for derivative approximation
 #ifndef THEORETICA_DERIV_DX
 #define THEORETICA_DERIV_DX 0.00000001
+#endif
+
+/// Default step size for gradient descent minimization
+#ifndef THEORETICA_MINGRAD_GAMMA
+#define THEORETICA_MINGRAD_GAMMA -0.00005
+#endif
+
+/// Default tolerance for gradient descent minimization
+#ifndef THEORETICA_MINGRAD_TOLERANCE
+#define THEORETICA_MINGRAD_TOLERANCE 0.0001
+#endif
+
+/// Maximum number of iterations for gradient descent minimization
+#ifndef THEORETICA_MINGRAD_MAX_ITER
+#define THEORETICA_MINGRAD_MAX_ITER 50000
 #endif
 
 
 #ifndef THEORETICA_RAND_REAL_PREC
 
-/// Default precision for random number generation using rand_real()
+/// Default precision for random number generation using rand_uniform()
 #ifdef THEORETICA_FLOAT_PREC
 #define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 23)
 #else
 #define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 32)
 #endif
 
+#endif
+
+
+/// Enable constexpr in function declarations if C++14 is supported
+#if (__cplusplus >= 201402L)
+#define TH_CONSTEXPR constexpr
+#else
+#define TH_CONSTEXPR
 #endif
 
 
@@ -200,10 +223,13 @@ namespace theoretica {
 	constexpr real RAD2DEG = 57.2957795130823228646477218717;
 
 	/// The square root of 2
-	constexpr real SQRT2 = 1.41421356237;
+	constexpr real SQRT2 = 1.414213562373095;
 
 	/// The inverse of the square root of 2
-	constexpr real INVSQR2 = 0.707106781187;
+	constexpr real INVSQR2 = 0.7071067811865475;
+
+	/// The square root of 3
+	constexpr real SQRT3 = 1.732050807568877;
 
 	/// Order of Taylor series approximations
 	constexpr int TAYLOR_ORDER = THEORETICA_TAYLOR_ORDER;
@@ -247,9 +273,17 @@ namespace theoretica {
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
 
-
 	/// Default variation for derivative approximation
 	constexpr real DERIV_DX = THEORETICA_DERIV_DX;
+
+	/// Default step size for gradient descent minimization
+	constexpr real MINGRAD_GAMMA = THEORETICA_MINGRAD_GAMMA;
+
+	/// Default tolerance for gradient descent minimization
+	constexpr real MINGRAD_TOLERANCE = THEORETICA_MINGRAD_TOLERANCE;
+
+	/// Maximum number of iterations for gradient descent minimization
+	constexpr unsigned int MINGRAD_MAX_ITER = THEORETICA_MINGRAD_MAX_ITER;
 
 	/// Default precision for random number generation using rand_uniform()
 	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;

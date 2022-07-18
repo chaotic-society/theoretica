@@ -45,8 +45,9 @@
 #include "./statistics/distributions.h"
 
 // Roots and extrema approximation of real functions
-#include "./approx/roots.h"
-#include "./approx/extrema.h"
+#include "./optimization/roots.h"
+#include "./optimization/extrema.h"
+#include "./optimization/multi_extrema.h"
 
 // Complex and quaternion functions
 #include "./complex/complex_analysis.h"
