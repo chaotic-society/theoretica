@@ -1,5 +1,5 @@
 default_target: example
-.PHONY: all example test_real_analysis test_algebra autodiff hamiltonian error_propagation stats dist_sample benchmark clean
+.PHONY: all example test_real_analysis test_algebra autodiff hamiltonian error_propagation stats dist_sample min_grad benchmark clean
 all: example test examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall

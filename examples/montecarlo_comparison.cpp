@@ -11,7 +11,7 @@ int main() {
 
     PRNG g = PRNG::xoshiro();
     unsigned int N = 10;
-    real_function f = th::sin;
+    real(*f)(real) = th::sin;
 
 
     // Print header

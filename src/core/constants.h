@@ -103,12 +103,12 @@
 
 /// Default step size for gradient descent minimization
 #ifndef THEORETICA_MINGRAD_GAMMA
-#define THEORETICA_MINGRAD_GAMMA -0.00005
+#define THEORETICA_MINGRAD_GAMMA -0.005
 #endif
 
 /// Default tolerance for gradient descent minimization
 #ifndef THEORETICA_MINGRAD_TOLERANCE
-#define THEORETICA_MINGRAD_TOLERANCE 0.0001
+#define THEORETICA_MINGRAD_TOLERANCE 0.001
 #endif
 
 /// Maximum number of iterations for gradient descent minimization

@@ -112,7 +112,7 @@ void test_equal(T1 evaluated, T1 expected, T2 input, bool silent = false) {
 
 
 // Test a real function on an interval
-void test_equal_interval(real_function f, real_function f_exp, real a, real b,
+void test_equal_interval(real(*f)(real), real(*f_exp)(real), real a, real b,
 	real tolerance = TOLERANCE, unsigned int steps = 1000) {
 
 	std::cout << "\tTesting on interval [" << a << ", " << b << "] with " << steps << " steps" << std::endl;
@@ -175,7 +175,7 @@ void test_tolr(real evaluated, real expected, real input, real tolerance = TOLER
 
 
 // Test a real function on an interval
-void test_tolr_interval(real_function f, real_function f_exp, real a, real b,
+void test_tolr_interval(real(*f)(real), real(*f_exp)(real), real a, real b,
 	real tolerance = TOLERANCE, unsigned int steps = 1000) {
 
 	std::cout << "\tTesting on interval [" << a << ", " << b << "] with " << steps << " steps" << std::endl;
