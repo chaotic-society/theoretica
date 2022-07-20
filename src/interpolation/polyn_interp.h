@@ -20,7 +20,7 @@ namespace theoretica {
 	/// interpolating a set of points
 	/// @param points The set of n points to interpolate
 	/// @return A polynomial of (n - 1) degree interpolating the points
-	template<typename T>
+	template<typename T = real>
 	inline polynomial<T> lagrange_polynomial(const std::vector<vec<2, T>>& points) {
 
 		if(!points.size()) {

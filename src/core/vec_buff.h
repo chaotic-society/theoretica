@@ -170,6 +170,17 @@ namespace theoretica {
 		return curr;
 	}
 
+
+	/// Stream the buffer in string representation to an output stream (std::ostream)
+	inline std::ostream& operator<<(std::ostream& out, const vec_buff& obj) {
+
+		for (real x : obj) {
+			out << x << std::endl;
+		}
+
+		return out;
+	}
+
 }
 
 #endif
