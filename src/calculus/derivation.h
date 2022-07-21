@@ -33,9 +33,9 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param dx The difference in x to use
-	inline real deriv_central(real_function f, real x, real dx = DERIV_DX) {
-		return (f(x + dx) - f(x - dx)) / (2.0 * dx);
+	/// @param h The difference in x to use
+	inline real deriv_central(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return (f(x + h) - f(x - h)) / (2.0 * h);
 	}
 
 
@@ -43,9 +43,9 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param dx The difference in x to use
-	inline real deriv_forward(real_function f, real x, real dx = DERIV_DX) {
-		return (f(x + dx) - f(x)) / dx;
+	/// @param h The difference in x to use
+	inline real deriv_forward(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return (f(x + h) - f(x)) / h;
 	}
 
 
@@ -53,9 +53,49 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param dx The difference in x to use
-	inline real deriv_backward(real_function f, real x, real dx = DERIV_DX) {
-		return (f(x) - f(x - dx)) / dx;
+	/// @param h The difference in x to use
+	inline real deriv_backward(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return (f(x) - f(x - h)) / h;
+	}
+
+
+	/// Ridder's derivative approximation of second degree
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	/// @param h The difference in x to use
+	inline real deriv_ridders2(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return (4.0 * deriv_central(f, x, h / 2.0) - deriv_central(f, x, h)) / 3.0;
+	}
+
+
+	/// Ridder's derivative approximation of arbitrary degree
+	///
+	/// @param f The function to approximate the derivative of
+	/// @param x The real value to approximate at
+	/// @param degree The degree of the algorithm
+	/// @param h The difference in x to use
+	inline real deriv_ridders(real_function f, real x, real h = 0.01, unsigned int degree = 3) {
+
+		real A[degree][degree];
+
+		for (unsigned int i = 0; i < degree; ++i) {
+			
+			for (unsigned int n = 0; n <= i; ++n) {
+				
+				unsigned int m = i - n;
+				
+				if(n == 0) {
+					A[n][m] = deriv_central(f, x, h / (1 << m));
+				} else {
+					real coeff = square(1 << n);
+					A[n][m] = (coeff * A[n - 1][m + 1] - A[n - 1][m]) / (coeff - 1);
+				}
+			}
+
+		}
+
+		return A[degree - 1][0];
 	}
 
 

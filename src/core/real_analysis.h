@@ -527,7 +527,7 @@ namespace theoretica {
 	/// @param x Any element of a multiplicative algebra
 	/// @param n The integer exponent
 	/// @return x to the power n
-	template<typename T>
+	template<typename T = real>
 	TH_CONSTEXPR inline T pow(T x, int n) {
 
 		T res = T(0);

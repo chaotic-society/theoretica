@@ -97,8 +97,8 @@
 #endif
 
 /// Default variation for derivative approximation
-#ifndef THEORETICA_DERIV_DX
-#define THEORETICA_DERIV_DX 0.00000001
+#ifndef THEORETICA_DERIV_STEPSIZE
+#define THEORETICA_DERIV_STEPSIZE 0.001
 #endif
 
 /// Default step size for gradient descent minimization
@@ -274,7 +274,7 @@ namespace theoretica {
 	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
 
 	/// Default variation for derivative approximation
-	constexpr real DERIV_DX = THEORETICA_DERIV_DX;
+	constexpr real DERIV_STEPSIZE = THEORETICA_DERIV_STEPSIZE;
 
 	/// Default step size for gradient descent minimization
 	constexpr real MINGRAD_GAMMA = THEORETICA_MINGRAD_GAMMA;
