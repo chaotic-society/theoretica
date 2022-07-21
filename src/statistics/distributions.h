@@ -9,6 +9,7 @@
 #include "../core/real_analysis.h"
 #include "./statistics.h"
 #include "../core/function.h"
+#include "../core/special.h"
 
 
 /// @namespace theoretica
@@ -146,6 +147,49 @@ namespace theoretica {
 				res *= pow(p[i], x[i]) / fact(x[i]);
 
 			return res;
+		}
+
+
+		/// Chi-squared distribution
+		inline real chi_squared(real x, unsigned int k) {
+
+			return powf(x, k / 2.0 - 1) * exp(-x / 2.0)
+				/ (pow(SQRT2, k) * gamma(k / 2.0));
+		}
+
+
+		/// Wrapper for distribution::chi_squared(real, unsigned int)
+		inline real chi_squared(real x, const vec_buff& theta) {
+
+			if(theta.size() != 1) {
+				UMATH_ERROR("distribution::chi_squared", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return chi_squared(x, static_cast<unsigned int>(theta[0]));
+		}
+
+
+		/// Student's t distribution
+		inline real student(real x, unsigned int nu) {
+
+			real a = 1 + (x * x / nu);
+
+			return (1.0 / SQRTPI) * (1.0 / sqrt(nu))
+					* (gamma((nu + 1) / 2.0) / gamma(nu / 2.0))
+					* pow(sqrt(a), -nu - 1);
+		}
+
+
+		/// Wrapper for distribution::student(real, unsigned int)
+		inline real student(real x, const vec_buff& theta) {
+
+			if(theta.size() != 1) {
+				UMATH_ERROR("distribution::student", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return student(x, static_cast<unsigned int>(theta[0]));
 		}
 
 
