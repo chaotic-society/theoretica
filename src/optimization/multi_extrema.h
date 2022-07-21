@@ -110,7 +110,7 @@ namespace theoretica {
 			// Minimize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
 			real gamma = approx_min_goldensection(
-				[=](real gamma){
+				[f, x, grad](real gamma){
 					return f(
 						multidual<N>::pack_function_arg(x)
 						+ multidual<N>::pack_function_arg(grad) * gamma).Re();

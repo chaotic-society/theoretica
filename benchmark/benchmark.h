@@ -95,7 +95,7 @@ void end_benchmark(long double elapsed) {
 
 
 // Automatically benchmark a real function
-void benchmark_real_function(const std::string& func_name, real_function f,
+void benchmark_real_function(const std::string& func_name, real(*f)(real),
 							 const std::vector<real>& input) {
 
 	init_benchmark(func_name);

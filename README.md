@@ -16,7 +16,7 @@ The library includes basic functionalities like real and complex analysis functi
 The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Key Features
-This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/mattiaisgro/theoretica/blob/master/txt/FEATURES.md)
+This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/chaotic-society/theoretica/blob/master/txt/FEATURES.md)
 - **Real and complex analysis**
 - **Linear algebra** with common vector and matrix operations
 - Complex numbers in algebraic and exponential form
@@ -27,6 +27,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Random distribution sampling
 - Approximation of roots, extrema, derivatives and integrals of real functions
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
+- Special functions (experimental)
 
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
@@ -34,7 +35,7 @@ Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionaliti
 All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
 ## Examples
-Introductory examples can be found in [EXAMPLES.md](https://github.com/mattiaisgro/theoretica/blob/master/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
+Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
 
 ### Quickstart
 You can try to compile this simple code to see if the library works properly:
