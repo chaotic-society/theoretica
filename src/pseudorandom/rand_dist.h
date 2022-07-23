@@ -47,7 +47,7 @@ namespace theoretica {
 	inline real rand_uniform(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			UMATH_ERROR("rand_uniform", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_uniform", theta.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -92,7 +92,7 @@ namespace theoretica {
 		} while(y > f(x, theta) && iter <= max_iter);
 
 		if(iter > max_iter) {
-			UMATH_ERROR("rand_dist_tac", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("rand_dist_tac", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -243,7 +243,7 @@ namespace theoretica {
 	inline real rand_gaussian(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			UMATH_ERROR("rand_gaussian", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_gaussian", theta.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -256,7 +256,7 @@ namespace theoretica {
 	inline real rand_exponential(real lambda, PRNG& g) {
 
 		if(abs(lambda) < MACH_EPSILON) {
-			UMATH_ERROR("rand_exponential", lambda, DIV_BY_ZERO);
+			TH_MATH_ERROR("rand_exponential", lambda, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -271,7 +271,7 @@ namespace theoretica {
 	inline real rand_exponential(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			UMATH_ERROR("rand_exponential", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_exponential", theta.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -294,11 +294,33 @@ namespace theoretica {
 	inline real rand_cauchy(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			UMATH_ERROR("rand_cauchy", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_cauchy", theta.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
 		return rand_cauchy(theta[0], theta[1], g);
+	}
+
+
+	/// Generate a random number following a Laplace
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_laplace(real mu, real b, PRNG& g) {
+
+		real u = rand_uniform(0, 1, g);
+		return mu - b * sgn(u) * ln(1 - 2 * abs(u));
+	}
+
+
+	/// Generate a random number following a Laplace
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_laplace(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 2) {
+			TH_MATH_ERROR("rand_laplace", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+		
+		return rand_laplace(theta[0], theta[1], g);
 	}
 
 
@@ -317,7 +339,7 @@ namespace theoretica {
 	inline real rand_pareto(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			UMATH_ERROR("rand_pareto", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_pareto", theta.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 

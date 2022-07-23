@@ -60,7 +60,7 @@ namespace theoretica {
 		inline real gaussian(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::gaussian", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::gaussian", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -79,7 +79,7 @@ namespace theoretica {
 		inline real bernoulli(real k, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
-				UMATH_ERROR("distribution::bernoulli", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::bernoulli", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -99,7 +99,7 @@ namespace theoretica {
 		inline real poisson(real k, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
-				UMATH_ERROR("distribution::poisson", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::poisson", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -120,7 +120,7 @@ namespace theoretica {
 		inline real binomial(real nu, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::binomial", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::binomial", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -137,7 +137,7 @@ namespace theoretica {
 			std::vector<real> p) {
 
 			if(x.size() != p.size() || x.size() != k) {
-				UMATH_ERROR("distribution::multinomial", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::multinomial", x.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -162,7 +162,7 @@ namespace theoretica {
 		inline real chi_squared(real x, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
-				UMATH_ERROR("distribution::chi_squared", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::chi_squared", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -185,7 +185,7 @@ namespace theoretica {
 		inline real student(real x, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
-				UMATH_ERROR("distribution::student", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::student", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -205,7 +205,7 @@ namespace theoretica {
 		inline real log_normal(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::log_normal", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::log_normal", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -227,7 +227,7 @@ namespace theoretica {
 		inline real exponential(real x, const vec_buff& theta) {
 
 			if(theta.size() != 1) {
-				UMATH_ERROR("distribution::exponential", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::exponential", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -246,7 +246,7 @@ namespace theoretica {
 		inline real cauchy(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::cauchy", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::cauchy", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -265,7 +265,7 @@ namespace theoretica {
 		inline real breit_wigner(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::breit_wigner", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::breit_wigner", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -273,11 +273,30 @@ namespace theoretica {
 		}
 
 
+		/// Laplace distribution
+		inline real laplace(real x, real mu, real b) {
+
+			return (1.0 / (2.0 * b)) * exp(-abs(x - mu) / b);
+		}
+
+
+		/// Laplace distribution
+		inline real laplace(real x, const vec_buff& theta) {
+
+			if(theta.size() != 3) {
+				TH_MATH_ERROR("distribution::laplace", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return (1.0 / (2.0 * theta[1])) * exp(-abs(x - theta[0]) / theta[1]);
+		}
+
+
 		/// Pareto distribution
 		inline real pareto(real x, real x_m, real alpha) {
 
 			if(alpha <= 0) {
-				UMATH_ERROR("distribution::pareto", alpha, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("distribution::pareto", alpha, OUT_OF_DOMAIN);
 				return nan();
 			}
 
@@ -292,7 +311,7 @@ namespace theoretica {
 		inline real pareto(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::pareto", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::pareto", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -304,7 +323,7 @@ namespace theoretica {
 		inline real erlang(real x, unsigned int k, real lambda) {
 
 			if(!k) {
-				UMATH_ERROR("distribution::erlang", k, INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::erlang", k, INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -317,7 +336,7 @@ namespace theoretica {
 		inline real erlang(real x, const vec_buff& theta) {
 
 			if(theta.size() != 2) {
-				UMATH_ERROR("distribution::erlang", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::erlang", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
