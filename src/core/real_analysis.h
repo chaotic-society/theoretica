@@ -128,7 +128,7 @@ namespace theoretica {
 	inline real sqrt(real x) {
 
 		if(x < 0) {
-			UMATH_ERROR("sqrt", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("sqrt", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -410,11 +410,11 @@ namespace theoretica {
 		if(x <= 0) {
 
 			if(x == 0) {
-				UMATH_ERROR("log2", x, OUT_OF_RANGE);
+				TH_MATH_ERROR("log2", x, OUT_OF_RANGE);
 				return -inf();
 			}
 
-			UMATH_ERROR("log2", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log2", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -473,11 +473,11 @@ namespace theoretica {
 		if(x <= 0) {
 
 			if(x == 0) {
-				UMATH_ERROR("log10", x, OUT_OF_RANGE);
+				TH_MATH_ERROR("log10", x, OUT_OF_RANGE);
 				return -inf();
 			}
 
-			UMATH_ERROR("log10", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log10", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -504,11 +504,11 @@ namespace theoretica {
 		if(x <= 0) {
 
 			if(x == 0) {
-				UMATH_ERROR("ln", x, OUT_OF_RANGE);
+				TH_MATH_ERROR("ln", x, OUT_OF_RANGE);
 				return -inf();
 			}
 
-			UMATH_ERROR("ln", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("ln", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -571,7 +571,7 @@ namespace theoretica {
 	inline real root(real x, int n) {
 
 		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
-			UMATH_ERROR("root", n, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("root", n, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -791,7 +791,7 @@ namespace theoretica {
 #endif
 
 		if(c == 0) {
-			UMATH_ERROR("tan", c, DIV_BY_ZERO);
+			TH_MATH_ERROR("tan", c, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -825,7 +825,7 @@ namespace theoretica {
 #endif
 
 		if(s == 0) {
-			UMATH_ERROR("cot", s, DIV_BY_ZERO);
+			TH_MATH_ERROR("cot", s, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -895,7 +895,7 @@ namespace theoretica {
 	inline real asin(real x) {
 
 		if(abs(x) > 1) {
-			UMATH_ERROR("asin", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("asin", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -913,7 +913,7 @@ namespace theoretica {
 	inline real acos(real x) {
 
 		if(abs(x) > 1) {
-			UMATH_ERROR("acos", x, OUT_OF_DOMAIN);
+			TH_MATH_ERROR("acos", x, OUT_OF_DOMAIN);
 			return nan();
 		}
 
@@ -936,7 +936,7 @@ namespace theoretica {
 		if(x == 0) {
 
 			if(y == 0) {
-				UMATH_ERROR("atan2", y, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("atan2", y, OUT_OF_DOMAIN);
 				return nan();
 			}
 
@@ -1037,7 +1037,7 @@ namespace theoretica {
 	TH_CONSTEXPR inline IntType binomial_coeff(unsigned int n, unsigned int m) {
 
 		if(n < m) {
-			UMATH_ERROR("binomial_coeff", n, IMPOSSIBLE_OPERATION);
+			TH_MATH_ERROR("binomial_coeff", n, IMPOSSIBLE_OPERATION);
 			return 0;
 		}
 

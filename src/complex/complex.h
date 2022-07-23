@@ -201,7 +201,7 @@ namespace  theoretica {
 			inline complex& operator/=(real r) {
 
 				if(r == 0) {
-					UMATH_ERROR("complex::operator/=", r, DIV_BY_ZERO);
+					TH_MATH_ERROR("complex::operator/=", r, DIV_BY_ZERO);
 					a = nan();
 					b = nan();
 					return *this;

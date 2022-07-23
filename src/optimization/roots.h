@@ -20,7 +20,7 @@ namespace theoretica {
 	inline real approx_root_bisection(real_function f, real a, real b) {
 
 		if(f(a) * f(b) >= 0) {
-			UMATH_ERROR("approx_root_bisection", f(a) * f(b), INVALID_ARGUMENT);
+			TH_MATH_ERROR("approx_root_bisection", f(a) * f(b), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -44,7 +44,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_BISECTION_ITER) {
-			UMATH_ERROR("approx_root_bisection", x_avg, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_bisection", x_avg, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -65,7 +65,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			UMATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -92,7 +92,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			UMATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -113,7 +113,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			UMATH_ERROR("approx_polyn_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_polyn_root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -134,7 +134,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			UMATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -160,7 +160,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			UMATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -182,7 +182,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			UMATH_ERROR("approx_polyn_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_polyn_root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -203,7 +203,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			UMATH_ERROR("approx_root_steffensen", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -223,7 +223,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			UMATH_ERROR("approx_polyn_root_steffensen", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_polyn_root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -244,7 +244,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			UMATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -271,7 +271,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			UMATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -293,7 +293,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			UMATH_ERROR("approx_polyn_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_polyn_root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 

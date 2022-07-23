@@ -87,7 +87,7 @@ namespace theoretica {
 			inline phasor operator/(const phasor& other) const {
 
 				if(other.modulus == 0) {
-					UMATH_ERROR("phasor::operator/", other.modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::operator/", other.modulus, DIV_BY_ZERO);
 					return phasor(nan(), nan());
 				}
 					
@@ -137,7 +137,7 @@ namespace theoretica {
 			inline phasor& operator/=(const phasor& other) {
 
 				if(other.modulus == 0) {
-					UMATH_ERROR("phasor::operator/=", other.modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::operator/=", other.modulus, DIV_BY_ZERO);
 					modulus = nan();
 					phase = nan();
 					return *this;

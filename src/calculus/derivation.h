@@ -104,8 +104,8 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	inline real deriv(real_function f, real x) {
-		return deriv_central(f, x);
+	inline real deriv(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return deriv_ridders2(f, x, h);
 	}
 
 }

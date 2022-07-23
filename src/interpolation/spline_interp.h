@@ -43,7 +43,7 @@ namespace theoretica {
 			real t_new = invlerp(P1.get(i), P2.get(i), value);
 
 			if(t != t_new) {
-				UMATH_ERROR("invlerp", t_new, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("invlerp", t_new, OUT_OF_DOMAIN);
 				return nan();
 			}
 		}
@@ -84,7 +84,7 @@ namespace theoretica {
 		// Check whether one of the vectors is null,
 		// which would make the computation impossible
 		if(P1_l == 0 || P2_l == 0) {
-			UMATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
+			TH_MATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
 			return vec<N>(nan());
 		}
 
@@ -94,7 +94,7 @@ namespace theoretica {
 
 		// Check that the sine of the angle is not zero
 		if(s == 0) {
-			UMATH_ERROR("slerp", s, DIV_BY_ZERO);
+			TH_MATH_ERROR("slerp", s, DIV_BY_ZERO);
 			return vec<N>(nan());
 		}
 
@@ -109,7 +109,7 @@ namespace theoretica {
 	inline real smoothstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
-			UMATH_ERROR("smoothstep", x1, DIV_BY_ZERO);
+			TH_MATH_ERROR("smoothstep", x1, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -125,7 +125,7 @@ namespace theoretica {
 	inline real smootherstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
-			UMATH_ERROR("smootherstep", x1, DIV_BY_ZERO);
+			TH_MATH_ERROR("smootherstep", x1, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -176,12 +176,12 @@ namespace theoretica {
 	inline vec<N> bezier(std::vector<vec<N>> points, real t) {
 		
 		if(points.size() < 2) {
-			UMATH_ERROR("bezier", points.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("bezier", points.size(), INVALID_ARGUMENT);
 			return vec<N>(nan());
 		}
 
 		if(t < 0 || t > 1) {
-			UMATH_ERROR("bezier", t, INVALID_ARGUMENT);
+			TH_MATH_ERROR("bezier", t, INVALID_ARGUMENT);
 			return vec<N>(nan());
 		}
 

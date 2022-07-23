@@ -62,7 +62,7 @@ namespace theoretica {
 		vec(std::initializer_list<T> l) {
 
 			if(l.size() != N) {
-				UMATH_ERROR("vec::vec(initializer_list<T>)", l.size(),
+				TH_MATH_ERROR("vec::vec(initializer_list<T>)", l.size(),
 					INVALID_ARGUMENT);
 				// Set all elements to NaN
 				*this = vec<N, T>(nan());
@@ -153,7 +153,7 @@ namespace theoretica {
 		inline vec<3> cross(const vec<3>& other) const {
 
 			if(N != 3) {
-				UMATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
 				return vec<N, T>(nan());
 			}
 
@@ -249,7 +249,7 @@ namespace theoretica {
 			real m = magnitude();
 
 			if(m == 0) {
-				UMATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
+				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
 				*this = vec<N, T>(nan());
 			}
 
@@ -265,7 +265,7 @@ namespace theoretica {
 			real m = magnitude();
 
 			if(m == 0) {
-				UMATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
+				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
 				return vec<N, T>(nan());
 			}
 

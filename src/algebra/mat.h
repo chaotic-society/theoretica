@@ -67,7 +67,7 @@ namespace theoretica {
 		// inline mat(std::array<vec<K>, N> rows) {
 
 		// 	if(rows.size() != N) {
-		// 		UMATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(),
+		// 		TH_MATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(),
 		// 			INVALID_ARGUMENT);
 		// 		*this = mat<N, K>(nan());
 		// 		return;
@@ -192,7 +192,7 @@ namespace theoretica {
 		inline mat<N, K> operator/(real scalar) const {
 
 			if(scalar == 0) {
-				UMATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
 				return mat<N, K>(nan());
 			}
 
@@ -285,7 +285,7 @@ namespace theoretica {
 		inline mat<N, K>& operator/=(real scalar) {
 
 			if(scalar == 0) {
-				UMATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
 				return mat<N, K>(nan());
 			}
 
@@ -308,7 +308,7 @@ namespace theoretica {
 		inline void transpose() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::transpose", K, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::transpose", K, IMPOSSIBLE_OPERATION);
 				// Set all elements to nan ?
 				return;
 			}
@@ -331,7 +331,7 @@ namespace theoretica {
 		inline mat<K, N> transposed() const {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::transposed", K, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::transposed", K, IMPOSSIBLE_OPERATION);
 				return diagonal(nan());
 			}
 
@@ -481,7 +481,7 @@ namespace theoretica {
 		inline real trace() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::trace", K, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::trace", K, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
 
@@ -498,7 +498,7 @@ namespace theoretica {
 		inline real diagonal_product() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::diagonal_product", K, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::diagonal_product", K, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
 
@@ -530,7 +530,7 @@ namespace theoretica {
 		inline real det_gj() const {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::det_gj", N, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::det_gj", N, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
 
@@ -597,7 +597,7 @@ namespace theoretica {
 		inline real det() const {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::det", K, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::det", K, IMPOSSIBLE_OPERATION);
 				return nan();
 			}
 			
@@ -635,7 +635,7 @@ namespace theoretica {
 		inline mat<N, K> inverse() const {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
 				return mat<N, K>(nan());
 			}
 
@@ -676,7 +676,7 @@ namespace theoretica {
 					}
 
 					if(!flag) {
-						UMATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
+						TH_MATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
 						return mat<N, K>(nan());
 					}
 				}
@@ -717,7 +717,7 @@ namespace theoretica {
 		inline mat<N, K>& invert() {
 
 			if(!is_square()) {
-				UMATH_ERROR("mat::invert", N, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::invert", N, IMPOSSIBLE_OPERATION);
 				return *this;
 			}
 
@@ -759,7 +759,7 @@ namespace theoretica {
 					}
 
 					if(!flag) {
-						UMATH_ERROR("mat::invert", flag, IMPOSSIBLE_OPERATION);
+						TH_MATH_ERROR("mat::invert", flag, IMPOSSIBLE_OPERATION);
 						return *this;
 					}
 				}
@@ -1147,7 +1147,7 @@ namespace theoretica {
 		inline static mat<N, K> symplectic() {
 
 			if(N != K || (N % 2 != 0)) {
-				UMATH_ERROR("mat::symplectic", N, IMPOSSIBLE_OPERATION);
+				TH_MATH_ERROR("mat::symplectic", N, IMPOSSIBLE_OPERATION);
 				return mat<N, K>(nan());
 			}
 

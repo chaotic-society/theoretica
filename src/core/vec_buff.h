@@ -22,7 +22,7 @@ namespace theoretica {
 	inline real product(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("product", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -38,7 +38,7 @@ namespace theoretica {
 	inline real product_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -54,7 +54,7 @@ namespace theoretica {
 	inline real product_sum_squares(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -70,7 +70,7 @@ namespace theoretica {
     inline real product_sum(const vec_buff& X, const vec_buff& Y, const vec_buff& Z) {
 
 		if(X.size() != Y.size() || X.size() != Z.size()) {
-			UMATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -86,7 +86,7 @@ namespace theoretica {
 	inline real quotient_sum(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("quotient_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("quotient_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -94,7 +94,7 @@ namespace theoretica {
 		for(unsigned int i = 0; i < X.size(); i++) {
 
 			if(Y[i] == 0) {
-				UMATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
+				TH_MATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
 				return nan();
 			}
 
@@ -139,7 +139,7 @@ namespace theoretica {
 	inline real max(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("max", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("max", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -157,7 +157,7 @@ namespace theoretica {
 	inline real min(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("min", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("min", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 

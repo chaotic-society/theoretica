@@ -29,7 +29,7 @@ namespace theoretica {
 			if(x >= 1) {
 				return fact(int(x) - 1);
 			} else {
-				UMATH_ERROR("gamma", x, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("gamma", x, OUT_OF_DOMAIN);
 				return nan();
 			}
 		}

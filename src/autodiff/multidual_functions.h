@@ -43,7 +43,7 @@ namespace theoretica {
 		real sqrt_x = sqrt(x.Re());
 
 		if(sqrt_x == 0) {
-			UMATH_ERROR("sqrt(multidual)", sqrt_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("sqrt(multidual)", sqrt_x, DIV_BY_ZERO);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -72,7 +72,7 @@ namespace theoretica {
 		real cos_x = cos(x.Re());
 
 		if(cos_x == 0) {
-			UMATH_ERROR("tan(multidual)", cos_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("tan(multidual)", cos_x, DIV_BY_ZERO);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -87,7 +87,7 @@ namespace theoretica {
 		real sin_x = sin(x.Re());
 
 		if(sin_x == 0) {
-			UMATH_ERROR("cot(multidual)", sin_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("cot(multidual)", sin_x, DIV_BY_ZERO);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -108,7 +108,7 @@ namespace theoretica {
 	multidual<N> ln(multidual<N> x) {
 
 		if(x.Re() <= 0) {
-			UMATH_ERROR("ln(multidual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("ln(multidual)", x.Re(), OUT_OF_DOMAIN);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -121,7 +121,7 @@ namespace theoretica {
 	multidual<N> log2(multidual<N> x) {
 
 		if(x.Re() <= 0) {
-			UMATH_ERROR("log2(multidual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log2(multidual)", x.Re(), OUT_OF_DOMAIN);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -134,7 +134,7 @@ namespace theoretica {
 	multidual<N> log10(multidual<N> x) {
 
 		if(x.Re() <= 0) {
-			UMATH_ERROR("log10(multidual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log10(multidual)", x.Re(), OUT_OF_DOMAIN);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -154,7 +154,7 @@ namespace theoretica {
 	multidual<N> asin(multidual<N> x) {
 
 		if(x.Re() >= 1) {
-			UMATH_ERROR("asin(multidual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("asin(multidual)", x.Re(), OUT_OF_DOMAIN);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 
@@ -167,7 +167,7 @@ namespace theoretica {
 	multidual<N> acos(multidual<N> x) {
 
 		if(x.Re() >= 1) {
-			UMATH_ERROR("acos(multidual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("acos(multidual)", x.Re(), OUT_OF_DOMAIN);
 			return multidual<N>(nan(), vec<N>(nan()));
 		}
 

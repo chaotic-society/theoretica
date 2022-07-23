@@ -86,7 +86,7 @@ namespace theoretica {
 			inline multidual inverse() const {
 
 				if(a == 0) {
-					UMATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
 					return multidual(nan(), vec<N>(nan()));
 				}
 
@@ -146,7 +146,7 @@ namespace theoretica {
 			inline multidual operator/(const multidual& other) const {
 
 				if(a == 0) {
-					UMATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
 					return multidual(nan(), vec<N>(nan()));
 				}
 
@@ -210,7 +210,7 @@ namespace theoretica {
 			inline multidual& operator/=(real r) {
 
 				if(r == 0) {
-					UMATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
 					v = vec<N>(nan());
 					return *this;

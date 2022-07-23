@@ -119,7 +119,7 @@ namespace theoretica {
 		unsigned int order = 16) {
 
 		if(order % 2 != 0) {
-			UMATH_ERROR("integral_romberg", order, IMPOSSIBLE_OPERATION);
+			TH_MATH_ERROR("integral_romberg", order, IMPOSSIBLE_OPERATION);
 			return nan();
 		}
 

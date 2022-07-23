@@ -85,7 +85,7 @@ namespace theoretica {
 			inline quat operator/(real scalar) const {
 
 				if(scalar == 0) {
-					UMATH_ERROR("quat::operator/", scalar, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::operator/", scalar, DIV_BY_ZERO);
 					return quat(nan(), vec3(nan()));
 				}
 
@@ -126,7 +126,7 @@ namespace theoretica {
 			inline quat& operator/=(real scalar) {
 
 				if(scalar == 0) {
-					UMATH_ERROR("quat::operator/=", scalar, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::operator/=", scalar, DIV_BY_ZERO);
 					return (*this = quat(nan(), vec3(nan())));
 				}
 
@@ -171,7 +171,7 @@ namespace theoretica {
 				real n = norm();
 
 				if(n == 0) {
-					UMATH_ERROR("quat::normalize", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::normalize", n, DIV_BY_ZERO);
 					*this = quat(nan(), vec3(nan()));
 				}
 
@@ -185,7 +185,7 @@ namespace theoretica {
 				real n = norm();
 
 				if(n == 0) {
-					UMATH_ERROR("quat::normalized", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::normalized", n, DIV_BY_ZERO);
 					return quat(nan(), vec3(nan()));
 				}
 
@@ -198,7 +198,7 @@ namespace theoretica {
 				real sqr_norm = square_norm();
 
 				if(sqr_norm == 0) {
-					UMATH_ERROR("quat::inverse", sqr_norm, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::inverse", sqr_norm, DIV_BY_ZERO);
 					return quat(nan(), vec3(nan()));
 				}
 

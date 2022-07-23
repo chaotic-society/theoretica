@@ -172,7 +172,7 @@ namespace theoretica {
 			inline polynomial operator/(real a) const {
 
 				if(a == 0) {
-					UMATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
 				}
 
 				polynomial r = polynomial(*this);
@@ -246,7 +246,7 @@ namespace theoretica {
 			inline polynomial& operator/=(T a) {
 
 				if(a == 0) {
-					UMATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
 					return *this;
 				}
 
@@ -288,7 +288,7 @@ namespace theoretica {
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
-					UMATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
+					TH_MATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
 					return vec<2, complex>({nan(), nan()});
 				}
 

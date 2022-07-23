@@ -210,7 +210,7 @@ namespace theoretica {
 	// 		inline vec<N> operator()(const vec<N>& x) {
 
 	// 			if(f == nullptr) {
-	// 				UMATH_ERROR("func_gradient::operator()", f, INVALID_ARGUMENT);
+	// 				TH_MATH_ERROR("func_gradient::operator()", f, INVALID_ARGUMENT);
 	// 				return nan();
 	// 			}
 

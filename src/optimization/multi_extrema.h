@@ -34,7 +34,7 @@ namespace theoretica {
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
 		if(gamma >= 0) {
-			UMATH_ERROR("minimize_grad", gamma, INVALID_ARGUMENT);
+			TH_MATH_ERROR("minimize_grad", gamma, INVALID_ARGUMENT);
 			return vec<N>(nan());
 		}
 
@@ -51,7 +51,7 @@ namespace theoretica {
 		} while(grad.lenght() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			UMATH_ERROR("minimize_grad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_grad", iter, NO_ALGO_CONVERGENCE);
 			return vec<N>(nan());
 		}
 
@@ -127,7 +127,7 @@ namespace theoretica {
 		} while(grad.lenght() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			UMATH_ERROR("minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
 			return vec<N>(nan());
 		}
 

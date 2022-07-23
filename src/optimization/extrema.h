@@ -17,7 +17,7 @@ namespace theoretica {
 	inline real approx_max_goldensection(real_function f, real a, real b) {
 
 		if(a > b) {
-			UMATH_ERROR("approx_max_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("approx_max_goldensection", b, INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -43,7 +43,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_GOLDENSECTION_ITER) {
-			UMATH_ERROR("approx_max_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_max_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -55,7 +55,7 @@ namespace theoretica {
 	inline real approx_min_goldensection(real_function f, real a, real b) {
 
 		if(a > b) {
-			UMATH_ERROR("approx_min_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("approx_min_goldensection", b, INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -81,7 +81,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_GOLDENSECTION_ITER) {
-			UMATH_ERROR("approx_min_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_min_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -97,7 +97,7 @@ namespace theoretica {
 		real z = approx_root_newton(Df, D2f, guess);
 
 		if(D2f(z) > 0) {
-			UMATH_ERROR("approx_max_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_max_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -113,7 +113,7 @@ namespace theoretica {
 		real z = approx_root_newton(Df, D2f, guess);
 
 		if(D2f(z) < 0) {
-			UMATH_ERROR("approx_min_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_min_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -130,7 +130,7 @@ namespace theoretica {
 		real z = approx_root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) > 0) {
-			UMATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -145,7 +145,7 @@ namespace theoretica {
 		real z = approx_root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) < 0) {
-			UMATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);
 			return z;
 		}
 

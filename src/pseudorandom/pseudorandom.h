@@ -47,7 +47,7 @@ namespace theoretica {
 	inline uint64_t rand_congruential(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 3) {
-			UMATH_ERROR("rand_congruential", state.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_congruential", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 
@@ -56,7 +56,7 @@ namespace theoretica {
 		const uint64_t m = state[2];
 
         if(a > m || c > m) {
-            UMATH_ERROR("rand_congruential", max(a, c), INVALID_ARGUMENT);
+            TH_MATH_ERROR("rand_congruential", max(a, c), INVALID_ARGUMENT);
             return 0;
         }
 
@@ -94,7 +94,7 @@ namespace theoretica {
 	inline uint64_t rand_xoshiro(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
-			UMATH_ERROR("rand_xoshiro", state.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_xoshiro", state.size(), INVALID_ARGUMENT);
 			return 0;
 		}
 

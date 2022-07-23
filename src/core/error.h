@@ -128,7 +128,7 @@ namespace theoretica {
 }
 
 
-/// UMATH_ERROR is a macro which throws exceptions
+/// TH_MATH_ERROR is a macro which throws exceptions
 /// or modifies errno (depending on which compiling options
 /// are defined)
 
@@ -136,16 +136,16 @@ namespace theoretica {
 // Only throw exceptions, without modifying errno
 #ifdef THEORETICA_ONLY_EXCEPTIONS
 
-#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
+#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
-#define UMATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
-	UMATH_ERROR(F_NAME, VALUE, EXCEPTION)
+#define TH_MATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
+	TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)
 
 // Throw exceptions and modify errno
 #elif defined(THEORETICA_THROW_EXCEPTIONS)
 
-#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
+#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	errno = th_errcode_to_errno(EXCEPTION); \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
@@ -153,7 +153,7 @@ namespace theoretica {
 #else
 
 // For a generic function (NO return statement)
-#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION) \
+#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	errno = th_errcode_to_errno(EXCEPTION);
 
 #endif
