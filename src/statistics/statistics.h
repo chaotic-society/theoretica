@@ -19,7 +19,7 @@ namespace theoretica {
 	inline real arithmetic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
+			TH_MATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -39,7 +39,7 @@ namespace theoretica {
 	inline real harmonic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
+			TH_MATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -48,7 +48,7 @@ namespace theoretica {
 		for (unsigned int i = 0; i < data.size(); ++i) {
 
 			if(data[i] == 0) {
-				UMATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
+				TH_MATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
 				return nan();
 			}
 
@@ -80,7 +80,7 @@ namespace theoretica {
 	inline real quadratic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -127,7 +127,7 @@ namespace theoretica {
 	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
 
 		if(sigma.size() != mean.size()) {
-			UMATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -136,7 +136,7 @@ namespace theoretica {
 		for (unsigned int i = 0; i < sigma.size(); ++i) {
 
 			if(mean[i] == 0) {
-				UMATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
+				TH_MATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
 				return nan();
 			}
 
@@ -152,7 +152,7 @@ namespace theoretica {
 	inline real total_sum_squares(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -177,7 +177,7 @@ namespace theoretica {
 	inline real variance(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("variance", data.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("variance", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -190,7 +190,7 @@ namespace theoretica {
 	inline real sample_variance(const vec_buff& data) {
 
 		if(!data.size()) {
-			UMATH_ERROR("sample_variance", data.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("sample_variance", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -230,7 +230,7 @@ namespace theoretica {
 		real x_mean = mean(X);
 
 		if(x_mean == 0) {
-			UMATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+			TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -245,7 +245,7 @@ namespace theoretica {
 		real x_mean = mean(X);
 
 		if(x_mean == 0) {
-			UMATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+			TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
 			return nan();
 		}
 
@@ -266,14 +266,14 @@ namespace theoretica {
 
 
 	/// Compute the standard deviation on the mean of a set of measures
-	/// Bessel correction is used in the calculation of variance
+	/// Bessel correction is used in the calculation of the variance
 	inline real sample_mean_standard_deviation(const vec_buff& data) {
 		return sqrt(sample_variance(data)) / sqrt(data.size());
 	}
 
 
 	/// Compute the standard deviation on the mean of a set of measures
-	/// Bessel correction is used in the calculation of variance
+	/// Bessel correction is used in the calculation of the variance
 	inline real smpl_stdom(const vec_buff& data) {
 		return sample_mean_standard_deviation(data);
 	}
@@ -283,7 +283,7 @@ namespace theoretica {
 	inline real covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -303,7 +303,7 @@ namespace theoretica {
 	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("sample_covariance", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("sample_covariance", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -331,12 +331,114 @@ namespace theoretica {
 	}
 
 
+	/// Lag-1 autocorrelation of a dataset
+	inline real autocorrelation(const vec_buff& X) {
+
+		if(X.size() < 2) {
+			TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real mu = mean(X);
+		real num = 0;
+		real den = square(X[0] - mu);
+
+		for (unsigned int i = 1; i < X.size(); ++i) {
+
+			const real delta = X[i] - mu;
+			num += delta * (X[i - 1] - mu);
+			den += square(delta);
+		}
+
+		return num / den;
+	}
+
+
+	/// Lag-n autocorrelation of a dataset
+	// inline real autocorrelation(const vec_buff& X, unsigned int n) {
+
+	// 	if(X.size() < (n + 1)) {
+	// 		TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
+	// 		return nan();
+	// 	}
+
+	// 	real mu = mean(X);
+	// 	real num = 0;
+	// 	real den = 0;
+
+	// 	for (int i = 0; i < n; ++i)
+	// 		den += pow(X[i] - mu, n + 1);
+
+
+	// 	for (unsigned int i = n; i < X.size(); ++i) {
+
+	// 		real prod = 1;
+
+	// 		for (int j = 0; j < n; ++j) {
+	// 			prod *= (X[i - j] - mu);
+	// 		}
+
+	// 		num += prod;
+	// 		den += pow(X[i] - mu, n + 1);
+	// 	}
+
+	// 	return num / den;
+	// }
+
+
+	/// Absolute deviation from the mean
+	inline real absolute_deviation(const vec_buff& X) {
+
+		real mu = mean(X);
+		real res = 0;
+
+		for (real x : X)
+			res += abs(x - mu);
+
+		return res / X.size();
+	}
+
+
+	/// Absolute deviation from the mean
+	inline real absdev(const vec_buff& X) {
+		return absolute_deviation(X);
+	}
+
+
+	/// Skewness of a dataset
+	inline real skewness(const vec_buff& X) {
+
+		real mu = mean(X);
+		real sigma = smpl_stdev(X);
+		real res = 0;
+
+		for (real x : X)
+			res += cube((x - mu) / sigma);
+
+		return res / X.size();
+	}
+
+
+	/// Normalized Kurtosis of a dataset
+	inline real kurtosis(const vec_buff& X) {
+
+		real mu = mean(X);
+		real sigma = smpl_stdev(X);
+		real res = 0;
+
+		for (real x : X)
+			res += pow((x - mu) / sigma, 4);
+
+		return (res / X.size()) - 3;
+	}
+
+
 	/// Normal distribution chi-square with 4 intervals
 	/// calculated on a sample of measures
 	inline real chi_square_sigma(const vec_buff& X) {
 
 		if(!X.size()) {
-			UMATH_ERROR("chi_square_sigma", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("chi_square_sigma", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -377,7 +479,7 @@ namespace theoretica {
 		const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_intercept", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("least_squares_linear_intercept", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -408,7 +510,7 @@ namespace theoretica {
 	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -440,7 +542,7 @@ namespace theoretica {
 		real intercept, real slope) {
 
 		if(X.size() != Y.size()) {
-			UMATH_ERROR("least_squares_linear_error", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("least_squares_linear_error", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -468,7 +570,7 @@ namespace theoretica {
 		const vec_buff& sigma, real intercept, real slope) {
 
 		if(X.size() != Y.size() || X.size() != sigma.size()) {
-			UMATH_ERROR(
+			TH_MATH_ERROR(
 				"chi_square_linearization",
 				X.size(), INVALID_ARGUMENT);
 			return nan();
@@ -499,7 +601,7 @@ namespace theoretica {
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
-			UMATH_ERROR(
+			TH_MATH_ERROR(
 				"least_squares_weighted_linear_intercept",
 				X.size(), INVALID_ARGUMENT);
 			return nan();
@@ -526,7 +628,7 @@ namespace theoretica {
 		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
-			UMATH_ERROR(
+			TH_MATH_ERROR(
 				"least_squares_weighted_linear_slope",
 				X.size(), INVALID_ARGUMENT);
 			return nan();
