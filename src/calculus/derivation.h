@@ -29,31 +29,34 @@ namespace theoretica {
 	}
 
 
-	/// Central derivative approximation using the central method
+	/// Derivative approximation using the central method
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The difference in x to use
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv_central(real_function f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x + h) - f(x - h)) / (2.0 * h);
 	}
 
 
-	/// Forward derivative approximation using the forward method
+	/// Derivative approximation using the forward method
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The difference in x to use
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv_forward(real_function f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x + h) - f(x)) / h;
 	}
 
 
-	/// Backward derivative approximation using the backward method
+	/// Derivative approximation using the backward method
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The difference in x to use
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv_backward(real_function f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x) - f(x - h)) / h;
 	}
@@ -63,7 +66,8 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The difference in x to use
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv_ridders2(real_function f, real x, real h = DERIV_STEPSIZE) {
 		return (4.0 * deriv_central(f, x, h / 2.0) - deriv_central(f, x, h)) / 3.0;
 	}
@@ -74,7 +78,8 @@ namespace theoretica {
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
 	/// @param degree The degree of the algorithm
-	/// @param h The difference in x to use
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv_ridders(real_function f, real x, real h = 0.01, unsigned int degree = 3) {
 
 		real A[degree][degree];
@@ -104,8 +109,22 @@ namespace theoretica {
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the derivative
 	inline real deriv(real_function f, real x, real h = DERIV_STEPSIZE) {
 		return deriv_ridders2(f, x, h);
+	}
+
+
+	/// Use the best available algorithm to approximate the second
+	/// derivative of a real function
+	///
+	/// @param f The function to approximate the second derivative of
+	/// @param x The real value to approximate at
+	/// @param h The stepsize to use in the finite differences method
+	/// @return The approximated value of the second derivative
+	inline real deriv2(real_function f, real x, real h = DERIV_STEPSIZE) {
+		return (f(x + h) - (2 * f(x)) + f(x - h)) / (h * h);
 	}
 
 }
