@@ -169,7 +169,7 @@ namespace theoretica {
 	}
 
 
-	/// Computer the Sturm-Liouville operator on a generic function
+	/// Compute the Sturm-Liouville operator on a generic function
 	/// of the form \f$f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$
 	/// with respect to a given Hamiltonian function of the form
 	/// \f$H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$ where
@@ -192,33 +192,21 @@ namespace theoretica {
 	// A functor representing the gradient of a function
 	// template<unsigned int N>
 	// struct func_gradient {
-
 	// 		/// Encapsulated function
 	// 		multidual<N>(*f)(vec<N, multidual<N>>) = nullptr;
-
-
 	// 		/// Construct with the differentiated function
 	// 		func_gradient(multidual<N>(*func)(vec<N, multidual<N>>)) : f(func) {}
-
-
-	// 		~func_gradient() = default;
-
-
 	// 		/// Compute the gradient for a given \f$\vec x\f$ of a function
 	// 		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	// 		/// using automatic differentiation.
 	// 		inline vec<N> operator()(const vec<N>& x) {
-
 	// 			if(f == nullptr) {
 	// 				TH_MATH_ERROR("func_gradient::operator()", f, INVALID_ARGUMENT);
-	// 				return nan();
+	// 				return nan();s
 	// 			}
-
 	// 			return gradient(f, x);
 	// 		}
 	// };
-
-
 	// Compute the gradient of a function of the form
 	// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	// using automatic differentiation.

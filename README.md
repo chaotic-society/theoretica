@@ -41,8 +41,7 @@ Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-s
 You can try to compile this simple code to see if the library works properly:
 ```cpp
 #include "theoretica.h"
-
-using namespace theoretica;
+using namespace th;
 
 int main() {
  

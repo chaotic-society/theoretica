@@ -82,7 +82,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cos - Architecture-independent version has low precision
   - [x] tan - Architecture-independent version has low precision
   - [x] sqrt
-  - [ ] ln - Depends on real function
+  - [x] ln - Architecture-independent version has low precision
   - [x] asin - (Low precision)
   - [x] acos - (Low precision)
   - [x] atan - (Low precision)
@@ -117,13 +117,19 @@ A functionality is considered "fully implemented" when it has at least one imple
 - Calculus (_calculus/derivation.h_, _calculus/integration.h_) - **NO TEST CASES**
   - [x] Integral approximation using midpoint, trapezoid and Simpson
   - [x] Romberg integral approximation
-  - [x] Monte Carlo integral approximation
-  - [x] Derivative approximation
+  - [x] Monte Carlo integral approximation (Crude, Hit-or-Miss)
+  - [x] Derivative approximation using central, forward, backward methods
+  - [x] Ridder's derivative approximation of arbitrary order
+  - [x] Second derivative approximation
   - [x] Ordinary Differential Equations numerical integration methods
 
 - Approximation of roots and extrema (_optimization/roots.h_, _optimization/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton, bisection and golden section search
+
+- Approximation of roots and extrema of multivariate functions (_optimization/multi_extrema.h_) - **NO TEST CASES**
+  - [x] Crude gradient descent
+  - [x] Gradient descent with linear search
 
 - Dual numbers (_autodiff/dual.h_, _autodiff/dual2.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -149,9 +155,9 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] tan - Architecture-independent version has low precision
   - [x] cot - Architecture-independent version has low precision
   - [x] exp
-  - [ ] ln - Depends on real function
-  - [ ] log2 - Depends on real function
-  - [ ] log10 - Depends on real function
+  - [x] ln - Depends on real function
+  - [x] log2 - Depends on real function
+  - [x] log10 - Depends on real function
   - [x] asin
   - [x] acos
   - [x] atan
@@ -170,6 +176,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Polynomial interpolation
   - [x] Linear interpolation
   - [x] Inverse linear interpolation
+  - [x] Spherical interpolation
   - [x] Remapping
   - [x] Quadratic Bezier
   - [x] Cubic Bezier
@@ -177,7 +184,6 @@ A functionality is considered "fully implemented" when it has at least one imple
 
 - Pseudorandom numbers (_pseudorandom/pseudorandom.h_, _pseudorandom/prng.h_) - **NO TEST CASES**
   - [x] PRNG class
-  - [x] Random real numbers on a range
   - [x] Congruential generator
   - [x] Xoroshiro256++
   - [x] Splitmix64
@@ -206,22 +212,34 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Bernoulli
   - [x] Poisson
   - [x] Binomial
+  - [x] Multinomial
   - [x] Log-normal
   - [x] Exponential
   - [x] Cauchy
   - [x] Breit Wigner
+  - [x] Laplace
+  - [x] Erlang
   - [x] Pareto
-  - [ ] Chi-square
+  - [x] Chi-squared
+  - [x] Student's t
 
 - Random number-based algorithms (_pseudorandom/rand_dist.h_, _pseudorandom/montecarlo.h_) - **NO TEST CASES**
-  - [x] Monte Carlo methods
   - [x] Try-and-catch number generation following a distribution
+  - [x] pdf_sampler class
   - [x] Uniform sampling
-  - [x] Gaussian sampling
+  - [x] Gaussian sampling (Polar, Box-Muller, CLT)
   - [x] Exponential sampling
   - [x] Cauchy sampling
+  - [x] Laplace sampling
   - [x] Pareto sampling
+  - [x] Crude Monte Carlo
+  - [x] Hit-or-miss Monte Carlo
   - [ ] Metropolis-Hastings Monte Carlo Markov Chain method
+
+- Special functions (_core/special.h_) - EXPERIMENTAL - **NO TEST CASES**
+  - [x] Gamma function - Low precision
+  - [x] Pi function - Low precision
+  - [x] Beta function - Low precision
 
 - Operations on bits (_core/bit_op.h_) - **NO TEST CASES*
   - [x] 128-bit multiplication

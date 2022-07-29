@@ -154,7 +154,7 @@ namespace theoretica {
 		inline real chi_squared(real x, unsigned int k) {
 
 			return powf(x, k / 2.0 - 1) * exp(-x / 2.0)
-				/ (pow(SQRT2, k) * gamma(k / 2.0));
+				/ (pow(SQRT2, k) * special::gamma(k / 2.0));
 		}
 
 
@@ -176,7 +176,7 @@ namespace theoretica {
 			real a = 1 + (x * x / nu);
 
 			return (1.0 / SQRTPI) * (1.0 / sqrt(nu))
-					* (gamma((nu + 1) / 2.0) / gamma(nu / 2.0))
+					* (special::gamma((nu + 1) / 2.0) / special::gamma(nu / 2.0))
 					* pow(sqrt(a), -nu - 1);
 		}
 

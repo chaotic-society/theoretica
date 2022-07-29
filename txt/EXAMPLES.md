@@ -22,8 +22,8 @@ vec3 v2 = {0, 1, 0};
 
 Basic vector operations:
 ```c
-// Compute the lenght of a vector
-real l = v1.lenght();
+// Compute the length of a vector
+real l = v1.length();
 
 // Access the i-th element (by reference)
 
@@ -185,7 +185,7 @@ complex z4 = z1.conjugate();
 // Complex analysis functions
 complex z5 = ln(z3) + atan(z3);
 ```
-Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and many more are also supported (`complex_analysis.h`).
+Common complex functions such as `sqrt`, `ln`, complex trigonometric functions and many more are also supported (`complex/complex_analysis.h`).
 
 ## Using quaternions
 Declare a quaternion using the `quat` class.
@@ -275,9 +275,18 @@ real r = sample_correlation_coefficient(X, Y);
 
 ```
 
-Many probability distribution functions are implemented in `statistics/distributions.h` and can be used through the `distribution` namespace. These include Gaussian, Binomial, Log-Normal, Poisson, Bernoulli, Cauchy and Breit Wigner.
+Many probability distribution functions are implemented in `statistics/distributions.h` and can be used through the `distribution` namespace. These include Gaussian, Binomial, Poisson, Bernoulli, Cauchy, Chi-squared and Student's t, among others.
 ```c
 real x1 = distribution::gaussian(1, 2.1, 0.7);
 real x2 = distribution::binomial(1, 3, 0.75);
 real x3 = distribution::poisson(2, 3);
+```
+
+The `pseudorandom/rand_dist.h` provides many algorithms to sample from different distributions, and the `pdf_sampler` class may be used to construct an object which automatically samples from a given distribution.
+```c
+// Construct a standard PRNG which uses the Wyrand algorithm
+PRNG g = PRNG::wyrand();
+
+// Sample a random value from a Gaussian distribution with mean 0 and sigma 1
+real x = rand_gaussian(0, 1, g);
 ```
