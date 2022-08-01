@@ -19,7 +19,6 @@ int main(int argc, char const *argv[]) {
 	std::ofstream f_gaussian = std::ofstream("./examples/data/gaussian.csv");
 	std::ofstream f_exponential = std::ofstream("./examples/data/exponential.csv");
 	std::ofstream f_cauchy = std::ofstream("./examples/data/cauchy.csv");
-	std::ofstream f_pareto = std::ofstream("./examples/data/pareto.csv");
 
 	// Pseudorandom Number Generator using Xoshiro256++
 	PRNG g = PRNG::xoshiro(time(nullptr));
@@ -46,10 +45,6 @@ int main(int argc, char const *argv[]) {
 		// Generate a random variable following a Cauchy distribution
 		// with location 0 and scale 1
 		f_cauchy << rand_cauchy(0, 1, g) << ",\n";
-		
-		// Generate a random variable following a Pareto distribution
-		// with scale = 1 and shape = 2
-		f_pareto << rand_pareto(1, 2, g) << ",\n";
 	}
 
 	return 0;

@@ -48,7 +48,7 @@ int main(int argc, char const *argv[]) {
 			mat4 Ainv = A.inverse();
 			mat4 res = A * Ainv;
 
-			// Check that all entries are zero
+			// Check that all entries are zero except on the diagonal
 			for (unsigned int j = 0; j < 4; ++j) {
 				for (unsigned int k = 0; k < 4; ++k) {
 					test_tolr(

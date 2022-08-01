@@ -1,3 +1,4 @@
 *.exe
 theoretica-cppcheck-build-dir/*
 *.cppcheck
+*.csv
