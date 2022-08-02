@@ -25,26 +25,26 @@ namespace theoretica {
 
 
 	/// Return the square of a dual number
-	dual square(dual x) {
+	inline dual square(dual x) {
 		return x * x;
 	}
 
 
 	/// Return the cube of a dual number
-	dual cube(dual x) {
+	inline dual cube(dual x) {
 		return x * x * x;
 	}
 
 
 	/// Compute the n-th power of a dual number
-	dual pow(dual x, int n) {
+	inline dual pow(dual x, int n) {
 		real pow_n_1_x = pow(x.Re(), n - 1);
 		return dual(pow_n_1_x * x.Re(), pow_n_1_x * n * x.Dual());
 	}
 
 
 	/// Compute the square root of a dual number
-	dual sqrt(dual x) {
+	inline dual sqrt(dual x) {
 
 		real sqrt_x = sqrt(x.Re());
 
@@ -58,19 +58,19 @@ namespace theoretica {
 
 
 	/// Compute the sine of a dual number
-	dual sin(dual x) {
+	inline dual sin(dual x) {
 		return dual(sin(x.Re()), cos(x.Re()) * x.Dual());
 	}
 
 
 	/// Compute the cosine of a dual number
-	dual cos(dual x) {
+	inline dual cos(dual x) {
 		return dual(cos(x.Re()), -sin(x.Re()) * x.Dual());
 	}
 
 
 	/// Compute the tangent of a dual number
-	dual tan(dual x) {
+	inline dual tan(dual x) {
 
 		real cos_x = cos(x.Re());
 
@@ -84,7 +84,7 @@ namespace theoretica {
 
 
 	/// Compute the cotangent of a dual number
-	dual cot(dual x) {
+	inline dual cot(dual x) {
 
 		real sin_x = sin(x.Re());
 
@@ -98,14 +98,14 @@ namespace theoretica {
 
 
 	/// Compute the exponential of a dual number
-	dual exp(dual x) {
+	inline dual exp(dual x) {
 		real exp_x = exp(x.Re());
 		return dual(exp_x, x.Dual() * exp_x);
 	}
 
 
 	/// Compute the natural logarithm of a dual number
-	dual ln(dual x) {
+	inline dual ln(dual x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("ln(dual)", x.Re(), OUT_OF_DOMAIN);
@@ -117,7 +117,7 @@ namespace theoretica {
 
 
 	/// Compute the natural logarithm of a dual number
-	dual log2(dual x) {
+	inline dual log2(dual x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log2(dual)", x.Re(), OUT_OF_DOMAIN);
@@ -129,7 +129,7 @@ namespace theoretica {
 
 
 	/// Compute the natural logarithm of a dual number
-	dual log10(dual x) {
+	inline dual log10(dual x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log10(dual)", x.Re(), OUT_OF_DOMAIN);
@@ -141,13 +141,13 @@ namespace theoretica {
 
 
 	/// Compute the absolute value of a dual number
-	dual abs(dual x) {
+	inline dual abs(dual x) {
 		return dual(abs(x.Re()), x.Dual() * sgn(x.Re()));
 	}
 
 
 	/// Compute the arcsine of a dual number
-	dual asin(dual x) {
+	inline dual asin(dual x) {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("asin(dual)", x.Re(), OUT_OF_DOMAIN);
@@ -159,7 +159,7 @@ namespace theoretica {
 
 
 	/// Compute the arccosine of a dual number
-	dual acos(dual x) {
+	inline dual acos(dual x) {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("acos(dual)", x.Re(), OUT_OF_DOMAIN);
@@ -171,13 +171,13 @@ namespace theoretica {
 
 
 	/// Compute the arctangent of a dual number
-	dual atan(dual x) {
+	inline dual atan(dual x) {
 		return dual(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
 	}
 
 
 	/// Compute the hyperbolic sine of a dual number
-	dual sinh(dual x) {
+	inline dual sinh(dual x) {
 
 		real exp_x = exp(x.Re());
 		return dual((exp_x - 1.0 / exp_x) / 2.0, x.Dual() * (exp_x + 1.0 / exp_x) / 2.0);
@@ -185,7 +185,7 @@ namespace theoretica {
 
 
 	/// Compute the hyperbolic cosine of a dual number
-	dual cosh(dual x) {
+	inline dual cosh(dual x) {
 
 		real exp_x = exp(x.Re());
 		return dual((exp_x + 1.0 / exp_x) / 2.0, x.Dual() * (exp_x - 1.0 / exp_x) / 2.0);
@@ -193,7 +193,7 @@ namespace theoretica {
 
 
 	/// Compute the hyperbolic tangent of a dual number
-	dual tanh(dual x) {
+	inline dual tanh(dual x) {
 
 		real exp_x = exp(x.Re());
 		return dual(

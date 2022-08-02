@@ -22,19 +22,19 @@ namespace theoretica {
 
 
 	/// Return the square of a second order dual number
-	dual2 square(dual2 x) {
+	inline dual2 square(dual2 x) {
 		return x * x;
 	}
 
 
 	/// Return the cube of a second order dual number
-	dual2 cube(dual2 x) {
+	inline dual2 cube(dual2 x) {
 		return x * x * x;
 	}
 
 
 	/// Compute the n-th power of a second order dual number
-	dual2 pow(dual2 x, int n) {
+	inline dual2 pow(dual2 x, int n) {
 
 		real pow_n_2_x = pow(x.Re(), n - 2);
 
@@ -47,7 +47,7 @@ namespace theoretica {
 
 
 	/// Compute the square root of a second order dual number
-	dual2 sqrt(dual2 x) {
+	inline dual2 sqrt(dual2 x) {
 
 		real sqrt_x = sqrt(x.Re());
 
@@ -63,7 +63,7 @@ namespace theoretica {
 
 
 	/// Compute the sine of a second order dual number
-	dual2 sin(dual2 x) {
+	inline dual2 sin(dual2 x) {
 
 		real sin_x = sin(x.Re());
 		real cos_x = cos(x.Re());
@@ -75,7 +75,7 @@ namespace theoretica {
 
 
 	/// Compute the cosine of a second order dual number
-	dual2 cos(dual2 x) {
+	inline dual2 cos(dual2 x) {
 
 		real sin_x = sin(x.Re());
 		real cos_x = cos(x.Re());
@@ -87,7 +87,7 @@ namespace theoretica {
 
 
 	/// Compute the tangent of a second order dual number
-	dual2 tan(dual2 x) {
+	inline dual2 tan(dual2 x) {
 
 		real sin_x = sin(x.Re());
 		real cos_x = cos(x.Re());
@@ -105,7 +105,7 @@ namespace theoretica {
 
 
 	/// Compute the cotangent of a second order dual number
-	dual2 cot(dual2 x) {
+	inline dual2 cot(dual2 x) {
 
 		real sin_x = sin(x.Re());
 		real cos_x = cos(x.Re());
@@ -123,7 +123,7 @@ namespace theoretica {
 
 
 	/// Compute the exponential of a second order dual number
-	dual2 exp(dual2 x) {
+	inline dual2 exp(dual2 x) {
 		real exp_x = exp(x.Re());
 		return dual2(exp_x,
 			x.Dual1() * exp_x,
@@ -132,7 +132,7 @@ namespace theoretica {
 
 
 	/// Compute the natural logarithm of a second order dual number
-	dual2 ln(dual2 x) {
+	inline dual2 ln(dual2 x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("ln(dual2)", x.Re(), OUT_OF_DOMAIN);
@@ -146,7 +146,7 @@ namespace theoretica {
 
 
 	/// Compute the natural logarithm of a second order dual number
-	dual2 log2(dual2 x) {
+	inline dual2 log2(dual2 x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log2(dual2)", x.Re(), OUT_OF_DOMAIN);
@@ -161,7 +161,7 @@ namespace theoretica {
 
 
 	/// Compute the natural logarithm of a second order dual number
-	dual2 log10(dual2 x) {
+	inline dual2 log10(dual2 x) {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log10(dual2)", x.Re(), OUT_OF_DOMAIN);
@@ -176,13 +176,13 @@ namespace theoretica {
 
 
 	/// Compute the absolute value of a second order dual number
-	dual2 abs(dual2 x) {
+	inline dual2 abs(dual2 x) {
 		return dual2(abs(x.Re()), x.Dual1() * sgn(x.Re()), 0);
 	}
 
 
 	/// Compute the arcsine of a second order dual number
-	dual2 asin(dual2 x) {
+	inline dual2 asin(dual2 x) {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("asin(dual2)", x.Re(), OUT_OF_DOMAIN);
@@ -199,7 +199,7 @@ namespace theoretica {
 
 
 	/// Compute the arcosine of a second order dual number
-	dual2 acos(dual2 x) {
+	inline dual2 acos(dual2 x) {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("acos(dual2)", x.Re(), OUT_OF_DOMAIN);
@@ -216,7 +216,7 @@ namespace theoretica {
 
 
 	/// Compute the arctangent of a second order dual number
-	dual2 atan(dual2 x) {
+	inline dual2 atan(dual2 x) {
 		return dual2(atan(x.Re()),
 			x.Dual1() / (1 + square(x.Re())),
 			square(x.Dual1()) * 2 * x.Re() / square(1 + square(x.Re()))

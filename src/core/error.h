@@ -32,7 +32,7 @@ namespace theoretica {
 
 
 	/// Convert a UMATH_ERRCODE to errno error codes
-	int th_errcode_to_errno(UMATH_ERRCODE err) {
+	inline int th_errcode_to_errno(UMATH_ERRCODE err) {
 		switch(err) {
 			case NO_ERROR: return 0; break;
 			case DIV_BY_ZERO: return ERANGE; break;
