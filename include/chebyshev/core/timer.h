@@ -1,13 +1,17 @@
-#ifndef THEORETICA_TIMER_H
-#define THEORETICA_TIMER_H
+
+///
+/// @file timer.h Timer class
+///
+
+#pragma once
 
 #include <chrono>
 
-namespace theoretica {
+
+namespace chebyshev {
 
 
-	/// @class timer
-	/// Helper class for benchmarks
+	/// @class timer Helper class for benchmarks
 	class timer {
 		private:
 			std::chrono::time_point<std::chrono::high_resolution_clock> s;
@@ -51,6 +55,3 @@ namespace theoretica {
 	};
 
 }
-
-
-#endif

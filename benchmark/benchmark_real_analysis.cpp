@@ -1,62 +1,89 @@
 
-///
-/// @file benchmark_real_analysis.cpp Benchmark real functions
-///
-
-#ifndef THEORETICA_BENCHMARK_REAL_ANALYSIS
-#define THEORETICA_BENCHMARK_REAL_ANALYSIS
-
-#include "./benchmark.h"
+#include "theoretica.h"
+#include "chebyshev/benchmark.h"
+using namespace chebyshev;
+using namespace theoretica;
 
 
 int main(int argc, char const *argv[]) {
 
-	// Setup
-	setup_benchmark("real_analysis", 1000000, 10);
-	print_benchmark_header();
-
-
-	// Initialize random input data
-
-	std::vector<real> input;
-	input.resize(N);
-	std::vector<real> input_norm;
-	input_norm.resize(N);
-
-	PRNG g = PRNG::xoshiro(
-			std::chrono::duration_cast<std::chrono::seconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count());
-
-	// Initialize input pool with random numbers in the interval [0, 1000000]
-	// and input_norm in the interval [0, 1]
-	for (unsigned int i = 0; i < N; ++i) {
-		input[i] = rand_uniform(0, 1000000, g);
-		input_norm[i] = rand_uniform(0, 1, g);
-	}
-
-
-	// Benchmark real functions
-
-	benchmark_real_function("th::square", th::square, input);
-	benchmark_real_function("th::cube", th::cube, input);
-	benchmark_real_function("th::sqrt", th::sqrt, input);
-	benchmark_real_function("th::cbrt", th::cbrt, input);
-	benchmark_real_function("th::abs", th::abs, input);
-	benchmark_real_function("th::fract", th::fract, input);
-	benchmark_real_function("th::ln", th::ln, input);
-	benchmark_real_function("th::log2", th::log2, input);
-	benchmark_real_function("th::log10", th::log10, input);
-	benchmark_real_function("th::atan", th::atan, input);
-	benchmark_real_function("th::asin", th::asin, input_norm);
-	benchmark_real_function("th::acos", th::acos, input_norm);
-	benchmark_real_function("th::atan2", th::atan2, input, input);
-	benchmark_real_function("th::exp", th::exp, input_norm);
-	benchmark_real_function("th::powf", th::powf, input, input_norm);
-
-	terminate_benchmark();
+	const real MIN = -1000000;
+	const real MAX = 1000000;
 	
-	return 0;
+	benchmark::setup("real_analysis");
+
+		BENCHMARK(th::square, MIN, MAX);
+		BENCHMARK(th::cube, MIN, MAX);
+		BENCHMARK(th::isqrt<uint32_t>, 0, MAX);
+		BENCHMARK(th::icbrt<uint32_t>, 0, MAX);
+		BENCHMARK(th::sqrt, 0, MAX);
+		BENCHMARK(th::cbrt, MIN, MAX);
+		BENCHMARK(th::abs, MIN, MAX);
+		BENCHMARK(th::sgn, MIN, MAX);
+		BENCHMARK(th::floor, MIN, MAX);
+		BENCHMARK(th::fract, MIN, MAX);
+
+		benchmark::request("th::max (1)",
+			[MIN, MAX](real x) { return max(MIN, x); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::max (2)",
+			[MIN, MAX](real x) { return max(x, MAX); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::min (1)",
+			[MIN, MAX](real x) { return min(MIN, x); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::min (2)",
+			[MIN, MAX](real x) { return min(x, MAX); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::clamp (1)",
+			[MIN, MAX](real x) { return clamp(x, MIN, MAX); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::clamp (2)",
+			[MIN, MAX](real x) { return clamp(x, 0, 1); }, uniform_generator(MIN, MAX));
+
+		BENCHMARK(th::ln, 0, MAX);
+		BENCHMARK(th::log2, 0, MAX);
+		BENCHMARK(th::log10, 0, MAX);
+
+		benchmark::request("th::pow (1)",
+			[](real x) { return th::pow(1.1, (int) x); }, uniform_generator(-100, 100));
+
+		benchmark::request("th::pow (2)",
+			[](real x) { return th::pow(1.1, (int) -x); }, uniform_generator(-100, 100));
+
+		benchmark::request("th::root",
+			[](real x) { return th::root(x, 10); }, uniform_generator(MIN, MAX), 100000, 5);
+
+		BENCHMARK(th::fract, 0, 20);
+		BENCHMARK(th::exp, -100, 10);
+
+		benchmark::request("th::powf (1)",
+			[](real x) { return th::powf(x, 10); }, uniform_generator(MIN, MAX));
+
+		benchmark::request("th::powf (2)",
+			[](real x) { return th::powf(x, -10); }, uniform_generator(MIN, MAX));
+
+		BENCHMARK(th::sin, MIN, MAX);
+		BENCHMARK(th::cos, MIN, MAX);
+		BENCHMARK(th::tan, MIN, MAX);
+		BENCHMARK(th::cot, MIN, MAX);
+
+		BENCHMARK(th::atan, MIN, MAX);
+		BENCHMARK(th::asin, MIN, MAX);
+		BENCHMARK(th::acos, MIN, MAX);
+
+		BENCHMARK(th::sinh, -50, 50);
+		BENCHMARK(th::cosh, -50, 50);
+		BENCHMARK(th::tanh, -50, 50);
+		BENCHMARK(th::coth, -50, 50);
+		BENCHMARK(th::sigmoid, -50, 50);
+		BENCHMARK(th::sinc, MIN, MAX);
+		BENCHMARK(th::heaviside, MIN, MAX);
+		BENCHMARK(th::radians, MIN, MAX);
+		BENCHMARK(th::degrees, MIN, MAX);
+
+		benchmark::request("th::binomial_coeff",
+			[](real x) { return binomial_coeff<uint32_t>(10, x); }, uniform_generator(0, 9));
+
+	benchmark::terminate();
 }
-
-
-#endif
