@@ -530,34 +530,33 @@ namespace theoretica {
 	template<typename T = real>
 	TH_CONSTEXPR inline T pow(T x, int n) {
 
-		T res = T(0);
-		T x2 = x * x;
-		int i = 1;
-
 		if(n > 0) {
 
-			res = x;
+			T res = x;
+			T x_sqr = x * x;
+			int i = 1;
 
-			for(; i < (n / 2); i += 2)
-				res *= x2;
+			// Self-multiply up to biggest power of 2
+			while ((i * 2) <= n) {
+				res = res * res;
+				i *= 2;
+			}
 
-			for(; i < n; ++i)
-				res *= x;
+			// Multiply by x^2 for remaining even power
+			for (; i < (n - 1); i += 2)
+				res = res * x_sqr;
+
+			// Multiply for remaining powers
+			for (; i < n; ++i)
+				res = res * x;
+
+			return res;
 
 		} else if(n < 0) {
-
-			res = 1 / x;
-
-			for(; i < (n / 2); i += 2)
-				res /= x2;
-
-			for(; i < -n; ++i)
-				res /= x;
+			return 1.0 / pow(x, -n);
 		} else {
-			return static_cast<T>(1.0);
+			return 1;
 		}
-
-		return res;
 	}
 
 
@@ -640,13 +639,14 @@ namespace theoretica {
 
 	// Domain reduction to [0, +inf]
 	if(x < 0)
-		return 1.0 / exp(abs(x));
+		return 1.0 / exp(-x);
 
-	real fract_x = fract(x);
+	const real fract_x = fract(x);
+	const int floor_x = floor(x);
 
 #ifdef THEORETICA_X86
 
-		return pow(E, floor(x)) * exp_x86_norm(fract_x);
+		return pow(E, floor_x) * exp_x86_norm(fract_x);
 
 #else
 
@@ -664,7 +664,7 @@ namespace theoretica {
 		res += s_n;
 	}
 
-	return pow(E, floor(x)) * res * res;
+	return pow(E, floor_x) * res * res;
 
 #endif
 	}
