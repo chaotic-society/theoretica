@@ -14,7 +14,8 @@ namespace theoretica {
 
 
 	/// Approximate a function maximum using the Golden Section search algorithm
-	inline real approx_max_goldensection(real_function f, real a, real b) {
+	template<typename RealFunction>
+	inline real approx_max_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
 			TH_MATH_ERROR("approx_max_goldensection", b, INVALID_ARGUMENT);
@@ -52,7 +53,8 @@ namespace theoretica {
 
 
 	/// Approximate a function minimum using the Golden Section search algorithm
-	inline real approx_min_goldensection(real_function f, real a, real b) {
+	template<typename RealFunction>
+	inline real approx_min_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
 			TH_MATH_ERROR("approx_min_goldensection", b, INVALID_ARGUMENT);
@@ -90,8 +92,9 @@ namespace theoretica {
 
 
 	/// Approximate a function maximum given the function and the first two derivatives using Newton-Raphson
+	template<typename RealFunction>
 	inline real approx_max_newton(
-		real_function f, real_function Df, real_function D2f,
+		RealFunction f, RealFunction Df, RealFunction D2f,
 		real guess = 0) {
 
 		real z = approx_root_newton(Df, D2f, guess);
@@ -106,9 +109,10 @@ namespace theoretica {
 
 
 	/// Approximate a function minimum given the function and the first two derivatives using Newton-Raphson
+	template<typename RealFunction>
 	inline real approx_min_newton(
-		real_function f, real_function Df,
-		real_function D2f, real guess = 0) {
+		RealFunction f, RealFunction Df,
+		RealFunction D2f, real guess = 0) {
 
 		real z = approx_root_newton(Df, D2f, guess);
 
@@ -123,8 +127,9 @@ namespace theoretica {
 
 	/// Approximate a function maximum inside an interval given
 	/// the function and its first derivative using bisection on the derivative
+	template<typename RealFunction>
 	inline real approx_max_bisection(
-		real_function f, real_function Df,
+		RealFunction f, RealFunction Df,
 		real a, real b) {
 
 		real z = approx_root_bisection(Df, a, b);
@@ -140,7 +145,8 @@ namespace theoretica {
 
 	/// Approximate a function minimum inside an interval given the function
 	/// and its first derivative using bisection on the derivative
-	inline real approx_min_bisection(real_function f, real_function Df, real a, real b) {
+	template<typename RealFunction>
+	inline real approx_min_bisection(RealFunction f, RealFunction Df, real a, real b) {
 
 		real z = approx_root_bisection(Df, a, b);
 

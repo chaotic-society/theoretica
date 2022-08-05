@@ -62,7 +62,7 @@ This project is currently under the [GNU Lesser General Public License 3.0](http
 ## Testing precision and performance
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
-The library uses the custom built Chebyshev testing framework to estimate the precision of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Different parts of the library are tested in different programs (e.g. real functions are tested in `test/test_real_analysis.cpp`).
+The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to estimate the precision of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Different parts of the library are tested in different programs (e.g. real functions are tested in `test/test_real_analysis.cpp`).
 Performance is measured using benchmarks inside the `benchmark` folder.
 
 ## Macros

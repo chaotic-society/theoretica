@@ -17,7 +17,8 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using bisection
 	/// inside a compact interval [a, b] where f(a) * f(b) < 0
-	inline real approx_root_bisection(real_function f, real a, real b) {
+	template<typename RealFunction>
+	inline real approx_root_bisection(RealFunction f, real a, real b) {
 
 		if(f(a) * f(b) >= 0) {
 			TH_MATH_ERROR("approx_root_bisection", f(a) * f(b), INVALID_ARGUMENT);
@@ -53,7 +54,8 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Newthon's method
-	inline real approx_root_newton(real_function f, real_function Df, real guess = 0) {
+	template<typename RealFunction>
+	inline real approx_root_newton(RealFunction f, RealFunction Df, real guess = 0) {
 
 
 		real x = guess;
@@ -122,8 +124,9 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Halley's method
-	inline real approx_root_halley(real_function f, real_function Df,
-		real_function D2f, real guess = 0) {
+	template<typename RealFunction>
+	inline real approx_root_halley(RealFunction f, RealFunction Df,
+		RealFunction D2f, real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -191,7 +194,8 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Steffensen's method
-	inline real approx_root_steffensen(real_function f, real guess = 0) {
+	template<typename RealFunction>
+	inline real approx_root_steffensen(RealFunction f, real guess = 0) {
 
 
 		real x = guess;
@@ -232,8 +236,9 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Chebyshev's method
-	inline real approx_root_chebyshev(real_function f, real_function Df,
-		real_function D2f, real guess = 0) {
+	template<typename RealFunction>
+	inline real approx_root_chebyshev(RealFunction f, RealFunction Df,
+		RealFunction D2f, real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
