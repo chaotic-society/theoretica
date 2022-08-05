@@ -14,6 +14,8 @@ int main(int argc, char const *argv[]) {
 	const real MAX = 1000000;
 	const real MIN = -MAX;
 
+	prec::state.outputFolder = "test/";
+
 	prec::setup("real_analysis");
 
 		prec::equals("th::square(real)", REAL_LAMBDA(th::square), {

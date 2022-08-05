@@ -59,6 +59,9 @@ namespace chebyshev {
 			/// Output file
 			std::ofstream outputFile;
 
+			/// Relative or absolute path to output folder
+			std::string outputFolder = "";
+
 			/// Total number of tests run
 			uint32_t totalTests = 0;
 
@@ -418,8 +421,6 @@ namespace chebyshev {
 		/// Setup the precision testing environment
 		inline void setup(std::string moduleName) {
 
-			state = prec_state();
-
 			std::cout << "Starting precision testing of the " << moduleName << " module ..." << std::endl;
 			state.moduleName = moduleName;
 			state.failedTests = 0;
@@ -428,7 +429,7 @@ namespace chebyshev {
 			if(state.outputToFile) {
 
 				std::string filename;
-				filename = "prec_"; filename += moduleName; filename += ".csv";
+				filename = state.outputFolder + "prec_" + moduleName + ".csv";
 
 				if(state.outputFile.is_open())
 					state.outputFile.close();
@@ -570,7 +571,9 @@ namespace chebyshev {
 			std::cout << "\nFinished testing " << state.moduleName << std::endl;
 			std::cout << state.totalTests << " total tests, " << state.failedTests << " failed (" <<
 				(state.failedTests / (double) state.totalTests) * 100 << "%)" << std::endl;
-			std::cout << "Results have been saved in prec_" << state.moduleName << ".csv" << std::endl;
+				
+			std::cout << "Results have been saved in "
+				<< state.outputFolder << "prec_" << state.moduleName << ".csv" << std::endl;
 			state.outputFile.close();
 			
 			state = prec_state();

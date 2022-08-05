@@ -79,6 +79,9 @@ namespace chebyshev {
 			/// Output file for the current module
 			std::ofstream outputFile;
 
+			/// Relative or absolute path to output folder
+			std::string outputFolder = "";
+
 			/// Benchmark state.results
 			std::vector<benchmark_result> results;
 
@@ -101,7 +104,7 @@ namespace chebyshev {
 			if(state.outputFile.is_open())
 				state.outputFile.close();
 
-			state.outputFile.open(std::string("benchmark_") + state.moduleName + ".csv");
+			state.outputFile.open(state.outputFolder + "benchmark_" + state.moduleName + ".csv");
 
 			if(!state.outputFile.is_open()) {
 				std::cout << "Can't open output file" << std::endl;
@@ -264,9 +267,7 @@ namespace chebyshev {
 			if(state.failedBenchmarks)
 				std::cout << state.failedBenchmarks << " benchmarks failed!" << std::endl;
 
-			std::string filename = "benchmark_";
-			filename += state.moduleName;
-			filename += ".csv";
+			std::string filename = state.outputFolder + "benchmark_" + state.moduleName + ".csv";
 			std::cout << "Results have been saved in " << filename << std::endl;
 
 			state.moduleName = "unknown";

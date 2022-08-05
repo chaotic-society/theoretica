@@ -9,6 +9,8 @@ int main(int argc, char const *argv[]) {
 
 	const real MIN = -1000000;
 	const real MAX = 1000000;
+
+	benchmark::state.outputFolder = "benchmark/";
 	
 	benchmark::setup("real_analysis");
 
