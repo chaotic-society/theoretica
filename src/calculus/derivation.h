@@ -17,13 +17,13 @@ namespace theoretica {
 	///
 	/// @param p The polynomial to differentiate
 	/// @return The derivative polynomial
-	template<typename T>
-	inline polynomial<T> deriv_polynomial(polynomial<T> p) {
+	template<typename T = real>
+	inline polynomial<T> deriv_polynomial(const polynomial<T>& p) {
 
 		polynomial<T> Dp;
 
 		for (unsigned int i = 1; i < p.size(); ++i)
-			Dp.coeff.push_back(p[i] * i);
+			Dp.coeff.push_back(p.get(i) * i);
 
 		return Dp;
 	}
@@ -35,7 +35,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv_central(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv_central(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x + h) - f(x - h)) / (2.0 * h);
 	}
 
@@ -46,7 +47,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv_forward(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv_forward(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x + h) - f(x)) / h;
 	}
 
@@ -57,7 +59,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv_backward(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv_backward(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x) - f(x - h)) / h;
 	}
 
@@ -68,7 +71,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv_ridders2(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv_ridders2(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return (4.0 * deriv_central(f, x, h / 2.0) - deriv_central(f, x, h)) / 3.0;
 	}
 
@@ -80,7 +84,8 @@ namespace theoretica {
 	/// @param degree The degree of the algorithm
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv_ridders(real_function f, real x, real h = 0.01, unsigned int degree = 3) {
+	template<typename RealFunction>
+	inline real deriv_ridders(RealFunction f, real x, real h = 0.01, unsigned int degree = 3) {
 
 		real A[degree][degree];
 
@@ -111,7 +116,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the derivative
-	inline real deriv(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return deriv_ridders2(f, x, h);
 	}
 
@@ -123,7 +129,8 @@ namespace theoretica {
 	/// @param x The real value to approximate at
 	/// @param h The stepsize to use in the finite differences method
 	/// @return The approximated value of the second derivative
-	inline real deriv2(real_function f, real x, real h = DERIV_STEPSIZE) {
+	template<typename RealFunction>
+	inline real deriv2(RealFunction f, real x, real h = DERIV_STEPSIZE) {
 		return (f(x + h) - (2 * f(x)) + f(x - h)) / (h * h);
 	}
 

@@ -4,6 +4,7 @@
 ///
 
 #include "theoretica.h"
+#include <iostream>
 #include <fstream>
 #include <ctime>
 

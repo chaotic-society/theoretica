@@ -18,7 +18,8 @@ namespace theoretica {
 
 	/// Computes the first order Taylor expansion of a generic function
 	/// around x0, computed using dual numbers.
-	inline polynomial<real> taylor_linear_expansion(dual(*f)(dual), real x0 = 0) {
+	template<typename DualFunction>
+	inline polynomial<real> taylor_linear_expansion(DualFunction f, real x0 = 0) {
 
 		dual d = f(dual(x0, 1));
 		real fx = d.Re();
@@ -33,7 +34,8 @@ namespace theoretica {
 
 	/// Computes the second order Taylor expansion of a generic function
 	/// around x0, computed using dual numbers (of second order).
-	inline polynomial<real> taylor_quadratic_expansion(dual2(*f)(dual2), real x0 = 0) {
+	template<typename Dual2Function>
+	inline polynomial<real> taylor_quadratic_expansion(Dual2Function f, real x0 = 0) {
 
 		dual2 d = f(dual2(x0, 1, 0));
 		real fx = d.Re();

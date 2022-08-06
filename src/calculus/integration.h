@@ -18,13 +18,14 @@ namespace theoretica {
 	///
 	/// @param p The polynomial to integrate
 	/// @return The indefinite polynomial integral
-	inline polynomial<real> integrate_polynomial(const polynomial<real>& p) {
+	template<typename T = real>
+	inline polynomial<T> integrate_polynomial(const polynomial<T>& p) {
 
-		polynomial<real> Dp;
+		polynomial<T> Dp;
 		Dp.coeff.push_back(0);
 
 		for (unsigned int i = 0; i < p.size(); ++i)
-			Dp.coeff.push_back(p.get(i) / (real) (i + 1));
+			Dp.coeff.push_back(p.get(i) / T(i + 1));
 
 		return Dp;
 	}
@@ -38,7 +39,8 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param steps The number of steps
 	/// @return An approximation of the integral of f
-	inline real integral_midpoint(real_function f, real a, real b,
+	template<typename RealFunction>
+	inline real integral_midpoint(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -59,7 +61,8 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param steps The number of steps
 	/// @return An approximation of the integral of f
-	inline real integral_trapezoid(real_function f, real a, real b,
+	template<typename RealFunction>
+	inline real integral_trapezoid(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / steps;
@@ -84,7 +87,8 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param steps The number of steps
 	/// @return An approximation of the integral of f
-	inline real integral_simpson(real_function f, real a, real b,
+	template<typename RealFunction>
+	inline real integral_simpson(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
 		
 		real dx = (b - a) / (real) steps;
@@ -113,8 +117,9 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @param order The order of accuracy
 	/// @return An approximation of the integral of f
+	template<typename RealFunction>
 	inline real integral_romberg(
-		real_function f,
+		RealFunction f,
 		real a, real b,
 		unsigned int order = 16) {
 
@@ -154,7 +159,8 @@ namespace theoretica {
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
 	/// @return An approximation of the integral of f
-	inline real integral(real_function f, real a, real b) {
+	template<typename RealFunction>
+	inline real integral(RealFunction f, real a, real b) {
 		return integral_simpson(f, a, b);
 	}
 

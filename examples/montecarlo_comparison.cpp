@@ -6,6 +6,8 @@
 #include "theoretica.h"
 using namespace th;
 
+#include <iostream>
+
 
 int main() {
 

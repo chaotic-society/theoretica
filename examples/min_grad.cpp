@@ -6,6 +6,8 @@
 #include "theoretica.h"
 using namespace th;
 
+#include <iostream>
+
 
 template<typename NumType>
 NumType f(vec<2, NumType> v) {

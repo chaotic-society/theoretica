@@ -83,7 +83,7 @@ int main(int argc, char const *argv[]) {
 
 	std::vector<interval> intervals = {
 		interval(-1, 1),
-		interval(-10000000, 10000000)
+		interval(-1000000, 1000000)
 	};
 
 	prec::setup("algebra");

@@ -6,6 +6,8 @@
 #include "theoretica.h"
 using namespace th;
 
+#include <iostream>
+
 
 // A function from R^2 to R
 template<typename NumType>

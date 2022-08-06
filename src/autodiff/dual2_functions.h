@@ -11,8 +11,6 @@
 #include "./dual2.h"
 #include "../core/real_analysis.h"
 
-#include <iostream>
-
 
 namespace theoretica {
 
