@@ -1,77 +1,96 @@
 
 /// @file test_algebra.cpp Test cases for linear algebra
 
-#include "../src/theoretica.h"
+#include "theoretica.h"
+#include "chebyshev/prec.h"
 #include <ctime>
 
 using namespace theoretica;
+using namespace chebyshev;
 
 
-constexpr real FAIL_THRESHOLD_PERC = 1E-04;
+// Generate a random matrix with elements inside the interval [a, b]
+template<unsigned int N, unsigned int M>
+mat<N, M> rand_mat(real a, real b, PRNG& g) {
+
+	mat<N, M> A;
+	for (unsigned int i = 0; i < N; ++i)
+		for (unsigned int j = 0; j < M; ++j)
+			A.iat(i, j) = rand_uniform(a, b, g);
+
+	return A;
+}
+
+
+// Test mat<N, N>::inverse()
+template<unsigned int N>
+prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (unsigned int i = 0; i < n; ++i) {
+
+		mat<N, N> A = rand_mat<N, N>(k.a, k.b, g);
+
+		// Skip singular matrices
+		if(th::abs(A.det()) <= MACH_EPSILON) {
+			if(i) i--;
+			continue;
+		}
+
+		// Resulting matrix expected to be identity
+		mat<N, N> R = A * A.inverse();
+
+		for (unsigned int j = 0; j < N; ++j) {
+			for (unsigned int k = 0; k < N; ++k) {
+
+				Real diff = th::abs(R.iat(j, k) - kronecker_delta(j, k));
+
+				sum += diff;
+				sum2 += square(diff);
+				if(diff > max)
+					max = diff;
+			}
+		}
+
+	}
+
+	prec::estimate_result res;
+	res.max_err = max;
+	res.abs_err = sum / n;
+	res.rms_err = th::sqrt(sum2) / n;
+	res.mean_err = sum / N / n;
+
+	// Undefined relative error
+	res.rel_err = 0;
+
+	if(res.max_err > tol)
+		res.failed = true;
+
+	return res;
+}
+
 
 
 int main(int argc, char const *argv[]) {
 
-	// std::cout << "Starting testing of theoretica library..." << std::endl;
-	// std::cout << "Testing algebra/mat\n" << std::endl;
+	prec::state.outputFolder = "test/";
 
-	// std::cout.precision(12);
+	std::vector<interval> intervals = {
+		interval(-1, 1),
+		interval(-10000000, 10000000)
+	};
 
+	prec::setup("algebra");
 
-	// test_start("th::mat::inverse");
+		prec::estimate("mat3::inverse", test_matrix_inverse<3>, intervals);
+		prec::estimate("mat4::inverse", test_matrix_inverse<4>, intervals);
+		prec::estimate("mat10::inverse", test_matrix_inverse<10>, intervals);
 
-	// 	unsigned int N = 1000000;
-
-	// 	std::cout << "\tTesting on " << N << " random matrices" << std::endl;
-
-	// 	PRNG g = PRNG::xoshiro(time(nullptr));
-	// 	g.discard(1000);
-
-	// 	for (unsigned int i = 0; i < N; ++i) {
-			
-	// 		mat4 A;
-
-	// 		// Generate a random matrix
-	// 		for (unsigned int j = 0; j < 4; ++j) {
-	// 			for (int k = 0; k < 4; ++k) {
-	// 				A.iat(j, k) = rand_uniform(-1000000, 1000000, g);
-	// 			}
-	// 		}
-
-	// 		// Skip singular matrices
-	// 		if(A.det() == 0) {
-	// 			i--;
-	// 			continue;
-	// 		}
-
-	// 		mat4 Ainv = A.inverse();
-	// 		mat4 res = A * Ainv;
-
-	// 		// Check that all entries are zero except on the diagonal
-	// 		for (unsigned int j = 0; j < 4; ++j) {
-	// 			for (unsigned int k = 0; k < 4; ++k) {
-	// 				test_tolr(
-	// 					res.iat(j, k),
-	// 					kronecker_delta(j, k),
-	// 					A.iat(j, k),
-	// 					TOLERANCE, true);
-	// 			}
-	// 		}
-
-	// 	}
-
-	// 	if(curr_errors / (real) tolr_test_runs <= FAIL_THRESHOLD_PERC)
-	// 		total_errors -= curr_errors;
-
-	// test_end();
-
-	// if(total_errors == 0)
-	// 	std::cout << "All tests on all functions and modules successfully passed\n" << std::endl;
-	// else
-	// 	std::cout << "Some tests failed\n" << std::endl;
-
-
-	// return total_errors;
-
-	return 0;
+	prec::terminate();
 }

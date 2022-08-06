@@ -34,9 +34,11 @@ namespace chebyshev {
 	namespace prec {
 		
 		struct estimate_request;
+		struct estimate_custom_request;
 		struct equation_request;
 		struct estimate_result;
 		struct equation_result;
+
 
 		/// Global state of precision testing
 		struct prec_state {
@@ -75,16 +77,19 @@ namespace chebyshev {
 			Real defaultTolerance = CHEBYSHEV_TOLERANCE;
 
 			/// Recorded estimation requests
-			std::vector<estimate_request> estimation_requests;
+			std::vector<estimate_request> estimationRequests;
+
+			/// Recorded custom estimation requests
+			std::vector<estimate_custom_request> estimationCustomRequests;
 
 			/// Recorded equation requests
-			std::vector<equation_request> equation_requests;
+			std::vector<equation_request> equationRequests;
 
 			/// Results of precision testing
-			std::map<std::string, std::vector<estimate_result>> estimation_results;
+			std::map<std::string, std::vector<estimate_result>> estimationResults;
 			
 			/// Results of equations
-			std::map<std::string, std::vector<equation_result>> equation_results;
+			std::map<std::string, std::vector<equation_result>> equationResults;
 
 		} state;
 
@@ -100,6 +105,35 @@ namespace chebyshev {
 
 			/// A function returning the expected output
 			RealFunction funcExpected = nullptr;
+
+			/// Requested estimation intervals
+			std::vector<interval> intervals;
+
+			/// Precision testing tolerance on max absolute error
+			Real tolerance = state.defaultTolerance;
+
+			/// Number of iterations for integral quadrature
+			uint32_t iterations = state.defaultIterations;
+
+			/// Print to standard output or not
+			bool quiet = false;
+		};
+
+
+		/// A custom precision estimation function taking as input a list of
+		/// the requested intervals, the tolerance and the number of iterations
+		using CustomEstimateFunction
+		= std::function<estimate_result(interval, Real, uint32_t)>;
+
+
+		/// @class estimate_request A precision estimation request
+		struct estimate_custom_request {
+			
+			/// Uniquely identifying function name
+			std::string funcName = "unknown";
+
+			/// A custom precision estimation function
+			CustomEstimateFunction f;
 
 			/// Requested estimation intervals
 			std::vector<interval> intervals;
@@ -163,7 +197,7 @@ namespace chebyshev {
 			Real abs_err;
 
 			/// Did the test fail?
-			bool failed;
+			bool failed = false;
 
 			/// Print to standard output or not
 			bool quiet = false;
@@ -201,7 +235,7 @@ namespace chebyshev {
 
 		/// Register a function for error estimation
 		inline void estimate(
-			std::string name,
+			const std::string& name,
 			RealFunction fApprox,
 			RealFunction fExp,
 			interval k,
@@ -218,13 +252,13 @@ namespace chebyshev {
 			r.quiet = quiet;
 			r.iterations = n;
 
-			state.estimation_requests.push_back(r);
+			state.estimationRequests.push_back(r);
 		}
 
 
 		/// Register a function for error estimation on multiple intervals
 		inline void estimate(
-			std::string name,
+			const std::string& name,
 			RealFunction fApprox,
 			RealFunction fExp,
 			std::vector<interval> intervals,
@@ -241,7 +275,47 @@ namespace chebyshev {
 			r.quiet = quiet;
 			r.iterations = n;
 
-			state.estimation_requests.push_back(r);
+			state.estimationRequests.push_back(r);
+		}
+
+
+		inline void estimate(
+			const std::string& name,
+			CustomEstimateFunction f,
+			interval k,
+			Real tolerance = state.defaultTolerance,
+			bool quiet = false,
+			unsigned int n = state.defaultIterations) {
+
+			estimate_custom_request r;
+			r.funcName = name;
+			r.f = f;
+			r.intervals.push_back(k);
+			r.tolerance = tolerance;
+			r.quiet = quiet;
+			r.iterations = n;
+
+			state.estimationCustomRequests.push_back(r);
+		}
+
+
+		inline void estimate(
+			const std::string& name,
+			CustomEstimateFunction f,
+			std::vector<interval> intervals,
+			Real tolerance = state.defaultTolerance,
+			bool quiet = false,
+			unsigned int n = state.defaultIterations) {
+
+			estimate_custom_request r;
+			r.funcName = name;
+			r.f = f;
+			r.intervals = intervals;
+			r.tolerance = tolerance;
+			r.quiet = quiet;
+			r.iterations = n;
+
+			state.estimationCustomRequests.push_back(r);
 		}
 
 
@@ -318,7 +392,7 @@ namespace chebyshev {
 				result.failed = false;
 			}
 
-			state.estimation_results[result.funcName].push_back(result);
+			state.estimationResults[result.funcName].push_back(result);
 			state.totalTests++;
 
 			return result;
@@ -354,7 +428,7 @@ namespace chebyshev {
 			r.tolerance = tolerance;
 			r.quiet = quiet;
 
-			state.equation_requests.push_back(r);
+			state.equationRequests.push_back(r);
 		}
 
 
@@ -408,7 +482,7 @@ namespace chebyshev {
 			eq.tolerance = tolerance;
 			eq.quiet = quiet;
 
-			state.equation_results[eq.funcName].push_back(eq);
+			state.equationResults[eq.funcName].push_back(eq);
 			return eq;
 		}
 
@@ -447,7 +521,7 @@ namespace chebyshev {
 		/// Run all requested error estimations and equation evaluations
 		inline void run() {
 
-			if(state.estimation_requests.size()) {
+			if(state.estimationRequests.size() + state.estimationCustomRequests.size()) {
 
 				if(!state.quiet) {
 					std::cout << "\n" << std::left << std::setw(20) << "Function" << " | "
@@ -463,7 +537,7 @@ namespace chebyshev {
 					state.outputFile << "Function, Int. Min., Int. Max., Mean Err., "
 						<< "RMS Err., Max Err., Rel. Err." << std::endl;
 
-				for(const auto& r : state.estimation_requests) {
+				for(const auto& r : state.estimationRequests) {
 					
 					auto res = compute_estimate(r);
 
@@ -502,12 +576,67 @@ namespace chebyshev {
 					}
 
 				}
+				state.estimationRequests.clear();
 
-				state.estimation_requests.clear();
+				for(const auto& r : state.estimationCustomRequests) {
+					
+					std::vector<estimate_result> res;
+
+					for (size_t j = 0; j < r.intervals.size(); ++j) {
+
+						res.push_back(r.f(r.intervals[j], r.tolerance, r.iterations));
+						res[j].funcName = r.funcName;
+						res[j].k = r.intervals[j];
+						res[j].tolerance = r.tolerance;
+						res[j].iterations = r.iterations;
+						res[j].quiet = r.quiet;
+
+						state.totalTests++;
+
+						if(res[j].failed)
+							state.failedTests++;
+					}
+
+					for(size_t i = 0; i < res.size(); i++) {
+
+						if(state.estimateOnlyFailed && !res[i].failed)
+							continue;
+
+						if(!state.quiet) {
+
+							std::cout << std::left << std::setw(20);
+
+							if(i)	std::cout << "                    ";
+							else	std::cout << res[i].funcName;
+							
+							std::cout << " | "
+							<< std::setw(12) << res[i].k.a << " | "
+							<< std::setw(12) << res[i].k.b << " | "
+							<< std::setw(12) << res[i].mean_err << " | "
+							<< std::setw(12) << res[i].rms_err << " | "
+							<< std::setw(12) << res[i].max_err << " | "
+							<< std::setw(12) << res[i].rel_err;
+
+							if(res[i].failed)
+								std::cout << "  FAILED";
+
+							std::cout << std::endl;
+						}
+
+						if(state.outputToFile) {
+							state.outputFile << res[i].funcName << ", " << res[i].k.a << ", " << res[i].k.b << ", "
+								<< res[i].mean_err << ", " << res[i].rms_err << ", "
+								<< res[i].max_err << ", " << res[i].rel_err << std::endl;
+						}
+
+					}
+
+				}
+				state.estimationCustomRequests.clear();
 			}
 
 
-			if(state.equation_requests.size()) {
+			if(state.equationRequests.size()) {
 
 				if(!state.quiet) {
 					std::cout << "\n" << std::setw(20) << "Function" << " | "
@@ -520,9 +649,9 @@ namespace chebyshev {
 				if(state.outputToFile)
 					state.outputFile << "Function, Eval. Value, Exp. Value, Diff., Tol." << std::endl;
 
-				for (size_t i = 0; i < state.equation_requests.size(); i++) {
+				for (size_t i = 0; i < state.equationRequests.size(); i++) {
 					
-					equation_result res = eval_equation(state.equation_requests[i]);
+					equation_result res = eval_equation(state.equationRequests[i]);
 
 					if(state.equalsOnlyFailed && !res.failed)
 						return;
@@ -531,7 +660,7 @@ namespace chebyshev {
 						std::cout << std::setw(20);
 
 						if(i) {
-							if(state.equation_requests[i - 1].funcName == res.funcName)
+							if(state.equationRequests[i - 1].funcName == res.funcName)
 								std::cout << "                    ";
 							else
 								std::cout << res.funcName;
@@ -557,7 +686,7 @@ namespace chebyshev {
 					}
 				}
 			
-				state.equation_requests.clear();
+				state.equationRequests.clear();
 			}
 		}
 
@@ -565,7 +694,9 @@ namespace chebyshev {
 		/// Terminate precision testing
 		inline void terminate(bool exit = true) {
 
-			if(state.equation_requests.size() + state.equation_requests.size())
+			if(state.estimationRequests.size() +
+				state.equationRequests.size() +
+				state.estimationCustomRequests.size())
 				run();
 
 			std::cout << "\nFinished testing " << state.moduleName << std::endl;

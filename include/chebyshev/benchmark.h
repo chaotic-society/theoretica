@@ -31,7 +31,6 @@ namespace chebyshev {
 	/// @namespace chebyshev::benchmark Function benchmarking
 	namespace benchmark {
 
-
 		/// Benchmark run request, used to store
 		/// information about requested benchmarks
 		/// for later execution
@@ -53,6 +52,45 @@ namespace chebyshev {
 			Real total_time {0};
 			Real avg_time {0};
 			Real runs_per_sec {0};
+
+			benchmark_result() {}
+
+			benchmark_result(
+				const std::string& name, Real elapsed_time,
+				unsigned int i, unsigned int r) {
+
+				funcName = name;
+				total_time = elapsed_time;
+				avg_time = elapsed_time / (i * r);
+				runs_per_sec = 1.0 / (avg_time * 0.001);
+				iter = i;
+				runs = r;
+			}
+
+
+			benchmark_result(Real elapsed_time, unsigned int i, unsigned int r) {
+
+				total_time = elapsed_time;
+				avg_time = elapsed_time / (i * r);
+				runs_per_sec = 1.0 / (avg_time * 0.001);
+				iter = i;
+				runs = r;
+			}
+
+		};
+
+
+		/// A custom benchmark function which takes as input the number of iterations
+		/// and runs requested and returns a benchmark result
+		using CustomBenchmarkFunction = std::function<benchmark_result(unsigned int, unsigned int)>;
+
+
+		/// A custom benchmark request
+		struct benchmark_custom_request {
+			std::string funcName {"unknown"};
+			CustomBenchmarkFunction f;
+			unsigned int iter {CHEBYSHEV_ITER};
+			unsigned int runs {CHEBYSHEV_RUNS};
 		};
 
 
@@ -60,9 +98,11 @@ namespace chebyshev {
 		struct benchmark_state {
 			
 			/// List of requested benchmark runs.
-			/// Benchmarks are run in random order
-			/// when the benchmark::run() function is called
+			/// Benchmarks are run  when the benchmark::run() function is called
 			std::vector<benchmark_request> requests;
+
+			/// List of requested custom benchmarks.
+			std::vector<benchmark_custom_request> customRequests;
 
 			/// Print to standard output?
 			bool quiet = false;
@@ -92,7 +132,7 @@ namespace chebyshev {
 
 
 		/// Setup a module's benchmark
-		void setup(const std::string& module = "unknown",
+		inline void setup(const std::string& module = "unknown",
 			unsigned int iter = CHEBYSHEV_ITER,
 			unsigned int runs = CHEBYSHEV_RUNS) {
 
@@ -115,12 +155,12 @@ namespace chebyshev {
 
 
 		/// Register a function to be benchmarked
-		void request(const std::string& f_name,
+		inline void request(const std::string& funcName,
 			RealFunction f, RealInputGenerator g,
 			unsigned int n = state.defaultIterations, unsigned int m = state.defaultRuns) {
 
 			benchmark_request r;
-			r.funcName = f_name;
+			r.funcName = funcName;
 			r.func = f;
 			r.gen = g;
 			r.iter = n;
@@ -131,16 +171,32 @@ namespace chebyshev {
 
 
 		// /// Register a function to be benchmarked
-		// void request(const std::string& f_name,
+		// void request(const std::string& funcName,
 		// 	Real(*f)(Real), RealInputGenerator g,
 		// 	unsigned int n = state.defaultIterations, unsigned int m = state.defaultRuns) {
 
-		// 	request(f_name, [f](Real x) {return f(x);}, g, n, m);
+		// 	request(funcName, [f](Real x) {return f(x);}, g, n, m);
 		// }
 
 
+		/// Request a custom benchmark
+		inline void custom_request(
+			const std::string& funcName, CustomBenchmarkFunction f,
+			unsigned int n, unsigned int m) {
+
+			benchmark_custom_request r;
+			r.funcName = funcName;
+			r.f = f;
+			r.iter = n;
+			r.runs = m;
+
+			state.customRequests.push_back(r);
+		}
+
+
+
 		/// Benchmark a function
-		benchmark_result benchmark(const std::string& f_name, RealFunction f, RealInputGenerator g,
+		inline benchmark_result benchmark(const std::string& funcName, RealFunction f, RealInputGenerator g,
 			unsigned int n = state.defaultIterations, unsigned int m = state.defaultRuns) {
 
 			// Dummy variable
@@ -162,25 +218,16 @@ namespace chebyshev {
 				for (unsigned int j = 0; j < n; ++j)
 					c += f(input[j]);
 
-				long double elapsed = t();
-				sum += elapsed / (long double) n;
+				sum += t();
 			}
 
-			benchmark_result br;
-			br.funcName = f_name;
-			br.iter = n;
-			br.runs = m;
-			br.total_time = sum * n;
-			br.avg_time = sum / (long double) m;
-			br.runs_per_sec = 1.0 / (sum * 0.001 / (long double) m);
-
-			return br;
+			return benchmark_result(funcName, sum, n, m);
 		}
 
 
 		/// Benchmark a function
-		benchmark_result benchmark(
-			const std::string& f_name, RealFunction f,
+		inline benchmark_result benchmark(
+			const std::string& funcName, RealFunction f,
 			const std::vector<Real> input,
 			unsigned int n = state.defaultIterations, unsigned int m = state.defaultRuns) {
 
@@ -203,30 +250,21 @@ namespace chebyshev {
 				for (unsigned int j = 0; j < n; ++j)
 					c += f(input[j]);
 
-				long double elapsed = t();
-				sum += elapsed / (long double) n;
+				sum += t();
 			}
 
-			benchmark_result br;
-			br.funcName = f_name;
-			br.iter = n;
-			br.runs = m;
-			br.total_time = sum * n;
-			br.avg_time = sum / (long double) m;
-			br.runs_per_sec = 1.0 / (sum * 0.001 / (long double) m);
-
-			return br;
+			return benchmark_result(funcName, sum, n, m);
 		}
 
 
 		/// Benchmark a function
-		benchmark_result benchmark(benchmark_request r) {
+		inline benchmark_result benchmark(benchmark_request r) {
 			return benchmark(r.funcName, r.func, r.gen, r.iter, r.runs);
 		}
 
 
 		/// Run all registered benchmarks
-		void run() {
+		inline void run() {
 
 			std::cout.precision(8);
 
@@ -253,14 +291,30 @@ namespace chebyshev {
 							<< br.runs_per_sec << std::endl;
 			}
 
+			for (const auto& r : state.customRequests) {
+
+				benchmark_result br = r.f(r.iter, r.runs);
+				br.funcName = r.funcName;
+
+				state.results.push_back(br);
+				
+				std::cout << std::left << std::setw(20) << br.funcName << " | "
+				<< std::setw(12) << br.avg_time << " | "
+				<< std::setw(10) << std::right << std::floor(br.runs_per_sec) << std::endl;
+
+				state.outputFile << br.funcName << ", "
+							<< br.avg_time << ", "
+							<< br.runs_per_sec << std::endl;
+			}
+
 			state.requests.clear();
 		}
 
 
 		/// End benchmarking of the current module
-		void terminate(bool exit = true) {
+		inline void terminate(bool exit = true) {
 
-			if(state.requests.size())
+			if(state.requests.size() + state.customRequests.size())
 				run();
 
 			std::cout << "\nFinished benchmark of " << state.moduleName << std::endl;
