@@ -560,48 +560,6 @@ namespace theoretica {
 	}
 
 
-	/// Compute the n-th root of x
-	/// @param x A real number
-	/// @param n The root number
-	/// @return The n-th real root of x
-	///
-	/// The Newton-Raphson method is used, limited by the
-	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
-	inline real root(real x, int n) {
-
-		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
-			TH_MATH_ERROR("root", n, OUT_OF_DOMAIN);
-			return nan();
-		}
-
-		if(n < 0)
-			return 1.0 / root(x, -n);
-
-		if(x < 1) {
-
-			if(x == 0)
-				return 0;
-
-			// Approximate root between 0 and 1
-			// The root of the inverse is the inverse of the root
-			// !!! Possible precision problems with smaller numbers
-			return 1.0 / root(1.0 / x, n);
-		}
-
-		// Approximate n-th root using Newton-Raphson
-
-		real y = x;
-		unsigned int i = 0;
-
-		while((pow(y, n) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
-			y = (y * (n - 1) + x / pow(y, n - 1)) / (real) n;
-			i++;
-		}
-
-		return y;
-	}
-
-
 	/// Compute the factorial of n
 	template<typename IntType = unsigned long long int>
 	TH_CONSTEXPR inline IntType fact(unsigned int n) {
@@ -620,7 +578,7 @@ namespace theoretica {
 	/// in the domain [0, 1]
 	inline real exp_x86_norm(real x) {
 
-		// e^x is calculated as 2^(x / ln2)
+		// e^x is computed as 2^(x / ln2)
 		return square(f2xm1(x / (2 * LN2)) + 1);
 	}
 
@@ -656,15 +614,17 @@ namespace theoretica {
 	real res = 1;
 	real s_n = 1;
 
-	for (int i = 1; i < 9; ++i) {
+	for (int i = 1; i < TAYLOR_ORDER; ++i) {
 
 		// Recurrence formula to improve
 		// numerical stability and performance
-		s_n *= (fract_x / 2.0) / static_cast<real>(i);
+		s_n *= fract_x / (i * 4);
 		res += s_n;
 	}
 
-	return pow(E, floor_x) * res * res;
+	// The fractional part is divided by 4 to improve convergence
+	const real sqr_r = res * res;
+	return pow(E, floor_x) * sqr_r * sqr_r;
 
 #endif
 	}
@@ -682,6 +642,55 @@ namespace theoretica {
 
 		// x^a = e^(a * ln(x))
 		return exp(a * ln(abs(x)) * sgn(x));
+	}
+
+
+	/// Compute the n-th root of x
+	/// @param x A real number
+	/// @param n The root number
+	/// @return The n-th real root of x
+	///
+	/// The Newton-Raphson method is used, limited by the
+	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
+	inline real root(real x, int n) {
+
+#ifdef THEORETICA_X86
+
+		return powf(x, 1 / (real) n);
+
+#else
+
+		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
+			TH_MATH_ERROR("root", n, OUT_OF_DOMAIN);
+			return nan();
+		}
+
+		if(n < 0)
+			return 1.0 / root(x, -n);
+
+		if(x < 1) {
+
+			if(x == 0)
+				return 0;
+
+			// Approximate root between 0 and 1
+			// The root of the inverse is the inverse of the root
+			// !!! Possible precision problems with smaller numbers
+			return 1.0 / root(1.0 / x, n);
+		}
+
+		// Approximate n-th root using Newton-Raphson
+
+		real y = x;
+		unsigned int i = 0;
+
+		while((pow(y, n) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+			y = (y * (n - 1) + x / pow(y, n - 1)) / (real) n;
+			i++;
+		}
+
+		return y;
+#endif
 	}
 
 
@@ -709,28 +718,23 @@ namespace theoretica {
 #else
 
 		// Clamp x between -2PI and 2PI
-		while(x >= 2 * PI)
-			x -= 2 * PI;
-		
-		while(x <= -2 * PI)
-			x += 2 * PI;
+		if(abs(x) >= TAU)
+			x -= floor(x / TAU) * TAU;
 
 		// Domain reduction to [-PI, PI]
-		if(x > PI) {
+		if(x > PI)
 			x = PI - x;
-		} else if(x < -PI) {
+		else if(x < -PI)
 			x = -PI - x;
-		}
 
-		real res = 0;
+		// Compute series with recurrence formula
+		real res = x;
+		real s = x;
+		const real sqr_x = x * x;
 
-		// Taylor series expansion
-		// sin(x) = sum( (-1)^i * x^(2i+1) / (2i+1)! )
-
-		for (int i = 0; i < TAYLOR_ORDER; ++i) {
-			res += (i % 2 == 0 ? 1 : -1)
-				* pow(x, 2 * i + 1)
-				/ static_cast<real>(fact(2 * i + 1));
+		for (int i = 1; i < TAYLOR_ORDER; ++i) {
+			s = s * -sqr_x / (4 * i * i + 2 * i);
+			res += s;
 		}
 
 		return res;
@@ -790,7 +794,7 @@ namespace theoretica {
 		c = cos(x);
 #endif
 
-		if(c == 0) {
+		if(abs(c) < MACH_EPSILON) {
 			TH_MATH_ERROR("tan", c, DIV_BY_ZERO);
 			return nan();
 		}
@@ -824,7 +828,7 @@ namespace theoretica {
 		c = cos(x);
 #endif
 
-		if(s == 0) {
+		if(abs(s) < MACH_EPSILON) {
 			TH_MATH_ERROR("cot", s, DIV_BY_ZERO);
 			return nan();
 		}
@@ -846,35 +850,7 @@ namespace theoretica {
 		if(abs(x) > 1.0)
 			return (PI2 - atan(1.0 / abs(x))) * sgn(x);
 
-		// Finite differences method for arctangent approximation
-
-		// real res;
-		// real x_n;
-		// const real dx = 0.0000001;
-
-		// if(abs(x) > 0.5) {
-
-		// 	x_n = 1;
-		// 	res = 0.7853981636472042; // atan(1)
-
-		// 	while (x_n > abs(x)) {
-		// 		res -= dx * (1 / (square(x_n) + 1));
-		// 		x_n -= dx;
-		// 	}
-		// } else {
-
-		// 	x_n = 0;
-		// 	res = 0; // atan(0)
-
-		// 	while (x_n < abs(x)) {
-		// 		res += dx * (1 / (square(x_n) + 1));
-		// 		x_n += dx;
-		// 	}
-		// }
-
-		// return sgn(x) * res;
-
-		real x2 = x * x;
+		const real x2 = x * x;
 
 		// Interpolating Chebyshev polynomial
 		// of order 9

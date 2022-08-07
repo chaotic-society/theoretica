@@ -28,7 +28,7 @@
 
 /// Order of Taylor series approximations
 #ifndef THEORETICA_TAYLOR_ORDER
-#define THEORETICA_TAYLOR_ORDER 9
+#define THEORETICA_TAYLOR_ORDER 12
 #endif
 
 /// Relative precision for derivative approximation

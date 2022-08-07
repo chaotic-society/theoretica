@@ -7,6 +7,7 @@
 
 #include "core/common.h"
 #include "core/interval.h"
+#include "core/prec_def.h"
 
 #include <cmath>
 #include <iostream>
@@ -32,12 +33,6 @@
 namespace chebyshev {
 	
 	namespace prec {
-		
-		struct estimate_request;
-		struct estimate_custom_request;
-		struct equation_request;
-		struct estimate_result;
-		struct equation_result;
 
 
 		/// Global state of precision testing
@@ -73,6 +68,9 @@ namespace chebyshev {
 			/// Default number of iterations for integral quadrature
 			uint32_t defaultIterations = CHEBYSHEV_INTEGRAL_ITER;
 
+			/// Default fail function
+			FailFunction defaultFailFunction = fail_on_max_err;
+
 			/// Default tolerance on max absolute error
 			Real defaultTolerance = CHEBYSHEV_TOLERANCE;
 
@@ -94,145 +92,6 @@ namespace chebyshev {
 		} state;
 
 
-		/// @class estimate_request A precision estimation request
-		struct estimate_request {
-			
-			/// Uniquely identifying function name
-			std::string funcName = "unknown";
-
-			/// The function to estimate
-			RealFunction func = nullptr;
-
-			/// A function returning the expected output
-			RealFunction funcExpected = nullptr;
-
-			/// Requested estimation intervals
-			std::vector<interval> intervals;
-
-			/// Precision testing tolerance on max absolute error
-			Real tolerance = state.defaultTolerance;
-
-			/// Number of iterations for integral quadrature
-			uint32_t iterations = state.defaultIterations;
-
-			/// Print to standard output or not
-			bool quiet = false;
-		};
-
-
-		/// A custom precision estimation function taking as input a list of
-		/// the requested intervals, the tolerance and the number of iterations
-		using CustomEstimateFunction
-		= std::function<estimate_result(interval, Real, uint32_t)>;
-
-
-		/// @class estimate_request A precision estimation request
-		struct estimate_custom_request {
-			
-			/// Uniquely identifying function name
-			std::string funcName = "unknown";
-
-			/// A custom precision estimation function
-			CustomEstimateFunction f;
-
-			/// Requested estimation intervals
-			std::vector<interval> intervals;
-
-			/// Precision testing tolerance on max absolute error
-			Real tolerance = state.defaultTolerance;
-
-			/// Number of iterations for integral quadrature
-			uint32_t iterations = state.defaultIterations;
-
-			/// Print to standard output or not
-			bool quiet = false;
-		};
-
-
-		/// @class equation_request An equation request
-		struct equation_request {
-
-			/// Uniquely identifying function name
-			std::string funcName = "unknown";
-
-			/// Evaluated value
-			Real evaluated;
-
-			/// Expected value
-			Real expected;
-
-			/// Tolerance
-			Real tolerance = state.defaultTolerance;
-
-			/// Print to standard output or not
-			bool quiet = false;
-		};
-
-
-		/// @class estimate_result The result of error estimation
-		struct estimate_result {
-			
-			/// Uniquely identifying name of the function
-			std::string funcName = "unknown";
-
-			/// Interval of estimation
-			interval k;
-
-			/// Tolerance on the max absolute error
-			Real tolerance;
-
-			/// Estimated maximum absolute error on interval
-			Real max_err;
-
-			/// Estimated mean error on interval
-			Real mean_err;
-
-			/// Estimated RMS error on interval
-			Real rms_err;
-
-			/// Estimated relative error on interval
-			Real rel_err;
-
-			/// Estimated absolute error on interval
-			Real abs_err;
-
-			/// Did the test fail?
-			bool failed = false;
-
-			/// Print to standard output or not
-			bool quiet = false;
-
-			/// Total number of iterations for integral quadrature
-			uint32_t iterations;
-		};
-
-
-		/// @class equation_result The result of equation checking
-		struct equation_result {
-
-			/// Uniquely identifying function name
-			std::string funcName = "unknown";
-
-			/// Evaluated value
-			Real evaluated;
-
-			/// Expected value
-			Real expected;
-			
-			/// Absolute difference between expected and evaluated values
-			Real diff;
-
-			/// Tolerance on the absolute difference
-			Real tolerance;
-
-			/// Did the test fail?
-			bool failed;
-
-			/// Print to standard output or not
-			bool quiet = false;
-		};
-
-
 		/// Register a function for error estimation
 		inline void estimate(
 			const std::string& name,
@@ -241,7 +100,8 @@ namespace chebyshev {
 			interval k,
 			Real tolerance = state.defaultTolerance,
 			bool quiet = false,
-			unsigned int n = state.defaultIterations) {
+			unsigned int n = state.defaultIterations,
+			FailFunction fail = state.defaultFailFunction) {
 
 			estimate_request r;
 			r.funcName = name;
@@ -251,6 +111,7 @@ namespace chebyshev {
 			r.tolerance = tolerance;
 			r.quiet = quiet;
 			r.iterations = n;
+			r.fail = fail;
 
 			state.estimationRequests.push_back(r);
 		}
@@ -264,7 +125,8 @@ namespace chebyshev {
 			std::vector<interval> intervals,
 			Real tolerance = state.defaultTolerance,
 			bool quiet = false,
-			unsigned int n = state.defaultIterations) {
+			unsigned int n = state.defaultIterations,
+			FailFunction fail = state.defaultFailFunction) {
 
 			estimate_request r;
 			r.funcName = name;
@@ -274,6 +136,7 @@ namespace chebyshev {
 			r.tolerance = tolerance;
 			r.quiet = quiet;
 			r.iterations = n;
+			r.fail = fail;
 
 			state.estimationRequests.push_back(r);
 		}
@@ -285,7 +148,8 @@ namespace chebyshev {
 			interval k,
 			Real tolerance = state.defaultTolerance,
 			bool quiet = false,
-			unsigned int n = state.defaultIterations) {
+			unsigned int n = state.defaultIterations,
+			FailFunction fail = state.defaultFailFunction) {
 
 			estimate_custom_request r;
 			r.funcName = name;
@@ -305,7 +169,8 @@ namespace chebyshev {
 			std::vector<interval> intervals,
 			Real tolerance = state.defaultTolerance,
 			bool quiet = false,
-			unsigned int n = state.defaultIterations) {
+			unsigned int n = state.defaultIterations,
+			FailFunction fail = state.defaultFailFunction) {
 
 			estimate_custom_request r;
 			r.funcName = name;
@@ -327,7 +192,8 @@ namespace chebyshev {
 			interval k,
 			Real tolerance = state.defaultTolerance,
 			bool quiet = false,
-			unsigned int n = state.defaultIterations) {
+			unsigned int n = state.defaultIterations,
+			FailFunction fail = state.defaultFailFunction) {
 
 			estimate_result result;
 
@@ -385,12 +251,9 @@ namespace chebyshev {
 			result.rel_err = (sum * dx / 3.0) / (sum_abs * dx / 3.0);
 			result.tolerance = tolerance;
 
-			if(result.max_err > tolerance) {
+			result.failed = fail(result);
+			if(result.failed)
 				state.failedTests++;
-				result.failed = true;
-			} else {
-				result.failed = false;
-			}
 
 			state.estimationResults[result.funcName].push_back(result);
 			state.totalTests++;
@@ -408,7 +271,7 @@ namespace chebyshev {
 					r.funcName, r.func,
 					r.funcExpected, k,
 					r.tolerance, r.quiet,
-					r.iterations
+					r.iterations, r.fail
 					));
 
 			return res;

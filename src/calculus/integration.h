@@ -42,6 +42,11 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real integral_midpoint(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
+
+		if(steps == 0) {
+			TH_MATH_ERROR("integral_midpoint", steps, DIV_BY_ZERO);
+			return nan();
+		}
 		
 		real dx = (b - a) / steps;
 		real res = 0;
@@ -64,6 +69,11 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real integral_trapezoid(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
+
+		if(steps == 0) {
+			TH_MATH_ERROR("integral_trapezoid", steps, DIV_BY_ZERO);
+			return nan();
+		}
 		
 		real dx = (b - a) / steps;
 		real res = 0;
@@ -90,6 +100,11 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real integral_simpson(RealFunction f, real a, real b,
 		unsigned int steps = INTEGRATION_STEPS) {
+
+		if(steps == 0) {
+			TH_MATH_ERROR("integral_simpson", steps, DIV_BY_ZERO);
+			return nan();
+		}
 		
 		real dx = (b - a) / (real) steps;
 		real res = 0;
