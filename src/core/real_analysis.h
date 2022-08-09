@@ -436,7 +436,7 @@ namespace theoretica {
 			i++;
 
 		// Domain reduction to [1, 2]
-		x /= static_cast<real>(1 << i);
+		x /= (1 << i);
 
 		// Use a polynomial approximation of log2(x)
 		// in [1, 2] to compute the logarithm of the
@@ -456,7 +456,7 @@ namespace theoretica {
 							+ x * (-0.176734 + x * (0.0144404 * x)))))));
 		}
 
-		return static_cast<real>(i) + lr;
+		return i + lr;
 #endif
 	}
 
@@ -630,7 +630,7 @@ namespace theoretica {
 	}
 
 
-	/// Approximate x elevated to a
+	/// Approximate x elevated to a real exponent
 	/// @param x A real number
 	/// @return a A real exponent
 	///

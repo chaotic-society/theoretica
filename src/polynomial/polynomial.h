@@ -29,6 +29,10 @@ namespace theoretica {
 
 			polynomial() : coeff() {}
 
+			polynomial(T a) {
+				coeff = {a};
+			}
+
 			polynomial(const std::vector<T>& c) : coeff(c) {}
 			
 			~polynomial() {}
@@ -85,9 +89,9 @@ namespace theoretica {
 
 
 			/// Find the true order of the polynomial (ignoring null coefficients)
-			inline int find_order() const {
+			inline unsigned int find_order() const {
 
-				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
+				for (int i = coeff.size() - 1; i >= 0; --i) {
 					if(coeff[i] != 0)
 						return i;
 				}
@@ -156,8 +160,49 @@ namespace theoretica {
 			}
 
 
+			/// Polynomial division
+			inline polynomial operator/(const polynomial& d) const {
+
+				const unsigned int d_order = d.find_order();
+
+				if(d_order == 0 && d.get(0) == 0) {
+					TH_MATH_ERROR("polynomial::operator/", d.get(0), DIV_BY_ZERO);
+					return polynomial(nan());
+				}
+
+				// Remainder
+				polynomial r = *this;
+
+				// Quotient
+				polynomial q = polynomial();
+
+				while(true) {
+
+					// Compute only once the degree of the polynomial
+					const unsigned int r_order = r.find_order();
+
+					// Stop execution if the division is complete
+					// (when the remainder is 0 or has lower degree)
+					if((r_order == 0 && r.get(0) == 0) || r_order < d_order)
+						break;
+
+					// Simple division between highest degree terms
+					const polynomial t = polynomial<T>::monomial(
+						r.get(r_order) / d.get(d_order),
+						r_order - d_order);
+
+					// Add monomial to quotient and subtract the
+					// monomial times the dividend from the remainder
+					q += t;
+					r -= t * d;
+				}
+
+				return q;
+			}
+
+
 			/// Multiply a polynomial by a scalar
-			inline polynomial operator*(real a) const {
+			inline polynomial operator*(T a) const {
 
 				polynomial r = polynomial(*this);
 
@@ -169,7 +214,7 @@ namespace theoretica {
 
 
 			/// Divide a polynomial by a scalar
-			inline polynomial operator/(real a) const {
+			inline polynomial operator/(T a) const {
 
 				if(a == 0) {
 					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
@@ -182,9 +227,6 @@ namespace theoretica {
 
 				return r;
 			}
-
-
-			// TO-DO Polynomial division
 
 
 			/// Sum a polynomial to this one
@@ -221,11 +263,9 @@ namespace theoretica {
 				polynomial r = polynomial();
 				r.coeff.resize(this->size() + p.size() - 1);
 
-				for (unsigned int i = 0; i < size(); ++i) {
-					for (unsigned int j = 0; j < p.size(); ++j) {
+				for (unsigned int i = 0; i < size(); ++i)
+					for (unsigned int j = 0; j < p.size(); ++j)
 						r[i + j] += coeff[i] * p.get(j);
-					}
-				}
 
 				*this = r;
 				return *this;
@@ -321,6 +361,16 @@ namespace theoretica {
 					P *= polynomial<T>({roots[i] * -1, 1});
 
 				return P;
+			}
+
+
+			/// Returns a monomial of the given degree and coefficient
+			inline static polynomial<T> monomial(T c, unsigned int order) {
+				
+				polynomial m;
+				m.coeff = std::vector<T>(order + 1, T(0));
+				m.coeff[order] = c;
+				return m;
 			}
 
 
