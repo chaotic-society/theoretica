@@ -68,4 +68,9 @@ benchmark_real_analysis:
 	@g++ benchmark/benchmark_real_analysis.cpp ${CXXFLAGS} -O0 -o benchmark/benchmark_real_analysis
 	@./benchmark/benchmark_real_analysis
 
-benchmark: benchmark_real_analysis
+benchmark_algebra:
+	@echo Compiling algebra benchmark...
+	@g++ benchmark/benchmark_algebra.cpp ${CXXFLAGS} -O0 -o benchmark/benchmark_algebra
+	@./benchmark/benchmark_algebra
+
+benchmark: benchmark_real_analysis benchmark_algebra

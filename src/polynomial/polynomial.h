@@ -56,12 +56,13 @@ namespace theoretica {
 
 
 			/// Evaluate the polynomial using x as variable
-			inline T eval(T x) const {
+			template<typename EvalType = T>
+			inline EvalType eval(EvalType x) const {
 
 				if(!coeff.size())
 					return 0;
 
-				T sum = 0;
+				EvalType sum = 0;
 
 				// Evaluate using Horner's method
 				for (unsigned int i = 0; i < coeff.size(); ++i)
@@ -75,7 +76,8 @@ namespace theoretica {
 
 
 			/// Evaluate the polynomial using x as variable
-			inline T operator()(T x) const {
+			template<typename EvalType = T>
+			inline EvalType operator()(EvalType x) const {
 				return eval(x);
 			}
 
@@ -400,25 +402,27 @@ namespace theoretica {
 			inline std::string to_string(const std::string& unknown = "x") const {
 
 				std::stringstream res;
+				bool flag = false;
+				const int sz = coeff.size();
 
-				for (unsigned int i = 0; i < coeff.size(); ++i) {
+				for (int i = sz - 1; i >= 0; --i) {
 
 					if(coeff[i] == 0)
 						continue;
 
+					res << (coeff[i] >= 0 ? "+ " : "- ");
+					res << coeff[i];
+
 					if(i) {
+						res << unknown << "^" << i;
+						res << " ";
+					}
 
-						res << (coeff[i] >= 0 ? "+ " : "- ")
-							 << abs(coeff[i]) << unknown << "^" << i;
-
-						if(i != coeff.size() - 1)
-							res << " ";
-					
-					} else {
-						res << (coeff[i] >= 0 ? "+ " : "- ")
-							 << abs(coeff[i]) << " ";
-					}	
+					flag = true;
 				}
+
+				if(!flag)
+					res << "0";
 
 				return res.str();
 			}

@@ -86,7 +86,7 @@ int main(int argc, char const *argv[]) {
 		interval(-1000000, 1000000)
 	};
 
-	prec::setup("algebra");
+	prec::setup("algebra", argc, argv);
 
 		prec::estimate("mat3::inverse", test_matrix_inverse<3>, intervals);
 		prec::estimate("mat4::inverse", test_matrix_inverse<4>, intervals);

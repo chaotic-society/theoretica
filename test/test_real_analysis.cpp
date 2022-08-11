@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]) {
 
 	prec::state.outputFolder = "test/";
 
-	prec::setup("real_analysis");
+	prec::setup("real_analysis", argc, argv);
 
 		prec::equals("th::square(real)", REAL_LAMBDA(th::square), {
 			{1, 1},

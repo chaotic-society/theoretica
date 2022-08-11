@@ -89,6 +89,10 @@ namespace chebyshev {
 			/// Results of equations
 			std::map<std::string, std::vector<equation_result>> equationResults;
 
+			/// Target tests marked for execution
+			/// (all tests will be executed if empty)
+			std::map<std::string, bool> pickedTests;
+
 		} state;
 
 
@@ -252,8 +256,6 @@ namespace chebyshev {
 			result.tolerance = tolerance;
 
 			result.failed = fail(result);
-			if(result.failed)
-				state.failedTests++;
 
 			state.estimationResults[result.funcName].push_back(result);
 			state.totalTests++;
@@ -356,7 +358,15 @@ namespace chebyshev {
 
 
 		/// Setup the precision testing environment
-		inline void setup(std::string moduleName) {
+		inline void setup(std::string moduleName, int argc = 0, const char** argv = nullptr) {
+
+
+			// Initialize pick list
+			if(argc && argv) {
+				for (int i = 1; i < argc; ++i) {
+					state.pickedTests[argv[i]] = true;
+				}
+			}
 
 			std::cout << "Starting precision testing of the " << moduleName << " module ..." << std::endl;
 			state.moduleName = moduleName;
@@ -401,11 +411,15 @@ namespace chebyshev {
 						<< "RMS Err., Max Err., Rel. Err." << std::endl;
 
 				for(const auto& r : state.estimationRequests) {
+
+					if(!state.pickedTests.empty() && !state.pickedTests[r.funcName])
+						continue;
 					
 					auto res = compute_estimate(r);
 
 					for(size_t i = 0; i < res.size(); i++) {
 
+						// Skip test if only picked tests are to be executed
 						if(state.estimateOnlyFailed && !res[i].failed)
 							continue;
 
@@ -442,6 +456,10 @@ namespace chebyshev {
 				state.estimationRequests.clear();
 
 				for(const auto& r : state.estimationCustomRequests) {
+
+					// Skip test if only picked tests are to be executed
+					if(!state.pickedTests.empty() && !state.pickedTests[r.funcName])
+						continue;
 					
 					std::vector<estimate_result> res;
 
@@ -513,6 +531,11 @@ namespace chebyshev {
 					state.outputFile << "Function, Eval. Value, Exp. Value, Diff., Tol." << std::endl;
 
 				for (size_t i = 0; i < state.equationRequests.size(); i++) {
+
+					// Skip test if only picked tests are to be executed
+					if( !state.pickedTests.empty() &&
+						!state.pickedTests[state.equationRequests[i].funcName])
+						continue;
 					
 					equation_result res = eval_equation(state.equationRequests[i]);
 

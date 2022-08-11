@@ -17,6 +17,7 @@
 	
 #include "core/common.h"
 #include "core/timer.h"
+#include <map>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -128,13 +129,24 @@ namespace chebyshev {
 			/// Number of failed benchmarks
 			unsigned int failedBenchmarks = 0;
 
+			/// Target benchmarks marked for execution
+			/// (all benchmarks will be executed if empty)
+			std::map<std::string, bool> pickedBenchmarks;
 		} state;
 
 
 		/// Setup a module's benchmark
 		inline void setup(const std::string& module = "unknown",
+			int argc = 0, const char** argv = nullptr,
 			unsigned int iter = CHEBYSHEV_ITER,
 			unsigned int runs = CHEBYSHEV_RUNS) {
+
+			// Initialize pick list
+			if(argc && argv) {
+				for (int i = 1; i < argc; ++i) {
+					state.pickedBenchmarks[argv[i]] = true;
+				}
+			}
 
 			state.moduleName = module;
 			state.defaultIterations = iter;
@@ -182,7 +194,7 @@ namespace chebyshev {
 		/// Request a custom benchmark
 		inline void custom_request(
 			const std::string& funcName, CustomBenchmarkFunction f,
-			unsigned int n, unsigned int m) {
+			unsigned int n = state.defaultIterations, unsigned int m = state.defaultRuns) {
 
 			benchmark_custom_request r;
 			r.funcName = funcName;
@@ -203,7 +215,7 @@ namespace chebyshev {
 			__volatile__ Real c = 0;
 
 			std::vector<Real> input;
-			input.resize(n);
+			input.reserve(n);
 
 			for (unsigned int i = 0; i < n; ++i)
 				input[i] = g(i);
@@ -279,6 +291,9 @@ namespace chebyshev {
 		
 			for (const auto& r : state.requests) {
 
+				if(!state.pickedBenchmarks.empty() && !state.pickedBenchmarks[r.funcName])
+					continue;
+
 				benchmark_result br = benchmark(r);
 				state.results.push_back(br);
 				
@@ -292,6 +307,9 @@ namespace chebyshev {
 			}
 
 			for (const auto& r : state.customRequests) {
+
+				if(!state.pickedBenchmarks.empty() && !state.pickedBenchmarks[r.funcName])
+					continue;
 
 				benchmark_result br = r.f(r.iter, r.runs);
 				br.funcName = r.funcName;
