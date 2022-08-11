@@ -84,6 +84,24 @@ namespace theoretica {
 			}
 
 
+			/// Evaluate the ratio as the division
+			/// between numerator and denominator converted
+			/// to the type of the denominator.
+			inline T2 eval() {
+				return static_cast<T2>(num) / static_cast<T2>(den);
+			}
+
+
+			/// Evaluate the ratio as the division
+			/// between numerator and denominator converted
+			/// to the type of the denominator.
+			///
+			/// @see eval
+			inline operator T2() {
+				return eval();
+			}
+
+
 #ifndef THEORETICA_NO_PRINT
 
 			/// Convert the ratio to string representation

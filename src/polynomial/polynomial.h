@@ -29,9 +29,7 @@ namespace theoretica {
 
 			polynomial() : coeff() {}
 
-			polynomial(T a) {
-				coeff = {a};
-			}
+			polynomial(T a) : coeff({a}) {}
 
 			polynomial(const std::vector<T>& c) : coeff(c) {}
 			
@@ -261,7 +259,7 @@ namespace theoretica {
 			inline polynomial& operator*=(const polynomial& p) {
 
 				polynomial r = polynomial();
-				r.coeff.resize(this->size() + p.size() - 1);
+				r.coeff.resize(this->size() + p.size() - 1, T(0));
 
 				for (unsigned int i = 0; i < size(); ++i)
 					for (unsigned int j = 0; j < p.size(); ++j)
@@ -279,6 +277,12 @@ namespace theoretica {
 					coeff[i] *= a;
 				
 				return *this;
+			}
+
+
+			/// Multiply a polynomial by a scalar value
+			inline polynomial& operator/=(const polynomial& a) {
+				return (*this = (*this / a));
 			}
 
 
@@ -324,7 +328,7 @@ namespace theoretica {
 			/// Compute the roots of a quadratic polynomial
 			inline vec<2, complex> quadratic_roots() const {
 
-				int order = find_order();
+				const int order = find_order();
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
@@ -378,11 +382,11 @@ namespace theoretica {
 			// (T) op. (polynomial<T>)
 
 			inline friend polynomial<T> operator+(T r, const polynomial<T>& z) {
-				return z + polynomial({r});
+				return z + polynomial(r);
 			}
 
 			inline friend polynomial<T> operator-(T r, const polynomial<T>& z) {
-				return (z * -1) + polynomial({r});
+				return (z * -1) + polynomial(r);
 			}
 
 			inline friend polynomial<T> operator*(T r, const polynomial<T>& z) {

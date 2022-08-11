@@ -967,6 +967,36 @@ namespace theoretica {
 	}
 
 
+	/// Compute the inverse hyperbolic sine
+	inline real asinh(real x) {
+		return ln(x + sqrt(square(x) + 1));
+	}
+
+
+	/// Compute the inverse hyperbolic cosine
+	inline real acosh(real x) {
+
+		if(x < 1) {
+			TH_MATH_ERROR("acosh", x, OUT_OF_DOMAIN);
+			return nan();
+		}
+
+		return ln(x + sqrt(square(x) - 1));
+	}
+
+
+	/// Compute the inverse hyperbolic tangent
+	inline real atanh(real x) {
+
+		if(x < -1 || x > 1) {
+			TH_MATH_ERROR("atanh", x, OUT_OF_DOMAIN);
+			return nan();
+		}
+
+		return 0.5 * ln((x + 1) / (1 - x));
+	}
+
+
 	/// Compute the sigmoid function
 	/// @param x A real number
 	/// @return The sigmoid function for x defined as
@@ -982,9 +1012,8 @@ namespace theoretica {
 	/// \f$\frac{sin(\pi x)}{\pi x}\f$
 	inline real sinc(real x) {
 
-		if(abs(x) <= MACH_EPSILON) {
+		if(abs(x) <= MACH_EPSILON)
 			return 1;
-		}
 
 		return sin(PI * x) / (PI * x);
 	}
@@ -996,9 +1025,8 @@ namespace theoretica {
 	/// to 1 if x > 0, 0 if x < 0 and 1/2 if x = 0
 	inline real heaviside(real x) {
 
-		if(abs(x) < MACH_EPSILON) {
+		if(abs(x) < MACH_EPSILON)
 			return 0.5;
-		}
 
 		return x > 0 ? 1 : 0;
 	}
