@@ -107,124 +107,153 @@ $(document).ready(function(){initNavTree('integration_8h_source.html',''); initR
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a0af57e86214e047cc08e30d7d19e4410">   18</a></span>    <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;real&gt;</a> <a class="code hl_function" href="namespacetheoretica.html#a0af57e86214e047cc08e30d7d19e4410">integrate_polynomial</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;real&gt;</a>&amp; p) {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;real&gt;</a> Dp;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        Dp.coeff.push_back(0);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; p.<a class="code hl_function" href="classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2">size</a>(); ++i)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            Dp.coeff.push_back(p.<a class="code hl_function" href="classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71">get</a>(i) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) (i + 1));</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> Dp;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = real&gt;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb">   22</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;T&gt;</a> <a class="code hl_function" href="namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb">integrate_polynomial</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;T&gt;</a>&amp; p) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="classtheoretica_1_1polynomial.html">polynomial&lt;T&gt;</a> Dp;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        Dp.coeff.push_back(0);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; p.<a class="code hl_function" href="classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2">size</a>(); ++i)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            Dp.coeff.push_back(p.<a class="code hl_function" href="classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71">get</a>(i) / T(i + 1));</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae485ca27f628e7d64709d9aef479a292">   32</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ae485ca27f628e7d64709d9aef479a292">integral_midpoint</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / steps;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; steps; ++i)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            res += f(a + (i + 0.5) * dx);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span> res * dx;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ac21d53ff6da393fdc9a8266f7235af23">   47</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ac21d53ff6da393fdc9a8266f7235af23">integral_trapezoid</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / steps;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        res += 0.5 * f(a);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; steps; ++i)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            res += f(a + i * dx);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        res += 0.5 * f(b);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">return</span> Dp;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RealFunction&gt;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93">   43</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93">integral_midpoint</a>(RealFunction f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span>(steps == 0) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;integral_midpoint&quot;</span>, steps, DIV_BY_ZERO);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / steps;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; steps; ++i)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            res += f(a + (i + 0.5) * dx);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> res * dx;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> res * dx;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#af51bdfb27a1cd8584a37821f8fe296e3">   66</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#af51bdfb27a1cd8584a37821f8fe296e3">integral_simpson</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) steps;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        res += f(a) + f(b);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; steps; ++i) {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">if</span>(i % 2 == 0)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                res += 2.0 * f(a + i * dx);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                res += 4.0 * f(a + i * dx);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RealFunction&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">   70</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">integral_trapezoid</a>(RealFunction f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span>(steps == 0) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;integral_trapezoid&quot;</span>, steps, DIV_BY_ZERO);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / steps;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        res += 0.5 * f(a);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">return</span> res * dx / 3.0;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; steps; ++i)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            res += f(a + i * dx);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a2cb4ab5fdfd9f824836e787f5543fb71">   89</a></span>    <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a2cb4ab5fdfd9f824836e787f5543fb71">integral_romberg</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> order) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        res += 0.5 * f(b);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> res * dx;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span>(order % 2 != 0) {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;integral_romberg&quot;</span>, order, IMPOSSIBLE_OPERATION);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = order / 2;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> T[iter][iter];</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; iter; ++j) {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="comment">// Composite Trapezoidal Rule</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            T[j][0] = <a class="code hl_function" href="namespacetheoretica.html#ac21d53ff6da393fdc9a8266f7235af23">integral_trapezoid</a>(f, a, b, 1 &lt;&lt; j);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment">// Richardson extrapolation</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k = 1; k &lt;= j; ++k) {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                T[j][k] =</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    T[j][k - 1]</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                    + (T[j][k - 1] - T[j - 1][k - 1]) / ((1 &lt;&lt; (2 * k)) - 1);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="comment">// Return the best approximation</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> T[iter - 1][iter - 1];</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RealFunction&gt;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">  101</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">integral_simpson</a>(RealFunction f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> steps = <a class="code hl_variable" href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">INTEGRATION_STEPS</a>) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span>(steps == 0) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;integral_simpson&quot;</span>, steps, DIV_BY_ZERO);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dx = (b - a) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) steps;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        res += f(a) + f(b);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; steps; ++i) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordflow">if</span>(i % 2 == 0)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                res += 2.0 * f(a + i * dx);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                res += 4.0 * f(a + i * dx);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> res * dx / 3.0;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RealFunction&gt;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a710ca6ff97e6d14f5f42bab6462d9fa2">  136</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a710ca6ff97e6d14f5f42bab6462d9fa2">integral_romberg</a>(</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        RealFunction f,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> order = 16) {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">if</span>(order % 2 != 0) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;integral_romberg&quot;</span>, order, IMPOSSIBLE_OPERATION);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = order / 2;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> T[iter][iter];</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; iter; ++j) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="comment">// Composite Trapezoidal Rule</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            T[j][0] = <a class="code hl_function" href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">integral_trapezoid</a>(f, a, b, 1 &lt;&lt; j);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="comment">// Richardson extrapolation</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k = 1; k &lt;= j; ++k) {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                T[j][k] =</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                    T[j][k - 1]</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    + (T[j][k - 1] - T[j - 1][k - 1]) / ((1 &lt;&lt; (2 * k)) - 1);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">// Return the best approximation</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> T[iter - 1][iter - 1];</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RealFunction&gt;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">  178</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">integral</a>(RealFunction f, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">integral_simpson</a>(f, a, b);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>}</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1polynomial_html"><div class="ttname"><a href="classtheoretica_1_1polynomial.html">theoretica::polynomial</a></div><div class="ttdoc">A polynomial of arbitrary order.</div><div class="ttdef"><b>Definition:</b> polynomial.h:26</div></div>
-<div class="ttc" id="aclasstheoretica_1_1polynomial_html_a0a43e59e23515d441c728544d4a45ac2"><div class="ttname"><a href="classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2">theoretica::polynomial::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">Get the number of coefficients.</div><div class="ttdef"><b>Definition:</b> polynomial.h:112</div></div>
-<div class="ttc" id="aclasstheoretica_1_1polynomial_html_acc0f45b39ddf887652f3b38dfa15aa71"><div class="ttname"><a href="classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71">theoretica::polynomial::get</a></div><div class="ttdeci">T get(int i) const</div><div class="ttdoc">Get the i-th by value.</div><div class="ttdef"><b>Definition:</b> polynomial.h:51</div></div>
-<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> error.h:156</div></div>
-<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:138</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a0af57e86214e047cc08e30d7d19e4410"><div class="ttname"><a href="namespacetheoretica.html#a0af57e86214e047cc08e30d7d19e4410">theoretica::integrate_polynomial</a></div><div class="ttdeci">polynomial&lt; real &gt; integrate_polynomial(const polynomial&lt; real &gt; &amp;p)</div><div class="ttdoc">Integrate a polynomial.</div><div class="ttdef"><b>Definition:</b> integration.h:18</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a2cb4ab5fdfd9f824836e787f5543fb71"><div class="ttname"><a href="namespacetheoretica.html#a2cb4ab5fdfd9f824836e787f5543fb71">theoretica::integral_romberg</a></div><div class="ttdeci">real integral_romberg(real_function f, real a, real b, unsigned int order)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using Romberg's method accurate to the giv...</div><div class="ttdef"><b>Definition:</b> integration.h:89</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a55d24f1c0c8357b26e2ea168b80eabeb"><div class="ttname"><a href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">theoretica::real_function</a></div><div class="ttdeci">real(*)(real) real_function</div><div class="ttdoc">Function pointer to a real function.</div><div class="ttdef"><b>Definition:</b> function.h:17</div></div>
-<div class="ttc" id="anamespacetheoretica_html_aa1f0e3448f94ada54d171499c0c95ae4"><div class="ttname"><a href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">theoretica::INTEGRATION_STEPS</a></div><div class="ttdeci">constexpr int INTEGRATION_STEPS</div><div class="ttdoc">Default number of steps for integral approximation.</div><div class="ttdef"><b>Definition:</b> constants.h:207</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ac21d53ff6da393fdc9a8266f7235af23"><div class="ttname"><a href="namespacetheoretica.html#ac21d53ff6da393fdc9a8266f7235af23">theoretica::integral_trapezoid</a></div><div class="ttdeci">real integral_trapezoid(real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using the trapezoid method.</div><div class="ttdef"><b>Definition:</b> integration.h:47</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ae485ca27f628e7d64709d9aef479a292"><div class="ttname"><a href="namespacetheoretica.html#ae485ca27f628e7d64709d9aef479a292">theoretica::integral_midpoint</a></div><div class="ttdeci">real integral_midpoint(real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using the midpoint method.</div><div class="ttdef"><b>Definition:</b> integration.h:32</div></div>
+<div class="ttc" id="aclasstheoretica_1_1polynomial_html_a0a43e59e23515d441c728544d4a45ac2"><div class="ttname"><a href="classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2">theoretica::polynomial::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">Get the number of coefficients.</div><div class="ttdef"><b>Definition:</b> polynomial.h:116</div></div>
+<div class="ttc" id="aclasstheoretica_1_1polynomial_html_acc0f45b39ddf887652f3b38dfa15aa71"><div class="ttname"><a href="classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71">theoretica::polynomial::get</a></div><div class="ttdeci">T get(int i) const</div><div class="ttdoc">Get the i-th by value.</div><div class="ttdef"><b>Definition:</b> polynomial.h:53</div></div>
+<div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:156</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:166</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1a48a7bb7296e78f5c1b0c5f5bcf4d93"><div class="ttname"><a href="namespacetheoretica.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93">theoretica::integral_midpoint</a></div><div class="ttdeci">real integral_midpoint(RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using the midpoint method.</div><div class="ttdef"><b>Definition:</b> integration.h:43</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a4cbfca610e297e184c272140d991e987"><div class="ttname"><a href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">theoretica::integral_trapezoid</a></div><div class="ttdeci">real integral_trapezoid(RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using the trapezoid method.</div><div class="ttdef"><b>Definition:</b> integration.h:70</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a710ca6ff97e6d14f5f42bab6462d9fa2"><div class="ttname"><a href="namespacetheoretica.html#a710ca6ff97e6d14f5f42bab6462d9fa2">theoretica::integral_romberg</a></div><div class="ttdeci">real integral_romberg(RealFunction f, real a, real b, unsigned int order=16)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using Romberg's method accurate to the giv...</div><div class="ttdef"><b>Definition:</b> integration.h:136</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aa1f0e3448f94ada54d171499c0c95ae4"><div class="ttname"><a href="namespacetheoretica.html#aa1f0e3448f94ada54d171499c0c95ae4">theoretica::INTEGRATION_STEPS</a></div><div class="ttdeci">constexpr int INTEGRATION_STEPS</div><div class="ttdoc">Default number of steps for integral approximation.</div><div class="ttdef"><b>Definition:</b> constants.h:238</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ad30054ccf81cf93e466c08361e4ff9fb"><div class="ttname"><a href="namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb">theoretica::integrate_polynomial</a></div><div class="ttdeci">polynomial&lt; T &gt; integrate_polynomial(const polynomial&lt; T &gt; &amp;p)</div><div class="ttdoc">Compute the indefinite integral of a polynomial.</div><div class="ttdef"><b>Definition:</b> integration.h:22</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ad5f3d75e6a0c23d23a5e685145437ff5"><div class="ttname"><a href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">theoretica::integral_simpson</a></div><div class="ttdeci">real integral_simpson(RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using Simpson's method.</div><div class="ttdef"><b>Definition:</b> integration.h:101</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ae095e7eee4b03eddc3b035b2bde14a7e"><div class="ttname"><a href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">theoretica::integral</a></div><div class="ttdeci">real integral(RealFunction f, real a, real b)</div><div class="ttdoc">Use the best available algorithm to approximate the definite integral of a real function.</div><div class="ttdef"><b>Definition:</b> integration.h:178</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae95680d1669eee1549fe112b9a846519"><div class="ttname"><a href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">theoretica::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:50</div></div>
-<div class="ttc" id="anamespacetheoretica_html_af51bdfb27a1cd8584a37821f8fe296e3"><div class="ttname"><a href="namespacetheoretica.html#af51bdfb27a1cd8584a37821f8fe296e3">theoretica::integral_simpson</a></div><div class="ttdeci">real integral_simpson(real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</div><div class="ttdoc">Approximate the definite integral of an arbitrary function using Simpson's method.</div><div class="ttdef"><b>Definition:</b> integration.h:66</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

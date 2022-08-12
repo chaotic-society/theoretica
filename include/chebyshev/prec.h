@@ -391,6 +391,56 @@ namespace chebyshev {
 		}
 
 
+		/// Print an estimation result
+		inline void print_estimate(const estimate_result& r, size_t i = 0) {
+
+			std::cout << std::left << std::setw(20);
+
+			if(i)	std::cout << "                    ";
+			else	std::cout << r.funcName;
+			
+			std::cout << " | "
+			<< std::setw(12) << r.k.a << " | "
+			<< std::setw(12) << r.k.b << " | "
+			<< std::setw(12) << r.mean_err << " | "
+			<< std::setw(12) << r.rms_err << " | "
+			<< std::setw(12) << r.max_err << " | "
+			<< std::setw(12) << r.rel_err;
+
+			if(r.failed)
+				std::cout << "  FAILED";
+
+			std::cout << std::endl;
+		}
+
+
+		/// Print an equation result
+		inline void print_equation(const equation_result& r, size_t i = 0) {
+
+			std::cout << std::setw(20);
+
+			if(i) {
+				if(state.equationRequests[i - 1].funcName == r.funcName)
+					std::cout << "                    ";
+				else
+					std::cout << r.funcName;
+			} else {
+				std::cout << r.funcName;
+			}
+
+			std::cout << " | "
+			<< std::setw(12) << r.evaluated << " | "
+			<< std::setw(12) << r.expected << " | "
+			<< std::setw(12) << r.diff << " | "
+			<< std::setw(12) << r.tolerance;
+
+			if(r.failed)
+					std::cout << std::setw(8) << "  FAILED";
+
+			std::cout << std::endl;
+		}
+
+
 		/// Run all requested error estimations and equation evaluations
 		inline void run() {
 
@@ -423,26 +473,8 @@ namespace chebyshev {
 						if(state.estimateOnlyFailed && !res[i].failed)
 							continue;
 
-						if(!state.quiet) {
-
-							std::cout << std::left << std::setw(20);
-
-							if(i)	std::cout << "                    ";
-							else	std::cout << res[i].funcName;
-							
-							std::cout << " | "
-							<< std::setw(12) << res[i].k.a << " | "
-							<< std::setw(12) << res[i].k.b << " | "
-							<< std::setw(12) << res[i].mean_err << " | "
-							<< std::setw(12) << res[i].rms_err << " | "
-							<< std::setw(12) << res[i].max_err << " | "
-							<< std::setw(12) << res[i].rel_err;
-
-							if(res[i].failed)
-								std::cout << "  FAILED";
-
-							std::cout << std::endl;
-						}
+						if(!state.quiet)
+							print_estimate(res[i], i);
 
 						if(state.outputToFile) {
 							state.outputFile << res[i].funcName << ", " << res[i].k.a << ", " << res[i].k.b << ", "
@@ -483,26 +515,8 @@ namespace chebyshev {
 						if(state.estimateOnlyFailed && !res[i].failed)
 							continue;
 
-						if(!state.quiet) {
-
-							std::cout << std::left << std::setw(20);
-
-							if(i)	std::cout << "                    ";
-							else	std::cout << res[i].funcName;
-							
-							std::cout << " | "
-							<< std::setw(12) << res[i].k.a << " | "
-							<< std::setw(12) << res[i].k.b << " | "
-							<< std::setw(12) << res[i].mean_err << " | "
-							<< std::setw(12) << res[i].rms_err << " | "
-							<< std::setw(12) << res[i].max_err << " | "
-							<< std::setw(12) << res[i].rel_err;
-
-							if(res[i].failed)
-								std::cout << "  FAILED";
-
-							std::cout << std::endl;
-						}
+						if(!state.quiet)
+							print_estimate(res[i], i);
 
 						if(state.outputToFile) {
 							state.outputFile << res[i].funcName << ", " << res[i].k.a << ", " << res[i].k.b << ", "
@@ -542,29 +556,8 @@ namespace chebyshev {
 					if(state.equalsOnlyFailed && !res.failed)
 						return;
 
-					if(!state.quiet) {
-						std::cout << std::setw(20);
-
-						if(i) {
-							if(state.equationRequests[i - 1].funcName == res.funcName)
-								std::cout << "                    ";
-							else
-								std::cout << res.funcName;
-						} else {
-							std::cout << res.funcName;
-						}
-
-						std::cout << " | "
-						<< std::setw(12) << res.evaluated << " | "
-						<< std::setw(12) << res.expected << " | "
-						<< std::setw(12) << res.diff << " | "
-						<< std::setw(12) << res.tolerance;
-
-						if(res.failed)
-								std::cout << std::setw(8) << "  FAILED";
-
-						std::cout << std::endl;
-					}
+					if(!state.quiet)
+						print_equation(res, i);
 
 					if(state.outputToFile) {
 						state.outputFile << res.funcName << ", " << res.evaluated << ", " << res.expected

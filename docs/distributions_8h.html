@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('distributions_8h.html',''); initResiza
 <div class="textblock"><code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="statistics_8h_source.html">./statistics.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="function_8h_source.html">../core/function.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="special_8h_source.html">../core/special.h</a>&quot;</code><br />
 </div>
 <p><a href="distributions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,8 +112,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacedistribution"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedistribution.html">distribution</a></td></tr>
-<tr class="memdesc:namespacedistribution"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probability distribution functions. <br /></td></tr>
+<tr class="memitem:namespacetheoretica_1_1distribution"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1distribution.html">theoretica::distribution</a></td></tr>
+<tr class="memdesc:namespacetheoretica_1_1distribution"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probability distribution functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -131,7 +132,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:ae2af3da7ff28656b64d06b16c8063b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="memItemLeft" align="right" valign="top"><a id="a579e95149f4d7e0a6b3bbdcf60e2e1bd" name="a579e95149f4d7e0a6b3bbdcf60e2e1bd"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::gaussian</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::gaussian(real, real, real) <br /></td></tr>
+<tr class="memdesc:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#ae2af3da7ff28656b64d06b16c8063b00" title="Gaussian distribution function.">distribution::gaussian(real, real, real)</a> <br /></td></tr>
 <tr class="separator:a579e95149f4d7e0a6b3bbdcf60e2e1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e1d320249b8efb3dfb78d7ae3a08aa9"><td class="memItemLeft" align="right" valign="top"><a id="a2e1d320249b8efb3dfb78d7ae3a08aa9" name="a2e1d320249b8efb3dfb78d7ae3a08aa9"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::bernoulli</b> (unsigned int k, real p)</td></tr>
@@ -139,7 +140,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a2e1d320249b8efb3dfb78d7ae3a08aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="memItemLeft" align="right" valign="top"><a id="a9e23e3fc149d4f556dd7d9b8c358f98d" name="a9e23e3fc149d4f556dd7d9b8c358f98d"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::bernoulli</b> (real k, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::bernoulli(unsigned int, real) <br /></td></tr>
+<tr class="memdesc:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a2e1d320249b8efb3dfb78d7ae3a08aa9" title="Bernoulli distribution.">distribution::bernoulli(unsigned int, real)</a> <br /></td></tr>
 <tr class="separator:a9e23e3fc149d4f556dd7d9b8c358f98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a207d9c3c111231ffa5ff27efb5a0be13"><td class="memItemLeft" align="right" valign="top"><a id="a207d9c3c111231ffa5ff27efb5a0be13" name="a207d9c3c111231ffa5ff27efb5a0be13"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::poisson</b> (unsigned int k, real lambda)</td></tr>
@@ -147,7 +148,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a207d9c3c111231ffa5ff27efb5a0be13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e87f600ef1d97795266138301b13344"><td class="memItemLeft" align="right" valign="top"><a id="a3e87f600ef1d97795266138301b13344" name="a3e87f600ef1d97795266138301b13344"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::poisson</b> (real k, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a3e87f600ef1d97795266138301b13344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::poisson(unsigned int, real) <br /></td></tr>
+<tr class="memdesc:a3e87f600ef1d97795266138301b13344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a207d9c3c111231ffa5ff27efb5a0be13" title="Poisson distribution.">distribution::poisson(unsigned int, real)</a> <br /></td></tr>
 <tr class="separator:a3e87f600ef1d97795266138301b13344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05a9c35d2cc3431dc4441029cb3c2cea"><td class="memItemLeft" align="right" valign="top"><a id="a05a9c35d2cc3431dc4441029cb3c2cea" name="a05a9c35d2cc3431dc4441029cb3c2cea"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::binomial</b> (unsigned int nu, unsigned int n, real p)</td></tr>
@@ -155,15 +156,35 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a05a9c35d2cc3431dc4441029cb3c2cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="memItemLeft" align="right" valign="top"><a id="a0b8aba4dd6ccb377552f4c0965772aa3" name="a0b8aba4dd6ccb377552f4c0965772aa3"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::binomial</b> (real nu, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::binomial(unsigned int, unsigned int, real) <br /></td></tr>
+<tr class="memdesc:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a05a9c35d2cc3431dc4441029cb3c2cea" title="Binomial distribution function.">distribution::binomial(unsigned int, unsigned int, real)</a> <br /></td></tr>
 <tr class="separator:a0b8aba4dd6ccb377552f4c0965772aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9067fb31cfb790810ee224686a3f08c"><td class="memItemLeft" align="right" valign="top"><a id="ab9067fb31cfb790810ee224686a3f08c" name="ab9067fb31cfb790810ee224686a3f08c"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::multinomial</b> (std::vector&lt; unsigned int &gt; x, unsigned int n, unsigned int k, std::vector&lt; real &gt; p)</td></tr>
+<tr class="memdesc:ab9067fb31cfb790810ee224686a3f08c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multinomial distribution. <br /></td></tr>
+<tr class="separator:ab9067fb31cfb790810ee224686a3f08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467f2fa339b4321afc01d0da1d3c2d9c"><td class="memItemLeft" align="right" valign="top"><a id="a467f2fa339b4321afc01d0da1d3c2d9c" name="a467f2fa339b4321afc01d0da1d3c2d9c"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::chi_squared</b> (real x, unsigned int k)</td></tr>
+<tr class="memdesc:a467f2fa339b4321afc01d0da1d3c2d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chi-squared distribution. <br /></td></tr>
+<tr class="separator:a467f2fa339b4321afc01d0da1d3c2d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff86c5c2d595a9942ba115f4cfb2e78"><td class="memItemLeft" align="right" valign="top"><a id="a4ff86c5c2d595a9942ba115f4cfb2e78" name="a4ff86c5c2d595a9942ba115f4cfb2e78"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::chi_squared</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a4ff86c5c2d595a9942ba115f4cfb2e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a467f2fa339b4321afc01d0da1d3c2d9c" title="Chi-squared distribution.">distribution::chi_squared(real, unsigned int)</a> <br /></td></tr>
+<tr class="separator:a4ff86c5c2d595a9942ba115f4cfb2e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e4cfceccf2f9ea7113ab121320a76bc"><td class="memItemLeft" align="right" valign="top"><a id="a7e4cfceccf2f9ea7113ab121320a76bc" name="a7e4cfceccf2f9ea7113ab121320a76bc"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::student</b> (real x, unsigned int nu)</td></tr>
+<tr class="memdesc:a7e4cfceccf2f9ea7113ab121320a76bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Student's t distribution. <br /></td></tr>
+<tr class="separator:a7e4cfceccf2f9ea7113ab121320a76bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad200d5f01ae2fab63b4c44d213e469a3"><td class="memItemLeft" align="right" valign="top"><a id="ad200d5f01ae2fab63b4c44d213e469a3" name="ad200d5f01ae2fab63b4c44d213e469a3"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::student</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:ad200d5f01ae2fab63b4c44d213e469a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a7e4cfceccf2f9ea7113ab121320a76bc" title="Student&#39;s t distribution.">distribution::student(real, unsigned int)</a> <br /></td></tr>
+<tr class="separator:ad200d5f01ae2fab63b4c44d213e469a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa283c0a58642f4489afa208423dc2838"><td class="memItemLeft" align="right" valign="top"><a id="aa283c0a58642f4489afa208423dc2838" name="aa283c0a58642f4489afa208423dc2838"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::log_normal</b> (real x, real mu, real sigma)</td></tr>
 <tr class="memdesc:aa283c0a58642f4489afa208423dc2838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log-normal distribution. <br /></td></tr>
 <tr class="separator:aa283c0a58642f4489afa208423dc2838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="memItemLeft" align="right" valign="top"><a id="ae05edc9f017a24ba247fb3a25f2dce8b" name="ae05edc9f017a24ba247fb3a25f2dce8b"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::log_normal</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::log_normal(real, real, real) <br /></td></tr>
+<tr class="memdesc:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#aa283c0a58642f4489afa208423dc2838" title="Log-normal distribution.">distribution::log_normal(real, real, real)</a> <br /></td></tr>
 <tr class="separator:ae05edc9f017a24ba247fb3a25f2dce8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08a806f46c9f29aa7c9fea59e5327511"><td class="memItemLeft" align="right" valign="top"><a id="a08a806f46c9f29aa7c9fea59e5327511" name="a08a806f46c9f29aa7c9fea59e5327511"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::exponential</b> (real x, real lambda)</td></tr>
@@ -171,7 +192,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a08a806f46c9f29aa7c9fea59e5327511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd74cec6dc4225139e60365c8bee8e4"><td class="memItemLeft" align="right" valign="top"><a id="a5bd74cec6dc4225139e60365c8bee8e4" name="a5bd74cec6dc4225139e60365c8bee8e4"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::exponential</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a5bd74cec6dc4225139e60365c8bee8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::exponential(real, real) <br /></td></tr>
+<tr class="memdesc:a5bd74cec6dc4225139e60365c8bee8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a08a806f46c9f29aa7c9fea59e5327511" title="Exponential distribution.">distribution::exponential(real, real)</a> <br /></td></tr>
 <tr class="separator:a5bd74cec6dc4225139e60365c8bee8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1258a2337487752e60aae93ba6e7391"><td class="memItemLeft" align="right" valign="top"><a id="ae1258a2337487752e60aae93ba6e7391" name="ae1258a2337487752e60aae93ba6e7391"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::cauchy</b> (real x, real mu, real alpha)</td></tr>
@@ -179,7 +200,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:ae1258a2337487752e60aae93ba6e7391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2725a6ffef76e837cfce38302c8a2d35"><td class="memItemLeft" align="right" valign="top"><a id="a2725a6ffef76e837cfce38302c8a2d35" name="a2725a6ffef76e837cfce38302c8a2d35"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::cauchy</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a2725a6ffef76e837cfce38302c8a2d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::cauchy(real, real, real) <br /></td></tr>
+<tr class="memdesc:a2725a6ffef76e837cfce38302c8a2d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#ae1258a2337487752e60aae93ba6e7391" title="Cauchy distribution.">distribution::cauchy(real, real, real)</a> <br /></td></tr>
 <tr class="separator:a2725a6ffef76e837cfce38302c8a2d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e5e398dee6f6ba80e176a262a99fd6"><td class="memItemLeft" align="right" valign="top"><a id="a42e5e398dee6f6ba80e176a262a99fd6" name="a42e5e398dee6f6ba80e176a262a99fd6"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::breit_wigner</b> (real x, real M, real Gamma)</td></tr>
@@ -187,15 +208,23 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a42e5e398dee6f6ba80e176a262a99fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9779ed8e6e8a2a5706c474f097036d4"><td class="memItemLeft" align="right" valign="top"><a id="ab9779ed8e6e8a2a5706c474f097036d4" name="ab9779ed8e6e8a2a5706c474f097036d4"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::breit_wigner</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:ab9779ed8e6e8a2a5706c474f097036d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::breit_wigner(real, real, real) <br /></td></tr>
+<tr class="memdesc:ab9779ed8e6e8a2a5706c474f097036d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a42e5e398dee6f6ba80e176a262a99fd6" title="Breit Wigner distribution.">distribution::breit_wigner(real, real, real)</a> <br /></td></tr>
 <tr class="separator:ab9779ed8e6e8a2a5706c474f097036d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d08267b0686b3c00215645f40d3db47"><td class="memItemLeft" align="right" valign="top"><a id="a5d08267b0686b3c00215645f40d3db47" name="a5d08267b0686b3c00215645f40d3db47"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::laplace</b> (real x, real mu, real b)</td></tr>
+<tr class="memdesc:a5d08267b0686b3c00215645f40d3db47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Laplace distribution. <br /></td></tr>
+<tr class="separator:a5d08267b0686b3c00215645f40d3db47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1393c6e01136860c25aa0c90b2302b"><td class="memItemLeft" align="right" valign="top"><a id="a8c1393c6e01136860c25aa0c90b2302b" name="a8c1393c6e01136860c25aa0c90b2302b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::laplace</b> (real x, const vec_buff &amp;theta)</td></tr>
+<tr class="memdesc:a8c1393c6e01136860c25aa0c90b2302b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Laplace distribution. <br /></td></tr>
+<tr class="separator:a8c1393c6e01136860c25aa0c90b2302b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29239d9f6fa2ece48c655c977ec77561"><td class="memItemLeft" align="right" valign="top"><a id="a29239d9f6fa2ece48c655c977ec77561" name="a29239d9f6fa2ece48c655c977ec77561"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::pareto</b> (real x, real x_m, real alpha)</td></tr>
 <tr class="memdesc:a29239d9f6fa2ece48c655c977ec77561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pareto distribution. <br /></td></tr>
 <tr class="separator:a29239d9f6fa2ece48c655c977ec77561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69867ea1e1cc4e23172a352aae45c7f6"><td class="memItemLeft" align="right" valign="top"><a id="a69867ea1e1cc4e23172a352aae45c7f6" name="a69867ea1e1cc4e23172a352aae45c7f6"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::pareto</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:a69867ea1e1cc4e23172a352aae45c7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::pareto(real, real, real) <br /></td></tr>
+<tr class="memdesc:a69867ea1e1cc4e23172a352aae45c7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a29239d9f6fa2ece48c655c977ec77561" title="Pareto distribution.">distribution::pareto(real, real, real)</a> <br /></td></tr>
 <tr class="separator:a69867ea1e1cc4e23172a352aae45c7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cf38559e21277391f97c36688413f68"><td class="memItemLeft" align="right" valign="top"><a id="a4cf38559e21277391f97c36688413f68" name="a4cf38559e21277391f97c36688413f68"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::erlang</b> (real x, unsigned int k, real lambda)</td></tr>
@@ -203,7 +232,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <tr class="separator:a4cf38559e21277391f97c36688413f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abee3aafcd0c21bf991d64912c3418fb0"><td class="memItemLeft" align="right" valign="top"><a id="abee3aafcd0c21bf991d64912c3418fb0" name="abee3aafcd0c21bf991d64912c3418fb0"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribution::erlang</b> (real x, const vec_buff &amp;theta)</td></tr>
-<tr class="memdesc:abee3aafcd0c21bf991d64912c3418fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for distribution::erlang(real, unsigned int, real) <br /></td></tr>
+<tr class="memdesc:abee3aafcd0c21bf991d64912c3418fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="namespacetheoretica_1_1distribution.html#a4cf38559e21277391f97c36688413f68" title="Erlang distribution.">distribution::erlang(real, unsigned int, real)</a> <br /></td></tr>
 <tr class="separator:abee3aafcd0c21bf991d64912c3418fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -214,7 +243,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::distribut
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="distributions_8h.html">distributions.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -114,26 +114,30 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0af57e86214e047cc08e30d7d19e4410"><td class="memItemLeft" align="right" valign="top"><a id="a0af57e86214e047cc08e30d7d19e4410" name="a0af57e86214e047cc08e30d7d19e4410"></a>
-polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integrate_polynomial</b> (const polynomial&lt; real &gt; &amp;p)</td></tr>
-<tr class="memdesc:a0af57e86214e047cc08e30d7d19e4410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a polynomial. <br /></td></tr>
-<tr class="separator:a0af57e86214e047cc08e30d7d19e4410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae485ca27f628e7d64709d9aef479a292"><td class="memItemLeft" align="right" valign="top"><a id="ae485ca27f628e7d64709d9aef479a292" name="ae485ca27f628e7d64709d9aef479a292"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_midpoint</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="memdesc:ae485ca27f628e7d64709d9aef479a292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using the midpoint method. <br /></td></tr>
-<tr class="separator:ae485ca27f628e7d64709d9aef479a292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac21d53ff6da393fdc9a8266f7235af23"><td class="memItemLeft" align="right" valign="top"><a id="ac21d53ff6da393fdc9a8266f7235af23" name="ac21d53ff6da393fdc9a8266f7235af23"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_trapezoid</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="memdesc:ac21d53ff6da393fdc9a8266f7235af23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using the trapezoid method. <br /></td></tr>
-<tr class="separator:ac21d53ff6da393fdc9a8266f7235af23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af51bdfb27a1cd8584a37821f8fe296e3"><td class="memItemLeft" align="right" valign="top"><a id="af51bdfb27a1cd8584a37821f8fe296e3" name="af51bdfb27a1cd8584a37821f8fe296e3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_simpson</b> (real_function f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
-<tr class="memdesc:af51bdfb27a1cd8584a37821f8fe296e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using Simpson's method. <br /></td></tr>
-<tr class="separator:af51bdfb27a1cd8584a37821f8fe296e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb4ab5fdfd9f824836e787f5543fb71"><td class="memItemLeft" align="right" valign="top"><a id="a2cb4ab5fdfd9f824836e787f5543fb71" name="a2cb4ab5fdfd9f824836e787f5543fb71"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_romberg</b> (real_function f, real a, real b, unsigned int order)</td></tr>
-<tr class="memdesc:a2cb4ab5fdfd9f824836e787f5543fb71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using Romberg's method accurate to the given order. <br /></td></tr>
-<tr class="separator:a2cb4ab5fdfd9f824836e787f5543fb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30054ccf81cf93e466c08361e4ff9fb"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
+<tr class="memitem:ad30054ccf81cf93e466c08361e4ff9fb"><td class="memTemplItemLeft" align="right" valign="top">polynomial&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb">theoretica::integrate_polynomial</a> (const polynomial&lt; T &gt; &amp;p)</td></tr>
+<tr class="memdesc:ad30054ccf81cf93e466c08361e4ff9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the indefinite integral of a polynomial.  <a href="namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb">More...</a><br /></td></tr>
+<tr class="separator:ad30054ccf81cf93e466c08361e4ff9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a48a7bb7296e78f5c1b0c5f5bcf4d93"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a1a48a7bb7296e78f5c1b0c5f5bcf4d93"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93">theoretica::integral_midpoint</a> (RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="memdesc:a1a48a7bb7296e78f5c1b0c5f5bcf4d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using the midpoint method.  <a href="namespacetheoretica.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93">More...</a><br /></td></tr>
+<tr class="separator:a1a48a7bb7296e78f5c1b0c5f5bcf4d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbfca610e297e184c272140d991e987"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a4cbfca610e297e184c272140d991e987"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">theoretica::integral_trapezoid</a> (RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="memdesc:a4cbfca610e297e184c272140d991e987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using the trapezoid method.  <a href="namespacetheoretica.html#a4cbfca610e297e184c272140d991e987">More...</a><br /></td></tr>
+<tr class="separator:a4cbfca610e297e184c272140d991e987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f3d75e6a0c23d23a5e685145437ff5"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ad5f3d75e6a0c23d23a5e685145437ff5"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">theoretica::integral_simpson</a> (RealFunction f, real a, real b, unsigned int steps=INTEGRATION_STEPS)</td></tr>
+<tr class="memdesc:ad5f3d75e6a0c23d23a5e685145437ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using Simpson's method.  <a href="namespacetheoretica.html#ad5f3d75e6a0c23d23a5e685145437ff5">More...</a><br /></td></tr>
+<tr class="separator:ad5f3d75e6a0c23d23a5e685145437ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a710ca6ff97e6d14f5f42bab6462d9fa2"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a710ca6ff97e6d14f5f42bab6462d9fa2"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a710ca6ff97e6d14f5f42bab6462d9fa2">theoretica::integral_romberg</a> (RealFunction f, real a, real b, unsigned int order=16)</td></tr>
+<tr class="memdesc:a710ca6ff97e6d14f5f42bab6462d9fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using Romberg's method accurate to the given order.  <a href="namespacetheoretica.html#a710ca6ff97e6d14f5f42bab6462d9fa2">More...</a><br /></td></tr>
+<tr class="separator:a710ca6ff97e6d14f5f42bab6462d9fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">theoretica::integral</a> (RealFunction f, real a, real b)</td></tr>
+<tr class="memdesc:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the definite integral of a real function.  <a href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">More...</a><br /></td></tr>
+<tr class="separator:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Integral approximation. </p>
@@ -143,7 +147,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

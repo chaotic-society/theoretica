@@ -44,7 +44,7 @@ namespace theoretica {
 	}
 
 
-	/// @namespace distribution Probability distribution functions
+	/// @namespace theoretica::distribution Probability distribution functions
 	namespace distribution {
 	
 

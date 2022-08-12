@@ -1,7 +1,11 @@
 var derivation_8h =
 [
-    [ "deriv_backward", "derivation_8h.html#a48e307273fac6dc57340703f566f38c2", null ],
-    [ "deriv_central", "derivation_8h.html#ad7b8a772085c73d15625bd1f298ba949", null ],
-    [ "deriv_forward", "derivation_8h.html#aa09a868d8a95eda638406102035aa4d4", null ],
-    [ "deriv_polynomial", "derivation_8h.html#a665cd570c276e9cadf7abf795020bcaf", null ]
+    [ "deriv", "derivation_8h.html#af13c23d95e0130b1e29ac617f313f27d", null ],
+    [ "deriv2", "derivation_8h.html#ad376dcd3be0e15133bbedf6ad1160587", null ],
+    [ "deriv_backward", "derivation_8h.html#a0fda7d7c90a088c8bdbf28b0908c71e8", null ],
+    [ "deriv_central", "derivation_8h.html#a5bbf1baa785f514b3e3a74f80fbd9546", null ],
+    [ "deriv_forward", "derivation_8h.html#a936dad7b99b64c874223aa537c3ad84f", null ],
+    [ "deriv_polynomial", "derivation_8h.html#a3db068fdfc750be0e45e3fcaa77fc458", null ],
+    [ "deriv_ridders", "derivation_8h.html#a08c5277448360f087fa63323020675c6", null ],
+    [ "deriv_ridders2", "derivation_8h.html#a93f963a737accf2110a8ed71a5064320", null ]
 ];

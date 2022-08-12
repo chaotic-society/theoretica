@@ -108,6 +108,9 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1polynomial.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a64facffa20dede3687e7d271eac328e7"><td class="memItemLeft" align="right" valign="top"><a id="a64facffa20dede3687e7d271eac328e7" name="a64facffa20dede3687e7d271eac328e7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> (T a)</td></tr>
+<tr class="separator:a64facffa20dede3687e7d271eac328e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70dddb8bbf9e4f6d6f66a9104eabaa98"><td class="memItemLeft" align="right" valign="top"><a id="a70dddb8bbf9e4f6d6f66a9104eabaa98" name="a70dddb8bbf9e4f6d6f66a9104eabaa98"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> (const std::vector&lt; T &gt; &amp;c)</td></tr>
 <tr class="separator:a70dddb8bbf9e4f6d6f66a9104eabaa98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,22 +129,24 @@ T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (in
 T&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (int i) const</td></tr>
 <tr class="memdesc:acc0f45b39ddf887652f3b38dfa15aa71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the i-th by value. <br /></td></tr>
 <tr class="separator:acc0f45b39ddf887652f3b38dfa15aa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cd68b3f48649587e56dd99e05bbe4e2"><td class="memItemLeft" align="right" valign="top"><a id="a5cd68b3f48649587e56dd99e05bbe4e2" name="a5cd68b3f48649587e56dd99e05bbe4e2"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (T x) const</td></tr>
-<tr class="memdesc:a5cd68b3f48649587e56dd99e05bbe4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
-<tr class="separator:a5cd68b3f48649587e56dd99e05bbe4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab43f184e2351057bb5250bd68b2dd727"><td class="memItemLeft" align="right" valign="top"><a id="ab43f184e2351057bb5250bd68b2dd727" name="ab43f184e2351057bb5250bd68b2dd727"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (T x) const</td></tr>
-<tr class="memdesc:ab43f184e2351057bb5250bd68b2dd727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
-<tr class="separator:ab43f184e2351057bb5250bd68b2dd727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdcebb150d71aa77948a3717d9b20928"><td class="memTemplParams" colspan="2"><a id="acdcebb150d71aa77948a3717d9b20928" name="acdcebb150d71aa77948a3717d9b20928"></a>
+template&lt;typename EvalType  = T&gt; </td></tr>
+<tr class="memitem:acdcebb150d71aa77948a3717d9b20928"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>eval</b> (EvalType x) const</td></tr>
+<tr class="memdesc:acdcebb150d71aa77948a3717d9b20928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
+<tr class="separator:acdcebb150d71aa77948a3717d9b20928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb06c3674f81e706e9619bfca3f38bdc"><td class="memTemplParams" colspan="2"><a id="adb06c3674f81e706e9619bfca3f38bdc" name="adb06c3674f81e706e9619bfca3f38bdc"></a>
+template&lt;typename EvalType  = T&gt; </td></tr>
+<tr class="memitem:adb06c3674f81e706e9619bfca3f38bdc"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (EvalType x) const</td></tr>
+<tr class="memdesc:adb06c3674f81e706e9619bfca3f38bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
+<tr class="separator:adb06c3674f81e706e9619bfca3f38bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41dabedea3d8ae05399ee6bbd237c95"><td class="memItemLeft" align="right" valign="top"><a id="ae41dabedea3d8ae05399ee6bbd237c95" name="ae41dabedea3d8ae05399ee6bbd237c95"></a>
 T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (unsigned int i)</td></tr>
 <tr class="memdesc:ae41dabedea3d8ae05399ee6bbd237c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the nth order coefficient. <br /></td></tr>
 <tr class="separator:ae41dabedea3d8ae05399ee6bbd237c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa6693dcc441aaebbf30919a27d43c93"><td class="memItemLeft" align="right" valign="top"><a id="afa6693dcc441aaebbf30919a27d43c93" name="afa6693dcc441aaebbf30919a27d43c93"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>find_order</b> () const</td></tr>
-<tr class="memdesc:afa6693dcc441aaebbf30919a27d43c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring null coefficients) <br /></td></tr>
-<tr class="separator:afa6693dcc441aaebbf30919a27d43c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcf980f612a0b87804f4f65c790243a5"><td class="memItemLeft" align="right" valign="top"><a id="adcf980f612a0b87804f4f65c790243a5" name="adcf980f612a0b87804f4f65c790243a5"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>find_order</b> () const</td></tr>
+<tr class="memdesc:adcf980f612a0b87804f4f65c790243a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring null coefficients) <br /></td></tr>
+<tr class="separator:adcf980f612a0b87804f4f65c790243a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888fd0bbfe4bd59b011c969b899fa9a3"><td class="memItemLeft" align="right" valign="top"><a id="a888fd0bbfe4bd59b011c969b899fa9a3" name="a888fd0bbfe4bd59b011c969b899fa9a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>trim</b> ()</td></tr>
 <tr class="memdesc:a888fd0bbfe4bd59b011c969b899fa9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove higher order null coefficients. <br /></td></tr>
@@ -162,14 +167,18 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;p) const</td></tr>
 <tr class="memdesc:a7e941042525efbfc1c9b954a7955c8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two polynomials. <br /></td></tr>
 <tr class="separator:a7e941042525efbfc1c9b954a7955c8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c8b9b6b241f93843fb47fba0ddced0c"><td class="memItemLeft" align="right" valign="top"><a id="a7c8b9b6b241f93843fb47fba0ddced0c" name="a7c8b9b6b241f93843fb47fba0ddced0c"></a>
-<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a) const</td></tr>
-<tr class="memdesc:a7c8b9b6b241f93843fb47fba0ddced0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a polynomial by a scalar. <br /></td></tr>
-<tr class="separator:a7c8b9b6b241f93843fb47fba0ddced0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a967d46adaf0ac15abe7084b1164c0c82"><td class="memItemLeft" align="right" valign="top"><a id="a967d46adaf0ac15abe7084b1164c0c82" name="a967d46adaf0ac15abe7084b1164c0c82"></a>
-<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a) const</td></tr>
-<tr class="memdesc:a967d46adaf0ac15abe7084b1164c0c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a polynomial by a scalar. <br /></td></tr>
-<tr class="separator:a967d46adaf0ac15abe7084b1164c0c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe6d10ef1a90911f3226a66ddd62fa4"><td class="memItemLeft" align="right" valign="top"><a id="a9fe6d10ef1a90911f3226a66ddd62fa4" name="a9fe6d10ef1a90911f3226a66ddd62fa4"></a>
+<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;d) const</td></tr>
+<tr class="memdesc:a9fe6d10ef1a90911f3226a66ddd62fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial division. <br /></td></tr>
+<tr class="separator:a9fe6d10ef1a90911f3226a66ddd62fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a946d63edddb3f692cb3722c31c74d798"><td class="memItemLeft" align="right" valign="top"><a id="a946d63edddb3f692cb3722c31c74d798" name="a946d63edddb3f692cb3722c31c74d798"></a>
+<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (T a) const</td></tr>
+<tr class="memdesc:a946d63edddb3f692cb3722c31c74d798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a polynomial by a scalar. <br /></td></tr>
+<tr class="separator:a946d63edddb3f692cb3722c31c74d798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01c0983d0a2f3acc5b12ef2fc0a54a2"><td class="memItemLeft" align="right" valign="top"><a id="ab01c0983d0a2f3acc5b12ef2fc0a54a2" name="ab01c0983d0a2f3acc5b12ef2fc0a54a2"></a>
+<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (T a) const</td></tr>
+<tr class="memdesc:ab01c0983d0a2f3acc5b12ef2fc0a54a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a polynomial by a scalar. <br /></td></tr>
+<tr class="separator:ab01c0983d0a2f3acc5b12ef2fc0a54a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a06a4b7a2f9d366fdf5385473a08097"><td class="memItemLeft" align="right" valign="top"><a id="a8a06a4b7a2f9d366fdf5385473a08097" name="a8a06a4b7a2f9d366fdf5385473a08097"></a>
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;p)</td></tr>
 <tr class="memdesc:a8a06a4b7a2f9d366fdf5385473a08097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum a polynomial to this one. <br /></td></tr>
@@ -186,6 +195,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (T a)</td></tr>
 <tr class="memdesc:a019614cf6391d5afad9811285c4da4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a polynomial by a scalar value. <br /></td></tr>
 <tr class="separator:a019614cf6391d5afad9811285c4da4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7a06669d733923d0619f1a82a2d7ed"><td class="memItemLeft" align="right" valign="top"><a id="a4a7a06669d733923d0619f1a82a2d7ed" name="a4a7a06669d733923d0619f1a82a2d7ed"></a>
+<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;a)</td></tr>
+<tr class="memdesc:a4a7a06669d733923d0619f1a82a2d7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a polynomial by a scalar value. <br /></td></tr>
+<tr class="separator:a4a7a06669d733923d0619f1a82a2d7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07a95d49e27c8de3d493f13a705bdb55"><td class="memItemLeft" align="right" valign="top"><a id="a07a95d49e27c8de3d493f13a705bdb55" name="a07a95d49e27c8de3d493f13a705bdb55"></a>
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (T a)</td></tr>
 <tr class="memdesc:a07a95d49e27c8de3d493f13a705bdb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a polynomial by a scalar value. <br /></td></tr>
@@ -209,6 +222,10 @@ Static Public Member Functions</h2></td></tr>
 static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>from_roots</b> (std::vector&lt; T &gt; roots)</td></tr>
 <tr class="memdesc:ada430cb2b749cad492a3aed1810e4cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a polynomial from its roots. <br /></td></tr>
 <tr class="separator:ada430cb2b749cad492a3aed1810e4cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866d083fd75410d617026a4224bda8d8"><td class="memItemLeft" align="right" valign="top"><a id="a866d083fd75410d617026a4224bda8d8" name="a866d083fd75410d617026a4224bda8d8"></a>
+static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>monomial</b> (T c, unsigned int order)</td></tr>
+<tr class="memdesc:a866d083fd75410d617026a4224bda8d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a monomial of the given degree and coefficient. <br /></td></tr>
+<tr class="separator:a866d083fd75410d617026a4224bda8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -244,7 +261,7 @@ class theoretica::polynomial&lt; T &gt;</div><p >A polynomial of arbitrary order
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

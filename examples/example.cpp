@@ -4,7 +4,6 @@
 ///
 
 #include "theoretica.h"
-
 using namespace th;
 
 int main() {

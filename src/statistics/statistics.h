@@ -354,7 +354,7 @@ namespace theoretica {
 	}
 
 
-	/// Lag-n autocorrelation of a dataset
+	// Lag-n autocorrelation of a dataset
 	// inline real autocorrelation(const vec_buff& X, unsigned int n) {
 
 	// 	if(X.size() < (n + 1)) {

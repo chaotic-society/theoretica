@@ -57,7 +57,7 @@
 #include "./calculus/derivation.h"
 #include "./calculus/integration.h"
 #include "./calculus/odes.h"
-#include "./calculus/taylor_expansion.h"
+#include "./calculus/taylor.h"
 
 // Polynomial class
 #include "./polynomial/polynomial.h"

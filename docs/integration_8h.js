@@ -1,8 +1,9 @@
 var integration_8h =
 [
-    [ "integral_midpoint", "integration_8h.html#ae485ca27f628e7d64709d9aef479a292", null ],
-    [ "integral_romberg", "integration_8h.html#a2cb4ab5fdfd9f824836e787f5543fb71", null ],
-    [ "integral_simpson", "integration_8h.html#af51bdfb27a1cd8584a37821f8fe296e3", null ],
-    [ "integral_trapezoid", "integration_8h.html#ac21d53ff6da393fdc9a8266f7235af23", null ],
-    [ "integrate_polynomial", "integration_8h.html#a0af57e86214e047cc08e30d7d19e4410", null ]
+    [ "integral", "integration_8h.html#ae095e7eee4b03eddc3b035b2bde14a7e", null ],
+    [ "integral_midpoint", "integration_8h.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93", null ],
+    [ "integral_romberg", "integration_8h.html#a710ca6ff97e6d14f5f42bab6462d9fa2", null ],
+    [ "integral_simpson", "integration_8h.html#ad5f3d75e6a0c23d23a5e685145437ff5", null ],
+    [ "integral_trapezoid", "integration_8h.html#a4cbfca610e297e184c272140d991e987", null ],
+    [ "integrate_polynomial", "integration_8h.html#ad30054ccf81cf93e466c08361e4ff9fb", null ]
 ];

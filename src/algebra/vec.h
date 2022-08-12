@@ -203,7 +203,7 @@ namespace theoretica {
 		}
 
 		/// Alias for magnitude()
-		inline T lenght() {
+		inline T lenght() const {
 			return magnitude();
 		}
 
@@ -291,6 +291,7 @@ namespace theoretica {
 		inline vec_buff to_vec_buff() {
 			
 			vec_buff res;
+			res.reserve(N);
 			for (unsigned int i = 0; i < N; ++i)
 				res.push_back(static_cast<real>(data[i]));
 
@@ -299,7 +300,7 @@ namespace theoretica {
 
 
 		/// Returns the size of the vector (N)
-		inline unsigned int size() {
+		inline TH_CONSTEXPR unsigned int size() {
 			return N;
 		}
 
@@ -361,15 +362,15 @@ namespace theoretica {
 	using vec4 = vec<4, real>;
 
 
-	/// Compute the (Euclidian) distance between two values
+	/// Compute the Euclidian distance between two values
 	real distance(real v1, real v2) {
 		return abs(v1 - v2);
 	}
 
 
-	/// Compute the distance between two points
+	/// Compute the Euclidian distance between two points
 	template<unsigned int N, typename T>
-	T distance(vec<N, T> v1, vec<N, T> v2) {
+	T distance(const vec<N, T>& v1, const vec<N, T>& v2) {
 		return (v1 - v2).lenght();
 	}
 
@@ -377,7 +378,7 @@ namespace theoretica {
 	/// Compute the Lp norm of a vector.
 	/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
 	template<unsigned int N, typename T>
-	real lp_norm(vec<N, T> v, unsigned int p) {
+	real lp_norm(const vec<N, T>& v, unsigned int p) {
 
 		real sum = 0;
 
@@ -391,7 +392,7 @@ namespace theoretica {
 	/// Compute the Linf norm of a vector.
 	/// \f$L_{inf}(\vec v) = max(|v_i|)\f$
 	template<unsigned int N, typename T>
-	real linf_norm(vec<N, T> v) {
+	real linf_norm(const vec<N, T>& v) {
 
 		real res = abs(v[0]);
 
@@ -404,7 +405,7 @@ namespace theoretica {
 
 	/// Compute the dot product of two vectors
 	template<unsigned int N, typename T>
-	real dot(vec<N, T> v1, vec<N, T> v2) {
+	real dot(const vec<N, T>& v1, const vec<N, T>& v2) {
 		return v1.dot(v2);
 	}
 
@@ -422,9 +423,9 @@ namespace theoretica {
 	/// @param p The vector to transform
 	/// @param c The center of the sphere
 	/// @param r The radius of the sphere
-	template<unsigned int N>
-	vec<N> sphere_inversion(vec<N> p, vec<N> c, real r) {
-		vec<N> q = (p - c);
+	template<unsigned int N, typename T>
+	vec<N, T> sphere_inversion(const vec<N, T>& p, const vec<N, T>& c, real r) {
+		vec<N, T> q = (p - c);
 		return c + q * (square(r) / q.square_lenght());
 	}
 
@@ -432,9 +433,9 @@ namespace theoretica {
 	/// Sphere inversion of a point with respect to
 	/// a sphere of radius 1 centered in the origin
 	/// @param p The vector to transform
-	template<unsigned int N>
-	vec<N> sphere_inversion(vec<N> p) {
-		return sphere_inversion(p, vec<N>(0), 1);
+	template<unsigned int N, typename T>
+	vec<N, T> sphere_inversion(const vec<N, T>& p) {
+		return sphere_inversion(p, vec<N, T>(T(0)), 1);
 	}
 
 }

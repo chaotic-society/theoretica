@@ -176,7 +176,7 @@ namespace theoretica {
 	/// @param sigma The sigma of the target distribution
 	/// @param g An already initialized PRNG
 	///
-	/// Many real numbers in a range are generated
+	/// Exactly 12 real numbers in a range are generated
 	/// and the mean is computed to get a single
 	/// real number following (asymptotically) a
 	/// Gaussian distribution.

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: benchmark/benchmark.h File Reference</title>
+<title>Theoretica: include/chebyshev/benchmark.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,73 +92,123 @@ $(document).ready(function(){initNavTree('benchmark_8h.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">benchmark.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Benchmarking functions.  
+<p>Function benchmarking.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="theoretica_8h_source.html">theoretica.h</a>&quot;</code><br />
-<code>#include &quot;timer.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;core/common.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">core/timer.h</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
 </div>
 <p><a href="benchmark_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__request.html">chebyshev::benchmark::benchmark_request</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark run request, used to store information about requested benchmarks for later execution.  <a href="structchebyshev_1_1benchmark_1_1benchmark__request.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html">chebyshev::benchmark::benchmark_result</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark result, used to store information about a benchmark execution.  <a href="structchebyshev_1_1benchmark_1_1benchmark__result.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__custom__request.html">chebyshev::benchmark::benchmark_custom_request</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom benchmark request.  <a href="structchebyshev_1_1benchmark_1_1benchmark__custom__request.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__state.html">chebyshev::benchmark::benchmark_state</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of benchmarking  <a href="structchebyshev_1_1benchmark_1_1benchmark__state.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacechebyshev_1_1benchmark"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html">chebyshev::benchmark</a></td></tr>
+<tr class="memdesc:namespacechebyshev_1_1benchmark"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function benchmarking. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a363c52ee91b0a3c6518158cd13b0bf8c"><td class="memItemLeft" align="right" valign="top"><a id="a363c52ee91b0a3c6518158cd13b0bf8c" name="a363c52ee91b0a3c6518158cd13b0bf8c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHEBYSHEV_ITER</b>&#160;&#160;&#160;1000000</td></tr>
+<tr class="memdesc:a363c52ee91b0a3c6518158cd13b0bf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of iterations. <br /></td></tr>
+<tr class="separator:a363c52ee91b0a3c6518158cd13b0bf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa7449864682a409803523187c0c9c6f"><td class="memItemLeft" align="right" valign="top"><a id="afa7449864682a409803523187c0c9c6f" name="afa7449864682a409803523187c0c9c6f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHEBYSHEV_RUNS</b>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:afa7449864682a409803523187c0c9c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of runs for benchmarks. <br /></td></tr>
+<tr class="separator:afa7449864682a409803523187c0c9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ca9e07bc993dcbe5fe1ad36c7f3712"><td class="memItemLeft" align="right" valign="top"><a id="ab7ca9e07bc993dcbe5fe1ad36c7f3712" name="ab7ca9e07bc993dcbe5fe1ad36c7f3712"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BENCHMARK</b>(f,  a,  b)&#160;&#160;&#160;<a class="el" href="namespacechebyshev_1_1benchmark.html#a1ba02ef56526756b509f9356f9a6a1ce">chebyshev::benchmark::request</a>(#f, [](chebyshev::Real x){ return f(x); }, chebyshev::uniform_generator(a, b))</td></tr>
+<tr class="separator:ab7ca9e07bc993dcbe5fe1ad36c7f3712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:addbc7f64f4c84914df67448acc1d4eca"><td class="memItemLeft" align="right" valign="top"><a id="addbc7f64f4c84914df67448acc1d4eca" name="addbc7f64f4c84914df67448acc1d4eca"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::CustomBenchmarkFunction</b> = std::function&lt; benchmark_result(unsigned int, unsigned int)&gt;</td></tr>
+<tr class="memdesc:addbc7f64f4c84914df67448acc1d4eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom benchmark function which takes as input the number of iterations and runs requested and returns a benchmark result. <br /></td></tr>
+<tr class="separator:addbc7f64f4c84914df67448acc1d4eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a068b94ebc674963d3f0cc6fb76db557c"><td class="memItemLeft" align="right" valign="top"><a id="a068b94ebc674963d3f0cc6fb76db557c" name="a068b94ebc674963d3f0cc6fb76db557c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setup_benchmark</b> (const std::string &amp;module, unsigned int iter=1000000, unsigned int runs=10)</td></tr>
-<tr class="separator:a068b94ebc674963d3f0cc6fb76db557c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90257b456e397a20de063324cabbf548"><td class="memItemLeft" align="right" valign="top"><a id="a90257b456e397a20de063324cabbf548" name="a90257b456e397a20de063324cabbf548"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_benchmark_header</b> ()</td></tr>
-<tr class="separator:a90257b456e397a20de063324cabbf548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a662bd736b21ff73cd1bb88d53a1bfd88"><td class="memItemLeft" align="right" valign="top"><a id="a662bd736b21ff73cd1bb88d53a1bfd88" name="a662bd736b21ff73cd1bb88d53a1bfd88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>terminate_benchmark</b> ()</td></tr>
-<tr class="separator:a662bd736b21ff73cd1bb88d53a1bfd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae766ce96ade95bd0cb78a3d25bde4c26"><td class="memItemLeft" align="right" valign="top"><a id="ae766ce96ade95bd0cb78a3d25bde4c26" name="ae766ce96ade95bd0cb78a3d25bde4c26"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_benchmark</b> (const std::string &amp;func_name)</td></tr>
-<tr class="separator:ae766ce96ade95bd0cb78a3d25bde4c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59c5bdd1f8000006175b762725429413"><td class="memItemLeft" align="right" valign="top"><a id="a59c5bdd1f8000006175b762725429413" name="a59c5bdd1f8000006175b762725429413"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>end_benchmark</b> (long double elapsed)</td></tr>
-<tr class="separator:a59c5bdd1f8000006175b762725429413"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a845ee615e20b68f23a9b614f9e56adbc"><td class="memItemLeft" align="right" valign="top"><a id="a845ee615e20b68f23a9b614f9e56adbc" name="a845ee615e20b68f23a9b614f9e56adbc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>benchmark_real_function</b> (const std::string &amp;func_name, <a class="el" href="namespacetheoretica.html#a55d24f1c0c8357b26e2ea168b80eabeb">real_function</a> f, const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;input)</td></tr>
-<tr class="separator:a845ee615e20b68f23a9b614f9e56adbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256fa02c567b797c30eb76c8140e0748"><td class="memItemLeft" align="right" valign="top"><a id="a256fa02c567b797c30eb76c8140e0748" name="a256fa02c567b797c30eb76c8140e0748"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>benchmark_real_function</b> (const std::string &amp;func_name, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*f)(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>), const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;input1, const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;input2)</td></tr>
-<tr class="separator:a256fa02c567b797c30eb76c8140e0748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d71f4456bfa11a0b637b252998cd38"><td class="memItemLeft" align="right" valign="top"><a id="a18d71f4456bfa11a0b637b252998cd38" name="a18d71f4456bfa11a0b637b252998cd38"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::setup</b> (const std::string &amp;module=&quot;unknown&quot;, int argc=0, const char **argv=nullptr, unsigned int iter=<a class="el" href="benchmark_8h.html#a363c52ee91b0a3c6518158cd13b0bf8c">CHEBYSHEV_ITER</a>, unsigned int runs=<a class="el" href="benchmark_8h.html#afa7449864682a409803523187c0c9c6f">CHEBYSHEV_RUNS</a>)</td></tr>
+<tr class="memdesc:a18d71f4456bfa11a0b637b252998cd38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup a module's benchmark. <br /></td></tr>
+<tr class="separator:a18d71f4456bfa11a0b637b252998cd38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba02ef56526756b509f9356f9a6a1ce"><td class="memItemLeft" align="right" valign="top"><a id="a1ba02ef56526756b509f9356f9a6a1ce" name="a1ba02ef56526756b509f9356f9a6a1ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::request</b> (const std::string &amp;funcName, RealFunction f, RealInputGenerator g, unsigned int n=state.defaultIterations, unsigned int m=state.defaultRuns)</td></tr>
+<tr class="memdesc:a1ba02ef56526756b509f9356f9a6a1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a function to be benchmarked. <br /></td></tr>
+<tr class="separator:a1ba02ef56526756b509f9356f9a6a1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a014bc8bfd6ec02629d911099be5537cb"><td class="memItemLeft" align="right" valign="top"><a id="a014bc8bfd6ec02629d911099be5537cb" name="a014bc8bfd6ec02629d911099be5537cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::custom_request</b> (const std::string &amp;funcName, CustomBenchmarkFunction f, unsigned int n=state.defaultIterations, unsigned int m=state.defaultRuns)</td></tr>
+<tr class="memdesc:a014bc8bfd6ec02629d911099be5537cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request a custom benchmark. <br /></td></tr>
+<tr class="separator:a014bc8bfd6ec02629d911099be5537cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cda2b7809aa2e0be2b2be72145e7701"><td class="memItemLeft" align="right" valign="top"><a id="a1cda2b7809aa2e0be2b2be72145e7701" name="a1cda2b7809aa2e0be2b2be72145e7701"></a>
+benchmark_result&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::benchmark</b> (const std::string &amp;funcName, RealFunction f, RealInputGenerator g, unsigned int n=state.defaultIterations, unsigned int m=state.defaultRuns)</td></tr>
+<tr class="memdesc:a1cda2b7809aa2e0be2b2be72145e7701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark a function. <br /></td></tr>
+<tr class="separator:a1cda2b7809aa2e0be2b2be72145e7701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f151b63fdd3bded3e0bbc33c4f2fdf"><td class="memItemLeft" align="right" valign="top"><a id="a07f151b63fdd3bded3e0bbc33c4f2fdf" name="a07f151b63fdd3bded3e0bbc33c4f2fdf"></a>
+benchmark_result&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::benchmark</b> (const std::string &amp;funcName, RealFunction f, const std::vector&lt; Real &gt; input, unsigned int n=state.defaultIterations, unsigned int m=state.defaultRuns)</td></tr>
+<tr class="memdesc:a07f151b63fdd3bded3e0bbc33c4f2fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark a function. <br /></td></tr>
+<tr class="separator:a07f151b63fdd3bded3e0bbc33c4f2fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a62511c293bae4b6e9125efa65d6b4"><td class="memItemLeft" align="right" valign="top"><a id="a73a62511c293bae4b6e9125efa65d6b4" name="a73a62511c293bae4b6e9125efa65d6b4"></a>
+benchmark_result&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::benchmark</b> (benchmark_request r)</td></tr>
+<tr class="memdesc:a73a62511c293bae4b6e9125efa65d6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark a function. <br /></td></tr>
+<tr class="separator:a73a62511c293bae4b6e9125efa65d6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308a5a2e6cfcd6feb4c5cbc58a34efe1"><td class="memItemLeft" align="right" valign="top"><a id="a308a5a2e6cfcd6feb4c5cbc58a34efe1" name="a308a5a2e6cfcd6feb4c5cbc58a34efe1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::print_benchmark</b> (const benchmark_result &amp;br)</td></tr>
+<tr class="memdesc:a308a5a2e6cfcd6feb4c5cbc58a34efe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a benchmark result. <br /></td></tr>
+<tr class="separator:a308a5a2e6cfcd6feb4c5cbc58a34efe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea080f16392e9ec9d8b4f19ff2caac2"><td class="memItemLeft" align="right" valign="top"><a id="a8ea080f16392e9ec9d8b4f19ff2caac2" name="a8ea080f16392e9ec9d8b4f19ff2caac2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::run</b> ()</td></tr>
+<tr class="memdesc:a8ea080f16392e9ec9d8b4f19ff2caac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run all registered benchmarks. <br /></td></tr>
+<tr class="separator:a8ea080f16392e9ec9d8b4f19ff2caac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca318e15ba67ce17fe08dd60be67c46d"><td class="memItemLeft" align="right" valign="top"><a id="aca318e15ba67ce17fe08dd60be67c46d" name="aca318e15ba67ce17fe08dd60be67c46d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::terminate</b> (bool exit=true)</td></tr>
+<tr class="memdesc:aca318e15ba67ce17fe08dd60be67c46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">End benchmarking of the current module. <br /></td></tr>
+<tr class="separator:aca318e15ba67ce17fe08dd60be67c46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ae8b170dcb376fe60270f4675f84e4477"><td class="memItemLeft" align="right" valign="top"><a id="ae8b170dcb376fe60270f4675f84e4477" name="ae8b170dcb376fe60270f4675f84e4477"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>N</b> = 1000000</td></tr>
-<tr class="separator:ae8b170dcb376fe60270f4675f84e4477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68dc0bf731afd0463b8e8cc4ed81c0f8"><td class="memItemLeft" align="right" valign="top"><a id="a68dc0bf731afd0463b8e8cc4ed81c0f8" name="a68dc0bf731afd0463b8e8cc4ed81c0f8"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>M</b> = 10</td></tr>
-<tr class="separator:a68dc0bf731afd0463b8e8cc4ed81c0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4037f4b000f850b04463d2573c772e1d"><td class="memItemLeft" align="right" valign="top"><a id="a4037f4b000f850b04463d2573c772e1d" name="a4037f4b000f850b04463d2573c772e1d"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>module_name</b> = &quot;unknown&quot;</td></tr>
-<tr class="separator:a4037f4b000f850b04463d2573c772e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5434e9d0bd9c64a5de5d581c7917f07"><td class="memItemLeft" align="right" valign="top"><a id="ab5434e9d0bd9c64a5de5d581c7917f07" name="ab5434e9d0bd9c64a5de5d581c7917f07"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>curr_func_name</b> = &quot;unknown&quot;</td></tr>
-<tr class="separator:ab5434e9d0bd9c64a5de5d581c7917f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf7d690e04c7d544fab9328479cc61ec"><td class="memItemLeft" align="right" valign="top"><a id="abf7d690e04c7d544fab9328479cc61ec" name="abf7d690e04c7d544fab9328479cc61ec"></a>
-std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>output_file</b></td></tr>
-<tr class="separator:abf7d690e04c7d544fab9328479cc61ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084f3811d9c540900fefc8a1958e8413"><td class="memItemLeft" align="right" valign="top"><a id="a084f3811d9c540900fefc8a1958e8413" name="a084f3811d9c540900fefc8a1958e8413"></a>
+struct <a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__state.html">chebyshev::benchmark::benchmark_state</a>&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::benchmark::state</b></td></tr>
+<tr class="separator:a084f3811d9c540900fefc8a1958e8413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Benchmarking functions. </p>
+<div class="textblock"><p >Function benchmarking. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_44cec6e3ea30e076b9313c4641539d9f.html">benchmark</a></li><li class="navelem"><a class="el" href="benchmark_8h.html">benchmark.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_ad38991cf40ab1c06864062f62501b93.html">chebyshev</a></li><li class="navelem"><a class="el" href="benchmark_8h.html">benchmark.h</a></li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:40:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

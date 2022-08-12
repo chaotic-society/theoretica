@@ -29,7 +29,12 @@ int main(int argc, char const *argv[]) {
 		std::cout << "Insert X (write END to stop):" << std::endl;
 		insert_data(X, "END");
 		std::cout << std::endl;
-		print_sample_stats(X);
+		std::cout << "N = " << X.size() << std::endl;
+		std::cout << "Mean: " << mean(X) << std::endl;
+		std::cout << "Variance: " << sample_variance(X) << std::endl;
+		std::cout << "Standard Deviation: " << smpl_stdev(X) << std::endl;
+		std::cout << "Relative Error: " << sample_standard_relative_error(X) * 100 << "%" << std::endl;
+		std::cout << "Mean Standard Deviation: " << smpl_stdom(X) << std::endl;
 
 	} else if(n == 2) {
 

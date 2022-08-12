@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a36a41f7dda7d0ad8cc8a4559afcf2ad7">   47</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">rand_congruential</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; state) {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span>(state.size() != 3) {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> uint64_t m = state[2];</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">if</span>(a &gt; m || c &gt; m) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, <a class="code hl_function" href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">max</a>(a, c), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;rand_congruential&quot;</span>, <a class="code hl_function" href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">max</a>(a, c), INVALID_ARGUMENT);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47">   94</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">rand_xoshiro</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; state) {</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">if</span>(state.size() != 4) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <a class="code hl_define" href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a>(<span class="stringliteral">&quot;rand_xoroshift&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;rand_xoshiro&quot;</span>, state.size(), INVALID_ARGUMENT);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        }</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
@@ -200,8 +200,8 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aerror_8h_html_aafbbfb16bfb464bc45d1aff0d1718bf6"><div class="ttname"><a href="error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6">UMATH_ERROR</a></div><div class="ttdeci">#define UMATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">UMATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling option...</div><div class="ttdef"><b>Definition:</b> error.h:156</div></div>
-<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
+<div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:156</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a058181f973ba2744704e6c6211477a35"><div class="ttname"><a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">theoretica::rand_splitmix64</a></div><div class="ttdeci">uint64_t rand_splitmix64(uint64_t x)</div><div class="ttdoc">SplitMix64 pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:109</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a07569756dda099ecabf425371da6a31d"><div class="ttname"><a href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">theoretica::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:286</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a249d8d6497120d311e2abbfc11c5f54d"><div class="ttname"><a href="namespacetheoretica.html#a249d8d6497120d311e2abbfc11c5f54d">theoretica::bit_rotate</a></div><div class="ttdeci">ShiftableType bit_rotate(ShiftableType x, unsigned int i)</div><div class="ttdoc">Bit rotation using shifting.</div><div class="ttdef"><b>Definition:</b> bit_op.h:66</div></div>
@@ -216,7 +216,7 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom_8h.html">pseudorandom.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

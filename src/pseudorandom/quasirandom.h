@@ -18,8 +18,8 @@ namespace theoretica {
 	/// @param alpha The base of the sequence, defaults to 
 	/// the inverse of the Golden Section
 	/// 
-	/// The Weyl sequence is defined as \f$x_n = {n \alpha}\f$,
-	/// where \f${ }\f$ is the fractional part.
+	/// The Weyl sequence is defined as \f$x_n = \{n \alpha\}\f$,
+	/// where \f$\{ \}\f$ is the fractional part.
 	/// @note The alpha argument should be an irrational number.
 	real qrand_weyl(unsigned int n, real alpha = INVPHI) {
 		return fract(n * alpha);

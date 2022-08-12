@@ -132,6 +132,7 @@ namespace chebyshev {
 			/// Target benchmarks marked for execution
 			/// (all benchmarks will be executed if empty)
 			std::map<std::string, bool> pickedBenchmarks;
+			
 		} state;
 
 
@@ -275,6 +276,14 @@ namespace chebyshev {
 		}
 
 
+		/// Print a benchmark result
+		inline void print_benchmark(const benchmark_result& br) {
+			std::cout << std::left << std::setw(20) << br.funcName << " | ";
+			std::cout << std::setw(12) << br.avg_time << " | ";
+			std::cout << std::setw(10) << std::right << std::floor(br.runs_per_sec) << std::endl;
+		}
+
+
 		/// Run all registered benchmarks
 		inline void run() {
 
@@ -291,15 +300,15 @@ namespace chebyshev {
 		
 			for (const auto& r : state.requests) {
 
+				// Skip benchmark if it hasn't been picked
 				if(!state.pickedBenchmarks.empty() && !state.pickedBenchmarks[r.funcName])
 					continue;
 
 				benchmark_result br = benchmark(r);
 				state.results.push_back(br);
 				
-				std::cout << std::left << std::setw(20) << br.funcName << " | "
-				<< std::setw(12) << br.avg_time << " | "
-				<< std::setw(10) << std::right << std::floor(br.runs_per_sec) << std::endl;
+				if(!state.quiet)
+					print_benchmark(br);
 
 				state.outputFile << br.funcName << ", "
 							<< br.avg_time << ", "
@@ -308,6 +317,7 @@ namespace chebyshev {
 
 			for (const auto& r : state.customRequests) {
 
+				// Skip benchmark if it hasn't been picked
 				if(!state.pickedBenchmarks.empty() && !state.pickedBenchmarks[r.funcName])
 					continue;
 
@@ -316,9 +326,8 @@ namespace chebyshev {
 
 				state.results.push_back(br);
 				
-				std::cout << std::left << std::setw(20) << br.funcName << " | "
-				<< std::setw(12) << br.avg_time << " | "
-				<< std::setw(10) << std::right << std::floor(br.runs_per_sec) << std::endl;
+				if(!state.quiet)
+					print_benchmark(br);
 
 				state.outputFile << br.funcName << ", "
 							<< br.avg_time << ", "

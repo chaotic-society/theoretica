@@ -92,7 +92,9 @@ $(document).ready(function(){initNavTree('rand__dist_8h.html',''); initResizable
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">rand_dist.h File Reference</div></div>
 </div><!--header-->
@@ -105,17 +107,33 @@ $(document).ready(function(){initNavTree('rand__dist_8h.html',''); initResizable
 </div>
 <p><a href="rand__dist_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1pdf__sampler.html">theoretica::pdf_sampler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution.  <a href="structtheoretica_1_1pdf__sampler.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a17352cbe273b80ae0f08eac818eba84e"><td class="memItemLeft" align="right" valign="top"><a id="a17352cbe273b80ae0f08eac818eba84e" name="a17352cbe273b80ae0f08eac818eba84e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::pdf_sampling_function</b> = real(*)(const std::vector&lt; real &gt; &amp;, PRNG &amp;)</td></tr>
+<tr class="memdesc:a17352cbe273b80ae0f08eac818eba84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A p.d.f sampling function taking as input the parameters of the distribution and a pseudorandom number generator. <br /></td></tr>
+<tr class="separator:a17352cbe273b80ae0f08eac818eba84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6a35e29644875a5421b3ac4d7203c28a"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a">theoretica::rand_uniform</a> (real a, real b, PRNG &amp;g, uint64_t prec=RAND_REAL_PREC)</td></tr>
 <tr class="memdesc:a6a35e29644875a5421b3ac4d7203c28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom real number in [a, b] using a preexisting generator.  <a href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a">More...</a><br /></td></tr>
 <tr class="separator:a6a35e29644875a5421b3ac4d7203c28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2">theoretica::rand_uniform</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_uniform(real, real, PRNG)  <a href="namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2">More...</a><br /></td></tr>
+<tr class="separator:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaab56ddec7d197600964cb78ada9a86"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">theoretica::rand_dist_tac</a> (stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</td></tr>
 <tr class="memdesc:aeaab56ddec7d197600964cb78ada9a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">More...</a><br /></td></tr>
 <tr class="separator:aeaab56ddec7d197600964cb78ada9a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,25 +143,48 @@ Functions</h2></td></tr>
 <tr class="memitem:a91d0c9531b268c00e759cb571422e01f"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a91d0c9531b268c00e759cb571422e01f">theoretica::rand_gaussian_boxmuller</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
 <tr class="memdesc:a91d0c9531b268c00e759cb571422e01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the Box-Muller method.  <a href="namespacetheoretica.html#a91d0c9531b268c00e759cb571422e01f">More...</a><br /></td></tr>
 <tr class="separator:a91d0c9531b268c00e759cb571422e01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8326a1bda735015190c87c1f9f6429"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7a8326a1bda735015190c87c1f9f6429">theoretica::rand_gaussian_clt</a> (real mean, real sigma, PRNG &amp;g, unsigned int N=10)</td></tr>
-<tr class="memdesc:a7a8326a1bda735015190c87c1f9f6429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespacetheoretica.html#a7a8326a1bda735015190c87c1f9f6429">More...</a><br /></td></tr>
-<tr class="separator:a7a8326a1bda735015190c87c1f9f6429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8c36b22d9b1f9f2beeab1c7be35fe8b3">theoretica::rand_gaussian_clt</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespacetheoretica.html#a8c36b22d9b1f9f2beeab1c7be35fe8b3">More...</a><br /></td></tr>
+<tr class="separator:a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b8d1fc98c8429d4b342e860cab6ed1"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1">theoretica::rand_gaussian_clt</a> (real mean, real sigma, PRNG &amp;g, unsigned int N)</td></tr>
+<tr class="memdesc:af2b8d1fc98c8429d4b342e860cab6ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <a href="namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1">More...</a><br /></td></tr>
+<tr class="separator:af2b8d1fc98c8429d4b342e860cab6ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a856e584fd661d664a36cb185c8abd6ba"><td class="memItemLeft" align="right" valign="top"><a id="a856e584fd661d664a36cb185c8abd6ba" name="a856e584fd661d664a36cb185c8abd6ba"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_gaussian</b> (real mean, real sigma, PRNG &amp;g)</td></tr>
 <tr class="memdesc:a856e584fd661d664a36cb185c8abd6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the best available algorithm. <br /></td></tr>
 <tr class="separator:a856e584fd661d664a36cb185c8abd6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2c1865b7a5639ed82643a069554e3d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aad2c1865b7a5639ed82643a069554e3d">theoretica::rand_gaussian</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:aad2c1865b7a5639ed82643a069554e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_gaussian(real, real, PRNG)  <a href="namespacetheoretica.html#aad2c1865b7a5639ed82643a069554e3d">More...</a><br /></td></tr>
+<tr class="separator:aad2c1865b7a5639ed82643a069554e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40fc6d88e78808dfe4a4bbb03798a754"><td class="memItemLeft" align="right" valign="top"><a id="a40fc6d88e78808dfe4a4bbb03798a754" name="a40fc6d88e78808dfe4a4bbb03798a754"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_exponential</b> (real lambda, PRNG &amp;g)</td></tr>
 <tr class="memdesc:a40fc6d88e78808dfe4a4bbb03798a754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following an exponential distribution using the quantile (inverse) function method. <br /></td></tr>
 <tr class="separator:a40fc6d88e78808dfe4a4bbb03798a754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa2e6165f6c783179d1b3c2e321b3e7d4">theoretica::rand_exponential</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_exponential(real, PRNG)  <a href="namespacetheoretica.html#aa2e6165f6c783179d1b3c2e321b3e7d4">More...</a><br /></td></tr>
+<tr class="separator:aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac34a4b6660c0287dc6dfa979a2f83002"><td class="memItemLeft" align="right" valign="top"><a id="ac34a4b6660c0287dc6dfa979a2f83002" name="ac34a4b6660c0287dc6dfa979a2f83002"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_cauchy</b> (real mu, real alpha, PRNG &amp;g)</td></tr>
 <tr class="memdesc:ac34a4b6660c0287dc6dfa979a2f83002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Cauchy distribution using the quantile (inverse) function method. <br /></td></tr>
 <tr class="separator:ac34a4b6660c0287dc6dfa979a2f83002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473df88a9edd9ccc8dcf03665591575b"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a473df88a9edd9ccc8dcf03665591575b">theoretica::rand_cauchy</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a473df88a9edd9ccc8dcf03665591575b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_cauchy(real, real, PRNG)  <a href="namespacetheoretica.html#a473df88a9edd9ccc8dcf03665591575b">More...</a><br /></td></tr>
+<tr class="separator:a473df88a9edd9ccc8dcf03665591575b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01522152b1ccfd9a7db77654b6d8c12a"><td class="memItemLeft" align="right" valign="top"><a id="a01522152b1ccfd9a7db77654b6d8c12a" name="a01522152b1ccfd9a7db77654b6d8c12a"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_laplace</b> (real mu, real b, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a01522152b1ccfd9a7db77654b6d8c12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a01522152b1ccfd9a7db77654b6d8c12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441cea1ebea409b2deb0ba387febc626"><td class="memItemLeft" align="right" valign="top"><a id="a441cea1ebea409b2deb0ba387febc626" name="a441cea1ebea409b2deb0ba387febc626"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_laplace</b> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:a441cea1ebea409b2deb0ba387febc626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a441cea1ebea409b2deb0ba387febc626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b34801047d52afccf3b4120c3d2d74e"><td class="memItemLeft" align="right" valign="top"><a id="a2b34801047d52afccf3b4120c3d2d74e" name="a2b34801047d52afccf3b4120c3d2d74e"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_pareto</b> (real x_m, real alpha, PRNG &amp;g)</td></tr>
 <tr class="memdesc:a2b34801047d52afccf3b4120c3d2d74e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Pareto distribution using the quantile (inverse) function method. <br /></td></tr>
 <tr class="separator:a2b34801047d52afccf3b4120c3d2d74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66a655f57ef0f6e436dfc03e800585b"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b">theoretica::rand_pareto</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
+<tr class="memdesc:ae66a655f57ef0f6e436dfc03e800585b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_pareto(real, real, PRNG)  <a href="namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b">More...</a><br /></td></tr>
+<tr class="separator:ae66a655f57ef0f6e436dfc03e800585b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Random numbers following a pdf. </p>
@@ -153,7 +194,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_pare
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="rand__dist_8h.html">rand_dist.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

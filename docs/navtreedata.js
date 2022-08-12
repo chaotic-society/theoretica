@@ -101,12 +101,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classtheoretica_1_1dual2.html#ad3edbb911be4c5f9f26ec95e4a8c3cc0",
-"classtheoretica_1_1polynomial.html#ae41dabedea3d8ae05399ee6bbd237c95",
-"distributions_8h.html#a05a9c35d2cc3431dc4441029cb3c2cea",
-"namespacemembers_d.html",
-"namespacetheoretica.html#a96f957ad9b2354268f56ab1ca3843080",
-"real__analysis_8h.html#aaf6b8fc4bb2609507cd1fae0f7d6c8a7"
+"classtheoretica_1_1dual2.html#ad7c91b0ef78c549162edeeaf576765c9",
+"classtheoretica_1_1polynomial.html#adb06c3674f81e706e9619bfca3f38bdc",
+"dir_7abfcc991e7b5ee9bf0b7bf536481a35.html",
+"namespacemembers.html",
+"namespacetheoretica.html#a92b75bb553d0ae78a096c11498d6118d",
+"polyn__interp_8h.html#a9dc2216d71f0d7147b5c0dacdeea80db"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

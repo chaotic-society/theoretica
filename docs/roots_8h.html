@@ -115,14 +115,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2eb3b820ae998f3e0bc9e66ac2337a91"><td class="memItemLeft" align="right" valign="top"><a id="a2eb3b820ae998f3e0bc9e66ac2337a91" name="a2eb3b820ae998f3e0bc9e66ac2337a91"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_bisection</b> (real_function f, real a, real b)</td></tr>
-<tr class="memdesc:a2eb3b820ae998f3e0bc9e66ac2337a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0. <br /></td></tr>
-<tr class="separator:a2eb3b820ae998f3e0bc9e66ac2337a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a031c5b6433038d5bd4e6d613c11d5adc"><td class="memItemLeft" align="right" valign="top"><a id="a031c5b6433038d5bd4e6d613c11d5adc" name="a031c5b6433038d5bd4e6d613c11d5adc"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_newton</b> (real_function f, real_function Df, real guess=0)</td></tr>
-<tr class="memdesc:a031c5b6433038d5bd4e6d613c11d5adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method. <br /></td></tr>
-<tr class="separator:a031c5b6433038d5bd4e6d613c11d5adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51700f99ca632df7d692a5ebc2b91c1"><td class="memTemplParams" colspan="2"><a id="aa51700f99ca632df7d692a5ebc2b91c1" name="aa51700f99ca632df7d692a5ebc2b91c1"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:aa51700f99ca632df7d692a5ebc2b91c1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_bisection</b> (RealFunction f, real a, real b)</td></tr>
+<tr class="memdesc:aa51700f99ca632df7d692a5ebc2b91c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0. <br /></td></tr>
+<tr class="separator:aa51700f99ca632df7d692a5ebc2b91c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229a29edbdd8530878f3a2c21073fcb3"><td class="memTemplParams" colspan="2"><a id="a229a29edbdd8530878f3a2c21073fcb3" name="a229a29edbdd8530878f3a2c21073fcb3"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a229a29edbdd8530878f3a2c21073fcb3"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_newton</b> (RealFunction f, RealFunction Df, real guess=0)</td></tr>
+<tr class="memdesc:a229a29edbdd8530878f3a2c21073fcb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method. <br /></td></tr>
+<tr class="separator:a229a29edbdd8530878f3a2c21073fcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a4ac513ec5910fb28aaacbdd75583b1"><td class="memItemLeft" align="right" valign="top"><a id="a0a4ac513ec5910fb28aaacbdd75583b1" name="a0a4ac513ec5910fb28aaacbdd75583b1"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_newton</b> (dual(*f)(dual), real guess=0)</td></tr>
 <tr class="memdesc:a0a4ac513ec5910fb28aaacbdd75583b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newthon's method, computing the derivative using automatic differentiation. <br /></td></tr>
@@ -131,10 +133,11 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_ro
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_polyn_root_newton</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:a69a99a3c1aefa232bd14f4153eb4183c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Newthon's method. <br /></td></tr>
 <tr class="separator:a69a99a3c1aefa232bd14f4153eb4183c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ba3edd52e5cb42f73cb2f3009ad885"><td class="memItemLeft" align="right" valign="top"><a id="a08ba3edd52e5cb42f73cb2f3009ad885" name="a08ba3edd52e5cb42f73cb2f3009ad885"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_halley</b> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
-<tr class="memdesc:a08ba3edd52e5cb42f73cb2f3009ad885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method. <br /></td></tr>
-<tr class="separator:a08ba3edd52e5cb42f73cb2f3009ad885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf31ac9c03d1bf657ac87ebac89285bf"><td class="memTemplParams" colspan="2"><a id="adf31ac9c03d1bf657ac87ebac89285bf" name="adf31ac9c03d1bf657ac87ebac89285bf"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:adf31ac9c03d1bf657ac87ebac89285bf"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_halley</b> (RealFunction f, RealFunction Df, RealFunction D2f, real guess=0)</td></tr>
+<tr class="memdesc:adf31ac9c03d1bf657ac87ebac89285bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method. <br /></td></tr>
+<tr class="separator:adf31ac9c03d1bf657ac87ebac89285bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9fa575e8737274611d740292c1c8a4e"><td class="memItemLeft" align="right" valign="top"><a id="ad9fa575e8737274611d740292c1c8a4e" name="ad9fa575e8737274611d740292c1c8a4e"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_halley</b> (dual2(*f)(dual2), real guess=0)</td></tr>
 <tr class="memdesc:ad9fa575e8737274611d740292c1c8a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method. <br /></td></tr>
@@ -143,18 +146,20 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_ro
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_polyn_root_halley</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:a93e0bd719d5274d2179dbcd1be6988b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Halley's method. <br /></td></tr>
 <tr class="separator:a93e0bd719d5274d2179dbcd1be6988b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2187066de6efeecd17060236ad082194"><td class="memItemLeft" align="right" valign="top"><a id="a2187066de6efeecd17060236ad082194" name="a2187066de6efeecd17060236ad082194"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_steffensen</b> (real_function f, real guess=0)</td></tr>
-<tr class="memdesc:a2187066de6efeecd17060236ad082194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method. <br /></td></tr>
-<tr class="separator:a2187066de6efeecd17060236ad082194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99090487fe31d6d400bf82ac833c3b72"><td class="memTemplParams" colspan="2"><a id="a99090487fe31d6d400bf82ac833c3b72" name="a99090487fe31d6d400bf82ac833c3b72"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a99090487fe31d6d400bf82ac833c3b72"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_steffensen</b> (RealFunction f, real guess=0)</td></tr>
+<tr class="memdesc:a99090487fe31d6d400bf82ac833c3b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Steffensen's method. <br /></td></tr>
+<tr class="separator:a99090487fe31d6d400bf82ac833c3b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c661fbdbe2cadaddfbcbb844d8ff011"><td class="memItemLeft" align="right" valign="top"><a id="a0c661fbdbe2cadaddfbcbb844d8ff011" name="a0c661fbdbe2cadaddfbcbb844d8ff011"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_polyn_root_steffensen</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:a0c661fbdbe2cadaddfbcbb844d8ff011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Steffensen's method. <br /></td></tr>
 <tr class="separator:a0c661fbdbe2cadaddfbcbb844d8ff011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1781e383c98150952fc22685b8c0b87"><td class="memItemLeft" align="right" valign="top"><a id="ad1781e383c98150952fc22685b8c0b87" name="ad1781e383c98150952fc22685b8c0b87"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_chebyshev</b> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
-<tr class="memdesc:ad1781e383c98150952fc22685b8c0b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
-<tr class="separator:ad1781e383c98150952fc22685b8c0b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ee18cb5d5f6e407aefe134e282ed3"><td class="memTemplParams" colspan="2"><a id="adf3ee18cb5d5f6e407aefe134e282ed3" name="adf3ee18cb5d5f6e407aefe134e282ed3"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:adf3ee18cb5d5f6e407aefe134e282ed3"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_chebyshev</b> (RealFunction f, RealFunction Df, RealFunction D2f, real guess=0)</td></tr>
+<tr class="memdesc:adf3ee18cb5d5f6e407aefe134e282ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
+<tr class="separator:adf3ee18cb5d5f6e407aefe134e282ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8b5bb061cace814539be47c2b389470"><td class="memItemLeft" align="right" valign="top"><a id="ac8b5bb061cace814539be47c2b389470" name="ac8b5bb061cace814539be47c2b389470"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_root_chebyshev</b> (dual2(*f)(dual2), real guess=0)</td></tr>
 <tr class="memdesc:ac8b5bb061cace814539be47c2b389470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Chebyshev's method. <br /></td></tr>
@@ -171,8 +176,8 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_po
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_22ceb20c45c71f6098f33f7a3e928471.html">approx</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -93,18 +93,18 @@ $(document).ready(function(){initNavTree('utility_8h.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">utility.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utility functions to print or insert vec_buff data sets.  
+<p>Utility functions This header file is <b>not</b> automatically included by <a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &quot;<a class="el" href="vec__buff_8h_source.html">./core/vec_buff.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="statistics_8h_source.html">./statistics/statistics.h</a>&quot;</code><br />
 </div>
 <p><a href="utility_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -114,35 +114,28 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af855c94dc540e943632089ce7496faac"><td class="memItemLeft" align="right" valign="top"><a id="af855c94dc540e943632089ce7496faac" name="af855c94dc540e943632089ce7496faac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG</b>(x)&#160;&#160;&#160;(std::cout &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; std::endl)</td></tr>
+<tr class="separator:af855c94dc540e943632089ce7496faac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a46e6e2c5bdb91e13ded2b2dade8db313"><td class="memItemLeft" align="right" valign="top"><a id="a46e6e2c5bdb91e13ded2b2dade8db313" name="a46e6e2c5bdb91e13ded2b2dade8db313"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::print_vec_buff</b> (const vec_buff &amp;v)</td></tr>
-<tr class="memdesc:a46e6e2c5bdb91e13ded2b2dade8db313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a <code>vec_buff</code> data set to standard output. <br /></td></tr>
-<tr class="separator:a46e6e2c5bdb91e13ded2b2dade8db313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75b9197f6d8fd21a23230a198f4f89cb"><td class="memItemLeft" align="right" valign="top"><a id="a75b9197f6d8fd21a23230a198f4f89cb" name="a75b9197f6d8fd21a23230a198f4f89cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::print_vec_buff_row</b> (const vec_buff &amp;v)</td></tr>
-<tr class="memdesc:a75b9197f6d8fd21a23230a198f4f89cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a <code>vec_buff</code> data set to standard output on a single row. <br /></td></tr>
-<tr class="separator:a75b9197f6d8fd21a23230a198f4f89cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1d109f364f62514400e78055bb20e37"><td class="memItemLeft" align="right" valign="top"><a id="ae1d109f364f62514400e78055bb20e37" name="ae1d109f364f62514400e78055bb20e37"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::insert_data</b> (vec_buff &amp;data, std::string terminator)</td></tr>
-<tr class="memdesc:ae1d109f364f62514400e78055bb20e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a <code>vec_buff</code> data set from standard input. <br /></td></tr>
-<tr class="separator:ae1d109f364f62514400e78055bb20e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aa6ab1410e345f5640776ae889a6be5"><td class="memItemLeft" align="right" valign="top"><a id="a2aa6ab1410e345f5640776ae889a6be5" name="a2aa6ab1410e345f5640776ae889a6be5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::print_sample_stats</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a2aa6ab1410e345f5640776ae889a6be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print common statistical information about a <code>vec_buff</code> data set. <br /></td></tr>
-<tr class="separator:a2aa6ab1410e345f5640776ae889a6be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a962794bf044750e6e12f9f6f4a468573"><td class="memItemLeft" align="right" valign="top"><a id="a962794bf044750e6e12f9f6f4a468573" name="a962794bf044750e6e12f9f6f4a468573"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::insert_data</b> (vec_buff &amp;data, std::string terminator=&quot;&quot;)</td></tr>
+<tr class="memdesc:a962794bf044750e6e12f9f6f4a468573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a <code>vec_buff</code> data set from standard input. <br /></td></tr>
+<tr class="separator:a962794bf044750e6e12f9f6f4a468573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Utility functions to print or insert vec_buff data sets. </p>
-<p >This header file is <b>not</b> automatically included by <a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a> </p>
+<div class="textblock"><p >Utility functions This header file is <b>not</b> automatically included by <a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a>. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="utility_8h.html">utility.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

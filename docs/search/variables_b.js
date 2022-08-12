@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['tau_0',['TAU',['../namespacetheoretica.html#aeb6a742ab030fe585063215a644f60df',1,'theoretica']]],
-  ['taylor_5forder_1',['TAYLOR_ORDER',['../namespacetheoretica.html#ad6b4341ceb440f57a5cae39fa7b5495c',1,'theoretica']]]
+  ['rad2deg_0',['RAD2DEG',['../namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0',1,'theoretica']]],
+  ['rand_5freal_5fprec_1',['RAND_REAL_PREC',['../namespacetheoretica.html#a0e48eab9ce5928d0c754a40ddb2d068f',1,'theoretica']]],
+  ['root_5fapprox_5ftol_2',['ROOT_APPROX_TOL',['../namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195',1,'theoretica']]],
+  ['row_5fsize_3',['ROW_SIZE',['../classtheoretica_1_1mat.html#a3837966e22a64095513d3b2d4351e09f',1,'theoretica::mat']]]
 ];

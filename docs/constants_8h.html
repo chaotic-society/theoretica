@@ -115,7 +115,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad693d152d21cfd12f2d4c8bc8b1122e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6">THEORETICA_TAYLOR_ORDER</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memitem:ad693d152d21cfd12f2d4c8bc8b1122e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6">THEORETICA_TAYLOR_ORDER</a>&#160;&#160;&#160;12</td></tr>
 <tr class="memdesc:ad693d152d21cfd12f2d4c8bc8b1122e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">@macro THEORETICA_X86 Define this macro if the machine has a x86 architecture to use hardware enhanced functions.  <a href="constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6">More...</a><br /></td></tr>
 <tr class="separator:ad693d152d21cfd12f2d4c8bc8b1122e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff116b859afb29842f6366839e88cfd"><td class="memItemLeft" align="right" valign="top"><a id="a6ff116b859afb29842f6366839e88cfd" name="a6ff116b859afb29842f6366839e88cfd"></a>
@@ -170,10 +170,30 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_MAX_TRYANDCATCH_ITER</b>&#160;&#160;&#160;100</td></tr>
 <tr class="memdesc:a9185ccd5fcdd822ae6b8b06eb1437674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm. <br /></td></tr>
 <tr class="separator:a9185ccd5fcdd822ae6b8b06eb1437674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3fe91b8a7122e757c127367663dc0f"><td class="memItemLeft" align="right" valign="top"><a id="ace3fe91b8a7122e757c127367663dc0f" name="ace3fe91b8a7122e757c127367663dc0f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_DERIV_STEPSIZE</b>&#160;&#160;&#160;0.001</td></tr>
+<tr class="memdesc:ace3fe91b8a7122e757c127367663dc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default variation for derivative approximation. <br /></td></tr>
+<tr class="separator:ace3fe91b8a7122e757c127367663dc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8e3eb0953959ada47984923ba5ca8e"><td class="memItemLeft" align="right" valign="top"><a id="aac8e3eb0953959ada47984923ba5ca8e" name="aac8e3eb0953959ada47984923ba5ca8e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_MINGRAD_GAMMA</b>&#160;&#160;&#160;-0.005</td></tr>
+<tr class="memdesc:aac8e3eb0953959ada47984923ba5ca8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default step size for gradient descent minimization. <br /></td></tr>
+<tr class="separator:aac8e3eb0953959ada47984923ba5ca8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f00908cc1227294e6c5be8de0e1423"><td class="memItemLeft" align="right" valign="top"><a id="ab1f00908cc1227294e6c5be8de0e1423" name="ab1f00908cc1227294e6c5be8de0e1423"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_MINGRAD_TOLERANCE</b>&#160;&#160;&#160;0.001</td></tr>
+<tr class="memdesc:ab1f00908cc1227294e6c5be8de0e1423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tolerance for gradient descent minimization. <br /></td></tr>
+<tr class="separator:ab1f00908cc1227294e6c5be8de0e1423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c192f4ff34c26e248e6d218a944027"><td class="memItemLeft" align="right" valign="top"><a id="ac7c192f4ff34c26e248e6d218a944027" name="ac7c192f4ff34c26e248e6d218a944027"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_MINGRAD_MAX_ITER</b>&#160;&#160;&#160;50000</td></tr>
+<tr class="memdesc:ac7c192f4ff34c26e248e6d218a944027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for gradient descent minimization. <br /></td></tr>
+<tr class="separator:ac7c192f4ff34c26e248e6d218a944027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac13dd04d659ae36e514a06cd075f0e0e"><td class="memItemLeft" align="right" valign="top"><a id="ac13dd04d659ae36e514a06cd075f0e0e" name="ac13dd04d659ae36e514a06cd075f0e0e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_RAND_REAL_PREC</b>&#160;&#160;&#160;(uint64_t(1) &lt;&lt; 32)</td></tr>
-<tr class="memdesc:ac13dd04d659ae36e514a06cd075f0e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using rand_real() <br /></td></tr>
+<tr class="memdesc:ac13dd04d659ae36e514a06cd075f0e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_uniform()</a> <br /></td></tr>
 <tr class="separator:ac13dd04d659ae36e514a06cd075f0e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d72dcb7db38b3577234c144089a71a"><td class="memItemLeft" align="right" valign="top"><a id="aa0d72dcb7db38b3577234c144089a71a" name="aa0d72dcb7db38b3577234c144089a71a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TH_CONSTEXPR</b></td></tr>
+<tr class="memdesc:aa0d72dcb7db38b3577234c144089a71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable constexpr in function declarations if C++14 is supported. <br /></td></tr>
+<tr class="separator:aa0d72dcb7db38b3577234c144089a71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -256,13 +276,17 @@ constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica:
 <tr class="memdesc:ae75cd5d78670f968bac3fbcfee6660b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from radians to degrees. <br /></td></tr>
 <tr class="separator:ae75cd5d78670f968bac3fbcfee6660b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3be7f003670e91509c8f2fac523fab8"><td class="memItemLeft" align="right" valign="top"><a id="ae3be7f003670e91509c8f2fac523fab8" name="ae3be7f003670e91509c8f2fac523fab8"></a>
-constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRT2</b> = 1.41421356237</td></tr>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRT2</b> = 1.414213562373095</td></tr>
 <tr class="memdesc:ae3be7f003670e91509c8f2fac523fab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of 2. <br /></td></tr>
 <tr class="separator:ae3be7f003670e91509c8f2fac523fab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c1ffb22a0191558cafdaec71c3b81d"><td class="memItemLeft" align="right" valign="top"><a id="a42c1ffb22a0191558cafdaec71c3b81d" name="a42c1ffb22a0191558cafdaec71c3b81d"></a>
-constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::INVSQR2</b> = 0.707106781187</td></tr>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::INVSQR2</b> = 0.7071067811865475</td></tr>
 <tr class="memdesc:a42c1ffb22a0191558cafdaec71c3b81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of the square root of 2. <br /></td></tr>
 <tr class="separator:a42c1ffb22a0191558cafdaec71c3b81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb3b1fe5337a2dcbdbbeb278cfd7c71d"><td class="memItemLeft" align="right" valign="top"><a id="adb3b1fe5337a2dcbdbbeb278cfd7c71d" name="adb3b1fe5337a2dcbdbbeb278cfd7c71d"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRT3</b> = 1.732050807568877</td></tr>
+<tr class="memdesc:adb3b1fe5337a2dcbdbbeb278cfd7c71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of 3. <br /></td></tr>
+<tr class="separator:adb3b1fe5337a2dcbdbbeb278cfd7c71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b4341ceb440f57a5cae39fa7b5495c"><td class="memItemLeft" align="right" valign="top"><a id="ad6b4341ceb440f57a5cae39fa7b5495c" name="ad6b4341ceb440f57a5cae39fa7b5495c"></a>
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::TAYLOR_ORDER</b> = <a class="el" href="constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6">THEORETICA_TAYLOR_ORDER</a></td></tr>
 <tr class="memdesc:ad6b4341ceb440f57a5cae39fa7b5495c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order of Taylor series approximations. <br /></td></tr>
@@ -319,6 +343,22 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>the
 constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::MAX_TRYANDCATCH_ITER</b> = <a class="el" href="constants_8h.html#a9185ccd5fcdd822ae6b8b06eb1437674">THEORETICA_MAX_TRYANDCATCH_ITER</a></td></tr>
 <tr class="memdesc:a3299f783527ae72a24c832a7b1cd8ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm. <br /></td></tr>
 <tr class="separator:a3299f783527ae72a24c832a7b1cd8ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72dfe63d1cce5e9c204cba3493a4e598"><td class="memItemLeft" align="right" valign="top"><a id="a72dfe63d1cce5e9c204cba3493a4e598" name="a72dfe63d1cce5e9c204cba3493a4e598"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::DERIV_STEPSIZE</b> = <a class="el" href="constants_8h.html#ace3fe91b8a7122e757c127367663dc0f">THEORETICA_DERIV_STEPSIZE</a></td></tr>
+<tr class="memdesc:a72dfe63d1cce5e9c204cba3493a4e598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default variation for derivative approximation. <br /></td></tr>
+<tr class="separator:a72dfe63d1cce5e9c204cba3493a4e598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab33f363492da480d62e2e0b5ad2c4ee9"><td class="memItemLeft" align="right" valign="top"><a id="ab33f363492da480d62e2e0b5ad2c4ee9" name="ab33f363492da480d62e2e0b5ad2c4ee9"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::MINGRAD_GAMMA</b> = <a class="el" href="constants_8h.html#aac8e3eb0953959ada47984923ba5ca8e">THEORETICA_MINGRAD_GAMMA</a></td></tr>
+<tr class="memdesc:ab33f363492da480d62e2e0b5ad2c4ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default step size for gradient descent minimization. <br /></td></tr>
+<tr class="separator:ab33f363492da480d62e2e0b5ad2c4ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ebee50e5a5a80baaa6532a736ce7d55"><td class="memItemLeft" align="right" valign="top"><a id="a5ebee50e5a5a80baaa6532a736ce7d55" name="a5ebee50e5a5a80baaa6532a736ce7d55"></a>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::MINGRAD_TOLERANCE</b> = <a class="el" href="constants_8h.html#ab1f00908cc1227294e6c5be8de0e1423">THEORETICA_MINGRAD_TOLERANCE</a></td></tr>
+<tr class="memdesc:a5ebee50e5a5a80baaa6532a736ce7d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tolerance for gradient descent minimization. <br /></td></tr>
+<tr class="separator:a5ebee50e5a5a80baaa6532a736ce7d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd4ef8ed777e402e2ae0c7f736ba20cb"><td class="memItemLeft" align="right" valign="top"><a id="acd4ef8ed777e402e2ae0c7f736ba20cb" name="acd4ef8ed777e402e2ae0c7f736ba20cb"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::MINGRAD_MAX_ITER</b> = <a class="el" href="constants_8h.html#ac7c192f4ff34c26e248e6d218a944027">THEORETICA_MINGRAD_MAX_ITER</a></td></tr>
+<tr class="memdesc:acd4ef8ed777e402e2ae0c7f736ba20cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for gradient descent minimization. <br /></td></tr>
+<tr class="separator:acd4ef8ed777e402e2ae0c7f736ba20cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e48eab9ce5928d0c754a40ddb2d068f"><td class="memItemLeft" align="right" valign="top"><a id="a0e48eab9ce5928d0c754a40ddb2d068f" name="a0e48eab9ce5928d0c754a40ddb2d068f"></a>
 constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::RAND_REAL_PREC</b> = <a class="el" href="constants_8h.html#ac13dd04d659ae36e514a06cd075f0e0e">THEORETICA_RAND_REAL_PREC</a></td></tr>
 <tr class="memdesc:a0e48eab9ce5928d0c754a40ddb2d068f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_uniform()</a> <br /></td></tr>
@@ -334,7 +374,7 @@ constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>theoret
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define THEORETICA_TAYLOR_ORDER&#160;&#160;&#160;9</td>
+          <td class="memname">#define THEORETICA_TAYLOR_ORDER&#160;&#160;&#160;12</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -350,7 +390,7 @@ constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>theoret
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="constants_8h.html">constants.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -113,23 +113,38 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a665cd570c276e9cadf7abf795020bcaf"><td class="memTemplParams" colspan="2"><a id="a665cd570c276e9cadf7abf795020bcaf" name="a665cd570c276e9cadf7abf795020bcaf"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a665cd570c276e9cadf7abf795020bcaf"><td class="memTemplItemLeft" align="right" valign="top">polynomial&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::deriv_polynomial</b> (polynomial&lt; T &gt; p)</td></tr>
-<tr class="memdesc:a665cd570c276e9cadf7abf795020bcaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivate a polynomial. <br /></td></tr>
-<tr class="separator:a665cd570c276e9cadf7abf795020bcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7b8a772085c73d15625bd1f298ba949"><td class="memItemLeft" align="right" valign="top"><a id="ad7b8a772085c73d15625bd1f298ba949" name="ad7b8a772085c73d15625bd1f298ba949"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::deriv_central</b> (real_function f, real x, real dx=0.00000001)</td></tr>
-<tr class="memdesc:ad7b8a772085c73d15625bd1f298ba949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Central derivative approximation. <br /></td></tr>
-<tr class="separator:ad7b8a772085c73d15625bd1f298ba949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa09a868d8a95eda638406102035aa4d4"><td class="memItemLeft" align="right" valign="top"><a id="aa09a868d8a95eda638406102035aa4d4" name="aa09a868d8a95eda638406102035aa4d4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::deriv_forward</b> (real_function f, real x, real dx=0.00000001)</td></tr>
-<tr class="memdesc:aa09a868d8a95eda638406102035aa4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward derivative approximation. <br /></td></tr>
-<tr class="separator:aa09a868d8a95eda638406102035aa4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48e307273fac6dc57340703f566f38c2"><td class="memItemLeft" align="right" valign="top"><a id="a48e307273fac6dc57340703f566f38c2" name="a48e307273fac6dc57340703f566f38c2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::deriv_backward</b> (real_function f, real x, real dx=0.00000001)</td></tr>
-<tr class="memdesc:a48e307273fac6dc57340703f566f38c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backward derivative approximation. <br /></td></tr>
-<tr class="separator:a48e307273fac6dc57340703f566f38c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db068fdfc750be0e45e3fcaa77fc458"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
+<tr class="memitem:a3db068fdfc750be0e45e3fcaa77fc458"><td class="memTemplItemLeft" align="right" valign="top">polynomial&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3db068fdfc750be0e45e3fcaa77fc458">theoretica::deriv_polynomial</a> (const polynomial&lt; T &gt; &amp;p)</td></tr>
+<tr class="memdesc:a3db068fdfc750be0e45e3fcaa77fc458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivative of a polynomial.  <a href="namespacetheoretica.html#a3db068fdfc750be0e45e3fcaa77fc458">More...</a><br /></td></tr>
+<tr class="separator:a3db068fdfc750be0e45e3fcaa77fc458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bbf1baa785f514b3e3a74f80fbd9546"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a5bbf1baa785f514b3e3a74f80fbd9546"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a5bbf1baa785f514b3e3a74f80fbd9546">theoretica::deriv_central</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:a5bbf1baa785f514b3e3a74f80fbd9546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the central method.  <a href="namespacetheoretica.html#a5bbf1baa785f514b3e3a74f80fbd9546">More...</a><br /></td></tr>
+<tr class="separator:a5bbf1baa785f514b3e3a74f80fbd9546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936dad7b99b64c874223aa537c3ad84f"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a936dad7b99b64c874223aa537c3ad84f"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a936dad7b99b64c874223aa537c3ad84f">theoretica::deriv_forward</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:a936dad7b99b64c874223aa537c3ad84f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the forward method.  <a href="namespacetheoretica.html#a936dad7b99b64c874223aa537c3ad84f">More...</a><br /></td></tr>
+<tr class="separator:a936dad7b99b64c874223aa537c3ad84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fda7d7c90a088c8bdbf28b0908c71e8"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a0fda7d7c90a088c8bdbf28b0908c71e8"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0fda7d7c90a088c8bdbf28b0908c71e8">theoretica::deriv_backward</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:a0fda7d7c90a088c8bdbf28b0908c71e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the backward method.  <a href="namespacetheoretica.html#a0fda7d7c90a088c8bdbf28b0908c71e8">More...</a><br /></td></tr>
+<tr class="separator:a0fda7d7c90a088c8bdbf28b0908c71e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f963a737accf2110a8ed71a5064320"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a93f963a737accf2110a8ed71a5064320"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a93f963a737accf2110a8ed71a5064320">theoretica::deriv_ridders2</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:a93f963a737accf2110a8ed71a5064320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of second degree.  <a href="namespacetheoretica.html#a93f963a737accf2110a8ed71a5064320">More...</a><br /></td></tr>
+<tr class="separator:a93f963a737accf2110a8ed71a5064320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c5277448360f087fa63323020675c6"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a08c5277448360f087fa63323020675c6"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a08c5277448360f087fa63323020675c6">theoretica::deriv_ridders</a> (RealFunction f, real x, real h=0.01, unsigned int degree=3)</td></tr>
+<tr class="memdesc:a08c5277448360f087fa63323020675c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of arbitrary degree.  <a href="namespacetheoretica.html#a08c5277448360f087fa63323020675c6">More...</a><br /></td></tr>
+<tr class="separator:a08c5277448360f087fa63323020675c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af13c23d95e0130b1e29ac617f313f27d"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:af13c23d95e0130b1e29ac617f313f27d"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af13c23d95e0130b1e29ac617f313f27d">theoretica::deriv</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:af13c23d95e0130b1e29ac617f313f27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the derivative of a real function.  <a href="namespacetheoretica.html#af13c23d95e0130b1e29ac617f313f27d">More...</a><br /></td></tr>
+<tr class="separator:af13c23d95e0130b1e29ac617f313f27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad376dcd3be0e15133bbedf6ad1160587"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ad376dcd3be0e15133bbedf6ad1160587"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad376dcd3be0e15133bbedf6ad1160587">theoretica::deriv2</a> (RealFunction f, real x, real h=DERIV_STEPSIZE)</td></tr>
+<tr class="memdesc:ad376dcd3be0e15133bbedf6ad1160587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the second derivative of a real function.  <a href="namespacetheoretica.html#ad376dcd3be0e15133bbedf6ad1160587">More...</a><br /></td></tr>
+<tr class="separator:ad376dcd3be0e15133bbedf6ad1160587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Derivative approximation. </p>
@@ -139,7 +154,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::deriv_bac
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="derivation_8h.html">derivation.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

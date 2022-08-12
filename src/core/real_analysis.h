@@ -632,7 +632,7 @@ namespace theoretica {
 
 	/// Approximate x elevated to a real exponent
 	/// @param x A real number
-	/// @return a A real exponent
+	/// @param a A real exponent
 	///
 	/// Approximated as \f$e^{a ln(|x|) sgn(x)}\f$
 	inline real powf(real x, real a) {
@@ -884,8 +884,8 @@ namespace theoretica {
 	/// @return The arccosine of x
 	///
 	/// Domain: [-1, 1].
-	/// The identities \f$asin(x) = atan(\frac{sqrt{1 - x^2}{x}})\f$ and
-	/// \f$asin(x) = atan(\frac{\sqrt{1 - x^2}{x}}) + \pi\f$ are used.
+	/// The identities \f$acos(x) = atan(\frac{sqrt{1 - x^2}}{x})\f$ and
+	/// \f$acos(x) = atan(\frac{\sqrt{1 - x^2}}{x}) + \pi\f$ are used.
 	inline real acos(real x) {
 
 		if(abs(x) > 1) {

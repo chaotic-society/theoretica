@@ -1,6 +1,6 @@
 var error_8h =
 [
-    [ "UMATH_ERROR", "error_8h.html#aafbbfb16bfb464bc45d1aff0d1718bf6", null ],
+    [ "TH_MATH_ERROR", "error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e", null ],
     [ "UMATH_ERRCODE", "error_8h.html#a93838376629bab0a3f0b1a933178300d", [
       [ "NO_ERROR", "error_8h.html#a93838376629bab0a3f0b1a933178300daf8b1ea5551e4f94a00bc423850412b8d", null ],
       [ "DIV_BY_ZERO", "error_8h.html#a93838376629bab0a3f0b1a933178300da51f6a269aa3a6f92215230ceb2212758", null ],

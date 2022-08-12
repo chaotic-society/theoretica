@@ -113,30 +113,36 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a19d7c82d6537146481899d24c372b7d5"><td class="memItemLeft" align="right" valign="top"><a id="a19d7c82d6537146481899d24c372b7d5" name="a19d7c82d6537146481899d24c372b7d5"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_max_goldensection</b> (real_function f, real a, real b)</td></tr>
-<tr class="memdesc:a19d7c82d6537146481899d24c372b7d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum using the Golden Section search algorithm. <br /></td></tr>
-<tr class="separator:a19d7c82d6537146481899d24c372b7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04a957c6f47d494d5762ae25d46abcd2"><td class="memItemLeft" align="right" valign="top"><a id="a04a957c6f47d494d5762ae25d46abcd2" name="a04a957c6f47d494d5762ae25d46abcd2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_min_goldensection</b> (real_function f, real a, real b)</td></tr>
-<tr class="memdesc:a04a957c6f47d494d5762ae25d46abcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum using the Golden Section search algorithm. <br /></td></tr>
-<tr class="separator:a04a957c6f47d494d5762ae25d46abcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23149368a5fbd07dbc4936593220ae6c"><td class="memItemLeft" align="right" valign="top"><a id="a23149368a5fbd07dbc4936593220ae6c" name="a23149368a5fbd07dbc4936593220ae6c"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_max_newton</b> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
-<tr class="memdesc:a23149368a5fbd07dbc4936593220ae6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum given the function and the first two derivatives using Newton-Raphson. <br /></td></tr>
-<tr class="separator:a23149368a5fbd07dbc4936593220ae6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a059402523c2a53acfc39e9f761f19d66"><td class="memItemLeft" align="right" valign="top"><a id="a059402523c2a53acfc39e9f761f19d66" name="a059402523c2a53acfc39e9f761f19d66"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_min_newton</b> (real_function f, real_function Df, real_function D2f, real guess=0)</td></tr>
-<tr class="memdesc:a059402523c2a53acfc39e9f761f19d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum given the function and the first two derivatives using Newton-Raphson. <br /></td></tr>
-<tr class="separator:a059402523c2a53acfc39e9f761f19d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e3664de849d0c0498b14d51c4b54d3"><td class="memItemLeft" align="right" valign="top"><a id="a79e3664de849d0c0498b14d51c4b54d3" name="a79e3664de849d0c0498b14d51c4b54d3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_max_bisection</b> (real_function f, real_function Df, real a, real b)</td></tr>
-<tr class="memdesc:a79e3664de849d0c0498b14d51c4b54d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum inside an interval given the function and its first derivative using bisection on the derivative. <br /></td></tr>
-<tr class="separator:a79e3664de849d0c0498b14d51c4b54d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058864dfb87cf0649def78657208c9d8"><td class="memItemLeft" align="right" valign="top"><a id="a058864dfb87cf0649def78657208c9d8" name="a058864dfb87cf0649def78657208c9d8"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_min_bisection</b> (real_function f, real_function Df, real a, real b)</td></tr>
-<tr class="memdesc:a058864dfb87cf0649def78657208c9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum inside an interval given the function and its first derivative using bisection on the derivative. <br /></td></tr>
-<tr class="separator:a058864dfb87cf0649def78657208c9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30bf47b100bccb63fb06b68397a7c28c"><td class="memTemplParams" colspan="2"><a id="a30bf47b100bccb63fb06b68397a7c28c" name="a30bf47b100bccb63fb06b68397a7c28c"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a30bf47b100bccb63fb06b68397a7c28c"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_max_goldensection</b> (RealFunction f, real a, real b)</td></tr>
+<tr class="memdesc:a30bf47b100bccb63fb06b68397a7c28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum using the Golden Section search algorithm. <br /></td></tr>
+<tr class="separator:a30bf47b100bccb63fb06b68397a7c28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297397efe063a52c126c2232fc65d03a"><td class="memTemplParams" colspan="2"><a id="a297397efe063a52c126c2232fc65d03a" name="a297397efe063a52c126c2232fc65d03a"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a297397efe063a52c126c2232fc65d03a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_min_goldensection</b> (RealFunction f, real a, real b)</td></tr>
+<tr class="memdesc:a297397efe063a52c126c2232fc65d03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum using the Golden Section search algorithm. <br /></td></tr>
+<tr class="separator:a297397efe063a52c126c2232fc65d03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f27c104f6244cc0dda21b4bc46a225c"><td class="memTemplParams" colspan="2"><a id="a4f27c104f6244cc0dda21b4bc46a225c" name="a4f27c104f6244cc0dda21b4bc46a225c"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a4f27c104f6244cc0dda21b4bc46a225c"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_max_newton</b> (RealFunction f, RealFunction Df, RealFunction D2f, real guess=0)</td></tr>
+<tr class="memdesc:a4f27c104f6244cc0dda21b4bc46a225c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum given the function and the first two derivatives using Newton-Raphson. <br /></td></tr>
+<tr class="separator:a4f27c104f6244cc0dda21b4bc46a225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a1efb73e66d3a6ca97a2904aa06f3f6"><td class="memTemplParams" colspan="2"><a id="a8a1efb73e66d3a6ca97a2904aa06f3f6" name="a8a1efb73e66d3a6ca97a2904aa06f3f6"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a8a1efb73e66d3a6ca97a2904aa06f3f6"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_min_newton</b> (RealFunction f, RealFunction Df, RealFunction D2f, real guess=0)</td></tr>
+<tr class="memdesc:a8a1efb73e66d3a6ca97a2904aa06f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum given the function and the first two derivatives using Newton-Raphson. <br /></td></tr>
+<tr class="separator:a8a1efb73e66d3a6ca97a2904aa06f3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec19c3cb57810dac37ac300c895bb50"><td class="memTemplParams" colspan="2"><a id="a9ec19c3cb57810dac37ac300c895bb50" name="a9ec19c3cb57810dac37ac300c895bb50"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a9ec19c3cb57810dac37ac300c895bb50"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_max_bisection</b> (RealFunction f, RealFunction Df, real a, real b)</td></tr>
+<tr class="memdesc:a9ec19c3cb57810dac37ac300c895bb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function maximum inside an interval given the function and its first derivative using bisection on the derivative. <br /></td></tr>
+<tr class="separator:a9ec19c3cb57810dac37ac300c895bb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2040484743eb55bcd56e4c79f20ea6e1"><td class="memTemplParams" colspan="2"><a id="a2040484743eb55bcd56e4c79f20ea6e1" name="a2040484743eb55bcd56e4c79f20ea6e1"></a>
+template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a2040484743eb55bcd56e4c79f20ea6e1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_min_bisection</b> (RealFunction f, RealFunction Df, real a, real b)</td></tr>
+<tr class="memdesc:a2040484743eb55bcd56e4c79f20ea6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a function minimum inside an interval given the function and its first derivative using bisection on the derivative. <br /></td></tr>
+<tr class="separator:a2040484743eb55bcd56e4c79f20ea6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Extrema approximation of real functions. </p>
@@ -145,8 +151,8 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_mi
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_22ceb20c45c71f6098f33f7a3e928471.html">approx</a></li><li class="navelem"><a class="el" href="extrema_8h.html">extrema.h</a></li>
-    <li class="footer">Generated on Fri Jul 15 2022 12:35:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="extrema_8h.html">extrema.h</a></li>
+    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
