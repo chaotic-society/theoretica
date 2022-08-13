@@ -8,30 +8,30 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cbrt
   - [x] square
   - [x] cube
-  - [x] isqrt - No test cases
-  - [x] icbrt - No test cases
+  - [x] isqrt
+  - [x] icbrt
   - [x] abs
   - [x] sgn
   - [x] max
   - [x] min
   - [x] clamp
-  - [x] floor - Needs test cases
-  - [x] fract - Needs test cases
+  - [x] floor
+  - [x] fract
   - [ ] log2 - Architecture-independent version has low precision
   - [ ] log10 - Architecture-independent version has low precision
   - [ ] ln - Architecture-independent version has low precision
   - [x] pow
-  - [x] fact
   - [x] powf
+  - [x] fact
   - [x] exp
-  - [x] sin - Architecture-independent version has low precision
-  - [x] cos - Architecture-independent version has low precision
+  - [x] sin
+  - [x] cos
   - [x] tan - Architecture-independent version has low precision
   - [x] cot - Architecture-independent version has low precision
-  - [x] atan - (Low precision)
-  - [x] asin - (Low precision)
-  - [x] acos - (Low precision)
-  - [x] atan2 - (Low precision)
+  - [x] atan - Architecture-independent version has low precision
+  - [x] asin - Architecture-independent version has low precision
+  - [x] acos - Architecture-independent version has low precision
+  - [x] atan2 - Architecture-independent version has low precision
   - [x] sinh
   - [x] cosh
   - [x] tanh
@@ -48,6 +48,8 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Cross product (_cross_)
   - [x] Norm (_lenght_)
   - [x] Normalization (_normalize_, _normalized_)
+  - [x] Euclidean distance
+  - [x] Lp-norm
 
 - Matrix algebra (_algebra/mat.h_) - **NO TEST CASES**
   - [x] Addition and subtraction (_operator+_, _-_)
@@ -59,7 +61,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Dot product of two vectors (_dot_)
   - [x] Matrix types (_is_square_, _is_diagonal_, _is_symmetric_)
   - [x] Transformation matrices (_identity_, _translation_, _rotation_4x4_, _rotation_3x3_, _scaling_)
-  - [x] Perspective and Ortho matrices - Need testing
+  - [x] Perspective and Ortho matrices
   - [x] Inversion
   - [x] Determinant of a generic matrix
   - [x] Determinant of 2x2 and 3x3 matrices
@@ -78,14 +80,14 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cube
   - [x] exp
   - [x] abs
-  - [x] sin - Architecture-independent version has low precision
-  - [x] cos - Architecture-independent version has low precision
-  - [x] tan - Architecture-independent version has low precision
+  - [x] sin
+  - [x] cos
+  - [x] tan
   - [x] sqrt
   - [x] ln - Architecture-independent version has low precision
-  - [x] asin - (Low precision)
-  - [x] acos - (Low precision)
-  - [x] atan - (Low precision)
+  - [x] asin - Architecture-independent version has low precision
+  - [x] acos - Architecture-independent version has low precision
+  - [x] atan - Architecture-independent version has low precision
 
 - Phasors (_complex/phasor.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -106,7 +108,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Multiplication
   - [x] Differentiation
   - [x] Integration
-  - [ ] Division
+  - [x] Division
 
 - Orthogonal polynomials (_ortho_polyn.h_) - **NO TEST CASES**
   - [x] Laguerre polynomials
@@ -114,7 +116,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Hermite polynomials
   - [x] Chebyshev polynomials
 
-- Calculus (_calculus/derivation.h_, _calculus/integration.h_) - **NO TEST CASES**
+- Calculus (_calculus/derivation.h_, _calculus/integration.h_, _calculus/taylor.h_) - **NO TEST CASES**
   - [x] Integral approximation using midpoint, trapezoid and Simpson
   - [x] Romberg integral approximation
   - [x] Monte Carlo integral approximation (Crude, Hit-or-Miss)
@@ -122,6 +124,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Ridder's derivative approximation of arbitrary order
   - [x] Second derivative approximation
   - [x] Ordinary Differential Equations numerical integration methods
+  - [x] Linear and quadratic Taylor series expansions of generic functions
 
 - Approximation of roots and extrema (_optimization/roots.h_, _optimization/extrema.h_) - **NO TEST CASES**
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
@@ -145,7 +148,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] Conversion from and to vector
   - [ ] Matrix form
 
-- Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_) - **NO TEST CASES**
+- Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_, _autodiff/dual2_functions.h_) - **NO TEST CASES**
   - [x] square
   - [x] cube
   - [x] pow
@@ -237,11 +240,11 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] Metropolis-Hastings Monte Carlo Markov Chain method
 
 - Special functions (_core/special.h_) - EXPERIMENTAL - **NO TEST CASES**
-  - [x] Gamma function - Low precision
-  - [x] Pi function - Low precision
-  - [x] Beta function - Low precision
+  - [ ] Gamma function - Low precision
+  - [ ] Pi function - Low precision
+  - [ ] Beta function - Low precision
 
 - Operations on bits (_core/bit_op.h_) - **NO TEST CASES*
-  - [x] 128-bit multiplication
+  - [x] 128-bit integer multiplication
   - [x] MUM bit mixing
   - [x] Bit rotation
