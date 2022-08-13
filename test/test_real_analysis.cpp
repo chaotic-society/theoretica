@@ -51,6 +51,34 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate(
+			"th::isqrt(uint32_t)",
+			[](real x) { return th::isqrt<uint32_t>(x); },
+			[](real x) { return std::floor(std::sqrt(x)); },
+			interval(0, MAX));
+
+
+		prec::estimate(
+			"th::isqrt(uint64_t)",
+			[](real x) { return th::isqrt<uint64_t>(x); },
+			[](real x) { return std::floor(std::sqrt(x)); },
+			interval(0, MAX));
+
+
+		prec::estimate(
+			"th::icbrt(uint32_t)",
+			[](real x) { return th::icbrt<uint32_t>(x); },
+			[](real x) { return std::floor(std::cbrt(x)); },
+			interval(0, MAX));
+
+
+		prec::estimate(
+			"th::icbrt(uint64_t)",
+			[](real x) { return th::icbrt<uint64_t>(x); },
+			[](real x) { return std::floor(std::cbrt(x)); },
+			interval(0, MAX));
+
+
+		prec::estimate(
 			"th::abs(real)",
 			REAL_LAMBDA(th::abs),
 			REAL_LAMBDA(std::abs),

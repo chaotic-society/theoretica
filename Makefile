@@ -14,15 +14,15 @@ example:
 test_algebra:
 ifndef windows_build
 	@echo Compiling linear algebra test cases...
-	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test_algebra
-	@./test_algebra
+	@g++ test/test_algebra.cpp ${CXXFLAGS} -o test/test_algebra
+	@./test/test_algebra
 endif
 
 test_real_analysis:
 ifndef windows_build
 	@echo Compiling real analysis test cases...
-	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test_real_analysis
-	@./test_real_analysis
+	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -o test/test_real_analysis
+	@./test/test_real_analysis
 endif
 
 test: test_real_analysis test_algebra
