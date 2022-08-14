@@ -8,6 +8,49 @@ using benchmark::benchmark_result;
 #include <ctime>
 
 
+template<unsigned int N, unsigned int M = N>
+mat<N, M> rand_mat(real min, real max, PRNG& g) {
+
+	mat<N, M> A;
+
+	for (size_t i = 0; i < N; ++i)
+		for (size_t j = 0; j < M; ++j)
+			A.iat(i, j) = rand_uniform(min, max, g);
+
+	return A;
+}
+
+
+template<unsigned int N>
+benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
+
+	std::vector<mat<N, N>> A;
+	A.reserve(iter);
+	real c = 0;
+
+	const unsigned int MAX = 100000;
+	const unsigned int MIN = -100000;
+	PRNG g = PRNG::xoshiro(time(nullptr));
+
+	for (size_t i = 0; i < iter; ++i)
+		A[i] = rand_mat<N>(MIN, MAX, g);
+
+	long double elapsed = 0;
+
+	for (size_t i = 0; i < runs; ++i) {
+		
+		timer t = timer();
+
+		for (size_t j = 0; j < iter; ++j)
+			c += A[j].det();
+
+		elapsed += t();
+	}
+
+	return benchmark_result(elapsed, iter, runs);
+}
+
+
 template<unsigned int N>
 benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
@@ -17,28 +60,23 @@ benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
 	const unsigned int MAX = 100000;
 	const unsigned int MIN = -100000;
-
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	// Generate random invertible matrices
 	for (size_t i = 0; i < iter; ++i) {
 		do {
-			for (size_t j = 0; j < N; ++j) {
-				for (size_t k = 0; k < N; ++k) {
-					A[i].at(j, k) = rand_uniform(MIN, MAX, g);
-				}
-			}
+			A[i] = rand_mat<N>(MIN, MAX, g);
 		} while(A[i].det() < MACH_EPSILON);
 	}
 
 	long double elapsed = 0;
 
-	for (size_t i = 0; i < iter; ++i) {
+	for (size_t i = 0; i < runs; ++i) {
 		
 		timer t = timer();
 
-		for (size_t i = 0; i < iter; ++i)
-			c += A[i].inverse().get(0, 0);
+		for (size_t j = 0; j < iter; ++j)
+			c += A[j].inverse().get(0, 0);
 
 		elapsed += t();
 	}
@@ -52,12 +90,17 @@ int main(int argc, char const *argv[]) {
 
 	benchmark::state.outputFolder = "benchmark/";
 	
-	benchmark::setup("algebra", argc, argv);
+	benchmark::setup("algebra", argc, argv, 1000, 1000);
 
-		benchmark::custom_request("mat2::inverse()", benchmark_mat_inverse<2>, 1000, 1000);
-		benchmark::custom_request("mat3::inverse()", benchmark_mat_inverse<3>, 1000, 1000);
-		benchmark::custom_request("mat4::inverse()", benchmark_mat_inverse<4>, 1000, 1000);
-		benchmark::custom_request("mat10::inverse()", benchmark_mat_inverse<10>, 1000, 1000);
+		benchmark::custom_request("mat2::inverse()", benchmark_mat_inverse<2>);
+		benchmark::custom_request("mat3::inverse()", benchmark_mat_inverse<3>);
+		benchmark::custom_request("mat4::inverse()", benchmark_mat_inverse<4>);
+		benchmark::custom_request("mat10::inverse()", benchmark_mat_inverse<10>);
+
+		benchmark::custom_request("mat2::det()", benchmark_mat_det<2>);
+		benchmark::custom_request("mat3::det()", benchmark_mat_det<3>);
+		benchmark::custom_request("mat4::det()", benchmark_mat_det<4>);
+		benchmark::custom_request("mat10::det()", benchmark_mat_det<10>);
 
 	benchmark::terminate();
 }

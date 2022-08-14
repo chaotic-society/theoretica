@@ -15,6 +15,7 @@ int main(int argc, char const *argv[]) {
 	const real MIN = -MAX;
 
 	prec::state.outputFolder = "test/";
+	prec::state.defaultIterations = 100000;
 
 	prec::setup("real_analysis", argc, argv);
 
@@ -82,6 +83,20 @@ int main(int argc, char const *argv[]) {
 			"th::abs(real)",
 			REAL_LAMBDA(th::abs),
 			REAL_LAMBDA(std::abs),
+			interval(MIN, MAX));
+
+
+		prec::estimate(
+			"th::floor(real)",
+			REAL_LAMBDA(th::floor),
+			REAL_LAMBDA(std::floor),
+			interval(MIN, MAX));
+
+
+		prec::estimate(
+			"th::fract(real)",
+			REAL_LAMBDA(th::fract),
+			[](real x) { return std::abs(std::floor(x) - x); },
 			interval(MIN, MAX));
 
 

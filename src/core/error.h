@@ -93,13 +93,7 @@ namespace theoretica {
 
 
 		/// Return a string describing the exception
-		inline const char* what() {
-
-			// std::string w = std::string(file_name);
-
-			// w += ":";
-			// w += func_name;
-			// w += ": ";
+		inline const char* what() const noexcept {
 
 			switch(err) {
 				case NO_ERROR: return "No error"; break;
@@ -112,13 +106,68 @@ namespace theoretica {
 				case INVALID_ARGUMENT: return "Invalid argument size or value"; break;
 				default: return "Unknown error"; break;
 			}
-
-			// return w.c_str();
 		}
 
 
-		inline UMATH_ERRCODE err_code() {
+		/// Get the error code associated with the exception
+		inline UMATH_ERRCODE err_code() const {
 			return err;
+		}
+
+
+		/// Get the name of the throwing functions
+		inline std::string get_function_name() const {
+			return func_name;
+		}
+
+
+		/// Get the name of the file in which the exception
+		/// was thrown
+		inline std::string get_file_name() const {
+			return file_name;
+		}
+
+
+		/// Get the line number in which the exception was thrown
+		inline unsigned int get_line_number() const {
+			return code_line;
+		}
+
+
+		/// Get a real value associated with the exception
+		inline real get_value() const {
+			return val;
+		}
+
+
+		/// Get a string representation of the exception
+		inline std::string to_string() const {
+
+			std::stringstream err_str;
+
+			err_str << file_name << "(" << code_line << "):";
+			err_str << func_name << "(" << val << "): ";
+
+			switch(err) {
+				case NO_ERROR: err_str << "No error"; break;
+				case DIV_BY_ZERO: err_str << "Division by zero"; break;
+				case OUT_OF_DOMAIN:
+					err_str << "An argument was out of the domain of the called function"; break;
+				case IMPOSSIBLE_OPERATION:
+					err_str << "A mathematically impossible operation was requested"; break;
+				case NO_ALGO_CONVERGENCE: err_str << "The algorithm did not converge"; break;
+				case INVALID_ARGUMENT: err_str << "Invalid argument size or value"; break;
+				default: err_str << "Unknown error"; break;
+			}
+
+			return err_str.str();
+		}
+
+
+		/// Stream the exception in string representation
+		/// to an output stream (std::ostream)
+		inline friend std::ostream& operator<<(std::ostream& out, const MathException& obj) {
+			return out << obj.to_string();
 		}
 
 	};
@@ -149,10 +198,9 @@ namespace theoretica {
 	errno = th_errcode_to_errno(EXCEPTION); \
 	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
-// Modify errno only
+// Modify errno only by default
 #else
 
-// For a generic function (NO return statement)
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	errno = th_errcode_to_errno(EXCEPTION);
 
