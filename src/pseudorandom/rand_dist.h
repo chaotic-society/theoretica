@@ -74,7 +74,7 @@ namespace theoretica {
 	/// Random real numbers are generated inside a rectangle
 	/// defined by x1, x2, y1 and y2 following a uniform distribution.
 	/// Only numbers below the pdf are returned.
-	real rand_dist_tac(stat_function f,
+	inline real rand_dist_tac(stat_function f,
 		const vec_buff& theta,
 		real x1, real x2,
 		real y1, real y2, PRNG& g,
@@ -370,12 +370,12 @@ namespace theoretica {
 
 
 		/// Generate the next number
-		real next() {
+		inline real next() {
 			return f(theta, g);
 		}
 
 		/// Generate the next number
-		real operator()() {
+		inline real operator()() {
 			return next();
 		}
 

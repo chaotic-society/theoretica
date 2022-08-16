@@ -9,7 +9,11 @@
 #if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
 #include <exception>
 #include <string>
+
+#ifndef THEORETICA_NO_PRINT
 #include <sstream>
+#endif
+
 #endif
 
 #include <cerrno>
@@ -115,20 +119,19 @@ namespace theoretica {
 		}
 
 
-		/// Get the name of the throwing functions
+		/// Get the name of the throwing function
 		inline std::string get_function_name() const {
 			return func_name;
 		}
 
 
-		/// Get the name of the file in which the exception
-		/// was thrown
+		/// Get the name of the file in which the exception was thrown
 		inline std::string get_file_name() const {
 			return file_name;
 		}
 
 
-		/// Get the line number in which the exception was thrown
+		/// Get the line number at which the exception was thrown
 		inline unsigned int get_line_number() const {
 			return code_line;
 		}
@@ -138,7 +141,9 @@ namespace theoretica {
 		inline real get_value() const {
 			return val;
 		}
+		
 
+#ifndef THEORETICA_NO_PRINT
 
 		/// Get a string representation of the exception
 		inline std::string to_string() const {
@@ -169,6 +174,8 @@ namespace theoretica {
 		inline friend std::ostream& operator<<(std::ostream& out, const MathException& obj) {
 			return out << obj.to_string();
 		}
+
+#endif
 
 	};
 

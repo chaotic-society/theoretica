@@ -21,7 +21,7 @@ namespace theoretica {
 	/// The Weyl sequence is defined as \f$x_n = \{n \alpha\}\f$,
 	/// where \f$\{ \}\f$ is the fractional part.
 	/// @note The alpha argument should be an irrational number.
-	real qrand_weyl(unsigned int n, real alpha = INVPHI) {
+	inline real qrand_weyl(unsigned int n, real alpha = INVPHI) {
 		return fract(n * alpha);
 	}
 
@@ -35,7 +35,7 @@ namespace theoretica {
 	/// the function computes the first element of the
 	/// Weyl sequence associated to the parameter alpha.
 	/// @see qrand_weyl
-	real qrand_weyl_recurr(real prev = 0, real alpha = INVPHI) {
+	inline real qrand_weyl_recurr(real prev = 0, real alpha = INVPHI) {
 
 		if(prev == 0) {
 			prev = qrand_weyl(1, alpha);
@@ -52,7 +52,7 @@ namespace theoretica {
 	/// 
 	/// @note The alpha argument should be an irrational number.
 	template<unsigned int N>
-	vec<N> qrand_weyl_multi(unsigned int n, real alpha) {
+	inline vec<N> qrand_weyl_multi(unsigned int n, real alpha) {
 		
 		vec<N> r;
 		for (unsigned int i = 0; i < N; ++i)
@@ -67,7 +67,7 @@ namespace theoretica {
 	/// @param alpha The base of the sequence
 	/// 
 	/// @note The alpha argument should be an irrational number.
-	vec2 qrand_weyl2(unsigned int n, real alpha = 0.7548776662466927) {
+	inline vec2 qrand_weyl2(unsigned int n, real alpha = 0.7548776662466927) {
 		return {fract(n * alpha), fract(n * square(alpha))};
 	}
 
