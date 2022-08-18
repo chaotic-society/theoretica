@@ -358,7 +358,7 @@ namespace theoretica {
 
 
 			/// Construct a polynomial from its roots
-			inline static polynomial<T> from_roots(std::vector<T> roots) {
+			inline static polynomial<T> from_roots(const std::vector<T>& roots) {
 
 				polynomial<T> P = {1};
 

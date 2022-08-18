@@ -150,6 +150,15 @@ namespace  theoretica {
 			}
 
 
+			/// Add a real number to this one
+			inline complex& operator+=(const complex& other) {
+
+				a += other.a;
+				b += other.b;
+				return *this;
+			}
+
+
 			/// Sum a real number to this complex number
 			inline complex& operator+=(real r) {
 

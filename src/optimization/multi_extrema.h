@@ -48,7 +48,7 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.lenght() > MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.length() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("minimize_grad", iter, NO_ALGO_CONVERGENCE);
@@ -124,7 +124,7 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.lenght() > MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.length() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("minimize_lingrad", iter, NO_ALGO_CONVERGENCE);

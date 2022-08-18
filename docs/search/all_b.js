@@ -16,7 +16,7 @@ var searchData=
   ['legendre_5fpolyn_5fnormalization_13',['legendre_polyn_normalization',['../namespacetheoretica.html#aca937d779d223cab3a43b4236876491a',1,'theoretica']]],
   ['legendre_5fpolyn_5frecurr_14',['legendre_polyn_recurr',['../namespacetheoretica.html#aed24464894a5a23896554578641576ac',1,'theoretica']]],
   ['legendre_5fpolynomial_15',['legendre_polynomial',['../namespacetheoretica.html#acaa95392d9bfc3ddf34f3e82f4b6ae78',1,'theoretica']]],
-  ['lenght_16',['lenght',['../classtheoretica_1_1vec.html#aee83d2554e41f36ba704067c2763125b',1,'theoretica::vec']]],
+  ['lenght_16',['length',['../classtheoretica_1_1vec.html#aee83d2554e41f36ba704067c2763125b',1,'theoretica::vec']]],
   ['lerp_17',['lerp',['../namespacetheoretica.html#aa0edd44311fc206d96919ab11d1977a9',1,'theoretica::lerp(real x1, real x2, real interp)'],['../namespacetheoretica.html#a7765f4fbfe237744fe9819a6aaae2376',1,'theoretica::lerp(vec&lt; N &gt; P1, vec&lt; N &gt; P2, real interp)']]],
   ['likelihood_18',['likelihood',['../namespacetheoretica.html#a8e8a4ddbcba09177b1ba63397ead6119',1,'theoretica']]],
   ['linear_5fcongruential_19',['linear_congruential',['../classtheoretica_1_1_p_r_n_g.html#a1fa162ef1bd1cc6eb635cda94676bb30',1,'theoretica::PRNG']]],

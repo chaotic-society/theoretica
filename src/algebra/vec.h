@@ -203,7 +203,7 @@ namespace theoretica {
 		}
 
 		/// Alias for magnitude()
-		inline T lenght() const {
+		inline T length() const {
 			return magnitude();
 		}
 
@@ -371,7 +371,7 @@ namespace theoretica {
 	/// Compute the Euclidian distance between two points
 	template<unsigned int N, typename T>
 	inline T distance(const vec<N, T>& v1, const vec<N, T>& v2) {
-		return (v1 - v2).lenght();
+		return (v1 - v2).length();
 	}
 
 
@@ -423,19 +423,10 @@ namespace theoretica {
 	/// @param p The vector to transform
 	/// @param c The center of the sphere
 	/// @param r The radius of the sphere
-	template<unsigned int N, typename T>
-	inline vec<N, T> sphere_inversion(const vec<N, T>& p, const vec<N, T>& c, real r) {
-		vec<N, T> q = (p - c);
-		return c + q * (square(r) / q.square_lenght());
-	}
-
-
-	/// Sphere inversion of a point with respect to
-	/// a sphere of radius 1 centered in the origin
-	/// @param p The vector to transform
-	template<unsigned int N, typename T>
-	inline vec<N, T> sphere_inversion(const vec<N, T>& p) {
-		return sphere_inversion(p, vec<N, T>(T(0)), 1);
+	template<typename T>
+	inline T sphere_inversion(const T& p, const T& c = T(0), real r = 1) {
+		T q = p - c;
+		return c + q * square(r / q.length());
 	}
 
 }

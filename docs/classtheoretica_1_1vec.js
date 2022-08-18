@@ -7,7 +7,7 @@ var classtheoretica_1_1vec =
     [ "cross", "classtheoretica_1_1vec.html#a9d0bc3bc79da15d0c3ced493be3970d0", null ],
     [ "dot", "classtheoretica_1_1vec.html#abacf08b0f861732fc37e9d2af80b3b79", null ],
     [ "get", "classtheoretica_1_1vec.html#a6fd363e2d88ea9dd990d5687428bde69", null ],
-    [ "lenght", "classtheoretica_1_1vec.html#aee83d2554e41f36ba704067c2763125b", null ],
+    [ "length", "classtheoretica_1_1vec.html#aee83d2554e41f36ba704067c2763125b", null ],
     [ "magnitude", "classtheoretica_1_1vec.html#a793bcff01ebae115771edd2da286b08b", null ],
     [ "normalize", "classtheoretica_1_1vec.html#a720767069f07d81f2e4ea9230eaf6a4a", null ],
     [ "normalized", "classtheoretica_1_1vec.html#af8758bb09de2f785dffc493c37b99b2e", null ],
