@@ -197,7 +197,7 @@ namespace theoretica {
 
 			T m = 0;
 			for (unsigned int i = 0; i < N; ++i)
-				m += data[i] * data[i];
+				m += data[i] * conjugate(data[i]);
 
 			return sqrt(m);
 		}
@@ -209,16 +209,17 @@ namespace theoretica {
 
 		/// Square magnitude of vector (v * v)
 		inline T square_magnitude() const {
+
 			T m = 0;
-			for (unsigned int i = 0; i < N; ++i) {
-				m += data[i] * data[i];
-			}
+			for (unsigned int i = 0; i < N; ++i)
+				m += data[i] * conjugate(data[i]);
+
 			return m;
 		}
 
 
 		/// Alias for square_magnitude()
-		inline real square_lenght() const {
+		inline real square_length() const {
 			return square_magnitude();
 		}
 
@@ -362,47 +363,6 @@ namespace theoretica {
 	using vec4 = vec<4, real>;
 
 
-	/// Compute the Euclidian distance between two values
-	inline real distance(real v1, real v2) {
-		return abs(v1 - v2);
-	}
-
-
-	/// Compute the Euclidian distance between two points
-	template<unsigned int N, typename T>
-	inline T distance(const vec<N, T>& v1, const vec<N, T>& v2) {
-		return (v1 - v2).length();
-	}
-
-
-	/// Compute the Lp norm of a vector.
-	/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
-	template<unsigned int N, typename T>
-	inline real lp_norm(const vec<N, T>& v, unsigned int p) {
-
-		real sum = 0;
-
-		for (unsigned int i = 0; i < N; ++i)
-			sum += pow(abs(v[i]), p);
-
-		return root(sum, p);
-	}
-
-
-	/// Compute the Linf norm of a vector.
-	/// \f$L_{inf}(\vec v) = max(|v_i|)\f$
-	template<unsigned int N, typename T>
-	inline real linf_norm(const vec<N, T>& v) {
-
-		real res = abs(v[0]);
-
-		for (unsigned int i = 1; i < N; ++i)
-			res = max(res, abs(v[i]));
-
-		return res;
-	}
-
-
 	/// Compute the dot product of two vectors
 	template<unsigned int N, typename T>
 	inline real dot(const vec<N, T>& v1, const vec<N, T>& v2) {
@@ -415,18 +375,6 @@ namespace theoretica {
 	template<typename T>
 	inline vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
 		return v1.cross(v2);
-	}
-
-
-	/// Sphere inversion of a point with respect to
-	/// a sphere of radius r centered in a point c
-	/// @param p The vector to transform
-	/// @param c The center of the sphere
-	/// @param r The radius of the sphere
-	template<typename T>
-	inline T sphere_inversion(const T& p, const T& c = T(0), real r = 1) {
-		T q = p - c;
-		return c + q * square(r / q.length());
 	}
 
 }

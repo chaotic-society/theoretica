@@ -18,6 +18,8 @@
 // Vector and matrix algebra
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"
+#include "./algebra/distance.h"
+#include "./algebra/geometry.h"
 
 // Complex and quaternion classes
 #include "./complex/complex.h"

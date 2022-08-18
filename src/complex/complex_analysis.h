@@ -12,6 +12,27 @@
 namespace theoretica {
 
 
+	/// Complex identity
+	/// @param z A complex number
+	inline complex identity(complex z) {
+		return z;
+	}
+
+
+	/// Compute the conjugate of a complex number
+	/// @param z A complex number
+	inline complex conjugate(complex z) {
+		return complex(z.a, -z.b);
+	}
+
+
+	/// Compute the conjugate of a complex number
+	/// @param z A complex number
+	inline complex inverse(complex z) {
+		return conjugate(z) / z.square_modulus();
+	}
+
+
 	/// Compute the square of a complex number
 	/// @param z A complex number
 	inline complex square(complex z) {

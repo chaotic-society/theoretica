@@ -13,6 +13,18 @@
 namespace theoretica {
 
 
+	/// Identity
+	TH_CONSTEXPR inline real identity(real x) {
+		return x;
+	}
+
+
+	/// Complex conjugate of a real number (identity)
+	TH_CONSTEXPR inline real conjugate(real x) {
+		return x;
+	}
+
+
 	/// Compute the square of a real number
 	/// @param x A real number
 	/// @return The square of x

@@ -39,7 +39,7 @@ var searchData=
   ['sqrt3_36',['SQRT3',['../namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d',1,'theoretica']]],
   ['sqrtpi_37',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]],
   ['square_38',['square',['../namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0',1,'theoretica::square(dual2 x)'],['../namespacetheoretica.html#ad5f05865ec8d49e6abf889d81e1cd428',1,'theoretica::square(dual x)'],['../namespacetheoretica.html#ab864254bd5f629822f3d1fcee3cff6b7',1,'theoretica::square(multidual&lt; N &gt; x)'],['../namespacetheoretica.html#a9d09bcf107dc6230badf2b29e25ffcad',1,'theoretica::square(complex z)'],['../namespacetheoretica.html#a726a5e18c863dc41040f5df134553fa9',1,'theoretica::square(real x)']]],
-  ['square_5flenght_39',['square_lenght',['../classtheoretica_1_1vec.html#a77b9c07d71caf1acb31696e08cde8d18',1,'theoretica::vec']]],
+  ['square_5flenght_39',['square_length',['../classtheoretica_1_1vec.html#a77b9c07d71caf1acb31696e08cde8d18',1,'theoretica::vec']]],
   ['square_5fmagnitude_40',['square_magnitude',['../classtheoretica_1_1vec.html#a0e5a61599cd2580270b993107d2fde5c',1,'theoretica::vec']]],
   ['square_5fmodulus_41',['square_modulus',['../classtheoretica_1_1complex.html#ac1c095633e5ed8942c526cef4ea4ff88',1,'theoretica::complex']]],
   ['square_5fnorm_42',['square_norm',['../classtheoretica_1_1quat.html#af523043273924defa46900a260bea6f3',1,'theoretica::quat']]],

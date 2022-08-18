@@ -22,7 +22,7 @@ var classtheoretica_1_1vec =
     [ "operator[]", "classtheoretica_1_1vec.html#a9f8120b79ac3cf29042d0d3cc56136c3", null ],
     [ "set", "classtheoretica_1_1vec.html#a282662e721494301a9773220cad128a8", null ],
     [ "size", "classtheoretica_1_1vec.html#a9d82562a2e0b4500e8f9f99fd7c7495b", null ],
-    [ "square_lenght", "classtheoretica_1_1vec.html#a77b9c07d71caf1acb31696e08cde8d18", null ],
+    [ "square_length", "classtheoretica_1_1vec.html#a77b9c07d71caf1acb31696e08cde8d18", null ],
     [ "square_magnitude", "classtheoretica_1_1vec.html#a0e5a61599cd2580270b993107d2fde5c", null ],
     [ "to_string", "classtheoretica_1_1vec.html#aaa00a4dad662c974bc2b07a5db897e16", null ],
     [ "to_vec_buff", "classtheoretica_1_1vec.html#a9ef85189a45c2f315e99b0acad6a907a", null ],
