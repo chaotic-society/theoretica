@@ -6,8 +6,10 @@ A numerical and automatic mathematical library in C++ for scientific and graphic
 
 ### A short example
 Given a Hamiltonian function **H(q, p)** and a function **f(q, p)** defined on its phase space, you can compute its _exact_ time derivative at a position _eta_ like this:
+$$\frac{d\vec \eta}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
+Which can be translated into code as:
 ```cpp
-real df_dt = gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
+real df_dt = gradient(f, eta) * mat<N, N>::symplectic() * gradient(H, eta);
 ```
 
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
@@ -38,7 +40,7 @@ All library functions are implemented in the `theoretica` namespace (`th` is a s
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
 
 ### Quickstart
-You can try to compile this simple code to see if the library works properly:
+You can try to compile this simple code to check if you set up the library correctly:
 ```cpp
 #include "theoretica.h"
 using namespace th;
