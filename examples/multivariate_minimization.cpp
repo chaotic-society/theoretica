@@ -1,6 +1,6 @@
 
 ///
-/// @file min_grad.cpp Gradient descent minimization example
+/// @file multivariate_minimization.cpp Gradient descent minimization example
 ///
 
 #include "theoretica.h"

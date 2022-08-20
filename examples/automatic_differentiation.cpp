@@ -1,6 +1,6 @@
 
 ///
-/// @file autodiff.cpp Automatic differentiation example
+/// @file differentiation.cpp Automatic differentiation example
 ///
 
 #include "theoretica.h"

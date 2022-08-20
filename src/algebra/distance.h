@@ -164,6 +164,31 @@ namespace theoretica {
 		return linf_norm(v1 - v2);
 	}
 
+
+	/// Compute the discrete distance between two vectors
+	template<typename Vector>
+	inline real discrete_distance(Vector v1, Vector v2, real tolerance = MACH_EPSILON) {
+
+		if(v1.size() != v2.size()) {
+			TH_MATH_ERROR("chebyshev_distance", v1.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		bool diff = false;
+
+		for (size_t i = 0; i < v1.size(); ++i) {
+
+			// The vectors differ if a pair of elements differs
+			// more than the given tolerance
+			if(abs(v1[i] - v2[i]) > tolerance) {
+				diff = true;
+				break;
+			}
+		}
+
+		return diff ? 1 : 0;
+	}
+
 }
 
 #endif

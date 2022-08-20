@@ -1,6 +1,6 @@
 
 ///
-/// @file dist_sample.cpp Distribution sampling
+/// @file sampling_distributions.cpp Distribution sampling example
 ///
 
 #include "theoretica.h"
