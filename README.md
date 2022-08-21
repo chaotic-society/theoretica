@@ -5,15 +5,17 @@
 A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
 
 ### A short example
-Given a Hamiltonian function **H(q, p)** and a function **f(q, p)** defined on its phase space, you can compute its _exact_ time derivative at a position _eta_ like this:
+Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec p)$ defined on its phase space, you can compute its _exact_ time derivative at a position $\vec \eta = (\vec q, \vec p)$ like this:
+$$\frac{d\vec \eta}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
+Which can be translated into code as:
 ```cpp
-real df_dt = gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
+real df_dt = gradient(f, eta) * mat<N, N>::symplectic() * gradient(H, eta);
 ```
 
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
 ## Dependencies
-The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
+The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Key Features
 This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/FEATURES.md)
@@ -38,7 +40,7 @@ All library functions are implemented in the `theoretica` namespace (`th` is a s
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
 
 ### Quickstart
-You can try to compile this simple code to see if the library works properly:
+You can try to compile this simple code to check if you set up the library correctly:
 ```cpp
 #include "theoretica.h"
 using namespace th;
@@ -59,11 +61,10 @@ Contributions are welcome and very appreciated! Make sure to read the [Contribut
 ## License
 This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
 
-## Testing precision and performance
+## Testing
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
-The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to estimate the precision of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Different parts of the library are tested in different programs (e.g. real functions are tested in `test/test_real_analysis.cpp`).
-Performance is measured using benchmarks inside the `benchmark` folder.
+The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
 
 ## Macros
 These are common macros that can be defined to change the library's behaviour:
@@ -81,4 +82,4 @@ These are common macros that can be defined to change the library's behaviour:
 See `constants.h` for more specific macros.
 
 ## Error handling
-The library uses `errno` and `th::MathException` (if it is enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.
+The library uses `errno` and `th::math_exception` (if enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.
