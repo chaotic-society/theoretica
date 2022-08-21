@@ -24,7 +24,7 @@
 namespace theoretica {
 
 	/// Math error enumeration
-	enum UMATH_ERRCODE{
+	enum MATH_ERRCODE{
 		NO_ERROR = 0x00, // No error
 		DIV_BY_ZERO = 0x01, // Division by zero
 		OUT_OF_DOMAIN = 0x02, // An argument is out of range
@@ -35,8 +35,8 @@ namespace theoretica {
 	};
 
 
-	/// Convert a UMATH_ERRCODE to errno error codes
-	inline int th_errcode_to_errno(UMATH_ERRCODE err) {
+	/// Convert a MATH_ERRCODE to errno error codes
+	inline int th_errcode_to_errno(MATH_ERRCODE err) {
 		switch(err) {
 			case NO_ERROR: return 0; break;
 			case DIV_BY_ZERO: return ERANGE; break;
@@ -78,22 +78,22 @@ namespace theoretica {
 
 #if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
 
-	class MathException : std::exception {
+	class math_exception : std::exception {
 
 	private:
-		UMATH_ERRCODE err;
+		MATH_ERRCODE err;
 		std::string func_name;
 		std::string file_name;
 		unsigned int code_line;
 		real val;
 
 	public:
-		MathException(UMATH_ERRCODE a_err, const std::string& a_func_name,
+		math_exception(MATH_ERRCODE a_err, const std::string& a_func_name,
 			const std::string& a_file_name, unsigned int a_code_line, real a_val)
 				: err(a_err), func_name(a_func_name), file_name(a_file_name),
 					code_line(a_code_line), val(a_val) {}
 
-		~MathException() = default;
+		~math_exception() = default;
 
 
 		/// Return a string describing the exception
@@ -114,7 +114,7 @@ namespace theoretica {
 
 
 		/// Get the error code associated with the exception
-		inline UMATH_ERRCODE err_code() const {
+		inline MATH_ERRCODE err_code() const {
 			return err;
 		}
 
@@ -171,7 +171,7 @@ namespace theoretica {
 
 		/// Stream the exception in string representation
 		/// to an output stream (std::ostream)
-		inline friend std::ostream& operator<<(std::ostream& out, const MathException& obj) {
+		inline friend std::ostream& operator<<(std::ostream& out, const math_exception& obj) {
 			return out << obj.to_string();
 		}
 
@@ -193,7 +193,7 @@ namespace theoretica {
 #ifdef THEORETICA_ONLY_EXCEPTIONS
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
+	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
 #define TH_MATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
 	TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)
@@ -203,7 +203,7 @@ namespace theoretica {
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
 	errno = th_errcode_to_errno(EXCEPTION); \
-	throw MathException(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
+	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
 
 // Modify errno only by default
 #else
