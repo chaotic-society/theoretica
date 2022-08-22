@@ -6,7 +6,7 @@ A numerical and automatic mathematical library in C++ for scientific and graphic
 
 ### A short example
 Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec p)$ defined on its phase space, you can compute its _exact_ time derivative at a position $\vec \eta = (\vec q, \vec p)$ like this:
-$$\frac{d\vec \eta}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
+$$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
 Which can be translated into code as:
 ```cpp
 real df_dt = gradient(f, eta) * mat<N, N>::symplectic() * gradient(H, eta);
