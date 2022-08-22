@@ -9,7 +9,8 @@ Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec 
 $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
 Which can be translated into code as:
 ```cpp
-real df_dt = gradient(f, eta) * mat<N, N>::symplectic() * gradient(H, eta);
+mat<N, N> J = mat<N, N>::symplectic();
+real df_dt = gradient(f, eta) * J * gradient(H, eta);
 ```
 
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
