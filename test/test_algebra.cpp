@@ -98,7 +98,7 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 			expected *= A.at(j, j);
 		
 		real computed = A.det();
-		real diff = abs(computed - expected);
+		real diff = th::abs(computed - expected);
 		
 		sum += diff;
 		sum2 += square(diff);
