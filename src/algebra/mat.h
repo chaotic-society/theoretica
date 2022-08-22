@@ -16,6 +16,8 @@
 #include "../core/real_analysis.h"
 #include "./vec.h"
 
+#include <array>
+
 
 namespace theoretica {
 
@@ -63,22 +65,25 @@ namespace theoretica {
 			}
 		}
 
-		/// Initialize from an initializer list
-		// inline mat(std::array<vec<K>, N> rows) {
+		/// Initialize from an initializer list of the rows
+		inline mat(const std::initializer_list<std::array<real, K>>& rows) {
 
-		// 	if(rows.size() != N) {
-		// 		TH_MATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(),
-		// 			INVALID_ARGUMENT);
-		// 		*this = mat<N, K>(nan());
-		// 		return;
-		// 	}
+			if(rows.size() != N) {
+				TH_MATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(), INVALID_ARGUMENT);
+				*this = mat<N, K>(nan());
+				return;
+			}
 
-		// 	for (unsigned int i = 0; i < N; ++i) {
-		// 		for (unsigned int j = 0; j < K; ++j) {
-		// 			iat(i, j) = rows[i].get(j);
-		// 		}
-		// 	}
-		// }
+			int i = 0;
+
+			for (const auto& r : rows) {
+
+				for (unsigned int j = 0; j < K; ++j)
+					iat(i, j) = r[j];
+
+				i++;
+			}
+		}
 
 		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
@@ -604,8 +609,11 @@ namespace theoretica {
 			if(N == 2)
 				return det_2x2();
 
-			if(N == 3)
-				return det_3x3();
+			// det_3x3() is not numerically stable for matrices
+			// with big coefficients
+			
+			// if(N == 3)
+			// 	return det_3x3();
 
 			return det_gj();
 		}
