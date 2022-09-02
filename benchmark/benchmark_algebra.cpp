@@ -28,8 +28,8 @@ benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 	A.reserve(iter);
 	real c = 0;
 
-	const unsigned int MAX = 100000;
-	const unsigned int MIN = -100000;
+	const int MAX = 100000;
+	const int MIN = -100000;
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	for (size_t i = 0; i < iter; ++i)
@@ -58,8 +58,8 @@ benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 	A.reserve(iter);
 	real c = 0;
 
-	const unsigned int MAX = 100000;
-	const unsigned int MIN = -100000;
+	const int MAX = 100000;
+	const int MIN = -100000;
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	// Generate random invertible matrices

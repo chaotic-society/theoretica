@@ -273,6 +273,25 @@ namespace theoretica {
 		}
 
 
+		/// Maxwell-Boltzmann distribution
+		inline real maxwell(real x, real a) {
+
+			return (SQRT2 / SQRTPI) * square(x) * exp(-square(x / a) / 2.0) / cube(a);
+		}
+
+
+		/// Wrapper for distribution::maxwell(real, real)
+		inline real maxwell(real x, const vec_buff& theta) {
+
+			if(theta.size() != 1) {
+				TH_MATH_ERROR("distribution::maxwell", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return maxwell(x, theta[0]);
+		}
+
+
 		/// Laplace distribution
 		inline real laplace(real x, real mu, real b) {
 
