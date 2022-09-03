@@ -3,10 +3,9 @@
 /// @file multivariate_minimization.cpp Gradient descent minimization example
 ///
 
+#include <iostream>
 #include "theoretica.h"
 using namespace th;
-
-#include <iostream>
 
 
 template<typename NumType>

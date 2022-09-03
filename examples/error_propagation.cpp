@@ -3,10 +3,9 @@
 /// @file error_propagation.cpp Automatic error propagation using automatic differentiation
 ///
 
+#include <iostream>
 #include "theoretica.h"
 using namespace th;
-
-#include <iostream>
 
 
 // Direct sum of the errors

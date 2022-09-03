@@ -3,10 +3,9 @@
 /// @file montecarlo_comparison.cpp A comparison between Monte Carlo techniques
 ///
 
+#include <iostream>
 #include "theoretica.h"
 using namespace th;
-
-#include <iostream>
 
 
 int main() {

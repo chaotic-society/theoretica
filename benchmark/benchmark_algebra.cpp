@@ -1,11 +1,11 @@
 
 #include "theoretica.h"
 #include "chebyshev/benchmark.h"
+#include <ctime>
+
 using namespace chebyshev;
 using namespace theoretica;
 using benchmark::benchmark_result;
-
-#include <ctime>
 
 
 template<unsigned int N, unsigned int M = N>
@@ -13,8 +13,8 @@ mat<N, M> rand_mat(real min, real max, PRNG& g) {
 
 	mat<N, M> A;
 
-	for (size_t i = 0; i < N; ++i)
-		for (size_t j = 0; j < M; ++j)
+	for (unsigned int i = 0; i < N; ++i)
+		for (unsigned int j = 0; j < M; ++j)
 			A.iat(i, j) = rand_uniform(min, max, g);
 
 	return A;
@@ -26,22 +26,22 @@ benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 
 	std::vector<mat<N, N>> A;
 	A.reserve(iter);
-	real c = 0;
+	volatile real c = 0;
 
 	const int MAX = 100000;
 	const int MIN = -100000;
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
-	for (size_t i = 0; i < iter; ++i)
+	for (unsigned int i = 0; i < iter; ++i)
 		A[i] = rand_mat<N>(MIN, MAX, g);
 
 	long double elapsed = 0;
 
-	for (size_t i = 0; i < runs; ++i) {
+	for (unsigned int i = 0; i < runs; ++i) {
 		
 		timer t = timer();
 
-		for (size_t j = 0; j < iter; ++j)
+		for (unsigned int j = 0; j < iter; ++j)
 			c += A[j].det();
 
 		elapsed += t();
@@ -56,14 +56,14 @@ benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
 	std::vector<mat<N, N>> A;
 	A.reserve(iter);
-	real c = 0;
+	volatile real c = 0;
 
 	const int MAX = 100000;
 	const int MIN = -100000;
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	// Generate random invertible matrices
-	for (size_t i = 0; i < iter; ++i) {
+	for (unsigned int i = 0; i < iter; ++i) {
 		do {
 			A[i] = rand_mat<N>(MIN, MAX, g);
 		} while(A[i].det() < MACH_EPSILON);
@@ -71,11 +71,11 @@ benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
 	long double elapsed = 0;
 
-	for (size_t i = 0; i < runs; ++i) {
+	for (unsigned int i = 0; i < runs; ++i) {
 		
 		timer t = timer();
 
-		for (size_t j = 0; j < iter; ++j)
+		for (unsigned int j = 0; j < iter; ++j)
 			c += A[j].inverse().get(0, 0);
 
 		elapsed += t();
