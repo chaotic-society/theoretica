@@ -112,6 +112,25 @@ namespace theoretica {
 	}
 
 
+	/// Compute the Minkowski distance between two vectors
+	template<typename Vector>
+	inline real minkowski_distance(Vector v1, Vector v2, unsigned int p) {
+
+		if(v1.size() != v2.size()) {
+			TH_MATH_ERROR("minkowski_distance", v1.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return lp_norm(v1 - v2, p);
+	}
+
+
+	/// Compute the Euclidian distance between two values
+	inline real minkowski_distance(real a, real b, unsigned int p) {
+		return root(pow(abs(b - a), p), p);
+	}
+
+
 	/// Compute the Hermitian distance between two vectors
 	template<typename Vector>
 	inline complex hermitian_distance(Vector v1, Vector v2) {
@@ -170,7 +189,7 @@ namespace theoretica {
 	inline real discrete_distance(Vector v1, Vector v2, real tolerance = MACH_EPSILON) {
 
 		if(v1.size() != v2.size()) {
-			TH_MATH_ERROR("chebyshev_distance", v1.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("discrete_distance", v1.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -187,6 +206,65 @@ namespace theoretica {
 		}
 
 		return diff ? 1 : 0;
+	}
+
+
+	/// Compute the Canberra distance between two vectors
+	template<typename Vector>
+	inline real canberra_distance(Vector v1, Vector v2) {
+
+		if(v1.size() != v2.size()) {
+			TH_MATH_ERROR("canberra_distance", v1.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real sum = 0;
+
+		for (size_t i = 0; i < v1.size(); ++i)
+			sum += abs(v1 - v2) / (abs(v1) + abs(v2));
+
+		return sum;
+	}
+
+
+	/// Compute the cosine distance between two vectors
+	template<typename Vector>
+	inline real cosine_distance(Vector v1, Vector v2) {
+
+		if(v1.size() != v2.size()) {
+			TH_MATH_ERROR("cosine_distance", v1.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real sum_sqr_x = 0;
+		real sum_sqr_y = 0;
+
+		for (size_t i = 0; i < v1.size(); ++i) {
+			sum_sqr_x += square(v1[i]);
+			sum_sqr_y += square(v2[i]);
+		}
+
+		return (v1 * v2) / sqrt(sum_sqr_x * sum_sqr_y);
+	}
+
+
+	/// Compute the Hamming distance between two vectors
+	template<typename Vector>
+	inline real hamming_distance(Vector v1, Vector v2, real tolerance = MACH_EPSILON) {
+
+		if(v1.size() != v2.size()) {
+			TH_MATH_ERROR("hamming_distance", v1.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		unsigned int count = 0;
+
+		// Count how many elements differ to some tolerance
+		for (int i = 0; i < v1.size(); ++i)
+			if(abs(v1[i] - v2[i]) > tolerance)
+				count++;
+
+		return count;
 	}
 
 }
