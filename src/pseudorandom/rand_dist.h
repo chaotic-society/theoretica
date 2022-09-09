@@ -279,6 +279,29 @@ namespace theoretica {
 	}
 
 
+	/// Generate a random number following a Rayleigh
+	/// distribution using the quantile (inverse) function method.
+	inline real rand_rayleigh(real sigma, PRNG& g) {
+
+		return sigma * sqrt(-2 * ln(1 - rand_uniform(0, 1, g)));
+	}
+
+
+	/// Wrapper for rand_rayleigh(real, PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_rayleigh(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 1) {
+			TH_MATH_ERROR("rand_rayleigh", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_rayleigh(theta[0], g);
+	}
+
+
 	/// Generate a random number following a Cauchy
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_cauchy(real mu, real alpha, PRNG& g) {

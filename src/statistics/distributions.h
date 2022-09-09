@@ -235,6 +235,33 @@ namespace theoretica {
 		}
 
 
+		/// Rayleigh distribution
+		inline real rayleigh(real x, real sigma) {
+
+			if(x < 0)
+				return 0;
+
+			if(sigma < MACH_EPSILON) {
+				TH_MATH_ERROR("distribution::rayleigh", sigma, DIV_BY_ZERO);
+				return nan();
+			}
+
+			return x * exp(-square(x / sigma) / 2) / square(sigma);
+		}
+
+
+		/// Wrapper for distribution::rayleigh(real, real)
+		inline real rayleigh(real x, const vec_buff& theta) {
+
+			if(theta.size() != 1) {
+				TH_MATH_ERROR("distribution::rayleigh", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return rayleigh(x, theta[0]);
+		}
+
+
 		/// Cauchy distribution
 		inline real cauchy(real x, real mu, real alpha) {
 
