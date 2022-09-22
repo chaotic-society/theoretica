@@ -434,6 +434,25 @@ namespace theoretica {
 		}
 
 
+		/// Get the number of rows of the matrix
+		inline unsigned int row_size() const {
+			return ROW_SIZE;
+		}
+
+
+		/// Get the number of columns of the matrix
+		inline unsigned int col_size() const {
+			return COL_SIZE;
+		}
+
+
+		/// Get the total number of elements of the matrix
+		/// (rows * columns)
+		inline unsigned int size() const {
+			return ROW_SIZE * COL_SIZE;
+		}
+
+
 		/// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
 

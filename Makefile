@@ -1,5 +1,5 @@
 default_target: all
-.PHONY: all example test_real_analysis test_algebra automatic_differentiation hamiltonian_simulation \
+.PHONY: all example test_core test_algebra automatic_differentiation hamiltonian_simulation \
 		error_propagation statistics sampling_distributions multivariate_minimization benchmark clean
 
 all: example test examples
@@ -7,7 +7,7 @@ all: example test examples
 CXXFLAGS = -std=c++14 -I./src/ -Wall
 
 example:
-	@echo Compiling main example program...
+	@echo Compiling quickstart example program...
 	@g++ examples/example.cpp ${CXXFLAGS} -o ./example
 
 
@@ -20,14 +20,21 @@ ifndef windows_build
 	@./test/test_algebra
 endif
 
-test_real_analysis:
+test_core:
 ifndef windows_build
-	@echo Compiling real analysis test cases...
-	@g++ test/test_real_analysis.cpp ${CXXFLAGS} -I./test/ -o test/test_real_analysis
-	@./test/test_real_analysis
+	@echo Compiling core test cases...
+	@g++ test/test_core.cpp ${CXXFLAGS} -I./test/ -o test/test_core
+	@./test/test_core
 endif
 
-test: test_real_analysis test_algebra
+test_polynomial:
+ifndef windows_build
+	@echo Compiling polynomial test cases...
+	@g++ test/test_polynomial.cpp ${CXXFLAGS} -I./test/ -o test/test_polynomial
+	@./test/test_polynomial
+endif
+
+test: test_core test_algebra test_polynomial
 
 
 # Example programs

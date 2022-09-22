@@ -122,6 +122,64 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 }
 
 
+prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
+
+
+	mat<3, 3> A = {
+		{1, 5, 9},
+		{10, 7, 18},
+		{3, 11, 5}
+	};
+
+
+	mat<3, 4> B = {
+		{7, 5, 0, 11},
+		{4, 12, 1, 6},
+		{3, 7, 9, 0},
+	};
+
+	mat<3, 4> C = {
+		{54, 128, 86, 41},
+		{152, 260, 169, 152},
+		{80, 182, 56, 99}
+	};
+
+
+	mat<3, 4> res = A * B;
+
+	real max = 0;
+	real sum = 0;
+	real sum2 = 0;
+
+	for (unsigned int i = 0; i < res.row_size(); ++i) {
+		for (unsigned int j = 0; j < res.col_size(); ++j) {
+			
+			real diff = abs(res.iat(i, j) - C.iat(i, j));
+
+			if(max < diff)
+				max = diff;
+
+			sum += diff;
+			sum2 += square(diff);
+		}
+	}
+
+	prec::estimate_result p;
+	p.max_err = max;
+	p.abs_err = sum / res.size();
+	p.rms_err = th::sqrt(sum2) / res.size();
+	p.mean_err = sum / res.size();
+
+	// Undefined relative error
+	p.rel_err = 0;
+
+	if(p.max_err > tol)
+		p.failed = true;
+
+	return p;
+}
+
+
 
 int main(int argc, char const *argv[]) {
 
@@ -143,6 +201,8 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("mat3::det", test_matrix_det<3>, intervals);
 		prec::estimate("mat4::det", test_matrix_det<4>, intervals);
 		prec::estimate("mat10::det", test_matrix_det<10>, intervals);
+
+		prec::estimate("mat3::operator*", test_matrix_mul, interval(0, 1));
 
 	prec::terminate();
 }

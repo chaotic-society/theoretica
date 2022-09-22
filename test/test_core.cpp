@@ -1,12 +1,58 @@
 
-/// @file test_real_analysis.cpp Test cases for real functions
+/// @file test_core.cpp Test cases for real functions and core functionalities
 
 #include "theoretica.h"
 #include "chebyshev/prec.h"
+#include <ctime>
 #include <cmath>
 
 using namespace chebyshev;
 using namespace theoretica;
+
+prec::estimate_result test_ratio(interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (unsigned int i = 0; i < n; ++i) {
+
+		real a, b, c, d;
+		a = rand_uniform(k.a, k.b, g);
+		c = rand_uniform(k.a, k.b, g);
+		b = rand_uniform(k.a, k.b, g);
+		d = rand_uniform(k.a, k.b, g);
+
+		ratio<real, real> AB = ratio<real, real>(a, b);
+		ratio<real, real> CD = ratio<real, real>(c, d);
+
+		real diff = abs(((a * c) / (b * d)) - real(AB * CD));
+		
+		if(max < diff)
+			max = diff;
+
+		sum += diff;
+		sum2 += square(diff);
+	}
+
+	prec::estimate_result p;
+	p.max_err = max;
+	p.abs_err = sum / n;
+	p.rms_err = th::sqrt(sum2) / n;
+	p.mean_err = sum / n;
+
+	// Undefined relative error
+	p.rel_err = 0;
+
+	if(p.max_err > tol)
+		p.failed = true;
+
+	return p;
+}
+
 
 
 int main(int argc, char const *argv[]) {
@@ -17,7 +63,7 @@ int main(int argc, char const *argv[]) {
 	prec::state.outputFolder = "test/";
 	prec::state.defaultIterations = 100000;
 
-	prec::setup("real_analysis", argc, argv);
+	prec::setup("core", argc, argv);
 
 		prec::equals("th::square(real)", REAL_LAMBDA(th::square), {
 			{1, 1},
@@ -254,6 +300,21 @@ int main(int argc, char const *argv[]) {
 			{45, th::PI/4.0},
 			{0, 0},
 		});
+
+
+		// Square a relatively small number and check that the high bits are zero
+		prec::estimate("th::mul_uint128",
+			[](real x) {
+
+				uint64_t i = (uint64_t) x;
+				uint64_t r1, r2;
+				mul_uint128(i, i, r1, r2);
+
+				return r2;
+			}, [](real x) { return 0; }, interval(0, 1000));
+
+
+		prec::estimate("ratio::eval<real>", test_ratio, interval(MIN, MAX));
 
 
 	prec::terminate();
