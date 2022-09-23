@@ -154,7 +154,7 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 	for (unsigned int i = 0; i < res.row_size(); ++i) {
 		for (unsigned int j = 0; j < res.col_size(); ++j) {
 			
-			real diff = abs(res.iat(i, j) - C.iat(i, j));
+			real diff = th::abs(res.iat(i, j) - C.iat(i, j));
 
 			if(max < diff)
 				max = diff;
