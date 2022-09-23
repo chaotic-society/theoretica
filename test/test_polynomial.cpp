@@ -31,7 +31,7 @@ prec::estimate_result test_polynomial_eval(interval k, Real tol, unsigned int n)
 			s += P.coeff[j];
 		}
 
-		real diff = abs(P(1.0) - s);
+		real diff = th::abs(P(1.0) - s);
 
 		if(max < diff)
 			max = diff;
@@ -87,7 +87,7 @@ prec::estimate_result test_polynomial_div(interval k, Real tol, unsigned int n) 
 
 		for (unsigned int j = 0; j < min(A.size(), res.size()); ++j) {
 			
-			real diff = abs(A[j] - res[j]);
+			real diff = th::abs(A[j] - res[j]);
 			sum += diff / res_degree;
 			sum2 += square(diff / res_degree);
 
