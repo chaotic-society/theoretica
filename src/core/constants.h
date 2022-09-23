@@ -117,6 +117,12 @@
 #endif
 
 
+/// Maximum number of polynomial division iterations
+#ifndef THEORETICA_MAX_POLYNDIV_ITER
+#define THEORETICA_MAX_POLYNDIV_ITER 100
+#endif
+
+
 #ifndef THEORETICA_RAND_REAL_PREC
 
 /// Default precision for random number generation using rand_uniform()

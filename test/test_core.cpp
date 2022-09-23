@@ -29,7 +29,7 @@ prec::estimate_result test_ratio(interval k, Real tol, unsigned int n) {
 		ratio<real, real> AB = ratio<real, real>(a, b);
 		ratio<real, real> CD = ratio<real, real>(c, d);
 
-		real diff = abs(((a * c) / (b * d)) - real(AB * CD));
+		real diff = th::abs(((a * c) / (b * d)) - real(AB * CD));
 		
 		if(max < diff)
 			max = diff;

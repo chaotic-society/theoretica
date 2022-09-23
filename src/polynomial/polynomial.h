@@ -175,15 +175,16 @@ namespace theoretica {
 
 				// Quotient
 				polynomial q = polynomial();
+				unsigned int i = 0;
 
-				while(true) {
+				while(i < THEORETICA_MAX_POLYNDIV_ITER) {
 
 					// Compute only once the degree of the polynomial
 					const unsigned int r_order = r.find_order();
 
 					// Stop execution if the division is complete
 					// (when the remainder is 0 or has lower degree)
-					if((r_order == 0 && r.get(0) == 0) || r_order < d_order)
+					if((r_order == 0 && (abs(r.get(0)) < MACH_EPSILON)) || r_order < d_order)
 						break;
 
 					// Simple division between highest degree terms
@@ -195,6 +196,13 @@ namespace theoretica {
 					// monomial times the dividend from the remainder
 					q += t;
 					r -= t * d;
+
+					i++;
+				}
+
+				if(i == THEORETICA_MAX_POLYNDIV_ITER) {
+					TH_MATH_ERROR("polynomial::operator/", i, NO_ALGO_CONVERGENCE);
+					return polynomial(nan());
 				}
 
 				return q;
@@ -407,7 +415,7 @@ namespace theoretica {
 
 				for (int i = sz - 1; i >= 0; --i) {
 
-					if(coeff[i] == 0)
+					if(abs(coeff[i]) < MACH_EPSILON)
 						continue;
 
 					res << (coeff[i] >= 0 ? "+ " : "- ");
