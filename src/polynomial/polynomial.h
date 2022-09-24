@@ -27,15 +27,21 @@ namespace theoretica {
 		public:
 			std::vector<T> coeff;
 
+			/// Initialize as an empty polynomial
 			polynomial() : coeff() {}
 
+			/// Initialize as a constant
 			polynomial(T a) : coeff({a}) {}
 
+			/// Initialize from an std::vector
 			polynomial(const std::vector<T>& c) : coeff(c) {}
-			
+					
+			/// Initialize from an std::initializer_list
+			polynomial(std::initializer_list<T> l) : coeff(l) {}
+
+			/// Default destructor
 			~polynomial() {}
 
-			polynomial(std::initializer_list<T> l) : coeff(l) {}
 
 			/// Access i-th coefficient
 			inline T& at(int i) {
@@ -43,14 +49,14 @@ namespace theoretica {
 			}
 
 
-			/// Access i-th coefficient
-			inline T& operator[](int i) {
-				return at(i);
+			/// Get the i-th by value
+			inline T get(int i) const {
+				return coeff[i];
 			}
 
 
-			/// Get the i-th by value
-			inline T get(int i) const {
+			/// Return the nth order coefficient
+			inline T& operator[](unsigned int i) {
 				return coeff[i];
 			}
 
@@ -82,12 +88,6 @@ namespace theoretica {
 			}
 
 
-			/// Return the nth order coefficient
-			inline T& operator[](unsigned int i) {
-				return coeff[i];
-			}
-
-
 			/// Find the true order of the polynomial (ignoring null coefficients)
 			inline unsigned int find_order() const {
 
@@ -104,7 +104,7 @@ namespace theoretica {
 			inline void trim() {
 
 				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
-					if(coeff[i] != 0)
+					if(abs(coeff[i]) > MACH_EPSILON)
 						break;
 
 					coeff.pop_back();
@@ -164,6 +164,7 @@ namespace theoretica {
 			inline polynomial operator/(const polynomial& d) const {
 
 				const unsigned int d_order = d.find_order();
+				const unsigned int this_order = find_order();
 
 				if(d_order == 0 && d.get(0) == 0) {
 					TH_MATH_ERROR("polynomial::operator/", d.get(0), DIV_BY_ZERO);
@@ -177,7 +178,7 @@ namespace theoretica {
 				polynomial q = polynomial();
 				unsigned int i = 0;
 
-				while(i < THEORETICA_MAX_POLYNDIV_ITER) {
+				while(i < this_order) {
 
 					// Compute only once the degree of the polynomial
 					const unsigned int r_order = r.find_order();
@@ -200,7 +201,9 @@ namespace theoretica {
 					i++;
 				}
 
-				if(i == THEORETICA_MAX_POLYNDIV_ITER) {
+				// The algorithm has stopped iterating after a number
+				// of the dividend's degree counts
+				if(i == this_order) {
 					TH_MATH_ERROR("polynomial::operator/", i, NO_ALGO_CONVERGENCE);
 					return polynomial(nan());
 				}

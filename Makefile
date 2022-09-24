@@ -27,6 +27,20 @@ ifndef windows_build
 	@./test/test_core
 endif
 
+test_autodiff:
+ifndef windows_build
+	@echo Compiling autodiff test cases...
+	@g++ test/test_autodiff.cpp ${CXXFLAGS} -I./test/ -o test/test_autodiff
+	@./test/test_autodiff
+endif
+
+test_calculus:
+ifndef windows_build
+	@echo Compiling calculus test cases...
+	@g++ test/test_calculus.cpp ${CXXFLAGS} -I./test/ -o test/test_calculus
+	@./test/test_calculus
+endif
+
 test_polynomial:
 ifndef windows_build
 	@echo Compiling polynomial test cases...
@@ -34,7 +48,7 @@ ifndef windows_build
 	@./test/test_polynomial
 endif
 
-test: test_core test_algebra test_polynomial
+test: test_core test_algebra test_autodiff test_calculus test_polynomial
 
 
 # Example programs
@@ -84,3 +98,11 @@ benchmark_algebra:
 	@./benchmark/benchmark_algebra
 
 benchmark: benchmark_real_analysis benchmark_algebra
+
+
+clean:
+	@rm -f ./test/*.csv
+	@rm -f ./benchmark/*.csv
+	@rm -f ./*.exe
+	@rm -f ./test/*.exe
+	@rm -f ./benchmark/*.exe

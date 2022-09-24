@@ -83,6 +83,22 @@ namespace chebyshev {
 			return r.max_err > r.tolerance;
 		};
 
+		/// Marks the test as failed if the mean error on the domain is bigger than the tolerance
+		FailFunction fail_on_mean_err = [](estimate_result r) {
+			return r.mean_err > r.tolerance;
+		};
+
+		/// Marks the test as failed if the RMS error on the domain is bigger than the tolerance
+		FailFunction fail_on_rms_err = [](estimate_result r) {
+			return r.rms_err > r.tolerance;
+		};
+
+
+		/// Marks the test as failed if the relative error on the domain is bigger than the tolerance
+		FailFunction fail_on_rel_err = [](estimate_result r) {
+			return r.rel_err > r.tolerance;
+		};
+
 
 		/// @class estimate_request A precision estimation request
 		struct estimate_request {

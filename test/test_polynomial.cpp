@@ -28,7 +28,7 @@ prec::estimate_result test_polynomial_eval(interval k, Real tol, unsigned int n)
 
 		for (unsigned int j = 0; j < degree + 1; ++j) {
 			P.coeff.push_back(rand_uniform(k.a, k.b, g));
-			s += P.coeff[j];
+			s += P[j];
 		}
 
 		real diff = th::abs(P(1.0) - s);
