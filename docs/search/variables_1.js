@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['col_5fsize_0',['COL_SIZE',['../classtheoretica_1_1mat.html#a18d599e529b7a83ac36567ae4c56ee66',1,'theoretica::mat']]]
+  ['bisection_5fapprox_5ftol_0',['BISECTION_APPROX_TOL',['../namespacetheoretica.html#a28fc38a93f999c3c98056f3dac665f42',1,'theoretica']]]
 ];

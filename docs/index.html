@@ -94,20 +94,21 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Theoretica </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <img src="https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows" alt="GitHub Workflow Status" class="inline"/> <a href="https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <img src="https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows" alt="GitHub Workflow Status" class="inline"/> <a href="https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></p>
 <p >A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to <b>mimic elegant mathematical notation</b>.</p>
 <h3><a class="anchor" id="autotoc_md0"></a>
 A short example</h3>
-<p >Given a Hamiltonian function <b>H(q, p)</b> and a function <b>f(q, p)</b> defined on its phase space, you can compute its <em>exact</em> time derivative at a position <em>eta</em> like this: </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> df_dt = <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(f, eta) * mat&lt;M, M&gt;::symplectic() * <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(H, eta);</div>
-<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:166</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ac29355ce24067808f588917c0e178408"><div class="ttname"><a href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">theoretica::gradient</a></div><div class="ttdeci">vec&lt; N &gt; gradient(multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</div><div class="ttdoc">Compute the gradient for a given  of a function of the form  using automatic differentiation.</div><div class="ttdef"><b>Definition:</b> autodiff.h:21</div></div>
+<p >Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec p)$ defined on its phase space, you can compute its <em>exact</em> time derivative at a position $\vec \eta = (\vec q, \vec p)$ like this: $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$ Which can be translated into code as: </p><div class="fragment"><div class="line">mat&lt;N, N&gt; J = mat&lt;N, N&gt;::symplectic();</div>
+<div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> df_dt = <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(f, eta) * J * <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(H, eta);</div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:172</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ac29355ce24067808f588917c0e178408"><div class="ttname"><a href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">theoretica::gradient</a></div><div class="ttdeci">vec&lt; N &gt; gradient(multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</div><div class="ttdoc">Compute the gradient for a given  of a function of the form  using automatic differentiation.</div><div class="ttdef"><b>Definition:</b> autodiff.h:25</div></div>
 </div><!-- fragment --><p >The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Dependencies</h2>
-<p >The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. <b>You can include it in your project straight away!</b></p>
+<p >The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. <b>You can include it in your project straight away!</b></p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Key Features</h2>
-<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/FEATURES.md">FEATURES.md</a></p><ul>
+<p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/FEATURES.md">FEATURES.md</a></p><ul>
 <li><b>Real and complex analysis</b></li>
 <li><b>Linear algebra</b> with common vector and matrix operations</li>
 <li>Complex numbers in algebraic and exponential form</li>
@@ -125,23 +126,24 @@ Setup</h2>
 <p >You don't need anything other than your compiler to use the library. You can run <code>make all</code> in the root directory of the library to make sure it works. Define <b>THEORETICA_INCLUDE_BASE</b> if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default <code><a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a></code> includes all headers. All library functions are implemented in the <code>theoretica</code> namespace (<code>th</code> is a shorter namespace alias).</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Examples</h2>
-<p >Introductory examples can be found in <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/EXAMPLES.md">EXAMPLES.md</a> and more advanced examples can be found inside the <code>examples/</code> folder.</p>
+<p >Introductory examples can be found in <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md">EXAMPLES.md</a> and more advanced examples can be found inside the <code>examples/</code> folder.</p>
 <h3><a class="anchor" id="autotoc_md5"></a>
 Quickstart</h3>
-<p >You can try to compile this simple code to see if the library works properly: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
+<p >You can try to compile this simple code to check if you set up the library correctly: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">th</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> v = {1, 2, 3};</div>
-<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">mat3</a> A = mat3::identity();</div>
+<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">mat3</a> A = <a class="code hl_function" href="namespacetheoretica.html#a90fa837617e2c026520db02b8b616009">mat3::identity</a>();</div>
 <div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> w = A * v;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> mat.h:20</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a3a9580d98118f2e1692c1f5d6dbf3ea5"><div class="ttname"><a href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">theoretica::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> vec.h:359</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ae2899e9929670cbd58f39d6f1642ce19"><div class="ttname"><a href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">theoretica::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> mat.h:1204</div></div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> distance.h:16</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a3a9580d98118f2e1692c1f5d6dbf3ea5"><div class="ttname"><a href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">theoretica::vec3</a></div><div class="ttdeci">vec&lt; 3, real &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> vec.h:360</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a90fa837617e2c026520db02b8b616009"><div class="ttname"><a href="namespacetheoretica.html#a90fa837617e2c026520db02b8b616009">theoretica::identity</a></div><div class="ttdeci">complex identity(complex z)</div><div class="ttdoc">Complex identity.</div><div class="ttdef"><b>Definition:</b> complex_analysis.h:17</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ae2899e9929670cbd58f39d6f1642ce19"><div class="ttname"><a href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">theoretica::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> mat.h:1231</div></div>
 <div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Contributing</h2>
@@ -150,9 +152,9 @@ Contributing</h2>
 License</h2>
 <p >This project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>.</p>
 <h2><a class="anchor" id="autotoc_md8"></a>
-Testing precision and performance</h2>
+Testing</h2>
 <p ><a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg" alt="Test on Linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg" alt="Test on Windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg" alt="Test on MacOS" style="pointer-events: none;" class="inline"/></a></p>
-<p >The library uses the custom built <a href="https://github.com/chaotic-society/chebyshev">Chebyshev testing framework</a> to estimate the precision of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Different parts of the library are tested in different programs (e.g. real functions are tested in <code><a class="el" href="test__real__analysis_8cpp.html" title="Test cases for real functions.">test/test_real_analysis.cpp</a></code>). Performance is measured using benchmarks inside the <code>benchmark</code> folder.</p>
+<p >The library uses the custom built <a href="https://github.com/chaotic-society/chebyshev">Chebyshev testing framework</a> to <b>estimate the precision</b> of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the <code>test</code> folder while benchmarks are placed inside the <code>benchmark</code> folder.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Macros</h2>
 <p >These are common macros that can be defined to change the library's behaviour: </p><table class="markdownTable">
@@ -178,14 +180,14 @@ Macros</h2>
 <p >See <code><a class="el" href="constants_8h.html" title="Mathematical constants and algorithm parameters.">constants.h</a></code> for more specific macros.</p>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Error handling</h2>
-<p >The library uses <code>errno</code> and <code>th::MathException</code> (if it is enabled) to report errors. The behaviour of the library may be modified using the <code>THEORETICA_THROW_EXCEPTIONS</code> and <code>THEORETICA_ONLY_EXCEPTIONS</code>. See Macros to learn more. </p>
+<p >The library uses <code>errno</code> and <code>th::math_exception</code> (if enabled) to report errors. The behaviour of the library may be modified using the <code>THEORETICA_THROW_EXCEPTIONS</code> and <code>THEORETICA_ONLY_EXCEPTIONS</code>. See Macros to learn more. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat Sep 24 2022 17:38:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

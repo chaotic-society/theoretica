@@ -1,5 +1,10 @@
 var classtheoretica_1_1polynomial =
 [
+    [ "polynomial", "classtheoretica_1_1polynomial.html#af067cb0400d6cfd826a17f9e63488441", null ],
+    [ "polynomial", "classtheoretica_1_1polynomial.html#a64facffa20dede3687e7d271eac328e7", null ],
+    [ "polynomial", "classtheoretica_1_1polynomial.html#a70dddb8bbf9e4f6d6f66a9104eabaa98", null ],
+    [ "polynomial", "classtheoretica_1_1polynomial.html#a2a681acf85bbd0fa17e69c09c6d09e7d", null ],
+    [ "~polynomial", "classtheoretica_1_1polynomial.html#acce177f83422a4297ee32446db19ae07", null ],
     [ "at", "classtheoretica_1_1polynomial.html#a0ff59c083515bd15989f7dd5610a7f14", null ],
     [ "eval", "classtheoretica_1_1polynomial.html#acdcebb150d71aa77948a3717d9b20928", null ],
     [ "find_order", "classtheoretica_1_1polynomial.html#adcf980f612a0b87804f4f65c790243a5", null ],
@@ -18,7 +23,6 @@ var classtheoretica_1_1polynomial =
     [ "operator/=", "classtheoretica_1_1polynomial.html#a4a7a06669d733923d0619f1a82a2d7ed", null ],
     [ "operator/=", "classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55", null ],
     [ "operator==", "classtheoretica_1_1polynomial.html#a0fea673ecfa57fb4474e6bbde650b422", null ],
-    [ "operator[]", "classtheoretica_1_1polynomial.html#a722971d8428121e760761ad220ff5a5f", null ],
     [ "operator[]", "classtheoretica_1_1polynomial.html#ae41dabedea3d8ae05399ee6bbd237c95", null ],
     [ "quadratic_roots", "classtheoretica_1_1polynomial.html#a4dd5def697f9eb72ac560bbbd079ad3d", null ],
     [ "size", "classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2", null ],

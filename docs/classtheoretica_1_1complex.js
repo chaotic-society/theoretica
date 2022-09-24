@@ -17,6 +17,7 @@ var classtheoretica_1_1complex =
     [ "operator+", "classtheoretica_1_1complex.html#af5501e043d298f4a434fca7b6ef03e09", null ],
     [ "operator+", "classtheoretica_1_1complex.html#a8065d1378e3d9157065eba2fd3214cc6", null ],
     [ "operator+", "classtheoretica_1_1complex.html#ae8e68711ec199a53e8ff1d96ccf807a4", null ],
+    [ "operator+=", "classtheoretica_1_1complex.html#a2499afb0caa81d36aa785c0dca9661c8", null ],
     [ "operator+=", "classtheoretica_1_1complex.html#aac80656cb63411ef490a2e5292f92601", null ],
     [ "operator-", "classtheoretica_1_1complex.html#a9c5ea26cf41a93860d9790204e0a57a5", null ],
     [ "operator-", "classtheoretica_1_1complex.html#ac5b002cc7f485ba53fd673607b4675a7", null ],

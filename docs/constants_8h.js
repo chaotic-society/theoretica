@@ -10,6 +10,7 @@ var constants_8h =
     [ "THEORETICA_MAX_GOLDENSECTION_ITER", "constants_8h.html#afeac310b6adedfb265330e760a147a80", null ],
     [ "THEORETICA_MAX_HALLEY_ITER", "constants_8h.html#ab139026298fae1aafae59ac99dbcc2d6", null ],
     [ "THEORETICA_MAX_NEWTON_ITER", "constants_8h.html#a7f8e8f98bdd6e74a743d5487d4b976aa", null ],
+    [ "THEORETICA_MAX_POLYNDIV_ITER", "constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e", null ],
     [ "THEORETICA_MAX_STEFFENSEN_ITER", "constants_8h.html#a079d3def41600f49deb005b75b524adc", null ],
     [ "THEORETICA_MAX_TRYANDCATCH_ITER", "constants_8h.html#a9185ccd5fcdd822ae6b8b06eb1437674", null ],
     [ "THEORETICA_MINGRAD_GAMMA", "constants_8h.html#aac8e3eb0953959ada47984923ba5ca8e", null ],

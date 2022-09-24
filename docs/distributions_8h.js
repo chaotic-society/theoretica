@@ -22,11 +22,15 @@ var distributions_8h =
     [ "log_likelihood", "distributions_8h.html#ad4a7d7ea9328cce28ccedceb3cbfe806", null ],
     [ "log_normal", "distributions_8h.html#ae05edc9f017a24ba247fb3a25f2dce8b", null ],
     [ "log_normal", "distributions_8h.html#aa283c0a58642f4489afa208423dc2838", null ],
+    [ "maxwell", "distributions_8h.html#ac5c2061e25c49a9b5b464b323596ee4e", null ],
+    [ "maxwell", "distributions_8h.html#a02b341a54737fbbc4201362784bf63ec", null ],
     [ "multinomial", "distributions_8h.html#ab9067fb31cfb790810ee224686a3f08c", null ],
     [ "pareto", "distributions_8h.html#a69867ea1e1cc4e23172a352aae45c7f6", null ],
     [ "pareto", "distributions_8h.html#a29239d9f6fa2ece48c655c977ec77561", null ],
     [ "poisson", "distributions_8h.html#a3e87f600ef1d97795266138301b13344", null ],
     [ "poisson", "distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13", null ],
+    [ "rayleigh", "distributions_8h.html#ad4e2fbf8b549cc84e26d65047c99a6fe", null ],
+    [ "rayleigh", "distributions_8h.html#afa890702a9f45e4926284bd4e26cda15", null ],
     [ "student", "distributions_8h.html#ad200d5f01ae2fab63b4c44d213e469a3", null ],
     [ "student", "distributions_8h.html#a7e4cfceccf2f9ea7113ab121320a76bc", null ]
 ];

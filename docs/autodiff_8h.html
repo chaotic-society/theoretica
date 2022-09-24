@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('autodiff_8h.html',''); initResizable()
 <div class="textblock"><code>#include &quot;<a class="el" href="dual_8h_source.html">dual.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="multidual_8h_source.html">multidual.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dual2_8h_source.html">dual2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mat_8h_source.html">../algebra/mat.h</a>&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 </div>
 <p><a href="autodiff_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -119,6 +122,11 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:ac29355ce24067808f588917c0e178408"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::gradient</b> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</td></tr>
 <tr class="memdesc:ac29355ce24067808f588917c0e178408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. <br /></td></tr>
 <tr class="separator:ac29355ce24067808f588917c0e178408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5203ee6ec2e50782ff24f725618cfce"><td class="memTemplParams" colspan="2"><a id="ae5203ee6ec2e50782ff24f725618cfce" name="ae5203ee6ec2e50782ff24f725618cfce"></a>
+template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:ae5203ee6ec2e50782ff24f725618cfce"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; vec&lt; N, real &gt;(vec&lt; N, real &gt;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::gradient</b> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;))</td></tr>
+<tr class="memdesc:ae5203ee6ec2e50782ff24f725618cfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the gradient of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation. <br /></td></tr>
+<tr class="separator:ae5203ee6ec2e50782ff24f725618cfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7945a9959534ed6da94246f568393cd2"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a7945a9959534ed6da94246f568393cd2"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7945a9959534ed6da94246f568393cd2">theoretica::gradient_mono</a> (dual(*f)(vec&lt; N, dual &gt;), const vec&lt; N, real &gt; &amp;x)</td></tr>
 <tr class="memdesc:a7945a9959534ed6da94246f568393cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespacetheoretica.html#a7945a9959534ed6da94246f568393cd2">More...</a><br /></td></tr>
@@ -128,6 +136,11 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a7e77327c03871aa02fa44593b5e9f4b2"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::divergence</b> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</td></tr>
 <tr class="memdesc:a7e77327c03871aa02fa44593b5e9f4b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. <br /></td></tr>
 <tr class="separator:a7e77327c03871aa02fa44593b5e9f4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31183bcff5b5a13b12b43bf0a524bca7"><td class="memTemplParams" colspan="2"><a id="a31183bcff5b5a13b12b43bf0a524bca7" name="a31183bcff5b5a13b12b43bf0a524bca7"></a>
+template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a31183bcff5b5a13b12b43bf0a524bca7"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; real(vec&lt; N, real &gt;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::divergence</b> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;))</td></tr>
+<tr class="memdesc:a31183bcff5b5a13b12b43bf0a524bca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the divergence of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation. <br /></td></tr>
+<tr class="separator:a31183bcff5b5a13b12b43bf0a524bca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01412973394e4d319502a0fed1f8a9da"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a01412973394e4d319502a0fed1f8a9da"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a01412973394e4d319502a0fed1f8a9da">theoretica::divergence_mono</a> (dual(*f)(vec&lt; N, dual &gt;), const vec&lt; N, real &gt; &amp;x)</td></tr>
 <tr class="memdesc:a01412973394e4d319502a0fed1f8a9da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence for a given \(\vec x\) of a function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <a href="namespacetheoretica.html#a01412973394e4d319502a0fed1f8a9da">More...</a><br /></td></tr>
@@ -137,19 +150,37 @@ template&lt;unsigned int N, unsigned int M&gt; </td></tr>
 <tr class="memitem:a17677cb37084438facefae074e4b29c0"><td class="memTemplItemLeft" align="right" valign="top">mat&lt; M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::jacobian</b> (vec&lt; M, multidual&lt; N &gt; &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</td></tr>
 <tr class="memdesc:a17677cb37084438facefae074e4b29c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the jacobian of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\). <br /></td></tr>
 <tr class="separator:a17677cb37084438facefae074e4b29c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46a0cdad81523353415ad4b5913871e4"><td class="memItemLeft" align="right" valign="top"><a id="a46a0cdad81523353415ad4b5913871e4" name="a46a0cdad81523353415ad4b5913871e4"></a>
-vec&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::curl</b> (vec&lt; 3, multidual&lt; 3 &gt; &gt;(*f)(vec&lt; 3, multidual&lt; 3 &gt; &gt;), const vec&lt; 3, real &gt; &amp;x)</td></tr>
-<tr class="memdesc:a46a0cdad81523353415ad4b5913871e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation. <br /></td></tr>
-<tr class="separator:a46a0cdad81523353415ad4b5913871e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3c19c0d3c4e8be2ba1741ce1607ba7d"><td class="memTemplParams" colspan="2"><a id="aa3c19c0d3c4e8be2ba1741ce1607ba7d" name="aa3c19c0d3c4e8be2ba1741ce1607ba7d"></a>
+template&lt;unsigned int N, unsigned int M&gt; </td></tr>
+<tr class="memitem:aa3c19c0d3c4e8be2ba1741ce1607ba7d"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; mat&lt; M, N &gt;(vec&lt; N, real &gt;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::jacobian</b> (vec&lt; M, multidual&lt; N &gt; &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;))</td></tr>
+<tr class="memdesc:aa3c19c0d3c4e8be2ba1741ce1607ba7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the jacobian of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\) for a given $\vec x$. <br /></td></tr>
+<tr class="separator:aa3c19c0d3c4e8be2ba1741ce1607ba7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd3491e35e0644f25ac5217a6c01ec6"><td class="memItemLeft" align="right" valign="top"><a id="a3cd3491e35e0644f25ac5217a6c01ec6" name="a3cd3491e35e0644f25ac5217a6c01ec6"></a>
+vec&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::curl</b> (vec&lt; 3, multidual&lt; 3 &gt; &gt;(*f)(vec&lt; 3, multidual&lt; 3 &gt; &gt;), const vec3 &amp;x)</td></tr>
+<tr class="memdesc:a3cd3491e35e0644f25ac5217a6c01ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation. <br /></td></tr>
+<tr class="separator:a3cd3491e35e0644f25ac5217a6c01ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7b36a24acfe8061c48512e27c1456e"><td class="memItemLeft" align="right" valign="top"><a id="aaa7b36a24acfe8061c48512e27c1456e" name="aaa7b36a24acfe8061c48512e27c1456e"></a>
+std::function&lt; vec3(vec3)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::curl</b> (vec&lt; 3, multidual&lt; 3 &gt; &gt;(*f)(vec&lt; 3, multidual&lt; 3 &gt; &gt;))</td></tr>
+<tr class="memdesc:aaa7b36a24acfe8061c48512e27c1456e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation. <br /></td></tr>
+<tr class="separator:aaa7b36a24acfe8061c48512e27c1456e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed789cb9f8123584b3e1f1f9a334f47d"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:aed789cb9f8123584b3e1f1f9a334f47d"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aed789cb9f8123584b3e1f1f9a334f47d">theoretica::directional_derivative</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x, const vec&lt; N, real &gt; &amp;v)</td></tr>
 <tr class="memdesc:aed789cb9f8123584b3e1f1f9a334f47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <a href="namespacetheoretica.html#aed789cb9f8123584b3e1f1f9a334f47d">More...</a><br /></td></tr>
 <tr class="separator:aed789cb9f8123584b3e1f1f9a334f47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f2b544ce53ec2f8e548afadd59a52d5"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a4f2b544ce53ec2f8e548afadd59a52d5"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; vec&lt; N, real &gt;(vec&lt; N, real &gt;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4f2b544ce53ec2f8e548afadd59a52d5">theoretica::directional_derivative</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;v)</td></tr>
+<tr class="memdesc:a4f2b544ce53ec2f8e548afadd59a52d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <a href="namespacetheoretica.html#a4f2b544ce53ec2f8e548afadd59a52d5">More...</a><br /></td></tr>
+<tr class="separator:a4f2b544ce53ec2f8e548afadd59a52d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65eada1a479ebab6b5ae8ce46a34f251"><td class="memTemplParams" colspan="2"><a id="a65eada1a479ebab6b5ae8ce46a34f251" name="a65eada1a479ebab6b5ae8ce46a34f251"></a>
 template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a65eada1a479ebab6b5ae8ce46a34f251"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::laplacian</b> (dual2(*f)(vec&lt; N, dual2 &gt;), const vec&lt; N &gt; &amp;x)</td></tr>
-<tr class="memdesc:a65eada1a479ebab6b5ae8ce46a34f251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\). <br /></td></tr>
+<tr class="memdesc:a65eada1a479ebab6b5ae8ce46a34f251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$. <br /></td></tr>
 <tr class="separator:a65eada1a479ebab6b5ae8ce46a34f251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a3d5f342854be1507a6461a49a57ca"><td class="memTemplParams" colspan="2"><a id="a96a3d5f342854be1507a6461a49a57ca" name="a96a3d5f342854be1507a6461a49a57ca"></a>
+template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a96a3d5f342854be1507a6461a49a57ca"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; real(vec&lt; N, real &gt;)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::laplacian</b> (dual2(*f)(vec&lt; N, dual2 &gt;))</td></tr>
+<tr class="memdesc:a96a3d5f342854be1507a6461a49a57ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a function which computes the laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$. <br /></td></tr>
+<tr class="separator:a96a3d5f342854be1507a6461a49a57ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b0a5c7fbe93408ce58d40859bab3365"><td class="memTemplParams" colspan="2">template&lt;unsigned int M&gt; </td></tr>
 <tr class="memitem:a3b0a5c7fbe93408ce58d40859bab3365"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3b0a5c7fbe93408ce58d40859bab3365">theoretica::sturm_liouville</a> (dual(*f)(vec&lt; M, dual &gt;), dual(*H)(vec&lt; M, dual &gt;), vec&lt; M &gt; eta)</td></tr>
 <tr class="memdesc:a3b0a5c7fbe93408ce58d40859bab3365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Sturm-Liouville operator on a generic function of the form \(f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) with respect to a given Hamiltonian function of the form \(H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) where the first N arguments are the coordinates in phase space and the last N arguments are the conjugate momenta, for a given point in phase space.  <a href="namespacetheoretica.html#a3b0a5c7fbe93408ce58d40859bab3365">More...</a><br /></td></tr>
@@ -163,7 +194,7 @@ template&lt;unsigned int N&gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff_8h.html">autodiff.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat Sep 24 2022 17:38:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

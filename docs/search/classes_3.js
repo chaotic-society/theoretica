@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['ode_5fstate_0',['ode_state',['../structtheoretica_1_1ode__state.html',1,'theoretica']]],
-  ['ode_5fstate_3c_201_20_3e_1',['ode_state&lt; 1 &gt;',['../structtheoretica_1_1ode__state_3_011_01_4.html',1,'theoretica']]]
+  ['equation_5frequest_0',['equation_request',['../structchebyshev_1_1prec_1_1equation__request.html',1,'chebyshev::prec']]],
+  ['equation_5fresult_1',['equation_result',['../structchebyshev_1_1prec_1_1equation__result.html',1,'chebyshev::prec']]],
+  ['err_5fstate_2',['err_state',['../structchebyshev_1_1err_1_1err__state.html',1,'chebyshev::err']]],
+  ['estimate_5fcustom_5frequest_3',['estimate_custom_request',['../structchebyshev_1_1prec_1_1estimate__custom__request.html',1,'chebyshev::prec']]],
+  ['estimate_5frequest_4',['estimate_request',['../structchebyshev_1_1prec_1_1estimate__request.html',1,'chebyshev::prec']]],
+  ['estimate_5fresult_5',['estimate_result',['../structchebyshev_1_1prec_1_1estimate__result.html',1,'chebyshev::prec']]]
 ];

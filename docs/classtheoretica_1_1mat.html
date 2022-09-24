@@ -117,8 +117,13 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>mat</b> (const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other)</td></tr>
 <tr class="memdesc:a4390d1e08e3fe467c60155c8e0cde910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a matrix from another one. <br /></td></tr>
 <tr class="separator:a4390d1e08e3fe467c60155c8e0cde910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91994045ad259d2839dae954ef91418a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a91994045ad259d2839dae954ef91418a">operator=</a> (const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other)</td></tr>
-<tr class="memdesc:a91994045ad259d2839dae954ef91418a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from an initializer list.  <a href="classtheoretica_1_1mat.html#a91994045ad259d2839dae954ef91418a">More...</a><br /></td></tr>
+<tr class="memitem:a593b36e44af98d98d7a046be92a5c119"><td class="memItemLeft" align="right" valign="top"><a id="a593b36e44af98d98d7a046be92a5c119" name="a593b36e44af98d98d7a046be92a5c119"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>mat</b> (const std::initializer_list&lt; std::array&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, K &gt; &gt; &amp;rows)</td></tr>
+<tr class="memdesc:a593b36e44af98d98d7a046be92a5c119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from an initializer list of the rows. <br /></td></tr>
+<tr class="separator:a593b36e44af98d98d7a046be92a5c119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91994045ad259d2839dae954ef91418a"><td class="memItemLeft" align="right" valign="top"><a id="a91994045ad259d2839dae954ef91418a" name="a91994045ad259d2839dae954ef91418a"></a>
+<a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other)</td></tr>
+<tr class="memdesc:a91994045ad259d2839dae954ef91418a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
 <tr class="separator:a91994045ad259d2839dae954ef91418a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54cd856fd299a9719f548a554090e090"><td class="memItemLeft" align="right" valign="top"><a id="a54cd856fd299a9719f548a554090e090" name="a54cd856fd299a9719f548a554090e090"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>mat</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="classtheoretica_1_1mat.html#af06b5866db108599e1e64196cbb6bab1">diagonal</a>)</td></tr>
@@ -240,6 +245,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> ()</td>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (unsigned int i, unsigned int j, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a)</td></tr>
 <tr class="memdesc:aea29ce257cc59ea8a7fe5d453315d7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the element at indices i and j. <br /></td></tr>
 <tr class="separator:aea29ce257cc59ea8a7fe5d453315d7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34233ad229f396b166191b6679bd7fed"><td class="memItemLeft" align="right" valign="top"><a id="a34233ad229f396b166191b6679bd7fed" name="a34233ad229f396b166191b6679bd7fed"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>row_size</b> () const</td></tr>
+<tr class="memdesc:a34233ad229f396b166191b6679bd7fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows of the matrix. <br /></td></tr>
+<tr class="separator:a34233ad229f396b166191b6679bd7fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210745cd42b85c78760eedf961d96f12"><td class="memItemLeft" align="right" valign="top"><a id="a210745cd42b85c78760eedf961d96f12" name="a210745cd42b85c78760eedf961d96f12"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>col_size</b> () const</td></tr>
+<tr class="memdesc:a210745cd42b85c78760eedf961d96f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns of the matrix. <br /></td></tr>
+<tr class="separator:a210745cd42b85c78760eedf961d96f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22c89faf3a0794ec28884a3c01689bfb"><td class="memItemLeft" align="right" valign="top"><a id="a22c89faf3a0794ec28884a3c01689bfb" name="a22c89faf3a0794ec28884a3c01689bfb"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="memdesc:a22c89faf3a0794ec28884a3c01689bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of elements of the matrix (rows * columns) <br /></td></tr>
+<tr class="separator:a22c89faf3a0794ec28884a3c01689bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a537baab5bc469b8d5bed9bafe681a3e5"><td class="memItemLeft" align="right" valign="top"><a id="a537baab5bc469b8d5bed9bafe681a3e5" name="a537baab5bc469b8d5bed9bafe681a3e5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;other) const</td></tr>
 <tr class="memdesc:a537baab5bc469b8d5bed9bafe681a3e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether two matrices are equal element by element. <br /></td></tr>
@@ -595,37 +612,6 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 </div>
 </div>
-<a id="a91994045ad259d2839dae954ef91418a" name="a91994045ad259d2839dae954ef91418a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91994045ad259d2839dae954ef91418a">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N, unsigned int K&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp; <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; N, K &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize from an initializer list. </p>
-<p >Copy constructor </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>algebra/<a class="el" href="mat_8h_source.html">mat.h</a></li>
 </ul>
@@ -635,7 +621,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat.html">mat</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 22:58:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat Sep 24 2022 17:38:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

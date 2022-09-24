@@ -2,7 +2,7 @@ var searchData=
 [
   ['iat_0',['iat',['../classtheoretica_1_1mat.html#aeaff8436c5bd9395a1a8e9d6fd3a1bf1',1,'theoretica::mat']]],
   ['icbrt_1',['icbrt',['../namespacetheoretica.html#ad830de3729f8f2bea38d60ef706cf968',1,'theoretica']]],
-  ['identity_2',['identity',['../classtheoretica_1_1mat.html#a2040502b9a9151a1fcfa64111e234c9b',1,'theoretica::mat']]],
+  ['identity_2',['identity',['../classtheoretica_1_1mat.html#a2040502b9a9151a1fcfa64111e234c9b',1,'theoretica::mat::identity()'],['../namespacetheoretica.html#a90fa837617e2c026520db02b8b616009',1,'theoretica::identity(complex z)'],['../namespacetheoretica.html#ac8e3b9080dde2e7542682cf79f0bbf50',1,'theoretica::identity(real x)']]],
   ['iget_3',['iget',['../classtheoretica_1_1mat.html#a0b5aa67d1c85a4ba95bedf9f192028ad',1,'theoretica::mat']]],
   ['im_4',['Im',['../classtheoretica_1_1complex.html#ac7368086df4ae02516b86bc43db95f54',1,'theoretica::complex']]],
   ['inf_5',['inf',['../namespacetheoretica.html#a252ec9220e4dab52b18b400381624538',1,'theoretica']]],
@@ -27,13 +27,14 @@ var searchData=
   ['integrate_5fpolynomial_24',['integrate_polynomial',['../namespacetheoretica.html#ad30054ccf81cf93e466c08361e4ff9fb',1,'theoretica']]],
   ['interpolate_5fchebyshev_25',['interpolate_chebyshev',['../namespacetheoretica.html#a88f9a26f1ee40dea3fced3ee7e0c9aa9',1,'theoretica']]],
   ['interpolate_5fgrid_26',['interpolate_grid',['../namespacetheoretica.html#a9dc2216d71f0d7147b5c0dacdeea80db',1,'theoretica']]],
-  ['inverse_27',['inverse',['../classtheoretica_1_1multidual.html#abff404cfd9e0d9e7faa85c0a807183b9',1,'theoretica::multidual::inverse()'],['../classtheoretica_1_1dual.html#a89601f9a20326b8ef2c3b9253636fb45',1,'theoretica::dual::inverse()'],['../classtheoretica_1_1mat.html#a8335e7061f1383aafa6a26b30a9eaed0',1,'theoretica::mat::inverse()'],['../classtheoretica_1_1quat.html#ada659b2078c21cca781657073404823d',1,'theoretica::quat::inverse()'],['../classtheoretica_1_1complex.html#a118c9a8d8f569525da97b4a811c091c1',1,'theoretica::complex::inverse()'],['../classtheoretica_1_1dual2.html#a6e5c9e5117e1ad87b6fc0cd7f5e1e694',1,'theoretica::dual2::inverse()']]],
-  ['inverse_5f2x2_28',['inverse_2x2',['../classtheoretica_1_1mat.html#acc0a8f0dd15d07991fa31001a6cbfde0',1,'theoretica::mat']]],
-  ['invert_29',['invert',['../classtheoretica_1_1mat.html#a8940d27992927fb884dcf5078672e62c',1,'theoretica::mat']]],
-  ['invlerp_30',['invlerp',['../namespacetheoretica.html#a7a854543c4d5334c61247aed920937c7',1,'theoretica::invlerp(real x1, real x2, real value)'],['../namespacetheoretica.html#a40ed1580590487a3d2b7b0c836b23e7b',1,'theoretica::invlerp(vec&lt; N &gt; P1, vec&lt; N &gt; P2, real value)']]],
-  ['is_5fdiagonal_31',['is_diagonal',['../classtheoretica_1_1mat.html#a0714e15e9c96827bb6520b07b5d7bd60',1,'theoretica::mat']]],
-  ['is_5fnan_32',['is_nan',['../namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d',1,'theoretica']]],
-  ['is_5fsquare_33',['is_square',['../classtheoretica_1_1mat.html#ae3801455740f7eb847db8969dea1db8f',1,'theoretica::mat']]],
-  ['is_5fsymmetric_34',['is_symmetric',['../classtheoretica_1_1mat.html#ab0b462bbeef343d60cfa4475a67fc3f7',1,'theoretica::mat']]],
-  ['isqrt_35',['isqrt',['../namespacetheoretica.html#a68914a563241494dfe7ac42f0462920c',1,'theoretica']]]
+  ['interval_27',['interval',['../structchebyshev_1_1interval.html#abafd2d2d1c8a2ca1520bab3277469af3',1,'chebyshev::interval']]],
+  ['inverse_28',['inverse',['../classtheoretica_1_1dual2.html#a6e5c9e5117e1ad87b6fc0cd7f5e1e694',1,'theoretica::dual2::inverse()'],['../classtheoretica_1_1mat.html#a8335e7061f1383aafa6a26b30a9eaed0',1,'theoretica::mat::inverse()'],['../classtheoretica_1_1quat.html#ada659b2078c21cca781657073404823d',1,'theoretica::quat::inverse()'],['../classtheoretica_1_1complex.html#a118c9a8d8f569525da97b4a811c091c1',1,'theoretica::complex::inverse()'],['../classtheoretica_1_1multidual.html#abff404cfd9e0d9e7faa85c0a807183b9',1,'theoretica::multidual::inverse()'],['../classtheoretica_1_1dual.html#a89601f9a20326b8ef2c3b9253636fb45',1,'theoretica::dual::inverse()'],['../namespacetheoretica.html#abcf893a13dda9fd79be929e4dea4a80f',1,'theoretica::inverse()']]],
+  ['inverse_5f2x2_29',['inverse_2x2',['../classtheoretica_1_1mat.html#acc0a8f0dd15d07991fa31001a6cbfde0',1,'theoretica::mat']]],
+  ['invert_30',['invert',['../classtheoretica_1_1mat.html#a8940d27992927fb884dcf5078672e62c',1,'theoretica::mat']]],
+  ['invlerp_31',['invlerp',['../namespacetheoretica.html#a7a854543c4d5334c61247aed920937c7',1,'theoretica::invlerp(real x1, real x2, real value)'],['../namespacetheoretica.html#a40ed1580590487a3d2b7b0c836b23e7b',1,'theoretica::invlerp(vec&lt; N &gt; P1, vec&lt; N &gt; P2, real value)']]],
+  ['is_5fdiagonal_32',['is_diagonal',['../classtheoretica_1_1mat.html#a0714e15e9c96827bb6520b07b5d7bd60',1,'theoretica::mat']]],
+  ['is_5fnan_33',['is_nan',['../namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d',1,'theoretica']]],
+  ['is_5fsquare_34',['is_square',['../classtheoretica_1_1mat.html#ae3801455740f7eb847db8969dea1db8f',1,'theoretica::mat']]],
+  ['is_5fsymmetric_35',['is_symmetric',['../classtheoretica_1_1mat.html#ab0b462bbeef343d60cfa4475a67fc3f7',1,'theoretica::mat']]],
+  ['isqrt_36',['isqrt',['../namespacetheoretica.html#a68914a563241494dfe7ac42f0462920c',1,'theoretica']]]
 ];

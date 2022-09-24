@@ -17,6 +17,8 @@ var rand__dist_8h =
     [ "rand_laplace", "rand__dist_8h.html#a01522152b1ccfd9a7db77654b6d8c12a", null ],
     [ "rand_pareto", "rand__dist_8h.html#ae66a655f57ef0f6e436dfc03e800585b", null ],
     [ "rand_pareto", "rand__dist_8h.html#a2b34801047d52afccf3b4120c3d2d74e", null ],
+    [ "rand_rayleigh", "rand__dist_8h.html#a012d14c9ef85d6f3028bf8ceb1008787", null ],
+    [ "rand_rayleigh", "rand__dist_8h.html#a55c93a1f60698d75caa21a305e2ba107", null ],
     [ "rand_uniform", "rand__dist_8h.html#ad7e77a1836e1b966cdbb0934d5ebbbf2", null ],
     [ "rand_uniform", "rand__dist_8h.html#a6a35e29644875a5421b3ac4d7203c28a", null ]
 ];

@@ -35,7 +35,7 @@ var NAVTREE =
       ] ],
       [ "Contributing", "index.html#autotoc_md6", null ],
       [ "License", "index.html#autotoc_md7", null ],
-      [ "Testing precision and performance", "index.html#autotoc_md8", null ],
+      [ "Testing", "index.html#autotoc_md8", null ],
       [ "Macros", "index.html#autotoc_md9", null ],
       [ "Error handling", "index.html#autotoc_md10", null ],
       [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
@@ -46,26 +46,6 @@ var NAVTREE =
         [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ]
       ] ],
       [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ]
-    ] ],
-    [ "Coding standard", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html", [
-      [ "Scopes", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20", null ],
-      [ "Naming conventions", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md21", null ],
-      [ "Indentation", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md22", null ],
-      [ "Documentation", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md23", null ],
-      [ "Test cases", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md24", null ],
-      [ "Other considerations", "md_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md25", null ]
-    ] ],
-    [ "Examples", "md_txt__e_x_a_m_p_l_e_s.html", [
-      [ "Including library headers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md27", null ],
-      [ "Using vectors", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md28", null ],
-      [ "Using matrices", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md29", null ],
-      [ "Using complex numbers", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md30", null ],
-      [ "Using quaternions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md31", null ],
-      [ "Using polynomials", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md32", null ],
-      [ "Using statistical functions", "md_txt__e_x_a_m_p_l_e_s.html#autotoc_md33", null ]
-    ] ],
-    [ "Resources", "md_txt__r_e_s_o_u_r_c_e_s.html", [
-      [ "Pseudorandom and quasirandom generators", "md_txt__r_e_s_o_u_r_c_e_s.html#autotoc_md35", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -101,12 +81,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classtheoretica_1_1dual2.html#ad7c91b0ef78c549162edeeaf576765c9",
-"classtheoretica_1_1polynomial.html#adb06c3674f81e706e9619bfca3f38bdc",
-"dir_7abfcc991e7b5ee9bf0b7bf536481a35.html",
-"namespacemembers.html",
-"namespacetheoretica.html#a92b75bb553d0ae78a096c11498d6118d",
-"polyn__interp_8h.html#a9dc2216d71f0d7147b5c0dacdeea80db"
+"classtheoretica_1_1dual2.html#a74c9ef32502662b3c179d0d3b83796d6",
+"classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55",
+"constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e",
+"index.html#autotoc_md3",
+"namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d",
+"namespacetheoretica.html#ae0dda0991b7f146cc8f53578508fef4f",
+"roots_8h.html#a0a4ac513ec5910fb28aaacbdd75583b1",
+"structchebyshev_1_1prec_1_1prec__state.html#aefde15c16941e17d8dce36c4ee7c5343"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

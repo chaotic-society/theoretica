@@ -1,5 +1,26 @@
 var annotated_dup =
 [
+    [ "chebyshev", null, [
+      [ "benchmark", "namespacechebyshev_1_1benchmark.html", [
+        [ "benchmark_custom_request", "structchebyshev_1_1benchmark_1_1benchmark__custom__request.html", null ],
+        [ "benchmark_request", "structchebyshev_1_1benchmark_1_1benchmark__request.html", null ],
+        [ "benchmark_result", "structchebyshev_1_1benchmark_1_1benchmark__result.html", null ],
+        [ "benchmark_state", "structchebyshev_1_1benchmark_1_1benchmark__state.html", "structchebyshev_1_1benchmark_1_1benchmark__state" ]
+      ] ],
+      [ "err", "namespacechebyshev_1_1err.html", [
+        [ "err_state", "structchebyshev_1_1err_1_1err__state.html", "structchebyshev_1_1err_1_1err__state" ]
+      ] ],
+      [ "prec", null, [
+        [ "equation_request", "structchebyshev_1_1prec_1_1equation__request.html", "structchebyshev_1_1prec_1_1equation__request" ],
+        [ "equation_result", "structchebyshev_1_1prec_1_1equation__result.html", "structchebyshev_1_1prec_1_1equation__result" ],
+        [ "estimate_custom_request", "structchebyshev_1_1prec_1_1estimate__custom__request.html", "structchebyshev_1_1prec_1_1estimate__custom__request" ],
+        [ "estimate_request", "structchebyshev_1_1prec_1_1estimate__request.html", "structchebyshev_1_1prec_1_1estimate__request" ],
+        [ "estimate_result", "structchebyshev_1_1prec_1_1estimate__result.html", "structchebyshev_1_1prec_1_1estimate__result" ],
+        [ "prec_state", "structchebyshev_1_1prec_1_1prec__state.html", "structchebyshev_1_1prec_1_1prec__state" ]
+      ] ],
+      [ "interval", "structchebyshev_1_1interval.html", "structchebyshev_1_1interval" ],
+      [ "timer", "classchebyshev_1_1timer.html", "classchebyshev_1_1timer" ]
+    ] ],
     [ "theoretica", "namespacetheoretica.html", [
       [ "complex", "classtheoretica_1_1complex.html", "classtheoretica_1_1complex" ],
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
