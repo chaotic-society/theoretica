@@ -29,6 +29,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Statistical functions, including **Least Squares Linearization**
 - Random distribution sampling
 - Approximation of roots, extrema, derivatives and integrals of real functions
+- Numerical integration of **Ordinary Differential Equations** (Euler, Heun, RK4, K38, multistep)
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
 - Special functions (experimental)
 
