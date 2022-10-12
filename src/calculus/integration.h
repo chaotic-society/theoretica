@@ -21,13 +21,13 @@ namespace theoretica {
 	template<typename T = real>
 	inline polynomial<T> integrate_polynomial(const polynomial<T>& p) {
 
-		polynomial<T> Dp;
-		Dp.coeff.push_back(0);
+		polynomial<T> P;
+		P.coeff.push_back(0);
 
 		for (unsigned int i = 0; i < p.size(); ++i)
-			Dp.coeff.push_back(p.get(i) / T(i + 1));
+			P.coeff.push_back(p.get(i) / T(i + 1));
 
-		return Dp;
+		return P;
 	}
 
 
@@ -48,7 +48,7 @@ namespace theoretica {
 			return nan();
 		}
 		
-		real dx = (b - a) / steps;
+		const real dx = (b - a) / steps;
 		real res = 0;
 
 		for (unsigned int i = 0; i < steps; ++i)
@@ -75,7 +75,7 @@ namespace theoretica {
 			return nan();
 		}
 		
-		real dx = (b - a) / steps;
+		const real dx = (b - a) / steps;
 		real res = 0;
 
 		res += 0.5 * f(a);
@@ -106,7 +106,7 @@ namespace theoretica {
 			return nan();
 		}
 		
-		real dx = (b - a) / (real) steps;
+		const real dx = (b - a) / (real) steps;
 		real res = 0;
 
 		res += f(a) + f(b);

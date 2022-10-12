@@ -1097,6 +1097,13 @@ namespace theoretica {
 		return i == j ? 1 : 0;
 	}
 
+
+	/// The n-th Catalan number
+	template<typename IntType = unsigned long long int>
+	TH_CONSTEXPR inline IntType catalan(unsigned int n) {
+		return binomial_coeff(2 * n, n) / (n + 1);
+	}
+
 }
 
 #endif

@@ -5,7 +5,7 @@
 A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
 
 ### A short example
-Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec p)$ defined on its phase space, you can compute its _exact_ time derivative at a position $\vec \eta = (\vec q, \vec p)$ like this:
+Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its _exact_ time derivative at a position eta = (q, p) like this:
 $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
 Which can be translated into code as:
 ```cpp

@@ -23,7 +23,6 @@ namespace theoretica {
 		/// @note This approximation is accurate to 4 significant
 		/// digits for positive x, 2 significant digits
 		/// for negative x and exact for integer values.
-		/// @todo Improve the approximation
 		inline real gamma(real x) {
 
 			real x_fract = fract(x);
