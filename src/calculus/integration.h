@@ -9,6 +9,7 @@
 #include "../core/constants.h"
 #include "../core/function.h"
 #include "../polynomial/polynomial.h"
+#include "../polynomial/ortho_polyn.h"
 
 
 namespace theoretica {
@@ -164,6 +165,45 @@ namespace theoretica {
 
 		// Return the best approximation
 		return T[iter - 1][iter - 1];
+	}
+
+
+	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
+	/// a definite integral providing the roots of the n degree Legendre polynomial
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param x The roots of the n degree Legendre polynomial
+	/// @return The Gauss-Legendre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_gauss_legendre(RealFunction f, real a, real b, const std::vector<real>& x) {
+		
+		const std::vector<real> weights = legendre_weights(x);
+		const real mean = (b + a) / 2.0;
+		const real halfdiff = (b - a) / 2.0;
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < x.size(); ++i)
+			res += weights[i] * f(halfdiff * x[i] + mean);
+
+		return res * halfdiff;
+	}
+
+
+	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
+	/// a definite integral
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param n The order of the polynomial
+	/// @return The Gauss-Legendre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_gauss_legendre(RealFunction f, real a, real b, unsigned int n = 9) {
+		
+		return integral_gauss_legendre(f, a, b, legendre_roots(n));
 	}
 
 

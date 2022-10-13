@@ -7,6 +7,7 @@
 #define THEORETICA_ORTHO_POLYN_H
 
 #include "./polynomial.h"
+#include "../optimization/roots.h"
 
 
 namespace theoretica {
@@ -158,6 +159,52 @@ namespace theoretica {
 		// U1 = 2x
 
 		return gen_polyn_recurr({1}, {0, 2}, chebyshev_polyn_recurr, n);
+	}
+
+
+	/// Roots of the n-th Legendre polynomial
+	/// @param n The degree of the polynomial
+	/// @return A list of the n roots of the Legendre polynomial
+	inline std::vector<real> legendre_roots(unsigned int n) {
+
+		if(n == 0)
+			return {};
+
+		if(n == 1)
+			return {0};
+
+		polynomial<real> P = legendre_polynomial(n);
+		std::vector<real> roots;
+		roots.reserve(n);
+
+		for (unsigned int i = 1; i <= n; ++i) {
+			roots.push_back(
+				approx_polyn_root_newton(P, (2.0 / (n + 1)) * i - 1.0)
+			);
+		}
+
+		return roots;
+	}
+
+
+	/// Legendre weights for Gauss-Legendre quadrature of n-th order
+	/// @param roots The n roots of the n-th Legendre polynomial
+	/// @return The Legendre weights for Gauss-Legendre quadrature
+	inline std::vector<real> legendre_weights(const std::vector<real>& roots) {
+
+		const unsigned int n = roots.size();
+		const polynomial<real> dP = deriv_polynomial(legendre_polynomial(n));
+
+		std::vector<real> weights;
+		weights.reserve(n);
+
+		for (unsigned int i = 0; i < n; ++i) {
+			weights.push_back(
+				2.0 / ((1 - square(roots[i])) * square(dP(roots[i])))
+			);
+		}
+
+		return weights;
 	}
 
 }

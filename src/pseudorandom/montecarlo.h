@@ -22,7 +22,7 @@ namespace theoretica {
 	inline real integral_crude(
 		real_function f,
 		real a, real b,
-		PRNG& g, unsigned int N = 10000) {
+		PRNG& g, unsigned int N = 1000) {
 
 		real sum_y = 0;
 
@@ -43,7 +43,7 @@ namespace theoretica {
 	inline real integral_quasi_crude(
 		real_function f,
 		real a, real b,
-		unsigned int N = 10000) {
+		unsigned int N = 1000) {
 
 		real sum_y = 0;
 
@@ -64,7 +64,7 @@ namespace theoretica {
 	inline real integral_hom(
 		real_function f,
 		real a, real b, real f_max,
-		PRNG& g, unsigned int N = 10000) {
+		PRNG& g, unsigned int N = 1000) {
 
 		unsigned int N_inside = 0;
 
@@ -92,7 +92,7 @@ namespace theoretica {
 	inline real integral_quasi_hom(
 		real_function f,
 		real a, real b, real f_max,
-		unsigned int N = 10000) {
+		unsigned int N = 1000) {
 
 		unsigned int N_inside = 0;
 
@@ -126,7 +126,7 @@ namespace theoretica {
 		real a, real b,
 		real c, real d,
 		real f_max, PRNG& g,
-		unsigned int N = 10000) {
+		unsigned int N = 1000) {
 
 		unsigned int N_inside = 0;
 
