@@ -207,6 +207,48 @@ namespace theoretica {
 		return weights;
 	}
 
+
+	/// Laguerre weights for Gauss-Laguerre quadrature of n-th order
+	/// @param roots The n roots of the n-th Laguerre polynomial
+	/// @return The Laguerre weights for Gauss-Laguerre quadrature
+	inline std::vector<real> laguerre_weights(const std::vector<real>& roots) {
+
+		const unsigned int n = roots.size();
+		const polynomial<real> L = laguerre_polynomial(n + 1);
+
+		std::vector<real> weights;
+		weights.reserve(n);
+
+		for (unsigned int i = 0; i < n; ++i) {
+			weights.push_back(
+				roots[i] / square((n + 1) * L(roots[i]))
+			);
+		}
+
+		return weights;
+	}
+
+
+	/// Hermite weights for Gauss-Hermite quadrature of n-th order
+	/// @param roots The n roots of the n-th Hermite polynomial
+	/// @return The Hermite weights for Gauss-Hermite quadrature
+	inline std::vector<real> hermite_weights(const std::vector<real>& roots) {
+
+		const unsigned int n = roots.size();
+		const polynomial<real> H = hermite_polynomial(n - 1);
+
+		std::vector<real> weights;
+		weights.reserve(n);
+
+		for (unsigned int i = 0; i < n; ++i) {
+			weights.push_back(
+				((1 << (n - 1)) * fact(n) * SQRTPI) / square(n * roots[i])
+			);
+		}
+
+		return weights;
+	}
+
 }
 
 

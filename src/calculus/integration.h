@@ -207,6 +207,46 @@ namespace theoretica {
 	}
 
 
+	/// Use Gauss-Laguerre quadrature of arbitrary degree to approximate
+	/// an integral over [0, +inf) providing the roots of the n degree Legendre polynomial
+	///
+	/// @param f The function to integrate
+	/// @param x The roots of the n degree Laguerre polynomial
+	/// @return The Gauss-Laguerre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_gauss_laguerre(RealFunction f, const std::vector<real>& x) {
+		
+		const std::vector<real> weights = laguerre_weights(x);
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < x.size(); ++i)
+			res += weights[i] * f(x[i]);
+
+		return res;
+	}
+
+
+	/// Use Gauss-Hermite quadrature of arbitrary degree to approximate
+	/// an integral over (-inf, +inf) providing the roots of the n degree Hermite polynomial
+	///
+	/// @param f The function to integrate
+	/// @param x The roots of the n degree Hermite polynomial
+	/// @return The Gauss-Hermite quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_gauss_hermite(RealFunction f, const std::vector<real>& x) {
+		
+		const std::vector<real> weights = hermite_weights(x);
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < x.size(); ++i)
+			res += weights[i] * f(x[i]);
+
+		return res;
+	}
+
+
 	/// Use the best available algorithm to approximate
 	/// the definite integral of a real function.
 	///
