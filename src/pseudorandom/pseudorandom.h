@@ -148,6 +148,29 @@ namespace theoretica {
 		return rand_wyrand(p[0], p[1], p[2]);
 	}
 
+
+	/// Middle-square pseudorandom number generation
+	/// @param seed The (changing) seed of the algorithm
+	///
+	/// An offset is added to the 64-bit seed and the result is squared,
+	/// taking the middle 64-bit of the 128-bit result.
+	uint64_t rand_middlesquare(uint64_t seed, uint64_t offset = 765872292751861) {
+
+		seed += offset;
+		uint64_t high, low;
+		mul_uint128(seed, seed, low, high);
+
+		return (high & 0x00000000FFFFFFFF) | (low >> 32);
+	}
+
+
+	/// Middle-square pseudorandom number generation
+	/// @param x The seed of the algorithm
+	/// @param p Algorithm parameters, p[0] is the offset
+	inline uint64_t rand_middlesquare(uint64_t x, std::vector<uint64_t>& p) {
+		return rand_middlesquare(x, p[0]);
+	}
+
 }
 
 

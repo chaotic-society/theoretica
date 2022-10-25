@@ -163,6 +163,19 @@ namespace theoretica {
 
 				return PRNG(rand_wyrand, 0, {seed, p1, p2});
 			}
+
+
+			/// Returns a Middle-square generator
+			inline static PRNG middlesquare(uint64_t seed, uint64_t offset = 765872292751861) {
+
+				if(seed == 0)
+					seed = rand_splitmix64(765872292751861);
+
+				if(offset == 0)
+					offset = 765872292751861;
+
+				return PRNG(rand_middlesquare, seed, {offset});
+			}
 		
 	};
 
