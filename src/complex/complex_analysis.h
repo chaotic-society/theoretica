@@ -69,7 +69,7 @@ namespace theoretica {
 	/// @param z A complex number
 	inline complex sin(complex z) {
 
-		complex t = z * complex(0, 1);
+		const complex t = z * complex(0, 1);
 		return (exp(t) - exp(-t)) / complex(0, 2);
 	}
 
@@ -78,7 +78,7 @@ namespace theoretica {
 	/// @param z A complex number
 	inline complex cos(complex z) {
 
-		complex t = z * complex(0, 1);
+		const complex t = z * complex(0, 1);
 		return (exp(t) + exp(-t)) / 2.0;
 	}
 
@@ -87,7 +87,7 @@ namespace theoretica {
 	/// @param z A complex number
 	inline complex tan(complex z) {
 
-		complex t = z * complex(0, 2);
+		const complex t = z * complex(0, 2);
 		return (exp(t) - 1) / (exp(t) + 1) * complex(0, -1);
 	}
 
