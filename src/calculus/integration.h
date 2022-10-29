@@ -137,14 +137,7 @@ namespace theoretica {
 	inline real integral_romberg(
 		RealFunction f,
 		real a, real b,
-		unsigned int order = 16) {
-
-		if(order % 2 != 0) {
-			TH_MATH_ERROR("integral_romberg", order, IMPOSSIBLE_OPERATION);
-			return nan();
-		}
-
-		unsigned int iter = order / 2;
+		unsigned int iter = 8) {
 
 		real T[iter][iter];
 
@@ -157,14 +150,53 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				T[j][k] =
-					T[j][k - 1]
+				T[j][k] = T[j][k - 1]
 					+ (T[j][k - 1] - T[j - 1][k - 1]) / ((1 << (2 * k)) - 1);
 			}
 		}
 
 		// Return the best approximation
 		return T[iter - 1][iter - 1];
+	}
+
+
+	/// Approximate the definite integral of an arbitrary function
+	/// using Romberg's method to the given tolerance.
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param tolerance Convergence tolerance for the algorithm
+	/// @return An approximation of the integral of f
+	template<typename RealFunction>
+	inline real integral_romberg_tol(
+		RealFunction f,
+		real a, real b,
+		real tolerance = INTEGRATION_TOL) {
+
+		const unsigned int MAX_ROMBERG_ITER = 16;
+		real T[MAX_ROMBERG_ITER][MAX_ROMBERG_ITER];
+
+		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
+
+		for (unsigned int j = 1; j < 16; ++j) {
+			
+			// Composite Trapezoidal Rule
+			T[j][0] = integral_trapezoid(f, a, b, 1 << j);
+
+			// Richardson extrapolation
+			for (unsigned int k = 1; k <= j; ++k) {
+				uint64_t coeff = 1 << (2 * k);
+				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
+			}
+
+			// Stop the algorithm when the desired precision has been reached
+			if(abs(T[j][j] - T[j - 1][j - 1]) < tolerance)
+				return T[j][j];
+		}
+
+		// Return the best approximation
+		return T[MAX_ROMBERG_ITER - 1][MAX_ROMBERG_ITER - 1];
 	}
 
 
@@ -177,7 +209,7 @@ namespace theoretica {
 	/// @param x The roots of the n degree Legendre polynomial
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_gauss_legendre(RealFunction f, real a, real b, const std::vector<real>& x) {
+	inline real integral_legendre(RealFunction f, real a, real b, const std::vector<real>& x) {
 		
 		const std::vector<real> weights = legendre_weights(x);
 		const real mean = (b + a) / 2.0;
@@ -193,7 +225,16 @@ namespace theoretica {
 
 
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
-	/// a definite integral
+	/// a definite integral.
+	///
+	/// @note This function computes the n roots of the n-th degree Legendre
+	/// polynomial and the associated weights each time it is called. If multiple
+	/// calculations at the same degree are needed, it is more efficient to compute
+	/// them only once using legendre_roots.
+	///
+	/// @note This function uses Newton's method to compute the roots of the
+	/// n-th degree Legendre polynomial, so for higher degrees (>> 20) the algorithm
+	/// may fail to correctly find all of the zeroes.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -201,9 +242,9 @@ namespace theoretica {
 	/// @param n The order of the polynomial
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_gauss_legendre(RealFunction f, real a, real b, unsigned int n = 9) {
+	inline real integral_legendre(RealFunction f, real a, real b, unsigned int n = 9) {
 		
-		return integral_gauss_legendre(f, a, b, legendre_roots(n));
+		return integral_legendre(f, a, b, legendre_roots(n));
 	}
 
 
@@ -214,7 +255,7 @@ namespace theoretica {
 	/// @param x The roots of the n degree Laguerre polynomial
 	/// @return The Gauss-Laguerre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_gauss_laguerre(RealFunction f, const std::vector<real>& x) {
+	inline real integral_laguerre(RealFunction f, const std::vector<real>& x) {
 		
 		const std::vector<real> weights = laguerre_weights(x);
 
@@ -227,6 +268,31 @@ namespace theoretica {
 	}
 
 
+	/// Use Gauss-Laguerre quadrature of arbitrary degree to approximate
+	/// an integral over [a, b] providing the roots of the n degree Legendre polynomial
+	///
+	/// @param f The function to integrate
+	/// @param x The roots of the n degree Laguerre polynomial
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @return The Gauss-Laguerre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_laguerre(RealFunction f, real a, real b, const std::vector<real>& x) {
+		
+		const std::vector<real> weights = laguerre_weights(x);
+
+		const real exp_a = exp(-a);
+		const real exp_b = exp(-b);
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < x.size(); ++i)
+			res += weights[i] * (exp_a * f(x[i] + a) - exp_b * f(x[i] + b));
+
+		return res;
+	}
+
+
 	/// Use Gauss-Hermite quadrature of arbitrary degree to approximate
 	/// an integral over (-inf, +inf) providing the roots of the n degree Hermite polynomial
 	///
@@ -234,7 +300,7 @@ namespace theoretica {
 	/// @param x The roots of the n degree Hermite polynomial
 	/// @return The Gauss-Hermite quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_gauss_hermite(RealFunction f, const std::vector<real>& x) {
+	inline real integral_hermite(RealFunction f, const std::vector<real>& x) {
 		
 		const std::vector<real> weights = hermite_weights(x);
 
@@ -256,7 +322,22 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral(RealFunction f, real a, real b) {
-		return integral_simpson(f, a, b);
+		return integral_romberg_tol(f, a, b);
+	}
+
+
+	/// Use the best available algorithm to approximate
+	/// the definite integral of a real function to
+	/// a given tolerance.
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param tol Tolerance
+	/// @return An approximation of the integral of f
+	template<typename RealFunction>
+	inline real integral(RealFunction f, real a, real b, real tol) {
+		return integral_romberg_tol(f, a, b, tol);
 	}
 
 }

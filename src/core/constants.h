@@ -41,24 +41,29 @@
 #define THEORETICA_INTEGRATION_STEPS 100
 #endif
 
+// Default tolerance for integral approximation
+#ifndef THEORETICA_INTEGRATION_TOL
+#define THEORETICA_INTEGRATION_TOL 1E-08
+#endif
+
 /// Biggest fractional part to ignore in powf computation
 #ifndef THEORETICA_POWF_APPROX_TOL
-#define THEORETICA_POWF_APPROX_TOL 0.00000001
+#define THEORETICA_POWF_APPROX_TOL 1E-08
 #endif
 	
 /// Approximation tolerance for root finding
 #ifndef THEORETICA_ROOT_APPROX_TOL
-#define THEORETICA_ROOT_APPROX_TOL 0.00000001
+#define THEORETICA_ROOT_APPROX_TOL 1E-08
 #endif
 
 /// Approximation tolerance for Newton's method root finding
 #ifndef THEORETICA_NEWTON_RAPHSON_TOL
-#define THEORETICA_NEWTON_RAPHSON_TOL 0.00000001
+#define THEORETICA_NEWTON_RAPHSON_TOL 1E-08
 #endif
 
 /// Approximation tolerance for bisection root finding
 #ifndef THEORETICA_BISECTION_APPROX_TOL
-#define THEORETICA_BISECTION_APPROX_TOL 0.00000001
+#define THEORETICA_BISECTION_APPROX_TOL 1E-08
 #endif
 
 /// Maximum number of iterations for bisection
@@ -242,6 +247,9 @@ namespace theoretica {
 
 	/// Default number of steps for integral approximation
 	constexpr int INTEGRATION_STEPS = THEORETICA_INTEGRATION_STEPS;
+
+	// Default tolerance for integral approximation
+	constexpr real INTEGRATION_TOL = THEORETICA_INTEGRATION_TOL;
 
 	/// Relative precision for derivative approximation
 	constexpr real DERIV_PREC = THEORETICA_DERIV_PREC;
