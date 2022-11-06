@@ -143,6 +143,55 @@ namespace theoretica {
 		return (N_inside / static_cast<real>(N)) * (b - a) * (d - c) * f_max;
 	}
 
+
+	/// Approximate an integral by using Crude Monte Carlo integration with
+	/// importance sampling.
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param g The importance function (normalized)
+	/// @param Ginv The inverse of the primitive of g, with domain [0, 1]
+	/// @param gen An already initialized PRNG
+	/// @param N The number of points to generate
+	inline real integral_impsamp(
+		real_function f, real_function g, real_function Ginv,
+		real a, real b,
+		PRNG& gen, unsigned int N = 1000) {
+
+		real sum_y = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+			const real z = Ginv(rand_uniform(0, 1, gen));
+			sum_y += f(z) / g(z);
+		}		
+
+		return sum_y / static_cast<real>(N);
+	}
+
+
+	/// Approximate an integral by using Crude Quasi-Monte Carlo integration with
+	/// importance sampling, using the Weyl sequence.
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param g The importance function (normalized)
+	/// @param Ginv The inverse of the primitive of g, with domain [0, 1]
+	/// @param gen An already initialized PRNG
+	/// @param N The number of points to generate
+	inline real integral_quasi_impsamp(
+		real_function f, real_function g, real_function Ginv,
+		real a, real b, unsigned int N = 1000) {
+
+		real sum_y = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+			const real z = Ginv(qrand_weyl(i + 1));
+			sum_y += f(z) / g(z);
+		}		
+
+		return sum_y / static_cast<real>(N);
+	}
+
 }
 
 

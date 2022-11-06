@@ -41,6 +41,10 @@
 #define THEORETICA_INTEGRATION_STEPS 100
 #endif
 
+#ifndef THEORETICA_RKDP_TOL
+#define THEORETICA_RKDP_TOL 1E-8
+#endif
+
 // Default tolerance for integral approximation
 #ifndef THEORETICA_INTEGRATION_TOL
 #define THEORETICA_INTEGRATION_TOL 1E-08
@@ -134,7 +138,7 @@
 #ifdef THEORETICA_FLOAT_PREC
 #define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 23)
 #else
-#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 32)
+#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 31)
 #endif
 
 #endif

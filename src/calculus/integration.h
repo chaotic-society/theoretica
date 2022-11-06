@@ -150,8 +150,8 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				T[j][k] = T[j][k - 1]
-					+ (T[j][k - 1] - T[j - 1][k - 1]) / ((1 << (2 * k)) - 1);
+				uint64_t coeff = 1 << (2 * k);
+				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
 			}
 		}
 
