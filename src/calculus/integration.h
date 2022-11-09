@@ -79,12 +79,10 @@ namespace theoretica {
 		const real dx = (b - a) / steps;
 		real res = 0;
 
-		res += 0.5 * f(a);
+		res += 0.5 * (f(a) + f(b));
 
 		for (unsigned int i = 1; i < steps; ++i)
 			res += f(a + i * dx);
-
-		res += 0.5 * f(b);
 
 		return res * dx;
 	}
@@ -110,16 +108,17 @@ namespace theoretica {
 		const real dx = (b - a) / (real) steps;
 		real res = 0;
 
+		// Sum terms by order of magnitude supposing that
+		// f stays at the same order inside the interval,
+		// to alleviate truncation errors
+
 		res += f(a) + f(b);
 
-		for (unsigned int i = 1; i < steps; ++i) {
+		for (unsigned int i = 2; i < steps; i += 2)
+			res += 2 * f(a + i * dx);
 
-			if(i % 2 == 0)
-				res += 2.0 * f(a + i * dx);
-			else
-				res += 4.0 * f(a + i * dx);
-			
-		}
+		for (unsigned int i = 1; i < steps; i += 2)
+			res += 4 * f(a + i * dx);
 
 		return res * dx / 3.0;
 	}
@@ -150,7 +149,7 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				uint64_t coeff = 1 << (2 * k);
+				const uint64_t coeff = 1 << (2 * k);
 				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
 			}
 		}
@@ -186,7 +185,7 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				uint64_t coeff = 1 << (2 * k);
+				const uint64_t coeff = 1 << (2 * k);
 				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
 			}
 
@@ -217,7 +216,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (unsigned int i = 0; i < x.size(); ++i)
+		for (int i = x.size() - 1; i >= 0; --i)
 			res += weights[i] * f(halfdiff * x[i] + mean);
 
 		return res * halfdiff;
@@ -261,7 +260,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (unsigned int i = 0; i < x.size(); ++i)
+		for (int i = x.size() - 1; i >= 0; --i)
 			res += weights[i] * f(x[i]);
 
 		return res;
@@ -286,7 +285,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (unsigned int i = 0; i < x.size(); ++i)
+		for (int i = x.size() - 1; i >= 0; --i)
 			res += weights[i] * (exp_a * f(x[i] + a) - exp_b * f(x[i] + b));
 
 		return res;
@@ -306,7 +305,7 @@ namespace theoretica {
 
 		real res = 0;
 
-		for (unsigned int i = 0; i < x.size(); ++i)
+		for (int i = x.size() - 1; i >= 0; --i)
 			res += weights[i] * f(x[i]);
 
 		return res;
