@@ -615,11 +615,11 @@ namespace theoretica {
 	const real fract_x = fract(x);
 	const int floor_x = floor(x);
 
-#ifdef THEORETICA_X86
+// #ifdef THEORETICA_X86
 
-		return pow(E, floor_x) * exp_x86_norm(fract_x);
+// 		return pow(E, floor_x) * exp_x86_norm(fract_x);
 
-#else
+// #else
 
 	// Taylor series expansion
 	// Compute e^floor(x) * e^fract(x)
@@ -639,7 +639,7 @@ namespace theoretica {
 	const real sqr_r = res * res;
 	return pow(E, floor_x) * sqr_r * sqr_r;
 
-#endif
+// #endif
 	}
 
 
