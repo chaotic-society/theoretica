@@ -627,7 +627,7 @@ namespace theoretica {
 	real res = 1;
 	real s_n = 1;
 
-	for (int i = 1; i < TAYLOR_ORDER; ++i) {
+	for (int i = 1; i <= TAYLOR_ORDER; ++i) {
 
 		// Recurrence formula to improve
 		// numerical stability and performance

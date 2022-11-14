@@ -33,6 +33,37 @@ namespace theoretica {
 	}
 
 
+	/// Approximate an integral by using Crude Monte Carlo integration
+	/// @param f The function to integrate
+	/// @param extremes A vector of the extremes of integration
+	/// @param g An already initialized PRNG
+	/// @param N The number of points to generate
+	template<unsigned int S>
+	inline real integral_crude(
+		real(*f)(vec<S>), vec<S, vec2> extremes,
+		PRNG& g, unsigned int N = 1000) {
+
+		real sum_y = 0;
+
+		// Sample the function at random points in the integration region
+		for (unsigned int i = 0; i < N; ++i) {
+		
+			vec<S> v;
+			for (unsigned int k = 0; k < S; ++k)
+				v[k] = rand_uniform(extremes[k][0], extremes[k][1], g);
+
+			sum_y += f(v);
+		}
+
+		// Volume of the integration region
+		real volume = 1;
+		for (unsigned int i = 0; i < S; ++i)
+			volume *= abs(extremes[i][1] - extremes[i][0]);
+
+		return volume * sum_y / static_cast<real>(N);
+	}
+
+
 	/// Approximate an integral by using Crude
 	/// Quasi-Monte Carlo integration by sampling
 	/// from the Weyl sequence
@@ -47,10 +78,76 @@ namespace theoretica {
 
 		real sum_y = 0;
 
-		for (unsigned int i = 0; i < N; ++i)			
-			sum_y += f(a + qrand_weyl(i + 1) * (b - a));
+		for (unsigned int i = 0; i < N; ++i)
+			sum_y += f(a + qrand_weyl(i) * (b - a));
 
 		return (b - a) * sum_y / static_cast<real>(N);
+	}
+
+
+	/// Approximate an integral by using Crude
+	/// Quasi-Monte Carlo integration by sampling
+	/// from the Weyl sequence
+	/// @param f The function to integrate
+	/// @param extremes A vector of the extremes of integration
+	/// @param alpha A vector of the irrational numbers to use for the Weyl sequence
+	/// @param N The number of points to generate
+	template<unsigned int S>
+	inline real integral_quasi_crude(
+		real(*f)(vec<S>), vec<S, vec2> extremes,
+		unsigned int N, vec<S> alpha) {
+
+		real sum_y = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+		
+			vec<S> v;
+			for (unsigned int k = 0; k < S; ++k)
+				v[k] = extremes[k][0] + (qrand_weyl(i, alpha[k]) * (extremes[k][1] - extremes[k][0]));
+
+			sum_y += f(v);
+		}
+
+		real volume = 1;
+		for (unsigned int i = 0; i < S; ++i)
+			volume *= abs(extremes[i][1] - extremes[i][0]);
+
+		return volume * sum_y / static_cast<real>(N);
+	}
+
+
+	/// Approximate an integral by using Crude
+	/// Quasi-Monte Carlo integration by sampling
+	/// from the Weyl sequence
+	/// @param f The function to integrate
+	/// @param extremes A vector of the extremes of integration
+	/// @param alpha An irrational number
+	/// @param N The number of points to generate
+	template<unsigned int S>
+	inline real integral_quasi_crude(
+		real(*f)(vec<S>), vec<S, vec2> extremes,
+		unsigned int N = 1000, real alpha = 0) {
+
+		if(alpha == 0) {
+
+			polynomial<> P = polynomial<real>::monomial(1, S + 1);
+			P[0] = -1;
+			P[1] = -1;
+
+			// Find the only positive root of the polynomial
+			// x^s+1 - x - 1 = 0
+
+			alpha = 1.0 / approx_root_bisection(
+				[P](real x) {
+					return P(x);
+				}, 0, 2);
+		}
+
+		vec<S> v;
+		for (unsigned int i = 0; i < S; ++i)
+			v[i] = pow(alpha, i + 1);
+
+		return integral_quasi_crude(f, extremes, N, v);
 	}
 
 
@@ -98,7 +195,7 @@ namespace theoretica {
 
 		for (unsigned int i = 0; i < N; ++i) {
 
-			vec2 v = qrand_weyl2(i + 1);
+			vec2 v = qrand_weyl2(i);
 		
 			const real x_n = a + (b - a) * v[0];
 			const real y_n = v[1] * f_max;
@@ -147,15 +244,12 @@ namespace theoretica {
 	/// Approximate an integral by using Crude Monte Carlo integration with
 	/// importance sampling.
 	/// @param f The function to integrate
-	/// @param a The lower extreme of integration
-	/// @param b The upper extreme of integration
 	/// @param g The importance function (normalized)
 	/// @param Ginv The inverse of the primitive of g, with domain [0, 1]
 	/// @param gen An already initialized PRNG
 	/// @param N The number of points to generate
 	inline real integral_impsamp(
 		real_function f, real_function g, real_function Ginv,
-		real a, real b,
 		PRNG& gen, unsigned int N = 1000) {
 
 		real sum_y = 0;
@@ -172,15 +266,13 @@ namespace theoretica {
 	/// Approximate an integral by using Crude Quasi-Monte Carlo integration with
 	/// importance sampling, using the Weyl sequence.
 	/// @param f The function to integrate
-	/// @param a The lower extreme of integration
-	/// @param b The upper extreme of integration
 	/// @param g The importance function (normalized)
 	/// @param Ginv The inverse of the primitive of g, with domain [0, 1]
 	/// @param gen An already initialized PRNG
 	/// @param N The number of points to generate
 	inline real integral_quasi_impsamp(
 		real_function f, real_function g, real_function Ginv,
-		real a, real b, unsigned int N = 1000) {
+		unsigned int N = 1000) {
 
 		real sum_y = 0;
 
