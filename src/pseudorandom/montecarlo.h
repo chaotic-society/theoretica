@@ -130,16 +130,12 @@ namespace theoretica {
 
 		if(alpha == 0) {
 
-			polynomial<> P = polynomial<real>::monomial(1, S + 1);
-			P[0] = -1;
-			P[1] = -1;
-
 			// Find the only positive root of the polynomial
 			// x^s+1 - x - 1 = 0
 
 			alpha = 1.0 / approx_root_bisection(
-				[P](real x) {
-					return P(x);
+				[](real x) {
+					return pow(x, S + 1) - x - 1;
 				}, 0, 2);
 		}
 

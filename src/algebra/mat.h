@@ -255,7 +255,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < N; ++i) {
 				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) += other.iat(i, j);
+					iat(i, j) += other.iget(i, j);
 				}
 			}
 
@@ -267,7 +267,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < N; ++i) {
 				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) -= other.iat(i, j);
+					iat(i, j) -= other.iget(i, j);
 				}
 			}
 
@@ -708,7 +708,7 @@ namespace theoretica {
 					}
 				}
 
-				real inv_pivot = 1.0 / A.iat(i, i);
+				const real inv_pivot = 1.0 / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -720,7 +720,7 @@ namespace theoretica {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.iat(j, i) * inv_pivot;
+					const real coeff = A.iat(j, i) * inv_pivot;
 					
 					for (unsigned int k = 0; k < N; ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
