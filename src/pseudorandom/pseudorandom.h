@@ -160,7 +160,7 @@ namespace theoretica {
 		uint64_t high, low;
 		mul_uint128(seed, seed, low, high);
 
-		return (high & 0x00000000FFFFFFFF) | (low >> 32);
+		return (high << 32) | (low >> 32);
 	}
 
 

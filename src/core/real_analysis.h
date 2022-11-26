@@ -585,6 +585,19 @@ namespace theoretica {
 	}
 
 
+	/// Compute the double factorial of n
+	template<typename IntType = unsigned long long int>
+	TH_CONSTEXPR inline IntType double_fact(unsigned int n) {
+
+		IntType res = 1;
+
+		for (int i = n; i > 1; i -= 2)
+			res *= i;
+
+		return res;
+	}
+
+
 #ifdef THEORETICA_X86
 
 	/// Approximate \f$e^x\f$ using x86 Assembly instructions
