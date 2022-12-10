@@ -151,6 +151,45 @@ namespace theoretica {
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
+	/// @param c The function minimum in the domain [a, b]
+	/// @param d The function maximum in the domain [a, b]
+	/// @param g An already initialized PRNG
+	/// @param N The number of points to generate
+	inline real integral_hom(
+		real_function f,
+		real a, real b, real c, real d,
+		PRNG& g, unsigned int N = 1000) {
+
+		int N_inside = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+		
+			const real x_n = rand_uniform(a, b, g);
+			const real y_n = rand_uniform(c, d, g);
+
+			const real f_x = f(x_n);
+
+			if(f_x >= 0) {
+				if(f_x >= y_n)
+					N_inside++;
+			} else {
+				if(f_x < y_n)
+					N_inside--;
+			}
+		}
+
+		return (N_inside / static_cast<real>(N)) * (b - a) * (d - c);
+	}
+
+
+	/// Approximate an integral by using Hit-or-miss Monte Carlo integration
+	/// @note This implementation considers only the portion of the function
+	/// over zero (useful for distributions for example), if you need to consider
+	/// all of the values of the function in the domain of integration,
+	/// use the other implementation of integral_hom
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
 	/// @param f_max The function maximum in the [a, b] interval
 	/// @param g An already initialized PRNG
 	/// @param N The number of points to generate
@@ -163,14 +202,51 @@ namespace theoretica {
 
 		for (unsigned int i = 0; i < N; ++i) {
 		
-			real x_n = rand_uniform(a, b, g);
-			real y_n = rand_uniform(0, f_max, g);
+			const real x_n = rand_uniform(a, b, g);
+			const real y_n = rand_uniform(0, f_max, g);
 
 			if(f(x_n) > y_n)
 				N_inside++;
 		}
 
 		return (N_inside / static_cast<real>(N)) * (b - a) * f_max;
+	}
+
+
+	/// Approximate an integral by using Hit-or-miss
+	/// Quasi-Monte Carlo integration, sampling points
+	/// from the Weyl bi-dimensional sequence
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param f_max The function maximum in the [a, b] interval
+	/// @param N The number of points to generate
+	inline real integral_quasi_hom(
+		real_function f,
+		real a, real b, real c, real d,
+		unsigned int N = 1000) {
+
+		int N_inside = 0;
+
+		for (unsigned int i = 0; i < N; ++i) {
+
+			vec2 v = qrand_weyl2(i);
+		
+			const real x_n = a + (b - a) * v[0];
+			const real y_n = c + (d - c) * v[1];
+
+			const real f_x = f(x_n);
+
+			if(f_x >= 0) {
+				if(f_x >= y_n)
+					N_inside++;
+			} else {
+				if(f_x < y_n)
+					N_inside--;
+			}
+		}
+
+		return (N_inside / static_cast<real>(N)) * (b - a) * (d - c);
 	}
 
 
