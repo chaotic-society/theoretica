@@ -94,13 +94,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Theoretica </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <img src="https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows" alt="GitHub Workflow Status" class="inline"/> <a href="https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <img src="https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows" alt="GitHub Workflow Status" class="inline"/> <a href="https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></p>
 <p >A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to <b>mimic elegant mathematical notation</b>.</p>
 <h3><a class="anchor" id="autotoc_md0"></a>
 A short example</h3>
-<p >Given a Hamiltonian function $H(\vec q, \vec p)$ and a function $f(\vec q, \vec p)$ defined on its phase space, you can compute its <em>exact</em> time derivative at a position $\vec \eta = (\vec q, \vec p)$ like this: $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$ Which can be translated into code as: </p><div class="fragment"><div class="line">mat&lt;N, N&gt; J = mat&lt;N, N&gt;::symplectic();</div>
+<p >Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its <em>exact</em> time derivative at a position eta = (q, p) like this: $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$ Which can be translated into code as: </p><div class="fragment"><div class="line">mat&lt;N, N&gt; J = mat&lt;N, N&gt;::symplectic();</div>
 <div class="line"><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> df_dt = <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(f, eta) * J * <a class="code hl_function" href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">gradient</a>(H, eta);</div>
-<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:172</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:181</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ac29355ce24067808f588917c0e178408"><div class="ttname"><a href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">theoretica::gradient</a></div><div class="ttdeci">vec&lt; N &gt; gradient(multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</div><div class="ttdoc">Compute the gradient for a given  of a function of the form  using automatic differentiation.</div><div class="ttdef"><b>Definition:</b> autodiff.h:25</div></div>
 </div><!-- fragment --><p >The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
@@ -118,6 +118,7 @@ Key Features</h2>
 <li>Statistical functions, including <b>Least Squares Linearization</b></li>
 <li>Random distribution sampling</li>
 <li>Approximation of roots, extrema, derivatives and integrals of real functions</li>
+<li>Numerical integration of <b>Ordinary Differential Equations</b> (Euler, Heun, RK4, K38, multistep)</li>
 <li>Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation</li>
 <li>Special functions (experimental)</li>
 </ul>
@@ -187,7 +188,7 @@ Error handling</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Sep 24 2022 17:38:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Dec 29 2022 11:53:00 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

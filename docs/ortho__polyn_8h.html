@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('ortho__polyn_8h.html',''); initResizab
 <p>Orthogonal polynomial bases.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="polynomial_8h_source.html">./polynomial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="roots_8h_source.html">../optimization/roots.h</a>&quot;</code><br />
 </div>
 <p><a href="ortho__polyn_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -163,6 +164,18 @@ polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t
 <tr class="memitem:a3450aa75a960635e9f33a6dabb22752b"><td class="memItemLeft" align="right" valign="top">polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3450aa75a960635e9f33a6dabb22752b">theoretica::chebyshev2_polynomial</a> (unsigned int n)</td></tr>
 <tr class="memdesc:a3450aa75a960635e9f33a6dabb22752b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the nth Chebyshev polynomial of the second kind.  <a href="namespacetheoretica.html#a3450aa75a960635e9f33a6dabb22752b">More...</a><br /></td></tr>
 <tr class="separator:a3450aa75a960635e9f33a6dabb22752b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebbaeffb922b25d5f1758296b473939f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aebbaeffb922b25d5f1758296b473939f">theoretica::legendre_roots</a> (unsigned int n)</td></tr>
+<tr class="memdesc:aebbaeffb922b25d5f1758296b473939f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Roots of the n-th Legendre polynomial.  <a href="namespacetheoretica.html#aebbaeffb922b25d5f1758296b473939f">More...</a><br /></td></tr>
+<tr class="separator:aebbaeffb922b25d5f1758296b473939f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40aca2488b0466c4934fd050d3718760"><td class="memItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a40aca2488b0466c4934fd050d3718760">theoretica::legendre_weights</a> (const std::vector&lt; real &gt; &amp;roots)</td></tr>
+<tr class="memdesc:a40aca2488b0466c4934fd050d3718760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legendre weights for Gauss-Legendre quadrature of n-th order.  <a href="namespacetheoretica.html#a40aca2488b0466c4934fd050d3718760">More...</a><br /></td></tr>
+<tr class="separator:a40aca2488b0466c4934fd050d3718760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b528fc8814c1dd197a21d49f1ad6c93"><td class="memItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4b528fc8814c1dd197a21d49f1ad6c93">theoretica::laguerre_weights</a> (const std::vector&lt; real &gt; &amp;roots)</td></tr>
+<tr class="memdesc:a4b528fc8814c1dd197a21d49f1ad6c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Laguerre weights for Gauss-Laguerre quadrature of n-th order.  <a href="namespacetheoretica.html#a4b528fc8814c1dd197a21d49f1ad6c93">More...</a><br /></td></tr>
+<tr class="separator:a4b528fc8814c1dd197a21d49f1ad6c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04806d2927b08fe51b37c5a1c517de35"><td class="memItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a04806d2927b08fe51b37c5a1c517de35">theoretica::hermite_weights</a> (const std::vector&lt; real &gt; &amp;roots)</td></tr>
+<tr class="memdesc:a04806d2927b08fe51b37c5a1c517de35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hermite weights for Gauss-Hermite quadrature of n-th order.  <a href="namespacetheoretica.html#a04806d2927b08fe51b37c5a1c517de35">More...</a><br /></td></tr>
+<tr class="separator:a04806d2927b08fe51b37c5a1c517de35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Orthogonal polynomial bases. </p>
@@ -172,7 +185,7 @@ polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_80b12a04080342cac66dddc13ab3e1e7.html">polynomial</a></li><li class="navelem"><a class="el" href="ortho__polyn_8h.html">ortho_polyn.h</a></li>
-    <li class="footer">Generated on Sat Sep 24 2022 17:38:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Dec 29 2022 11:52:58 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

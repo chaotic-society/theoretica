@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['taylor_2eh_0',['taylor.h',['../taylor_8h.html',1,'']]],
-  ['test_5falgebra_2ecpp_1',['test_algebra.cpp',['../test__algebra_8cpp.html',1,'']]],
-  ['test_5fcore_2ecpp_2',['test_core.cpp',['../test__core_8cpp.html',1,'']]],
-  ['test_5fpolynomial_2ecpp_3',['test_polynomial.cpp',['../test__polynomial_8cpp.html',1,'']]],
-  ['theoretica_2eh_4',['theoretica.h',['../theoretica_8h.html',1,'']]],
-  ['timer_2eh_5',['timer.h',['../timer_8h.html',1,'']]]
+  ['sampling_5fdistributions_2ecpp_0',['sampling_distributions.cpp',['../sampling__distributions_8cpp.html',1,'']]],
+  ['special_2eh_1',['special.h',['../special_8h.html',1,'']]],
+  ['spline_5finterp_2eh_2',['spline_interp.h',['../spline__interp_8h.html',1,'']]],
+  ['statistics_2ecpp_3',['statistics.cpp',['../statistics_8cpp.html',1,'']]],
+  ['statistics_2eh_4',['statistics.h',['../statistics_8h.html',1,'']]]
 ];

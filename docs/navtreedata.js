@@ -47,7 +47,6 @@ var NAVTREE =
       ] ],
       [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ]
     ] ],
-    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -85,10 +84,10 @@ var NAVTREEINDEX =
 "classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55",
 "constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e",
 "index.html#autotoc_md3",
-"namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d",
-"namespacetheoretica.html#ae0dda0991b7f146cc8f53578508fef4f",
-"roots_8h.html#a0a4ac513ec5910fb28aaacbdd75583b1",
-"structchebyshev_1_1prec_1_1prec__state.html#aefde15c16941e17d8dce36c4ee7c5343"
+"namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2",
+"namespacetheoretica.html#acf52f04c3a1cefbb9dabab21cac0abbb",
+"real__analysis_8h.html#a1efe3bd7ff87719aab92b67cec535096",
+"structchebyshev_1_1prec_1_1estimate__result.html#a98590a769ad65db63608ede614b5722d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

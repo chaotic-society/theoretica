@@ -8,9 +8,13 @@ var ortho__polyn_8h =
     [ "hermite_polyn_normalization", "ortho__polyn_8h.html#a7659e1b121c8c96e884b95bb4ae45ebc", null ],
     [ "hermite_polyn_recurr", "ortho__polyn_8h.html#a2da3a4e4195c5c77e99db62ae442fa19", null ],
     [ "hermite_polynomial", "ortho__polyn_8h.html#afd97a0d6d99915f065567958760164f4", null ],
+    [ "hermite_weights", "ortho__polyn_8h.html#a04806d2927b08fe51b37c5a1c517de35", null ],
     [ "laguerre_polyn_recurr", "ortho__polyn_8h.html#a0b5a48283ac42a9362f25d977d066cf3", null ],
     [ "laguerre_polynomial", "ortho__polyn_8h.html#af62665bb64745df12234614b05c2dfb3", null ],
+    [ "laguerre_weights", "ortho__polyn_8h.html#a4b528fc8814c1dd197a21d49f1ad6c93", null ],
     [ "legendre_polyn_normalization", "ortho__polyn_8h.html#aca937d779d223cab3a43b4236876491a", null ],
     [ "legendre_polyn_recurr", "ortho__polyn_8h.html#aed24464894a5a23896554578641576ac", null ],
-    [ "legendre_polynomial", "ortho__polyn_8h.html#acaa95392d9bfc3ddf34f3e82f4b6ae78", null ]
+    [ "legendre_polynomial", "ortho__polyn_8h.html#acaa95392d9bfc3ddf34f3e82f4b6ae78", null ],
+    [ "legendre_roots", "ortho__polyn_8h.html#aebbaeffb922b25d5f1758296b473939f", null ],
+    [ "legendre_weights", "ortho__polyn_8h.html#a40aca2488b0466c4934fd050d3718760", null ]
 ];

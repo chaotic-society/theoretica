@@ -196,10 +196,25 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">rand_wyrand</a>(p[0], p[1], p[2]);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">  157</a></span>    uint64_t <a class="code hl_function" href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">rand_middlesquare</a>(uint64_t seed, uint64_t offset = 765872292751861) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        seed += offset;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        uint64_t high, low;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <a class="code hl_function" href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">mul_uint128</a>(seed, seed, low, high);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">return</span> (high &lt;&lt; 32) | (low &gt;&gt; 32);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9">  170</a></span>    <span class="keyword">inline</span> uint64_t <a class="code hl_function" href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">rand_middlesquare</a>(uint64_t x, std::vector&lt;uint64_t&gt;&amp; p) {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">rand_middlesquare</a>(x, p[0]);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:211</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> distance.h:16</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a058181f973ba2744704e6c6211477a35"><div class="ttname"><a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">theoretica::rand_splitmix64</a></div><div class="ttdeci">uint64_t rand_splitmix64(uint64_t x)</div><div class="ttdoc">SplitMix64 pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:109</div></div>
@@ -209,6 +224,8 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div class="ttc" id="anamespacetheoretica_html_a672dbbc0ea824c71d7ca0dc26b346200"><div class="ttname"><a href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">theoretica::mix_mum</a></div><div class="ttdeci">uint64_t mix_mum(uint64_t a, uint64_t b)</div><div class="ttdoc">MUM bit mixing function.</div><div class="ttdef"><b>Definition:</b> bit_op.h:53</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a99f8bd44356f8184466e4cc0d6986fe5"><div class="ttname"><a href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">theoretica::pseudorandom_function</a></div><div class="ttdeci">uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;) pseudorandom_function</div><div class="ttdoc">A pseudorandom function pointer.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:17</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ab1025a8b933cfe7077936c4be27971c1"><div class="ttname"><a href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">theoretica::rand_congruential</a></div><div class="ttdeci">uint64_t rand_congruential(uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</div><div class="ttdoc">Congruential pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:31</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ab7c6bc4e4c3bc2e859b5ff1e4b344df4"><div class="ttname"><a href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">theoretica::rand_middlesquare</a></div><div class="ttdeci">uint64_t rand_middlesquare(uint64_t seed, uint64_t offset=765872292751861)</div><div class="ttdoc">Middle-square pseudorandom number generation.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:157</div></div>
+<div class="ttc" id="anamespacetheoretica_html_aca2b51694a7dd4ded3a140f92366aaed"><div class="ttname"><a href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">theoretica::mul_uint128</a></div><div class="ttdeci">void mul_uint128(uint64_t a, uint64_t b, uint64_t &amp;c_low, uint64_t &amp;c_high)</div><div class="ttdoc">Multiply two 64-bit integers and store the result in two 64-bit variables, keeping 128 bits of the re...</div><div class="ttdef"><b>Definition:</b> bit_op.h:23</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aed6faedb3d913a589365b108f5ec304e"><div class="ttname"><a href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">theoretica::rand_xoshiro</a></div><div class="ttdeci">uint64_t rand_xoshiro(uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</div><div class="ttdoc">Xoshiro256++ pseudorandom number generation algorithm.</div><div class="ttdef"><b>Definition:</b> pseudorandom.h:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -216,7 +233,7 @@ $(document).ready(function(){initNavTree('pseudorandom_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="pseudorandom_8h.html">pseudorandom.h</a></li>
-    <li class="footer">Generated on Sat Sep 24 2022 17:38:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Thu Dec 29 2022 11:52:57 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

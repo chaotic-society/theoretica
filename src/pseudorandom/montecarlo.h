@@ -58,7 +58,7 @@ namespace theoretica {
 		// Volume of the integration region
 		real volume = 1;
 		for (unsigned int i = 0; i < S; ++i)
-			volume *= abs(extremes[i][1] - extremes[i][0]);
+			volume *= (extremes[i][1] - extremes[i][0]);
 
 		return volume * sum_y / static_cast<real>(N);
 	}
@@ -110,7 +110,7 @@ namespace theoretica {
 
 		real volume = 1;
 		for (unsigned int i = 0; i < S; ++i)
-			volume *= abs(extremes[i][1] - extremes[i][0]);
+			volume *= (extremes[i][1] - extremes[i][0]);
 
 		return volume * sum_y / static_cast<real>(N);
 	}
