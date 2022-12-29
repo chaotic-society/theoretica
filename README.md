@@ -1,6 +1,6 @@
 # Theoretica
 
-![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chaotic-society/theoretica/Test%20on%20Windows) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
+![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/chaotic-society/theoretica/test-windows.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
 
 A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
 
