@@ -47,7 +47,7 @@ namespace theoretica {
 	/// using Euler's method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	inline ode_state<1> integrate_ode_euler(real(*f)(real, real), ode_state<1> s, real h) {
 
 		return ode_state<1>(s.t + h, s.y + h * f(s.t, s.y));
@@ -58,7 +58,7 @@ namespace theoretica {
 	/// using Euler's method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_euler(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
@@ -70,7 +70,7 @@ namespace theoretica {
 	/// using the midpoint method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	inline ode_state<1> integrate_ode_midpoint(real(*f)(real, real), ode_state<1> s, real h) {
 
 		return ode_state<1>(
@@ -83,7 +83,7 @@ namespace theoretica {
 	/// using the midpoint method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_midpoint(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
@@ -97,7 +97,7 @@ namespace theoretica {
 	/// using Heun's method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	inline ode_state<1> integrate_ode_heun(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real y_p = s.y + h * f(s.t, s.y);
@@ -111,7 +111,7 @@ namespace theoretica {
 	/// using Heun's method.
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_heun(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
@@ -123,10 +123,39 @@ namespace theoretica {
 
 
 	/// Integrate numerically a differential equation in one unknown
+	/// using Runge-Kutta's method of second order
+	/// @param f A function which computes the derivative of the state
+	/// @param s The current state of the ODE
+	/// @param h Step size
+	inline ode_state<1> integrate_ode_rk2(real(*f)(real, real), ode_state<1> s, real h) {
+
+		const real k1 = f(s.t, s.y);
+		const real k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
+
+		return ode_state<1>(s.t + h, s.y + k2 * h);
+	}
+
+
+	/// Integrate numerically a differential equation in N unknowns
+	/// using Runge-Kutta's method of second order
+	/// @param f A function which computes the derivative of the state
+	/// @param s The current state of the ODE
+	/// @param h Step size
+	template<unsigned int N>
+	inline ode_state<N> integrate_ode_rk2(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+
+		const vec<N> k1 = f(s.t, s.y);
+		const vec<N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
+
+		return ode_state<N>(s.t + h, s.y + k2 * h);
+	}
+
+
+	/// Integrate numerically a differential equation in one unknown
 	/// using Runge-Kutta's method of fourth order
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	inline ode_state<1> integrate_ode_rk4(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real k1 = f(s.t, s.y);
@@ -142,7 +171,7 @@ namespace theoretica {
 	/// using Runge-Kutta's method of fourth order
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_rk4(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
@@ -159,7 +188,7 @@ namespace theoretica {
 	/// using Kutta's 3/8 rule method
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	inline ode_state<1> integrate_ode_k38(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real k1 = f(s.t, s.y);
@@ -175,7 +204,7 @@ namespace theoretica {
 	/// using Kutta's 3/8 rule method
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
-	/// @param h The real step size
+	/// @param h Step size
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_k38(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
@@ -186,6 +215,89 @@ namespace theoretica {
 
 		return ode_state<N>(s.t + h, s.y + (k1 + 3 * k2 + 3 * k3 + k4) * h / 8.0);
 	}
+
+
+	/// Integrate numerically a differential equation in N unknowns
+	/// using the Dormand-Prince method of sixth order.
+	///
+	/// The Dormand-Prince method is applied with the initial step size and
+	/// further iterations are computed until a small enough step size
+	/// with an estimated error smaller than the tolerance is found,
+	/// halving the step size at each iteration. If the estimated error
+	/// is less than half the tolerance, the step size is doubled to speed
+	/// up calculations. 
+	///
+	/// @param f A function which computes the derivative of the state
+	/// @param s The current state of the ODE
+	/// @param h Step size
+	/// @param tolerance The tolerance between fourth and fifth order solutions
+	// inline ode_state<1> integrate_ode_rkdp(real_function f, ode_state<N> s,
+	// 	real& h, real tolerance = THEORETICA_RKDP_TOL) {
+
+	// 	const real k1 = f(s.t, s.y);
+	// 	const real k2 = f(s.t + h / 5.0,
+	// 		s.y + h * (k1 * 1.0 / 5.0));
+
+	// 	const real k3 = f(s.t + h * 3.0 / 10.0,
+	// 		s.y + h * (k1 * 3.0 / 40.0 + k2 * 9.0 / 40.0));
+
+	// 	const real k4 = f(s.t + h * 4.0 / 5.0,
+	// 		s.y + h * (k1 * 44.0 / 45.0 - k2 * 56.0 / 15.0 + k3 * 32.0 / 9.0));
+
+	// 	const real k5 = f(s.t + h * 8.0 / 9.0,
+	// 		s.y + h * (k1 * 19372.0/6561.0 - k2 * 25360.0/2187.0 + k3 * 64448.0/6561.0 - k4 * 212.0/729.0));
+
+	// 	const real k6 = f(s.t + h,
+	// 		s.y + h * (k1 * 9017.0/3168.0 - k2 * 355.0/33.0 + k3 * 46732.0/5247.0 + k4 * 49.0/176.0 - k5 * 5103.0/18656.0));
+
+	// 	const real k7 = f(s.t + h,
+	// 		s.y + h * (k1 * 35.0/384 + k3 * 500.0/1113.0 + k4 * 125.0/192.0 - k5 * 2187.0/6784 + k6 * 11.0/84.0));
+
+	// 	real y_4 = k7;
+	// 	real y_best = s.y + h * (
+	// 		  k1 * 5179.0/57600.0	+ k3 * 7571.0/16695.0
+	// 		+ k4 * 393.0/640.0		- k5 * 92097.0 / 339200.0
+	// 		+ k6 * 187.0/2100.0		+ k7 / 40.0);
+
+	// 	return ode_state<1>(s.t + h, s.y + h * (
+	// 		  k1 * 5179.0/57600.0 + k3 * 7571.0/16695.0
+	// 		+ k4 * 393.0/640.0 - k5 * 92097.0 / 339200.0
+	// 		+ k6 * 187.0/2100.0 + k7 / 40.0));
+	// }
+
+
+	/// Integrate numerically a differential equation in N unknowns
+	/// using the Dormand-Prince method of sixth order
+	/// @param f A function which computes the derivative of the state
+	/// @param s The current state of the ODE
+	/// @param h Step size
+	// template<unsigned int N>
+	// inline ode_state<N> integrate_ode_rkdp(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+
+	// 	const vec<N> k1 = f(s.t, s.y);
+	// 	const vec<N> k2 = f(s.t + h / 5.0,
+	// 		s.y + h * (k1 * 1.0 / 5.0));
+
+	// 	const vec<N> k3 = f(s.t + h * 3.0 / 10.0,
+	// 		s.y + h * (k1 * 3.0 / 40.0 + k2 * 9.0 / 40.0));
+
+	// 	const vec<N> k4 = f(s.t + h * 4.0 / 5.0,
+	// 		s.y + h * (k1 * 44.0 / 45.0 - k2 * 56.0 / 15.0 + k3 * 32.0 / 9.0));
+
+	// 	const vec<N> k5 = f(s.t + h * 8.0 / 9.0,
+	// 		s.y + h * (k1 * 19372.0/6561.0 - k2 * 25360.0/2187.0 + k3 * 64448.0/6561.0 - k4 * 212.0/729.0));
+
+	// 	const vec<N> k6 = f(s.t + h,
+	// 		s.y + h * (k1 * 9017.0/3168.0 - k2 * 355.0/33.0 + k3 * 46732.0/5247.0 + k4 * 49.0/176.0 - k5 * 5103.0/18656.0));
+
+	// 	const vec<N> k7 = f(s.t + h,
+	// 		s.y + h * (k1 * 35.0/384 + k3 * 500.0/1113.0 + k4 * 125.0/192.0 - k5 * 2187.0/6784 + k6 * 11.0/84.0));
+
+	// 	return ode_state<N>(s.t + h, s.y + h * (
+	// 		  k1 * 5179.0/57600.0 + k3 * 7571.0/16695.0
+	// 		+ k4 * 393.0/640.0 - k5 * 92097.0 / 339200.0
+	// 		+ k6 * 187.0/2100.0 + k7 / 40.0));
+	// }
 
 
 	/// Integrate numerically a differential equation in 1 unknown

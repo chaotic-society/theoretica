@@ -8,6 +8,7 @@
 
 #include "./polynomial.h"
 #include "../optimization/roots.h"
+#include <functional>
 
 
 namespace theoretica {
@@ -16,7 +17,7 @@ namespace theoretica {
 	/// Polynomial sequence recurrence formula type
 	/// Used for computing orthogonal polynomial basis elements
 	using polyn_recurr_formula
-		= polynomial<real>(*)(polynomial<real>, polynomial<real>, unsigned int);
+		= std::function<polynomial<real>(polynomial<real>, polynomial<real>, unsigned int)>;
 
 
 	/// Generate a polynomial basis using a recursion formula
@@ -96,6 +97,32 @@ namespace theoretica {
 		// L1 = 1 - x
 
 		return gen_polyn_recurr({1}, {1, -1}, laguerre_polyn_recurr, n);
+	}
+
+
+	// Generalized Laguerre polynomials
+
+
+	/// Recursion formula for Generalized Laguerre polynomials
+	inline polynomial<real> general_laguerre_polyn_recurr(
+		polynomial<real> L0, polynomial<real> L1, real alpha, unsigned int i) {
+
+		return (polynomial<real>({2 * (real) i + alpha - 1, -1}) * L1 - (i + alpha - 1) * L0) / i;
+	}
+
+
+	/// Compute the nth Laguerre polynomial
+	inline polynomial<real> general_laguerre_polynomial(real alpha, unsigned int n) {
+
+		// L0 = 1
+		// L1 = 1 + alpha - x
+
+		return gen_polyn_recurr(
+			{1}, {1 + alpha, -1},
+			[alpha](polynomial<real> L0, polynomial<real> L1, unsigned int i)
+			-> polynomial<real> {
+				return general_laguerre_polyn_recurr(L0, L1, alpha, i);
+			}, n);
 	}
 
 
