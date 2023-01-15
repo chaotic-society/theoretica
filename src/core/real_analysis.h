@@ -573,6 +573,42 @@ namespace theoretica {
 	}
 
 
+	/// Compute the n-th positive power of x (where n is natural)
+	/// @param x Any element of a multiplicative algebra
+	/// @param n The integer exponent
+	/// @param neutral_element The neutral element of the given type T
+	/// @return x to the power n
+	///
+	/// @note This function should be preferred when computing the power
+	/// of objects which are not strictly numbers.
+	template<typename T = real>
+	TH_CONSTEXPR inline T upow(T x, unsigned int n, T neutral_element = T(1)) {
+
+		if(n == 0)
+			return neutral_element;
+
+		T res = x;
+		T x_sqr = x * x;
+		unsigned int i = 1;
+
+		// Self-multiply up to biggest power of 2
+		while ((i * 2) <= n) {
+			res = res * res;
+			i *= 2;
+		}
+
+		// Multiply by x^2 for remaining even power
+		for (; i < (n - 1); i += 2)
+			res = res * x_sqr;
+
+		// Multiply for remaining powers
+		for (; i < n; ++i)
+			res = res * x;
+
+		return res;
+	}
+
+
 	/// Compute the factorial of n
 	template<typename IntType = unsigned long long int>
 	TH_CONSTEXPR inline IntType fact(unsigned int n) {

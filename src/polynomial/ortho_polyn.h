@@ -10,6 +10,8 @@
 #include "../optimization/roots.h"
 #include <functional>
 
+#include <iostream>
+
 
 namespace theoretica {
 
@@ -79,6 +81,60 @@ namespace theoretica {
 	}
 
 
+	// Associated Legendre polynomial
+	inline std::function<real(real)> assoc_legendre_polynomial(unsigned int l, int m) {
+
+		real K = pow(-1, m);
+		polynomial<real> L = legendre_polynomial(l);
+
+
+		if(m < 0) {
+			m = -m;
+			K *= pow(-1, m) * fact(l + m) / fact(l - m);
+		}
+
+		for (int i = 0; i < m; ++i)
+			L = deriv_polynomial(L);
+
+
+		if(m % 2 == 0) {
+
+			return [=](real x) {
+				return pow(1 - x * x, m / 2) * L(x) / K;
+			};
+
+		} else {
+
+			return [=](real x) {
+				return sqrt(pow(1 - x * x, m)) * L(x) / K;
+			};
+		}
+	}
+
+
+	// Associated Legendre polynomial
+	inline polynomial<real> assoc_legendre_polynomial_even(unsigned int l, int m) {
+
+		if(m % 2 != 0)
+			TH_MATH_ERROR("assoc_legendre_polynomial_even", m, IMPOSSIBLE_OPERATION);
+
+		real K = 1;
+
+		if(m < 0) {
+			m = -m;
+			K *= fact(l + m) / fact(l - m);
+		}
+
+		polynomial<real> L = legendre_polynomial(l);
+		polynomial<real> P = upow(polynomial<real>({1, 0, -1}), m / 2);
+
+		for (int i = 0; i < m; ++i)
+			L = deriv_polynomial(L);
+
+		return L * P / K;
+	}
+
+
 	// Laguerre polynomials
 
 
@@ -119,8 +175,7 @@ namespace theoretica {
 
 		return gen_polyn_recurr(
 			{1}, {1 + alpha, -1},
-			[alpha](polynomial<real> L0, polynomial<real> L1, unsigned int i)
-			-> polynomial<real> {
+			[alpha](polynomial<real> L0, polynomial<real> L1, unsigned int i) {
 				return general_laguerre_polyn_recurr(L0, L1, alpha, i);
 			}, n);
 	}

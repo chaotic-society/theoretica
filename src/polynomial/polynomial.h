@@ -422,7 +422,7 @@ namespace theoretica {
 						continue;
 
 					res << (coeff[i] >= 0 ? "+ " : "- ");
-					res << coeff[i];
+					res << abs(coeff[i]);
 
 					if(i) {
 						res << unknown << "^" << i;
