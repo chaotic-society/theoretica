@@ -10,9 +10,35 @@
 #include "../calculus/derivation.h"
 #include "../autodiff/dual.h"
 #include "../autodiff/dual2.h"
+#include "../algebra/vec.h"
 
 
 namespace theoretica {
+
+
+	/// Find candidate intervals for root finding
+	template<typename RealFunction>
+	inline std::vector<vec2> find_root_intervals(RealFunction f, real a, real b, unsigned int steps = 0) {
+
+		std::vector<vec2> res;
+
+		// Default step size is a hundredth of the interval
+		if(steps == 0)
+			steps = 100;
+
+		const real dx = (b - a) / (real) steps;
+
+		for (unsigned int i = 0; i < steps - 1; ++i) {
+			
+			const real x1 = a + i * dx;
+			const real x2 = a + (i + 1) * dx;
+
+			if(f(x1) * f(x2) <= 0)
+				res.push_back({x1, x2});
+		}
+
+		return res;
+	}
 
 
 	/// Approximate a root of an arbitrary function using bisection

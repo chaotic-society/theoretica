@@ -14,10 +14,6 @@
 #include "./core/vec_buff.h"
 
 
-// Log a variable to stdout
-#define LOG(x) (std::cout << #x << " = " << x << std::endl)
-
-
 namespace theoretica {
 
 

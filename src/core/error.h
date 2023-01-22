@@ -214,4 +214,9 @@ namespace theoretica {
 #endif
 
 
+#define TH_DEBUG(VARIABLE) { \
+	std::cout << __FILE__ << ":" << __LINE__ << ": " \
+	<< #VARIABLE << " = " << VARIABLE << std::endl; }
+
+
 #endif

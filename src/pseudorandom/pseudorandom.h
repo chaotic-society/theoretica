@@ -154,7 +154,7 @@ namespace theoretica {
 	///
 	/// An offset is added to the 64-bit seed and the result is squared,
 	/// taking the middle 64-bit of the 128-bit result.
-	uint64_t rand_middlesquare(uint64_t seed, uint64_t offset = 765872292751861) {
+	inline uint64_t rand_middlesquare(uint64_t seed, uint64_t offset = 765872292751861) {
 
 		seed += offset;
 		uint64_t high, low;

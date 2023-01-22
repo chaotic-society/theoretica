@@ -181,6 +181,18 @@ namespace theoretica {
 		return out;
 	}
 
+
+	/// Stream a vector in string representation to an output stream (std::ostream)
+	template<typename T>
+	inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& obj) {
+
+		for (T x : obj) {
+			out << x << std::endl;
+		}
+
+		return out;
+	}
+
 }
 
 #endif
