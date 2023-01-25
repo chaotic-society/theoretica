@@ -536,6 +536,32 @@ namespace theoretica {
 	}
 
 
+	/// Find the integer logarithm of x.
+	/// Defined a the biggest n so that 2^n is smaller than x.
+	/// @param x An integer value
+	/// @return The integer logarithm of x
+	template<typename UnsignedIntType = uint64_t>
+	inline UnsignedIntType ilog2(UnsignedIntType x) {
+
+		if(x == 0) {
+			TH_MATH_ERROR("ilog2", x, OUT_OF_RANGE);
+			return -inf();
+		}
+
+		UnsignedIntType bit = 0;
+
+		// Find the highest set bit
+		for (int i = (sizeof(UnsignedIntType) * 8 - 1); i > 0; --i) {
+			if(x & ((UnsignedIntType) 1 << i)) {
+				bit = i;
+				break;
+			}
+		}
+
+		return bit;
+	}
+
+
 	/// Compute the n-th power of x (where n is natural)
 	/// @param x Any element of a multiplicative algebra
 	/// @param n The integer exponent
