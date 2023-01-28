@@ -20,18 +20,20 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] log2 - Architecture-independent version has low precision
   - [ ] log10 - Architecture-independent version has low precision
   - [ ] ln - Architecture-independent version has low precision
+  - [x] ilog2
   - [x] pow
   - [x] powf
   - [x] fact
+  - [x] double_fact
   - [x] exp
   - [x] sin
   - [x] cos
-  - [x] tan - Architecture-independent version has low precision
-  - [x] cot - Architecture-independent version has low precision
-  - [x] atan - Architecture-independent version has low precision
-  - [x] asin - Architecture-independent version has low precision
-  - [x] acos - Architecture-independent version has low precision
-  - [x] atan2 - Architecture-independent version has low precision
+  - [ ] tan - Architecture-independent version has low precision
+  - [ ] cot - Architecture-independent version has low precision
+  - [x] atan
+  - [ ] asin - Architecture-independent version has low precision
+  - [ ] acos - Architecture-independent version has low precision
+  - [ ] atan2 - Architecture-independent version has low precision
   - [x] sinh
   - [x] cosh
   - [x] tanh
@@ -40,7 +42,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] radians
   - [x] degrees
 
-- Vector algebra (_algebra/vector.h_) - **NO TEST CASES**
+- Vector algebra (_algebra/vector.h_)
   - [x] Addition and subtraction (_operator+_, _-_)
   - [x] +=, -=, *= operators
   - [x] Scalar multiplication (_operator*_)
@@ -51,7 +53,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Euclidean distance
   - [x] Lp-norm
 
-- Matrix algebra (_algebra/mat.h_) - **NO TEST CASES**
+- Matrix algebra (_algebra/mat.h_)
   - [x] Addition and subtraction (_operator+_, _-_)
   - [x] Scalar multiplication (_operator*_)
   - [x] Matrix-Vector product (_operator*_, _transform_)
@@ -103,7 +105,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Matrix form
   - [x] Rotation construction
 
-- Polynomials (_polynomial.h_) - **NO TEST CASES**
+- Polynomials (_polynomial.h_)
   - [x] Addition and subtraction
   - [x] Multiplication
   - [x] Differentiation
@@ -148,7 +150,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] Conversion from and to vector
   - [ ] Matrix form
 
-- Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_, _autodiff/dual2_functions.h_) - **NO TEST CASES**
+- Dual functions and Automatic Differentiation (_autodiff/dual_functions.h_, _autodiff/dual2_functions.h_)
   - [x] square
   - [x] cube
   - [x] pow
