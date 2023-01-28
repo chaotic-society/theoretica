@@ -562,6 +562,33 @@ namespace theoretica {
 	}
 
 
+	/// Get the smallest power 2 bigger or equal to x.
+	/// This function is useful to add padding to vectors and matrices
+	/// to apply recursive algorithms such as the FFT.
+	/// @param x An integer number
+	/// @return The smallest power of 2 bigger or equal to x
+	template<typename UnsignedIntType = uint64_t>
+	inline UnsignedIntType pad2(UnsignedIntType x) {
+
+		UnsignedIntType bit = 0;
+
+		for (int i = (sizeof(UnsignedIntType) * 8 - 1); i > 0; --i) {
+			if(x & ((UnsignedIntType) 1 << i)) {
+
+				// Find the highest set bit
+				bit = i;
+
+				// Check if x is a power of 2
+				for (int j = 0; j < i; ++j)
+					if(x & ((UnsignedIntType) 1 << j))
+						return (1 << (bit + 1));
+			}
+		}
+
+		return (1 << bit);
+	}
+
+
 	/// Compute the n-th power of x (where n is natural)
 	/// @param x Any element of a multiplicative algebra
 	/// @param n The integer exponent
@@ -608,7 +635,7 @@ namespace theoretica {
 	/// @note This function should be preferred when computing the power
 	/// of objects which are not strictly numbers.
 	template<typename T = real>
-	TH_CONSTEXPR inline T upow(T x, unsigned int n, T neutral_element = T(1)) {
+	TH_CONSTEXPR inline T ipow(T x, unsigned int n, T neutral_element = T(1)) {
 
 		if(n == 0)
 			return neutral_element;

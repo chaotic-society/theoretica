@@ -178,6 +178,34 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate(
+			"th::ilog2(uint32_t)",
+			[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
+			[](real x) { return uint32_t(std::log2(x)); },
+			interval(1, MAX));
+
+
+		prec::estimate(
+			"th::ilog2(uint64_t)",
+			[](real x) { return ilog2<uint64_t>(uint64_t(x)); },
+			[](real x) { return uint64_t(std::log2(x)); },
+			interval(1, MAX));
+
+
+		prec::estimate(
+			"th::pad2(uint32_t)",
+			[](real x) { return pad2<uint32_t>(uint32_t(x)); },
+			[](real x) { return 1 << (uint32_t) ceil(std::log2(x)); },
+			interval(1, MAX));
+
+
+		prec::estimate(
+			"th::pad2(uint64_t)",
+			[](real x) { return pad2<uint64_t>(uint64_t(x)); },
+			[](real x) { return 1 << (uint64_t) ceil(std::log2(x)); },
+			interval(1, MAX));
+
+
+		prec::estimate(
 			"th::exp(real)",
 			REAL_LAMBDA(th::exp),
 			REAL_LAMBDA(std::exp),

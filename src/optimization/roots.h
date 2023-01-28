@@ -17,15 +17,14 @@ namespace theoretica {
 
 
 	/// Find candidate intervals for root finding
+	/// @param f The function of real variable
+	/// @param a The lower extreme of the region of interest
+	/// @param b The upper extreme of the region of interest
+	/// @param steps The number of subintervals to check (optional)
 	template<typename RealFunction>
-	inline std::vector<vec2> find_root_intervals(RealFunction f, real a, real b, unsigned int steps = 0) {
+	inline std::vector<vec2> find_root_intervals(RealFunction f, real a, real b, unsigned int steps = 10) {
 
 		std::vector<vec2> res;
-
-		// Default step size is a hundredth of the interval
-		if(steps == 0)
-			steps = 100;
-
 		const real dx = (b - a) / (real) steps;
 
 		for (unsigned int i = 0; i < steps - 1; ++i) {
@@ -58,7 +57,7 @@ namespace theoretica {
 
 		unsigned int iter = 0;
 
-		while(x_max - x_min > BISECTION_APPROX_TOL && iter <= MAX_BISECTION_ITER) {
+		while((x_max - x_min) > BISECTION_APPROX_TOL && iter <= MAX_BISECTION_ITER) {
 
 			x_avg = (x_max + x_min) / 2.0;
 
@@ -329,6 +328,47 @@ namespace theoretica {
 		}
 
 		return x;
+	}
+
+
+	/// Find the roots of a function inside a given interval
+	/// @param f The function of real variable
+	/// @param a The lower extreme of the interval
+	/// @param b The upper extreme of the interval
+	/// @param steps The number of subintervals to check for alternating sign (optional)
+	///
+	/// @note If the number of roots inside the interval is completely unknown,
+	/// using many more steps should be preferred, to ensure all roots are found.
+	template<typename RealFunction>
+	inline std::vector<real> roots(RealFunction f, real a, real b, real steps = 10) {
+
+		// Find candidate intervals
+		std::vector<vec2> intervals = find_root_intervals(f, a, b, steps);
+
+		std::vector<real> res;
+		res.reserve(intervals.size());
+
+		// Iterate through all candidate intervals and refine the results
+		for (unsigned int i = 0; i < intervals.size(); ++i) {
+
+			// Check whether the extremes of the candidate intervals
+			// happen to coincide with the roots
+			if(abs(f(intervals[i][0])) <= MACH_EPSILON) {
+				res.push_back(intervals[i][0]);
+				continue;
+			}
+
+			if(abs(f(intervals[i][1])) <= MACH_EPSILON) {
+				res.push_back(intervals[i][1]);
+				continue;
+			}
+
+			// Approximate the roots using bisection inside each interval
+			res.push_back(
+				approx_root_bisection(f, intervals[i][0], intervals[i][1]));
+		}
+
+		return res;
 	}
 
 }

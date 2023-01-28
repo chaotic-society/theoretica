@@ -126,7 +126,7 @@ namespace theoretica {
 		}
 
 		polynomial<real> L = legendre_polynomial(l);
-		polynomial<real> P = upow(polynomial<real>({1, 0, -1}), m / 2);
+		polynomial<real> P = ipow(polynomial<real>({1, 0, -1}), m / 2);
 
 		for (int i = 0; i < m; ++i)
 			L = deriv_polynomial(L);
