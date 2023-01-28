@@ -15,8 +15,15 @@ real df_dt = gradient(f, eta) * J * gradient(H, eta);
 
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
-## Dependencies
-The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. **You can include it in your project straight away!**
+## Table of Contents
+- [Key Features](https://github.com/chaotic-society/theoretica#key-features)
+- [Dependencies](https://github.com/chaotic-society/theoretica#dependencies)
+- [Setup](https://github.com/chaotic-society/theoretica#setup)
+- [Examples](https://github.com/chaotic-society/theoretica#examples)
+- [Contributing](https://github.com/chaotic-society/theoretica#contributing)
+- [Testing](https://github.com/chaotic-society/theoretica#testing)
+- [Other informations](https://github.com/chaotic-society/theoretica#other-informations)
+---
 
 ## Key Features
 This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/FEATURES.md)
@@ -31,7 +38,9 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Approximation of roots, extrema, derivatives and integrals of real functions
 - Numerical integration of **Ordinary Differential Equations** (Euler, Heun, RK4, K38, multistep)
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
-- Special functions (experimental)
+
+## Dependencies
+The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
@@ -68,15 +77,17 @@ int main() {
 ## Contributing
 Contributions are welcome and very appreciated! Make sure to read the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to know more about how you can help. If you participate, you are expected to follow the [Code of Conduct](https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md).
 
-## License
-This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
-
 ## Testing
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
 The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
 
-## Macros
+## Other informations
+
+### License
+This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
+
+### Macros
 These are common macros that can be defined to change the library's behaviour:
 | Macro | Description |
 | ----- | ----------- |
@@ -91,5 +102,5 @@ These are common macros that can be defined to change the library's behaviour:
 
 See `constants.h` for more specific macros.
 
-## Error handling
+### Error handling
 The library uses `errno` and `th::math_exception` (if enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.
