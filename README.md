@@ -57,6 +57,14 @@ int main() {
 }
 ```
 
+### Other examples
+- [Basic statistics](https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp)
+- [Automatic differentiation](https://github.com/chaotic-society/theoretica/blob/master/examples/automatic_differentiation.cpp)
+- [Sampling distributions](https://github.com/chaotic-society/theoretica/blob/master/examples/sampling_distributions.cpp)
+- [Monte Carlo methods](https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_comparison.cpp)
+- [Fitting data](https://github.com/chaotic-society/theoretica/blob/master/examples/logfit.cpp)
+- [Automatic error propagation](https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp)
+
 ## Contributing
 Contributions are welcome and very appreciated! Make sure to read the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to know more about how you can help. If you participate, you are expected to follow the [Code of Conduct](https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md).
 
@@ -66,7 +74,7 @@ This project is currently under the [GNU Lesser General Public License 3.0](http
 ## Testing
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
-The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
+The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
 
 ## Macros
 These are common macros that can be defined to change the library's behaviour:
