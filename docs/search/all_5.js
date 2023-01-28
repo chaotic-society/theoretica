@@ -8,12 +8,13 @@ var searchData=
   ['failedchecks_5',['failedChecks',['../structchebyshev_1_1err_1_1err__state.html#ac6d839b234d69e973128d1be932e90fb',1,'chebyshev::err::err_state']]],
   ['failedtests_6',['failedTests',['../structchebyshev_1_1prec_1_1prec__state.html#adbf907a6637eeed3c1fd4ded9034bb2a',1,'chebyshev::prec::prec_state']]],
   ['find_5forder_7',['find_order',['../classtheoretica_1_1polynomial.html#adcf980f612a0b87804f4f65c790243a5',1,'theoretica::polynomial']]],
-  ['floor_8',['floor',['../namespacetheoretica.html#afad5c92586d6a0f841bfcd3759eff317',1,'theoretica']]],
-  ['fract_9',['fract',['../namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a',1,'theoretica']]],
-  ['from_5froots_10',['from_roots',['../classtheoretica_1_1polynomial.html#ae4c243ab31f6e379fe41d7186923d116',1,'theoretica::polynomial']]],
-  ['from_5fvec_11',['from_vec',['../classtheoretica_1_1dual.html#a8d557fd083d30bed1e77c611bf002b9e',1,'theoretica::dual::from_vec()'],['../classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb',1,'theoretica::dual2::from_vec()'],['../classtheoretica_1_1complex.html#a4f65cc25118a6a9e802f7d0404a2d752',1,'theoretica::complex::from_vec()']]],
-  ['func_12',['func',['../structchebyshev_1_1prec_1_1estimate__request.html#ac6d8ea98e04ed4a5651aae2eb3f2ee5f',1,'chebyshev::prec::estimate_request']]],
-  ['funcexpected_13',['funcExpected',['../structchebyshev_1_1prec_1_1estimate__request.html#a2bd790fa3a5e2ff29d24bf1c69c51c1c',1,'chebyshev::prec::estimate_request']]],
-  ['funcname_14',['funcName',['../structchebyshev_1_1prec_1_1estimate__result.html#a1038aca34e6efaeb503cc445dab52790',1,'chebyshev::prec::estimate_result::funcName()'],['../structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa',1,'chebyshev::prec::equation_result::funcName()'],['../structchebyshev_1_1prec_1_1estimate__request.html#a7a8a1d7c68f82bc81fdd1d6cc697fbef',1,'chebyshev::prec::estimate_request::funcName()'],['../structchebyshev_1_1prec_1_1estimate__custom__request.html#a58f12f55b9c94f8f3447df9658a09408',1,'chebyshev::prec::estimate_custom_request::funcName()'],['../structchebyshev_1_1prec_1_1equation__request.html#a4bb5dbe4869f5b134996e1d9c0b0a581',1,'chebyshev::prec::equation_request::funcName()']]],
-  ['function_2eh_15',['function.h',['../function_8h.html',1,'']]]
+  ['find_5froot_5fintervals_8',['find_root_intervals',['../namespacetheoretica.html#a64c11855cee4c627ff303e9b50845a75',1,'theoretica']]],
+  ['floor_9',['floor',['../namespacetheoretica.html#afad5c92586d6a0f841bfcd3759eff317',1,'theoretica']]],
+  ['fract_10',['fract',['../namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a',1,'theoretica']]],
+  ['from_5froots_11',['from_roots',['../classtheoretica_1_1polynomial.html#ae4c243ab31f6e379fe41d7186923d116',1,'theoretica::polynomial']]],
+  ['from_5fvec_12',['from_vec',['../classtheoretica_1_1dual.html#a8d557fd083d30bed1e77c611bf002b9e',1,'theoretica::dual::from_vec()'],['../classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb',1,'theoretica::dual2::from_vec()'],['../classtheoretica_1_1complex.html#a4f65cc25118a6a9e802f7d0404a2d752',1,'theoretica::complex::from_vec()']]],
+  ['func_13',['func',['../structchebyshev_1_1prec_1_1estimate__request.html#ac6d8ea98e04ed4a5651aae2eb3f2ee5f',1,'chebyshev::prec::estimate_request']]],
+  ['funcexpected_14',['funcExpected',['../structchebyshev_1_1prec_1_1estimate__request.html#a2bd790fa3a5e2ff29d24bf1c69c51c1c',1,'chebyshev::prec::estimate_request']]],
+  ['funcname_15',['funcName',['../structchebyshev_1_1prec_1_1estimate__result.html#a1038aca34e6efaeb503cc445dab52790',1,'chebyshev::prec::estimate_result::funcName()'],['../structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa',1,'chebyshev::prec::equation_result::funcName()'],['../structchebyshev_1_1prec_1_1estimate__request.html#a7a8a1d7c68f82bc81fdd1d6cc697fbef',1,'chebyshev::prec::estimate_request::funcName()'],['../structchebyshev_1_1prec_1_1estimate__custom__request.html#a58f12f55b9c94f8f3447df9658a09408',1,'chebyshev::prec::estimate_custom_request::funcName()'],['../structchebyshev_1_1prec_1_1equation__request.html#a4bb5dbe4869f5b134996e1d9c0b0a581',1,'chebyshev::prec::equation_request::funcName()']]],
+  ['function_2eh_16',['function.h',['../function_8h.html',1,'']]]
 ];

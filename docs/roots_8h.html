@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('roots_8h.html',''); initResizable(); }
 <code>#include &quot;<a class="el" href="derivation_8h_source.html">../calculus/derivation.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dual_8h_source.html">../autodiff/dual.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dual2_8h_source.html">../autodiff/dual2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 </div>
 <p><a href="roots_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -115,6 +116,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a64c11855cee4c627ff303e9b50845a75"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a64c11855cee4c627ff303e9b50845a75"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; vec2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a64c11855cee4c627ff303e9b50845a75">theoretica::find_root_intervals</a> (RealFunction f, real a, real b, unsigned int steps=10)</td></tr>
+<tr class="memdesc:a64c11855cee4c627ff303e9b50845a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find candidate intervals for root finding.  <a href="namespacetheoretica.html#a64c11855cee4c627ff303e9b50845a75">More...</a><br /></td></tr>
+<tr class="separator:a64c11855cee4c627ff303e9b50845a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa51700f99ca632df7d692a5ebc2b91c1"><td class="memTemplParams" colspan="2"><a id="aa51700f99ca632df7d692a5ebc2b91c1" name="aa51700f99ca632df7d692a5ebc2b91c1"></a>
 template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:aa51700f99ca632df7d692a5ebc2b91c1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::approx_root_bisection</b> (RealFunction f, real a, real b)</td></tr>
@@ -168,6 +173,10 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_ro
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_polyn_root_chebyshev</b> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:ac1ad6e0cf459b4fb68c41f781b0e7afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method. <br /></td></tr>
 <tr class="separator:ac1ad6e0cf459b4fb68c41f781b0e7afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9003cf7eaf7124e65f37933e720f27d"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ac9003cf7eaf7124e65f37933e720f27d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac9003cf7eaf7124e65f37933e720f27d">theoretica::roots</a> (RealFunction f, real a, real b, real steps=10)</td></tr>
+<tr class="memdesc:ac9003cf7eaf7124e65f37933e720f27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the roots of a function inside a given interval.  <a href="namespacetheoretica.html#ac9003cf7eaf7124e65f37933e720f27d">More...</a><br /></td></tr>
+<tr class="separator:ac9003cf7eaf7124e65f37933e720f27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Root approximation of real functions. </p>
@@ -177,7 +186,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::approx_po
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Thu Dec 29 2022 11:52:58 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat Jan 28 2023 23:01:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -83,11 +83,11 @@ var NAVTREEINDEX =
 "classtheoretica_1_1dual2.html#a74c9ef32502662b3c179d0d3b83796d6",
 "classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55",
 "constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e",
-"index.html#autotoc_md3",
-"namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2",
-"namespacetheoretica.html#acf52f04c3a1cefbb9dabab21cac0abbb",
-"real__analysis_8h.html#a1efe3bd7ff87719aab92b67cec535096",
-"structchebyshev_1_1prec_1_1estimate__result.html#a98590a769ad65db63608ede614b5722d"
+"index.html#autotoc_md1",
+"namespacetheoretica.html#a3450aa75a960635e9f33a6dabb22752b",
+"namespacetheoretica.html#ac8e3b9080dde2e7542682cf79f0bbf50",
+"rand__dist_8h.html#a55c93a1f60698d75caa21a305e2ba107",
+"structchebyshev_1_1prec_1_1estimate__request.html#a2d6c801a7e86c46fc187ee442604d28a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

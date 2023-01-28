@@ -1,10 +1,12 @@
 var ortho__polyn_8h =
 [
-    [ "polyn_recurr_formula", "ortho__polyn_8h.html#adb4ba8e2a5511c5650d331d0209013ff", null ],
+    [ "polyn_recurr_formula", "ortho__polyn_8h.html#adcb53498374f76292a3da8bb8c785341", null ],
     [ "chebyshev1_polynomial", "ortho__polyn_8h.html#a085e34f437a529b59778090e0cb122e5", null ],
     [ "chebyshev2_polynomial", "ortho__polyn_8h.html#a3450aa75a960635e9f33a6dabb22752b", null ],
     [ "chebyshev_polyn_recurr", "ortho__polyn_8h.html#ac8e77e33cee4661bf1a52bec32fa434c", null ],
     [ "gen_polyn_recurr", "ortho__polyn_8h.html#a5adf7d2f3094d32dd9d4059ec86247db", null ],
+    [ "general_laguerre_polyn_recurr", "ortho__polyn_8h.html#aaeafda1fc6155cc96c62d9d777d8f709", null ],
+    [ "general_laguerre_polynomial", "ortho__polyn_8h.html#ab3e5e8380097d9ad25a51413bcb244d3", null ],
     [ "hermite_polyn_normalization", "ortho__polyn_8h.html#a7659e1b121c8c96e884b95bb4ae45ebc", null ],
     [ "hermite_polyn_recurr", "ortho__polyn_8h.html#a2da3a4e4195c5c77e99db62ae442fa19", null ],
     [ "hermite_polynomial", "ortho__polyn_8h.html#afd97a0d6d99915f065567958760164f4", null ],

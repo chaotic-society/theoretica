@@ -11,5 +11,7 @@ var roots_8h =
     [ "approx_root_halley", "roots_8h.html#adf31ac9c03d1bf657ac87ebac89285bf", null ],
     [ "approx_root_newton", "roots_8h.html#a0a4ac513ec5910fb28aaacbdd75583b1", null ],
     [ "approx_root_newton", "roots_8h.html#a229a29edbdd8530878f3a2c21073fcb3", null ],
-    [ "approx_root_steffensen", "roots_8h.html#a99090487fe31d6d400bf82ac833c3b72", null ]
+    [ "approx_root_steffensen", "roots_8h.html#a99090487fe31d6d400bf82ac833c3b72", null ],
+    [ "find_root_intervals", "roots_8h.html#a64c11855cee4c627ff303e9b50845a75", null ],
+    [ "roots", "roots_8h.html#ac9003cf7eaf7124e65f37933e720f27d", null ]
 ];

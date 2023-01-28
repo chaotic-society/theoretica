@@ -103,6 +103,8 @@ $(document).ready(function(){initNavTree('ortho__polyn_8h.html',''); initResizab
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="polynomial_8h_source.html">./polynomial.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="roots_8h_source.html">../optimization/roots.h</a>&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="ortho__polyn_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -114,10 +116,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:adb4ba8e2a5511c5650d331d0209013ff"><td class="memItemLeft" align="right" valign="top"><a id="adb4ba8e2a5511c5650d331d0209013ff" name="adb4ba8e2a5511c5650d331d0209013ff"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::polyn_recurr_formula</b> = polynomial&lt; real &gt;(*)(polynomial&lt; real &gt;, polynomial&lt; real &gt;, unsigned int)</td></tr>
-<tr class="memdesc:adb4ba8e2a5511c5650d331d0209013ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial sequence recurrence formula type Used for computing orthogonal polynomial basis elements. <br /></td></tr>
-<tr class="separator:adb4ba8e2a5511c5650d331d0209013ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcb53498374f76292a3da8bb8c785341"><td class="memItemLeft" align="right" valign="top"><a id="adcb53498374f76292a3da8bb8c785341" name="adcb53498374f76292a3da8bb8c785341"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::polyn_recurr_formula</b> = std::function&lt; polynomial&lt; real &gt;(polynomial&lt; real &gt;, polynomial&lt; real &gt;, unsigned int)&gt;</td></tr>
+<tr class="memdesc:adcb53498374f76292a3da8bb8c785341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial sequence recurrence formula type Used for computing orthogonal polynomial basis elements. <br /></td></tr>
+<tr class="separator:adcb53498374f76292a3da8bb8c785341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -135,6 +137,12 @@ polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::legendre_polyn_normalization</b> (unsigned int n)</td></tr>
 <tr class="memdesc:aca937d779d223cab3a43b4236876491a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalization constant for the nth Legendre polynomial. <br /></td></tr>
 <tr class="separator:aca937d779d223cab3a43b4236876491a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c34c73635e03e3c7064a035b122eed"><td class="memItemLeft" align="right" valign="top"><a id="a68c34c73635e03e3c7064a035b122eed" name="a68c34c73635e03e3c7064a035b122eed"></a>
+std::function&lt; real(real)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::assoc_legendre_polynomial</b> (unsigned int l, int m)</td></tr>
+<tr class="separator:a68c34c73635e03e3c7064a035b122eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3085278cb86c36246eca175bc1ee9f"><td class="memItemLeft" align="right" valign="top"><a id="a7d3085278cb86c36246eca175bc1ee9f" name="a7d3085278cb86c36246eca175bc1ee9f"></a>
+polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::assoc_legendre_polynomial_even</b> (unsigned int l, int m)</td></tr>
+<tr class="separator:a7d3085278cb86c36246eca175bc1ee9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b5a48283ac42a9362f25d977d066cf3"><td class="memItemLeft" align="right" valign="top"><a id="a0b5a48283ac42a9362f25d977d066cf3" name="a0b5a48283ac42a9362f25d977d066cf3"></a>
 polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::laguerre_polyn_recurr</b> (polynomial&lt; real &gt; L0, polynomial&lt; real &gt; L1, unsigned int i)</td></tr>
 <tr class="memdesc:a0b5a48283ac42a9362f25d977d066cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursion formula for Laguerre polynomials. <br /></td></tr>
@@ -143,6 +151,14 @@ polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t
 polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::laguerre_polynomial</b> (unsigned int n)</td></tr>
 <tr class="memdesc:af62665bb64745df12234614b05c2dfb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the nth Laguerre polynomial. <br /></td></tr>
 <tr class="separator:af62665bb64745df12234614b05c2dfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeafda1fc6155cc96c62d9d777d8f709"><td class="memItemLeft" align="right" valign="top"><a id="aaeafda1fc6155cc96c62d9d777d8f709" name="aaeafda1fc6155cc96c62d9d777d8f709"></a>
+polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::general_laguerre_polyn_recurr</b> (polynomial&lt; real &gt; L0, polynomial&lt; real &gt; L1, real alpha, unsigned int i)</td></tr>
+<tr class="memdesc:aaeafda1fc6155cc96c62d9d777d8f709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursion formula for Generalized Laguerre polynomials. <br /></td></tr>
+<tr class="separator:aaeafda1fc6155cc96c62d9d777d8f709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e5e8380097d9ad25a51413bcb244d3"><td class="memItemLeft" align="right" valign="top"><a id="ab3e5e8380097d9ad25a51413bcb244d3" name="ab3e5e8380097d9ad25a51413bcb244d3"></a>
+polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::general_laguerre_polynomial</b> (real alpha, unsigned int n)</td></tr>
+<tr class="memdesc:ab3e5e8380097d9ad25a51413bcb244d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the nth Laguerre polynomial. <br /></td></tr>
+<tr class="separator:ab3e5e8380097d9ad25a51413bcb244d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da3a4e4195c5c77e99db62ae442fa19"><td class="memItemLeft" align="right" valign="top"><a id="a2da3a4e4195c5c77e99db62ae442fa19" name="a2da3a4e4195c5c77e99db62ae442fa19"></a>
 polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::hermite_polyn_recurr</b> (polynomial&lt; real &gt; H0, polynomial&lt; real &gt; H1, unsigned int i)</td></tr>
 <tr class="memdesc:a2da3a4e4195c5c77e99db62ae442fa19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursion formula for Hermite polynomials. <br /></td></tr>
@@ -185,7 +201,7 @@ polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_80b12a04080342cac66dddc13ab3e1e7.html">polynomial</a></li><li class="navelem"><a class="el" href="ortho__polyn_8h.html">ortho_polyn.h</a></li>
-    <li class="footer">Generated on Thu Dec 29 2022 11:52:58 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sat Jan 28 2023 23:01:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

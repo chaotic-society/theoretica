@@ -14,6 +14,8 @@ var odes_8h =
     [ "integrate_ode_k38", "odes_8h.html#a586d26495e48bc20c35c8afac60a580c", null ],
     [ "integrate_ode_midpoint", "odes_8h.html#a599ac0edf98cb7ed53f9554c29b74da9", null ],
     [ "integrate_ode_midpoint", "odes_8h.html#a74bcfb58dfec609f28f1fa45064fc827", null ],
+    [ "integrate_ode_rk2", "odes_8h.html#ade5ab7f304528bb15afe6e7733e2190d", null ],
+    [ "integrate_ode_rk2", "odes_8h.html#a6f0a84adf0419bfa89217eb10250a5a0", null ],
     [ "integrate_ode_rk4", "odes_8h.html#adcd5fd5128198f53ec484aed09b99542", null ],
     [ "integrate_ode_rk4", "odes_8h.html#a016fb5701cea5c9b53c7aaefd7fc6d00", null ]
 ];
