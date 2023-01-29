@@ -81,8 +81,12 @@ multivariate_minimization:
 	@echo Compiling \"Multivariate minimization\" example...
 	@g++ examples/multivariate_minimization.cpp ${CXXFLAGS} -o ./multivariate_minimization
 
+logfit:
+	@echo Compiling \"Log fit\" example...
+	@g++ examples/logfit.cpp ${CXXFLAGS} -o ./logfit
+
 examples: example automatic_differentiation hamiltonian_simulation error_propagation \
-		  statistics sampling_distributions montecarlo_comparison multivariate_minimization
+		  statistics sampling_distributions montecarlo_comparison multivariate_minimization logfit
 
 
 # Benchmarks

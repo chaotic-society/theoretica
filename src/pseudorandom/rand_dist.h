@@ -403,6 +403,12 @@ namespace theoretica {
 		}
 
 
+		/// Returns a uniform distribution sampler
+		static pdf_sampler uniform(real a, real b, const PRNG& g) {
+			return pdf_sampler(rand_uniform, {a, b}, g);
+		}
+
+
 		/// Returns a Gaussian distribution sampler
 		static pdf_sampler gaussian(real mean, real sigma, const PRNG& g) {
 			return pdf_sampler(rand_gaussian, {mean, sigma}, g);
@@ -421,9 +427,21 @@ namespace theoretica {
 		}
 
 
+		/// Returns a Rayleigh distribution sampler
+		static pdf_sampler rayleigh(real sigma, const PRNG& g) {
+			return pdf_sampler(rand_rayleigh, {sigma}, g);
+		}
+
+
 		/// Returns a Pareto distribution sampler
 		static pdf_sampler pareto(real x_m, real alpha, const PRNG& g) {
 			return pdf_sampler(rand_pareto, {x_m, alpha}, g);
+		}
+
+
+		/// Returns a Laplace distribution sampler
+		static pdf_sampler laplace(real mu, real b, const PRNG& g) {
+			return pdf_sampler(rand_laplace, {mu, b}, g);
 		}
 
 	};

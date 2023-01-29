@@ -1,3 +1,8 @@
+
+///
+/// @file quantum.h Quantum mechanics
+///
+
 #ifndef THEORETICA_QUANTUM_H
 #define THEORETICA_QUANTUM_H
 
