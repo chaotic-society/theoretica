@@ -26,27 +26,33 @@ var NAVTREE =
 [
   [ "Theoretica", "index.html", [
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Dependencies", "index.html#autotoc_md1", null ],
-      [ "Key Features", "index.html#autotoc_md2", null ],
-      [ "Setup", "index.html#autotoc_md3", null ],
-      [ "Examples", "index.html#autotoc_md4", [
+      [ "Table of Contents", "index.html#autotoc_md1", null ],
+      [ "- <a href=\"https://github.com/chaotic-society/theoretica#other-informations\" >Other informations</a>", "index.html#autotoc_md2", null ],
+      [ "Key Features", "index.html#autotoc_md3", null ],
+      [ "Dependencies", "index.html#autotoc_md4", null ],
+      [ "Setup", "index.html#autotoc_md5", null ],
+      [ "Examples", "index.html#autotoc_md6", [
         [ "A short example", "index.html#autotoc_md0", null ],
-        [ "Quickstart", "index.html#autotoc_md5", null ]
+        [ "Quickstart", "index.html#autotoc_md7", null ],
+        [ "Other examples", "index.html#autotoc_md8", null ]
       ] ],
-      [ "Contributing", "index.html#autotoc_md6", null ],
-      [ "License", "index.html#autotoc_md7", null ],
-      [ "Testing", "index.html#autotoc_md8", null ],
-      [ "Macros", "index.html#autotoc_md9", null ],
-      [ "Error handling", "index.html#autotoc_md10", null ],
-      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
-      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
-      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", null ],
-      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md15", null ],
-      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", [
-        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ]
+      [ "Contributing", "index.html#autotoc_md9", null ],
+      [ "Testing", "index.html#autotoc_md10", null ],
+      [ "Other informations", "index.html#autotoc_md11", [
+        [ "License", "index.html#autotoc_md12", null ],
+        [ "Macros", "index.html#autotoc_md13", null ],
+        [ "Error handling", "index.html#autotoc_md14", null ]
       ] ],
-      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ]
+      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", null ],
+      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
+      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
+      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ],
+      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", [
+        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ]
+      ] ],
+      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
     ] ],
+    [ "Tests", "md_test_tests.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -84,10 +90,10 @@ var NAVTREEINDEX =
 "classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55",
 "constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e",
 "index.html#autotoc_md1",
-"namespacetheoretica.html#a3450aa75a960635e9f33a6dabb22752b",
-"namespacetheoretica.html#ac8e3b9080dde2e7542682cf79f0bbf50",
-"rand__dist_8h.html#a55c93a1f60698d75caa21a305e2ba107",
-"structchebyshev_1_1prec_1_1estimate__request.html#a2d6c801a7e86c46fc187ee442604d28a"
+"namespacetheoretica.html#a321928d10b6606c1cba0232a613e6dfe",
+"namespacetheoretica.html#ac8839aa97612a40db14f1c8818b463d0",
+"quat_8h.html",
+"structchebyshev_1_1prec_1_1estimate__custom__request.html#ab427ef0c402da9b5ebe05579e53774b7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

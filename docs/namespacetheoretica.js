@@ -338,7 +338,6 @@ var namespacetheoretica =
     [ "minkowski_distance", "namespacetheoretica.html#af9a48bb5731f4b4a617f9d36512d6fa6", null ],
     [ "mix_mum", "namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200", null ],
     [ "mul_uint128", "namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed", null ],
-    [ "naive_DFT", "namespacetheoretica.html#a0f518198a726bdc298d717ec17eed155", null ],
     [ "nan", "namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519", null ],
     [ "nlerp", "namespacetheoretica.html#a38cddd68590c7b5e6d70646776b648f9", null ],
     [ "operator<<", "namespacetheoretica.html#af3a4b31f01cbde9c17f8fd60daf6345b", null ],

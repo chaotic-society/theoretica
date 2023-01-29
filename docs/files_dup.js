@@ -6,7 +6,6 @@ var files_dup =
     [ "complex", "dir_29641e2b57f535eff702a8afdf10c5ec.html", "dir_29641e2b57f535eff702a8afdf10c5ec" ],
     [ "core", "dir_aebb8dcc11953d78e620bbef0b9e2183.html", "dir_aebb8dcc11953d78e620bbef0b9e2183" ],
     [ "examples", "dir_d28a4824dc47e487b107a5db32ef43c4.html", "dir_d28a4824dc47e487b107a5db32ef43c4" ],
-    [ "fourier", "dir_b0fb4243ec27b15dacef325828ba1ecc.html", "dir_b0fb4243ec27b15dacef325828ba1ecc" ],
     [ "interpolation", "dir_264890e5c091f8c8d7fe1f842870c25e.html", "dir_264890e5c091f8c8d7fe1f842870c25e" ],
     [ "optimization", "dir_a57e94efe769f9ed34acbb385fd2b2a4.html", "dir_a57e94efe769f9ed34acbb385fd2b2a4" ],
     [ "physics", "dir_8250e12e5a19acb8ece30f1703b6dc16.html", "dir_8250e12e5a19acb8ece30f1703b6dc16" ],

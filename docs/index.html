@@ -104,9 +104,18 @@ A short example</h3>
 <div class="ttc" id="anamespacetheoretica_html_ac29355ce24067808f588917c0e178408"><div class="ttname"><a href="namespacetheoretica.html#ac29355ce24067808f588917c0e178408">theoretica::gradient</a></div><div class="ttdeci">vec&lt; N &gt; gradient(multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), const vec&lt; N, real &gt; &amp;x)</div><div class="ttdoc">Compute the gradient for a given  of a function of the form  using automatic differentiation.</div><div class="ttdef"><b>Definition:</b> autodiff.h:25</div></div>
 </div><!-- fragment --><p >The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Dependencies</h2>
-<p >The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. <b>You can include it in your project straight away!</b></p>
+Table of Contents</h2>
+<ul>
+<li><a href="https://github.com/chaotic-society/theoretica#key-features">Key Features</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica#dependencies">Dependencies</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica#setup">Setup</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica#examples">Examples</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica#contributing">Contributing</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica#testing">Testing</a> </li>
+</ul>
 <h2><a class="anchor" id="autotoc_md2"></a>
+- &lt;a href="https://github.com/chaotic-society/theoretica#other-informations" &gt;Other informations&lt;/a&gt;</h2>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Key Features</h2>
 <p >This is an overview of the library's functionalities. For a more detailed list see <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/FEATURES.md">FEATURES.md</a></p><ul>
 <li><b>Real and complex analysis</b></li>
@@ -120,15 +129,17 @@ Key Features</h2>
 <li>Approximation of roots, extrema, derivatives and integrals of real functions</li>
 <li>Numerical integration of <b>Ordinary Differential Equations</b> (Euler, Heun, RK4, K38, multistep)</li>
 <li>Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation</li>
-<li>Special functions (experimental)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Dependencies</h2>
+<p >The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. <b>You can include it in your project straight away!</b></p>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Setup</h2>
 <p >You don't need anything other than your compiler to use the library. You can run <code>make all</code> in the root directory of the library to make sure it works. Define <b>THEORETICA_INCLUDE_BASE</b> if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default <code><a class="el" href="theoretica_8h.html" title="General include file.">theoretica.h</a></code> includes all headers. All library functions are implemented in the <code>theoretica</code> namespace (<code>th</code> is a shorter namespace alias).</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Examples</h2>
 <p >Introductory examples can be found in <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md">EXAMPLES.md</a> and more advanced examples can be found inside the <code>examples/</code> folder.</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Quickstart</h3>
 <p >You can try to compile this simple code to check if you set up the library correctly: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">th</a>;</div>
@@ -146,18 +157,30 @@ Quickstart</h3>
 <div class="ttc" id="anamespacetheoretica_html_a90fa837617e2c026520db02b8b616009"><div class="ttname"><a href="namespacetheoretica.html#a90fa837617e2c026520db02b8b616009">theoretica::identity</a></div><div class="ttdeci">complex identity(complex z)</div><div class="ttdoc">Complex identity.</div><div class="ttdef"><b>Definition:</b> complex_analysis.h:17</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae2899e9929670cbd58f39d6f1642ce19"><div class="ttname"><a href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">theoretica::mat3</a></div><div class="ttdeci">mat&lt; 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> mat.h:1231</div></div>
 <div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+Other examples</h3>
+<ul>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp">Basic statistics</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/automatic_differentiation.cpp">Automatic differentiation</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/sampling_distributions.cpp">Sampling distributions</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_comparison.cpp">Monte Carlo methods</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/logfit.cpp">Fitting data</a></li>
+<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp">Automatic error propagation</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Contributing</h2>
 <p >Contributions are welcome and very appreciated! Make sure to read the <a href="https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md">Contributing Guide</a> to know more about how you can help. If you participate, you are expected to follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-License</h2>
-<p >This project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Testing</h2>
 <p ><a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg" alt="Test on Linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg" alt="Test on Windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg" alt="Test on MacOS" style="pointer-events: none;" class="inline"/></a></p>
-<p >The library uses the custom built <a href="https://github.com/chaotic-society/chebyshev">Chebyshev testing framework</a> to <b>estimate the precision</b> of functions and test their performance. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the <code>test</code> folder while benchmarks are placed inside the <code>benchmark</code> folder.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Macros</h2>
+<p >The library uses the custom built <a href="https://github.com/chaotic-society/chebyshev">Chebyshev testing framework</a> to <b>estimate the precision</b> of functions and test their <b>performance</b>. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the <code>test</code> folder while benchmarks are placed inside the <code>benchmark</code> folder.</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Other informations</h2>
+<h3><a class="anchor" id="autotoc_md12"></a>
+License</h3>
+<p >This project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>.</p>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Macros</h3>
 <p >These are common macros that can be defined to change the library's behaviour: </p><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Macro   </th><th class="markdownTableHeadNone">Description    </th></tr>
@@ -179,8 +202,8 @@ Macros</h2>
 <td class="markdownTableBodyNone"><b>THEORETICA_MATRIX_LEXIC</b>   </td><td class="markdownTableBodyNone">Lexicographical notation for matrices (column first access) will be used for matrix functions <code>at</code>, <code>get</code> and <code>set</code>. By default, matrix indices refer to row and column, in this order.   </td></tr>
 </table>
 <p >See <code><a class="el" href="constants_8h.html" title="Mathematical constants and algorithm parameters.">constants.h</a></code> for more specific macros.</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Error handling</h2>
+<h3><a class="anchor" id="autotoc_md14"></a>
+Error handling</h3>
 <p >The library uses <code>errno</code> and <code>th::math_exception</code> (if enabled) to report errors. The behaviour of the library may be modified using the <code>THEORETICA_THROW_EXCEPTIONS</code> and <code>THEORETICA_ONLY_EXCEPTIONS</code>. See Macros to learn more. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -188,7 +211,7 @@ Error handling</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 28 2023 23:01:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun Jan 29 2023 14:54:26 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

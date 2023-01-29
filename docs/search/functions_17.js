@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7emat_0',['~mat',['../classtheoretica_1_1mat.html#a8b872e48bf32a70a65515478bf37b69f',1,'theoretica::mat']]],
-  ['_7epolynomial_1',['~polynomial',['../classtheoretica_1_1polynomial.html#acce177f83422a4297ee32446db19ae07',1,'theoretica::polynomial']]]
+  ['xoshiro_0',['xoshiro',['../classtheoretica_1_1_p_r_n_g.html#abdcf91616ade8defd982469aaf91ca0e',1,'theoretica::PRNG::xoshiro(const std::vector&lt; uint64_t &gt; &amp;p)'],['../classtheoretica_1_1_p_r_n_g.html#a9d80280c21da2cfb849f4fc1a63f18c9',1,'theoretica::PRNG::xoshiro(uint64_t seed=1)']]]
 ];

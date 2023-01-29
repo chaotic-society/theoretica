@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['wavefunc_5fhydrogen_0',['wavefunc_hydrogen',['../namespacetheoretica.html#a260048a9dfb239ee37394574821801ac',1,'theoretica']]],
-  ['weighted_5fmean_1',['weighted_mean',['../namespacetheoretica.html#a301b9526d5e857f82786aa83af8f0d44',1,'theoretica']]],
-  ['wyrand_2',['wyrand',['../classtheoretica_1_1_p_r_n_g.html#a5c413fb28202cbdb83a50c690d5a81f0',1,'theoretica::PRNG']]]
+  ['variance_0',['variance',['../namespacetheoretica.html#a17c4321efb6e8ba42e62eef768e30924',1,'theoretica']]],
+  ['vec_1',['vec',['../classtheoretica_1_1vec.html#ae2a568d0df9d5aaceed7774f144b28e5',1,'theoretica::vec::vec(T a)'],['../classtheoretica_1_1vec.html#a35a6f85bf3c918907d2a132f3e0acaee',1,'theoretica::vec::vec(const vec&lt; N, T &gt; &amp;other)'],['../classtheoretica_1_1vec.html#a8b890b32267e46682c144da03ab5c6cd',1,'theoretica::vec::vec(std::initializer_list&lt; T &gt; l)']]]
 ];
