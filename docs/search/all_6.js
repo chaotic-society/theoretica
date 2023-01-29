@@ -8,7 +8,7 @@ var searchData=
   ['general_5flaguerre_5fpolynomial_5',['general_laguerre_polynomial',['../namespacetheoretica.html#ab3e5e8380097d9ad25a51413bcb244d3',1,'theoretica']]],
   ['geometric_5fmean_6',['geometric_mean',['../namespacetheoretica.html#a41411deb0f028d9ff90e06f9dd703b3f',1,'theoretica']]],
   ['geometry_2eh_7',['geometry.h',['../geometry_8h.html',1,'']]],
-  ['get_8',['get',['../classtheoretica_1_1mat.html#a90b4657d4de540aeb259c3edb62d8db2',1,'theoretica::mat::get()'],['../classtheoretica_1_1vec.html#a6fd363e2d88ea9dd990d5687428bde69',1,'theoretica::vec::get()'],['../classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71',1,'theoretica::polynomial::get()'],['../classchebyshev_1_1timer.html#ae3582a9b110d3b36c96e8d7cecfa0b56',1,'chebyshev::timer::get()']]],
+  ['get_8',['get',['../classtheoretica_1_1mat.html#a90b4657d4de540aeb259c3edb62d8db2',1,'theoretica::mat::get()'],['../classtheoretica_1_1vec.html#a6fd363e2d88ea9dd990d5687428bde69',1,'theoretica::vec::get()'],['../classtheoretica_1_1polynomial.html#acc0f45b39ddf887652f3b38dfa15aa71',1,'theoretica::polynomial::get()']]],
   ['get_5fcolumn_9',['get_column',['../classtheoretica_1_1mat.html#aa42d59529b91ae79468dfa573c84c78c',1,'theoretica::mat']]],
   ['get_5ffunction_10',['get_function',['../classtheoretica_1_1_p_r_n_g.html#a7d01f6b18b60c6da308d2fe00a996107',1,'theoretica::PRNG']]],
   ['get_5fparam_11',['get_param',['../classtheoretica_1_1_p_r_n_g.html#aa3b18fb2b64a3080d1c1874214887a83',1,'theoretica::PRNG']]],

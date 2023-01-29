@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['outputfile_0',['outputFile',['../structchebyshev_1_1benchmark_1_1benchmark__state.html#a9b1949378304201e737ba663bc7a7121',1,'chebyshev::benchmark::benchmark_state::outputFile()'],['../structchebyshev_1_1prec_1_1prec__state.html#a2fb309273c7c8401230fbc95f2bc54dd',1,'chebyshev::prec::prec_state::outputFile()']]],
-  ['outputfolder_1',['outputFolder',['../structchebyshev_1_1benchmark_1_1benchmark__state.html#a86d5ddaf0bc4b69e55b20cc760a81917',1,'chebyshev::benchmark::benchmark_state::outputFolder()'],['../structchebyshev_1_1prec_1_1prec__state.html#ac91c6a585fe748c5e9eddadeaabff915',1,'chebyshev::prec::prec_state::outputFolder()']]],
-  ['outputtofile_2',['outputToFile',['../structchebyshev_1_1prec_1_1prec__state.html#a629f1736359e0dc394929a1249714624',1,'chebyshev::prec::prec_state']]]
+  ['size_0',['SIZE',['../classtheoretica_1_1mat.html#ae7345420d3166354131cc9f3507d7dad',1,'theoretica::mat']]],
+  ['sqrt2_1',['SQRT2',['../namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8',1,'theoretica']]],
+  ['sqrt3_2',['SQRT3',['../namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d',1,'theoretica']]],
+  ['sqrtpi_3',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]]
 ];

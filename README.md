@@ -23,6 +23,7 @@ The library includes basic functionalities like real and complex analysis functi
 - [Contributing](https://github.com/chaotic-society/theoretica#contributing)
 - [Testing](https://github.com/chaotic-society/theoretica#testing)
 - [Other informations](https://github.com/chaotic-society/theoretica#other-informations)
+
 ---
 
 ## Key Features

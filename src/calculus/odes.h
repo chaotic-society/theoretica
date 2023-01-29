@@ -301,7 +301,7 @@ namespace theoretica {
 
 
 	/// Integrate numerically a differential equation in 1 unknown
-	// using the Adams-Bashforth linear multistep method of the second order
+	/// using the Adams-Bashforth linear multistep method of the second order
 	inline ode_state<1> integrate_ode_adams(real(*f)(real, real),
 		ode_state<1> s0, ode_state<1> s1, real h) {
 
@@ -312,7 +312,7 @@ namespace theoretica {
 
 
 	/// Integrate numerically a differential equation in N unknowns
-	// using the Adams-Bashforth linear multistep method of the second order
+	/// using the Adams-Bashforth linear multistep method of the second order
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_adams(vec<N>(*f)(real, vec<N>),
 		ode_state<N> s0, ode_state<N> s1, real h) {
@@ -324,7 +324,7 @@ namespace theoretica {
 
 
 	/// Integrate numerically a differential equation in 1 unknown
-	// using the Adams-Bashforth linear multistep method of third order
+	/// using the Adams-Bashforth linear multistep method of third order
 	inline ode_state<1> integrate_ode_adams3(real(*f)(real, real),
 		ode_state<1> s0, ode_state<1> s1, ode_state<1> s2, real h) {
 
@@ -337,7 +337,7 @@ namespace theoretica {
 
 
 	/// Integrate numerically a differential equation in N unknowns
-	// using the Adams-Bashforth linear multistep method of third order
+	/// using the Adams-Bashforth linear multistep method of third order
 	template<unsigned int N>
 	inline ode_state<N> integrate_ode_adams3(vec<N>(*f)(real, vec<N>),
 		ode_state<N> s0, ode_state<N> s1, ode_state<N> s2, real h) {

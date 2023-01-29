@@ -21,7 +21,7 @@ var searchData=
   ['legendre_5fpolynomial_18',['legendre_polynomial',['../namespacetheoretica.html#acaa95392d9bfc3ddf34f3e82f4b6ae78',1,'theoretica']]],
   ['legendre_5froots_19',['legendre_roots',['../namespacetheoretica.html#aebbaeffb922b25d5f1758296b473939f',1,'theoretica']]],
   ['legendre_5fweights_20',['legendre_weights',['../namespacetheoretica.html#a40aca2488b0466c4934fd050d3718760',1,'theoretica']]],
-  ['length_21',['length',['../classtheoretica_1_1vec.html#aec6de7e46e67b6f3be9efac1b17eefae',1,'theoretica::vec::length()'],['../structchebyshev_1_1interval.html#a8e0df8cdff93914684a5cf4b31dd6778',1,'chebyshev::interval::length()']]],
+  ['length_21',['length',['../classtheoretica_1_1vec.html#aec6de7e46e67b6f3be9efac1b17eefae',1,'theoretica::vec']]],
   ['lerp_22',['lerp',['../namespacetheoretica.html#aa0edd44311fc206d96919ab11d1977a9',1,'theoretica::lerp(real x1, real x2, real interp)'],['../namespacetheoretica.html#a7765f4fbfe237744fe9819a6aaae2376',1,'theoretica::lerp(vec&lt; N &gt; P1, vec&lt; N &gt; P2, real interp)']]],
   ['likelihood_23',['likelihood',['../namespacetheoretica.html#a8e8a4ddbcba09177b1ba63397ead6119',1,'theoretica']]],
   ['linear_5fcongruential_24',['linear_congruential',['../classtheoretica_1_1_p_r_n_g.html#a1fa162ef1bd1cc6eb635cda94676bb30',1,'theoretica::PRNG']]],

@@ -27,7 +27,6 @@ var NAVTREE =
   [ "Theoretica", "index.html", [
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
       [ "Table of Contents", "index.html#autotoc_md1", null ],
-      [ "- <a href=\"https://github.com/chaotic-society/theoretica#other-informations\" >Other informations</a>", "index.html#autotoc_md2", null ],
       [ "Key Features", "index.html#autotoc_md3", null ],
       [ "Dependencies", "index.html#autotoc_md4", null ],
       [ "Setup", "index.html#autotoc_md5", null ],
@@ -52,7 +51,6 @@ var NAVTREE =
       ] ],
       [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
     ] ],
-    [ "Tests", "md_test_tests.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -86,14 +84,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classtheoretica_1_1dual2.html#a74c9ef32502662b3c179d0d3b83796d6",
-"classtheoretica_1_1polynomial.html#a07a95d49e27c8de3d493f13a705bdb55",
-"constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e",
-"index.html#autotoc_md1",
-"namespacetheoretica.html#a321928d10b6606c1cba0232a613e6dfe",
-"namespacetheoretica.html#ac8839aa97612a40db14f1c8818b463d0",
-"quat_8h.html",
-"structchebyshev_1_1prec_1_1estimate__custom__request.html#ab427ef0c402da9b5ebe05579e53774b7"
+"classtheoretica_1_1dual2.html#abce94b167257f39de56c3105390fb017",
+"classtheoretica_1_1polynomial.html#a888fd0bbfe4bd59b011c969b899fa9a3",
+"constants_8h.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d",
+"mat_8h.html#a702b5e6317a8cb92da28782d857ddc47",
+"namespacetheoretica.html#a4d6916417c8d2b817cfc48b8e2a1abb5",
+"namespacetheoretica.html#ae0dda0991b7f146cc8f53578508fef4f",
+"roots_8h.html#a0c661fbdbe2cadaddfbcbb844d8ff011"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
