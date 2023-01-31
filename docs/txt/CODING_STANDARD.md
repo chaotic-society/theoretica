@@ -10,7 +10,7 @@ If you contribute to the project, please follow this coding standard to help imp
 - The name of a function should be specific enough to explain what it does but not too long. Simple shorthands may be used to shorten names if their meaning is evident (e.g. "gen" for "generate").
 - The name of a class should refer to the mathematical concept it encapsulates
 - Constants should be named with all capital letters and underscores for spaces (e.g. `CONSTANT_NAME`)
-- Templated types should be named using **camel case** (e.g. "template<typename ThisIsAType>")
+- Templated types should be named using **camel case** (e.g. `template<typename ThisIsAType>`)
 
 ## Indentation
 - Use tabs instead of spaces
