@@ -21,7 +21,7 @@ The library includes basic functionalities like real and complex analysis functi
 - [Key Features](https://github.com/chaotic-society/theoretica#key-features)
 - [Dependencies](https://github.com/chaotic-society/theoretica#dependencies)
 - [Setup](https://github.com/chaotic-society/theoretica#setup)
-- [Examples](https://github.com/chaotic-society/theoretica#examples)
+- [Documentation](https://github.com/chaotic-society/theoretica#documentation)
 - [Contributing](https://github.com/chaotic-society/theoretica#contributing)
 - [Testing](https://github.com/chaotic-society/theoretica#testing)
 - [Other informations](https://github.com/chaotic-society/theoretica#other-informations)
@@ -50,7 +50,8 @@ You don't need anything other than your compiler to use the library. You can run
 Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default `theoretica.h` includes all headers.
 All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
-## Examples
+## Documentation
+The documentation for the library is available [here](https://chaotic-society.github.io/theoretica/).
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
 
 ### Quickstart
