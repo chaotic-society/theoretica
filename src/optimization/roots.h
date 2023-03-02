@@ -27,7 +27,7 @@ namespace theoretica {
 		std::vector<vec2> res;
 		const real dx = (b - a) / (real) steps;
 
-		for (unsigned int i = 0; i < steps - 1; ++i) {
+		for (unsigned int i = 0; i < steps; ++i) {
 			
 			const real x1 = a + i * dx;
 			const real x2 = a + (i + 1) * dx;
@@ -43,10 +43,10 @@ namespace theoretica {
 	/// Approximate a root of an arbitrary function using bisection
 	/// inside a compact interval [a, b] where f(a) * f(b) < 0
 	template<typename RealFunction>
-	inline real approx_root_bisection(RealFunction f, real a, real b) {
+	inline real root_bisection(RealFunction f, real a, real b) {
 
 		if(f(a) * f(b) >= 0) {
-			TH_MATH_ERROR("approx_root_bisection", f(a) * f(b), INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_bisection", f(a) * f(b), INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -70,7 +70,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_BISECTION_ITER) {
-			TH_MATH_ERROR("approx_root_bisection", x_avg, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_bisection", x_avg, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -80,7 +80,7 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using Newthon's method
 	template<typename RealFunction>
-	inline real approx_root_newton(RealFunction f, RealFunction Df, real guess = 0) {
+	inline real root_newton(RealFunction f, RealFunction Df, real guess = 0) {
 
 
 		real x = guess;
@@ -92,7 +92,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			TH_MATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -102,7 +102,7 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using Newthon's method,
 	/// computing the derivative using automatic differentiation
-	inline real approx_root_newton(dual(*f)(dual), real guess = 0) {
+	inline real root_newton(dual(*f)(dual), real guess = 0) {
 
 
 		real x = guess;
@@ -119,7 +119,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			TH_MATH_ERROR("approx_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -128,7 +128,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of a polynomial using Newthon's method
-	inline real approx_polyn_root_newton(polynomial<real> p, real guess = 0) {
+	inline real root_newton_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
 		polynomial<> Dp = deriv_polynomial(p);
@@ -140,7 +140,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			TH_MATH_ERROR("approx_polyn_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton_polyn", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -150,7 +150,7 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using Halley's method
 	template<typename RealFunction>
-	inline real approx_root_halley(RealFunction f, RealFunction Df,
+	inline real root_halley(RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
 
 		real x = guess;
@@ -162,7 +162,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			TH_MATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -171,7 +171,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Halley's method
-	inline real approx_root_halley(dual2(*f)(dual2), real guess = 0) {
+	inline real root_halley(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -188,7 +188,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			TH_MATH_ERROR("approx_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -197,7 +197,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of a polynomial using Halley's method
-	inline real approx_polyn_root_halley(polynomial<real> p, real guess = 0) {
+	inline real root_halley_polyn(polynomial<real> p, real guess = 0) {
 
 		polynomial<> Dp = deriv_polynomial(p);
 		polynomial<> D2p = deriv_polynomial(Dp);
@@ -210,7 +210,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			TH_MATH_ERROR("approx_polyn_root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley_polyn", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -220,7 +220,7 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using Steffensen's method
 	template<typename RealFunction>
-	inline real approx_root_steffensen(RealFunction f, real guess = 0) {
+	inline real root_steffensen(RealFunction f, real guess = 0) {
 
 
 		real x = guess;
@@ -232,7 +232,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			TH_MATH_ERROR("approx_root_steffensen", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -241,7 +241,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of a polynomial using Steffensen's method
-	inline real approx_polyn_root_steffensen(polynomial<real> p, real guess = 0) {
+	inline real root_steffensen_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -252,7 +252,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			TH_MATH_ERROR("approx_polyn_root_steffensen", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_steffensen_polyn", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -262,7 +262,7 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using Chebyshev's method
 	template<typename RealFunction>
-	inline real approx_root_chebyshev(RealFunction f, RealFunction Df,
+	inline real root_chebyshev(RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
 
 		real x = guess;
@@ -274,7 +274,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			TH_MATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -283,7 +283,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Chebyshev's method
-	inline real approx_root_chebyshev(dual2(*f)(dual2), real guess = 0) {
+	inline real root_chebyshev(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -301,7 +301,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			TH_MATH_ERROR("approx_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -310,7 +310,7 @@ namespace theoretica {
 
 
 	/// Approximate a root of a polynomial using Chebyshev's method
-	inline real approx_polyn_root_chebyshev(polynomial<real> p, real guess = 0) {
+	inline real root_chebyshev_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
 		polynomial<> Dp = deriv_polynomial(p);
@@ -323,7 +323,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			TH_MATH_ERROR("approx_polyn_root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev_polyn", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -341,6 +341,11 @@ namespace theoretica {
 	/// using many more steps should be preferred, to ensure all roots are found.
 	template<typename RealFunction>
 	inline std::vector<real> roots(RealFunction f, real a, real b, real steps = 10) {
+
+		if(steps == 0) {
+			TH_MATH_ERROR("roots", steps, DIV_BY_ZERO);
+			return {nan()};
+		}
 
 		// Find candidate intervals
 		std::vector<vec2> intervals = find_root_intervals(f, a, b, steps);
@@ -365,7 +370,7 @@ namespace theoretica {
 
 			// Approximate the roots using bisection inside each interval
 			res.push_back(
-				approx_root_bisection(f, intervals[i][0], intervals[i][1]));
+				root_bisection(f, intervals[i][0], intervals[i][1]));
 		}
 
 		return res;

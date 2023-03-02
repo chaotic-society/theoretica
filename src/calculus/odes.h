@@ -48,7 +48,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_euler(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_euler(real(*f)(real, real), ode_state<1> s, real h) {
 
 		return ode_state<1>(s.t + h, s.y + h * f(s.t, s.y));
 	}
@@ -60,7 +60,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_euler(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_euler(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		return ode_state<N>(s.t + h, s.y + h * f(s.t, s.y));
 	}
@@ -71,7 +71,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_midpoint(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_midpoint(real(*f)(real, real), ode_state<1> s, real h) {
 
 		return ode_state<1>(
 			s.t + h,
@@ -85,7 +85,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_midpoint(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_midpoint(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		return ode_state<N>(
 			s.t + h,
@@ -98,7 +98,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_heun(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_heun(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real y_p = s.y + h * f(s.t, s.y);
 		const real t_new = s.t + h;
@@ -113,7 +113,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_heun(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_heun(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		const vec<N> y_p = s.y + h * f(s.t, s.y);
 		const real t_new = s.t + h;
@@ -127,7 +127,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_rk2(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_rk2(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real k1 = f(s.t, s.y);
 		const real k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
@@ -142,7 +142,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_rk2(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_rk2(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		const vec<N> k1 = f(s.t, s.y);
 		const vec<N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
@@ -156,7 +156,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_rk4(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_rk4(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real k1 = f(s.t, s.y);
 		const real k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
@@ -173,7 +173,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_rk4(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_rk4(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		const vec<N> k1 = f(s.t, s.y);
 		const vec<N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
@@ -189,7 +189,7 @@ namespace theoretica {
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
-	inline ode_state<1> integrate_ode_k38(real(*f)(real, real), ode_state<1> s, real h) {
+	inline ode_state<1> ode_k38(real(*f)(real, real), ode_state<1> s, real h) {
 
 		const real k1 = f(s.t, s.y);
 		const real k2 = f(s.t + (h / 3.0), s.y + k1 * (h / 3.0));
@@ -206,7 +206,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_k38(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_k38(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 		const vec<N> k1 = f(s.t, s.y);
 		const vec<N> k2 = f(s.t + (h / 3.0), s.y + k1 * (h / 3.0));
@@ -272,7 +272,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	// template<unsigned int N>
-	// inline ode_state<N> integrate_ode_rkdp(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	// inline ode_state<N> ode_rkdp(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
 
 	// 	const vec<N> k1 = f(s.t, s.y);
 	// 	const vec<N> k2 = f(s.t + h / 5.0,
@@ -302,7 +302,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in 1 unknown
 	/// using the Adams-Bashforth linear multistep method of the second order
-	inline ode_state<1> integrate_ode_adams(real(*f)(real, real),
+	inline ode_state<1> ode_adams(real(*f)(real, real),
 		ode_state<1> s0, ode_state<1> s1, real h) {
 
 		return ode_state<1>(
@@ -314,7 +314,7 @@ namespace theoretica {
 	/// Integrate numerically a differential equation in N unknowns
 	/// using the Adams-Bashforth linear multistep method of the second order
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_adams(vec<N>(*f)(real, vec<N>),
+	inline ode_state<N> ode_adams(vec<N>(*f)(real, vec<N>),
 		ode_state<N> s0, ode_state<N> s1, real h) {
 
 		return ode_state<N>(
@@ -325,7 +325,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in 1 unknown
 	/// using the Adams-Bashforth linear multistep method of third order
-	inline ode_state<1> integrate_ode_adams3(real(*f)(real, real),
+	inline ode_state<1> ode_adams3(real(*f)(real, real),
 		ode_state<1> s0, ode_state<1> s1, ode_state<1> s2, real h) {
 
 		return ode_state<1>(
@@ -339,7 +339,7 @@ namespace theoretica {
 	/// Integrate numerically a differential equation in N unknowns
 	/// using the Adams-Bashforth linear multistep method of third order
 	template<unsigned int N>
-	inline ode_state<N> integrate_ode_adams3(vec<N>(*f)(real, vec<N>),
+	inline ode_state<N> ode_adams3(vec<N>(*f)(real, vec<N>),
 		ode_state<N> s0, ode_state<N> s1, ode_state<N> s2, real h) {
 
 		return ode_state<N>(

@@ -97,7 +97,7 @@ namespace theoretica {
 		RealFunction f, RealFunction Df, RealFunction D2f,
 		real guess = 0) {
 
-		real z = approx_root_newton(Df, D2f, guess);
+		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) > 0) {
 			TH_MATH_ERROR("approx_max_newton", z, NO_ALGO_CONVERGENCE);
@@ -114,7 +114,7 @@ namespace theoretica {
 		RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
 
-		real z = approx_root_newton(Df, D2f, guess);
+		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) < 0) {
 			TH_MATH_ERROR("approx_min_newton", z, NO_ALGO_CONVERGENCE);
@@ -132,7 +132,7 @@ namespace theoretica {
 		RealFunction f, RealFunction Df,
 		real a, real b) {
 
-		real z = approx_root_bisection(Df, a, b);
+		real z = root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) > 0) {
 			TH_MATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
@@ -148,7 +148,7 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real approx_min_bisection(RealFunction f, RealFunction Df, real a, real b) {
 
-		real z = approx_root_bisection(Df, a, b);
+		real z = root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) < 0) {
 			TH_MATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);

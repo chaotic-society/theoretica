@@ -223,9 +223,7 @@ namespace theoretica {
 	inline vec<N, real> directional_derivative(multidual<N>(*f)(vec<N, multidual<N>>),
 		const vec<N, real>& x, const vec<N, real>& v) {
 
-		// Remove .normalized() to avoid sqrt() ?
-
-		return v.normalized() * dot(v, gradient(f, x));
+		return v * dot(v, gradient(f, x));
 	}
 
 
@@ -242,10 +240,8 @@ namespace theoretica {
 	inline std::function<vec<N, real>(vec<N, real>)>
 	directional_derivative(multidual<N>(*f)(vec<N, multidual<N>>), const vec<N, real>& v) {
 
-		// Remove .normalized() to avoid sqrt() ?
-
 		return [f, v](vec<N, real> x) {
-			return v.normalized() * dot(v, gradient(f, x));
+			return v * dot(v, gradient(f, x));
 		};
 	}
 
