@@ -2,13 +2,15 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/chaotic-society/theoretica/test-windows.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://www.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
 
-A numerical and automatic mathematical library in C++ for scientific and graphical applications, using a mixed functional/object-oriented paradigm to **mimic elegant mathematical notation**.
+> A numerical and automatic math library for scientific research and graphical applications
+
+Theoretica is a header-only mathematical library which provides algorithms for **systems simulation**, **statistical analysis** of lab data and **numerical approximation**, using a **functional** oriented paradigm to mimic **mathematical notation** and formulas. The aim of the library is to provide _simple_ access to powerful algorithms while keeping an _elegant_ and _transparent_ interface, enabling the user to focus on the problem at hand.
 
 ### A short example
 Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its _exact_ time derivative at a position eta = (q, p) like this:
 $$\frac{df}{dt} = \nabla F(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
 Which can be translated into code as:
-```cpp
+```java
 mat<N, N> J = mat<N, N>::symplectic();
 real df_dt = gradient(f, eta) * J * gradient(H, eta);
 ```
@@ -19,7 +21,7 @@ The library includes basic functionalities like real and complex analysis functi
 - [Key Features](https://github.com/chaotic-society/theoretica#key-features)
 - [Dependencies](https://github.com/chaotic-society/theoretica#dependencies)
 - [Setup](https://github.com/chaotic-society/theoretica#setup)
-- [Examples](https://github.com/chaotic-society/theoretica#examples)
+- [Documentation](https://github.com/chaotic-society/theoretica#documentation)
 - [Contributing](https://github.com/chaotic-society/theoretica#contributing)
 - [Testing](https://github.com/chaotic-society/theoretica#testing)
 - [Other informations](https://github.com/chaotic-society/theoretica#other-informations)
@@ -48,7 +50,8 @@ You don't need anything other than your compiler to use the library. You can run
 Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default `theoretica.h` includes all headers.
 All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
-## Examples
+## Documentation
+The documentation for the library is available [here](https://chaotic-society.github.io/theoretica/).
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
 
 ### Quickstart
