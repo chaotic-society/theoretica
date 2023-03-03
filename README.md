@@ -71,7 +71,8 @@ int main() {
 ```
 
 ### Other examples
-- [Basic statistics](https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp)
+- [Chaotic Attractors](https://github.com/chaotic-society/theoretica/blob/master/examples/attractor.cpp)
+- [Statistics](https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp)
 - [Automatic differentiation](https://github.com/chaotic-society/theoretica/blob/master/examples/automatic_differentiation.cpp)
 - [Sampling distributions](https://github.com/chaotic-society/theoretica/blob/master/examples/sampling_distributions.cpp)
 - [Monte Carlo methods](https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_comparison.cpp)

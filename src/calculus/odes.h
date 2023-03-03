@@ -25,6 +25,39 @@ namespace theoretica {
 			ode_state() : t(0), y(0) {}
 
 			ode_state(real t, vec<N> y) : t(t), y(y) {}
+
+			ode_state(vec<N> y) : t(0), y(y) {}
+
+			inline ode_state<N>& operator=(const std::array<real, 4>& v) {
+				t = v[0];
+				y[0] = v[1];
+				y[1] = v[2];
+				y[2] = v[3];
+				return *this;
+			}
+
+#ifndef THEORETICA_NO_PRINT
+
+			/// Convert the ODE state to string representation
+			inline std::string to_string(const std::string& separator = " ") const {
+
+				std::stringstream res;
+				res << t << separator
+					<< y.data[0] << separator
+					<< y.data[1] << separator
+					<< y.data[2];
+
+				return res.str();
+			}
+
+
+			/// Stream the ODE state in string representation
+			/// to an output stream (std::ostream)
+			inline friend std::ostream& operator<<(
+				std::ostream& out, const ode_state<N>& obj) {
+				return out << obj.to_string();
+			}
+#endif
 	};
 
 
@@ -40,6 +73,33 @@ namespace theoretica {
 			ode_state() : t(0), y(0) {}
 
 			ode_state(real t, real y) : t(t), y(y) {}
+
+			ode_state(real y) : t(0), y(y) {}
+
+			inline ode_state<1>& operator=(const std::array<real, 2>& v) {
+				t = v[0];
+				y = v[1];
+				return *this;
+			}
+
+#ifndef THEORETICA_NO_PRINT
+
+			/// Convert the ODE state to string representation
+			inline std::string to_string(const std::string& separator = " ") const {
+
+				std::stringstream res;
+				res << t << separator << y;
+				return res.str();
+			}
+
+
+			/// Stream the ODE state in string representation
+			/// to an output stream (std::ostream)
+			inline friend std::ostream& operator<<(
+				std::ostream& out, const ode_state<1>& obj) {
+				return out << obj.to_string();
+			}
+#endif
 	};
 
 

@@ -1,6 +1,7 @@
 default_target: all
 .PHONY: all example test_core test_algebra automatic_differentiation hamiltonian_simulation \
-		error_propagation statistics sampling_distributions multivariate_minimization benchmark clean
+		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
+		clean attractor
 
 all: example test examples
 
@@ -85,8 +86,13 @@ logfit:
 	@echo Compiling \"Log fit\" example...
 	@g++ examples/logfit.cpp ${CXXFLAGS} -o ./logfit
 
+attractor:
+	@echo Compiling \"Attractor\" example...
+	@g++ examples/attractor.cpp ${CXXFLAGS} -o ./attractor
+
 examples: example automatic_differentiation hamiltonian_simulation error_propagation \
-		  statistics sampling_distributions montecarlo_comparison multivariate_minimization logfit
+		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
+		  logfit attractor
 
 
 # Benchmarks

@@ -44,9 +44,9 @@ namespace theoretica {
 
 			inline quat& operator=(const std::array<real, 4>& v) {
 				a = v[0];
-				this->v.data[0] = v[0];
-				this->v.data[1] = v[1];
-				this->v.data[2] = v[2];
+				this->v.data[0] = v[1];
+				this->v.data[1] = v[2];
+				this->v.data[2] = v[3];
 				return *this;
 			}
 

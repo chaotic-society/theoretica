@@ -41,6 +41,7 @@ int main() {
 	// You can call the function as usual
 	std::cout << "f(v) = " << f(v) << std::endl;
 
+	// And also automatically compute differential operators
 	std::cout << "grad(f) = " << gradient(f, v) << std::endl;
 	std::cout << "div(f) = " << divergence(f, v) << "\n" << std::endl;
 	std::cout << "laplacian(f) = " << laplacian(f, v) << "\n" << std::endl;
