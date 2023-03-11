@@ -239,8 +239,8 @@ namespace theoretica {
 				mat2 m;
 				m.iat(0, 0) = a;
 				m.iat(1, 0) = 0;
-				m.iat(0, 1) = a;
-				m.iat(1, 1) = b;
+				m.iat(0, 1) = b;
+				m.iat(1, 1) = a;
 				return m;
 			}
 

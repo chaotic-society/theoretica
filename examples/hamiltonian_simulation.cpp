@@ -1,8 +1,8 @@
 
 ///
 /// @file hamiltonian_simulation.cpp Automatically simulate an Hamiltonian system from
-/// its Hamiltonian function using automatic differentiation and
-/// numerical integration
+/// its Hamiltonian function using automatic differentiation and numerical integration.
+/// This example may be compiled using 'make hamiltonian_simulation'
 ///
 
 #include <fstream>

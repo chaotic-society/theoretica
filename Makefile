@@ -1,7 +1,7 @@
 default_target: all
 .PHONY: all example test_core test_algebra automatic_differentiation hamiltonian_simulation \
 		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
-		clean attractor
+		clean attractor montecarlo_comparison
 
 all: example test examples
 

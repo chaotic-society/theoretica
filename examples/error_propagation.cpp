@@ -1,6 +1,7 @@
 
 ///
-/// @file error_propagation.cpp Automatic error propagation using automatic differentiation
+/// @file error_propagation.cpp Automatic error propagation using automatic differentiation.
+/// This example may be compiled using 'make error_propagation'
 ///
 
 #include <iostream>

@@ -1,6 +1,7 @@
 
 ///
-/// @file differentiation.cpp Automatic differentiation example
+/// @file differentiation.cpp Automatic differentiation example.
+/// This example may be compiled using 'make automatic_differentiation'
 ///
 
 #include <iostream>
@@ -45,6 +46,14 @@ int main() {
 	std::cout << "grad(f) = " << gradient(f, v) << std::endl;
 	std::cout << "div(f) = " << divergence(f, v) << "\n" << std::endl;
 	std::cout << "laplacian(f) = " << laplacian(f, v) << "\n" << std::endl;
+
+	// When you apply differential operators, the function is cast to
+	// accept dual, multidual or dual2 arguments and is then evaluated
+	// at the given point.
+
+	// You can also apply the operators without specifying the point,
+	// in which case the function returns a lambda function that
+	// uses the same method to compute the operators when called.
 
 	// Compute the Jacobian matrix of g(x, y)
 	// Note that you may need to specify the input and output size

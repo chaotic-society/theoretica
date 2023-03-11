@@ -1,6 +1,7 @@
 
 ///
-/// @file multivariate_minimization.cpp Gradient descent minimization example
+/// @file multivariate_minimization.cpp Gradient descent minimization example.
+/// This example may be compiled using 'make multivariate_minimization'
 ///
 
 #include <iostream>
@@ -8,6 +9,10 @@
 using namespace th;
 
 
+// The function to minimize.
+// Should be declared either as a template to allow
+// the algorithms to automatically compute the derivatives
+// using autodiff.
 template<typename NumType>
 NumType f(vec<2, NumType> v) {
 
@@ -20,6 +25,9 @@ NumType f(vec<2, NumType> v) {
 
 int main() {
 
+    // Use the best available algorithm to find
+    // a minimum of the function starting from
+    // a guess.
     vec2 x = minimize<2>(f, {1, 1});
 
     std::cout << "min at x = " << x << std::endl;

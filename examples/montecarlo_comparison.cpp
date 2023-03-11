@@ -1,22 +1,31 @@
 
 ///
 /// @file montecarlo_comparison.cpp A comparison between Monte Carlo techniques
+/// This example may be compiled using 'make montecarlo_comparison'
 ///
 
 #include <iostream>
 #include "theoretica.h"
 using namespace th;
 
+#include <ctime>
+
 
 int main() {
 
-    PRNG g = PRNG::xoshiro();
+
+    // Initialize the pseudorandom number generator to be used
+    PRNG g = PRNG::xoshiro(time(nullptr));
+
+    // Starting number of iterations
     unsigned int N = 10;
+
+    // The function to integrate
     real(*f)(real) = th::sin;
 
 
     // Print header
-
+    std::cout.precision(8);
     std::cout << std::endl;
     std::cout << " N\tErr. HOM\tErr. Crude\tErr. q. HOM\tErr. q. Crude\n ";
     for (int i = 0; i < 80; ++i)
@@ -24,8 +33,7 @@ int main() {
     std::cout << std::endl;
 
 
-    // Repeat the integration for different N
-
+    // Repeat the integration for different N (exponentially growing)
     for (; N <= 100000; N *= 10) {
 
         // Hit-or-Miss Monte Carlo

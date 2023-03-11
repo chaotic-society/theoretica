@@ -1,6 +1,7 @@
 
 ///
-/// @file logfit.cpp Logarithmic fit from file data
+/// @file logfit.cpp Logarithmic fit from file data.
+/// This example may be compiled using 'make logfit'
 ///
 
 #include "theoretica.h"
@@ -18,6 +19,8 @@ int main(int argc, char const *argv[]) {
         return 1;
     }
 
+
+    // Input file name
     std::string filename = std::string(argv[1]);
     std::ifstream file(filename);
 
@@ -26,6 +29,8 @@ int main(int argc, char const *argv[]) {
         return 2;
     }
 
+
+    // Read X and Y data from the file and compute the logarithm
     std::string line;
     vec_buff X;
     vec_buff Y;
@@ -35,13 +40,14 @@ int main(int argc, char const *argv[]) {
         real x, y;
         std::stringstream s(line);
 
-        s >> x;
-        s >> y;
+        s >> x; s >> y;
 
         X.push_back(th::ln(x));
         Y.push_back(th::ln(y));
     }
 
+
+    // Compute the intercept and slope of the interpolating line
     real intercept = lst_sqrs_lin_intercept(X, Y);
     real slope = lst_sqrs_lin_slope(X, Y);
 
