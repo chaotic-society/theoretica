@@ -5,11 +5,6 @@
 using namespace chebyshev;
 using namespace theoretica;
 
-template<typename NumType>
-NumType f(vec<2, NumType> v) {
-	return v[0] / (square(v[0]) + square(v[1]));
-}
-
 
 int main(int argc, char const *argv[]) {
 

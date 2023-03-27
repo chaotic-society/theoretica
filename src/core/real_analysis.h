@@ -769,11 +769,11 @@ namespace theoretica {
 	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
 
-#ifdef THEORETICA_X86
+// #ifdef THEORETICA_X86
 
-		return powf(x, 1 / (real) n);
+// 		return powf(x, 1 / (real) n);
 
-#else
+// #else
 
 		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
 			TH_MATH_ERROR("root", n, OUT_OF_DOMAIN);
@@ -782,6 +782,16 @@ namespace theoretica {
 
 		if(n < 0)
 			return 1.0 / root(x, -n);
+
+		// Trivial cases
+		if(n == 1)
+			return x;
+
+		if(n == 2)
+			return sqrt(x);
+
+		if(n == 3)
+			return cbrt(x);
 
 		if(x < 1) {
 
@@ -795,7 +805,6 @@ namespace theoretica {
 		}
 
 		// Approximate n-th root using Newton-Raphson
-
 		real y = x;
 		unsigned int i = 0;
 
@@ -805,7 +814,7 @@ namespace theoretica {
 		}
 
 		return y;
-#endif
+// #endif
 	}
 
 

@@ -180,6 +180,49 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 }
 
 
+template<unsigned int N>
+prec::estimate_result test_distance(
+	real(*d)(vec<N, real>, vec<N, real>), interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (size_t i = 0; i < n; ++i) {
+
+		vec<N, real> v;
+
+		for (unsigned int j = 0; j < N; ++j) {
+			v[j] = rand_uniform(k.a, k.b, g);
+		}
+
+		vec<N, real> w = v;		
+		real diff = th::abs(d(v, w));
+		
+		sum += diff;
+		sum2 += square(diff);
+		if(diff > max)
+			max = diff;
+	}
+
+	prec::estimate_result res;
+	res.max_err = max;
+	res.abs_err = sum / n;
+	res.rms_err = th::sqrt(sum2) / n;
+	res.mean_err = sum / N / n;
+
+	// Undefined relative error
+	res.rel_err = 0;
+
+	if(res.max_err > tol)
+		res.failed = true;
+
+	return res;
+}
+
 
 int main(int argc, char const *argv[]) {
 
@@ -192,6 +235,8 @@ int main(int argc, char const *argv[]) {
 
 	prec::setup("algebra", argc, argv);
 
+		// Matrices (mat.h)
+
 		prec::estimate("mat2::inverse", test_matrix_inverse<2>, intervals);
 		prec::estimate("mat3::inverse", test_matrix_inverse<3>, intervals);
 		prec::estimate("mat4::inverse", test_matrix_inverse<4>, intervals);
@@ -203,6 +248,45 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("mat10::det", test_matrix_det<10>, intervals);
 
 		prec::estimate("mat3::operator*", test_matrix_mul, interval(0, 1));
+
+		// Distances and norms (distance.h)
+
+		// Test Lp norms from 1 to 10
+		for (unsigned int p = 1; p <= 10; ++p)
+			prec::equals("lp_norm<vec3>", lp_norm(vec<3>(0), p), 0);
+
+		prec::equals("lp_norm<vec100>", lp_norm(vec<100>(0), 2), 0);
+
+		// L1
+		prec::equals("l1_norm<vec3>", l1_norm(vec<3>(0)), 0);
+		prec::equals("l1_norm<vec100>", l1_norm(vec<100>(0)), 0);
+
+		prec::equals("l1_norm<vec4>", l1_norm(vec<4>(1)), 4);
+		prec::equals("l1_norm<vec100>", l1_norm(vec<100>(1)), 100);
+
+		// L2
+		prec::equals("l2_norm<vec3>", l2_norm(vec<3>(0)), 0);
+		prec::equals("l2_norm<vec100>", l2_norm(vec<100>(0)), 0);
+
+		prec::equals("l2_norm<vec4>", l2_norm(vec<4>(1)), 2);
+		prec::equals("l2_norm<vec9>", l2_norm(vec<9>(1)), 3);
+
+		// Linf
+		prec::equals("linf_norm<vec3>", linf_norm(vec<3>(0)), 0);
+		prec::equals("linf_norm<vec100>", linf_norm(vec<100>(0)), 0);
+		prec::equals("linf_norm<vec100>", linf_norm(vec<100>(1)), 1);
+
+		// Distances
+		prec::estimate("euclidean_distance<3>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<3>(euclidean_distance<vec<3>>, k, tol, n);
+			}, intervals);
+
+
+		prec::estimate("manhattan_distance<3>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<3>(manhattan_distance<vec<3>>, k, tol, n);
+			}, intervals);
 
 	prec::terminate();
 }
