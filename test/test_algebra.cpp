@@ -224,6 +224,94 @@ prec::estimate_result test_distance(
 }
 
 
+template<unsigned int N>
+prec::estimate_result test_distance_tol(
+	real(*d)(vec<N, real>, vec<N, real>, real), interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (size_t i = 0; i < n; ++i) {
+
+		vec<N, real> v;
+
+		for (unsigned int j = 0; j < N; ++j) {
+			v[j] = rand_uniform(k.a, k.b, g);
+		}
+
+		vec<N, real> w = v;		
+		real diff = th::abs(d(v, w, MACH_EPSILON));
+		
+		sum += diff;
+		sum2 += square(diff);
+		if(diff > max)
+			max = diff;
+	}
+
+	prec::estimate_result res;
+	res.max_err = max;
+	res.abs_err = sum / n;
+	res.rms_err = th::sqrt(sum2) / n;
+	res.mean_err = sum / N / n;
+
+	// Undefined relative error
+	res.rel_err = 0;
+
+	if(res.max_err > tol)
+		res.failed = true;
+
+	return res;
+}
+
+
+template<unsigned int N>
+prec::estimate_result test_hermitian(interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (size_t i = 0; i < n; ++i) {
+
+		vec<N, complex> v;
+
+		for (unsigned int j = 0; j < N; ++j) {
+			v[j].a = rand_uniform(k.a, k.b, g);
+			v[j].b = rand_uniform(k.a, k.b, g);
+		}
+
+		vec<N, complex> w = v;		
+		real diff = hermitian_distance(v, w).modulus();
+		
+		sum += diff;
+		sum2 += square(diff);
+		if(diff > max)
+			max = diff;
+	}
+
+	prec::estimate_result res;
+	res.max_err = max;
+	res.abs_err = sum / n;
+	res.rms_err = th::sqrt(sum2) / n;
+	res.mean_err = sum / N / n;
+
+	// Undefined relative error
+	res.rel_err = 0;
+
+	if(res.max_err > tol)
+		res.failed = true;
+
+	return res;
+}
+
+
 int main(int argc, char const *argv[]) {
 
 	prec::state.outputFolder = "test/";
@@ -277,15 +365,69 @@ int main(int argc, char const *argv[]) {
 		prec::equals("linf_norm<vec100>", linf_norm(vec<100>(1)), 1);
 
 		// Distances
-		prec::estimate("euclidean_distance<3>",
+		prec::estimate("euclidean_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<3>(euclidean_distance<vec<3>>, k, tol, n);
+				return test_distance<100>(euclidean_distance<vec<100>>, k, tol, n);
 			}, intervals);
 
 
-		prec::estimate("manhattan_distance<3>",
+		prec::estimate("manhattan_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<3>(manhattan_distance<vec<3>>, k, tol, n);
+				return test_distance<100>(manhattan_distance<vec<100>>, k, tol, n);
+			}, intervals);
+
+		prec::estimate("chebyshev_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(chebyshev_distance<vec<100>>, k, tol, n);
+			}, intervals);
+
+		prec::estimate("discrete_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance_tol<100>(discrete_distance<vec<100>>, k, tol, n);
+			}, intervals);
+
+		prec::estimate("minkowski_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(
+					[](vec<100> v, vec<100> w) {
+						return minkowski_distance(v, w, 1);
+					}, k, tol, n);
+			}, intervals);
+
+		prec::estimate("minkowski_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(
+					[](vec<100> v, vec<100> w) {
+						return minkowski_distance(v, w, 2);
+					}, k, tol, n);
+			}, intervals);
+
+		prec::estimate("minkowski_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(
+					[](vec<100> v, vec<100> w) {
+						return minkowski_distance(v, w, 10);
+					}, k, tol, n);
+			}, intervals);
+
+		// prec::estimate("hermitian_distance<100>", test_hermitian<100>, intervals);
+
+		prec::estimate("cosine_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(
+					[](vec<100> v, vec<100> w) {
+						return abs(1 - cosine_distance(v, w));
+					}, k, tol, n);
+			}, intervals);
+
+		prec::estimate("canberra_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance<100>(canberra_distance<vec<100>>, k, tol, n);
+			}, intervals);
+
+		prec::estimate("hamming_distance<100>",
+			[](interval k, Real tol, unsigned int n) {
+				return test_distance_tol<100>(hamming_distance<vec<100>>, k, tol, n);
 			}, intervals);
 
 	prec::terminate();

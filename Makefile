@@ -49,7 +49,14 @@ ifndef windows_build
 	@./test/test_polynomial
 endif
 
-test: test_core test_algebra test_autodiff test_calculus test_polynomial
+test_pseudorandom:
+ifndef windows_build
+	@echo Compiling pseudorandom test cases...
+	@g++ test/test_pseudorandom.cpp ${CXXFLAGS} -I./test/ -o test/test_pseudorandom
+	@./test/test_pseudorandom
+endif
+
+test: test_core test_algebra test_autodiff test_calculus test_polynomial test_pseudorandom
 
 
 # Example programs

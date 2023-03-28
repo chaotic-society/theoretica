@@ -126,7 +126,7 @@ int main(int argc, char const *argv[]) {
 		// Investigate polynomial division algorithm not converging
 
 		// prec::estimate("polynomial<>::operator/", test_polynomial_div, interval(-100, 100),
-		// 	prec::state.defaultTolerance, false, 20);
+		// prec::state.defaultTolerance, false, 20);
 
 	prec::terminate();
 }

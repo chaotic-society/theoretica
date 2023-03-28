@@ -221,7 +221,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i)
-			sum += abs(v1 - v2) / (abs(v1) + abs(v2));
+			sum += abs(v1[i] - v2[i]) / (abs(v1[i]) + abs(v2[i]));
 
 		return sum;
 	}
@@ -236,15 +236,17 @@ namespace theoretica {
 			return nan();
 		}
 
+		real product = 0;
 		real sum_sqr_x = 0;
 		real sum_sqr_y = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
+			product += v1[i] * v2[i];
 			sum_sqr_x += square(v1[i]);
 			sum_sqr_y += square(v2[i]);
 		}
 
-		return (v1 * v2) / sqrt(sum_sqr_x * sum_sqr_y);
+		return product / sqrt(sum_sqr_x * sum_sqr_y);
 	}
 
 
@@ -260,7 +262,7 @@ namespace theoretica {
 		unsigned int count = 0;
 
 		// Count how many elements differ to some tolerance
-		for (int i = 0; i < v1.size(); ++i)
+		for (unsigned int i = 0; i < v1.size(); ++i)
 			if(abs(v1[i] - v2[i]) > tolerance)
 				count++;
 
