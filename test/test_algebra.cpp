@@ -416,7 +416,7 @@ int main(int argc, char const *argv[]) {
 			[](interval k, Real tol, unsigned int n) {
 				return test_distance<100>(
 					[](vec<100> v, vec<100> w) {
-						return abs(1 - cosine_distance(v, w));
+						return th::abs(1 - cosine_distance(v, w));
 					}, k, tol, n);
 			}, intervals);
 
