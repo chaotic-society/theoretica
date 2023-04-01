@@ -18,6 +18,9 @@ namespace theoretica {
 
 	/// Compute the likelihood of a distribution <f> with the given
 	/// parameters <theta> and measures <X>
+	/// @param X The dataset of the sample
+	/// @param theta The parameters of the distribution
+	/// @param f The statistical distribution function
 	inline real likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 1;
@@ -32,6 +35,9 @@ namespace theoretica {
 
 	/// Compute the log likelihood of a distribution <f> with the given
 	/// parameters <theta> and measures <X>
+	/// @param X The dataset of the sample
+	/// @param theta The parameters of the distribution
+	/// @param f The statistical distribution function
 	inline real log_likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 0;
@@ -104,7 +110,6 @@ namespace theoretica {
 			}
 
 			return poisson(static_cast<unsigned int>(k), theta[0]);
-
 		}
 
 

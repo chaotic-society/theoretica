@@ -331,59 +331,30 @@ namespace theoretica {
 	}
 
 
-	/// Lag-1 autocorrelation of a dataset
-	inline real autocorrelation(const vec_buff& X) {
+	/// Lag-n autocorrelation of a dataset
+	/// @param X The dataset
+	/// @param n The lag (defaults to lag-1)
+	/// @return The lag-n autocorrelation of the given dataset
+	inline real autocorrelation(const vec_buff& X, unsigned int n = 1) {
 
-		if(X.size() < 2) {
+		if(X.size() < n) {
 			TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
-		real mu = mean(X);
+		const real mu = mean(X);
 		real num = 0;
 		real den = square(X[0] - mu);
 
-		for (unsigned int i = 1; i < X.size(); ++i) {
+		for (unsigned int i = n; i < X.size(); ++i) {
 
 			const real delta = X[i] - mu;
-			num += delta * (X[i - 1] - mu);
+			num += delta * (X[i - n] - mu);
 			den += square(delta);
 		}
 
 		return num / den;
 	}
-
-
-	// Lag-n autocorrelation of a dataset
-	// inline real autocorrelation(const vec_buff& X, unsigned int n) {
-
-	// 	if(X.size() < (n + 1)) {
-	// 		TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
-	// 		return nan();
-	// 	}
-
-	// 	real mu = mean(X);
-	// 	real num = 0;
-	// 	real den = 0;
-
-	// 	for (int i = 0; i < n; ++i)
-	// 		den += pow(X[i] - mu, n + 1);
-
-
-	// 	for (unsigned int i = n; i < X.size(); ++i) {
-
-	// 		real prod = 1;
-
-	// 		for (int j = 0; j < n; ++j) {
-	// 			prod *= (X[i - j] - mu);
-	// 		}
-
-	// 		num += prod;
-	// 		den += pow(X[i] - mu, n + 1);
-	// 	}
-
-	// 	return num / den;
-	// }
 
 
 	/// Absolute deviation from the mean
