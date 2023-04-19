@@ -11,6 +11,7 @@
 #include "../autodiff/dual.h"
 #include "../autodiff/dual2.h"
 #include "../algebra/vec.h"
+#include "../complex/complex.h"
 
 
 namespace theoretica {
@@ -78,7 +79,7 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Newthon's method
+	/// Approximate a root of an arbitrary function using Newton's method
 	template<typename RealFunction>
 	inline real root_newton(RealFunction f, RealFunction Df, real guess = 0) {
 
@@ -100,10 +101,9 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Newthon's method,
+	/// Approximate a root of an arbitrary function using Newton's method,
 	/// computing the derivative using automatic differentiation
 	inline real root_newton(dual(*f)(dual), real guess = 0) {
-
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -127,7 +127,7 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of a polynomial using Newthon's method
+	/// Approximate a root of a polynomial using Newton's method
 	inline real root_newton_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -145,6 +145,32 @@ namespace theoretica {
 		}
 
 		return x;
+	}
+
+
+	/// Approximate a root of an arbitrary complex function
+	/// using Newton's method
+	inline complex root_newton(
+		complex(*f)(complex),
+		complex(*df)(complex),
+		complex guess = complex(0, 0),
+		real tolerance = NEWTON_RAPHSON_TOL,
+		unsigned int max_iter = MAX_NEWTON_ITER) {
+
+		complex z = guess;
+		unsigned int iter = 0;
+
+		while(abs(f(z)) > tolerance && iter <= MAX_NEWTON_ITER) {
+			z = z - (f(z) / df(z));
+			iter++;
+		}
+
+		if(iter > MAX_NEWTON_ITER) {
+			TH_MATH_ERROR("root_newton", z, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return z;
 	}
 
 
@@ -374,6 +400,37 @@ namespace theoretica {
 		}
 
 		return res;
+	}
+
+
+	/// Find all the roots of a polynomial.
+	/// A bound on roots is found using Cauchy's theorem.
+	/// @param p The polynomial
+	/// @param steps The number of steps to use (defaults to twice the polynomial's order)
+	/// @return The list of the roots of the polynomial
+	template<typename Field>
+	inline std::vector<Field> roots(const polynomial<Field>& p, unsigned int steps = 0) {
+
+		// Effective order of the polynomial
+		const unsigned int n = p.find_order();
+
+		// Absolute value of the highest coefficient
+		Field a_hi = abs(p.coeff[n]);
+		Field a_sum = 0;
+
+		// Sum the absolute values of the lesser coefficients
+		for (unsigned int i = 0; i < n; ++i)
+			a_sum += abs(p.coeff[i]);
+
+		// The roots are bounded in absolute value by the maximum
+		const Field M = max(a_hi, a_sum);
+
+		// Back track from the bounds to the first sign inversion
+
+		
+		return roots(
+			[p](real x) { return p(x); },
+			-M, M, steps ? steps : (2 * n));
 	}
 
 }

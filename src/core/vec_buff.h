@@ -1,6 +1,6 @@
 
 ///
-/// @file core/vec_buff.h Allocation and operations on data sets
+/// @file core/vec_buff.h Operations on datasets
 ///
 
 #ifndef THEORETICA_VEC_BUFF_H
@@ -8,6 +8,12 @@
 
 #include <vector>
 #include "./constants.h"
+#include <functional>
+
+#ifndef THEORETICA_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
 
 
 namespace theoretica {
@@ -18,8 +24,14 @@ namespace theoretica {
 	using vec_buff = std::vector<real>;
 
 
+	// Operations on datasets
+	// The Vector type must have size() and operator[]() functions
+	// (e.g. vec_buff and vec<N>)
+
+
 	/// Compute the product of a set of values
-	inline real product(const vec_buff& X) {
+	template<typename Vector>
+	inline real product(const Vector& X) {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("product", X.size(), INVALID_ARGUMENT);
@@ -35,7 +47,8 @@ namespace theoretica {
 
 
 	/// Sum the products of two sets of values
-	inline real product_sum(const vec_buff& X, const vec_buff& Y) {
+	template<typename Vector>
+	inline real product_sum(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
@@ -51,7 +64,8 @@ namespace theoretica {
 
 
 	/// Sum the products of the squares of two sets of data
-	inline real product_sum_squares(const vec_buff& X, const vec_buff& Y) {
+	template<typename Vector>
+	inline real product_sum_squares(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
@@ -67,7 +81,8 @@ namespace theoretica {
 
 
     /// Sum the products of three sets of values
-    inline real product_sum(const vec_buff& X, const vec_buff& Y, const vec_buff& Z) {
+    template<typename Vector>
+	inline real product_sum(const Vector& X, const Vector& Y, const Vector& Z) {
 
 		if(X.size() != Y.size() || X.size() != Z.size()) {
 			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
@@ -83,7 +98,8 @@ namespace theoretica {
 
 
     /// Sum the quotients of two sets of values
-	inline real quotient_sum(const vec_buff& X, const vec_buff& Y) {
+	template<typename Vector>
+	inline real quotient_sum(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("quotient_sum", X.size(), INVALID_ARGUMENT);
@@ -106,7 +122,8 @@ namespace theoretica {
 
 
     /// Sum the squares of a set of values
-    inline real sum_squares(const vec_buff& X) {
+    template<typename Vector>
+	inline real sum_squares(const Vector& X) {
 
 		real res = 0;
 		for(unsigned int i = 0; i < X.size(); i++)
@@ -117,7 +134,8 @@ namespace theoretica {
 
 
     /// Sum together a set of values
-	inline real sum(const vec_buff& X) {
+	template<typename Vector>
+	inline real sum(const Vector& X) {
 
 		real res = 0;
 		for(unsigned int i = 0; i < X.size(); i++)
@@ -128,7 +146,8 @@ namespace theoretica {
 
 
 	/// Apply a function to a set of values
-	inline void apply(vec_buff& X, real(*f)(real)) {
+	template<typename Vector>
+	inline void apply(Vector& X, std::function<real(real)> f) {
 
 		for (real& x : X)
 			x = f(x);
@@ -136,7 +155,8 @@ namespace theoretica {
 
 
 	/// Finds the maximum value inside a dataset
-	inline real max(const vec_buff& X) {
+	template<typename Vector>
+	inline real max(const Vector& X) {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("max", X.size(), INVALID_ARGUMENT);
@@ -154,7 +174,8 @@ namespace theoretica {
 
 
 	/// Finds the minimum value inside a dataset
-	inline real min(const vec_buff& X) {
+	template<typename Vector>
+	inline real min(const Vector& X) {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("min", X.size(), INVALID_ARGUMENT);
@@ -170,6 +191,7 @@ namespace theoretica {
 		return curr;
 	}
 
+#ifndef THEORETICA_NO_PRINT
 
 	/// Stream the buffer in string representation to an output stream (std::ostream)
 	inline std::ostream& operator<<(std::ostream& out, const vec_buff& obj) {
@@ -192,6 +214,8 @@ namespace theoretica {
 
 		return out;
 	}
+
+#endif
 
 }
 

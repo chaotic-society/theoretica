@@ -214,6 +214,8 @@ namespace theoretica {
 #endif
 
 
+// Output the value of an expression with additional information,
+// for debugging purposes
 #define TH_DEBUG(VARIABLE) { \
 	std::cout << __FILE__ << ":" << __LINE__ << ": " \
 	<< #VARIABLE << " = " << VARIABLE << std::endl; }
