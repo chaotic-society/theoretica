@@ -42,10 +42,15 @@ namespace theoretica {
 			inline std::string to_string(const std::string& separator = " ") const {
 
 				std::stringstream res;
-				res << t << separator
-					<< y.data[0] << separator
-					<< y.data[1] << separator
-					<< y.data[2];
+				res << t << separator;
+
+				for (unsigned int i = 0; i < N; ++i) {
+
+					res << y.data[i];
+
+					if(i != N - 1)
+						res << separator;
+				}
 
 				return res.str();
 			}

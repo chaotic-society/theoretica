@@ -160,6 +160,15 @@ namespace theoretica {
 			}
 
 
+			/// Sum a real number to this one
+			inline multidual& operator+=(const multidual& other) {
+
+				a += other.a;
+				v += other.v;
+				return *this;
+			}
+
+
 			/// Sum a real number to this multidual number
 			inline multidual& operator+=(real r) {
 

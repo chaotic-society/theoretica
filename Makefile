@@ -1,5 +1,5 @@
 default_target: all
-.PHONY: all example test_core test_algebra automatic_differentiation hamiltonian_simulation \
+.PHONY: all example test_core test_algebra automatic_differentiation hamiltonian \
 		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
 		clean attractor montecarlo_comparison
 
@@ -65,9 +65,9 @@ automatic_differentiation:
 	@echo Compiling \"Automatic differentiation\" example...
 	@g++ examples/automatic_differentiation.cpp ${CXXFLAGS} -o ./automatic_differentiation
 
-hamiltonian_simulation:
-	@echo Compiling \"Hamiltonian simulation\" example...
-	@g++ examples/hamiltonian_simulation.cpp ${CXXFLAGS} -o ./hamiltonian_simulation
+hamiltonian:
+	@echo Compiling \"Hamiltonian\" example...
+	@g++ examples/hamiltonian.cpp ${CXXFLAGS} -o ./hamiltonian
 
 error_propagation:
 	@echo Compiling \"Error propagation\" example...
@@ -97,7 +97,7 @@ attractor:
 	@echo Compiling \"Attractor\" example...
 	@g++ examples/attractor.cpp ${CXXFLAGS} -o ./attractor
 
-examples: example automatic_differentiation hamiltonian_simulation error_propagation \
+examples: example automatic_differentiation hamiltonian error_propagation \
 		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
 		  logfit attractor
 
