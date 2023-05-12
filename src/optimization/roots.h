@@ -248,12 +248,13 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real root_steffensen(RealFunction f, real guess = 0) {
 
-
 		real x = guess;
 		unsigned int iter = 0;
 
 		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
-			x = x - (f(x) / ((f(x + f(x)) / f(x)) - 1));
+
+			const real f_x = f(x);
+			x = x - (f_x / ((f(x + f_x) / f_x) - 1));
 			iter++;
 		}
 

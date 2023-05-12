@@ -9,7 +9,7 @@ CXXFLAGS = -std=c++14 -I./src/ -Wall
 
 example:
 	@echo Compiling quickstart example program...
-	@g++ examples/example.cpp ${CXXFLAGS} -o ./example
+	@g++ examples/example.cpp ${CXXFLAGS} -o ./examples/example
 
 
 # Tests
@@ -63,39 +63,39 @@ test: test_core test_algebra test_autodiff test_calculus test_polynomial test_ps
 
 automatic_differentiation:
 	@echo Compiling \"Automatic differentiation\" example...
-	@g++ examples/automatic_differentiation.cpp ${CXXFLAGS} -o ./automatic_differentiation
+	@g++ examples/automatic_differentiation.cpp ${CXXFLAGS} -o ./examples/automatic_differentiation
 
 hamiltonian:
 	@echo Compiling \"Hamiltonian\" example...
-	@g++ examples/hamiltonian.cpp ${CXXFLAGS} -o ./hamiltonian
+	@g++ examples/hamiltonian.cpp ${CXXFLAGS} -o ./examples/hamiltonian
 
 error_propagation:
 	@echo Compiling \"Error propagation\" example...
-	@g++ examples/error_propagation.cpp ${CXXFLAGS} -o ./error_propagation
+	@g++ examples/error_propagation.cpp ${CXXFLAGS} -o ./examples/error_propagation
 
 statistics:
 	@echo Compiling \"Statistics\" example...
-	@g++ examples/statistics.cpp ${CXXFLAGS} -o ./statistics
+	@g++ examples/statistics.cpp ${CXXFLAGS} -o ./examples/statistics
 
 sampling_distributions:
 	@echo Compiling \"Sampling distributions\" example...
-	@g++ examples/sampling_distributions.cpp ${CXXFLAGS} -o ./sampling_distributions
+	@g++ examples/sampling_distributions.cpp ${CXXFLAGS} -o ./examples/sampling_distributions
 
 montecarlo_comparison:
 	@echo Compiling \"Montecarlo comparison\" example...
-	@g++ examples/montecarlo_comparison.cpp ${CXXFLAGS} -o ./montecarlo_comparison
+	@g++ examples/montecarlo_comparison.cpp ${CXXFLAGS} -o ./examples/montecarlo_comparison
 
 multivariate_minimization:
 	@echo Compiling \"Multivariate minimization\" example...
-	@g++ examples/multivariate_minimization.cpp ${CXXFLAGS} -o ./multivariate_minimization
+	@g++ examples/multivariate_minimization.cpp ${CXXFLAGS} -o ./examples/multivariate_minimization
 
 logfit:
 	@echo Compiling \"Log fit\" example...
-	@g++ examples/logfit.cpp ${CXXFLAGS} -o ./logfit
+	@g++ examples/logfit.cpp ${CXXFLAGS} -o ./examples/logfit
 
 attractor:
 	@echo Compiling \"Attractor\" example...
-	@g++ examples/attractor.cpp ${CXXFLAGS} -o ./attractor
+	@g++ examples/attractor.cpp ${CXXFLAGS} -o ./examples/attractor
 
 examples: example automatic_differentiation hamiltonian error_propagation \
 		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
@@ -121,5 +121,6 @@ clean:
 	@rm -f ./test/*.csv
 	@rm -f ./benchmark/*.csv
 	@rm -f ./*.exe
+	@rm -f ./examples/*.exe
 	@rm -f ./test/*.exe
 	@rm -f ./benchmark/*.exe
