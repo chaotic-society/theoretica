@@ -58,6 +58,7 @@ namespace theoretica {
 	/// Generate a pseudorandom value following any
 	/// probability distribution function using the
 	/// Try-and-Catch (rejection) algorithm.
+	///
 	/// @param f A probability distribution function
 	/// @param theta The parameters of the pdf
 	/// @param x1 The left extreme of the rectangle
@@ -74,7 +75,7 @@ namespace theoretica {
 	/// Random real numbers are generated inside a rectangle
 	/// defined by x1, x2, y1 and y2 following a uniform distribution.
 	/// Only numbers below the pdf are returned.
-	inline real rand_dist_tac(stat_function f,
+	inline real rand_trycatch(stat_function f,
 		const vec_buff& theta,
 		real x1, real x2,
 		real y1, real y2, PRNG& g,
@@ -97,6 +98,41 @@ namespace theoretica {
 		}
 
 		return x;
+	}
+
+
+	/// Generate a random number following any given distribution
+	/// using rejection sampling.
+	///
+	/// @param f Target distribution
+	/// @param theta The parameters of the target distribution
+	/// @param p Proposal distribution
+	/// @param Pinv Inverse cumulative function of the proposal distribution
+	/// @param g An already initialized PRNG
+	/// @param max_tries Maximum number of tries before
+	/// stopping execution.
+	inline real rand_rejectsamp(
+		stat_function f, const vec_buff& theta,
+		real_function p, real_function Pinv,
+		PRNG& g, unsigned int max_tries = 100) {
+
+		for (unsigned int i = 0; i < max_tries; ++i) {
+
+			// Generate a random number following
+			// the p(x) probability distribution
+			// by the inverse cumulative distribution function
+			const real u_1 = rand_uniform(0, 1, g);
+			const real x_p = Pinv(u_1);
+
+			const real u_2 = rand_uniform(0, 1, g);
+
+			// Accept the sample if f(x_p)/g(x_p) > u_2
+			if(u_2 * p(x_p) < f(x_p, theta))
+				return x_p;
+		}
+
+		TH_MATH_ERROR("rand_reject_sample", max_tries, NO_ALGO_CONVERGENCE);
+		return nan();
 	}
 
 
@@ -191,7 +227,7 @@ namespace theoretica {
 
 		// f(u) = 1/2 (in [-1, 1])
 		// E[u] = 0
-		// V[u] = 1 / sqrt(3N) = 1 / 6
+		// sqrt(V[u]) = 1 / sqrt(3N) = 1 / 6
 
 		return mean + (s / static_cast<real>(N)) * sigma * 6;
 	}
@@ -223,7 +259,7 @@ namespace theoretica {
 
 		// f(u) = 1/2 (in [-1, 1])
 		// E[u] = 0
-		// V[u] = 1 / sqrt(3N)
+		// sqrt(V[u]) = 1 / sqrt(3N)
 
 		return mean + (s / static_cast<real>(N)) * sigma * sqrt(3 * N);
 	}
@@ -372,7 +408,7 @@ namespace theoretica {
 
 	/// A probability density function sampler which
 	/// generates pseudorandom numbers following
-	/// asymptotically a given distribution
+	/// asymptotically a given distribution.
 	struct pdf_sampler {
 
 		/// A p.d.f sampling function
@@ -400,6 +436,13 @@ namespace theoretica {
 		/// Generate the next number
 		inline real operator()() {
 			return next();
+		}
+
+		// Fill a vector with sampled points
+		inline void fill(vec_buff& x, size_t N) {
+
+			for (size_t i = 0; i < N; ++i)
+				x[i] = next();
 		}
 
 

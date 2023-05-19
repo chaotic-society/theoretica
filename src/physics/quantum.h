@@ -65,7 +65,24 @@ namespace theoretica {
 	}
 
 
-	/// Complex wave function of the hydrogen atom
+	// Wave functions
+
+
+	/// Wave function of a particle in a 1D box
+	/// @param n The quantum number
+	/// @param L The length of the box
+	inline wavefunc_1D wavefunc_box(unsigned int n, real L) {
+
+		const real N = sqrt(2.0 / L);
+
+		return [=](real x) {
+
+			return N * sin(n * (2 * PI) / L * x);
+		};
+	}
+
+
+	/// Wave function of the hydrogen atom
 	/// @param n The principal quantum number
 	/// @param l The azimuthal  quantum number
 	/// @param m The magnetic quantum number
@@ -102,7 +119,6 @@ namespace theoretica {
 			return N * pow(rho, l) * Lag(rho) * exp(-rho / 2) * Y(theta, phi);
 		};
 	}
-
 
 }
 
