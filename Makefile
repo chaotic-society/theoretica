@@ -1,9 +1,9 @@
 default_target: all
 .PHONY: all example test_core test_algebra automatic_differentiation hamiltonian \
 		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
-		clean attractor montecarlo_comparison
+		clean attractor montecarlo_comparison histogram
 
-all: example test examples
+all: examples test
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
 
@@ -97,9 +97,13 @@ attractor:
 	@echo Compiling \"Attractor\" example...
 	@g++ examples/attractor.cpp ${CXXFLAGS} -o ./examples/attractor
 
+histogram:
+	@echo Compiling \"Histogram\" example...
+	@g++ examples/histogram.cpp ${CXXFLAGS} -o ./examples/histogram
+
 examples: example automatic_differentiation hamiltonian error_propagation \
 		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
-		  logfit attractor
+		  logfit attractor histogram
 
 
 # Benchmarks

@@ -149,7 +149,15 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary complex function
-	/// using Newton's method
+	/// using Newton's method,
+	///
+	/// @param f The complex function to find the root of
+	/// @param df The derivative of the function
+	/// @param guess The initial guess, defaults to 0
+	/// @param tolerance The minimum tolerance to stop the algorithm
+	/// when reached.
+	/// @param max_iter The maximum number of iterations before stopping
+	/// the algorithm.
 	inline complex root_newton(
 		complex(*f)(complex),
 		complex(*df)(complex),
@@ -401,37 +409,6 @@ namespace theoretica {
 		}
 
 		return res;
-	}
-
-
-	/// Find all the roots of a polynomial.
-	/// A bound on roots is found using Cauchy's theorem.
-	/// @param p The polynomial
-	/// @param steps The number of steps to use (defaults to twice the polynomial's order)
-	/// @return The list of the roots of the polynomial
-	template<typename Field>
-	inline std::vector<Field> roots(const polynomial<Field>& p, unsigned int steps = 0) {
-
-		// Effective order of the polynomial
-		const unsigned int n = p.find_order();
-
-		// Absolute value of the highest coefficient
-		Field a_hi = abs(p.coeff[n]);
-		Field a_sum = 0;
-
-		// Sum the absolute values of the lesser coefficients
-		for (unsigned int i = 0; i < n; ++i)
-			a_sum += abs(p.coeff[i]);
-
-		// The roots are bounded in absolute value by the maximum
-		const Field M = max(a_hi, a_sum);
-
-		// Back track from the bounds to the first sign inversion
-
-		
-		return roots(
-			[p](real x) { return p(x); },
-			-M, M, steps ? steps : (2 * n));
 	}
 
 }

@@ -78,6 +78,7 @@ int main() {
 - [Monte Carlo methods](https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_comparison.cpp)
 - [Fitting data](https://github.com/chaotic-society/theoretica/blob/master/examples/logfit.cpp)
 - [Automatic error propagation](https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp)
+- [Histogram usage](https://github.com/chaotic-society/theoretica/blob/master/examples/histogram.cpp)
 
 ## Contributing
 Contributions are welcome and very appreciated! Make sure to read the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to know more about how you can help. If you participate, you are expected to follow the [Code of Conduct](https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md).

@@ -7,6 +7,8 @@
 
 namespace theoretica {
 
+
+	/// @class histogram Histogram class with running statistics
 	class histogram {
 		public:
 
@@ -67,7 +69,7 @@ namespace theoretica {
 		
 
 			// Insert a new data point inside the histogram
-			void insert(real x) {
+			inline void insert(real x) {
 
 				if(x < range_min || x > range_max)
 					return;
@@ -84,7 +86,7 @@ namespace theoretica {
 
 
 			// Find the index corresponding to a given data point
-			unsigned int index(real x) const {
+			inline unsigned int index(real x) const {
 
 				return (x - range_min)
 					/ ((range_max - range_min) / bins.size());
@@ -93,8 +95,12 @@ namespace theoretica {
 
 			// Statistics
 
+			inline unsigned int number() {
+				return N;
+			}
+
 			// Get the mean value of the histogram data
-			real mean() const {
+			inline real mean() const {
 
 				if(N == 0) {
 					TH_MATH_ERROR("histogram::mean", N, DIV_BY_ZERO);
@@ -106,7 +112,8 @@ namespace theoretica {
 
 
 			// Get the variance of the histogram data
-			real variance() const {
+			// (with Bessel's correction)
+			inline real variance() const {
 
 				if(N == 0 || N == 1) {
 					TH_MATH_ERROR("histogram::variance", N, DIV_BY_ZERO);
@@ -121,7 +128,7 @@ namespace theoretica {
 
 
 			// Get the standard deviation of the histogram data
-			real stdev() const {
+			inline real stdev() const {
 				return sqrt(variance());
 			}
 

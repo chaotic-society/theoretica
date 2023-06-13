@@ -251,6 +251,17 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate(
+			"sin^2 + cos^2 = 1",
+			[](real x) {
+				return square(th::sin(x)) + square(th::cos(x));
+			},
+			[](real x) {
+				return 1;
+			},
+			interval(MIN, MAX));
+
+
+		prec::estimate(
 			"th::tan(real)",
 			REAL_LAMBDA(th::tan),
 			REAL_LAMBDA(std::tan),
