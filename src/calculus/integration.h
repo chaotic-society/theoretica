@@ -319,10 +319,6 @@ namespace theoretica {
 				tables::legendre_roots_8, tables::legendre_weights_8, 8); break;
 			case 16: return integral_legendre(f, a, b,
 				tables::legendre_roots_16, tables::legendre_weights_16, 16); break;
-			case 32: return integral_legendre(f, a, b,
-				tables::legendre_roots_32, tables::legendre_weights_32, 32); break;
-			case 64: return integral_legendre(f, a, b,
-				tables::legendre_roots_64, tables::legendre_weights_64, 64); break;
 			default: return integral_legendre(f, a, b, legendre_roots(n)); break;
 		}
 	}
