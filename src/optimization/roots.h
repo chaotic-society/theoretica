@@ -44,7 +44,8 @@ namespace theoretica {
 	/// Approximate a root of an arbitrary function using bisection
 	/// inside a compact interval [a, b] where f(a) * f(b) < 0
 	template<typename RealFunction>
-	inline real root_bisection(RealFunction f, real a, real b) {
+	inline real root_bisection(
+		RealFunction f, real a, real b, real tolerance = BISECTION_APPROX_TOL) {
 
 		if(f(a) * f(b) >= 0) {
 			TH_MATH_ERROR("root_bisection", f(a) * f(b), INVALID_ARGUMENT);
@@ -58,7 +59,7 @@ namespace theoretica {
 
 		unsigned int iter = 0;
 
-		while((x_max - x_min) > BISECTION_APPROX_TOL && iter <= MAX_BISECTION_ITER) {
+		while((x_max - x_min) > tolerance && iter <= MAX_BISECTION_ITER) {
 
 			x_avg = (x_max + x_min) / 2.0;
 
@@ -375,7 +376,9 @@ namespace theoretica {
 	/// @note If the number of roots inside the interval is completely unknown,
 	/// using many more steps should be preferred, to ensure all roots are found.
 	template<typename RealFunction>
-	inline std::vector<real> roots(RealFunction f, real a, real b, real steps = 10) {
+	inline std::vector<real> roots(
+		RealFunction f, real a, real b,
+		real tolerance = BISECTION_APPROX_TOL, real steps = 10) {
 
 		if(steps == 0) {
 			TH_MATH_ERROR("roots", steps, DIV_BY_ZERO);
@@ -405,10 +408,44 @@ namespace theoretica {
 
 			// Approximate the roots using bisection inside each interval
 			res.push_back(
-				root_bisection(f, intervals[i][0], intervals[i][1]));
+				root_bisection(f, intervals[i][0], intervals[i][1], tolerance));
 		}
 
 		return res;
+	}
+
+
+	/// Find all the roots of a polynomial.
+	/// A bound on roots is found using Cauchy's theorem.
+	/// @param p The polynomial
+	/// @param steps The number of steps to use (defaults to twice the polynomial's order)
+	/// @return The list of the roots of the polynomial
+	template<typename Field>
+	inline std::vector<Field> roots(
+		polynomial<Field> p, real tolerance = BISECTION_APPROX_TOL,
+		unsigned int steps = 0) {
+
+		// Effective order of the polynomial
+		const unsigned int n = p.find_order();
+		p /= p.coeff[n];
+
+		// Absolute value of the highest coefficient
+		Field a_hi = abs(p.coeff[n]);
+		Field a_sum = 0;
+
+		// Sum the absolute values of the lesser coefficients
+		for (unsigned int i = 0; i < n; ++i)
+			a_sum += abs(p.coeff[i]);
+
+		// The roots are bounded in absolute value by the maximum
+		const Field M = max(a_hi, a_sum);
+
+		// Back track from the bounds to the first sign inversion ?
+
+		
+		return roots(
+			[p](real x) { return p(x); },
+			-M, M, tolerance, steps ? steps : (2 * n));
 	}
 
 }

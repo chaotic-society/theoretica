@@ -61,5 +61,15 @@ int main(int argc, char const *argv[]) {
 			interval(0.1, 3), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
 
 
+		prec::estimate("integral_romberg",
+			[](real x) {
+				return integral_romberg(g, 1, x);
+			},
+			[](real x) {
+				return G(x) - G(1); // g and G are undefined at 0
+			},
+			interval(0.1, 3), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
+
+
 	prec::terminate();
 }

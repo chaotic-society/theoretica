@@ -95,6 +95,7 @@ namespace theoretica {
 
 			// Statistics
 
+			// Get the number of points
 			inline unsigned int number() {
 				return N;
 			}

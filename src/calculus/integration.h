@@ -10,6 +10,7 @@
 #include "../core/function.h"
 #include "../polynomial/polynomial.h"
 #include "../polynomial/ortho_polyn.h"
+#include "./gauss.h"
 
 
 namespace theoretica {
@@ -199,6 +200,80 @@ namespace theoretica {
 	}
 
 
+	/// Use Gaussian quadrature using the given points and weights.
+	///
+	/// @param f The function to integrate
+	/// @param x The points of evaluation
+	/// @param w The weights of the linear combination
+	template<typename RealFunction>
+	inline real integral_gauss(
+		RealFunction f, const std::vector<real>& x, const std::vector<real>& w) {
+
+		if(x.size() != w.size()) {
+			TH_MATH_ERROR("integral_gauss", x.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real res = 0;
+
+		for (int i = 0; i < x.size(); ++i)
+			res += w[i] * f(x[i]);
+
+		return res;
+	}
+
+
+	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
+	/// a definite integral providing the roots of the n degree Legendre polynomial
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param x The roots of the n degree Legendre polynomial
+	/// @param w The weights computed for the n-th order quadrature
+	/// @return The Gauss-Legendre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_legendre(
+		RealFunction f, real a, real b, real* x, real* w, unsigned int n) {
+
+		const real mean = (b + a) / 2.0;
+		const real halfdiff = (b - a) / 2.0;
+
+		real res = 0;
+
+		for (int i = n - 1; i >= 0; --i)
+			res += w[i] * f(halfdiff * x[i] + mean);
+
+		return res * halfdiff;
+	}
+
+
+	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
+	/// a definite integral providing the roots of the n degree Legendre polynomial
+	///
+	/// @param f The function to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @param x The roots of the n degree Legendre polynomial
+	/// @param w The weights computed for the n-th order quadrature
+	/// @return The Gauss-Legendre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_legendre(
+		RealFunction f, real a, real b,
+		const std::vector<real>& x, const std::vector<real>& w) {
+
+		const real mean = (b + a) / 2.0;
+		const real halfdiff = (b - a) / 2.0;
+
+		real res = 0;
+
+		for (int i = x.size() - 1; i >= 0; --i)
+			res += w[i] * f(halfdiff * x[i] + mean);
+
+		return res * halfdiff;
+	}
+
+
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
 	/// a definite integral providing the roots of the n degree Legendre polynomial
 	///
@@ -208,18 +283,10 @@ namespace theoretica {
 	/// @param x The roots of the n degree Legendre polynomial
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_legendre(RealFunction f, real a, real b, const std::vector<real>& x) {
+	inline real integral_legendre(
+		RealFunction f, real a, real b, const std::vector<real>& x) {
 		
-		const std::vector<real> weights = legendre_weights(x);
-		const real mean = (b + a) / 2.0;
-		const real halfdiff = (b - a) / 2.0;
-
-		real res = 0;
-
-		for (int i = x.size() - 1; i >= 0; --i)
-			res += weights[i] * f(halfdiff * x[i] + mean);
-
-		return res * halfdiff;
+		return integral_legendre(f, a, b, x, legendre_weights(x));
 	}
 
 
@@ -243,7 +310,21 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real integral_legendre(RealFunction f, real a, real b, unsigned int n = 9) {
 		
-		return integral_legendre(f, a, b, legendre_roots(n));
+		switch(n) {
+			case 2: return integral_legendre(f, a, b,
+				tables::legendre_roots_2, tables::legendre_weights_2, 2); break;
+			case 4: return integral_legendre(f, a, b,
+				tables::legendre_roots_4, tables::legendre_weights_4, 4); break;
+			case 8: return integral_legendre(f, a, b,
+				tables::legendre_roots_8, tables::legendre_weights_8, 8); break;
+			case 16: return integral_legendre(f, a, b,
+				tables::legendre_roots_16, tables::legendre_weights_16, 16); break;
+			case 32: return integral_legendre(f, a, b,
+				tables::legendre_roots_32, tables::legendre_weights_32, 32); break;
+			case 64: return integral_legendre(f, a, b,
+				tables::legendre_roots_64, tables::legendre_weights_64, 64); break;
+			default: return integral_legendre(f, a, b, legendre_roots(n)); break;
+		}
 	}
 
 
