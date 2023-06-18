@@ -450,26 +450,28 @@ namespace theoretica {
 		// Domain reduction to [1, 2]
 		x /= (1 << i);
 
-		// Use a polynomial approximation of log2(x)
-		// in [1, 2] to compute the logarithm of the
-		// remainder.
-		// Note: Choosing a better interval or applying
-		// some transformations on the function a better
-		// approximation might be found.
-		real lr = 0;
+		// Use the Taylor expansion of the logarithm
+		// ln(1 + x) = \sum_k^n (-1)^(k+1) x^k / k
+		real log_z = 0;
+		const real z = x - 1;
 
 		// Exact powers of 2 don't need further computation
-		if(abs(x - 1) > MACH_EPSILON) {
+		if(abs(z) > MACH_EPSILON) {
 
-			// Chebyshev interpolating polynomial of degree 8
-			lr = -3.4166753198601 + x * (8.1055747139535
-					+ x * (-9.8865651757988 + x * (9.1186992261137
-						+ x * (-5.8696100108418 + x * (2.5603034453966
-							+ x * (-0.72182008685797 + x * (0.11875896285702
-								+ x * -0.0086656993102423)))))));
+			int sign = 1;
+			real pow_z = z;
+			log_z = z;
+
+			for (int i = 2; i <= 24; ++i) {
+				
+				pow_z *= z;
+				sign *= -1;
+
+				log_z += sign * pow_z / i;
+			}
 		}
 
-		return i + lr;
+		return i + (log_z / LN2);
 #endif
 	}
 
@@ -537,7 +539,7 @@ namespace theoretica {
 
 
 	/// Find the integer logarithm of x.
-	/// Defined a the biggest n so that 2^n is smaller than x.
+	/// Defined as the biggest n so that 2^n is smaller than x.
 	/// @param x An integer value
 	/// @return The integer logarithm of x
 	template<typename UnsignedIntType = uint64_t>
