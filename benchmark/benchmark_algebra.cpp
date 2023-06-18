@@ -24,8 +24,7 @@ mat<N, M> rand_mat(real min, real max, PRNG& g) {
 template<unsigned int N>
 benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 
-	std::vector<mat<N, N>> A;
-	A.reserve(iter);
+	std::vector<mat<N, N>> A(iter);
 	volatile real c = 0;
 
 	const int MAX = 100000;
@@ -54,8 +53,7 @@ benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 template<unsigned int N>
 benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
-	std::vector<mat<N, N>> A;
-	A.reserve(iter);
+	std::vector<mat<N, N>> A(iter);
 	volatile real c = 0;
 
 	const int MAX = 100000;

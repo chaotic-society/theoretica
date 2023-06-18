@@ -404,47 +404,6 @@ namespace theoretica {
 	}
 
 
-	/// Normal distribution chi-square with 4 intervals
-	/// calculated on a sample of measures
-	inline real chi_square_sigma(const vec_buff& X) {
-
-		if(!X.size()) {
-			TH_MATH_ERROR("chi_square_sigma", X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		const unsigned int N = X.size();
-
-		unsigned int Ok_1 = 0;
-		unsigned int Ok_2 = 0;
-		unsigned int Ok_3 = 0;
-		unsigned int Ok_4 = 0;
-
-		real M = mean(X);
-		real sigma = sample_standard_deviation(X);
-
-		for (auto x : X) {
-			if(x < M - sigma)
-				Ok_1++;
-			else if((x > M - sigma) && (x < M))
-				Ok_2++;
-			else if((x > M) && (x < M + sigma))
-				Ok_3++;
-			else if(x > M + sigma)
-				Ok_4++;
-		}
-
-		// Sum of (Ok - Ek)^2 / Ek
-		// where Ek = N * Pk
-		real chi_2 = ((Ok_1 - (N * 0.16)) * (Ok_1 - (N * 0.16))) / (N * 0.16);
-		chi_2 += ((Ok_2 - (N * 0.34)) * (Ok_2 - (N * 0.34))) / (N * 0.34);
-		chi_2 += ((Ok_3 - (N * 0.34)) * (Ok_3 - (N * 0.34))) / (N * 0.34);
-		chi_2 += ((Ok_4 - (N * 0.16)) * (Ok_4 - (N * 0.16))) / (N * 0.16);
-
-		return chi_2;
-	}
-
-
 	/// Compute the intercept of the minimum squares linearization of X and Y
 	inline real least_squares_linear_intercept(
 		const vec_buff& X, const vec_buff& Y) {

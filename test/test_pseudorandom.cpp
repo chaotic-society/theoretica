@@ -7,7 +7,7 @@
 using namespace chebyshev;
 using namespace theoretica;
 
-const unsigned int M = 10;
+const unsigned int M = 100;
 
 
 prec::estimate_result test_generator(PRNG g, interval k, Real tol, unsigned int n) {
@@ -23,10 +23,10 @@ prec::estimate_result test_generator(PRNG g, interval k, Real tol, unsigned int 
 		for (size_t i = 0; i < n; ++i)
 			sample_sum += rand_uniform(k.a, k.b, g);
 
-		real diff = th::abs((sample_sum / n));
-		max = th::max(max, diff);
-		sum += diff;
-		sum += square(diff);
+		real mean = std::abs(sample_sum / n);
+		max = th::max(max, mean);
+		sum += mean;
+		sum += square(mean);
 	}
 
 	prec::estimate_result res;
@@ -51,9 +51,13 @@ int main(int argc, char const *argv[]) {
 	// Normal interval
 	interval I = interval(-1, 1);
 
+	const size_t N = 1000000;
+
 	prec::state.outputFolder = "test/";
-	prec::state.defaultIterations = 1000000;
-	prec::state.defaultTolerance = 0.005;
+	prec::state.defaultIterations = N;
+
+	// Tolerance of 5 standard deviations of the mean
+	prec::state.defaultTolerance = (1.0 / SQRT3 / std::sqrt(N)) * 5;
 	
 	prec::setup("pseudorandom");
 

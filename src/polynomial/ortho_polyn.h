@@ -26,7 +26,8 @@ namespace theoretica {
 	/// @param P0 First polynomial of the sequence
 	/// @param P1 Second polynomial of the sequence
 	/// @param f Recursion formula
-	/// @param 
+	/// @param n Degree of the final polynomial
+	/// @return The resulting polynomial
 	inline polynomial<real> gen_polyn_recurr(
 		polynomial<real> P0,
 		polynomial<real> P1,
