@@ -95,9 +95,13 @@ namespace theoretica {
 	/// Compute the complex square root
 	/// @param z A complex number
 	inline complex sqrt(complex z) {
+
+		if(abs(z.a) < MACH_EPSILON && abs(z.b) < MACH_EPSILON)
+			return complex(0);
+
 		return complex(
-			INVSQR2 * sqrt(z.modulus() + z.Re()),
-			INVSQR2 * sqrt(z.modulus() - z.Re()));
+			INVSQR2 * sqrt((z.modulus() + z.Re())),
+			INVSQR2 * sqrt((z.modulus() - z.Re()))  * sgn(z.b));
 	}
 
 
