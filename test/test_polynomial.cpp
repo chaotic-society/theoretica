@@ -111,6 +111,45 @@ prec::estimate_result test_polynomial_div(interval k, Real tol, unsigned int n) 
 }
 
 
+prec::estimate_result test_polynomial_quadroots(
+	interval k, Real tol, unsigned int n) {
+
+	real max = 0, sum = 0, sum2 = 0;
+	prec::estimate_result p;
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	g.discard(1000);
+
+	for (unsigned int i = 0; i < n; ++i) {
+		
+		real x1 = rand_uniform(k.a, k.b, g);
+		real x2 = rand_uniform(k.a, k.b, g);
+
+		polynomial<real> P = polynomial<real>::from_roots({x1, x2});
+		auto comp_roots = P.quadratic_roots();
+
+		const real err1 = (comp_roots[0] + comp_roots[1] - complex(x1) - complex(x2)).modulus();
+		const real diff = err1;
+		sum += diff;
+		sum2 += square(diff);
+
+		max = th::max(max, diff);
+	}
+
+	p.max_err = max;
+	p.abs_err = sum / n;
+	p.rms_err = th::sqrt(sum2) / n;
+	p.mean_err = sum / n;
+
+	// Undefined relative error
+	p.rel_err = 0;
+
+	if(p.max_err > tol)
+		p.failed = true;
+
+	return p;
+}
+
+
 int main(int argc, char const *argv[]) {
 
 	const real MAX = 1000000;
@@ -122,9 +161,9 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate("polynomial<>::eval", test_polynomial_eval, interval(MIN, MAX));
 
+		prec::estimate("quadratic_roots", test_polynomial_quadroots, interval(MIN, MAX));
 
 		// Investigate polynomial division algorithm not converging
-
 		// prec::estimate("polynomial<>::operator/", test_polynomial_div, interval(-100, 100),
 		// prec::state.defaultTolerance, false, 20);
 

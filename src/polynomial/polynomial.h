@@ -349,22 +349,30 @@ namespace theoretica {
 					return vec<2, complex>({nan(), nan()});
 				}
 
-				const T a = coeff[2];
-				const T b = coeff[1];
-				const T c = coeff[0];
+				const T p = coeff[1] / coeff[2];
+				const T q = coeff[0] / coeff[2];
 
-				// Complex square root
-				complex d = sqrt(complex(b * b - a * c * 4));
+				// Case when 0 is a root
+				if(abs(q) < MACH_EPSILON)
+					return {complex(-p), complex(0)};
 
-				// Compute the two roots of the polynomial
-				// using the quadratic formula
+				complex z1, z2;
 
-				// Two different (but equivalent) formulas are
-				// used to avoid cancellation in opposite sign cases
-				return {
-					(d + b) * -1 / (a * 2),
-					(c * -2) / (b + d) 
-				};
+				// Use Vieta's theorem to avoid catastrophic cancellation
+				if(abs(p) > 1) {
+
+					z1 = -sgn(p) * (abs(p) / 2.0
+						+ abs(p) * sqrt(complex(0.25 - (q / p) / p)));
+					z2 = q / z1;
+
+				} else {
+
+					const complex s = sqrt(complex(0.25 * square(p) - q));
+					z1 = -p / 2.0 + s;
+					z2 = -p / 2.0 - s;
+				}
+
+				return {z1, z2};
 			}
 
 
