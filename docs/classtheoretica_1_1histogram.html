@@ -100,34 +100,44 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1histogram.html','')
 </div><!--header-->
 <div class="contents">
 
-<p>with running statistics  
+<p>Histogram class with running statistics.  
  <a href="classtheoretica_1_1histogram.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="histogram_8h_source.html">histogram.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a24ce8f3305c7986b42f4edc27814c48f"><td class="memItemLeft" align="right" valign="top"><a id="a24ce8f3305c7986b42f4edc27814c48f" name="a24ce8f3305c7986b42f4edc27814c48f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>histogram</b> (unsigned int bin_count, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">max</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba">min</a>)</td></tr>
+<tr class="memdesc:a24ce8f3305c7986b42f4edc27814c48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from parameters. <br /></td></tr>
 <tr class="separator:a24ce8f3305c7986b42f4edc27814c48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8d76cb322d42eab494e9e6a6e7a3429"><td class="memItemLeft" align="right" valign="top"><a id="ad8d76cb322d42eab494e9e6a6e7a3429" name="ad8d76cb322d42eab494e9e6a6e7a3429"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>histogram</b> (const <a class="el" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a> &amp;data, unsigned int bin_count=0)</td></tr>
+<tr class="memdesc:ad8d76cb322d42eab494e9e6a6e7a3429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from data. <br /></td></tr>
 <tr class="separator:ad8d76cb322d42eab494e9e6a6e7a3429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfeeea8ad894735b918789128c64a074"><td class="memItemLeft" align="right" valign="top"><a id="acfeeea8ad894735b918789128c64a074" name="acfeeea8ad894735b918789128c64a074"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memdesc:acfeeea8ad894735b918789128c64a074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new data point inside the histogram. <br /></td></tr>
 <tr class="separator:acfeeea8ad894735b918789128c64a074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c6e96deec4f677ac8cdec9f63149910"><td class="memItemLeft" align="right" valign="top"><a id="a4c6e96deec4f677ac8cdec9f63149910" name="a4c6e96deec4f677ac8cdec9f63149910"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>index</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) const</td></tr>
+<tr class="memdesc:a4c6e96deec4f677ac8cdec9f63149910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index corresponding to a given data point. <br /></td></tr>
 <tr class="separator:a4c6e96deec4f677ac8cdec9f63149910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd218d7290763815c3bd62a5b1193361"><td class="memItemLeft" align="right" valign="top"><a id="afd218d7290763815c3bd62a5b1193361" name="afd218d7290763815c3bd62a5b1193361"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>number</b> ()</td></tr>
+<tr class="memdesc:afd218d7290763815c3bd62a5b1193361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of points. <br /></td></tr>
 <tr class="separator:afd218d7290763815c3bd62a5b1193361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5bd716d6734f1246d8a549f667101ff"><td class="memItemLeft" align="right" valign="top"><a id="ad5bd716d6734f1246d8a549f667101ff" name="ad5bd716d6734f1246d8a549f667101ff"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mean</b> () const</td></tr>
+<tr class="memdesc:ad5bd716d6734f1246d8a549f667101ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the mean value of the histogram data. <br /></td></tr>
 <tr class="separator:ad5bd716d6734f1246d8a549f667101ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b9971be33cd11dd69ed8fe59313e15a"><td class="memItemLeft" align="right" valign="top"><a id="a8b9971be33cd11dd69ed8fe59313e15a" name="a8b9971be33cd11dd69ed8fe59313e15a"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>variance</b> () const</td></tr>
+<tr class="memdesc:a8b9971be33cd11dd69ed8fe59313e15a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the variance of the histogram data (with Bessel's correction) <br /></td></tr>
 <tr class="separator:a8b9971be33cd11dd69ed8fe59313e15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2970d5e096329e83ae7cd6e19aaef49a"><td class="memItemLeft" align="right" valign="top"><a id="a2970d5e096329e83ae7cd6e19aaef49a" name="a2970d5e096329e83ae7cd6e19aaef49a"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stdev</b> () const</td></tr>
+<tr class="memdesc:a2970d5e096329e83ae7cd6e19aaef49a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the standard deviation of the histogram data. <br /></td></tr>
 <tr class="separator:a2970d5e096329e83ae7cd6e19aaef49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9c1aae7e0979827990f7b7914c8e0ef"><td class="memItemLeft" align="right" valign="top"><a id="aa9c1aae7e0979827990f7b7914c8e0ef" name="aa9c1aae7e0979827990f7b7914c8e0ef"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (const std::string &amp;separator=&quot; &quot;) const</td></tr>
@@ -138,27 +148,35 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> 
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae3accbc0b64c9dde0af202f8dd6673bc"><td class="memItemLeft" align="right" valign="top"><a id="ae3accbc0b64c9dde0af202f8dd6673bc" name="ae3accbc0b64c9dde0af202f8dd6673bc"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>N</b></td></tr>
+<tr class="memdesc:ae3accbc0b64c9dde0af202f8dd6673bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of total data points. <br /></td></tr>
 <tr class="separator:ae3accbc0b64c9dde0af202f8dd6673bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe79188d28747c74b27feaf63e0fc511"><td class="memItemLeft" align="right" valign="top"><a id="abe79188d28747c74b27feaf63e0fc511" name="abe79188d28747c74b27feaf63e0fc511"></a>
 std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bins</b></td></tr>
+<tr class="memdesc:abe79188d28747c74b27feaf63e0fc511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bins. <br /></td></tr>
 <tr class="separator:abe79188d28747c74b27feaf63e0fc511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3db4909412dc1ab2e758e9c8fdd6bd7"><td class="memItemLeft" align="right" valign="top"><a id="ab3db4909412dc1ab2e758e9c8fdd6bd7" name="ab3db4909412dc1ab2e758e9c8fdd6bd7"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>range_max</b></td></tr>
+<tr class="memdesc:ab3db4909412dc1ab2e758e9c8fdd6bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upper extreme of the interval to consider. <br /></td></tr>
 <tr class="separator:ab3db4909412dc1ab2e758e9c8fdd6bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb58bff89b025d58c3997334209bf3e9"><td class="memItemLeft" align="right" valign="top"><a id="abb58bff89b025d58c3997334209bf3e9" name="abb58bff89b025d58c3997334209bf3e9"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>range_min</b></td></tr>
+<tr class="memdesc:abb58bff89b025d58c3997334209bf3e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower extreme of the interval to consider. <br /></td></tr>
 <tr class="separator:abb58bff89b025d58c3997334209bf3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fd0164740ef2274ef1a8150535531d3"><td class="memItemLeft" align="right" valign="top"><a id="a6fd0164740ef2274ef1a8150535531d3" name="a6fd0164740ef2274ef1a8150535531d3"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max_val</b></td></tr>
+<tr class="memdesc:a6fd0164740ef2274ef1a8150535531d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of the data. <br /></td></tr>
 <tr class="separator:a6fd0164740ef2274ef1a8150535531d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15c511d16e423252222e3024872f69cc"><td class="memItemLeft" align="right" valign="top"><a id="a15c511d16e423252222e3024872f69cc" name="a15c511d16e423252222e3024872f69cc"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>min_val</b></td></tr>
+<tr class="memdesc:a15c511d16e423252222e3024872f69cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum value of the data. <br /></td></tr>
 <tr class="separator:a15c511d16e423252222e3024872f69cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d2b5122b8b1e08a81ab782ac55eb390"><td class="memItemLeft" align="right" valign="top"><a id="a9d2b5122b8b1e08a81ab782ac55eb390" name="a9d2b5122b8b1e08a81ab782ac55eb390"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sum</b></td></tr>
+<tr class="memdesc:a9d2b5122b8b1e08a81ab782ac55eb390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of the data points. <br /></td></tr>
 <tr class="separator:a9d2b5122b8b1e08a81ab782ac55eb390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9dde74301ab9f2bb8ccd1560e2dad2b"><td class="memItemLeft" align="right" valign="top"><a id="ac9dde74301ab9f2bb8ccd1560e2dad2b" name="ac9dde74301ab9f2bb8ccd1560e2dad2b"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sqr_sum</b></td></tr>
+<tr class="memdesc:ac9dde74301ab9f2bb8ccd1560e2dad2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Square sum of the data points. <br /></td></tr>
 <tr class="separator:ac9dde74301ab9f2bb8ccd1560e2dad2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -169,7 +187,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <tr class="separator:a69d58d295bb90bbba730b780cba15866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >with running statistics </p>
+<div class="textblock"><p >Histogram class with running statistics. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>statistics/<a class="el" href="histogram_8h_source.html">histogram.h</a></li>
 </ul>
@@ -179,7 +197,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1histogram.html">histogram</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 14:53:28 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 15:20:18 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

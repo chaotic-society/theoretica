@@ -25,33 +25,34 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Table of Contents", "index.html#autotoc_md10", null ],
-    [ "Key Features", "index.html#autotoc_md12", null ],
-    [ "Dependencies", "index.html#autotoc_md13", null ],
-    [ "Setup", "index.html#autotoc_md14", null ],
-    [ "Documentation", "index.html#autotoc_md15", [
-      [ "A short example", "index.html#autotoc_md9", null ],
-      [ "Quickstart", "index.html#autotoc_md16", null ],
-      [ "Other examples", "index.html#autotoc_md17", null ]
-    ] ],
-    [ "Contributing", "index.html#autotoc_md18", null ],
-    [ "Testing", "index.html#autotoc_md19", null ],
-    [ "Other informations", "index.html#autotoc_md20", [
-      [ "License", "index.html#autotoc_md21", null ],
-      [ "Macros", "index.html#autotoc_md22", null ],
-      [ "Error handling", "index.html#autotoc_md23", null ]
+    [ "Home", "index.html", [
+      [ "Table of Contents", "index.html#autotoc_md1", null ],
+      [ "Key Features", "index.html#autotoc_md3", null ],
+      [ "Dependencies", "index.html#autotoc_md4", null ],
+      [ "Setup", "index.html#autotoc_md5", null ],
+      [ "Documentation", "index.html#autotoc_md6", [
+        [ "A short example", "index.html#autotoc_md0", null ],
+        [ "Quickstart", "index.html#autotoc_md7", null ],
+        [ "Other examples", "index.html#autotoc_md8", null ]
+      ] ],
+      [ "Contributing", "index.html#autotoc_md9", null ],
+      [ "Testing", "index.html#autotoc_md10", null ],
+      [ "Other informations", "index.html#autotoc_md11", [
+        [ "License", "index.html#autotoc_md12", null ],
+        [ "Macros", "index.html#autotoc_md13", null ],
+        [ "Error handling", "index.html#autotoc_md14", null ]
+      ] ]
     ] ],
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md1", null ],
-      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md2", null ],
-      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md3", null ],
-      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md4", null ],
-      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md5", [
-        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md6", null ]
+      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", null ],
+      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
+      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
+      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ],
+      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", [
+        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ]
       ] ],
-      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md7", null ]
+      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
     ] ],
-    [ "Tests", "md_test_tests.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -86,12 +87,12 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classtheoretica_1_1dual2.html#abaf4d9497e60d25c9cba4ed87bfee24a",
-"classtheoretica_1_1polynomial.html#a4dd5def697f9eb72ac560bbbd079ad3d",
-"constants_8h.html#ac71451b0e74e1fe8a28d1c41bc954804",
-"integration_8h.html#a8c4906ce47fe206db19537904d1ecdc2",
-"namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d",
-"namespacetheoretica.html#ad376dcd3be0e15133bbedf6ad1160587",
-"real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91"
+"classtheoretica_1_1phasor.html#aa5ae29fdf08a9f511ea4f961f31356b1",
+"constants_8h.html#a4145093692043269fa4c1ebef8b4890f",
+"functions_vars.html",
+"namespacetheoretica.html#a3299f783527ae72a24c832a7b1cd8ef8",
+"namespacetheoretica.html#ac61f8810fcedeaa35f54c834e934828e",
+"rand__dist_8h.html#aad2c1865b7a5639ed82643a069554e3d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

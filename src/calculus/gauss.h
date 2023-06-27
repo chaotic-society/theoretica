@@ -1,3 +1,8 @@
+
+///
+/// @file gauss.h Roots and weights for Gaussian quadrature
+///
+
 #ifndef THEORETICA_GAUSS_H
 #define THEORETICA_GAUSS_H
 

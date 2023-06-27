@@ -9,7 +9,7 @@ var searchData=
   ['maximize_5fgrad_6',['maximize_grad',['../namespacetheoretica.html#adeb593b1732cc1d59184ca33c0d82ac8',1,'theoretica']]],
   ['maximize_5flingrad_7',['maximize_lingrad',['../namespacetheoretica.html#a96db517cb1a03f10550b1d27b1e041b4',1,'theoretica']]],
   ['maxwell_8',['maxwell',['../namespacetheoretica_1_1distribution.html#a02b341a54737fbbc4201362784bf63ec',1,'theoretica::distribution::maxwell(real x, real a)'],['../namespacetheoretica_1_1distribution.html#ac5c2061e25c49a9b5b464b323596ee4e',1,'theoretica::distribution::maxwell(real x, const vec_buff &amp;theta)']]],
-  ['mean_9',['mean',['../namespacetheoretica.html#a63412fa6d4323c24f2c571dfc6b14e1d',1,'theoretica']]],
+  ['mean_9',['mean',['../classtheoretica_1_1histogram.html#ad5bd716d6734f1246d8a549f667101ff',1,'theoretica::histogram::mean()'],['../namespacetheoretica.html#a63412fa6d4323c24f2c571dfc6b14e1d',1,'theoretica::mean(const vec_buff &amp;data)']]],
   ['mean_5fstandard_5fdeviation_10',['mean_standard_deviation',['../namespacetheoretica.html#a3ac12b99fe1e96268796f1d2100f7649',1,'theoretica']]],
   ['middlesquare_11',['middlesquare',['../classtheoretica_1_1_p_r_n_g.html#a1234b094b14714bec0526b94fed8bfc5',1,'theoretica::PRNG']]],
   ['min_12',['min',['../namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba',1,'theoretica::min(real x, real y)'],['../namespacetheoretica.html#a70f4122359c1f32ba0741d098a5fbe69',1,'theoretica::min(T x, T y)'],['../namespacetheoretica.html#a932d2d9148bd8cf7911df2eb5612bad1',1,'theoretica::min(const Vector &amp;X)']]],

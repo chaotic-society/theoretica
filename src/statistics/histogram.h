@@ -1,3 +1,8 @@
+
+///
+/// @file histogram.h Histogram class
+///
+
 #ifndef THEORETICA_HISTOGRAM_H
 #define THEORETICA_HISTOGRAM_H
 
@@ -8,34 +13,37 @@
 namespace theoretica {
 
 
-	/// @class histogram Histogram class with running statistics
+	/// @class histogram
+	/// Histogram class with running statistics
 	class histogram {
 		public:
 
-			// Number of total data points
+			/// Number of total data points
 			size_t N;
 
-			// Bins
+			/// Bins
 			std::vector<unsigned int> bins;
 
-			// Extremes of the interval to consider
+			/// Upper extreme of the interval to consider
 			real range_max;
+
+			/// Lower extreme of the interval to consider
 			real range_min;
 			
-			// Maximum value of the data
+			/// Maximum value of the data
 			real max_val;
 
-			// Minimum value of the data
+			/// Minimum value of the data
 			real min_val;
 
-			// Sum of the data points
+			/// Sum of the data points
 			real sum;
 
-			// Square sum of the data points
+			/// Square sum of the data points
 			real sqr_sum;
 
 
-			// Construct from parameters
+			/// Construct from parameters
 			histogram(unsigned int bin_count, real max, real min)
 				: N(0), max_val(0), min_val(0), sum(0), sqr_sum(0) {
 
@@ -45,7 +53,7 @@ namespace theoretica {
 			}
 
 
-			// Construct from data
+			/// Construct from data
 			histogram(const vec_buff& data, unsigned int bin_count = 0) {
 
 				range_max = max(data);
@@ -68,7 +76,7 @@ namespace theoretica {
 			}
 		
 
-			// Insert a new data point inside the histogram
+			/// Insert a new data point inside the histogram
 			inline void insert(real x) {
 
 				if(x < range_min || x > range_max)
@@ -85,7 +93,7 @@ namespace theoretica {
 			}
 
 
-			// Find the index corresponding to a given data point
+			/// Find the index corresponding to a given data point
 			inline unsigned int index(real x) const {
 
 				return (x - range_min)
@@ -95,12 +103,12 @@ namespace theoretica {
 
 			// Statistics
 
-			// Get the number of points
+			/// Get the number of points
 			inline unsigned int number() {
 				return N;
 			}
 
-			// Get the mean value of the histogram data
+			/// Get the mean value of the histogram data
 			inline real mean() const {
 
 				if(N == 0) {
@@ -112,8 +120,8 @@ namespace theoretica {
 			}
 
 
-			// Get the variance of the histogram data
-			// (with Bessel's correction)
+			/// Get the variance of the histogram data
+			/// (with Bessel's correction)
 			inline real variance() const {
 
 				if(N == 0 || N == 1) {
@@ -128,7 +136,7 @@ namespace theoretica {
 			}
 
 
-			// Get the standard deviation of the histogram data
+			/// Get the standard deviation of the histogram data
 			inline real stdev() const {
 				return sqrt(variance());
 			}
