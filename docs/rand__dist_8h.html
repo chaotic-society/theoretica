@@ -134,9 +134,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2">theoretica::rand_uniform</a> (const std::vector&lt; real &gt; &amp;theta, PRNG &amp;g)</td></tr>
 <tr class="memdesc:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_uniform(real, real, PRNG)  <a href="namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2">More...</a><br /></td></tr>
 <tr class="separator:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaab56ddec7d197600964cb78ada9a86"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">theoretica::rand_dist_tac</a> (stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</td></tr>
-<tr class="memdesc:aeaab56ddec7d197600964cb78ada9a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespacetheoretica.html#aeaab56ddec7d197600964cb78ada9a86">More...</a><br /></td></tr>
-<tr class="separator:aeaab56ddec7d197600964cb78ada9a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad209ce0582dd56e6bed84118174f3b0d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad209ce0582dd56e6bed84118174f3b0d">theoretica::rand_trycatch</a> (stat_function f, const vec_buff &amp;theta, real x1, real x2, real y1, real y2, PRNG &amp;g, unsigned int max_iter=MAX_TRYANDCATCH_ITER)</td></tr>
+<tr class="memdesc:ad209ce0582dd56e6bed84118174f3b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <a href="namespacetheoretica.html#ad209ce0582dd56e6bed84118174f3b0d">More...</a><br /></td></tr>
+<tr class="separator:ad209ce0582dd56e6bed84118174f3b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6327969994770b4ca97461aa69d84e6d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6327969994770b4ca97461aa69d84e6d">theoretica::rand_rejectsamp</a> (stat_function f, const vec_buff &amp;theta, real_function p, real_function Pinv, PRNG &amp;g, unsigned int max_tries=100)</td></tr>
+<tr class="memdesc:a6327969994770b4ca97461aa69d84e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following any given distribution using rejection sampling.  <a href="namespacetheoretica.html#a6327969994770b4ca97461aa69d84e6d">More...</a><br /></td></tr>
+<tr class="separator:a6327969994770b4ca97461aa69d84e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac8bdf0dc89459fedaf6950c0f9b96df5">theoretica::rand_gaussian_polar</a> (real mean, real sigma, PRNG &amp;g)</td></tr>
 <tr class="memdesc:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using Marsaglia's polar method.  <a href="namespacetheoretica.html#ac8bdf0dc89459fedaf6950c0f9b96df5">More...</a><br /></td></tr>
 <tr class="separator:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,7 +204,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_pare
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="rand__dist_8h.html">rand_dist.h</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

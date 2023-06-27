@@ -12,6 +12,7 @@ var files_dup =
     [ "polynomial", "dir_80b12a04080342cac66dddc13ab3e1e7.html", "dir_80b12a04080342cac66dddc13ab3e1e7" ],
     [ "pseudorandom", "dir_7abfcc991e7b5ee9bf0b7bf536481a35.html", "dir_7abfcc991e7b5ee9bf0b7bf536481a35" ],
     [ "statistics", "dir_65ad14ba617219a91653797a9020c4d5.html", "dir_65ad14ba617219a91653797a9020c4d5" ],
+    [ "test", "dir_13e138d54eb8818da29c3992edef070a.html", "dir_13e138d54eb8818da29c3992edef070a" ],
     [ "theoretica.h", "theoretica_8h.html", null ],
     [ "utility.h", "utility_8h.html", "utility_8h" ]
 ];

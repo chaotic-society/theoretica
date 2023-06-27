@@ -101,195 +101,219 @@ $(document).ready(function(){initNavTree('vec__buff_8h_source.html',''); initRes
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">./constants.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">   18</a></span>    <span class="keyword">using</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a> = std::vector&lt;real&gt;;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef THEORETICA_NO_PRINT</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a87fed634613f9a7756b807368d316cd9">   22</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a87fed634613f9a7756b807368d316cd9">product</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 1;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            res *= X[i];</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">   24</a></span>    <span class="keyword">using</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a> = std::vector&lt;real&gt;;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Operations on datasets</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// The Vector type must have size() and operator[]() functions</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// (e.g. vec_buff and vec&lt;N&gt;)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9647965ac479e8f39a40af4e8d9c805e">   34</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a9647965ac479e8f39a40af4e8d9c805e">product</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9d272b1cd91c9ac9f1c2049bd627f90e">   38</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a9d272b1cd91c9ac9f1c2049bd627f90e">product_sum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; Y) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 1;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            res *= X[i];</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            res += X[i] * Y[i];</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#adea3f263169a5481254ba50910eec7c1">   51</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#adea3f263169a5481254ba50910eec7c1">product_sum</a>(<span class="keyword">const</span> Vector&amp; X, <span class="keyword">const</span> Vector&amp; Y) {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a8c8e23a7720015a774c4cdcd119a434b">   54</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a8c8e23a7720015a774c4cdcd119a434b">product_sum_squares</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; Y) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum_squares&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            res += <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(X[i]) * <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(Y[i]);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            res += X[i] * Y[i];</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a0e2455c2163719c1f26553aeff27dfe4">   70</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a9d272b1cd91c9ac9f1c2049bd627f90e">product_sum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; Y, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; Z) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span>(X.size() != Y.size() || X.size() != Z.size()) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            res += X[i] * Y[i] * Z[i];</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ad506ec29923258e070ed286a31e2d9a6">   86</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ad506ec29923258e070ed286a31e2d9a6">quotient_sum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; Y) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quotient_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ac54408626bef8f8d8534666ccad21e63">   68</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ac54408626bef8f8d8534666ccad21e63">product_sum_squares</a>(<span class="keyword">const</span> Vector&amp; X, <span class="keyword">const</span> Vector&amp; Y) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum_squares&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            res += <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(X[i]) * <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(Y[i]);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a961e2e2b540fcfd1cf03842d0fe5e86d">   85</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#adea3f263169a5481254ba50910eec7c1">product_sum</a>(<span class="keyword">const</span> Vector&amp; X, <span class="keyword">const</span> Vector&amp; Y, <span class="keyword">const</span> Vector&amp; Z) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">if</span>(X.size() != Y.size() || X.size() != Z.size()) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;product_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            res += X[i] * Y[i] * Z[i];</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span>(Y[i] == 0) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quotient_sum&quot;</span>, Y[i], DIV_BY_ZERO);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            res += X[i] / Y[i];</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#acf13aaceeeef444b2b25b36085da7999">  102</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#acf13aaceeeef444b2b25b36085da7999">quotient_sum</a>(<span class="keyword">const</span> Vector&amp; X, <span class="keyword">const</span> Vector&amp; Y) {</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a2add9ac96bf83be926b67ac98871d519">  109</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a2add9ac96bf83be926b67ac98871d519">sum_squares</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X) {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            res += X[i] * X[i];</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a218096ebc25892ce56a9b64e1c9d38c0">  120</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a218096ebc25892ce56a9b64e1c9d38c0">sum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X) {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            res += X[i];</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a77f1d3ea55880b60ec911458c6289aa0">  131</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacetheoretica.html#a77f1d3ea55880b60ec911458c6289aa0">apply</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*f)(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)) {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&amp; x : X)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            x = f(x);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a983d37129521ddc1e34a1490a7994ddb">  139</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">max</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X) {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        }</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> curr = X[0];</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span>(X.size() != Y.size()) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quotient_sum&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">if</span>(Y[i] == 0) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quotient_sum&quot;</span>, Y[i], DIV_BY_ZERO);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            res += X[i] / Y[i];</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a5ce0b91b1c562268ca0368f14fae5c39">  126</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a5ce0b91b1c562268ca0368f14fae5c39">sum_squares</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            res += X[i] * X[i];</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a926976c1cebfa223f356f57a8878fed6">  138</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a926976c1cebfa223f356f57a8878fed6">sum</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            res += X[i];</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                curr = X[i];</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a106fd473aeab8023a37a5e9b12f1928c">  150</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacetheoretica.html#a106fd473aeab8023a37a5e9b12f1928c">apply</a>(Vector&amp; X, std::function&lt;<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)&gt; f) {</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&amp; x : X)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            x = f(x);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a36a7e33426590d28749cc79608f5a3a6">  157</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba">min</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; X) {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> curr = X[0];</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae37602df85b6826d655e2108a7ed99f8">  159</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">max</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        }</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                curr = X[i];</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">  175</a></span>    <span class="keyword">inline</span> std::ostream&amp; <a class="code hl_function" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; obj) {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x : obj) {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            out &lt;&lt; x &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> curr = X[0];</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                curr = X[i];</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a932d2d9148bd8cf7911df2eb5612bad1">  178</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba">min</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#af3a4b31f01cbde9c17f8fd60daf6345b">  187</a></span>    <span class="keyword">inline</span> std::ostream&amp; <a class="code hl_function" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> std::vector&lt;T&gt;&amp; obj) {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">for</span> (T x : obj) {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            out &lt;&lt; x &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> curr = X[0];</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                curr = X[i];</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    }</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#ifndef THEORETICA_NO_PRINT</span></div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">  197</a></span>    <span class="keyword">inline</span> std::ostream&amp; <a class="code hl_function" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a>&amp; obj) {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x : obj) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            out &lt;&lt; x &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#af3a4b31f01cbde9c17f8fd60daf6345b">  209</a></span>    <span class="keyword">inline</span> std::ostream&amp; <a class="code hl_function" href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> std::vector&lt;T&gt;&amp; obj) {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordflow">for</span> (T x : obj) {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            out &lt;&lt; x &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div><div class="ttdoc">Mathematical constants and algorithm parameters.</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:211</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> distance.h:16</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:181</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a07569756dda099ecabf425371da6a31d"><div class="ttname"><a href="namespacetheoretica.html#a07569756dda099ecabf425371da6a31d">theoretica::max</a></div><div class="ttdeci">real max(real x, real y)</div><div class="ttdoc">Return the greatest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:298</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a218096ebc25892ce56a9b64e1c9d38c0"><div class="ttname"><a href="namespacetheoretica.html#a218096ebc25892ce56a9b64e1c9d38c0">theoretica::sum</a></div><div class="ttdeci">real sum(const vec_buff &amp;X)</div><div class="ttdoc">Sum together a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:120</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a2add9ac96bf83be926b67ac98871d519"><div class="ttname"><a href="namespacetheoretica.html#a2add9ac96bf83be926b67ac98871d519">theoretica::sum_squares</a></div><div class="ttdeci">real sum_squares(const vec_buff &amp;X)</div><div class="ttdoc">Sum the squares of a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:109</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a62c0ba4b2b6a02fb3ba5770165b9a2f1"><div class="ttname"><a href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">theoretica::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const vec_buff &amp;obj)</div><div class="ttdoc">Stream the buffer in string representation to an output stream (std::ostream)</div><div class="ttdef"><b>Definition:</b> vec_buff.h:175</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a77f1d3ea55880b60ec911458c6289aa0"><div class="ttname"><a href="namespacetheoretica.html#a77f1d3ea55880b60ec911458c6289aa0">theoretica::apply</a></div><div class="ttdeci">void apply(vec_buff &amp;X, real(*f)(real))</div><div class="ttdoc">Apply a function to a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:131</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a87fed634613f9a7756b807368d316cd9"><div class="ttname"><a href="namespacetheoretica.html#a87fed634613f9a7756b807368d316cd9">theoretica::product</a></div><div class="ttdeci">real product(const vec_buff &amp;X)</div><div class="ttdoc">Compute the product of a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:22</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a8c8e23a7720015a774c4cdcd119a434b"><div class="ttname"><a href="namespacetheoretica.html#a8c8e23a7720015a774c4cdcd119a434b">theoretica::product_sum_squares</a></div><div class="ttdeci">real product_sum_squares(const vec_buff &amp;X, const vec_buff &amp;Y)</div><div class="ttdoc">Sum the products of the squares of two sets of data.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:54</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a9a50102b320dcdc6a61e5a15234327a7"><div class="ttname"><a href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">theoretica::vec_buff</a></div><div class="ttdeci">std::vector&lt; real &gt; vec_buff</div><div class="ttdoc">A dynamically allocated variable-size container Defined by default as an alias for std::vector&lt;real&gt;</div><div class="ttdef"><b>Definition:</b> vec_buff.h:18</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a9d272b1cd91c9ac9f1c2049bd627f90e"><div class="ttname"><a href="namespacetheoretica.html#a9d272b1cd91c9ac9f1c2049bd627f90e">theoretica::product_sum</a></div><div class="ttdeci">real product_sum(const vec_buff &amp;X, const vec_buff &amp;Y)</div><div class="ttdoc">Sum the products of two sets of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:38</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a106fd473aeab8023a37a5e9b12f1928c"><div class="ttname"><a href="namespacetheoretica.html#a106fd473aeab8023a37a5e9b12f1928c">theoretica::apply</a></div><div class="ttdeci">void apply(Vector &amp;X, std::function&lt; real(real)&gt; f)</div><div class="ttdoc">Apply a function to a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:150</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a5ce0b91b1c562268ca0368f14fae5c39"><div class="ttname"><a href="namespacetheoretica.html#a5ce0b91b1c562268ca0368f14fae5c39">theoretica::sum_squares</a></div><div class="ttdeci">real sum_squares(const Vector &amp;X)</div><div class="ttdoc">Sum the squares of a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:126</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a62c0ba4b2b6a02fb3ba5770165b9a2f1"><div class="ttname"><a href="namespacetheoretica.html#a62c0ba4b2b6a02fb3ba5770165b9a2f1">theoretica::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const vec_buff &amp;obj)</div><div class="ttdoc">Stream the buffer in string representation to an output stream (std::ostream)</div><div class="ttdef"><b>Definition:</b> vec_buff.h:197</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a926976c1cebfa223f356f57a8878fed6"><div class="ttname"><a href="namespacetheoretica.html#a926976c1cebfa223f356f57a8878fed6">theoretica::sum</a></div><div class="ttdeci">real sum(const Vector &amp;X)</div><div class="ttdoc">Sum together a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:138</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a9647965ac479e8f39a40af4e8d9c805e"><div class="ttname"><a href="namespacetheoretica.html#a9647965ac479e8f39a40af4e8d9c805e">theoretica::product</a></div><div class="ttdeci">real product(const Vector &amp;X)</div><div class="ttdoc">Compute the product of a set of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:34</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a9a50102b320dcdc6a61e5a15234327a7"><div class="ttname"><a href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">theoretica::vec_buff</a></div><div class="ttdeci">std::vector&lt; real &gt; vec_buff</div><div class="ttdoc">A dynamically allocated variable-size container Defined by default as an alias for std::vector&lt;real&gt;</div><div class="ttdef"><b>Definition:</b> vec_buff.h:24</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ac54408626bef8f8d8534666ccad21e63"><div class="ttname"><a href="namespacetheoretica.html#ac54408626bef8f8d8534666ccad21e63">theoretica::product_sum_squares</a></div><div class="ttdeci">real product_sum_squares(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of the squares of two sets of data.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:68</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ac673920f8956ebea402eac4271f551ba"><div class="ttname"><a href="namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba">theoretica::min</a></div><div class="ttdeci">real min(real x, real y)</div><div class="ttdoc">Return the smallest number between two real numbers.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:326</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ad506ec29923258e070ed286a31e2d9a6"><div class="ttname"><a href="namespacetheoretica.html#ad506ec29923258e070ed286a31e2d9a6">theoretica::quotient_sum</a></div><div class="ttdeci">real quotient_sum(const vec_buff &amp;X, const vec_buff &amp;Y)</div><div class="ttdoc">Sum the quotients of two sets of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:86</div></div>
+<div class="ttc" id="anamespacetheoretica_html_acf13aaceeeef444b2b25b36085da7999"><div class="ttname"><a href="namespacetheoretica.html#acf13aaceeeef444b2b25b36085da7999">theoretica::quotient_sum</a></div><div class="ttdeci">real quotient_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the quotients of two sets of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:102</div></div>
+<div class="ttc" id="anamespacetheoretica_html_adea3f263169a5481254ba50910eec7c1"><div class="ttname"><a href="namespacetheoretica.html#adea3f263169a5481254ba50910eec7c1">theoretica::product_sum</a></div><div class="ttdeci">real product_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of two sets of values.</div><div class="ttdef"><b>Definition:</b> vec_buff.h:51</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae6629ddaf5a84d7a8f3159b749ef4db0"><div class="ttname"><a href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">theoretica::square</a></div><div class="ttdeci">dual2 square(dual2 x)</div><div class="ttdoc">Return the square of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:23</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae95680d1669eee1549fe112b9a846519"><div class="ttname"><a href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">theoretica::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -298,7 +322,7 @@ $(document).ready(function(){initNavTree('vec__buff_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="vec__buff_8h.html">vec_buff.h</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:25 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

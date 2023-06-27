@@ -14,6 +14,7 @@ var classtheoretica_1_1multidual =
     [ "operator+", "classtheoretica_1_1multidual.html#a12bb15d33c88c52cace9ca36516ad93f", null ],
     [ "operator+", "classtheoretica_1_1multidual.html#a03234378c8b68edfeaf5b65dbc18dc2e", null ],
     [ "operator+", "classtheoretica_1_1multidual.html#ac4cf546260b2844811f3f35e108aa617", null ],
+    [ "operator+=", "classtheoretica_1_1multidual.html#a30ed99413a51b95d0d0ce1991d618c6a", null ],
     [ "operator+=", "classtheoretica_1_1multidual.html#a4ec26bf970ff721166f7b00a8d9e69ab", null ],
     [ "operator-", "classtheoretica_1_1multidual.html#acc911f66ab90c50ca4011336cd5f5cac", null ],
     [ "operator-", "classtheoretica_1_1multidual.html#afec2c7db75503dea1b286a115a828085", null ],

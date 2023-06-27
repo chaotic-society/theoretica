@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['pdf_5fsampler_0',['pdf_sampler',['../structtheoretica_1_1pdf__sampler.html',1,'theoretica']]],
-  ['phasor_1',['phasor',['../classtheoretica_1_1phasor.html',1,'theoretica']]],
-  ['polynomial_2',['polynomial',['../classtheoretica_1_1polynomial.html',1,'theoretica']]],
-  ['prng_3',['PRNG',['../classtheoretica_1_1_p_r_n_g.html',1,'theoretica']]]
+  ['ode_5fstate_0',['ode_state',['../structtheoretica_1_1ode__state.html',1,'theoretica']]],
+  ['ode_5fstate_3c_201_20_3e_1',['ode_state&lt; 1 &gt;',['../structtheoretica_1_1ode__state_3_011_01_4.html',1,'theoretica']]]
 ];

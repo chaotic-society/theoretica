@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('structtheoretica_1_1ode__state.html','
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="structtheoretica_1_1ode__state-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">theoretica::ode_state&lt; N &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -109,6 +110,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a972770ec8f7d1aa3c822b9901dc996e1"><td class="memItemLeft" align="right" valign="top"><a id="a972770ec8f7d1aa3c822b9901dc996e1" name="a972770ec8f7d1aa3c822b9901dc996e1"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ode_state</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t, <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; y)</td></tr>
 <tr class="separator:a972770ec8f7d1aa3c822b9901dc996e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebf4cdccb01f559e31638e8e6c20342c"><td class="memItemLeft" align="right" valign="top"><a id="aebf4cdccb01f559e31638e8e6c20342c" name="aebf4cdccb01f559e31638e8e6c20342c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ode_state</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; y)</td></tr>
+<tr class="separator:aebf4cdccb01f559e31638e8e6c20342c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f66b95cf1af7e3d68ec686f34e2173d"><td class="memItemLeft" align="right" valign="top"><a id="a8f66b95cf1af7e3d68ec686f34e2173d" name="a8f66b95cf1af7e3d68ec686f34e2173d"></a>
+<a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; N &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const std::array&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, 4 &gt; &amp;v)</td></tr>
+<tr class="separator:a8f66b95cf1af7e3d68ec686f34e2173d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6d6213969ecd8701dac88b208a1f90"><td class="memItemLeft" align="right" valign="top"><a id="aac6d6213969ecd8701dac88b208a1f90" name="aac6d6213969ecd8701dac88b208a1f90"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (const std::string &amp;separator=&quot; &quot;) const</td></tr>
+<tr class="memdesc:aac6d6213969ecd8701dac88b208a1f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the ODE state to string representation. <br /></td></tr>
+<tr class="separator:aac6d6213969ecd8701dac88b208a1f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -118,6 +129,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:af266a870f03fd2937a02fbf233415469"><td class="memItemLeft" align="right" valign="top"><a id="af266a870f03fd2937a02fbf233415469" name="af266a870f03fd2937a02fbf233415469"></a>
 <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 <tr class="separator:af266a870f03fd2937a02fbf233415469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ad7f0d7e9a4323d14f9305a06425122f0"><td class="memItemLeft" align="right" valign="top"><a id="ad7f0d7e9a4323d14f9305a06425122f0" name="ad7f0d7e9a4323d14f9305a06425122f0"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; N &gt; &amp;obj)</td></tr>
+<tr class="memdesc:ad7f0d7e9a4323d14f9305a06425122f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream the ODE state in string representation to an output stream (std::ostream) <br /></td></tr>
+<tr class="separator:ad7f0d7e9a4323d14f9305a06425122f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;unsigned int N&gt;<br />
@@ -132,7 +150,7 @@ class theoretica::ode_state&lt; N &gt;</div><p >The current state of an ODE inte
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:41 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:28 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

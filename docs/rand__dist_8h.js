@@ -4,7 +4,6 @@ var rand__dist_8h =
     [ "pdf_sampling_function", "rand__dist_8h.html#a17352cbe273b80ae0f08eac818eba84e", null ],
     [ "rand_cauchy", "rand__dist_8h.html#a473df88a9edd9ccc8dcf03665591575b", null ],
     [ "rand_cauchy", "rand__dist_8h.html#ac34a4b6660c0287dc6dfa979a2f83002", null ],
-    [ "rand_dist_tac", "rand__dist_8h.html#aeaab56ddec7d197600964cb78ada9a86", null ],
     [ "rand_exponential", "rand__dist_8h.html#aa2e6165f6c783179d1b3c2e321b3e7d4", null ],
     [ "rand_exponential", "rand__dist_8h.html#a40fc6d88e78808dfe4a4bbb03798a754", null ],
     [ "rand_gaussian", "rand__dist_8h.html#aad2c1865b7a5639ed82643a069554e3d", null ],
@@ -19,6 +18,8 @@ var rand__dist_8h =
     [ "rand_pareto", "rand__dist_8h.html#a2b34801047d52afccf3b4120c3d2d74e", null ],
     [ "rand_rayleigh", "rand__dist_8h.html#a012d14c9ef85d6f3028bf8ceb1008787", null ],
     [ "rand_rayleigh", "rand__dist_8h.html#a55c93a1f60698d75caa21a305e2ba107", null ],
+    [ "rand_rejectsamp", "rand__dist_8h.html#a6327969994770b4ca97461aa69d84e6d", null ],
+    [ "rand_trycatch", "rand__dist_8h.html#ad209ce0582dd56e6bed84118174f3b0d", null ],
     [ "rand_uniform", "rand__dist_8h.html#ad7e77a1836e1b966cdbb0934d5ebbbf2", null ],
     [ "rand_uniform", "rand__dist_8h.html#a6a35e29644875a5421b3ac4d7203c28a", null ]
 ];

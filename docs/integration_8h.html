@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('integration_8h.html',''); initResizabl
 <code>#include &quot;<a class="el" href="function_8h_source.html">../core/function.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="polynomial_8h_source.html">../polynomial/polynomial.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ortho__polyn_8h_source.html">../polynomial/ortho_polyn.h</a>&quot;</code><br />
+<code>#include &quot;./gauss.h&quot;</code><br />
 </div>
 <p><a href="integration_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -139,6 +140,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a15b399a5f43e97fecaa0017297df12d3"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a15b399a5f43e97fecaa0017297df12d3">theoretica::integral_romberg_tol</a> (RealFunction f, real a, real b, real tolerance=INTEGRATION_TOL)</td></tr>
 <tr class="memdesc:a15b399a5f43e97fecaa0017297df12d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using Romberg's method to the given tolerance.  <a href="namespacetheoretica.html#a15b399a5f43e97fecaa0017297df12d3">More...</a><br /></td></tr>
 <tr class="separator:a15b399a5f43e97fecaa0017297df12d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96bf598b39c148bddb7ceebd7aa9b446"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a96bf598b39c148bddb7ceebd7aa9b446"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a96bf598b39c148bddb7ceebd7aa9b446">theoretica::integral_gauss</a> (RealFunction f, const std::vector&lt; real &gt; &amp;x, const std::vector&lt; real &gt; &amp;w)</td></tr>
+<tr class="memdesc:a96bf598b39c148bddb7ceebd7aa9b446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gaussian quadrature using the given points and weights.  <a href="namespacetheoretica.html#a96bf598b39c148bddb7ceebd7aa9b446">More...</a><br /></td></tr>
+<tr class="separator:a96bf598b39c148bddb7ceebd7aa9b446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2038787a4650a9610cdf4639901677a"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ad2038787a4650a9610cdf4639901677a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad2038787a4650a9610cdf4639901677a">theoretica::integral_legendre</a> (RealFunction f, real a, real b, real *x, real *w, unsigned int n)</td></tr>
+<tr class="memdesc:ad2038787a4650a9610cdf4639901677a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Legendre quadrature of arbitrary degree to approximate a definite integral providing the roots of the n degree Legendre polynomial.  <a href="namespacetheoretica.html#ad2038787a4650a9610cdf4639901677a">More...</a><br /></td></tr>
+<tr class="separator:ad2038787a4650a9610cdf4639901677a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ca5edbbdee0a51f8c0bfddb4c71f69"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a62ca5edbbdee0a51f8c0bfddb4c71f69"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a62ca5edbbdee0a51f8c0bfddb4c71f69">theoretica::integral_legendre</a> (RealFunction f, real a, real b, const std::vector&lt; real &gt; &amp;x, const std::vector&lt; real &gt; &amp;w)</td></tr>
+<tr class="memdesc:a62ca5edbbdee0a51f8c0bfddb4c71f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Legendre quadrature of arbitrary degree to approximate a definite integral providing the roots of the n degree Legendre polynomial.  <a href="namespacetheoretica.html#a62ca5edbbdee0a51f8c0bfddb4c71f69">More...</a><br /></td></tr>
+<tr class="separator:a62ca5edbbdee0a51f8c0bfddb4c71f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3f79a7b3f80ff901eba3340d1ba14a5"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:ad3f79a7b3f80ff901eba3340d1ba14a5"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad3f79a7b3f80ff901eba3340d1ba14a5">theoretica::integral_legendre</a> (RealFunction f, real a, real b, const std::vector&lt; real &gt; &amp;x)</td></tr>
 <tr class="memdesc:ad3f79a7b3f80ff901eba3340d1ba14a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Legendre quadrature of arbitrary degree to approximate a definite integral providing the roots of the n degree Legendre polynomial.  <a href="namespacetheoretica.html#ad3f79a7b3f80ff901eba3340d1ba14a5">More...</a><br /></td></tr>
@@ -176,7 +189,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:26 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

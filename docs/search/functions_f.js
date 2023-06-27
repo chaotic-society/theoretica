@@ -11,9 +11,9 @@ var searchData=
   ['pow_8',['pow',['../namespacetheoretica.html#afce493c565b387c0496eff49e137edb6',1,'theoretica::pow(dual2 x, int n)'],['../namespacetheoretica.html#a4ad063ce053e951e9183799584090c0e',1,'theoretica::pow(dual x, int n)'],['../namespacetheoretica.html#adfb716c77e812d83d2aed787ff39b62e',1,'theoretica::pow(multidual&lt; N &gt; x, int n)'],['../namespacetheoretica.html#a13248f2e439afdb6f72e0f2c1e79cc55',1,'theoretica::pow(T x, int n)']]],
   ['powf_9',['powf',['../namespacetheoretica.html#a6f12dd8e0fc650fa75c9961e51d1406c',1,'theoretica']]],
   ['prng_10',['PRNG',['../classtheoretica_1_1_p_r_n_g.html#afdc432e50bfa8c5c2e0dfef94e9102f3',1,'theoretica::PRNG::PRNG(pseudorandom_function p, uint64_t seed, const std::vector&lt; uint64_t &gt; &amp;s)'],['../classtheoretica_1_1_p_r_n_g.html#afb7b1af9fe688d8421765ad12161bd2c',1,'theoretica::PRNG::PRNG(pseudorandom_function p, const std::vector&lt; uint64_t &gt; &amp;s)'],['../classtheoretica_1_1_p_r_n_g.html#a571a60595e0891f8693da3431ada2d75',1,'theoretica::PRNG::PRNG(pseudorandom_function p, uint64_t seed)']]],
-  ['product_11',['product',['../namespacetheoretica.html#a87fed634613f9a7756b807368d316cd9',1,'theoretica']]],
-  ['product_5fsum_12',['product_sum',['../namespacetheoretica.html#a9d272b1cd91c9ac9f1c2049bd627f90e',1,'theoretica::product_sum(const vec_buff &amp;X, const vec_buff &amp;Y)'],['../namespacetheoretica.html#a0e2455c2163719c1f26553aeff27dfe4',1,'theoretica::product_sum(const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;Z)']]],
-  ['product_5fsum_5fsquares_13',['product_sum_squares',['../namespacetheoretica.html#a8c8e23a7720015a774c4cdcd119a434b',1,'theoretica']]],
+  ['product_11',['product',['../namespacetheoretica.html#a9647965ac479e8f39a40af4e8d9c805e',1,'theoretica']]],
+  ['product_5fsum_12',['product_sum',['../namespacetheoretica.html#adea3f263169a5481254ba50910eec7c1',1,'theoretica::product_sum(const Vector &amp;X, const Vector &amp;Y)'],['../namespacetheoretica.html#a961e2e2b540fcfd1cf03842d0fe5e86d',1,'theoretica::product_sum(const Vector &amp;X, const Vector &amp;Y, const Vector &amp;Z)']]],
+  ['product_5fsum_5fsquares_13',['product_sum_squares',['../namespacetheoretica.html#ac54408626bef8f8d8534666ccad21e63',1,'theoretica']]],
   ['propagate_5fproduct_14',['propagate_product',['../namespacetheoretica.html#aad8729f104e3aec72c05706a8d56a1de',1,'theoretica']]],
   ['propagate_5fsum_15',['propagate_sum',['../namespacetheoretica.html#a5c42fd9cadef340b3420309453758078',1,'theoretica']]]
 ];

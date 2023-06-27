@@ -9,5 +9,5 @@ var searchData=
   ['quadratic_5fmean_6',['quadratic_mean',['../namespacetheoretica.html#a9e5247854c4b50f7ac1d71e7d23a9ef4',1,'theoretica']]],
   ['quadratic_5froots_7',['quadratic_roots',['../classtheoretica_1_1polynomial.html#a4dd5def697f9eb72ac560bbbd079ad3d',1,'theoretica::polynomial']]],
   ['quat_8',['quat',['../classtheoretica_1_1quat.html#a5829c1d7dbdf9631fff73ec88e8ca6cd',1,'theoretica::quat::quat()'],['../classtheoretica_1_1quat.html#a7cf0bd9bac911322fba8093fb0bc1f8a',1,'theoretica::quat::quat(real a, const vec3 &amp;v)'],['../classtheoretica_1_1quat.html#a6b0782b57eb69504facda6396e1b64ea',1,'theoretica::quat::quat(const quat &amp;other)'],['../classtheoretica_1_1quat.html#aea006925c9debd97fda7849ab16d0894',1,'theoretica::quat::quat(real a, real b, real c, real d)']]],
-  ['quotient_5fsum_9',['quotient_sum',['../namespacetheoretica.html#ad506ec29923258e070ed286a31e2d9a6',1,'theoretica']]]
+  ['quotient_5fsum_9',['quotient_sum',['../namespacetheoretica.html#acf13aaceeeef444b2b25b36085da7999',1,'theoretica']]]
 ];

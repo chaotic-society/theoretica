@@ -12,5 +12,5 @@ var searchData=
   ['quasirandom_2eh_9',['quasirandom.h',['../quasirandom_8h.html',1,'']]],
   ['quat_10',['quat',['../classtheoretica_1_1quat.html#a5829c1d7dbdf9631fff73ec88e8ca6cd',1,'theoretica::quat::quat()'],['../classtheoretica_1_1quat.html#a7cf0bd9bac911322fba8093fb0bc1f8a',1,'theoretica::quat::quat(real a, const vec3 &amp;v)'],['../classtheoretica_1_1quat.html#a6b0782b57eb69504facda6396e1b64ea',1,'theoretica::quat::quat(const quat &amp;other)'],['../classtheoretica_1_1quat.html#aea006925c9debd97fda7849ab16d0894',1,'theoretica::quat::quat(real a, real b, real c, real d)'],['../classtheoretica_1_1quat.html',1,'theoretica::quat']]],
   ['quat_2eh_11',['quat.h',['../quat_8h.html',1,'']]],
-  ['quotient_5fsum_12',['quotient_sum',['../namespacetheoretica.html#ad506ec29923258e070ed286a31e2d9a6',1,'theoretica']]]
+  ['quotient_5fsum_12',['quotient_sum',['../namespacetheoretica.html#acf13aaceeeef444b2b25b36085da7999',1,'theoretica']]]
 ];

@@ -2,10 +2,13 @@ var integration_8h =
 [
     [ "integral", "integration_8h.html#ae095e7eee4b03eddc3b035b2bde14a7e", null ],
     [ "integral", "integration_8h.html#aa29abada0134095a6d9a120c241ce461", null ],
+    [ "integral_gauss", "integration_8h.html#a96bf598b39c148bddb7ceebd7aa9b446", null ],
     [ "integral_hermite", "integration_8h.html#abbe2540b2ff381a14b61588280cb9016", null ],
     [ "integral_laguerre", "integration_8h.html#aa4a53869de63d5c2daf7790511ce8aac", null ],
     [ "integral_laguerre", "integration_8h.html#a0c209d0975ad962d9b5e68a3661150ab", null ],
     [ "integral_legendre", "integration_8h.html#ad3f79a7b3f80ff901eba3340d1ba14a5", null ],
+    [ "integral_legendre", "integration_8h.html#a62ca5edbbdee0a51f8c0bfddb4c71f69", null ],
+    [ "integral_legendre", "integration_8h.html#ad2038787a4650a9610cdf4639901677a", null ],
     [ "integral_legendre", "integration_8h.html#a8c4906ce47fe206db19537904d1ecdc2", null ],
     [ "integral_midpoint", "integration_8h.html#a1a48a7bb7296e78f5c1b0c5f5bcf4d93", null ],
     [ "integral_romberg", "integration_8h.html#a8f6c51cd5ff6287130ab25a6efbbe2e5", null ],

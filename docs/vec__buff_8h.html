@@ -99,10 +99,13 @@ $(document).ready(function(){initNavTree('vec__buff_8h.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>Allocation and operations on data sets.  
+<p>Operations on datasets.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">./constants.h</a>&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 </div>
 <p><a href="vec__buff_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,46 +124,56 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::vec_buff
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a87fed634613f9a7756b807368d316cd9"><td class="memItemLeft" align="right" valign="top"><a id="a87fed634613f9a7756b807368d316cd9" name="a87fed634613f9a7756b807368d316cd9"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::product</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a87fed634613f9a7756b807368d316cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
-<tr class="separator:a87fed634613f9a7756b807368d316cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d272b1cd91c9ac9f1c2049bd627f90e"><td class="memItemLeft" align="right" valign="top"><a id="a9d272b1cd91c9ac9f1c2049bd627f90e" name="a9d272b1cd91c9ac9f1c2049bd627f90e"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::product_sum</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a9d272b1cd91c9ac9f1c2049bd627f90e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of two sets of values. <br /></td></tr>
-<tr class="separator:a9d272b1cd91c9ac9f1c2049bd627f90e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c8e23a7720015a774c4cdcd119a434b"><td class="memItemLeft" align="right" valign="top"><a id="a8c8e23a7720015a774c4cdcd119a434b" name="a8c8e23a7720015a774c4cdcd119a434b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::product_sum_squares</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a8c8e23a7720015a774c4cdcd119a434b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of the squares of two sets of data. <br /></td></tr>
-<tr class="separator:a8c8e23a7720015a774c4cdcd119a434b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2455c2163719c1f26553aeff27dfe4"><td class="memItemLeft" align="right" valign="top"><a id="a0e2455c2163719c1f26553aeff27dfe4" name="a0e2455c2163719c1f26553aeff27dfe4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::product_sum</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;Z)</td></tr>
-<tr class="memdesc:a0e2455c2163719c1f26553aeff27dfe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of three sets of values. <br /></td></tr>
-<tr class="separator:a0e2455c2163719c1f26553aeff27dfe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad506ec29923258e070ed286a31e2d9a6"><td class="memItemLeft" align="right" valign="top"><a id="ad506ec29923258e070ed286a31e2d9a6" name="ad506ec29923258e070ed286a31e2d9a6"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::quotient_sum</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:ad506ec29923258e070ed286a31e2d9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the quotients of two sets of values. <br /></td></tr>
-<tr class="separator:ad506ec29923258e070ed286a31e2d9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2add9ac96bf83be926b67ac98871d519"><td class="memItemLeft" align="right" valign="top"><a id="a2add9ac96bf83be926b67ac98871d519" name="a2add9ac96bf83be926b67ac98871d519"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sum_squares</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a2add9ac96bf83be926b67ac98871d519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the squares of a set of values. <br /></td></tr>
-<tr class="separator:a2add9ac96bf83be926b67ac98871d519"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a218096ebc25892ce56a9b64e1c9d38c0"><td class="memItemLeft" align="right" valign="top"><a id="a218096ebc25892ce56a9b64e1c9d38c0" name="a218096ebc25892ce56a9b64e1c9d38c0"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sum</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a218096ebc25892ce56a9b64e1c9d38c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum together a set of values. <br /></td></tr>
-<tr class="separator:a218096ebc25892ce56a9b64e1c9d38c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f1d3ea55880b60ec911458c6289aa0"><td class="memItemLeft" align="right" valign="top"><a id="a77f1d3ea55880b60ec911458c6289aa0" name="a77f1d3ea55880b60ec911458c6289aa0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::apply</b> (vec_buff &amp;X, real(*f)(real))</td></tr>
-<tr class="memdesc:a77f1d3ea55880b60ec911458c6289aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to a set of values. <br /></td></tr>
-<tr class="separator:a77f1d3ea55880b60ec911458c6289aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a983d37129521ddc1e34a1490a7994ddb"><td class="memItemLeft" align="right" valign="top"><a id="a983d37129521ddc1e34a1490a7994ddb" name="a983d37129521ddc1e34a1490a7994ddb"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::max</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a983d37129521ddc1e34a1490a7994ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum value inside a dataset. <br /></td></tr>
-<tr class="separator:a983d37129521ddc1e34a1490a7994ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a7e33426590d28749cc79608f5a3a6"><td class="memItemLeft" align="right" valign="top"><a id="a36a7e33426590d28749cc79608f5a3a6" name="a36a7e33426590d28749cc79608f5a3a6"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::min</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a36a7e33426590d28749cc79608f5a3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum value inside a dataset. <br /></td></tr>
-<tr class="separator:a36a7e33426590d28749cc79608f5a3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9647965ac479e8f39a40af4e8d9c805e"><td class="memTemplParams" colspan="2"><a id="a9647965ac479e8f39a40af4e8d9c805e" name="a9647965ac479e8f39a40af4e8d9c805e"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a9647965ac479e8f39a40af4e8d9c805e"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::product</b> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a9647965ac479e8f39a40af4e8d9c805e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
+<tr class="separator:a9647965ac479e8f39a40af4e8d9c805e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea3f263169a5481254ba50910eec7c1"><td class="memTemplParams" colspan="2"><a id="adea3f263169a5481254ba50910eec7c1" name="adea3f263169a5481254ba50910eec7c1"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:adea3f263169a5481254ba50910eec7c1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::product_sum</b> (const Vector &amp;X, const Vector &amp;Y)</td></tr>
+<tr class="memdesc:adea3f263169a5481254ba50910eec7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of two sets of values. <br /></td></tr>
+<tr class="separator:adea3f263169a5481254ba50910eec7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54408626bef8f8d8534666ccad21e63"><td class="memTemplParams" colspan="2"><a id="ac54408626bef8f8d8534666ccad21e63" name="ac54408626bef8f8d8534666ccad21e63"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:ac54408626bef8f8d8534666ccad21e63"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::product_sum_squares</b> (const Vector &amp;X, const Vector &amp;Y)</td></tr>
+<tr class="memdesc:ac54408626bef8f8d8534666ccad21e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of the squares of two sets of data. <br /></td></tr>
+<tr class="separator:ac54408626bef8f8d8534666ccad21e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961e2e2b540fcfd1cf03842d0fe5e86d"><td class="memTemplParams" colspan="2"><a id="a961e2e2b540fcfd1cf03842d0fe5e86d" name="a961e2e2b540fcfd1cf03842d0fe5e86d"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a961e2e2b540fcfd1cf03842d0fe5e86d"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::product_sum</b> (const Vector &amp;X, const Vector &amp;Y, const Vector &amp;Z)</td></tr>
+<tr class="memdesc:a961e2e2b540fcfd1cf03842d0fe5e86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the products of three sets of values. <br /></td></tr>
+<tr class="separator:a961e2e2b540fcfd1cf03842d0fe5e86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf13aaceeeef444b2b25b36085da7999"><td class="memTemplParams" colspan="2"><a id="acf13aaceeeef444b2b25b36085da7999" name="acf13aaceeeef444b2b25b36085da7999"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:acf13aaceeeef444b2b25b36085da7999"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::quotient_sum</b> (const Vector &amp;X, const Vector &amp;Y)</td></tr>
+<tr class="memdesc:acf13aaceeeef444b2b25b36085da7999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the quotients of two sets of values. <br /></td></tr>
+<tr class="separator:acf13aaceeeef444b2b25b36085da7999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce0b91b1c562268ca0368f14fae5c39"><td class="memTemplParams" colspan="2"><a id="a5ce0b91b1c562268ca0368f14fae5c39" name="a5ce0b91b1c562268ca0368f14fae5c39"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a5ce0b91b1c562268ca0368f14fae5c39"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sum_squares</b> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a5ce0b91b1c562268ca0368f14fae5c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum the squares of a set of values. <br /></td></tr>
+<tr class="separator:a5ce0b91b1c562268ca0368f14fae5c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926976c1cebfa223f356f57a8878fed6"><td class="memTemplParams" colspan="2"><a id="a926976c1cebfa223f356f57a8878fed6" name="a926976c1cebfa223f356f57a8878fed6"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a926976c1cebfa223f356f57a8878fed6"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sum</b> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a926976c1cebfa223f356f57a8878fed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum together a set of values. <br /></td></tr>
+<tr class="separator:a926976c1cebfa223f356f57a8878fed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106fd473aeab8023a37a5e9b12f1928c"><td class="memTemplParams" colspan="2"><a id="a106fd473aeab8023a37a5e9b12f1928c" name="a106fd473aeab8023a37a5e9b12f1928c"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a106fd473aeab8023a37a5e9b12f1928c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::apply</b> (Vector &amp;X, std::function&lt; real(real)&gt; f)</td></tr>
+<tr class="memdesc:a106fd473aeab8023a37a5e9b12f1928c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to a set of values. <br /></td></tr>
+<tr class="separator:a106fd473aeab8023a37a5e9b12f1928c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37602df85b6826d655e2108a7ed99f8"><td class="memTemplParams" colspan="2"><a id="ae37602df85b6826d655e2108a7ed99f8" name="ae37602df85b6826d655e2108a7ed99f8"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:ae37602df85b6826d655e2108a7ed99f8"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::max</b> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:ae37602df85b6826d655e2108a7ed99f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum value inside a dataset. <br /></td></tr>
+<tr class="separator:ae37602df85b6826d655e2108a7ed99f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932d2d9148bd8cf7911df2eb5612bad1"><td class="memTemplParams" colspan="2"><a id="a932d2d9148bd8cf7911df2eb5612bad1" name="a932d2d9148bd8cf7911df2eb5612bad1"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a932d2d9148bd8cf7911df2eb5612bad1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::min</b> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a932d2d9148bd8cf7911df2eb5612bad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum value inside a dataset. <br /></td></tr>
+<tr class="separator:a932d2d9148bd8cf7911df2eb5612bad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c0ba4b2b6a02fb3ba5770165b9a2f1"><td class="memItemLeft" align="right" valign="top"><a id="a62c0ba4b2b6a02fb3ba5770165b9a2f1" name="a62c0ba4b2b6a02fb3ba5770165b9a2f1"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::operator&lt;&lt;</b> (std::ostream &amp;out, const vec_buff &amp;obj)</td></tr>
 <tr class="memdesc:a62c0ba4b2b6a02fb3ba5770165b9a2f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream the buffer in string representation to an output stream (std::ostream) <br /></td></tr>
@@ -172,14 +185,14 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:af3a4b31f01cbde9c17f8fd60daf6345b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Allocation and operations on data sets. </p>
+<div class="textblock"><p >Operations on datasets. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="vec__buff_8h.html">vec_buff.h</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:26 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

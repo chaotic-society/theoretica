@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hamiltonian_5fsimulation_2ecpp_0',['hamiltonian_simulation.cpp',['../hamiltonian__simulation_8cpp.html',1,'']]]
+  ['hamiltonian_2ecpp_0',['hamiltonian.cpp',['../hamiltonian_8cpp.html',1,'']]],
+  ['histogram_2ecpp_1',['histogram.cpp',['../histogram_8cpp.html',1,'']]]
 ];

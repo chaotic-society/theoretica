@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('multi__extrema_8h.html',''); initResiz
 <div class="textblock"><code>#include &quot;<a class="el" href="constants_8h_source.html">../core/constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="autodiff_8h_source.html">../autodiff/autodiff.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="extrema_8h_source.html">./extrema.h</a>&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 </div>
 <p><a href="multi__extrema_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -126,10 +127,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a2c4c98e4f539167c2b5af80fe78fedd5"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2c4c98e4f539167c2b5af80fe78fedd5">theoretica::minimize_lingrad</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N &gt; guess=vec&lt; N &gt;(0), real tolerance=MINGRAD_TOLERANCE, unsigned int max_iter=MINGRAD_MAX_ITER)</td></tr>
 <tr class="memdesc:a2c4c98e4f539167c2b5af80fe78fedd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a local minimum of the given multivariate function using gradient descent with linear search.  <a href="namespacetheoretica.html#a2c4c98e4f539167c2b5af80fe78fedd5">More...</a><br /></td></tr>
 <tr class="separator:a2c4c98e4f539167c2b5af80fe78fedd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c8940cabdea5cdb34d24ba521f22939"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a6c8940cabdea5cdb34d24ba521f22939"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6c8940cabdea5cdb34d24ba521f22939">theoretica::minimize</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N &gt; guess=vec&lt; N &gt;(0))</td></tr>
-<tr class="memdesc:a6c8940cabdea5cdb34d24ba521f22939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to find a local minimum of the given multivariate function.  <a href="namespacetheoretica.html#a6c8940cabdea5cdb34d24ba521f22939">More...</a><br /></td></tr>
-<tr class="separator:a6c8940cabdea5cdb34d24ba521f22939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96db517cb1a03f10550b1d27b1e041b4"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a96db517cb1a03f10550b1d27b1e041b4"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a96db517cb1a03f10550b1d27b1e041b4">theoretica::maximize_lingrad</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N &gt; guess=vec&lt; N &gt;(0), real tolerance=MINGRAD_TOLERANCE, unsigned int max_iter=MINGRAD_MAX_ITER)</td></tr>
+<tr class="memdesc:a96db517cb1a03f10550b1d27b1e041b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a local maximum of the given multivariate function using gradient descent with linear search.  <a href="namespacetheoretica.html#a96db517cb1a03f10550b1d27b1e041b4">More...</a><br /></td></tr>
+<tr class="separator:a96db517cb1a03f10550b1d27b1e041b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237070a7e4fa6ba4d75cea03dd1398da"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a237070a7e4fa6ba4d75cea03dd1398da"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a237070a7e4fa6ba4d75cea03dd1398da">theoretica::minimize</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N &gt; guess=vec&lt; N &gt;(0), real tolerance=MINGRAD_TOLERANCE)</td></tr>
+<tr class="memdesc:a237070a7e4fa6ba4d75cea03dd1398da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to find a local minimum of the given multivariate function.  <a href="namespacetheoretica.html#a237070a7e4fa6ba4d75cea03dd1398da">More...</a><br /></td></tr>
+<tr class="separator:a237070a7e4fa6ba4d75cea03dd1398da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f55e91d97aa8db9ab7a68723d4f27b8"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
+<tr class="memitem:a1f55e91d97aa8db9ab7a68723d4f27b8"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1f55e91d97aa8db9ab7a68723d4f27b8">theoretica::maximize</a> (multidual&lt; N &gt;(*f)(vec&lt; N, multidual&lt; N &gt; &gt;), vec&lt; N &gt; guess=vec&lt; N &gt;(0), real tolerance=MINGRAD_TOLERANCE)</td></tr>
+<tr class="memdesc:a1f55e91d97aa8db9ab7a68723d4f27b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to find a local maximum of the given multivariate function.  <a href="namespacetheoretica.html#a1f55e91d97aa8db9ab7a68723d4f27b8">More...</a><br /></td></tr>
+<tr class="separator:a1f55e91d97aa8db9ab7a68723d4f27b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Search of extrema of multivariate functions. </p>
@@ -139,7 +148,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="multi__extrema_8h.html">multi_extrema.h</a></li>
-    <li class="footer">Generated on Sun Jan 29 2023 23:18:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 14:53:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -25,32 +25,33 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Table of Contents", "index.html#autotoc_md1", null ],
-      [ "Key Features", "index.html#autotoc_md3", null ],
-      [ "Dependencies", "index.html#autotoc_md4", null ],
-      [ "Setup", "index.html#autotoc_md5", null ],
-      [ "Examples", "index.html#autotoc_md6", [
-        [ "A short example", "index.html#autotoc_md0", null ],
-        [ "Quickstart", "index.html#autotoc_md7", null ],
-        [ "Other examples", "index.html#autotoc_md8", null ]
-      ] ],
-      [ "Contributing", "index.html#autotoc_md9", null ],
-      [ "Testing", "index.html#autotoc_md10", null ],
-      [ "Other informations", "index.html#autotoc_md11", [
-        [ "License", "index.html#autotoc_md12", null ],
-        [ "Macros", "index.html#autotoc_md13", null ],
-        [ "Error handling", "index.html#autotoc_md14", null ]
-      ] ],
-      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", null ],
-      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
-      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
-      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ],
-      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", [
-        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ]
-      ] ],
-      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
+    [ "Table of Contents", "index.html#autotoc_md10", null ],
+    [ "Key Features", "index.html#autotoc_md12", null ],
+    [ "Dependencies", "index.html#autotoc_md13", null ],
+    [ "Setup", "index.html#autotoc_md14", null ],
+    [ "Documentation", "index.html#autotoc_md15", [
+      [ "A short example", "index.html#autotoc_md9", null ],
+      [ "Quickstart", "index.html#autotoc_md16", null ],
+      [ "Other examples", "index.html#autotoc_md17", null ]
     ] ],
+    [ "Contributing", "index.html#autotoc_md18", null ],
+    [ "Testing", "index.html#autotoc_md19", null ],
+    [ "Other informations", "index.html#autotoc_md20", [
+      [ "License", "index.html#autotoc_md21", null ],
+      [ "Macros", "index.html#autotoc_md22", null ],
+      [ "Error handling", "index.html#autotoc_md23", null ]
+    ] ],
+    [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
+      [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md1", null ],
+      [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md2", null ],
+      [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md3", null ],
+      [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md4", null ],
+      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md5", [
+        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md6", null ]
+      ] ],
+      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md7", null ]
+    ] ],
+    [ "Tests", "md_test_tests.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -84,13 +85,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classtheoretica_1_1dual2.html#abce94b167257f39de56c3105390fb017",
-"classtheoretica_1_1polynomial.html#a888fd0bbfe4bd59b011c969b899fa9a3",
-"constants_8h.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d",
-"mat_8h.html#a702b5e6317a8cb92da28782d857ddc47",
-"namespacetheoretica.html#a4d6916417c8d2b817cfc48b8e2a1abb5",
-"namespacetheoretica.html#ae0dda0991b7f146cc8f53578508fef4f",
-"roots_8h.html#a0c661fbdbe2cadaddfbcbb844d8ff011"
+"classtheoretica_1_1dual2.html#abaf4d9497e60d25c9cba4ed87bfee24a",
+"classtheoretica_1_1polynomial.html#a4dd5def697f9eb72ac560bbbd079ad3d",
+"constants_8h.html#ac71451b0e74e1fe8a28d1c41bc954804",
+"integration_8h.html#a8c4906ce47fe206db19537904d1ecdc2",
+"namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d",
+"namespacetheoretica.html#ad376dcd3be0e15133bbedf6ad1160587",
+"real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

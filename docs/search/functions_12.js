@@ -44,7 +44,7 @@ var searchData=
   ['stdom_41',['stdom',['../namespacetheoretica.html#a1ea2bd4390f09c4a28c18f12c67383c3',1,'theoretica']]],
   ['student_42',['student',['../namespacetheoretica_1_1distribution.html#a7e4cfceccf2f9ea7113ab121320a76bc',1,'theoretica::distribution::student(real x, unsigned int nu)'],['../namespacetheoretica_1_1distribution.html#ad200d5f01ae2fab63b4c44d213e469a3',1,'theoretica::distribution::student(real x, const vec_buff &amp;theta)']]],
   ['sturm_5fliouville_43',['sturm_liouville',['../namespacetheoretica.html#a3b0a5c7fbe93408ce58d40859bab3365',1,'theoretica']]],
-  ['sum_44',['sum',['../namespacetheoretica.html#a218096ebc25892ce56a9b64e1c9d38c0',1,'theoretica']]],
-  ['sum_5fsquares_45',['sum_squares',['../namespacetheoretica.html#a2add9ac96bf83be926b67ac98871d519',1,'theoretica']]],
+  ['sum_44',['sum',['../namespacetheoretica.html#a926976c1cebfa223f356f57a8878fed6',1,'theoretica']]],
+  ['sum_5fsquares_45',['sum_squares',['../namespacetheoretica.html#a5ce0b91b1c562268ca0368f14fae5c39',1,'theoretica']]],
   ['symplectic_46',['symplectic',['../classtheoretica_1_1mat.html#a0515e74c799c708f1a40171d6f3a065d',1,'theoretica::mat']]]
 ];
