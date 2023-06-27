@@ -98,6 +98,27 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate(
+			"th::root(real) (2)",
+			[](real x) { return th::root(x, 2); },
+			REAL_LAMBDA(std::sqrt),
+			interval(0, 100000));
+
+
+		prec::estimate(
+			"th::root(real) (3)",
+			[](real x) { return th::root(x, 3); },
+			REAL_LAMBDA(std::cbrt),
+			interval(-100000, 100000));
+
+
+		prec::estimate(
+			"th::root(real) (4)",
+			[](real x) { return th::pow(th::root(x, 4), 4); },
+			[](real x) { return x; },
+			interval(0, 100000));
+
+
+		prec::estimate(
 			"th::isqrt(uint32_t)",
 			[](real x) { return th::isqrt<uint32_t>(x); },
 			[](real x) { return std::floor(std::sqrt(x)); },
@@ -259,6 +280,13 @@ int main(int argc, char const *argv[]) {
 				return 1;
 			},
 			interval(MIN, MAX));
+
+
+		prec::estimate(
+			"th::tan(real)",
+			REAL_LAMBDA(th::tan),
+			REAL_LAMBDA(std::tan),
+			interval(-1, 1));
 
 
 		prec::estimate(

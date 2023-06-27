@@ -708,42 +708,33 @@ namespace theoretica {
 	///
 	/// The exponential is computed as \f$e^{floor(x)} e^{fract(x)}\f$,
 	/// where \f$e^{floor(x)} = pow(e, floor(x))\f$ and \f$e^{fract(x)}\f$
-	/// is either approximated using Taylor series on [0, 0.5] or,
-	/// if `THEORETICA_X86` is defined, using the `f2xm1` x86 assembly instruction.
+	/// is approximated using Taylor series on [0, 0.5]
 	inline real exp(real x) {
 
-	// Domain reduction to [0, +inf]
-	if(x < 0)
-		return 1.0 / exp(-x);
+		// Domain reduction to [0, +inf]
+		if(x < 0)
+			return 1.0 / exp(-x);
 
-	const real fract_x = fract(x);
-	const int floor_x = floor(x);
+		const real fract_x = fract(x);
+		const int floor_x = floor(x);
 
-// #ifdef THEORETICA_X86
+		// Taylor series expansion
+		// Compute e^floor(x) * e^fract(x)
+		
+		real res = 1;
+		real s_n = 1;
 
-// 		return pow(E, floor_x) * exp_x86_norm(fract_x);
+		for (int i = 1; i <= TAYLOR_ORDER; ++i) {
 
-// #else
+			// Recurrence formula to improve
+			// numerical stability and performance
+			s_n *= fract_x / (i * 4);
+			res += s_n;
+		}
 
-	// Taylor series expansion
-	// Compute e^floor(x) * e^fract(x)
-	
-	real res = 1;
-	real s_n = 1;
-
-	for (int i = 1; i <= TAYLOR_ORDER; ++i) {
-
-		// Recurrence formula to improve
-		// numerical stability and performance
-		s_n *= fract_x / (i * 4);
-		res += s_n;
-	}
-
-	// The fractional part is divided by 4 to improve convergence
-	const real sqr_r = res * res;
-	return pow(E, floor_x) * sqr_r * sqr_r;
-
-// #endif
+		// The fractional part is divided by 4 to improve convergence
+		const real sqr_r = res * res;
+		return pow(E, floor_x) * sqr_r * sqr_r;
 	}
 
 
@@ -770,12 +761,6 @@ namespace theoretica {
 	/// The Newton-Raphson method is used, limited by the
 	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
-
-// #ifdef THEORETICA_X86
-
-// 		return powf(x, 1 / (real) n);
-
-// #else
 
 		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
 			TH_MATH_ERROR("root", n, OUT_OF_DOMAIN);
@@ -810,13 +795,23 @@ namespace theoretica {
 		real y = x;
 		unsigned int i = 0;
 
-		while((pow(y, n) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
-			y = (y * (n - 1) + x / pow(y, n - 1)) / (real) n;
+		while(i < MAX_NEWTON_ITER) {
+
+			const real y_pow = pow(y, n - 1);
+
+			if((y_pow * y - x) < ROOT_APPROX_TOL)
+				break;
+
+			y = (y * (n - 1) + x / y_pow) / (real) n;
 			i++;
 		}
 
+		if(i >= MAX_NEWTON_ITER) {
+			TH_MATH_ERROR("root", i, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
 		return y;
-// #endif
 	}
 
 
@@ -858,7 +853,7 @@ namespace theoretica {
 		real s = x;
 		const real sqr_x = x * x;
 
-		for (int i = 1; i < TAYLOR_ORDER; ++i) {
+		for (int i = 1; i < 14; ++i) {
 			s = s * -sqr_x / (4 * i * i + 2 * i);
 			res += s;
 		}
@@ -903,9 +898,9 @@ namespace theoretica {
 	/// the `fsincos` instruction will be used.
 	inline real tan(real x) {
 
-		real s, c;
-
 #ifdef THEORETICA_X86
+
+		real s, c;
 
 		#ifdef MSVC_ASM
 
@@ -915,17 +910,36 @@ namespace theoretica {
 		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
 		#endif
 
-#else
-		s = sin(x);
-		c = cos(x);
-#endif
-
 		if(abs(c) < MACH_EPSILON) {
 			TH_MATH_ERROR("tan", c, DIV_BY_ZERO);
 			return nan();
 		}
 
 		return s / c;
+
+#else
+
+		// Domain reduction
+		if(abs(x) >= PI)
+			x -= floor(x / PI) * PI;
+
+		// Slow computation when near the singularities
+		if(abs(x - PI2) < 0.5) {
+
+			const real s = sin(x);
+			const real c = cos(x);
+
+			return s / c;
+		}
+
+		// Padé approximant of order (7,8)
+		return (x - (2 * cube(x)) / 15.0
+					+ (2 * pow(x, 5)) / 585.0
+					- (4 * pow(x, 7)) / 225225.0)
+				/ (1 - (7 * square(x)) / 15.0
+					+ pow(x, 4) / 39.0
+					- (2 * pow(x, 6)) / 6435.0 + pow(x, 8) / 2027025.0);
+#endif
 	}
 
 
