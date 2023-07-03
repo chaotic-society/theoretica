@@ -1,4 +1,4 @@
-# Resources
+# Bibliography
 
 ## General
 - M. Abramowitz; I. A. Stegun, eds. (1983) [June 1964]. Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables. Applied Mathematics Series
