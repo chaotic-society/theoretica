@@ -242,19 +242,70 @@ namespace theoretica {
 			/// Construct an N-dimensional vector of multidual numbers
 			/// to be passed as argument to a multidual function
 			/// @param x A vector of real numbers containing the variables to pass
-			inline static vec<N, multidual<N>> pack_function_arg(const vec<N, real>& x) {
+			inline static vec<N, multidual<N>> make_argument(
+				const vec<N, real>& x) {
 
 				vec<N, multidual<N>> arg;
 				for (unsigned int i = 0; i < N; ++i)
-					arg.at(i) = multidual<N>(x.get(i), vec<N>::euclidean_base(i));
+					arg.at(i) = multidual<N>(
+						x.get(i), vec<N>::euclidean_base(i)
+					);
 
 				return arg;
 			}
 
 
+			/// Extract the real vector from a vector of
+			/// multidual numbers as a vec<N, real>
+			inline static vec<N> extract_real(
+				const vec<N, multidual<N>>& v) {
+
+				vec<N> x;
+
+				for (unsigned int i = 0; i < N; ++i)
+					x[i] = v.get(i).Re();
+
+				return x;
+			}
+
+
+			/// Extract the dual matrix (Jacobian)
+			/// from a vector of multidual numbers
+			/// as a mat<N, N>
+			inline static mat<N, N> extract_dual(
+				const vec<N, multidual<N>>& v) {
+
+				mat<N, N> J;
+
+				for (unsigned int i = 0; i < N; ++i)
+					for (unsigned int j = 0; j < N; ++j)
+						J.iat(j, i) = v.get(j).Dual().get(i);
+				
+				return J;
+			}
+
+
+			/// Extract the real vector and dual matrix
+			/// from a vector of multidual numbers
+			/// as a vec<N, real> and mat<N, N>
+			inline static void extract(
+				const vec<N, multidual<N>>& v,
+				vec<N>& x,
+				mat<N, N>& J) {
+
+				for (unsigned int i = 0; i < N; ++i) {
+					
+					for (unsigned int j = 0; j < N; ++j)
+						J.iat(j, i) = v.get(j).Dual().get(i);
+					
+					x[i] = v.get(i).Re();
+				}
+			}
+
+
 			// Friend operators to enable equations of the form
 			// (real) op. (multidual)
-
+			
 			inline friend multidual operator+(real a, const multidual& d) {
 				return d + a;
 			}

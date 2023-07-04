@@ -51,6 +51,7 @@
 #include "./optimization/roots.h"
 #include "./optimization/extrema.h"
 #include "./optimization/multi_extrema.h"
+#include "./optimization/multi_roots.h"
 
 // Complex and quaternion functions
 #include "./complex/complex_analysis.h"

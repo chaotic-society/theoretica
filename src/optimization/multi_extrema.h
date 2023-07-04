@@ -117,8 +117,8 @@ namespace theoretica {
 			real gamma = approx_min_goldensection(
 				[f, x, grad](real gamma){
 					return f(
-						multidual<N>::pack_function_arg(x)
-						+ multidual<N>::pack_function_arg(grad) * gamma).Re();
+						multidual<N>::make_argument(x)
+						+ multidual<N>::make_argument(grad) * gamma).Re();
 				},
 				-1, 0);
 
@@ -171,8 +171,8 @@ namespace theoretica {
 			real gamma = approx_max_goldensection(
 				[f, x, grad](real gamma){
 					return f(
-						multidual<N>::pack_function_arg(x)
-						+ multidual<N>::pack_function_arg(grad) * gamma).Re();
+						multidual<N>::make_argument(x)
+						+ multidual<N>::make_argument(grad) * gamma).Re();
 				},
 				-1, 0);
 
