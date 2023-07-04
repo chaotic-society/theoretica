@@ -54,6 +54,52 @@ prec::estimate_result test_ratio(interval k, Real tol, unsigned int n) {
 }
 
 
+template<typename T>
+prec::estimate_result test_fact(interval k, Real tol, unsigned int n) {
+
+	Real max = 0;
+	Real sum = 0;
+	Real sum2 = 0;
+
+	T prev = 1;
+
+	for (unsigned int i = k.a; i <= k.b; ++i) {
+
+		T res1 = fact<T>(i);
+		T res2 = prev * i;
+
+		real diff;
+
+		// Use a discrete metric to check for equivalence
+		if(res1 != res2 ||
+		   res1 == 0 || res2 == 0 ||
+		   prev > res1)
+			diff = 1;
+		else
+			diff = 0;
+		
+		if(max < diff)
+			max = diff;
+
+		sum += diff;
+		sum2 += square(diff);
+
+		prev = res1;
+	}
+
+	prec::estimate_result p;
+	p.max_err = max;
+	p.abs_err = sum;
+	p.rms_err = th::sqrt(sum2);
+	p.mean_err = sum;
+
+	if(p.abs_err >= 1)
+		p.failed = true;
+
+	return p;
+}
+
+
 
 int main(int argc, char const *argv[]) {
 
@@ -382,6 +428,94 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate("ratio::eval<real>", test_ratio, interval(MIN, MAX));
+
+
+		prec::estimate("fact<uint32_t>",
+			test_fact<uint32_t>, interval(1, 13));
+
+
+		prec::estimate("fact<uint64_t>",
+			test_fact<uint64_t>, interval(1, 20));
+
+
+		prec::estimate(
+			"falling_fact (0)",
+			[](real x) {
+				return falling_fact(x, 0);
+			},
+			[](real x) { return 1; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"falling_fact (1)",
+			[](real x) {
+				return falling_fact(x, 1);
+			},
+			[](real x) { return x; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"falling_fact (2)",
+			[](real x) {
+				return falling_fact(x, 2);
+			},
+			[](real x) { return square(x) - x; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"falling_fact (3)",
+			[](real x) {
+				return falling_fact(x, 3);
+			},
+			[](real x) { return cube(x) - 3 * square(x) + 2 * x; },
+			interval(0, 100000)
+		);
+
+
+		prec::estimate(
+			"rising_fact (0)",
+			[](real x) {
+				return rising_fact(x, 0);
+			},
+			[](real x) { return 1; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"rising_fact (1)",
+			[](real x) {
+				return rising_fact(x, 1);
+			},
+			[](real x) { return x; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"rising_fact (2)",
+			[](real x) {
+				return rising_fact(x, 2);
+			},
+			[](real x) { return square(x) + x; },
+			interval(0, MAX)
+		);
+
+
+		prec::estimate(
+			"rising_fact (3)",
+			[](real x) {
+				return rising_fact(x, 3);
+			},
+			[](real x) { return cube(x) + 3 * square(x) + 2 * x; },
+			interval(0, 100000)
+		);
 
 
 	prec::terminate();

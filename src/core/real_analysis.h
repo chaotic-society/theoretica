@@ -665,12 +665,36 @@ namespace theoretica {
 
 
 	/// Compute the factorial of n
-	template<typename IntType = unsigned long long int>
+	template<typename IntType = uint64_t>
 	TH_CONSTEXPR inline IntType fact(unsigned int n) {
 
 		IntType res = 1;
 		for (int i = n; i > 1; --i)
 			res *= i;
+
+		return res;
+	}
+
+
+	/// Compute the falling factorial of n
+	template<typename T = uint64_t>
+	TH_CONSTEXPR inline T falling_fact(T x, unsigned int n) {
+
+		T res = 1;
+		for (unsigned int i = 0; i < n; i++)
+			res *= (x - i);
+
+		return res;
+	}
+
+
+	/// Compute the rising factorial of n
+	template<typename T = uint64_t>
+	TH_CONSTEXPR inline T rising_fact(T x, unsigned int n) {
+
+		T res = 1;
+		for (unsigned int i = 0; i < n; i++)
+			res *= (x + i);
 
 		return res;
 	}
