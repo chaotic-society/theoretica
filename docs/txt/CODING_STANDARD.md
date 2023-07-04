@@ -7,8 +7,8 @@ If you contribute to the project, please follow this coding standard to help imp
 
 ## Naming conventions
 - Functions and classes should be named using **snake case** (e.g. `function_name`)
-- The name of a function should be specific enough to explain what it does but not too long. Simple shorthands may be used to shorten names if their meaning is evident (e.g. "gen" for "generate").
-- The name of a class should refer to the mathematical concept it encapsulates
+- The name of a function should be specific enough to explain what it does but not too long. Simple shorthands may be used to shorten names if their meaning is evident (e.g. "gen" for "generate"). A list of common abbreviations used in the library is available in [ABBREVIATIONS.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/ABBREVIATIONS.md).
+- The name of a class should refer to the mathematical concept, algorithm or idea it encapsulates
 - Constants should be named with all capital letters and underscores for spaces (e.g. `CONSTANT_NAME`)
 - Templated types should be named using **camel case** (e.g. `template<typename ThisIsAType>`)
 
@@ -36,3 +36,4 @@ Descriptions should explain how the function behaves, the underlying algorithm a
 - All functions except class constructors should be declared `inline` if implemented inside headers
 - Do not use the GOTO statement
 - Procedures (deterministic functions without side effects, like in functional languages) should be preferred over functions whenever possible for mathematical algorithms and methods
+- Do not use the `using namespace` directive inside a header file, as it pollutes the global namespace. It may be used in specific implementation files like test units or benchmarks
