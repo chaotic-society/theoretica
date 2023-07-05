@@ -16,6 +16,42 @@ namespace theoretica {
 	namespace special {
 
 
+		/// Gamma special function of positive integer argument
+		///
+		/// @param k The positive integer argument
+		/// @result The Gamma function computed using
+		/// the factorial.
+		inline real gamma(unsigned int k) {
+
+			if(k == 0) {
+				TH_MATH_ERROR("gamma", k, OUT_OF_DOMAIN);
+				return nan();
+			}
+
+			return fact(k - 1);
+		}
+
+
+		/// Half Gamma special function, defined as 
+		/// HG(n) = Gamma(n / 2)
+		/// for any positive integer n.
+		///
+		/// @param k The positive integer argument
+		/// @result The Gamma function computed using
+		/// the factorial or double factorial identity.
+		inline real half_gamma(unsigned int k) {
+
+			if(k == 0) {
+				TH_MATH_ERROR("half_gamma", k, OUT_OF_DOMAIN);
+				return nan();
+			}
+
+			return (k % 2 == 0)
+		        ? fact(k / 2 - 1)
+		        : double_fact(k - 2) * SQRTPI / (1 << ((k - 1) / 2));
+		}
+
+
 		/// Gamma special function of real argument
 		///
 		/// @param x The real argument
@@ -53,7 +89,11 @@ namespace theoretica {
 			}
 
 			// Sixth degree interpolating polynomial in [1, 2]
-			return mul * (3.0569 + x * (-4.34693 + x * (3.25067 + x * (-1.12613 + x * 0.165215))));
+			return mul * (
+				3.0569 + x * (
+					-4.34693 + x * (
+						3.25067 + x * (
+							-1.12613 + x * 0.165215))));
 
 			// Fourth degree
 			// {1.02447174185, 0.9864538837131499882884},

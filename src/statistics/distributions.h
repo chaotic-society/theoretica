@@ -21,13 +21,13 @@ namespace theoretica {
 	/// @param X The dataset of the sample
 	/// @param theta The parameters of the distribution
 	/// @param f The statistical distribution function
+	/// @result The likelihood of the given sample
 	inline real likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 1;
 
-		for (unsigned int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i)
 			res *= f(X[i], theta);
-		}
 
 		return res;
 	}
@@ -38,13 +38,13 @@ namespace theoretica {
 	/// @param X The dataset of the sample
 	/// @param theta The parameters of the distribution
 	/// @param f The statistical distribution function
+	/// @result The log-likelihood of the given sample
 	inline real log_likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
 
 		real res = 0;
 
-		for (unsigned int i = 0; i < X.size(); ++i) {
+		for (unsigned int i = 0; i < X.size(); ++i)
 			res += ln(f(X[i], theta));
-		}
 
 		return res;
 	}
@@ -158,8 +158,14 @@ namespace theoretica {
 		/// Chi-squared distribution
 		inline real chi_squared(real x, unsigned int k) {
 
-			return powf(x, k / 2.0 - 1) * exp(-x / 2.0)
-				/ (pow(SQRT2, k) * special::gamma(k / 2.0));
+			const real coeff = special::half_gamma(k);
+
+			if(k % 2 == 0)
+				return pow(x, int(k / 2) - 1) * exp(-x / 2.0)
+					/ (pow(SQRT2, k) * coeff);
+			else
+				return powf(x, k / 2.0 - 1) * exp(-x / 2.0)
+					/ (pow(SQRT2, k) * coeff);
 		}
 
 

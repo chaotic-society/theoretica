@@ -8,7 +8,7 @@ namespace theoretica {
 
 
 	/// Approximate the root of a multivariate function
-	/// using Newton's method with pure Jacobian
+	/// using Newton's method with pure Jacobian.
 	///
 	/// @param f The function to find the root of
 	/// @param guess The first guess (defaults to the origin)
@@ -18,7 +18,7 @@ namespace theoretica {
 	/// stopping the algorithm
 	/// @result The computed vector at which f is approximately zero
 	template<unsigned int N>
-	inline vec<N> root_multi_newton(
+	inline vec<N> multiroot_newton(
 		vec<N, multidual<N>>(*f)(vec<N, multidual<N>>),
 		vec<N> guess = vec<N>(0),
 		real tolerance = MINGRAD_TOLERANCE,

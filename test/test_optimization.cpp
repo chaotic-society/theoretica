@@ -27,18 +27,20 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("optimization");
 
+
 		prec::equals(
-			"root_multi_newton (1)",
-			root_multi_newton<2>(f1, {2, 2}, 10E-10)[0],
+			"multiroot_newton (1)",
+			multiroot_newton<2>(f1, {2, 2}, 10E-10)[0],
 			1
 		);
 
 
 		prec::equals(
-			"root_multi_newton (2)",
-			root_multi_newton<2>(f1, {2, 2}, 10E-10)[1],
+			"multiroot_newton (2)",
+			multiroot_newton<2>(f1, {2, 2}, 10E-10)[1],
 			E
 		);
+
 
 	prec::terminate();
 }
