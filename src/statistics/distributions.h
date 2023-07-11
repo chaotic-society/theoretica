@@ -184,11 +184,10 @@ namespace theoretica {
 		/// Student's t distribution
 		inline real student(real x, unsigned int nu) {
 
-			real a = 1 + (x * x / nu);
+			const real a = 1 + (x * x / nu);
 
-			return (1.0 / SQRTPI) * (1.0 / sqrt(nu))
-					* (special::gamma((nu + 1) / 2.0) / special::gamma(nu / 2.0))
-					* pow(sqrt(a), -nu - 1);
+			return (special::half_gamma(nu + 1) / special::half_gamma(nu))
+					* pow(sqrt(a), -nu - 1) / (sqrt(nu) * SQRTPI);
 		}
 
 
