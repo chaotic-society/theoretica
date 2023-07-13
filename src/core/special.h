@@ -47,8 +47,8 @@ namespace theoretica {
 			}
 
 			return (k % 2 == 0)
-		        ? fact(k / 2 - 1)
-		        : double_fact(k - 2) * SQRTPI / (1 << ((k - 1) / 2));
+		        ? fact<uint64_t>(k / 2 - 1)
+		        : double_fact<uint64_t>(k - 2) * SQRTPI / (1 << ((k - 1) / 2));
 		}
 
 
@@ -72,7 +72,14 @@ namespace theoretica {
 					TH_MATH_ERROR("gamma", x, OUT_OF_DOMAIN);
 					return nan();
 				}
+
+
 			}
+
+			// If x is n/2 for positive integer n,
+			// use half_gamma function
+			if(abs(x_fract - 0.5) < MACH_EPSILON && x > 0)
+				return half_gamma(2 * x);
 
 			real mul = 1;
 

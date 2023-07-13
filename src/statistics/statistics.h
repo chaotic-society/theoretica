@@ -10,6 +10,9 @@
 #include "../algebra/vec.h"
 #include "../core/vec_buff.h"
 #include "../core/real_analysis.h"
+#include "../core/special.h"
+#include "../calculus/integration.h"
+#include "../calculus/gauss.h"
 
 
 namespace theoretica {
@@ -379,8 +382,8 @@ namespace theoretica {
 	/// Skewness of a dataset
 	inline real skewness(const vec_buff& X) {
 
-		real mu = mean(X);
-		real sigma = smpl_stdev(X);
+		const real mu = mean(X);
+		const real sigma = smpl_stdev(X);
 		real res = 0;
 
 		for (real x : X)
@@ -393,14 +396,69 @@ namespace theoretica {
 	/// Normalized Kurtosis of a dataset
 	inline real kurtosis(const vec_buff& X) {
 
-		real mu = mean(X);
-		real sigma = smpl_stdev(X);
+		const real mu = mean(X);
+		const real sigma = smpl_stdev(X);
 		real res = 0;
 
 		for (real x : X)
 			res += pow((x - mu) / sigma, 4);
 
 		return (res / X.size()) - 3;
+	}
+
+
+	/// Compute the chi-square from the set of observed
+	/// quantities, expected quantities and errors.
+	/// The provided sets should all have the same size.
+	///
+	/// @param O The set of observed values
+	/// @param E The set of expected values
+	/// @param sigma The set of standard deviations on the observations
+	/// @return The computed Chi-squared
+	inline real chi_square(
+		const vec_buff& O,
+		const vec_buff& E,
+		const vec_buff& sigma) {
+
+		if(O.size() != E.size() || E.size() != sigma.size()) {
+			TH_MATH_ERROR("chi_square", E.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real c_sqr = 0;
+
+		for (unsigned int i = 0; i < O.size(); ++i) {
+
+			if(abs(sigma[i]) < MACH_EPSILON) {
+				TH_MATH_ERROR("chi_square", sigma[i], DIV_BY_ZERO);
+				return nan();
+			}
+
+			c_sqr += square((O[i] - E[i]) / sigma[i]);
+		}
+
+		return c_sqr;
+	}
+
+
+	/// Compute the (right-tailed) p-value associated to a computed
+	/// Chi-square value as the integral of the Chi-squared
+	/// distribution from the given value to infinity (right-tailed).
+	/// An equivalent integral is computed using Gauss-Laguerre quadrature: 
+	/// \f$ p = \frac{e^{-X^2}}{2 \Gamma (k/2)} \int_0^{+\infty} (\sqrt{x + X^2})^{k - 2} e^{-x} dx \f$
+	///
+	/// @param chi_sqr The computed Chi-squared
+	/// @param ndf Number of Degrees of Freedom
+	/// @result The computed p-value
+	/// @note The current implementation works up to ndf = 36
+	inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
+
+		const real coeff = exp(-chi_sqr / 2) / special::half_gamma(ndf);
+
+		return coeff * integral_gauss(
+			[=](real x) {
+				return pow(sqrt(x + chi_sqr / 2), ndf - 2);
+		}, tables::laguerre_roots_16, tables::laguerre_weights_16, 16);
 	}
 
 

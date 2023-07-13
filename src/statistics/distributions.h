@@ -158,13 +158,16 @@ namespace theoretica {
 		/// Chi-squared distribution
 		inline real chi_squared(real x, unsigned int k) {
 
+			if(x < 0)
+				return 0;
+
 			const real coeff = special::half_gamma(k);
 
 			if(k % 2 == 0)
 				return pow(x, int(k / 2) - 1) * exp(-x / 2.0)
 					/ (pow(SQRT2, k) * coeff);
 			else
-				return powf(x, k / 2.0 - 1) * exp(-x / 2.0)
+				return pow(sqrt(x), k - 2) * exp(-x / 2.0)
 					/ (pow(SQRT2, k) * coeff);
 		}
 
