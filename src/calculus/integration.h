@@ -223,6 +223,25 @@ namespace theoretica {
 	}
 
 
+	/// Use Gaussian quadrature using the given points and weights.
+	///
+	/// @param f The function to integrate
+	/// @param x The points of evaluation
+	/// @param w The weights of the linear combination
+	/// @param n The number of points used
+	template<typename RealFunction>
+	inline real integral_gauss(
+		RealFunction f, real* x, real* w, unsigned int n) {
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < n; ++i)
+			res += w[i] * f(x[i]);
+
+		return res;
+	}
+
+
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
 	/// a definite integral providing the roots of the n degree Legendre polynomial
 	///
@@ -308,7 +327,7 @@ namespace theoretica {
 	/// @param n The order of the polynomial
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_legendre(RealFunction f, real a, real b, unsigned int n = 9) {
+	inline real integral_legendre(RealFunction f, real a, real b, unsigned int n = 16) {
 		
 		switch(n) {
 			case 2: return integral_legendre(f, a, b,
@@ -366,6 +385,29 @@ namespace theoretica {
 			res += weights[i] * (exp_a * f(x[i] + a) - exp_b * f(x[i] + b));
 
 		return res;
+	}
+
+
+	/// Use Gauss-Laguerre quadrature of degree 2, 4, 8 or 16.
+	///
+	/// @param f The function to integrate
+	/// @param n The order of the polynomial (available values are
+	/// 2, 4, 8 or 16).
+	/// @return The Gauss-Legendre quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_laguerre(RealFunction f, unsigned int n = 16) {
+		
+		switch(n) {
+			case 2: return integral_gauss(f,
+				tables::laguerre_roots_2, tables::laguerre_weights_2, 2); break;
+			case 4: return integral_gauss(f,
+				tables::laguerre_roots_4, tables::laguerre_weights_4, 4); break;
+			case 8: return integral_gauss(f,
+				tables::laguerre_roots_8, tables::laguerre_weights_8, 8); break;
+			case 16: return integral_gauss(f,
+				tables::laguerre_roots_16, tables::laguerre_weights_16, 16); break;
+			default: return nan(); break;
+		}
 	}
 
 
