@@ -21,13 +21,13 @@ real df_dt = gradient(f, eta) * J * gradient(H, eta);
 The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
 ## Table of Contents
-- [Key Features](https://github.com/chaotic-society/theoretica#key-features)
-- [Dependencies](https://github.com/chaotic-society/theoretica#dependencies)
-- [Setup](https://github.com/chaotic-society/theoretica#setup)
-- [Documentation](https://github.com/chaotic-society/theoretica#documentation)
-- [Contributing](https://github.com/chaotic-society/theoretica#contributing)
-- [Testing](https://github.com/chaotic-society/theoretica#testing)
-- [Other informations](https://github.com/chaotic-society/theoretica#other-informations)
+- [Key Features](#key-features)
+- [Dependencies](#dependencies)
+- [Setup](#setup)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Testing](#testing)
+- [Other informations](#other-informations)
 
 ---
 
