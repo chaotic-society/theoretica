@@ -1,4 +1,25 @@
-*.exe
+**/*.exe
 theoretica-cppcheck-build-dir/*
 *.cppcheck
 *.csv
+
+# Compiled tests and scripts on UNIX systems.
+**/test_algebra
+**/test_autodiff
+**/test_calculus
+**/test_core
+**/test_optimization
+**/test_polynomial
+**/test_pseudorandom
+
+**/attractor
+**/automatic_differentiation
+**/error_propagation
+**/example
+**/hamiltonian
+**/histogram
+**/logfit
+**/montecarlo_comparison
+**/multivariate_minimization
+**/sampling_distributions
+**/statistics

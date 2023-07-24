@@ -28,9 +28,11 @@ const int iterations = 100000;
 const real a = 13;
 const real b = 20;
 const real c = 8 / 3.0;
-const real d = 0;
-const real e = 0;
-const real g = 0;
+
+// Unused constants
+// const real d = 0;
+// const real e = 0;
+// const real g = 0;
 
 
 // System of differential equations

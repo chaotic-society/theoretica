@@ -19,7 +19,7 @@ NumType f(vec<2, NumType> v) {
     const NumType x = v[0];
     const NumType y = v[1];
 
-    return -exp(-square(x - 3) - square(y - 2));
+    return -th::exp(-square(x - 3) - square(y - 2));
 }
 
 
