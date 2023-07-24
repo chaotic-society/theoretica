@@ -19,11 +19,12 @@ int main() {
 
     // Sample size
     const unsigned int N = 1000;
+
+    // Underlying PRNG
+    PRNG g = PRNG::xoshiro(time(NULL));
             
     // Initialize a PDF sampler with a gaussian distribution
-    pdf_sampler p = pdf_sampler(
-        rand_gaussian, {0, 1}, PRNG::xoshiro(time(NULL))
-    );
+    pdf_sampler p = pdf_sampler::gaussian(0, 1, g);
 
     // Fill a vector with N samples
     vec_buff data(N);

@@ -179,6 +179,35 @@ namespace theoretica {
 		
 	};
 
+
+	/// Shuffle a set by exchanging random couples of elements.
+	/// 
+	/// @param v The set to shuffle (as a Vector with [] and .size() methods)
+	/// @param g An already initialized PRNG
+	/// @param rounds The number of pairs to exchange (defaults to (N - 1)^2)
+	template<typename Vector>
+	inline void shuffle(Vector& v, PRNG& g, unsigned int rounds = 0) {
+
+		if(v.size() == 0)
+			TH_MATH_ERROR("shuffle", v.size(), INVALID_ARGUMENT);
+
+		// The number of rounds defaults to (N - 1)^2
+		if(rounds == 0)
+			rounds = square(v.size() - 1);
+
+		for (unsigned int i = 0; i < rounds; ++i) {
+			
+			// Generate two random indices
+			size_t index1 = g() % v.size();
+			size_t index2 = g() % v.size();
+
+			// Exchange the two values at the random indices
+			const auto x1 = v[index1];
+			v[index1] = v[index2];
+			v[index2] = x1;
+		}
+	}
+
 }
 
 #endif

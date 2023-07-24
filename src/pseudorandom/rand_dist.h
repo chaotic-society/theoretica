@@ -418,14 +418,14 @@ namespace theoretica {
 		std::vector<real> theta;
 
 		/// A pseudorandom number generator
-		PRNG g;
+		PRNG& g;
 
 
 		/// Initialize the sampler with the given parameters
 		pdf_sampler(
 			pdf_sampling_function f,
 			const std::vector<real>& theta,
-			const PRNG& g) : f(f), theta(theta), g(g) {}
+			PRNG& g) : f(f), theta(theta), g(g) {}
 
 
 		/// Generate the next number
@@ -447,43 +447,43 @@ namespace theoretica {
 
 
 		/// Returns a uniform distribution sampler
-		static pdf_sampler uniform(real a, real b, const PRNG& g) {
+		static pdf_sampler uniform(real a, real b, PRNG& g) {
 			return pdf_sampler(rand_uniform, {a, b}, g);
 		}
 
 
 		/// Returns a Gaussian distribution sampler
-		static pdf_sampler gaussian(real mean, real sigma, const PRNG& g) {
+		static pdf_sampler gaussian(real mean, real sigma, PRNG& g) {
 			return pdf_sampler(rand_gaussian, {mean, sigma}, g);
 		}
 
 
 		/// Returns an exponential distribution sampler
-		static pdf_sampler exponential(real lambda, const PRNG& g) {
+		static pdf_sampler exponential(real lambda, PRNG& g) {
 			return pdf_sampler(rand_exponential, {lambda}, g);
 		}
 
 
 		/// Returns a Cauchy distribution sampler
-		static pdf_sampler cauchy(real mu, real alpha, const PRNG& g) {
+		static pdf_sampler cauchy(real mu, real alpha, PRNG& g) {
 			return pdf_sampler(rand_cauchy, {mu, alpha}, g);
 		}
 
 
 		/// Returns a Rayleigh distribution sampler
-		static pdf_sampler rayleigh(real sigma, const PRNG& g) {
+		static pdf_sampler rayleigh(real sigma, PRNG& g) {
 			return pdf_sampler(rand_rayleigh, {sigma}, g);
 		}
 
 
 		/// Returns a Pareto distribution sampler
-		static pdf_sampler pareto(real x_m, real alpha, const PRNG& g) {
+		static pdf_sampler pareto(real x_m, real alpha, PRNG& g) {
 			return pdf_sampler(rand_pareto, {x_m, alpha}, g);
 		}
 
 
 		/// Returns a Laplace distribution sampler
-		static pdf_sampler laplace(real mu, real b, const PRNG& g) {
+		static pdf_sampler laplace(real mu, real b, PRNG& g) {
 			return pdf_sampler(rand_laplace, {mu, b}, g);
 		}
 

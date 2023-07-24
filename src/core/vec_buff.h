@@ -191,6 +191,7 @@ namespace theoretica {
 		return curr;
 	}
 
+
 #ifndef THEORETICA_NO_PRINT
 
 	/// Stream the buffer in string representation to an output stream (std::ostream)
