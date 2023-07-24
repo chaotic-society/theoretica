@@ -490,21 +490,17 @@ namespace theoretica {
 	};
 
 	// Metropolis
-	inline real metropolis(real_function f, pdf_sampler& g, real x0, PRNG& rnd, unsigned int depth = 16) {
-		real current = x0, next;
-		pdf_sampler unf = pdf_sampler::uniform(0, 1, rnd);
+	inline real metropolis(real_function f, pdf_sampler& g, real x0, PRNG& rnd, unsigned int depth = 64) {
+
+		real current = x0, next, rate;
 
 		for(int j = 0; j < depth; j++) {
-			while(true) {
-				// Computes the next step
-				next = current + g();
+			// Computes the next step
+			next = current + g();
 
-				// Evaluates acceptance rate
-				if(unf() <= f(next) / f(current)) {
-					current = next;
-					break;
-				}
-			}
+			// Checks acceptance rate
+			if(rand_uniform(0, 1, rnd) <= f(next) / f(current))
+				current = next;
 		}
 
 		return current;
