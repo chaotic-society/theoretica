@@ -5,18 +5,34 @@
 ///
 
 #include "theoretica.h"
+#include <ctime>
 using namespace th;
 
+
+real f(real x) {
+
+    if(x < 0)
+        return 0;
+
+    return th::exp(-x);
+}
+
 int main() {
-    
-    // Declare a 3D vector
-    vec3 v = {1, 2, 3};
 
-    // Create a 3x3 identity matrix
-    mat3 A = mat3::identity();
+    vec_buff samples;
+    size_t N = 1000;
 
-    // Transform v by A
-    vec3 w = A * v;
- 
+    PRNG gen = PRNG::xoshiro(time(nullptr));
+    pdf_sampler gauss = pdf_sampler::gaussian(0, 1, gen);
+
+    for(unsigned int j = 0; j < N; j++)
+        samples.push_back(
+            metropolis(f, gauss, 2)
+        );
+
+    std::cout << "Autocorr. : " << autocorrelation(samples) << std::endl;
+    std::cout << "Mean: " << mean(samples) << std::endl;
+    std::cout << "Variance: " << variance(samples) << std::endl;
+
     return 0;
 }
