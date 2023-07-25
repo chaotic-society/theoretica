@@ -86,5 +86,35 @@ int main(int argc, char const *argv[]) {
 				return test_generator(PRNG::middlesquare(time(nullptr)), k, tol, n);
 			}, I);
 
+
+		// Metropolis
+		{
+			PRNG g = PRNG::xoshiro(time(nullptr));
+			pdf_sampler gauss = pdf_sampler::gaussian(0, 1, g);
+
+			vec_buff sample;
+			real res = 0;
+
+			for (int i = 0; i < 100; ++i) {
+				for (int j = 0; j < 1000; ++j) {
+					sample.push_back(
+						metropolis(
+							[](real x) {
+								
+								if(x < 0)
+									return 0.0;
+
+								return th::exp(-x);
+							}, gauss, 1));
+				}
+
+				res += mean(sample);
+				sample.clear();
+			}
+
+			res /= 100;
+			prec::equals("metropolis", res, 1, 0.05);
+		}
+
 	prec::terminate();
 }

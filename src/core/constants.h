@@ -144,6 +144,12 @@
 #endif
 
 
+/// Default depth of the Metropolis algorithm
+#ifndef THEORETICA_METROPOLIS_DEPTH
+#define THEORETICA_METROPOLIS_DEPTH 16
+#endif
+
+
 /// Enable constexpr in function declarations if C++14 is supported
 #if (__cplusplus >= 201402L)
 #define TH_CONSTEXPR constexpr
@@ -305,6 +311,9 @@ namespace theoretica {
 
 	/// Default precision for random number generation using rand_uniform()
 	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;
+
+	/// Default depth of the Metropolis algorithm
+	constexpr unsigned int METROPOLIS_DEPTH = THEORETICA_METROPOLIS_DEPTH;
 
 }
 

@@ -489,21 +489,48 @@ namespace theoretica {
 
 	};
 
-	// Metropolis
-	inline real metropolis(real_function f, pdf_sampler& g, real x0, PRNG& rnd, unsigned int depth = 64) {
+	/// Metropolis algorithm for distribution sampling
+	/// using a symmetric proposal distribution.
+	///
+	/// @param f The target distribution
+	/// @param g A pdf_sampler already initialized to sample
+	/// from the proposal distribution
+	/// @param rnd An already initialized PRNG
+	/// @param depth The number of iterations of the algorithm
+	/// (defaults to METROPOLIS_DEPTH)
+	inline real metropolis(
+		real_function f, pdf_sampler& g,
+		real x0, PRNG& rnd, unsigned int depth = METROPOLIS_DEPTH) {
 
-		real current = x0, next, rate;
+		real current = x0, next;
 
-		for(int j = 0; j < depth; j++) {
+		for(unsigned int i = 0; i < depth; i++) {
+			
 			// Computes the next step
 			next = current + g();
 
 			// Checks acceptance rate
-			if(rand_uniform(0, 1, rnd) <= f(next) / f(current))
+			if(rand_uniform(0, 1, rnd) * f(current) <= f(next))
 				current = next;
 		}
 
 		return current;
+	}
+
+
+	/// Metropolis algorithm for distribution sampling
+	/// using a symmetric proposal distribution.
+	/// This function uses the same PRNG as the proposal
+	/// distribution sampler to generate uniform samples.
+	///
+	/// @param f The target distribution
+	/// @param g A pdf_sampler already initialized to sample
+	/// from the proposal distribution
+	/// @param depth The number of iterations of the algorithm
+	/// (defaults to METROPOLIS_DEPTH)
+	inline real metropolis(real_function f, pdf_sampler& g,
+		real x0, unsigned int depth = METROPOLIS_DEPTH) {
+		return metropolis(f, g, x0, g.g, depth);
 	}
 
 }
