@@ -1,85 +1,60 @@
 
 ///
-/// @file error_propagation.cpp Automatic error propagation using automatic differentiation.
+/// @file error_propagation.cpp Automatic propagation of uncertainties.
 /// This example may be compiled using 'make error_propagation'
 ///
 
 #include <iostream>
 #include "theoretica.h"
+#include <ctime>
 using namespace th;
-
-
-// Direct sum of the errors
-template<unsigned int N>
-real product_sum(vec<N> g, vec<N> v) {
-
-	real res = 0;
-	for (unsigned int i = 0; i < N; ++i)
-		res += th::abs(g.at(i) * v.at(i));
-
-	return res;
-}
-
-// Sum the errors under quadrature
-template<unsigned int N>
-real product_sum_quad(vec<N> g, vec<N> v) {
-
-	real res = 0;
-	for (unsigned int i = 0; i < N; ++i)
-		res += square(g.at(i) * v.at(i));
-
-	return th::sqrt(res);
-}
-
 
 
 // Example function to compute error on
 template<typename NumType>
-NumType theta(vec<2, NumType> v) {
+NumType f(vec<3, NumType> v) {
 
-	const NumType r = v[0];
-	const NumType d = v[1];
+	const NumType x = v[0];
+	const NumType y = v[1];
+	const NumType z = v[2];
 
-	return th::atan(r / (d - 1));
+	return (x + y) * z;
 }
-
 
 
 int main(int argc, char const *argv[]) {
 
-	real r, d;
-	real delta_r, delta_d;
+	// Parameters of the toy experiment
+	real mu1 = 1, mu2 = 2, mu3 = 3;
+	real stdev1 = 0.2, stdev2 = 0.1, stdev3 = 0.4;
 
-	// Read data and errors from stdin
-	std::cout << "r = ";
-	std::cin >> r;
+	// Random generators
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	pdf_sampler gauss = pdf_sampler::gaussian(0, 1, g);
 
-	std::cout << "delta_r = ";
-	std::cin >> delta_r;
+	std::vector<vec_buff> data;
+	data.resize(3);
 
-	std::cout << "d = ";
-	std::cin >> d;
+	// Simulate a toy experiment with Gaussian deviations
+	for (int i = 0; i < 1000; ++i) {
+		data[0].push_back(mu1 + gauss() * stdev1);
+		data[1].push_back(mu2 + gauss() * stdev2);
+		data[2].push_back(mu3 + gauss() * stdev3);
+	}
 
-	std::cout << "delta_d = ";
-	std::cin >> delta_d;
+	// Compute the covariance matrix
+	std::cout << covar_mat<3>(data) << std::endl;
 
-	// Construct data and error as vectors
-	vec2 data = {r, d};
-	vec2 err = {delta_r, delta_d};
+	std::cout << "Error:\n";
 
-	// Compute the partial derivatives of the function
-	vec2 gradient = th::gradient(theta, data);
+	// Propagate using the covariance matrix
+	std::cout << propagate_err<3>(f, data) << std::endl;
 
-	// Propagate the error on the function by adding
-	// the absolute values of the partial derivative
-	// times the error on the variable
-	// (either in direct sum or quadrature)
-
-	std::cout << "Total error (direct sum): " <<
-		product_sum(gradient, err) << std::endl;
-
-	std::cout << "Total error (sum under quadrature): " <<
-		product_sum_quad(gradient, err) << std::endl;
+	// Propagate using only the standard deviation
+	std::cout << propagate_err<3>(f,
+		{mean(data[0]), mean(data[1]), mean(data[2])},
+		{smpl_stdev(data[0]), smpl_stdev(data[1]), smpl_stdev(data[2])}
+	) << std::endl;
 
 	return 0;
 }
