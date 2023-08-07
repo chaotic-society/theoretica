@@ -418,7 +418,9 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 			/// Convert the polynomial to string representation
-			inline std::string to_string(const std::string& unknown = "x") const {
+			inline std::string to_string(
+				const std::string& unknown = "x",
+				const std::string& exponentiation = "^") const {
 
 				std::stringstream res;
 				bool flag = false;
@@ -433,7 +435,7 @@ namespace theoretica {
 					res << abs(coeff[i]);
 
 					if(i) {
-						res << unknown << "^" << i;
+						res << "*" << unknown << exponentiation << i;
 						res << " ";
 					}
 

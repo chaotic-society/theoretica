@@ -98,7 +98,7 @@ namespace theoretica {
 
 		// Sample <order + 1> equidistant points
 		for (unsigned int i = 0; i < order + 1; ++i) {
-			real x = (b - a) / real(order) * real(i);
+			real x = (b - a) / real(order) * real(i) + a;
 			points[i] = {x, f(x)};
 		}
 
