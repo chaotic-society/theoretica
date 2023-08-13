@@ -60,8 +60,16 @@ namespace theoretica {
 		inline real lngamma(real x) {
 
 			// Reflection formula for negative values
-			if(x < 0)
-				return PI / (sin(PI * x) * gamma(1 - x));
+			if(x < 0) {
+
+				// Check for negative values of Gamma(x)
+				if(floor(-x) % 2 == 0) {
+					TH_MATH_ERROR("lngamma", x, OUT_OF_DOMAIN);
+					return nan();
+				}
+
+				return ln(PI / sin(PI * x)) - lngamma(1 - x);
+			}
 
 			// Lanczos' coefficients
 			const real c[7] = {
@@ -74,6 +82,8 @@ namespace theoretica {
 				-0.000005363820
 			};
 
+			// Simplified logarithmic formula
+			// for Lanczos' approximation
 			real A5 = c[0];
 
 			for (int i = 1; i < 7; ++i)
@@ -84,7 +94,7 @@ namespace theoretica {
 		}
 
 
-		/// Log Gamma special function of real argument.
+		/// Gamma special function of real argument.
 		/// This function uses Lanczos' approximation with gamma = 5.
 		///
 		/// @param x The real argument
@@ -103,10 +113,10 @@ namespace theoretica {
 					return gamma((unsigned int) x);
 			}
 
-			// Check if 2 * x is an integer number and
-			// the half Gamma function can be used
-			if(abs(x_fract - 0.5) < MACH_EPSILON && x > 0)
-				return half_gamma(2 * x);
+			// Check for negative values of Gamma(x)
+			// and use the translation identity
+			if(x < 0 && floor(-x) % 2 == 0)
+				return exp(lngamma(x + 1)) / x;
 
 			// Compute the Gamma function as the exponential
 			// of the log Gamma function which uses Lanczos'
@@ -127,8 +137,31 @@ namespace theoretica {
 		///
 		/// @param x1 The first real argument
 		/// @param x2 The second real argument
+		/// @return The Beta function of x1 and x2
 		inline real beta(real x1, real x2) {
-			return (gamma(x1) * gamma(x2)) / gamma(x1 + x2);
+
+			return (gamma(x1) + gamma(x2)) / gamma(x1 + x2);
+
+			// TO-DO Check for poles
+
+			// real p1, p2, p3;
+
+			// if(x1 < 0 && floor(-x1) % 2 == 0)
+			// 	p1 = lngamma(x1 + 1) / x1;
+			// else
+			// 	p1 = lngamma(x1);
+
+			// if(x2 < 0 && floor(-x2) % 2 == 0)
+			// 	p2 = lngamma(x2 + 1) / x2;
+			// else
+			// 	p2 = lngamma(x2);
+
+			// if((x1 + x2) < 0 && floor(-x1 - x2) % 2 == 0)
+			// 	p3 = lngamma((x1 + x2) + 1) / (x1 + x2);
+			// else
+			// 	p3 = lngamma(x1 + x2);
+
+			// return exp(p1 + p2 - p3);
 		}
 
 	}
