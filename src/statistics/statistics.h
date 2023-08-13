@@ -453,8 +453,10 @@ namespace theoretica {
 	/// @note The current implementation works up to ndf = 36
 	inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
 
-		const real coeff = exp(-chi_sqr / 2) / special::half_gamma(ndf);
+		// Compute the coefficient using a stable equivalent formula
+		const real coeff = exp(-special::lngamma(ndf / 2.0) - chi_sqr / 2.0);
 
+		// Approximate the integral using Gauss-Laguerre quadrature
 		return coeff * integral_gauss(
 			[=](real x) {
 				return pow(sqrt(x + chi_sqr / 2), ndf - 2);

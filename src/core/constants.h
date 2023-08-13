@@ -217,7 +217,7 @@ namespace theoretica {
 	constexpr real INVPI = 1.0 / PI;
 
 	/// The square root of Pi
-	constexpr real SQRTPI = 1.772454;
+	constexpr real SQRTPI = 1.7724538509055159927;
 
 	/// The Euler mathematical constant (e)
 	constexpr real E = 2.718281828459045235360287;
@@ -244,7 +244,7 @@ namespace theoretica {
 	constexpr real RAD2DEG = 57.2957795130823228646477218717;
 
 	/// The square root of 2
-	constexpr real SQRT2 = 1.414213562373095;
+	constexpr real SQRT2 = 1.4142135623730950488;
 
 	/// The inverse of the square root of 2
 	constexpr real INVSQR2 = 0.7071067811865475;
