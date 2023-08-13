@@ -487,15 +487,16 @@ namespace theoretica {
 
 	/// Compute the error on the intercept (A)
 	inline real least_squares_linear_sigma_A(
-		const vec_buff& X, const vec_buff& Y, real sigma_y) {
+		const vec_buff& X, const vec_buff& Y, real sigma_Y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		return sqrt(sum_squares(X) / Delta) * abs(sigma_y);
+		return sqrt(sum_squares(X) / Delta) * abs(sigma_Y);
 	}
 
 
 	/// Compute the slope of the minimum squares linearization of X and Y
-	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
+	inline real least_squares_linear_slope(
+		const vec_buff& X, const vec_buff& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
@@ -517,10 +518,10 @@ namespace theoretica {
 
 	/// Compute the error on the slope coefficient (B)
 	inline real least_squares_linear_sigma_B(
-		const vec_buff& X, const vec_buff& Y, real sigma_y) {
+		const vec_buff& X, const vec_buff& Y, real sigma_Y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		return sqrt(X.size() / Delta) * abs(sigma_y);
+		return sqrt(X.size() / Delta) * abs(sigma_Y);
 	}
 
 
