@@ -37,18 +37,49 @@ int main(int argc, char const *argv[]) {
 
 		// Compare the numerical derivative to the analytical derivative
 
+		prec::estimate("deriv_forward",
+			[](real x) {
+				return deriv_forward(f, x, 10E-8);
+			}, Df,
+			interval(0.001, 0.5), 10E-4);
+
+		prec::estimate("deriv_backward",
+			[](real x) {
+				return deriv_backward(f, x, 10E-8);
+			}, Df,
+			interval(0.001, 0.5), 10E-4);
+
+		prec::estimate("deriv_central",
+			[](real x) {
+				return deriv_central(f, x, 10E-8);
+			}, Df,
+			interval(0.001, 0.5), 10E-4);
+
+
 		prec::estimate("deriv_ridders2",
 			[](real x) {
-				return deriv_ridders2(f, x, 0.00001);
+				return deriv_ridders2(f, x, 10E-6);
 			}, Df,
-			interval(0.001, 0.5), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
+			interval(0.001, 0.5));
 
 
 		prec::estimate("deriv_ridders",
 			[](real x) {
-				return deriv_ridders(f, x, 0.00001);
+				return deriv_ridders(f, x, 10E-6, 3);
 			}, Df,
-			interval(0.001, 0.5), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
+			interval(0.001, 0.5));
+
+
+		// Compare quadratures to primitives
+
+		prec::estimate("integral_trapezoid",
+			[](real x) {
+				return integral_trapezoid(g, 1, x);
+			},
+			[](real x) {
+				return G(x) - G(1); // g and G are undefined at 0
+			},
+			interval(0.1, 3), 10E-4);
 
 
 		prec::estimate("integral_simpson",
@@ -58,7 +89,7 @@ int main(int argc, char const *argv[]) {
 			[](real x) {
 				return G(x) - G(1); // g and G are undefined at 0
 			},
-			interval(0.1, 3), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
+			interval(0.1, 3));
 
 
 		prec::estimate("integral_romberg",
@@ -68,7 +99,17 @@ int main(int argc, char const *argv[]) {
 			[](real x) {
 				return G(x) - G(1); // g and G are undefined at 0
 			},
-			interval(0.1, 3), prec::state.defaultTolerance, false, 100000, prec::fail_on_rel_err);
+			interval(0.1, 3));
+
+
+		prec::estimate("integral_legendre",
+			[](real x) {
+				return integral_legendre(g, 1, x, 16);
+			},
+			[](real x) {
+				return G(x) - G(1); // g and G are undefined at 0
+			},
+			interval(0.1, 3));
 
 
 	prec::terminate();

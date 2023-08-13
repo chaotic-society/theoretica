@@ -252,7 +252,7 @@ namespace chebyshev {
 			result.max_err = max;
 			result.mean_err = (sum * dx / 3.0) / measure;
 			result.rms_err = std::sqrt((sum_sqr * dx / 3.0) / measure);
-			result.rel_err = (sum * dx / 3.0) / (sum_abs * dx / 3.0);
+			result.rel_err = std::abs((sum * dx / 3.0) / (sum_abs * dx / 3.0));
 			result.tolerance = tolerance;
 
 			result.failed = fail(result);
