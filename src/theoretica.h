@@ -29,6 +29,9 @@
 // All other headers
 #ifndef THEORETICA_INCLUDE_BASE
 
+// Special functions
+#include "./core/special.h"
+
 // Ratio
 #include "./core/ratio.h"
 
