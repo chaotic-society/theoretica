@@ -1,6 +1,7 @@
 default_target: all
-.PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff test_calculus automatic_differentiation hamiltonian \
-		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
+.PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff \
+		test_calculus test_statistics automatic_differentiation hamiltonian error_propagation \
+		statistics sampling_distributions multivariate_minimization benchmark \
 		clean attractor montecarlo_comparison histogram
 
 all: examples test
@@ -63,7 +64,14 @@ ifndef windows_build
 	@./test/test_pseudorandom
 endif
 
-test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom
+test_statistics:
+ifndef windows_build
+	@echo Compiling statistics test cases...
+	@g++ test/test_statistics.cpp ${CXXFLAGS} -I./test/ -o test/test_statistics
+	@./test/test_statistics
+endif
+
+test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom test_statistics
 
 
 # Example programs

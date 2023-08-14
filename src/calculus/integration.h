@@ -242,6 +242,27 @@ namespace theoretica {
 	}
 
 
+	/// Use Gaussian quadrature using the given points and weights.
+	///
+	/// @param f The function to integrate
+	/// @param x The points of evaluation
+	/// @param w The weights of the linear combination
+	/// @param n The number of points used
+	/// @param Winv The inverse of the weight function
+	template<typename RealFunction>
+	inline real integral_gauss(
+		RealFunction f, real* x, real* w, unsigned int n,
+		real_function Winv) {
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < n; ++i)
+			res += w[i] * f(x[i]) * Winv(x[i]);
+
+		return res;
+	}
+
+
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
 	/// a definite integral providing the roots of the n degree Legendre polynomial
 	///
@@ -406,7 +427,10 @@ namespace theoretica {
 				tables::laguerre_roots_8, tables::laguerre_weights_8, 8); break;
 			case 16: return integral_gauss(f,
 				tables::laguerre_roots_16, tables::laguerre_weights_16, 16); break;
-			default: return nan(); break;
+			default: {
+				TH_MATH_ERROR("integral_laguerre", n, INVALID_ARGUMENT);
+				return nan(); break;
+			}
 		}
 	}
 

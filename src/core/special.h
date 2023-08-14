@@ -140,28 +140,7 @@ namespace theoretica {
 		/// @return The Beta function of x1 and x2
 		inline real beta(real x1, real x2) {
 
-			return (gamma(x1) + gamma(x2)) / gamma(x1 + x2);
-
-			// TO-DO Check for poles
-
-			// real p1, p2, p3;
-
-			// if(x1 < 0 && floor(-x1) % 2 == 0)
-			// 	p1 = lngamma(x1 + 1) / x1;
-			// else
-			// 	p1 = lngamma(x1);
-
-			// if(x2 < 0 && floor(-x2) % 2 == 0)
-			// 	p2 = lngamma(x2 + 1) / x2;
-			// else
-			// 	p2 = lngamma(x2);
-
-			// if((x1 + x2) < 0 && floor(-x1 - x2) % 2 == 0)
-			// 	p3 = lngamma((x1 + x2) + 1) / (x1 + x2);
-			// else
-			// 	p3 = lngamma(x1 + x2);
-
-			// return exp(p1 + p2 - p3);
+			return exp(lngamma(x1) + lngamma(x2) - lngamma(x1 + x2));
 		}
 
 	}
