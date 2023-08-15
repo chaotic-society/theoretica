@@ -19,7 +19,7 @@
 namespace theoretica {
 
 
-	/// A dynamically allocated variable-size container
+	/// A dynamically allocated variable-size container.
 	/// Defined by default as an alias for `std::vector<real>`
 	using vec_buff = std::vector<real>;
 

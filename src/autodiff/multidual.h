@@ -23,6 +23,8 @@ namespace theoretica {
 	///
 	template<unsigned int N>
 	class multidual {
+
+		static_assert(N > 0, "N cannot be zero.");
 		
 		public:
 			real a;

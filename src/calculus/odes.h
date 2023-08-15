@@ -19,6 +19,8 @@ namespace theoretica {
 	template<unsigned int N>
 	struct ode_state {
 
+			static_assert(N > 0, "N cannot be zero.");
+
 			real t;
 			vec<N> y;
 

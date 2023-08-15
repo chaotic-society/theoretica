@@ -26,11 +26,11 @@ namespace theoretica {
 	/// 
 	template<unsigned int N, typename T = real>
 	class vec {
-
 		public:
 
-		static constexpr unsigned int SIZE = N;
+		static_assert(N > 0, "N cannot be zero.");
 
+		static constexpr unsigned int SIZE = N;
 		T data[N];
 
 

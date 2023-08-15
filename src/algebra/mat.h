@@ -32,6 +32,9 @@ namespace theoretica {
 	class mat {
 		public:
 
+		static_assert(N > 0, "N cannot be zero.");
+		static_assert(K > 0, "K cannot be zero.");
+
 		/// Number of elements of the matrix
 		static const unsigned int SIZE = N * K;
 
