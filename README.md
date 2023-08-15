@@ -18,7 +18,7 @@ mat<N, N> J = mat<N, N>::symplectic();
 real df_dt = gradient(f, eta) * J * gradient(H, eta);
 ```
 
-The library includes basic functionalities like real and complex analysis functions enhanced for x86 architectures, vector and matrix operations (both row-major and column-major), quaternions and function roots and extrema search, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
+The library includes real and complex analysis functions optimized for the x86 architecture, linear algebra, quaternions, roots and extrema search, numerical approximation of derivatives, integrals and differential equations, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
 
 ## Table of Contents
 - [Key Features](#key-features)
@@ -40,7 +40,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Dual numbers, **Multivariable Automatic Differentiation** and Differential Operators
 - Pseudorandom and Quasirandom number generation (LCG, Xoshiro256++, Splitmix64, Wyrand, Weyl)
 - Statistical functions, including **Least Squares Linearization**
-- Random distribution sampling
+- Random distribution sampling and Monte Carlo
 - Approximation of roots, extrema, derivatives and integrals of real functions
 - Numerical integration of **Ordinary Differential Equations** (Euler, Heun, RK4, K38, multistep)
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
@@ -51,11 +51,12 @@ The library has no dependencies. Only the C++ Standard Library with C++11 capabi
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
 Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default `theoretica.h` includes all headers.
-All library functions are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
+All library functions and objects are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
 ## Documentation
 The documentation for the library is available [here](https://chaotic-society.github.io/theoretica/).
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
+The bibliography used for researching the algorithms used in the library is available [here](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/BIBLIOGRAPHY.md).
 
 ### Quickstart
 You can try to compile this simple code to check if you set up the library correctly:
@@ -91,7 +92,7 @@ Contributions are welcome and very appreciated! Make sure to read the [Contribut
 
 The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
 
-## Other informations
+## Other information
 
 ### License
 This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
