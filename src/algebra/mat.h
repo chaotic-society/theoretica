@@ -312,36 +312,25 @@ namespace theoretica {
 		}
 
 
-		/// Matrix transposition
-		inline void transpose() {
+		/// Transpose the matrix itself
+		inline mat<N, K>& transpose() {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::transpose", K, IMPOSSIBLE_OPERATION);
-				// Set all elements to nan ?
-				return;
-			}
+			static_assert(N == K, "The matrix must be square to be transposed.");
 
-			mat<K, N> res;
 			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iat(j, i);
+				for (unsigned int j = 0; j < i; ++j) {
+					
+					real buff = iat(i, j);
+					iat(i, j) = iat(j, i);
+					iat(j, i) = buff;
 				}
 			}
 
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) = res.iat(i, j);
-				}
-			}
+			return (*this);
 		}
 
 		/// Return the transposed matrix
 		inline mat<K, N> transposed() const {
-
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::transposed", K, IMPOSSIBLE_OPERATION);
-				return diagonal(nan());
-			}
 
 			mat<K, N> res;
 			for (unsigned int i = 0; i < N; ++i) {
@@ -507,10 +496,7 @@ namespace theoretica {
 		/// Compute the trace (sum of elements on the diagonal) of a square matrix
 		inline real trace() {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::trace", K, IMPOSSIBLE_OPERATION);
-				return nan();
-			}
+			static_assert(N == K, "The matrix must be square to compute its trace.");
 
 			real res = 0;
 
@@ -556,10 +542,7 @@ namespace theoretica {
 		/// Compute the determinant of the matrix using Gauss-Jordan lower triangularization
 		inline real det_gj() const {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::det_gj", N, IMPOSSIBLE_OPERATION);
-				return nan();
-			}
+			static_assert(N == K, "The matrix must be square to compute the determinant.");
 
 			mat<N, K> A = mat<N, K>(*this);
 
@@ -623,10 +606,7 @@ namespace theoretica {
 		/// Compute the determinant of the matrix
 		inline real det() const {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::det", K, IMPOSSIBLE_OPERATION);
-				return nan();
-			}
+			static_assert(N == K, "The matrix must be square to compute the determinant.");
 			
 			if(N == 2)
 				return det_2x2();
@@ -644,8 +624,14 @@ namespace theoretica {
 		// Matrix inversion
 
 		/// Compute the inverse of a 2x2 matrix.
-		/// @note No error checking is performed on the matrix size
 		inline mat<N, K> inverse_2x2() const {
+
+			// static_assert(N == 2 && K == 2, "The matrix must be 2x2.");
+
+			if(N != 2 || K != 2) {
+				TH_MATH_ERROR("inverse_2x2", N, IMPOSSIBLE_OPERATION);
+				return mat<N, K>(nan());
+			}
 
 			mat<N, K> B;
 
@@ -664,10 +650,7 @@ namespace theoretica {
 		/// Compute the inverse of a generic square matrix
 		inline mat<N, K> inverse() const {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::inverse", N, IMPOSSIBLE_OPERATION);
-				return mat<N, K>(nan());
-			}
+			static_assert(N == K, "The matrix must be square to be invertible.");
 
 			if(N == 2)
 				return inverse_2x2();
@@ -746,10 +729,7 @@ namespace theoretica {
 		/// Invert a generic square matrix
 		inline mat<N, K>& invert() {
 
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::invert", N, IMPOSSIBLE_OPERATION);
-				return *this;
-			}
+			static_assert(N == K, "The matrix must be square to be invertible.");
 
 			if(N == 2) {
 				*this = inverse_2x2();
@@ -1176,10 +1156,8 @@ namespace theoretica {
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
 		inline static mat<N, K> symplectic() {
 
-			if(N != K || (N % 2 != 0)) {
-				TH_MATH_ERROR("mat::symplectic", N, IMPOSSIBLE_OPERATION);
-				return mat<N, K>(nan());
-			}
+			static_assert(N == K && (N % 2 == 0),
+				"N must equal K and they should be a multiple of 2 to construct a symplectic matrix.");
 
 			mat<N, K> res = mat<N, K>();
 
