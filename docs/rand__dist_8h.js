@@ -2,6 +2,8 @@ var rand__dist_8h =
 [
     [ "theoretica::pdf_sampler", "structtheoretica_1_1pdf__sampler.html", "structtheoretica_1_1pdf__sampler" ],
     [ "pdf_sampling_function", "rand__dist_8h.html#a17352cbe273b80ae0f08eac818eba84e", null ],
+    [ "metropolis", "rand__dist_8h.html#a8a742466f6be20b04b15c3d1fadee2f1", null ],
+    [ "metropolis", "rand__dist_8h.html#a73b58e2f1abfe7aacafc6a7291711f60", null ],
     [ "rand_cauchy", "rand__dist_8h.html#a473df88a9edd9ccc8dcf03665591575b", null ],
     [ "rand_cauchy", "rand__dist_8h.html#ac34a4b6660c0287dc6dfa979a2f83002", null ],
     [ "rand_exponential", "rand__dist_8h.html#aa2e6165f6c783179d1b3c2e321b3e7d4", null ],

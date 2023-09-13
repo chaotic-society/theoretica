@@ -104,6 +104,9 @@ $(document).ready(function(){initNavTree('statistics_8h.html',''); initResizable
 <code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="vec__buff_8h_source.html">../core/vec_buff.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="special_8h_source.html">../core/special.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="integration_8h_source.html">../calculus/integration.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gauss_8h_source.html">../calculus/gauss.h</a>&quot;</code><br />
 </div>
 <p><a href="statistics_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -248,6 +251,12 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::skewness<
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::kurtosis</b> (const vec_buff &amp;X)</td></tr>
 <tr class="memdesc:a39e8a178bb127d3a97a237d58dbd153f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized Kurtosis of a dataset. <br /></td></tr>
 <tr class="separator:a39e8a178bb127d3a97a237d58dbd153f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4b8cfe28dfc97081bd8fb6768c1212c4">theoretica::chi_square</a> (const vec_buff &amp;O, const vec_buff &amp;E, const vec_buff &amp;sigma)</td></tr>
+<tr class="memdesc:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square from the set of observed quantities, expected quantities and errors.  <a href="namespacetheoretica.html#a4b8cfe28dfc97081bd8fb6768c1212c4">More...</a><br /></td></tr>
+<tr class="separator:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad9e2f9b3a40981abbab7c998c4fb1554">theoretica::pvalue_chi_squared</a> (real chi_sqr, unsigned int ndf)</td></tr>
+<tr class="memdesc:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the (right-tailed) p-value associated to a computed Chi-square value as the integral of the Chi-squared distribution from the given value to infinity (right-tailed).  <a href="namespacetheoretica.html#ad9e2f9b3a40981abbab7c998c4fb1554">More...</a><br /></td></tr>
+<tr class="separator:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84617261decc110caf3052d68f06d7d4"><td class="memItemLeft" align="right" valign="top"><a id="a84617261decc110caf3052d68f06d7d4" name="a84617261decc110caf3052d68f06d7d4"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
 <tr class="memdesc:a84617261decc110caf3052d68f06d7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the minimum squares linearization of X and Y. <br /></td></tr>
@@ -256,10 +265,10 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squ
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_lin_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
 <tr class="memdesc:a0f6955f75727be37a27e0927224e5876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the minimum squares linearization of X and Y. <br /></td></tr>
 <tr class="separator:a0f6955f75727be37a27e0927224e5876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada975e288bf5570bca3945af38a51220"><td class="memItemLeft" align="right" valign="top"><a id="ada975e288bf5570bca3945af38a51220" name="ada975e288bf5570bca3945af38a51220"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_A</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_y)</td></tr>
-<tr class="memdesc:ada975e288bf5570bca3945af38a51220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the intercept (A) <br /></td></tr>
-<tr class="separator:ada975e288bf5570bca3945af38a51220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="memItemLeft" align="right" valign="top"><a id="af8a8bacdb4620a2f8e41d61abbbcfeff" name="af8a8bacdb4620a2f8e41d61abbbcfeff"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_A</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_Y)</td></tr>
+<tr class="memdesc:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the intercept (A) <br /></td></tr>
+<tr class="separator:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6bb7752cf25bc4154c3487384eb0841"><td class="memItemLeft" align="right" valign="top"><a id="ab6bb7752cf25bc4154c3487384eb0841" name="ab6bb7752cf25bc4154c3487384eb0841"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
 <tr class="memdesc:ab6bb7752cf25bc4154c3487384eb0841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the minimum squares linearization of X and Y. <br /></td></tr>
@@ -268,10 +277,10 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squ
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_lin_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
 <tr class="memdesc:ac8eefa3fdd67863bd14365f6332935ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the minimum squares linearization of X and Y. <br /></td></tr>
 <tr class="separator:ac8eefa3fdd67863bd14365f6332935ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa5671fbee3d70db0b7b71f7afe7d78"><td class="memItemLeft" align="right" valign="top"><a id="acfa5671fbee3d70db0b7b71f7afe7d78" name="acfa5671fbee3d70db0b7b71f7afe7d78"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_B</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_y)</td></tr>
-<tr class="memdesc:acfa5671fbee3d70db0b7b71f7afe7d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the slope coefficient (B) <br /></td></tr>
-<tr class="separator:acfa5671fbee3d70db0b7b71f7afe7d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="memItemLeft" align="right" valign="top"><a id="a0524b589ff87a1d9e3ff247434ffd7e8" name="a0524b589ff87a1d9e3ff247434ffd7e8"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_B</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_Y)</td></tr>
+<tr class="memdesc:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the slope coefficient (B) <br /></td></tr>
+<tr class="separator:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c799e8666d59de6de60326dcc09294e"><td class="memItemLeft" align="right" valign="top"><a id="a3c799e8666d59de6de60326dcc09294e" name="a3c799e8666d59de6de60326dcc09294e"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_error</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real intercept, real slope)</td></tr>
 <tr class="memdesc:a3c799e8666d59de6de60326dcc09294e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error of the minimum squares linearization of a sample. <br /></td></tr>
@@ -313,7 +322,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="statistics_8h.html">statistics.h</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 15:20:18 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

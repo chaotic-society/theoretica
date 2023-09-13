@@ -26,7 +26,7 @@ var classtheoretica_1_1polynomial =
     [ "operator[]", "classtheoretica_1_1polynomial.html#ae41dabedea3d8ae05399ee6bbd237c95", null ],
     [ "quadratic_roots", "classtheoretica_1_1polynomial.html#a4dd5def697f9eb72ac560bbbd079ad3d", null ],
     [ "size", "classtheoretica_1_1polynomial.html#a0a43e59e23515d441c728544d4a45ac2", null ],
-    [ "to_string", "classtheoretica_1_1polynomial.html#a0ba096d71ba760facdf1eca03a581f2c", null ],
+    [ "to_string", "classtheoretica_1_1polynomial.html#a4e802ede9a6d6301de4dc51a925f3eed", null ],
     [ "trim", "classtheoretica_1_1polynomial.html#a888fd0bbfe4bd59b011c969b899fa9a3", null ],
     [ "operator<<", "classtheoretica_1_1polynomial.html#a7f48b5553255324ebabd62d3b504f871", null ]
 ];

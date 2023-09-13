@@ -200,6 +200,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_RAND_REAL_PREC</b>&#160;&#160;&#160;(uint64_t(1) &lt;&lt; 31)</td></tr>
 <tr class="memdesc:ac13dd04d659ae36e514a06cd075f0e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_uniform()</a> <br /></td></tr>
 <tr class="separator:ac13dd04d659ae36e514a06cd075f0e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21e0dc38514fc6ac32da33a7f3b6ee7"><td class="memItemLeft" align="right" valign="top"><a id="af21e0dc38514fc6ac32da33a7f3b6ee7" name="af21e0dc38514fc6ac32da33a7f3b6ee7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>THEORETICA_METROPOLIS_DEPTH</b>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:af21e0dc38514fc6ac32da33a7f3b6ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default depth of the Metropolis algorithm. <br /></td></tr>
+<tr class="separator:af21e0dc38514fc6ac32da33a7f3b6ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0d72dcb7db38b3577234c144089a71a"><td class="memItemLeft" align="right" valign="top"><a id="aa0d72dcb7db38b3577234c144089a71a" name="aa0d72dcb7db38b3577234c144089a71a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TH_CONSTEXPR</b></td></tr>
 <tr class="memdesc:aa0d72dcb7db38b3577234c144089a71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable constexpr in function declarations if C++14 is supported. <br /></td></tr>
@@ -250,7 +254,7 @@ constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica:
 <tr class="memdesc:a4d6916417c8d2b817cfc48b8e2a1abb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse of Pi. <br /></td></tr>
 <tr class="separator:a4d6916417c8d2b817cfc48b8e2a1abb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37fb7f2271fa0e9cd55b47cf4641ca45"><td class="memItemLeft" align="right" valign="top"><a id="a37fb7f2271fa0e9cd55b47cf4641ca45" name="a37fb7f2271fa0e9cd55b47cf4641ca45"></a>
-constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRTPI</b> = 1.772454</td></tr>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRTPI</b> = 1.7724538509055159927</td></tr>
 <tr class="memdesc:a37fb7f2271fa0e9cd55b47cf4641ca45"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of Pi. <br /></td></tr>
 <tr class="separator:a37fb7f2271fa0e9cd55b47cf4641ca45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3c0a5082e6b4428b15b7b02d16eafc7"><td class="memItemLeft" align="right" valign="top"><a id="aa3c0a5082e6b4428b15b7b02d16eafc7" name="aa3c0a5082e6b4428b15b7b02d16eafc7"></a>
@@ -286,7 +290,7 @@ constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica:
 <tr class="memdesc:ae75cd5d78670f968bac3fbcfee6660b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar conversion factor from radians to degrees. <br /></td></tr>
 <tr class="separator:ae75cd5d78670f968bac3fbcfee6660b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3be7f003670e91509c8f2fac523fab8"><td class="memItemLeft" align="right" valign="top"><a id="ae3be7f003670e91509c8f2fac523fab8" name="ae3be7f003670e91509c8f2fac523fab8"></a>
-constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRT2</b> = 1.414213562373095</td></tr>
+constexpr real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::SQRT2</b> = 1.4142135623730950488</td></tr>
 <tr class="memdesc:ae3be7f003670e91509c8f2fac523fab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The square root of 2. <br /></td></tr>
 <tr class="separator:ae3be7f003670e91509c8f2fac523fab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c1ffb22a0191558cafdaec71c3b81d"><td class="memItemLeft" align="right" valign="top"><a id="a42c1ffb22a0191558cafdaec71c3b81d" name="a42c1ffb22a0191558cafdaec71c3b81d"></a>
@@ -376,6 +380,10 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>the
 constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::RAND_REAL_PREC</b> = <a class="el" href="constants_8h.html#ac13dd04d659ae36e514a06cd075f0e0e">THEORETICA_RAND_REAL_PREC</a></td></tr>
 <tr class="memdesc:a0e48eab9ce5928d0c754a40ddb2d068f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for random number generation using <a class="el" href="namespacetheoretica.html#a6a35e29644875a5421b3ac4d7203c28a" title="Generate a pseudorandom real number in [a, b] using a preexisting generator.">rand_uniform()</a> <br /></td></tr>
 <tr class="separator:a0e48eab9ce5928d0c754a40ddb2d068f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad823e40ceef73bd9114b0a05e6cd5f"><td class="memItemLeft" align="right" valign="top"><a id="a1ad823e40ceef73bd9114b0a05e6cd5f" name="a1ad823e40ceef73bd9114b0a05e6cd5f"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::METROPOLIS_DEPTH</b> = <a class="el" href="constants_8h.html#af21e0dc38514fc6ac32da33a7f3b6ee7">THEORETICA_METROPOLIS_DEPTH</a></td></tr>
+<tr class="memdesc:a1ad823e40ceef73bd9114b0a05e6cd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default depth of the Metropolis algorithm. <br /></td></tr>
+<tr class="separator:a1ad823e40ceef73bd9114b0a05e6cd5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Mathematical constants and algorithm parameters. </p>
@@ -403,7 +411,7 @@ constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>theoret
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="constants_8h.html">constants.h</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 15:20:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

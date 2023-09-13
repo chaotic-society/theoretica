@@ -49,7 +49,7 @@ var classtheoretica_1_1mat =
     [ "trace", "classtheoretica_1_1mat.html#a33f47ace5e2371b732cad3bc9c492826", null ],
     [ "transform", "classtheoretica_1_1mat.html#a83a2e07b2e7a96e59985ea3248e2fb00", null ],
     [ "transform", "classtheoretica_1_1mat.html#a7291ba13abf4da29733f293717ef079f", null ],
-    [ "transpose", "classtheoretica_1_1mat.html#af97da9b522c525b7d8f45e9bbecdad6c", null ],
+    [ "transpose", "classtheoretica_1_1mat.html#ab15f4c90cc16ca493844ebf9d68d914a", null ],
     [ "transposed", "classtheoretica_1_1mat.html#af06bf47f316ab6aeb544829e399c83b1", null ],
     [ "operator*", "classtheoretica_1_1mat.html#a22c30877ba1f6a39959c66a3624654d9", null ],
     [ "operator<<", "classtheoretica_1_1mat.html#a83b01780d9a900236791647cf51801f8", null ]

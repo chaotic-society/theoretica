@@ -2,6 +2,8 @@ var distributions_8h =
 [
     [ "bernoulli", "distributions_8h.html#a9e23e3fc149d4f556dd7d9b8c358f98d", null ],
     [ "bernoulli", "distributions_8h.html#a2e1d320249b8efb3dfb78d7ae3a08aa9", null ],
+    [ "beta_dist", "distributions_8h.html#a65d6ae05b6496ec909d5e2aef525b534", null ],
+    [ "beta_dist", "distributions_8h.html#a20776312ced3087ce0c20d2e5019e658", null ],
     [ "binomial", "distributions_8h.html#a0b8aba4dd6ccb377552f4c0965772aa3", null ],
     [ "binomial", "distributions_8h.html#a05a9c35d2cc3431dc4441029cb3c2cea", null ],
     [ "breit_wigner", "distributions_8h.html#ab9779ed8e6e8a2a5706c474f097036d4", null ],
@@ -14,6 +16,8 @@ var distributions_8h =
     [ "erlang", "distributions_8h.html#a4cf38559e21277391f97c36688413f68", null ],
     [ "exponential", "distributions_8h.html#a5bd74cec6dc4225139e60365c8bee8e4", null ],
     [ "exponential", "distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511", null ],
+    [ "gamma_dist", "distributions_8h.html#a185a9ef6ebf1322c61ec6cbe8500c2b2", null ],
+    [ "gamma_dist", "distributions_8h.html#ac322a912a4c0a5b4b9203c11b2d230d1", null ],
     [ "gaussian", "distributions_8h.html#a579e95149f4d7e0a6b3bbdcf60e2e1bd", null ],
     [ "gaussian", "distributions_8h.html#ae2af3da7ff28656b64d06b16c8063b00", null ],
     [ "laplace", "distributions_8h.html#a8c1393c6e01136860c25aa0c90b2302b", null ],

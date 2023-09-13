@@ -19,8 +19,7 @@ namespace theoretica {
 		/// Gamma special function of positive integer argument
 		///
 		/// @param k The positive integer argument
-		/// @result The Gamma function computed using
-		/// the factorial.
+		/// @result The Gamma function computed using the factorial.
 		inline real gamma(unsigned int k) {
 
 			if(k == 0) {
@@ -128,6 +127,7 @@ namespace theoretica {
 		/// Pi special function of real argument
 		///
 		/// @param x The real argument
+		/// @return The Pi function of x, equal to Gamma(x + 1)
 		inline real pi(real x) {
 			return gamma(x + 1);
 		}

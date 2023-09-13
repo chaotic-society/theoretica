@@ -211,10 +211,10 @@ template&lt;unsigned int M&gt; </td></tr>
 <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;B)</td></tr>
 <tr class="memdesc:af7fc5a62964613df4bc83edd26fde74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication. <br /></td></tr>
 <tr class="separator:af7fc5a62964613df4bc83edd26fde74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af97da9b522c525b7d8f45e9bbecdad6c"><td class="memItemLeft" align="right" valign="top"><a id="af97da9b522c525b7d8f45e9bbecdad6c" name="af97da9b522c525b7d8f45e9bbecdad6c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> ()</td></tr>
-<tr class="memdesc:af97da9b522c525b7d8f45e9bbecdad6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix transposition. <br /></td></tr>
-<tr class="separator:af97da9b522c525b7d8f45e9bbecdad6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15f4c90cc16ca493844ebf9d68d914a"><td class="memItemLeft" align="right" valign="top"><a id="ab15f4c90cc16ca493844ebf9d68d914a" name="ab15f4c90cc16ca493844ebf9d68d914a"></a>
+<a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> ()</td></tr>
+<tr class="memdesc:ab15f4c90cc16ca493844ebf9d68d914a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transpose the matrix itself. <br /></td></tr>
+<tr class="separator:ab15f4c90cc16ca493844ebf9d68d914a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af06bf47f316ab6aeb544829e399c83b1"><td class="memItemLeft" align="right" valign="top"><a id="af06bf47f316ab6aeb544829e399c83b1" name="af06bf47f316ab6aeb544829e399c83b1"></a>
 <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; K, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transposed</b> () const</td></tr>
 <tr class="memdesc:af06bf47f316ab6aeb544829e399c83b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the transposed matrix. <br /></td></tr>
@@ -295,8 +295,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_symmetric</b> () c
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>det</b> () const</td></tr>
 <tr class="memdesc:a8a6101f6e228c17c006505d7ae0258a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the determinant of the matrix. <br /></td></tr>
 <tr class="separator:a8a6101f6e228c17c006505d7ae0258a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0a8f0dd15d07991fa31001a6cbfde0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#acc0a8f0dd15d07991fa31001a6cbfde0">inverse_2x2</a> () const</td></tr>
-<tr class="memdesc:acc0a8f0dd15d07991fa31001a6cbfde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a 2x2 matrix.  <a href="classtheoretica_1_1mat.html#acc0a8f0dd15d07991fa31001a6cbfde0">More...</a><br /></td></tr>
+<tr class="memitem:acc0a8f0dd15d07991fa31001a6cbfde0"><td class="memItemLeft" align="right" valign="top"><a id="acc0a8f0dd15d07991fa31001a6cbfde0" name="acc0a8f0dd15d07991fa31001a6cbfde0"></a>
+<a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inverse_2x2</b> () const</td></tr>
+<tr class="memdesc:acc0a8f0dd15d07991fa31001a6cbfde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a 2x2 matrix. <br /></td></tr>
 <tr class="separator:acc0a8f0dd15d07991fa31001a6cbfde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8335e7061f1383aafa6a26b30a9eaed0"><td class="memItemLeft" align="right" valign="top"><a id="a8335e7061f1383aafa6a26b30a9eaed0" name="a8335e7061f1383aafa6a26b30a9eaed0"></a>
 <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inverse</b> () const</td></tr>
@@ -582,36 +583,6 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 
 </div>
 </div>
-<a id="acc0a8f0dd15d07991fa31001a6cbfde0" name="acc0a8f0dd15d07991fa31001a6cbfde0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc0a8f0dd15d07991fa31001a6cbfde0">&#9670;&nbsp;</a></span>inverse_2x2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N, unsigned int K&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; N, K &gt; <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; N, K &gt;::inverse_2x2 </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the inverse of a 2x2 matrix. </p>
-<dl class="section note"><dt>Note</dt><dd>No error checking is performed on the matrix size </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>algebra/<a class="el" href="mat_8h_source.html">mat.h</a></li>
 </ul>
@@ -621,7 +592,7 @@ template&lt;unsigned int N, unsigned int K&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat.html">mat</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 15:20:18 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>
