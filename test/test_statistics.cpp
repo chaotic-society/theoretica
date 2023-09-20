@@ -9,19 +9,15 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 
-
-	PRNG g = PRNG::xoshiro(time(nullptr));
-	g.discard(10000);
-	pdf_sampler unif = pdf_sampler::uniform(1, 20, g);
-
 	prec::state.outputFolder = "test/";
 	prec::setup("statistics");
 
 
 		// Distributions
 
-		{
-			real alpha = std::floor(unif());
+		for (int i = 1; i <= 10; ++i) {
+
+			real alpha = i;
 			real beta = 1;
 
 			// Check mean of Gamma distribution
@@ -34,8 +30,7 @@ int main(int argc, char const *argv[]) {
 					tables::laguerre_roots_16, tables::laguerre_weights_16,
 					16, [](real x) { return th::exp(x); }
 				),
-				(alpha / beta),
-				0.1 // The integral computation has dominant error
+				(alpha / beta)
 			);
 		}
 

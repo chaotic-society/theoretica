@@ -335,7 +335,7 @@ namespace theoretica {
 			mat<K, N> res;
 			for (unsigned int i = 0; i < N; ++i) {
 				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iget(j, i);
+					res.iat(j, i) = iget(i, j);
 				}
 			}
 			return res;
@@ -427,13 +427,13 @@ namespace theoretica {
 
 
 		/// Get the number of rows of the matrix
-		inline unsigned int row_size() const {
+		TH_CONSTEXPR inline unsigned int rows() const {
 			return ROW_SIZE;
 		}
 
 
 		/// Get the number of columns of the matrix
-		inline unsigned int col_size() const {
+		TH_CONSTEXPR inline unsigned int cols() const {
 			return COL_SIZE;
 		}
 
@@ -1187,8 +1187,20 @@ namespace theoretica {
 
 				std::stringstream res;
 
-				for (unsigned int i = 0; i < N; ++i)
-					res << get_row(i).to_string(separator) << std::endl;
+				for (unsigned int i = 0; i < rows(); ++i) {
+						
+					res << "(";
+
+					for (unsigned int j = 0; j < cols(); ++j) {
+						
+						if(j)
+							res << ", ";
+
+						res << iget(i, j);
+					}
+
+					res << ")" << std::endl;
+				}
 
 				return res.str();
 			}

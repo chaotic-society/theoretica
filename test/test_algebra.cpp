@@ -151,8 +151,8 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 	real sum = 0;
 	real sum2 = 0;
 
-	for (unsigned int i = 0; i < res.row_size(); ++i) {
-		for (unsigned int j = 0; j < res.col_size(); ++j) {
+	for (unsigned int i = 0; i < res.rows(); ++i) {
+		for (unsigned int j = 0; j < res.cols(); ++j) {
 			
 			real diff = th::abs(res.iat(i, j) - C.iat(i, j));
 
