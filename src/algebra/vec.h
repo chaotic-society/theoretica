@@ -234,6 +234,11 @@ namespace theoretica {
 		}
 
 		/// Getters and setters
+		inline T iget(unsigned int i) const {
+			return data[i];
+		}
+
+		/// Getters and setters
 		inline T get(unsigned int i) const {
 			return data[i];
 		}

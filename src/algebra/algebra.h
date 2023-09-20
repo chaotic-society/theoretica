@@ -18,6 +18,7 @@
 
 namespace theoretica {
 
+	// Operations involving one matrix
 
 	/// Overwrite a matrix with the identity matrix
 	template<typename Matrix>
@@ -453,6 +454,128 @@ namespace theoretica {
 		return (decltype(m.iget(0, 0))) diagonal_product(A);
 	}
 
+
+	/// Multiply a matrix by a scalar of any compatible type
+	/// @param a A scalar value
+	/// @param m The matrix to multiply
+	/// @return A reference to the multiplied matrix
+	template<typename Field, typename Matrix>
+	Matrix& mat_scalmul(Field a, Matrix& m) {
+
+		for (unsigned int i = 0; i < m.rows(); ++i)
+			for (unsigned int j = 0; j < m.cols(); ++j)
+				m.iat(i, j) *= a;
+
+		return m;
+	}
+
+
+	/// Multiply a matrix by a scalar of any compatible type
+	/// which can be cast to the type of element of the output matrix.
+	/// @param a A scalar value
+	/// @param src The matrix to multiply
+	/// @param dest The matrix to overwrite with the result
+	/// @return A reference to the resulting matrix
+	template<typename Field, typename Matrix1, typename Matrix2>
+	Matrix2& mat_scalmul(Field a, Matrix1&& src, Matrix2& dest) {
+
+		if(src.rows() != dest.rows()) {
+			TH_MATH_ERROR("th::mat_scalmul", src.rows(), INVALID_ARGUMENT);
+			mat_error(dest);
+			return dest;
+		}
+
+		if(src.cols() != dest.cols()) {
+			TH_MATH_ERROR("th::mat_scalmul", src.cols(), INVALID_ARGUMENT);
+			mat_error(dest);
+			return dest;
+		}
+
+		for (unsigned int i = 0; i < src.rows(); ++i)
+			for (unsigned int j = 0; j < src.cols(); ++j)
+				dest.iat(i, j) = a * src.iat(i, j);
+
+		return dest;
+	}
+
+
+	// Operations involving a matrix and a vector
+
+
+	/// Construct a matrix with the given vector as diagonal
+	/// and zeroes everywhere else
+	template<typename Vector, typename Matrix>
+	Matrix& mat_diagonal(Vector&& v, Matrix& res) {
+
+		if(v.size() != res.cols()) {
+			TH_MATH_ERROR("th::mat_diagonal", v.size(), INVALID_ARGUMENT);
+			mat_error(res);
+			return res;
+		}
+
+		if(v.size() != res.rows()) {
+			TH_MATH_ERROR("th::mat_diagonal", v.size(), INVALID_ARGUMENT);
+			mat_error(res);
+			return res;
+		}
+
+		for (unsigned int i = 0; i < res.rows(); ++i)
+			for (unsigned int j = 0; j < res.cols(); ++j)
+				res.iat(i, j) = (i == j) ? v.iget(i) : 0;
+
+		return res;
+	}
+
+
+	// Operations involving multiple matrices
+
+
+	/// Sum two matrices and store the result in the second matrix
+	template<typename Matrix1, typename Matrix2>
+	Matrix2& mat_sum(Matrix1&& A, Matrix2& B) {
+
+		if(A.rows() != B.rows()) {
+			TH_MATH_ERROR("th::mat_sum", A.rows(), INVALID_ARGUMENT);
+			mat_error(B);
+			return B;
+		}
+
+		if(A.cols() != B.cols()) {
+			TH_MATH_ERROR("th::mat_sum", A.cols(), INVALID_ARGUMENT);
+			mat_error(B);
+			return B;
+		}
+
+		for (unsigned int i = 0; i < A.rows(); ++i)
+			for (unsigned int j = 0; j < A.cols(); ++j)
+				B.iat(i, j) = A.iat(i, j) + B.iat(i, j);
+
+		return B;
+	}
+
+
+	/// Sum two matrices and store the result in another matrix
+	template<typename Matrix1, typename Matrix2, typename Matrix3>
+	Matrix3& mat_sum(Matrix1&& A, Matrix2&& B, Matrix3& res) {
+
+		if(A.rows() != B.rows()) {
+			TH_MATH_ERROR("th::mat_sum", A.rows(), INVALID_ARGUMENT);
+			mat_error(res);
+			return res;
+		}
+
+		if(A.cols() != B.cols()) {
+			TH_MATH_ERROR("th::mat_sum", A.cols(), INVALID_ARGUMENT);
+			mat_error(res);
+			return res;
+		}
+
+		for (unsigned int i = 0; i < A.rows(); ++i)
+			for (unsigned int j = 0; j < A.cols(); ++j)
+				res.iat(i, j) = A.iat(i, j) + B.iat(i, j);
+
+		return res;
+	}
 
 }
 
