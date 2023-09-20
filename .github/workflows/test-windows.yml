@@ -12,6 +12,8 @@
 name: "Test on Windows"
 
 on:
+  push:
+  pull_request:
   schedule:
     - cron: '26 10 * * 3'
 
