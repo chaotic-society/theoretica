@@ -33,7 +33,7 @@ namespace theoretica {
 
 	/// Copy a matrix by overwriting another
 	template<typename Matrix1, typename Matrix2>
-	Matrix2& mat_copy(Matrix1& src, Matrix2& dest) {
+	Matrix2& mat_copy(Matrix1&& src, Matrix2& dest) {
 
 		if(src.rows() != dest.rows()) {
 			TH_MATH_ERROR("th::mat_identity", src.rows(), INVALID_ARGUMENT);
@@ -102,7 +102,7 @@ namespace theoretica {
 	/// @param dest The matrix to overwrite
 	/// @return A reference to the overwritten matrix
 	template<typename Matrix1, typename Matrix2>
-	Matrix2& transposed(Matrix1& src, Matrix2& dest) {
+	Matrix2& transposed(Matrix1&& src, Matrix2& dest) {
 
 		// Check that the two matrices have the correct
 		// number of rows and columns
@@ -218,7 +218,7 @@ namespace theoretica {
 	/// @param m The matrix to invert
 	/// @return A reference to the inverted matrix
 	template<typename Matrix1, typename Matrix2>
-	Matrix2& inverse(Matrix1& src, Matrix2& dest) {
+	Matrix2& inverse(Matrix1&& src, Matrix2& dest) {
 
 		if(src.rows() != src.cols()) {
 			TH_MATH_ERROR("th::invert", src.rows(), INVALID_ARGUMENT);
@@ -229,7 +229,7 @@ namespace theoretica {
 		// Prepare extended matrix (A|B)
 		Matrix2 A;
 		A.resize(src.rows(), src.cols());
-		dest.resize(src.rows(), src.cols());
+		// dest.resize(src.rows(), src.cols());
 		mat_copy(src, A);
 		mat_identity(dest);
 
@@ -305,7 +305,7 @@ namespace theoretica {
 	/// @param dest The matrix to overwrite
 	/// @return A reference to the overwritten matrix
 	template<typename Matrix1, typename Matrix2>
-	Matrix2& hermitian(Matrix1& src, Matrix2& dest) {
+	Matrix2& hermitian(Matrix1&& src, Matrix2& dest) {
 
 		// Check that the two matrices have the correct
 		// number of rows and columns
@@ -353,6 +353,104 @@ namespace theoretica {
 		}
 
 		return m;
+	}
+
+
+	/// Compute the trace of the given matrix
+	/// @param m A matrix of any type
+	/// @return The trace of the matrix
+	template<typename Matrix>
+	auto trace(Matrix&& m) {
+
+		auto sum = m.iget(0, 0);
+		const size_t n = min(m.rows(), m.cols());
+
+		for (unsigned int i = 1; i < n; ++i)
+			sum += m.iget(i, i);
+
+		return sum;
+	}
+
+
+	template<typename Matrix>
+	auto diagonal_product(Matrix&& m) {
+
+		auto mul = m.iget(0, 0);
+		const size_t n = min(m.rows(), m.cols());
+
+		for (unsigned int i = 1; i < n; ++i)
+			mul *= m.iget(i, i);
+
+		return mul;
+	}
+
+
+	template<typename Matrix>
+	auto det(Matrix&& m) {
+
+		if(m.rows() != m.cols()) {
+			TH_MATH_ERROR("th::det", m.rows(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		Matrix A;
+		A.resize(m.rows(), m.cols());
+		mat_copy(m, A);
+
+		// Iterate on all columns
+		for (unsigned int i = 0; i < m.rows(); ++i) {
+			
+			// Make sure the element on the diagonal
+			// is non-zero by adding the first non-zero row
+			if(A.iat(i, i) == 0) {
+
+				bool flag = false;
+
+				// Iterate on all rows
+				for (unsigned int j = i + 1; j < m.rows(); ++j) {
+
+					// Add the j-th row to the i-th row
+					// if Aji is non-zero.
+					// The determinant does not change
+					// when adding a row to another one
+					if(A.iat(j, i) != 0) {
+
+						for (unsigned int k = 0; k < m.rows(); ++k) {
+							A.iat(i, k) += A.iat(j, k);
+						}
+
+						flag = true;
+						break;
+					}
+				}
+
+				if(!flag) {
+					return (decltype(m.iget(0, 0))) 0;
+				}
+			}
+
+			real inv_pivot = 1.0 / A.iat(i, i);
+
+			// Use the current row to make all other
+			// elements of the column equal to zero
+			for (unsigned int j = i + 1; j < m.rows(); ++j) {
+
+				// Multiplication coefficient for
+				// the elision of Ajk
+				real coeff = A.iat(j, i) * inv_pivot;
+
+				// The coefficient does not change
+				// when adding a linear combination
+				// of a row to another
+				for (unsigned int k = 0; k < m.rows(); ++k) {
+					A.iat(j, k) -= coeff * A.iat(i, k);
+				}
+			}
+		}
+
+		// The determinant of a (lower) triangular matrix
+		// is the product of the elements on its diagonal
+		return (decltype(m.iget(0, 0))) diagonal_product(A);
 	}
 
 
