@@ -1,12 +1,6 @@
 
 ///
-/// @file algebra.h Linear algebra routines
-///
-
-#ifndef THEORETICA_ALGEBRA_H
-#define THEORETICA_ALGEBRA_H
-
-
+/// @file algebra.h Linear algebra routines.
 /// This file implements all linear algebra routines of the library,
 /// working on templated data structures. The Matrix template must 
 /// be a class with these methods:
@@ -15,9 +9,50 @@
 /// - size()  Get the number of elements of matrix (N. rows * N. columns)
 /// - rows()  Get the number of rows of the matrix
 /// - cols()  Get the number of columns of the matrix
+/// - resize() Change or set the size of the matrix
+///
+
+#ifndef THEORETICA_ALGEBRA_H
+#define THEORETICA_ALGEBRA_H
 
 
 namespace theoretica {
+
+
+	/// Overwrite a matrix with the identity matrix
+	template<typename Matrix>
+	Matrix& mat_identity(Matrix& m) {
+
+		for (unsigned int i = 0; i < m.rows(); ++i)
+			for (unsigned int j = 0; j < m.cols(); ++j)
+				m.iat(i, j) = (i == j) ? 1 : 0;
+
+		return m;
+	}
+
+
+	/// Copy a matrix by overwriting another
+	template<typename Matrix1, typename Matrix2>
+	Matrix2& mat_copy(Matrix1& src, Matrix2& dest) {
+
+		if(src.rows() != dest.rows()) {
+			TH_MATH_ERROR("th::mat_identity", src.rows(), INVALID_ARGUMENT);
+			mat_error(dest);
+			return dest;
+		}
+
+		if(src.cols() != dest.cols()) {
+			TH_MATH_ERROR("th::mat_identity", src.cols(), INVALID_ARGUMENT);
+			mat_error(dest);
+			return dest;
+		}
+
+		for (unsigned int i = 0; i < src.rows(); ++i)
+			for (unsigned int j = 0; j < src.cols(); ++j)
+				dest.iat(i, j) = src.iat(i, j);
+
+		return dest;
+	}
 
 
 	/// Overwrite the given matrix with the error
@@ -60,7 +95,6 @@ namespace theoretica {
 		return m;
 	}
 
-
 	
 	/// Compute the transpose matrix and write the
 	/// result to another matrix.
@@ -88,6 +122,177 @@ namespace theoretica {
 		for (unsigned int i = 0; i < src.rows(); ++i)
 			for (unsigned int j = 0; j < src.cols(); ++j)
 				dest.iat(j, i) = src.iat(i, j);
+
+		return dest;
+	}
+
+
+	/// Invert the given matrix and overwrite it
+	/// @param m The matrix to invert
+	/// @return A reference to the inverted matrix
+	template<typename Matrix>
+	Matrix& invert(Matrix& m) {
+
+		if(m.rows() != m.cols()) {
+			TH_MATH_ERROR("th::invert", m.rows(), INVALID_ARGUMENT);
+			mat_error(m);
+			return m;
+		}
+
+		// Prepare extended matrix (A|B)
+		Matrix A, B;
+		A.resize(m.rows(), m.cols());
+		B.resize(m.rows(), m.cols());
+		mat_copy(m, A);
+		mat_identity(B);
+
+		// Iterate on all columns
+		for (unsigned int i = 0; i < m.rows(); ++i) {
+			
+			// Make sure the element on the diagonal
+			// is non-zero by adding the first non-zero row
+			if(A.iat(i, i) == 0) {
+
+				bool flag = false;
+
+				// Iterate on all rows
+				for (unsigned int j = i + 1; j < m.rows(); ++j) {
+
+					// Add the j-th row to the i-th row
+					// if Aji is non-zero
+					if(A.iat(j, i) != 0) {
+
+						for (unsigned int k = 0; k < m.rows(); ++k) {
+							A.iat(i, k) += A.iat(j, k);
+							B.iat(i, k) += B.iat(j, k);
+						}
+
+						flag = true;
+						break;
+					}
+				}
+
+				if(!flag) {
+					TH_MATH_ERROR("th::invert", flag, IMPOSSIBLE_OPERATION);
+					mat_error(m);
+					return m;
+				}
+			}
+
+			real inv_pivot = 1.0 / A.iat(i, i);
+
+			// Use the current row to make all other
+			// elements of the column equal to zero
+			for (unsigned int j = 0; j < m.rows(); ++j) {
+
+				// Skip the current row
+				if(j == i)
+					continue;
+
+				// Multiplication coefficient for
+				// the elision of Ajk
+				real coeff = A.iat(j, i) * inv_pivot;
+				
+				for (unsigned int k = 0; k < m.rows(); ++k) {
+					A.iat(j, k) -= coeff * A.iat(i, k);
+					B.iat(j, k) -= coeff * B.iat(i, k);
+				}
+			}
+
+			// Divide the current row by the pivot
+			for (unsigned int j = 0; j < m.rows(); ++j) {
+				A.iat(i, j) *= inv_pivot;
+				B.iat(i, j) *= inv_pivot;
+			}
+			
+		}
+
+		// Modify the matrix only when the inversion
+		// has succeeded
+		mat_copy(B, m);
+		return m;
+	}
+
+
+	/// Invert the given matrix and overwrite it
+	/// @param m The matrix to invert
+	/// @return A reference to the inverted matrix
+	template<typename Matrix1, typename Matrix2>
+	Matrix2& inverse(Matrix1& src, Matrix2& dest) {
+
+		if(src.rows() != src.cols()) {
+			TH_MATH_ERROR("th::invert", src.rows(), INVALID_ARGUMENT);
+			mat_error(dest);
+			return dest;
+		}
+
+		// Prepare extended matrix (A|B)
+		Matrix2 A;
+		A.resize(src.rows(), src.cols());
+		dest.resize(src.rows(), src.cols());
+		mat_copy(src, A);
+		mat_identity(dest);
+
+		// Iterate on all columns
+		for (unsigned int i = 0; i < src.rows(); ++i) {
+			
+			// Make sure the element on the diagonal
+			// is non-zero by adding the first non-zero row
+			if(A.iat(i, i) == 0) {
+
+				bool flag = false;
+
+				// Iterate on all rows
+				for (unsigned int j = i + 1; j < src.rows(); ++j) {
+
+					// Add the j-th row to the i-th row
+					// if Aji is non-zero
+					if(A.iat(j, i) != 0) {
+
+						for (unsigned int k = 0; k < src.rows(); ++k) {
+							A.iat(i, k) += A.iat(j, k);
+							dest.iat(i, k) += dest.iat(j, k);
+						}
+
+						flag = true;
+						break;
+					}
+				}
+
+				if(!flag) {
+					TH_MATH_ERROR("invert", flag, IMPOSSIBLE_OPERATION);
+					mat_error(dest);
+					return dest;
+				}
+			}
+
+			real inv_pivot = 1.0 / A.iat(i, i);
+
+			// Use the current row to make all other
+			// elements of the column equal to zero
+			for (unsigned int j = 0; j < src.rows(); ++j) {
+
+				// Skip the current row
+				if(j == i)
+					continue;
+
+				// Multiplication coefficient for
+				// the elision of Ajk
+				real coeff = A.iat(j, i) * inv_pivot;
+				
+				for (unsigned int k = 0; k < src.rows(); ++k) {
+					A.iat(j, k) -= coeff * A.iat(i, k);
+					dest.iat(j, k) -= coeff * dest.iat(i, k);
+				}
+			}
+
+			// Divide the current row by the pivot
+			for (unsigned int j = 0; j < src.rows(); ++j) {
+				A.iat(i, j) *= inv_pivot;
+				dest.iat(i, j) *= inv_pivot;
+			}
+			
+		}
 
 		return dest;
 	}

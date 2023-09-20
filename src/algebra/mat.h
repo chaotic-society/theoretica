@@ -808,6 +808,22 @@ namespace theoretica {
 		}
 
 
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic matrices. Since statically
+		/// allocated matrices cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the matrix's.
+		inline void resize(unsigned int n, unsigned int k) {
+
+			if(N != n)
+				TH_MATH_ERROR("mat::resize", n, INVALID_ARGUMENT);
+
+			if(K != k)
+				TH_MATH_ERROR("mat::resize", k, INVALID_ARGUMENT);
+
+		}
+
+
 		// Transformation matrices
 
 		/// Get the identity matrix
