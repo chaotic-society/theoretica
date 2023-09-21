@@ -229,6 +229,11 @@ namespace theoretica {
 		}
 
 		/// Access i-th element
+		inline T& iat(unsigned int i) {
+			return data[i];
+		}
+
+		/// Access i-th element
 		inline T& at(unsigned int i) {
 			return data[i];
 		}
@@ -308,6 +313,18 @@ namespace theoretica {
 		/// Returns the size of the vector (N)
 		inline TH_CONSTEXPR unsigned int size() {
 			return N;
+		}
+
+
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		inline void resize(size_t n) {
+			
+			if(N != n)
+				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
 		}
 
 

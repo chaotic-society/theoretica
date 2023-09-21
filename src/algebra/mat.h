@@ -15,6 +15,7 @@
 #include "../core/constants.h"
 #include "../core/real_analysis.h"
 #include "./vec.h"
+#include "./algebra.h"
 
 #include <array>
 
@@ -90,11 +91,9 @@ namespace theoretica {
 
 		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) = other.iget(i, j);
-				}
-			}
+			
+			algebra::mat_copy(other, *this);
+
 			return *this;
 		}
 
@@ -233,16 +232,8 @@ namespace theoretica {
 		template<unsigned int M>
 		inline mat<N, M> transform(const mat<K, M>& B) const {
 
-			mat<N, M> res = mat<N, M>();
-			
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < M; ++j) {
-					for (unsigned int k = 0; k < K; ++k) {
-						res.iat(i, j) += iget(i, k) * B.iget(k, j);
-					}
-				}
-			}
-
+			mat<N, M> res;
+			algebra::mat_mul(*this, B, res);
 			return res;
 		}
 
