@@ -311,7 +311,7 @@ namespace theoretica {
 
 
 		/// Returns the size of the vector (N)
-		inline TH_CONSTEXPR unsigned int size() {
+		inline TH_CONSTEXPR unsigned int size() const {
 			return N;
 		}
 
@@ -321,7 +321,7 @@ namespace theoretica {
 		/// allocated vectors cannot change size, this function
 		/// only checks whether the target size is the same
 		/// as the vector's.
-		inline void resize(size_t n) {
+		inline void resize(size_t n) const {
 			
 			if(N != n)
 				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);

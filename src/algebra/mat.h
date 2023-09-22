@@ -62,11 +62,7 @@ namespace theoretica {
 
 		/// Initialize a matrix from another one
 		inline mat(const mat<N, K>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) = other.iget(i, j);
-				}
-			}
+			algebra::mat_copy(*this, other);
 		}
 
 		/// Initialize from an initializer list of the rows
@@ -81,29 +77,20 @@ namespace theoretica {
 			int i = 0;
 
 			for (const auto& r : rows) {
-
 				for (unsigned int j = 0; j < K; ++j)
 					iat(i, j) = r[j];
-
 				i++;
 			}
 		}
 
 		/// Copy constructor
 		inline mat<N, K>& operator=(const mat<N, K>& other) {
-			
-			algebra::mat_copy(other, *this);
-
-			return *this;
+			return algebra::mat_copy(*this, other);
 		}
 
 		/// Construct a diagonal matrix
 		inline mat(real diagonal) {
-			make_null();
-			unsigned int diag_n = min(N, K);
-			for (unsigned int i = 0; i < diag_n; ++i) {
-				iat(i, i) = diagonal;
-			}
+			algebra::diagonal(*this, vec<N>(diagonal));
 		}
 
 		/// Default destructor
@@ -149,44 +136,25 @@ namespace theoretica {
 
 		/// Set all elements to zero
 		inline void make_null() {
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) = 0;
-				}
-			}
+			algebra::mat_zeroes(*this);
 		}
 
 		/// Matrix addition
 		inline mat<N, K> operator+(const mat<N, K>& other) const {
 			mat<N, K> res;
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iget(i, j) + other.iget(i, j);
-				}
-			}
-			return res;
+			return algebra::mat_sum(res, *this, other);
 		}
 
 		/// Matrix subtraction
 		inline mat<N, K> operator-(const mat<N, K>& other) const {
 			mat<N, K> res;
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iget(i, j) - other.iget(i, j);
-				}
-			}
-			return res;
+			return algebra::mat_lincomb(res, 1.0, *this, -1.0, other);
 		}
 
 		/// Scalar multiplication
 		inline mat<N, K> operator*(real scalar) const {
 			mat<N, K> res;
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iget(i, j) * scalar;
-				}
-			}
-			return res;
+			return algebra::mat_scalmul(res, scalar, *this);
 		}
 
 		/// Friend operator to enable equations of the form
@@ -198,29 +166,20 @@ namespace theoretica {
 		/// Scalar division
 		inline mat<N, K> operator/(real scalar) const {
 
+			mat<N, K> res;
+
 			if(scalar == 0) {
 				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
-				return mat<N, K>(nan());
+				return algebra::mat_error(res);
 			}
-
-			mat<N, K> res;
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(i, j) = iget(i, j) / scalar;
-				}
-			}
-			return res;
+			
+			return algebra::mat_scalmul(res, 1.0 / scalar, *this);
 		}
 
 		/// Transform a vector v by the matrix
 		inline vec<N> transform(const vec<K>& v) const {
 			vec<N> res = vec<N>();
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res[i] += iget(i, j) * v.get(j);
-				}
-			}
-			return res;
+			return algebra::transform(res, *this, v);
 		}
 
 		/// Transform a vector v by the matrix
@@ -231,10 +190,8 @@ namespace theoretica {
 		/// Matrix multiplication
 		template<unsigned int M>
 		inline mat<N, M> transform(const mat<K, M>& B) const {
-
 			mat<N, M> res;
-			algebra::mat_mul(*this, B, res);
-			return res;
+			return algebra::mat_mul(res, *this, B);
 		}
 
 		/// Matrix multiplication
@@ -246,38 +203,17 @@ namespace theoretica {
 
 		/// Matrix addition
 		inline mat<N, K>& operator+=(const mat<N, K>& other) {
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) += other.iget(i, j);
-				}
-			}
-
-			return *this;
+			return algebra::mat_sum(*this, other);
 		}
 
 		/// Matrix subtraction
 		inline mat<N, K>& operator-=(const mat<N, K>& other) {
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) -= other.iget(i, j);
-				}
-			}
-
-			return *this;
+			return algebra::mat_lincomb(1.0, *this, -1.0, other);
 		}
 
 		/// Scalar multiplication
 		inline mat<N, K>& operator*=(real scalar) {
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) *= scalar;
-				}
-			}
-
-			return *this;
+			return algebra::mat_scalmul(scalar, *this);
 		}
 
 		/// Scalar division
@@ -285,16 +221,10 @@ namespace theoretica {
 
 			if(scalar == 0) {
 				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
-				return mat<N, K>(nan());
+				return algebra::mat_error(*this);
 			}
 
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					iat(i, j) /= scalar;
-				}
-			}
-
-			return *this;
+			return algebra::mat_scalmul(1.0 / scalar, *this);
 		}
 
 		/// Matrix multiplication
@@ -305,31 +235,14 @@ namespace theoretica {
 
 		/// Transpose the matrix itself
 		inline mat<N, K>& transpose() {
-
 			static_assert(N == K, "The matrix must be square to be transposed.");
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < i; ++j) {
-					
-					real buff = iat(i, j);
-					iat(i, j) = iat(j, i);
-					iat(j, i) = buff;
-				}
-			}
-
-			return (*this);
+			return algebra::transpose(*this);
 		}
 
 		/// Return the transposed matrix
 		inline mat<K, N> transposed() const {
-
 			mat<K, N> res;
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					res.iat(j, i) = iget(i, j);
-				}
-			}
-			return res;
+			return algebra::transpose(res, *this);
 		}
 
 
@@ -486,316 +399,38 @@ namespace theoretica {
 
 		/// Compute the trace (sum of elements on the diagonal) of a square matrix
 		inline real trace() {
-
-			static_assert(N == K, "The matrix must be square to compute its trace.");
-
-			real res = 0;
-
-			for (unsigned int i = 0; i < N; ++i)
-				res += iget(i, i);
-
-			return res;
+			return algebra::trace(*this);
 		}
 
 
 		/// Compute the product of the diagonal elements of a square matrix
 		inline real diagonal_product() {
-
-			if(!is_square()) {
-				TH_MATH_ERROR("mat::diagonal_product", K, IMPOSSIBLE_OPERATION);
-				return nan();
-			}
-
-			real res = iat(0, 0);
-			for (unsigned int i = 1; i < N; ++i)
-				res *= iget(i, i);
-
-			return res;
-		}
-
-
-		/// Return the determinant if the matrix is 2x2.
-		/// @note No error checking is performed on the matrix size
-		inline real det_2x2() const {
-			return iget(0, 0) * iget(1, 1) - iget(1, 0) * iget(0, 1);
-		}
-
-
-		/// Return the determinant if the matrix is 3x3.
-		/// @note No error checking is performed on the matrix size
-		inline real det_3x3() const {
-			return	iget(0, 0) * (iget(1, 1) * iget(2, 2) - iget(2, 1) * iget(1, 2)) +
-					iget(0, 1) * (iget(1, 0) * iget(2, 2) - iget(2, 1) * iget(1, 2)) +
-					iget(0, 2) * (iget(1, 0) * iget(2, 1) - iget(2, 0) * iget(1, 1));
-		}
-
-
-		/// Compute the determinant of the matrix using Gauss-Jordan lower triangularization
-		inline real det_gj() const {
-
-			static_assert(N == K, "The matrix must be square to compute the determinant.");
-
-			mat<N, K> A = mat<N, K>(*this);
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < N; ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A.iat(i, i) == 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < N; ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero.
-						// The determinant does not change
-						// when adding a row to another one
-						if(A.iat(j, i) != 0) {
-
-							for (unsigned int k = 0; k < N; ++k) {
-								A.iat(i, k) += A.iat(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						return 0;
-					}
-				}
-
-				real inv_pivot = 1.0 / A.iat(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = i + 1; j < N; ++j) {
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					real coeff = A.iat(j, i) * inv_pivot;
-
-					// The coefficient does not change
-					// when adding a linear combination
-					// of a row to another
-					for (unsigned int k = 0; k < N; ++k) {
-						A.iat(j, k) -= coeff * A.iat(i, k);
-					}
-				}
-			}
-
-			// The determinant of a (lower) triangular matrix
-			// is the product of the elements on its diagonal
-			return A.diagonal_product();
+			return algebra::diagonal_product(*this);
 		}
 
 
 		/// Compute the determinant of the matrix
 		inline real det() const {
-
 			static_assert(N == K, "The matrix must be square to compute the determinant.");
-			
-			if(N == 2)
-				return det_2x2();
-
-			// det_3x3() is not numerically stable for matrices
-			// with big coefficients
-			
-			// if(N == 3)
-			// 	return det_3x3();
-
-			return det_gj();
+			return algebra::det(*this);
 		}
 
 
 		// Matrix inversion
 
-		/// Compute the inverse of a 2x2 matrix.
-		inline mat<N, K> inverse_2x2() const {
-
-			// static_assert(N == 2 && K == 2, "The matrix must be 2x2.");
-
-			if(N != 2 || K != 2) {
-				TH_MATH_ERROR("inverse_2x2", N, IMPOSSIBLE_OPERATION);
-				return mat<N, K>(nan());
-			}
-
-			mat<N, K> B;
-
-			// Exchange elements on the diagonal
-			B.iat(0, 0) = iget(1, 1);
-			B.iat(1, 1) = iget(0, 0);
-
-			// Change sign of the other elements
-			B.iat(1, 0) = -iget(1, 0);
-			B.iat(0, 1) = -iget(0, 1);
-
-			return B / B.det();
-		}
-
 
 		/// Compute the inverse of a generic square matrix
 		inline mat<N, K> inverse() const {
-
 			static_assert(N == K, "The matrix must be square to be invertible.");
-
-			if(N == 2)
-				return inverse_2x2();
-
-			// Initialize the needed matrices
-			// (A|B) is the augmented matrix
-			mat<N, K> A = mat<N, K>(*this);
-			mat<N, K> B = mat<N, K>::identity();
-
-			// Gauss-Jordan elimination
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < N; ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A.iat(i, i) == 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < N; ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero
-						if(A.iat(j, i) != 0) {
-
-							for (unsigned int k = 0; k < N; ++k) {
-								A.iat(i, k) += A.iat(j, k);
-								B.iat(i, k) += B.iat(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						TH_MATH_ERROR("mat::inverse", flag, IMPOSSIBLE_OPERATION);
-						return mat<N, K>(nan());
-					}
-				}
-
-				const real inv_pivot = 1.0 / A.iat(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = 0; j < N; ++j) {
-
-					// Skip the current row
-					if(j == i)
-						continue;
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					const real coeff = A.iat(j, i) * inv_pivot;
-					
-					for (unsigned int k = 0; k < N; ++k) {
-						A.iat(j, k) -= coeff * A.iat(i, k);
-						B.iat(j, k) -= coeff * B.iat(i, k);
-					}
-				}
-
-				// Divide the current row by the pivot
-				for (unsigned int j = 0; j < N; ++j) {
-					A.iat(i, j) *= inv_pivot;
-					B.iat(i, j) *= inv_pivot;
-				}
-				
-			}
-
-			return B;
+			mat<N, K> res;
+			return algebra::inverse(res, *this);
 		}
 
 
 		/// Invert a generic square matrix
 		inline mat<N, K>& invert() {
-
 			static_assert(N == K, "The matrix must be square to be invertible.");
-
-			if(N == 2) {
-				*this = inverse_2x2();
-			}
-
-			// Initialize the needed matrices
-			// (A|B) is the augmented matrix
-			mat<N, K> A = mat<N, K>(*this);
-			mat<N, K> B = mat<N, K>::identity();
-
-			// Gauss-Jordan elimination
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < N; ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A.iat(i, i) == 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < N; ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero
-						if(A.iat(j, i) != 0) {
-
-							for (unsigned int k = 0; k < N; ++k) {
-								A.iat(i, k) += A.iat(j, k);
-								B.iat(i, k) += B.iat(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						TH_MATH_ERROR("mat::invert", flag, IMPOSSIBLE_OPERATION);
-						return *this;
-					}
-				}
-
-				real inv_pivot = 1.0 / A.iat(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = 0; j < N; ++j) {
-
-					// Skip the current row
-					if(j == i)
-						continue;
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					real coeff = A.iat(j, i) * inv_pivot;
-					
-					for (unsigned int k = 0; k < N; ++k) {
-						A.iat(j, k) -= coeff * A.iat(i, k);
-						B.iat(j, k) -= coeff * B.iat(i, k);
-					}
-				}
-
-				// Divide the current row by the pivot
-				for (unsigned int j = 0; j < N; ++j) {
-					A.iat(i, j) *= inv_pivot;
-					B.iat(i, j) *= inv_pivot;
-				}
-				
-			}
-
-			// Modify the matrix only when the inversion
-			// has succeeded
-			*this = B;
+			return algebra::invert(*this);
 		}
 
 
@@ -804,14 +439,13 @@ namespace theoretica {
 		/// allocated matrices cannot change size, this function
 		/// only checks whether the target size is the same
 		/// as the matrix's.
-		inline void resize(unsigned int n, unsigned int k) {
+		inline void resize(unsigned int n, unsigned int k) const {
 
 			if(N != n)
 				TH_MATH_ERROR("mat::resize", n, INVALID_ARGUMENT);
 
 			if(K != k)
 				TH_MATH_ERROR("mat::resize", k, INVALID_ARGUMENT);
-
 		}
 
 
