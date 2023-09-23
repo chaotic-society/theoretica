@@ -490,7 +490,7 @@ namespace theoretica {
 			mat_copy(A, m);
 
 			// Iterate on all columns
-			for (unsigned int i = 0; i < m.rows(); ++i) {
+			for (unsigned int i = 0; i < A.rows(); ++i) {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
@@ -499,7 +499,7 @@ namespace theoretica {
 					bool flag = false;
 
 					// Iterate on all rows
-					for (unsigned int j = i + 1; j < m.rows(); ++j) {
+					for (unsigned int j = i + 1; j < A.rows(); ++j) {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero.
@@ -507,7 +507,7 @@ namespace theoretica {
 						// when adding a row to another one
 						if(A.iat(j, i) != 0) {
 
-							for (unsigned int k = 0; k < m.rows(); ++k) {
+							for (unsigned int k = 0; k < A.rows(); ++k) {
 								A.iat(i, k) += A.iat(j, k);
 							}
 
@@ -517,7 +517,7 @@ namespace theoretica {
 					}
 
 					if(!flag) {
-						return (decltype(m.iget(0, 0))) 0;
+						return (decltype(A.iget(0, 0))) 0;
 					}
 				}
 
@@ -525,7 +525,7 @@ namespace theoretica {
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
-				for (unsigned int j = i + 1; j < m.rows(); ++j) {
+				for (unsigned int j = i + 1; j < A.rows(); ++j) {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
@@ -534,7 +534,7 @@ namespace theoretica {
 					// The coefficient does not change
 					// when adding a linear combination
 					// of a row to another
-					for (unsigned int k = 0; k < m.rows(); ++k) {
+					for (unsigned int k = 0; k < A.rows(); ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
 					}
 				}
@@ -542,7 +542,7 @@ namespace theoretica {
 
 			// The determinant of a (lower) triangular matrix
 			// is the product of the elements on its diagonal
-			return (decltype(m.iget(0, 0))) diagonal_product(A);
+			return (decltype(A.iget(0, 0))) diagonal_product(A);
 		}
 
 
@@ -1067,7 +1067,260 @@ namespace theoretica {
 			m.iat(2, 2) = c + Rz * Rz * cm1;
 
 			return m;
-		} 
+		}
+
+
+		/// Returns a matrix representing a 3D rotation
+		/// around the x axis.
+		/// @param theta Angle of rotation
+		/// @return A matrix representing the rotation
+		/// of theta radians around the x axis.
+		template<typename Matrix>
+		inline Matrix rotation_3d_xaxis(
+			real theta, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			make_identity(m);
+
+			const real s = theoretica::sin(theta);
+			const real c = theoretica::cos(theta);
+
+			m.iat(0, 0) = 1;
+			m.iat(1, 1) = c;
+			m.iat(2, 2) = c;
+
+			m.iat(1, 2) = -s;
+			m.iat(2, 1) = s;
+
+			return m;
+		}
+
+
+		/// Returns a matrix representing a 3D rotation
+		/// around the y axis.
+		/// @param theta Angle of rotation
+		/// @return A matrix representing the rotation
+		/// of theta radians around the y axis.
+		template<typename Matrix>
+		inline Matrix rotation_3d_yaxis(
+			real theta, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			make_identity(m);
+
+			const real s = theoretica::sin(theta);
+			const real c = theoretica::cos(theta);
+
+			m.iat(0, 0) = c;
+			m.iat(1, 1) = 1;
+			m.iat(2, 2) = c;
+			m.iat(3, 3) = 1;
+
+			m.iat(0, 2) = s;
+			m.iat(2, 0) = -s;
+
+			return m;
+		}
+
+
+		/// Returns a matrix representing a 3D rotation
+		/// around the z axis.
+		/// @param theta Angle of rotation
+		/// @return A matrix representing the rotation
+		/// of theta radians around the z axis.
+		template<typename Matrix>
+		inline Matrix rotation_3d_zaxis(
+			real theta, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			make_identity(m);
+
+			const real s = theoretica::sin(theta);
+			const real c = theoretica::cos(theta);
+
+			m.iat(0, 0) = c;
+			m.iat(1, 1) = c;
+			m.iat(2, 2) = 1;
+			m.iat(3, 3) = 1;
+
+			m.iat(0, 1) = -s;
+			m.iat(1, 0) = s;
+
+			return m;
+		}
+
+
+		/// Returns a perspective matrix for projective
+		/// geometry, commonly used in 3D graphics.
+		template<typename Matrix>
+		inline Matrix perspective(
+			real left, real right, real bottom,
+			real top, real near, real far,
+			unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 4) {
+				TH_MATH_ERROR("algebra::perspective", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 4) {
+				TH_MATH_ERROR("algebra::perspective", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			mat_zeroes(m);
+
+			m.iat(0, 0)  = 2 * near / (right - left);
+			m.iat(2, 0)  = (right + left) / (right - left);
+			m.iat(1, 1)  = 2 * near / (top - bottom);
+			m.iat(2, 1)  = (top + bottom) / (top - bottom);
+			m.iat(2, 2) = -(far + near) / (far - near);
+			m.iat(3, 2) = -(2 * far * near) / (far - near);
+			m.iat(2, 3) = -1;
+			m.iat(3, 3) = 0;
+
+			return m;
+		}
+
+
+		template<typename Matrix>
+		inline Matrix perspective_fov(
+			real fov, real aspect, real near, real far,
+			unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 4) {
+				TH_MATH_ERROR("algebra::perspective_fov", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 4) {
+				TH_MATH_ERROR("algebra::perspective_fov", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			const real height = near * tan(radians(fov / 2.f));
+			const real width = height * aspect;
+
+			return perspective<Matrix>(-width, width, -height, height, near, far);
+		}
+
+
+		/// Returns an orthogonal projection matrix.
+		template<typename Matrix>
+		inline Matrix ortho(
+			real left, real right, real bottom,
+			real top, real near, real far,
+			unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 4) {
+				TH_MATH_ERROR("algebra::ortho", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 4) {
+				TH_MATH_ERROR("algebra::ortho", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			mat_zeroes(m);
+
+			m.iat(0, 0)  = 2 / (right - left);
+			m.iat(3, 0)  = -(right + left) / (right - left);
+			m.iat(1, 1)  = 2 / (top - bottom);
+			m.iat(3, 1)  = -(top + bottom) / (top - bottom);
+			m.iat(2, 2) = -2 / (far - near);
+			m.iat(3, 2) = -(far + near) / (far - near);
+
+			return m;
+		}
+
+
+		template<typename Matrix>
+		inline Matrix symplectic(unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(rows != cols || (rows % 2 != 0)) {
+				TH_MATH_ERROR("algebra::symplectic", rows, INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			const unsigned int half = m.rows() / 2;
+			mat_zeroes(m);
+
+			for (unsigned int i = 0; i < half; ++i) {
+				m.iat(i, i + half) = 1;
+				m.iat(i + half, i) = -1;
+			}
+
+			return m;
+		}
 
 
 		// LU decomposition

@@ -469,243 +469,63 @@ namespace theoretica {
 
 		/// Get a matrix which rotates the 2D plane of <theta> radians
 		inline static mat<N, K> rotation_2d(real theta) {
+			static_assert(N >= 2 && K >= 2, "The matrix must be 2x2 or bigger");
 			return algebra::rotation_2d<mat<N, K>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the x axis
-		inline static mat<4, 4> rotation_x_4x4(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<4, 4> res = mat<4, 4>(1.0);
-			res.iat(0, 0) = 1;
-			res.iat(1, 1) = c;
-			res.iat(2, 2) = c;
-			res.iat(3, 3) = 1;
-
-			res.iat(1, 2) = -s;
-			res.iat(2, 1) = s;
-
-			return res;
-		}
-
-		/// Get a matrix which rotates <theta> radians around the x axis
-		inline static mat<3, 3> rotation_x_3x3(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<3, 3> res = mat<3, 3>(1.0);
-			res.iat(0, 0) = 1;
-			res.iat(1, 1) = c;
-			res.iat(2, 2) = c;
-
-			res.iat(1, 2) = -s;
-			res.iat(2, 1) = s;
-
-			return res;
+		inline static mat<N, K> rotation_3d_xaxis(real theta) {
+			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
+			return algebra::rotation_3d_xaxis<mat<N, K>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the y axis
-		inline static mat<4, 4> rotation_y_4x4(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<4, 4> res = mat<4, 4>(1.0);
-			res.iat(0, 0) = c;
-			res.iat(1, 1) = 1;
-			res.iat(2, 2) = c;
-			res.iat(3, 3) = 1;
-
-			res.iat(0, 2) = s;
-			res.iat(2, 0) = -s;
-
-			return res;
-		}
-
-		/// Get a matrix which rotates <theta> radians around the y axis
-		inline static mat<3, 3> rotation_y_3x3(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<3, 3> res = mat<3, 3>(1.0);
-			res.iat(0, 0) = c;
-			res.iat(1, 1) = 1;
-			res.iat(2, 2) = c;
-
-			res.iat(0, 2) = s;
-			res.iat(2, 0) = -s;
-
-			return res;
+		inline static mat<N, K> rotation_3d_yaxis(real theta) {
+			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
+			return algebra::rotation_3d_yaxis<mat<N, K>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the z axis
-		inline static mat<4, 4> rotation_z_4x4(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<4, 4> res = mat<4, 4>(1.0);
-			res.iat(0, 0) = c;
-			res.iat(1, 1) = c;
-			res.iat(2, 2) = 1;
-			res.iat(3, 3) = 1;
-
-			res.iat(0, 1) = -s;
-			res.iat(1, 0) = s;
-
-			return res;
-		}
-
-		/// Get a matrix which rotates <theta> radians around the z axis
-		inline static mat<3, 3> rotation_z_3x3(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<3, 3> res = mat<3, 3>(1.0);
-			res.iat(0, 0) = c;
-			res.iat(1, 1) = c;
-			res.iat(2, 2) = 1;
-
-			res.iat(0, 1) = -s;
-			res.iat(1, 0) = s;
-
-			return res;
-		}
-
-		/// Get a matrix which rotates <theta> radians around the <axis> axis
-		inline static mat<4, 4> rotation_4x4(real theta, const vec3& axis) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			real Rx = axis.get(0);
-			real Ry = axis.get(1);
-			real Rz = axis.get(2);
-
-			real cm1 = (1 - c);
-
-			mat<4, 4> m;
-
-			m.iat(0, 0) = c + square(Rx) * cm1;
-			m.iat(0, 1) = Rx * Ry * cm1 - Rz * s;
-			m.iat(0, 2) = Rx * Rz * cm1 - Ry * s;
-			m.iat(0, 3) = 0;
-
-			m.iat(1, 0) = Ry * Rx * cm1 + Rz * s;
-			m.iat(1, 1) = c + square(Ry) * cm1;
-			m.iat(1, 2) = Ry * Rz * cm1 - Rx * s;
-			m.iat(1, 3) = 0;
-
-			m.iat(2, 0) = Rz * Rx * cm1 - Ry * s;
-			m.iat(2, 1) = Rz * Ry * cm1 + Rx * s;
-			m.iat(2, 2) = c + square(Rz) * cm1;
-			m.iat(2, 3) = 0;
-
-			m.iat(3, 0) = 0;
-			m.iat(3, 1) = 0;
-			m.iat(3, 2) = 0;
-			m.iat(3, 3) = 1;
-
-			return m;
+		inline static mat<N, K> rotation_3d_zaxis(real theta) {
+			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
+			return algebra::rotation_3d_zaxis<mat<N, K>>(theta);
 		}
 
 
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		template<typename Vector = vec<3>>
 		inline static mat<N, K> rotation_3d(real theta, Vector&& axis) {
+			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
 			return algebra::rotation_3d<mat<N, K>>(theta, axis);
 		}
 
 
-		/// Get a scaling matrix by factors <x>, <y> and <z>
-		inline static mat<4, 4> scaling_4x4(real x, real y, real z) {
+		inline static mat<N, K> perspective(
+			real left, real right, real bottom,
+			real top, real near, real far) {
 
-			mat<4, 4> res;
-			res.make_null();
-
-			res.iat(0, 0) = x;
-			res.iat(1, 1) = y;
-			res.iat(2, 2) = z;
-			res.iat(3, 3) = 1;
-
-			return res;
+			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
+			return algebra::perspective<mat<N, K>>(
+				left, right, bottom, top, near, far);
 		}
 
 
-		/// Get a scaling matrix by factors <x>, <y> and <z>
-		inline static mat<3, 3> scaling_3x3(real x, real y, real z) {
+		inline static mat<N, K> perspective_fov(
+			real fov, real aspect, real near, real far) {
 
-			mat<3, 3> res;
-			res.make_null();
-
-			res.iat(0, 0) = x;
-			res.iat(1, 1) = y;
-			res.iat(2, 2) = z;
-
-			return res;
-		}
-
-		/// Get a scaling matrix by <v> factors
-		template<unsigned int M>
-		inline static mat<N, K> scaling(vec<M> v) {
-
-			mat<N, K> res = mat<N, K>(1.0);
-
-			for (unsigned int i = 0; i < min(min(M, N), K); ++i)
-				res.iat(i, i) = v.get(i);
-
-			return res;
+			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
+			return algebra::perspective_fov<mat<N, K>>(fov, aspect, near, far);
 		}
 
 
-		inline static mat<4, 4> perspective(real left, real right, real bottom, real top, real near, real far) {
-
-			mat<4, 4> result;
-			result.make_null();
-
-			result.iat(0, 0)  = 2 * near / (right - left);
-			result.iat(2, 0)  = (right + left) / (right - left);
-			result.iat(1, 1)  = 2 * near / (top - bottom);
-			result.iat(2, 1)  = (top + bottom) / (top - bottom);
-			result.iat(2, 2) = -(far + near) / (far - near);
-			result.iat(3, 2) = -(2 * far * near) / (far - near);
-			result.iat(2, 3) = -1;
-			result.iat(3, 3) = 0;
-
-			return result;
+		inline static mat<N, K> ortho(
+			real left, real right, real bottom, real top, real near, real far) {
+			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
+			return algebra::ortho<mat<N, K>>(left, right, bottom, top, near, far);
 		}
 
-
-		inline static mat<4, 4> perspective(real fov, real aspect, real near, real far) {
-
-			real height = near * tan(radians(fov / 2.f));
-			real width = height * aspect;
-
-			return perspective(-width, width, -height, height, near, far);
-		}
-
-
-		inline static mat<4, 4> ortho(real left, real right, real bottom, real top, real near, real far) {
-
-			mat<4, 4> result;
-			result.make_null();
-
-			result.iat(0, 0)  = 2 / (right - left);
-			result.iat(3, 0)  = -(right + left) / (right - left);
-			result.iat(1, 1)  = 2 / (top - bottom);
-			result.iat(3, 1)  = -(top + bottom) / (top - bottom);
-			result.iat(2, 2) = -2 / (far - near);
-			result.iat(3, 2) = -(far + near) / (far - near);
-
-			return result;
-		}
-
-		/// Return a transformation matrix that points the field of view towards a given point from the <camera> point
+		/// Return a transformation matrix that points the
+		/// field of view towards a given point from the <camera> point
 		inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
 
 			// Construct an orthonormal basis
@@ -745,27 +565,9 @@ namespace theoretica {
 
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
 		inline static mat<N, K> symplectic() {
-
 			static_assert(N == K && (N % 2 == 0),
-				"N must equal K and they should be a multiple of 2 to construct a symplectic matrix.");
-
-			mat<N, K> res = mat<N, K>();
-
-			for (unsigned int i = 0; i < N / 2; ++i) {	
-				for (unsigned int j = N / 2; j < N; ++j) {
-					if(i == (j - N / 2))
-						res.iat(i, j) = 1;
-				}
-			}
-
-			for (unsigned int i = N / 2; i < N; ++i) {
-				for (unsigned int j = 0; j < N / 2; ++j) {
-					if((i - N / 2) == (j))
-						res.iat(i, j) = -1;
-				}
-			}
-
-			return res;
+				"N must equal K and they should be a multiple of 2");
+			return algebra::symplectic<mat<N, K>>();
 		}
 
 
@@ -786,7 +588,10 @@ namespace theoretica {
 						if(j)
 							res << ", ";
 
-						res << (abs(iget(i, j)) > MACH_EPSILON) ? iget(i, j) : 0;
+						if(abs(iget(i, j)) < MACH_EPSILON)
+							res << "0";
+						else
+							res << iget(i, j);
 					}
 
 					res << ")" << std::endl;
