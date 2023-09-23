@@ -61,7 +61,7 @@ namespace theoretica {
 		/// @param m The matrix to overwrite
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix>
-		inline Matrix& mat_identity(Matrix& m) {
+		inline Matrix& make_identity(Matrix& m) {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -281,7 +281,7 @@ namespace theoretica {
 			A.resize(m.rows(), m.cols());
 			B.resize(m.rows(), m.cols());
 			mat_copy(A, m);
-			mat_identity(B);
+			make_identity(B);
 
 			// Iterate on all columns
 			for (unsigned int i = 0; i < m.rows(); ++i) {
@@ -370,7 +370,7 @@ namespace theoretica {
 			A.resize(src.rows(), src.cols());
 			// dest.resize(src.rows(), src.cols());
 			mat_copy(A, src);
-			mat_identity(dest);
+			make_identity(dest);
 
 			// Iterate on all columns
 			for (unsigned int i = 0; i < src.rows(); ++i) {
@@ -908,6 +908,108 @@ namespace theoretica {
 
 
 		// Linear transformations
+
+
+		/// Returns the identity matrix. Size parameters are used
+		/// only for dynamically allocated matrix types.
+		/// @return The identity matrix of the given type
+		template<typename Matrix>
+		inline Matrix identity(unsigned int rows = 0, unsigned int cols = 0) {
+			
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+			
+			make_identity(m);
+			return m;
+		}
+
+
+		/// Returns the a matrix with the given diagonal. The function
+		/// without any parameters is used for statically
+		/// allocated matrix types.
+		/// @return The diagonal matrix of the given type
+		template<typename Matrix, typename Vector>
+		inline Matrix diagonal(
+			Vector&& v, unsigned int rows = 0, unsigned int cols = 0) {
+			
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+			
+			diagonal(m, v);
+			return m;
+		}
+
+
+		/// Returns a translation matrix, that is,
+		/// an NxN matrix which describes a translation
+		/// in N-1 dimensions.
+		/// @param v The translation vector of dimension N-1
+		/// @return The translation matrix
+		template<typename Matrix, typename Vector>
+		inline Matrix translation(
+			Vector&& v, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(v.size() != (m.rows() - 1)) {
+				TH_MATH_ERROR("algebra::translation", v.size(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			make_identity(m);
+				
+			// The translation matrix in projective
+			// geometry is constructed by setting 
+			// the last column's values to the vector,
+			// while other elements form the identity
+			for (unsigned int i = 0; i < m.rows() - 1; ++i)
+				m.iat(i, m.cols() - 1) = v[i];
+
+			return m;
+		}
+
+
+		/// Returns a matrix representing a 2D rotation
+		/// @param theta The angle of rotation
+		/// @return The rotation matrix
+		template<typename Matrix>
+		inline Matrix rotation_2d(
+			real theta, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(m.rows() < 2) {
+				TH_MATH_ERROR("algebra::rotation_2d", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 2) {
+				TH_MATH_ERROR("algebra::rotation_2d", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			const real s = sin(theta);
+			const real c = cos(theta);
+
+			make_identity(m);
+
+			m.iat(0, 0) = c;
+			m.iat(0, 1) = -s;
+			m.iat(1, 0) = s;
+			m.iat(1, 1) = c;
+
+			return m;
+		}
+
 
 		// LU decomposition
 

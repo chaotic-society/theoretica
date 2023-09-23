@@ -453,7 +453,7 @@ namespace theoretica {
 
 		/// Get the identity matrix
 		inline static mat<N, K> identity() {
-			return mat<N, K>(1.0);
+			return algebra::identity<mat<N, K>>();
 		}
 
 		/// Get a diagonal matrix
@@ -462,42 +462,14 @@ namespace theoretica {
 		}
 
 		/// Get a 4x4 matrix which translates by {x, y, z}
-		inline static mat<4, 4> translation(vec3 t) {
-
-			mat<4, 4> m = mat<4, 4>(1.0);
-
-			m.iat(0, 3) = t[0];
-			m.iat(1, 3) = t[1];
-			m.iat(2, 3) = t[2];
-
-			return m;
-		}
-
-		/// Get a 4x4 matrix which translates by {x, y, z}
-		inline static mat<4, 4> translation(real x, real y, real z) {
-
-			mat<4, 4> m = mat<4, 4>(1.0);
-
-			m.iat(0, 3) = x;
-			m.iat(1, 3) = y;
-			m.iat(2, 3) = z;
-
-			return m;
+		template<typename Vector = vec<N - 1>>
+		inline static mat<N, K> translation(Vector&& t) {
+			return algebra::translation<mat<N, K>>(t);
 		}
 
 		/// Get a matrix which rotates the 2D plane of <theta> radians
-		inline static mat<2, 2> rotation_2x2(real theta) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			mat<2, 2> res;
-			res.iat(0, 0) = c;
-			res.iat(0, 1) = -s;
-			res.iat(1, 0) = s;
-			res.iat(1, 1) = c;
-
-			return res;
+		inline static mat<N, K> rotation_2d(real theta) {
+			return algebra::rotation_2d<mat<N, K>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the x axis
