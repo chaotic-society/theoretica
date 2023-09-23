@@ -542,7 +542,7 @@ namespace theoretica {
 
 			// The determinant of a (lower) triangular matrix
 			// is the product of the elements on its diagonal
-			return (decltype(m.iget(0, 0))) 1;
+			return (decltype(m.iget(0, 0))) diagonal_product(A);
 		}
 
 
@@ -1009,6 +1009,65 @@ namespace theoretica {
 
 			return m;
 		}
+
+
+		/// Returns a matrix representing a 3D rotation
+		/// around a given axis.
+		/// @param theta Angle of rotation
+		/// @param axis Axis of rotation
+		/// @return A matrix representing the rotation
+		/// of theta radians around the given axis.
+		template<typename Matrix, typename Vector>
+		inline Matrix rotation_3d(
+			real theta, Vector&& axis, unsigned int rows = 0, unsigned int cols = 0) {
+
+			Matrix m;
+			if(rows && cols)
+				m.resize(rows, cols);
+
+			if(axis.size() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d", axis.size(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.rows() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			if(m.cols() < 3) {
+				TH_MATH_ERROR("algebra::rotation_3d", m.cols(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			make_identity(m);
+
+			const real s = sin(theta);
+			const real c = cos(theta);
+
+			const real Rx = (real) axis.iget(0);
+			const real Ry = (real) axis.iget(1);
+			const real Rz = (real) axis.iget(2);
+
+			const real cm1 = (1 - c);
+
+			m.iat(0, 0) = c + Rx * Rx * cm1;
+			m.iat(0, 1) = Rx * Ry * cm1 - Rz * s;
+			m.iat(0, 2) = Rx * Rz * cm1 - Ry * s;
+
+			m.iat(1, 0) = Ry * Rx * cm1 + Rz * s;
+			m.iat(1, 1) = c + Ry * Ry * cm1;
+			m.iat(1, 2) = Ry * Rz * cm1 - Rx * s;
+
+			m.iat(2, 0) = Rz * Rx * cm1 - Ry * s;
+			m.iat(2, 1) = Rz * Ry * cm1 + Rx * s;
+			m.iat(2, 2) = c + Rz * Rz * cm1;
+
+			return m;
+		} 
 
 
 		// LU decomposition

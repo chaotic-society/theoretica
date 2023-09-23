@@ -616,32 +616,9 @@ namespace theoretica {
 
 
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
-		inline static mat<3, 3> rotation_3x3(real theta, const vec3& axis) {
-
-			real s = theoretica::sin(theta);
-			real c = theoretica::cos(theta);
-
-			real Rx = axis.get(0);
-			real Ry = axis.get(1);
-			real Rz = axis.get(2);
-
-			real cm1 = (1 - c);
-
-			mat<3, 3> m;
-
-			m.iat(0, 0) = c + square(Rx) * cm1;
-			m.iat(0, 1) = Rx * Ry * cm1 - Rz * s;
-			m.iat(0, 2) = Rx * Rz * cm1 - Ry * s;
-
-			m.iat(1, 0) = Ry * Rx * cm1 + Rz * s;
-			m.iat(1, 1) = c + square(Ry) * cm1;
-			m.iat(1, 2) = Ry * Rz * cm1 - Rx * s;
-
-			m.iat(2, 0) = Rz * Rx * cm1 - Ry * s;
-			m.iat(2, 1) = Rz * Ry * cm1 + Rx * s;
-			m.iat(2, 2) = c + square(Rz) * cm1;
-
-			return m;
+		template<typename Vector = vec<3>>
+		inline static mat<N, K> rotation_3d(real theta, Vector&& axis) {
+			return algebra::rotation_3d<mat<N, K>>(theta, axis);
 		}
 
 
@@ -809,7 +786,7 @@ namespace theoretica {
 						if(j)
 							res << ", ";
 
-						res << iget(i, j);
+						res << (abs(iget(i, j)) > MACH_EPSILON) ? iget(i, j) : 0;
 					}
 
 					res << ")" << std::endl;
