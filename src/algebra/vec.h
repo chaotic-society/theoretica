@@ -16,6 +16,7 @@
 #include "../core/error.h"
 #include "../core/real_analysis.h"
 #include "../core/vec_buff.h"
+#include "./algebra.h"
 
 
 namespace theoretica {
@@ -45,17 +46,12 @@ namespace theoretica {
 
 		/// Copy constructor
 		vec(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
+			algebra::vec_copy(*this, other);
 		}
 
 		/// Copy from other
 		vec<N, T>& operator=(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
-			return *this;
+			return algebra::vec_copy(*this, other);
 		}
 
 		/// Initialize from a list, e.g. {1, 2, 3}
@@ -84,12 +80,9 @@ namespace theoretica {
 
 		/// Vector sum (v + w = (v.x + w.x, ...))
 		inline vec<N, T> operator+(const vec<N, T>& other) const {
+			
 			vec<N, T> result;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] + other.data[i];
-			}
-
+			algebra::vec_sum(result, *this, other);
 			return result;
 		}
 
@@ -99,12 +92,9 @@ namespace theoretica {
 		}
 
 		inline vec<N, T> operator-(const vec<N, T>& other) const {
+			
 			vec<N, T> result;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] - other.data[i];
-			}
-
+			algebra::vec_diff(result, *this, other);
 			return result;
 		}
 
@@ -133,14 +123,7 @@ namespace theoretica {
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline T dot(const vec<N, T>& other) const {
-
-			T result = 0;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result += data[i] * other.data[i];
-			}
-
-			return result;
+			return algebra::dot(*this, other);
 		}
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
@@ -150,20 +133,9 @@ namespace theoretica {
 
 
 		/// Cross product between vectors
-		inline vec<3> cross(const vec<3>& other) const {
-
-			if(N != 3) {
-				TH_MATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
-				return vec<N, T>(nan());
-			}
-
-			vec<3> res;
-
-			res.data[0] = data[1] * other.data[2] - data[2] * other.data[1];
-			res.data[1] = data[2] * other.data[0] - data[0] * other.data[2];
-			res.data[2] = data[0] * other.data[1] - data[1] * other.data[0];
-
-			return res;
+		inline vec<N> cross(const vec<N>& other) const {
+			static_assert(N == 3, "The vector must be three dimensional");
+			return algebra::cross(*this, other);
 		}
 
 
@@ -194,12 +166,7 @@ namespace theoretica {
 
 		/// Magnitude of vector (sqrt(v * v))
 		inline T magnitude() const {
-
-			T m = 0;
-			for (unsigned int i = 0; i < N; ++i)
-				m += data[i] * conjugate(data[i]);
-
-			return sqrt(m);
+			return algebra::norm(*this);
 		}
 
 		/// Alias for magnitude()

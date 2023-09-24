@@ -36,6 +36,12 @@ namespace theoretica {
 	}
 
 
+	/// Return the conjugate of a dual number
+	inline dual conjugate(dual x) {
+		return x.conjugate();
+	}
+
+
 	/// Compute the n-th power of a dual number
 	inline dual pow(dual x, int n) {
 		real pow_n_1_x = pow(x.Re(), n - 1);

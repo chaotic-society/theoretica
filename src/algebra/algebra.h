@@ -51,7 +51,7 @@ namespace theoretica {
 		inline Vector& vec_error(Vector& v) {
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.iat(i) = nan();
+				v.iat(i) = (decltype(v.iget(0))) nan();
 
 			return v;
 		}
@@ -143,6 +143,128 @@ namespace theoretica {
 				dest.iat(i) = src.iget(i);
 
 			return dest;
+		}
+
+
+		/// Returns the square of the Euclidean/Hermitian norm
+		/// of the given vector
+		/// @param v The vector to compute the norm of
+		/// @return The norm of the given vector
+		template<typename Vector>
+		inline real sqr_norm(Vector&& v) {
+
+			real sum = 0;
+
+			for (unsigned int i = 0; i < v.size(); ++i)
+				sum += v.iget(i) * conjugate(v.iget(i));
+
+			return sum;
+		}
+
+
+		/// Returns the Euclidean/Hermitian norm
+		/// of the given vector
+		/// @param v The vector to compute the norm of
+		/// @return The norm of the given vector
+		template<typename Vector>
+		inline real norm(Vector&& v) {
+			return sqrt(norm(v));
+		}
+
+
+		/// Returns the normalized vector
+		/// @param v The vector to normalize
+		/// @return The normalized vector
+		template<typename Vector>
+		inline Vector normalize(Vector&& v) {
+
+			Vector r;
+			r.resize(v.size());
+			vec_copy(r, v);
+
+			const auto m = norm(v);
+
+			if(abs(m) < MACH_EPSILON) {
+				TH_MATH_ERROR("algebra::normalize", m, DIV_BY_ZERO);
+				vec_error(v);
+			}
+
+			for (unsigned int i = 0; i < r.size(); ++i)
+				r.iget(i) /= m;
+
+			return r;
+		}
+
+
+		/// Normalize a given vector overwriting it.
+		/// @param v The vector to normalize
+		/// @return A reference to the overwritten vector
+		template<typename Vector>
+		inline Vector& make_normalized(Vector& v) {
+
+			const auto m = norm(v);
+
+			if(abs(m) < MACH_EPSILON) {
+				TH_MATH_ERROR("algebra::make_normalized", m, DIV_BY_ZERO);
+				vec_error(v);
+				return v;
+			}
+
+			for (unsigned int i = 0; i < v.size(); ++i)
+				v.iat(i) /= m;
+
+			return v;
+		}
+
+
+		/// Computes the dot product between two vectors
+		/// @param v1 The first vector
+		/// @param v2 The second vector
+		/// @return The dot product of the two vectors
+		template<typename Vector1, typename Vector2>
+		inline auto dot(Vector1&& v1, Vector2&& v2) {
+
+			if(v1.size() != v2.size()) {
+				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
+				return (decltype(v1.iget(0))) nan();
+			}
+
+			decltype(v1.iget(0)) sum = 0;
+
+			for (unsigned int i = 0; i < v1.size(); ++i)
+				sum += v1.iget(i) * conjugate(v2.iget(i));
+
+			return sum;
+		}
+
+
+		/// Compute the cross product between two 3D vectors
+		/// @param v1 The first 3D vector
+		/// @param v2 The second 3D vector
+		/// @return The cross product of the two vectors
+		template<typename Vector1, typename Vector2>
+		inline Vector1 cross(Vector1 v1, Vector2&& v2) {
+
+			typename std::remove_reference<Vector1>::type v3;
+			v3.resize(3);
+
+			if(v1.size() != 3) {
+				TH_MATH_ERROR("algebra::cross", v1.size(), INVALID_ARGUMENT);
+				vec_error(v3);
+				return v3;
+			}
+
+			if(v1.size() != 3) {
+				TH_MATH_ERROR("algebra::cross", v2.size(), INVALID_ARGUMENT);
+				vec_error(v3);
+				return v3;
+			}
+
+			v3.iat(0) = v1.iget(1) * v2.iget(2) - v1.iget(2) * v2.iget(1);
+			v3.iat(1) = v1.iget(2) * v2.iget(0) - v1.iget(0) * v2.iget(2);
+			v3.iat(2) = v1.iget(0) * v2.iget(1) - v1.iget(1) * v2.iget(0);
+
+			return v3;
 		}
 
 
@@ -608,6 +730,42 @@ namespace theoretica {
 		}
 
 
+		/// Multiply a vector by a scalar of any compatible type
+		/// @param a A scalar value
+		/// @param v The vector to multiply
+		/// @return A reference to the multiplied vector
+		template<typename Field, typename Vector>
+		inline Vector& vec_scalmul(Field a, Vector& v) {
+
+			for (unsigned int i = 0; i < v.size(); ++i)
+				v.iat(i) *= a;
+
+			return v;
+		}
+
+
+		/// Multiply a vector by a scalar of any compatible type
+		/// which can be cast to the type of element of the output vector.
+		/// @param dest The vector to overwrite with the result
+		/// @param a A scalar value
+		/// @param src The vector to multiply
+		/// @return A reference to the resulting vector
+		template<typename Field, typename Vector1, typename Vector2>
+		inline Vector1& vec_scalmul(Vector1& dest, Field a, Vector2&& src) {
+
+			if(src.size() != dest.size()) {
+				TH_MATH_ERROR("algebra::vec_scalmul", src.size(), INVALID_ARGUMENT);
+				vec_error(dest);
+				return dest;
+			}
+
+			for (unsigned int i = 0; i < src.size(); ++i)
+				dest.iat(i) = a * src.iget(i);
+
+			return dest;
+		}
+
+
 		// Operations involving a matrix and a vector
 
 
@@ -699,7 +857,7 @@ namespace theoretica {
 		}
 
 
-		// Operations involving multiple matrices
+		// Operations involving multiple matrices or vectors
 
 
 		/// Sum two matrices and store the result in the first matrix.
@@ -765,6 +923,74 @@ namespace theoretica {
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
 					res.iat(i, j) = A.iget(i, j) + B.iget(i, j);
+
+			return res;
+		}
+
+
+		/// Subtract two matrices and store the result in the first matrix.
+		/// Equivalent to the operation A = A - B
+		/// @param A The first matrix to store the result
+		/// @param B The second matrix
+		/// @return A reference to the overwritten matrix
+		template<typename Matrix1, typename Matrix2>
+		inline Matrix2& mat_diff(Matrix1& A, Matrix2&& B) {
+
+			if(A.rows() != B.rows()) {
+				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
+				mat_error(A);
+				return A;
+			}
+
+			if(A.cols() != B.cols()) {
+				TH_MATH_ERROR("algebra::mat_diff", A.cols(), INVALID_ARGUMENT);
+				mat_error(A);
+				return A;
+			}
+
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = 0; j < A.cols(); ++j)
+					A.iat(i, j) = A.iget(i, j) - B.iget(i, j);
+
+			return A;
+		}
+
+
+		/// Subtract two matrices and store the result in another matrix
+		/// Equivalent to the operation res = A - B
+		/// @param A The first matrix
+		/// @param B The second matrix
+		/// @return A reference to the overwritten matrix
+		template<typename Matrix1, typename Matrix2, typename Matrix3>
+		inline Matrix1& mat_diff(Matrix1& res, Matrix2&& A, Matrix3&& B) {
+
+			if(A.rows() != B.rows()) {
+				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
+				mat_error(res);
+				return res;
+			}
+
+			if(A.cols() != B.cols()) {
+				TH_MATH_ERROR("algebra::mat_diff", A.cols(), INVALID_ARGUMENT);
+				mat_error(res);
+				return res;
+			}
+
+			if(res.rows() != A.rows()) {
+				TH_MATH_ERROR("algebra::mat_diff", res.rows(), INVALID_ARGUMENT);
+				mat_error(res);
+				return res;
+			}
+
+			if(res.cols() != A.cols()) {
+				TH_MATH_ERROR("algebra::mat_diff", res.cols(), INVALID_ARGUMENT);
+				mat_error(res);
+				return res;
+			}
+
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = 0; j < A.cols(); ++j)
+					res.iat(i, j) = A.iget(i, j) - B.iget(i, j);
 
 			return res;
 		}
@@ -902,6 +1128,102 @@ namespace theoretica {
 				for (unsigned int j = 0; j < B.cols(); ++j)
 					for (unsigned int k = 0; k < A.cols(); ++k)
 						res.iat(i, j) += A.iget(i, k) * B.iget(k, j);
+
+			return res;
+		}
+
+
+		/// Sum two vectors and store the result in the first vector.
+		/// Equivalent to the operation v1 = v1 + v2
+		/// @param v1 The first vector to add and store the result
+		/// @param v2 The second vector to add
+		/// @return A reference to the overwritten vector
+		template<typename Vector1, typename Vector2>
+		inline Vector2& vec_sum(Vector1& v1, Vector2&& v2) {
+
+			if(v1.size() != v2.size()) {
+				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
+				vec_error(v1);
+				return v1;
+			}
+
+			for (unsigned int i = 0; i < v1.size(); ++i)
+				v1.iat(i) = v1.iget(i) + v2.iget(i);
+
+			return v1;
+		}
+
+
+		/// Sum two vectors and store the result in another vector
+		/// Equivalent to the operation res = v1 + v2
+		/// @param v1 The first vector to add
+		/// @param v2 The second vector to add
+		/// @return A reference to the overwritten vector
+		template<typename Vector1, typename Vector2, typename Vector3>
+		inline Vector1& vec_sum(Vector1& res, Vector2&& v1, Vector3&& v2) {
+
+			if(v1.size() != v2.size()) {
+				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
+				vec_error(res);
+				return res;
+			}
+
+			if(res.size() != v1.size()) {
+				TH_MATH_ERROR("algebra::vec_sum", res.size(), INVALID_ARGUMENT);
+				vec_error(res);
+				return res;
+			}
+
+			for (unsigned int i = 0; i < v1.size(); ++i)
+				res.iat(i) = v1.iget(i) + v2.iget(i);
+
+			return res;
+		}
+
+
+		/// Subtract two vectors and store the result in the first vector.
+		/// Equivalent to the operation v1 = v1 - v2
+		/// @param v1 The first vector to store the result
+		/// @param v2 The second vector
+		/// @return A reference to the overwritten vector
+		template<typename Vector1, typename Vector2>
+		inline Vector2& vec_diff(Vector1& v1, Vector2&& v2) {
+
+			if(v1.size() != v2.size()) {
+				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
+				vec_error(v1);
+				return v1;
+			}
+
+			for (unsigned int i = 0; i < v1.size(); ++i)
+				v1.iat(i) = v1.iget(i) - v2.iget(i);
+
+			return v1;
+		}
+
+
+		/// Subtract two vectors and store the result in another vector
+		/// Equivalent to the operation res = v1 - v2
+		/// @param v1 The first vector
+		/// @param v2 The second vector
+		/// @return A reference to the overwritten vector
+		template<typename Vector1, typename Vector2, typename Vector3>
+		inline Vector1& vec_diff(Vector1& res, Vector2&& v1, Vector3&& v2) {
+
+			if(v1.size() != v2.size()) {
+				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
+				vec_error(res);
+				return res;
+			}
+
+			if(res.size() != v1.size()) {
+				TH_MATH_ERROR("algebra::vec_diff", res.size(), INVALID_ARGUMENT);
+				vec_error(res);
+				return res;
+			}
+
+			for (unsigned int i = 0; i < v1.size(); ++i)
+				res.iat(i) = v1.iget(i) - v2.iget(i);
 
 			return res;
 		}
@@ -1293,6 +1615,62 @@ namespace theoretica {
 			m.iat(3, 1)  = -(top + bottom) / (top - bottom);
 			m.iat(2, 2) = -2 / (far - near);
 			m.iat(3, 2) = -(far + near) / (far - near);
+
+			return m;
+		}
+
+
+		/// Return a transformation matrix that points the
+		/// field of view towards a given point from the <camera> point
+		template<
+			typename Matrix, typename Vector1,
+			typename Vector2, typename Vector3>
+		inline Matrix look_at(Vector1 camera, Vector2 target, Vector3 up) {
+
+			// Construct an orthonormal basis
+
+			Vector1 x_axis, y_axis, z_axis;
+			x_axis.resize(3);
+			y_axis.resize(3);
+			z_axis.resize(3);
+
+			// z = target - camera
+			vec_diff(z_axis, target, camera);
+			make_normalized(z_axis);
+
+			// x = z X up
+			vec_copy(x_axis, cross(z_axis, up));
+			make_normalized(x_axis);
+
+			// y = x X z
+			vec_copy(y_axis, cross(x_axis, z_axis));
+
+			// Negate z_axis to have a right-handed system
+			vec_scalmul(-1.0, z_axis);
+
+			// Construct the rotation and translation matrix
+			Matrix m;
+			m.resize(4, 4);
+
+			m.iat(0, 0) = x_axis.iget(1);
+			m.iat(0, 1) = x_axis.iget(2);
+			m.iat(0, 2) = x_axis.iget(3);
+			m.iat(0, 3) = dot(camera, vec_scalmul(-1.0, x_axis));
+
+			m.iat(1, 0) = y_axis.iget(1);
+			m.iat(1, 1) = y_axis.iget(2);
+			m.iat(1, 2) = y_axis.iget(3);
+			m.iat(1, 3) = dot(camera, vec_scalmul(-1.0, y_axis));
+
+			m.iat(2, 0) = z_axis.iget(1);
+			m.iat(2, 1) = z_axis.iget(2);
+			m.iat(2, 2) = z_axis.iget(3);
+			m.iat(2, 3) = dot(camera, vec_scalmul(-1.0, z_axis));
+
+			m.iat(3, 0) = 0;
+			m.iat(3, 1) = 0;
+			m.iat(3, 2) = 0;
+			m.iat(3, 3) = 1;
 
 			return m;
 		}

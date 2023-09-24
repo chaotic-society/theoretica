@@ -31,6 +31,12 @@ namespace theoretica {
 	}
 
 
+	/// Return the conjugate of a second order dual number
+	inline dual2 conjugate(dual2 x) {
+		return x.conjugate();
+	}
+
+
 	/// Compute the n-th power of a second order dual number
 	inline dual2 pow(dual2 x, int n) {
 

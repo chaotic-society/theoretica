@@ -24,7 +24,11 @@ const mat<M, M> M_symplectic = mat<M, M>::symplectic();
 template<typename NumType>
 NumType harmonic_oscillator(vec<M, NumType> eta) {
 
-	return (eta * eta) / 2.0;
+	NumType H = 0;
+	for (int i = 0; i < M; ++i)
+		H += eta[i] * eta[i];
+
+	return H;
 }
 
 
