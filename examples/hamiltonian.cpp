@@ -25,7 +25,7 @@ template<typename NumType>
 NumType harmonic_oscillator(vec<M, NumType> eta) {
 
 	NumType H = 0;
-	for (int i = 0; i < M; ++i)
+	for (unsigned int i = 0; i < M; ++i)
 		H += eta[i] * eta[i];
 
 	return H;

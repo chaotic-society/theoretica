@@ -268,11 +268,29 @@ namespace theoretica {
 		}
 
 
+		/// Returns the transpose of the given matrix.
+		/// Equivalent to the operation m^T
+		/// @param m The matrix to transpose
+		/// @return The transposed matrix
+		template<typename Matrix, typename MatrixT = Matrix>
+		inline auto transpose(Matrix m) {
+
+			typename std::remove_reference<MatrixT>::type res;
+			res.resize(m.cols(), m.rows());
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					res.iat(j, i) = m.iget(i, j);
+
+			return res;
+		}
+
+
 		/// Transpose the given matrix
 		/// @param m The matrix to transpose
 		/// @return A reference to the transposed matrix
 		template<typename Matrix>
-		inline Matrix& transpose(Matrix& m) {
+		inline Matrix& make_transposed(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
 				TH_MATH_ERROR("algebra::transpose", m.rows(), INVALID_ARGUMENT);
@@ -325,13 +343,31 @@ namespace theoretica {
 		}
 
 
+		/// Returns the hermitian of the given matrix.
+		/// Equivalent to the operation m^T
+		/// @param m The matrix to compute the hermitian of
+		/// @return The hermitian of the matrix
+		template<typename Matrix, typename MatrixT = Matrix>
+		inline auto hermitian(Matrix m) {
+
+			typename std::remove_reference<MatrixT>::type res;
+			res.resize(m.cols(), m.rows());
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					res.iat(j, i) = conjugate(m.iget(i, j));
+
+			return res;
+		}
+
+
 		/// Compute the hermitian of a given matrix
 		/// and overwrite it.
 		/// Equivalent to the operation m = m^H
 		/// @param m The matrix to compute the hermitian of
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix>
-		inline Matrix& hermitian(Matrix& m) {
+		inline Matrix& make_hermitian(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
 				TH_MATH_ERROR("algebra::hermitian", m.rows(), INVALID_ARGUMENT);
@@ -386,94 +422,6 @@ namespace theoretica {
 
 
 		/// Invert the given matrix and overwrite it.
-		/// Equivalent to the operation m = m^-1
-		/// @param m The matrix to invert
-		/// @return A reference to the inverted matrix
-		template<typename Matrix>
-		inline Matrix& invert(Matrix& m) {
-
-			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::invert", m.rows(), INVALID_ARGUMENT);
-				mat_error(m);
-				return m;
-			}
-
-			// Prepare extended matrix (A|B)
-			Matrix A, B;
-			A.resize(m.rows(), m.cols());
-			B.resize(m.rows(), m.cols());
-			mat_copy(A, m);
-			make_identity(B);
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < m.rows(); ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A.iat(i, i) == 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < m.rows(); ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero
-						if(A.iat(j, i) != 0) {
-
-							for (unsigned int k = 0; k < m.rows(); ++k) {
-								A.iat(i, k) += A.iat(j, k);
-								B.iat(i, k) += B.iat(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						TH_MATH_ERROR("algebra::invert", flag, IMPOSSIBLE_OPERATION);
-						mat_error(m);
-						return m;
-					}
-				}
-
-				real inv_pivot = 1.0 / A.iat(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = 0; j < m.rows(); ++j) {
-
-					// Skip the current row
-					if(j == i)
-						continue;
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					real coeff = A.iat(j, i) * inv_pivot;
-					
-					for (unsigned int k = 0; k < m.rows(); ++k) {
-						A.iat(j, k) -= coeff * A.iat(i, k);
-						B.iat(j, k) -= coeff * B.iat(i, k);
-					}
-				}
-
-				// Divide the current row by the pivot
-				for (unsigned int j = 0; j < m.rows(); ++j) {
-					A.iat(i, j) *= inv_pivot;
-					B.iat(i, j) *= inv_pivot;
-				}
-				
-			}
-
-			// Modify the matrix only when the inversion
-			// has succeeded
-			mat_copy(m, B);
-			return m;
-		}
-
-
-		/// Invert the given matrix and overwrite it.
 		/// Equivalent to the operation dest = src^-1
 		/// @param dest The matrix to overwrite
 		/// @param src The matrix to invert
@@ -483,6 +431,18 @@ namespace theoretica {
 
 			if(src.rows() != src.cols()) {
 				TH_MATH_ERROR("algebra::inverse", src.rows(), INVALID_ARGUMENT);
+				mat_error(dest);
+				return dest;
+			}
+
+			if(dest.rows() != src.rows()) {
+				TH_MATH_ERROR("algebra::inverse", dest.rows(), INVALID_ARGUMENT);
+				mat_error(dest);
+				return dest;
+			}
+
+			if(dest.cols() != src.cols()) {
+				TH_MATH_ERROR("algebra::inverse", dest.cols(), INVALID_ARGUMENT);
 				mat_error(dest);
 				return dest;
 			}
@@ -556,6 +516,42 @@ namespace theoretica {
 			}
 
 			return dest;
+		}
+
+
+		/// Returns the inverse of the given matrix.
+		/// Equivalent to the operation m^-1
+		/// @param m The matrix to invert
+		/// @return The inverted matrix
+		template<typename Matrix, typename MatrixInv = Matrix>
+		inline auto inverse(Matrix m) {
+			typename std::remove_reference<MatrixInv>::type res;
+			inverse(res, m);
+			return res;
+		}
+
+
+		/// Invert the given matrix and overwrite it.
+		/// Equivalent to the operation m = m^-1
+		/// @param m The matrix to invert
+		/// @return A reference to the inverted matrix
+		template<typename Matrix>
+		inline Matrix& invert(Matrix& m) {
+
+			if(m.rows() != m.cols()) {
+				TH_MATH_ERROR("algebra::invert", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			// Prepare extended matrix (A|B)
+			Matrix tmp;
+			inverse(tmp, m);
+
+			// Modify the matrix only when the inversion
+			// has succeeded
+			mat_copy(m, tmp);
+			return m;
 		}
 
 
@@ -1130,6 +1126,73 @@ namespace theoretica {
 						res.iat(i, j) += A.iget(i, k) * B.iget(k, j);
 
 			return res;
+		}
+
+
+		/// Checks whether two matrices are equal
+		/// @param A The first matrix
+		/// @param B The second matrix
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MACH_EPSILON
+		/// @return A boolean value
+		template<typename Matrix1, typename Matrix2>
+		inline bool mat_equals(
+			Matrix1&& A, Matrix2&& B, real tolerance = MACH_EPSILON) {
+
+			if(A.rows() != B.rows() || A.cols() != B.cols())
+				return false;
+
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = 0; j < A.cols(); ++j)
+					if(abs(A.iget(i, j) - B.iget(i, j)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+
+		/// Returns whether the matrix is square
+		/// @param m The matrix to consider
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_square(Matrix&& m) {
+			return (m.rows() == m.cols());
+		}
+
+
+		/// Returns whether the matrix is diagonal
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MACH_EPSILON
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_diagonal(Matrix&& m, real tolerance = MACH_EPSILON) {
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					if(i != j && abs(m.iget(i, j)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+		/// Returns whether the matrix is symmetric
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MACH_EPSILON
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_symmetric(Matrix&& m, real tolerance = MACH_EPSILON) {
+
+			if(!is_square(m))
+				return false;
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					if(abs(m.iget(i, j) - m.iget(j, i)) > tolerance)
+						return false;
+
+			return true;
 		}
 
 

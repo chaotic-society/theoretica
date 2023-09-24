@@ -236,27 +236,19 @@ namespace theoretica {
 		/// Transpose the matrix itself
 		inline mat<N, K>& transpose() {
 			static_assert(N == K, "The matrix must be square to be transposed.");
-			return algebra::transpose(*this);
+			return algebra::make_transposed(*this);
 		}
 
 		/// Return the transposed matrix
 		inline mat<K, N> transposed() const {
-			mat<K, N> res;
-			return algebra::transpose(res, *this);
+			return algebra::transpose<mat<N,K>, mat<K,N>>(*this);
 		}
 
 
 		/// Compute the dot product between v1 and v2
 		/// using this matrix as the product matrix
 		inline real dot(const vec<K>& v1, const vec<K>& v2) const {
-
-			vec<N> o = transform(v2);
-			real result = 0;
-
-			for (unsigned int i = 0; i < N; ++i)
-				result += v1.data[i] * o.data[i];
-
-			return result;
+			return algebra::dot(v1, transform(*this, v2));
 		}
 
 
@@ -351,49 +343,24 @@ namespace theoretica {
 
 		/// Check whether two matrices are equal element by element
 		inline bool operator==(const mat<N, K>& other) const {
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					if(iat(i, j) != other.iat(i, j))
-						return false;
-				}
-			}
-
-			return true;
+			return algebra::mat_equals(*this, other);
 		}
 
 		// Matrix types
 
 		/// Return whether the matrix is square
 		inline bool is_square() const {
-			return N == K;
+			return algebra::is_square(*this);
 		}
 
 		/// Return whether the matrix is diagonal
 		inline bool is_diagonal() const {
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					if(i != j && iget(i, j) != 0)
-						return false;
-				}
-			}
-			return true;
+			return algebra::is_diagonal(*this);
 		}
 
 		/// Return whether the matrix is symmetric
 		inline bool is_symmetric() const {
-
-			if(!is_square())
-				return false;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				for (unsigned int j = 0; j < K; ++j) {
-					if(i != j && iget(i, j) != iget(j, i))
-						return false;
-				}
-			}
-			return true;
+			return algebra::is_symmetric(*this);
 		}
 
 
@@ -422,8 +389,7 @@ namespace theoretica {
 		/// Compute the inverse of a generic square matrix
 		inline mat<N, K> inverse() const {
 			static_assert(N == K, "The matrix must be square to be invertible.");
-			mat<N, K> res;
-			return algebra::inverse(res, *this);
+			return algebra::inverse(*this);
 		}
 
 
@@ -526,40 +492,8 @@ namespace theoretica {
 
 		/// Return a transformation matrix that points the
 		/// field of view towards a given point from the <camera> point
-		inline static mat<4, 4> lookAt(vec3 camera, vec3 target, vec3 up) {
-
-			// Construct an orthonormal basis
-			vec3 z_axis = (target - camera).normalized();
-			vec3 x_axis = cross(z_axis, up).normalized();
-			vec3 y_axis = cross(x_axis, z_axis); // Already normalized
-
-			// Negate z_axis to have a right-handed system
-			z_axis = -z_axis;
-
-			// Construct the rotation and translation matrix
-			mat<4, 4> res;
-
-			res.iat(0, 0) = x_axis[0];
-			res.iat(0, 1) = x_axis[1];
-			res.iat(0, 2) = x_axis[2];
-			res.iat(0, 3) = -x_axis.dot(camera);
-
-			res.iat(1, 0) = y_axis[0];
-			res.iat(1, 1) = y_axis[1];
-			res.iat(1, 2) = y_axis[2];
-			res.iat(1, 3) = -y_axis.dot(camera);
-
-			res.iat(2, 0) = z_axis[0];
-			res.iat(2, 1) = z_axis[1];
-			res.iat(2, 2) = z_axis[2];
-			res.iat(2, 3) = -z_axis.dot(camera);
-
-			res.iat(3, 0) = 0;
-			res.iat(3, 1) = 0;
-			res.iat(3, 2) = 0;
-			res.iat(3, 3) = 1;
-
-			return res;
+		inline static mat<4, 4> look_at(vec3 camera, vec3 target, vec3 up) {
+			return algebra::look_at<mat<4, 4>>(camera, target, up);
 		}
 
 
@@ -620,20 +554,6 @@ namespace theoretica {
 
 	/// A 4x4 matrix with real entries
 	using mat4 = mat<4, 4>;
-
-
-	/// Solve a linear system
-	template<unsigned int N>
-	inline vec<N> solve(mat<N, N> A, vec<N> b) {
-		return A.inverse() * b;
-	}
-
-
-	/// Solve a linear system
-	template<unsigned int N>
-	inline mat<N, N> solve(mat<N, N> A, mat<N, N> B) {
-		return A.inverse() * B;
-	}
 
 }
 
