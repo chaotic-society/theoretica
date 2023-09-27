@@ -259,12 +259,13 @@ namespace theoretica {
 		template<typename Vector1, typename Vector2>
 		inline auto dot(const Vector1& v1, const Vector2& v2) {
 
+			using Type = decltype(v1.iget(0));
+
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
-				return (decltype(v1.iget(0))) nan();
+				return (Type) nan();
 			}
 
-			using Type = decltype(v1.iget(0));
 			Type sum = 0;
 
 			// Use conjugation for complex numbers
@@ -334,7 +335,7 @@ namespace theoretica {
 		inline Matrix& make_transposed(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::transpose", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::make_transposed", m.rows(), INVALID_ARGUMENT);
 				mat_error(m);
 				return m;
 			}
@@ -342,7 +343,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < m.rows(); ++i) {
 				for (unsigned int j = 0; j < i; ++j) {
 					
-					auto buff = m.iat(i, j);
+					const auto buff = m.iat(i, j);
 					m.iat(i, j) = m.iat(j, i);
 					m.iat(j, i) = buff;
 				}
@@ -389,7 +390,7 @@ namespace theoretica {
 		/// @param m The matrix to compute the hermitian of
 		/// @return The hermitian of the matrix
 		template<typename Matrix, typename MatrixT = Matrix>
-		inline auto hermitian(const Matrix& m) {
+		inline MatrixT hermitian(const Matrix& m) {
 
 			MatrixT res;
 			res.resize(m.cols(), m.rows());
@@ -419,7 +420,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < m.rows(); ++i) {
 				for (unsigned int j = 0; j < i; ++j) {
 					
-					auto buff = m.iat(i, j);
+					const auto buff = m.iat(i, j);
 					m.iat(i, j) = conjugate(m.iat(j, i));
 					m.iat(j, i) = conjugate(buff);
 				}
@@ -493,7 +494,7 @@ namespace theoretica {
 			// Prepare extended matrix (A|B)
 			Matrix1 A;
 			A.resize(src.rows(), src.cols());
-			// dest.resize(src.rows(), src.cols());
+			dest.resize(src.rows(), src.cols());
 			mat_copy(A, src);
 			make_identity(dest);
 
@@ -567,7 +568,7 @@ namespace theoretica {
 		/// @param m The matrix to invert
 		/// @return The inverted matrix
 		template<typename Matrix, typename MatrixInv = Matrix>
-		inline auto inverse(const Matrix& m) {
+		inline MatrixInv inverse(const Matrix& m) {
 			MatrixInv res;
 			inverse(res, m);
 			return res;
@@ -816,7 +817,34 @@ namespace theoretica {
 		/// @param v The vector to transform
 		/// @return A reference to the overwritten vector
 		template<typename Matrix, typename Vector>
-		inline Vector& transform(const Matrix& A, Vector& v) {
+		inline Vector& apply_transform(const Matrix& A, Vector& v) {
+
+			if(v.size() != A.cols()) {
+				TH_MATH_ERROR("algebra::apply_transform", v.size(), INVALID_ARGUMENT);
+				vec_error(v);
+				return v;
+			}
+
+			Vector res;
+			res.resize(v.size());
+			vec_zeroes(res);
+
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = 0; j < A.cols(); ++j)
+					res.iat(i) += A.iget(i, j) * v.iget(j);
+
+			vec_copy(res, v);
+			return v;
+		}
+
+
+		/// Returns the matrix transformation of a vector.
+		/// Equivalent to the operation A * v
+		/// @param A The matrix transformation
+		/// @param v The vector to transform
+		/// @return The transformed vector
+		template<typename Matrix, typename Vector>
+		inline Vector transform(const Matrix& A, const Vector& v) {
 
 			if(v.size() != A.cols()) {
 				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
@@ -832,8 +860,7 @@ namespace theoretica {
 				for (unsigned int j = 0; j < A.cols(); ++j)
 					res.iat(i) += A.iget(i, j) * v.iget(j);
 
-			vec_copy(res, v);
-			return v;
+			return res;
 		}
 
 
@@ -1119,6 +1146,18 @@ namespace theoretica {
 		/// @return A reference to the resulting matrix
 		template<typename Matrix1, typename Matrix2>
 		inline Matrix1& mat_mul(Matrix1& A, const Matrix2& B) {
+
+			if(A.cols() != B.rows()) {
+				TH_MATH_ERROR("algebra::mat_mul", A.cols(), INVALID_ARGUMENT);
+				mat_error(A);
+				return A;
+			}
+
+			if(B.cols() != A.cols()) {
+				TH_MATH_ERROR("algebra::mat_mul", B.cols(), INVALID_ARGUMENT);
+				mat_error(A);
+				return A;
+			}
 
 			Matrix1 res;
 			res.resize(A.rows(), B.cols());
@@ -1429,7 +1468,8 @@ namespace theoretica {
 			const real s = sin(theta);
 			const real c = cos(theta);
 
-			make_identity(m);
+			if(m.rows() > 2 || m.cols() > 2)
+				make_identity(m);
 
 			m.iat(0, 0) = c;
 			m.iat(0, 1) = -s;
@@ -1472,7 +1512,8 @@ namespace theoretica {
 				return m;
 			}
 
-			make_identity(m);
+			if(m.rows() > 3 || m.cols() > 3)
+				make_identity(m);
 
 			const real s = sin(theta);
 			const real c = cos(theta);
@@ -1524,7 +1565,8 @@ namespace theoretica {
 				return m;
 			}
 
-			make_identity(m);
+			if(m.rows() > 3 || m.cols() > 3)
+				make_identity(m);
 
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);
@@ -1565,7 +1607,8 @@ namespace theoretica {
 				return m;
 			}
 
-			make_identity(m);
+			if(m.rows() > 3 || m.cols() > 3)
+				make_identity(m);
 
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);
@@ -1607,7 +1650,8 @@ namespace theoretica {
 				return m;
 			}
 
-			make_identity(m);
+			if(m.rows() > 3 || m.cols() > 3)
+				make_identity(m);
 
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);

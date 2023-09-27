@@ -106,7 +106,7 @@ namespace theoretica {
 		/// Matrix subtraction
 		inline mat<N, K, Type> operator-(const mat<N, K, Type>& other) const {
 			mat<N, K, Type> res;
-			return algebra::mat_lincomb(res, 1.0, *this, -1.0, other);
+			return algebra::mat_diff(res, *this, other);
 		}
 
 
@@ -140,8 +140,7 @@ namespace theoretica {
 
 		/// Transform a vector v by the matrix
 		inline vec<N> transform(const vec<K>& v) const {
-			vec<N> res = vec<N>();
-			return algebra::transform(res, *this, v);
+			return algebra::transform(*this, v);
 		}
 
 
@@ -174,7 +173,7 @@ namespace theoretica {
 
 		/// Matrix subtraction
 		inline mat<N, K, Type>& operator-=(const mat<N, K, Type>& other) {
-			return algebra::mat_lincomb(1.0, *this, -1.0, other);
+			return algebra::mat_diff(*this, other);
 		}
 
 
