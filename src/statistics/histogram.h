@@ -48,8 +48,8 @@ namespace theoretica {
 				: N(0), max_val(0), min_val(0), sum(0), sqr_sum(0) {
 
 				bins.resize(bin_count);
-				this->range_max = range_max;
-				this->range_min = range_min;
+				this->range_max = max;
+				this->range_min = min;
 			}
 
 

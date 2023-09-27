@@ -62,7 +62,7 @@ namespace  theoretica {
 
 
 			/// Extract the real part
-			inline friend Re(const complex& z) {
+			inline friend T Re(const complex& z) {
 				return z.Re();
 			}
 
