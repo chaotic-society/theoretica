@@ -846,14 +846,15 @@ namespace theoretica {
 		template<typename Matrix, typename Vector>
 		inline Vector transform(const Matrix& A, const Vector& v) {
 
-			if(v.size() != A.cols()) {
-				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
-				vec_error(v);
-				return v;
-			}
-
 			Vector res;
 			res.resize(v.size());
+
+			if(v.size() != A.cols()) {
+				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
+				vec_error(res);
+				return res;
+			}
+
 			vec_zeroes(res);
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
