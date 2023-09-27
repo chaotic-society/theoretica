@@ -16,6 +16,8 @@
 #include "./core/real_analysis.h"
 
 // Vector and matrix algebra
+#include "./algebra/algebra.h"
+#include "./algebra/algebra_types.h"
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"
 #include "./algebra/distance.h"
