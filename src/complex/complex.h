@@ -15,8 +15,6 @@
 
 #include "../core/error.h"
 #include "../core/real_analysis.h"
-#include "../algebra/vec.h"
-#include "../algebra/mat.h"
 
 
 namespace  theoretica {
@@ -24,33 +22,27 @@ namespace  theoretica {
 
 	/// @class complex
 	/// Complex number in algebraic form \f$a + ib\f$
+	template<typename T = real>
 	class complex {
 		public:
 
-			real a; // Real part
-			real b; // Imaginary part
+			T a; // Real part
+			T b; // Imaginary part
 
 			/// Initialize as \f$(0 + i0)\f$
 			complex() : a(0), b(0) {}
 
 			/// Initialize from a real number (zero imaginary part)
-			complex(real real_part) : a(real_part), b(0) {}
+			complex(T real_part) : a(real_part), b(0) {}
 
 			/// Initialize from two real numbers
-			complex(real real_part, real imag_part) : a(real_part), b(imag_part) {}
+			complex(T real_part, T imag_part) : a(real_part), b(imag_part) {}
 
-			/// Initialize from a vec2
-			complex(const vec2& v) : a(v.get(0)), b(v.get(1)) {}
-
-			/// Initialize a complex number from a vec2
-			inline complex& operator=(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
-				return *this;
-			}
+			/// Initialize from a real number (zero imaginary part)
+			complex(int real_part) : a(real_part), b(0) {}
 
 			/// Initialize a complex number from a std::array
-			inline complex& operator=(const std::array<real, 2>& v) {
+			inline complex& operator=(const std::array<T, 2>& v) {
 				a = v[0];
 				b = v[1];
 				return *this;
@@ -59,22 +51,34 @@ namespace  theoretica {
 			~complex() = default;
 
 			/// Return real part
-			inline real Re() const {
+			inline T Re() const {
 				return a;
 			}
 
 			/// Return imaginary part
-			inline real Im() const {
+			inline T Im() const {
 				return b;
 			}
 
+
+			/// Extract the real part
+			inline friend Re(const complex& z) {
+				return z.Re();
+			}
+
+
+			/// Extract the imaginary part
+			inline friend T Im(const complex& z) {
+				return z.Im();
+			}
+
 			/// Get the modulus of a complex number
-			inline real modulus() const {
+			inline T modulus() const {
 				return sqrt(a * a + b * b);
 			}
 
 			/// Get the square modulus of a complex number
-			inline real square_modulus() const {
+			inline T square_modulus() const {
 				return a * a + b * b;
 			}
 
@@ -89,7 +93,7 @@ namespace  theoretica {
 			}
 
 			/// Get the argument of a complex number
-			inline real arg() const {
+			inline T arg() const {
 
 				if(b == 0)
 					return 0;
@@ -107,8 +111,8 @@ namespace  theoretica {
 				return complex(a + other.a, b + other.b);
 			}
 
-			/// Sum a real number to a complex number
-			inline complex operator+(real r) const {
+			/// Sum a T number to a complex number
+			inline complex operator+(T r) const {
 				return complex(a + r, b);
 			}
 
@@ -123,7 +127,7 @@ namespace  theoretica {
 			}
 
 			/// Subtract a real number from a complex number
-			inline complex operator-(real r) const {
+			inline complex operator-(T r) const {
 				return complex(a - r, b);
 			}
 
@@ -133,19 +137,19 @@ namespace  theoretica {
 			}
 
 			/// Multiply a complex number by a real number
-			inline complex operator*(real r) const {
+			inline complex operator*(T r) const {
 				return complex(a * r, b * r);
 			}
 
 			/// Complex division
 			inline complex operator/(const complex& other) const {
-				real m = other.square_modulus();
+				T m = other.square_modulus();
 				return complex((a * other.a + b * other.b) / m,
 								(b * other.a - a * other.b) / m);
 			}
 
 			/// Divide a complex number by a real number
-			inline complex operator/(real r) const {
+			inline complex operator/(T r) const {
 				return complex(a / r, b / r);
 			}
 
@@ -160,7 +164,7 @@ namespace  theoretica {
 
 
 			/// Sum a real number to this complex number
-			inline complex& operator+=(real r) {
+			inline complex& operator+=(T r) {
 
 				a += r;
 				return *this;
@@ -175,7 +179,7 @@ namespace  theoretica {
 			}
 
 			/// Subtract a real number from this complex number
-			inline complex& operator-=(real r) {
+			inline complex& operator-=(T r) {
 
 				a -= r;
 				return *this;
@@ -190,7 +194,7 @@ namespace  theoretica {
 			}
 
 			/// Multiply this complex number by a real number
-			inline complex& operator*=(real r) {
+			inline complex& operator*=(T r) {
 
 				a *= r;
 				b *= r;
@@ -200,14 +204,14 @@ namespace  theoretica {
 			/// Divide this complex number by another one
 			inline complex& operator/=(const complex& other) {
 
-				real m = other.square_modulus();
+				T m = other.square_modulus();
 				a = (a * other.a + b * other.b) / m;
 				b = (b * other.a - a * other.b) / m;
 				return *this;
 			}
 
 			/// Divide a complex number by a real number
-			inline complex& operator/=(real r) {
+			inline complex& operator/=(T r) {
 
 				if(r == 0) {
 					TH_MATH_ERROR("complex::operator/=", r, DIV_BY_ZERO);
@@ -230,36 +234,33 @@ namespace  theoretica {
 			}
 
 
+			/// Check whether two complex numbers have the same
+			/// real and imaginary parts
+			inline bool operator!=(const complex& other) {
+				return !(*this == other);
+			}
+
+
 			/// Convert a complex number to a vector
-			inline vec2 to_vec() const {
-				vec2 res;
-				res.data[0] = a;
-				res.data[1] = b;
+			template<typename Vector>
+			inline Vector to_vec() const {
+				Vector res;
+				res[0] = a;
+				res[1] = b;
 				return res;
 			}
 
 			/// Initialize from a vector
-			inline void from_vec(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
-			}
-
-
-			/// Convert a complex number to matrix form
-			inline mat2 to_mat() const {
-
-				mat2 m;
-				m.iat(0, 0) = a;
-				m.iat(0, 1) = -b;
-				m.iat(1, 0) = b;
-				m.iat(1, 1) = a;
-				return m;
+			template<typename Vector>
+			inline void from_vec(const Vector& v) {
+				a = v[0];
+				b = v[1];
 			}
 
 
 			/// Construct a complex number representing a rotation
 			/// of <rad> radians in 2 dimensions
-			inline static complex rotor(real rad) {
+			inline static complex rotor(T rad) {
 				return complex(cos(rad), sin(rad));
 			}
 
@@ -272,19 +273,19 @@ namespace  theoretica {
 			// Friend operators to enable equations of the form
 			// (real) op. (complex)
 
-			inline friend complex operator+(real r, const complex& z) {
+			inline friend complex operator+(T r, const complex& z) {
 				return z + r;
 			}
 
-			inline friend complex operator-(real r, const complex& z) {
+			inline friend complex operator-(T r, const complex& z) {
 				return -z + r;
 			}
 
-			inline friend complex operator*(real r, const complex& z) {
+			inline friend complex operator*(T r, const complex& z) {
 				return z * r;
 			}
 
-			inline friend complex operator/(real r, const complex& z) {
+			inline friend complex operator/(T r, const complex& z) {
 				return complex(r, 0) / z;
 			}
 
@@ -317,6 +318,12 @@ namespace  theoretica {
 #endif
 
 	};
+
+
+	// To-DO: Does not compile on GCC v6	
+	// constexpr complex operator""i(long double b) {
+	// 	return complex(0, b);
+	// }
 
 }
 

@@ -15,8 +15,25 @@
 #ifndef THEORETICA_ALGEBRA_H
 #define THEORETICA_ALGEBRA_H
 
+#include "../complex/complex.h"
+
+
 
 namespace theoretica {
+
+	/// @namespace theoretica::_internal
+	namespace _internal {
+
+		/// Check whether the given type is a specialization
+		/// of the complex number class or not.
+		template<typename T>
+		struct is_complex_type : std::false_type {};
+
+		template<typename T>
+		struct is_complex_type<complex<T>> : std::true_type {};
+
+	}
+
 
 	/// @namespace theoretica::algebra
 	namespace algebra {
@@ -34,9 +51,11 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& mat_error(Matrix& m) {
 
+			using Type = decltype(m.iget(0, 0));
+
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.iat(i, j) = (i == j) ? nan() : 0;
+					m.iat(i, j) = (Type) (i == j ? nan() : 0);
 
 			return m;
 		}
@@ -50,8 +69,10 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_error(Vector& v) {
 
+			using Type = decltype(v.iget(0));
+
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.iat(i) = (decltype(v.iget(0))) nan();
+				v.iat(i) = (Type) nan();
 
 			return v;
 		}
@@ -63,9 +84,11 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& make_identity(Matrix& m) {
 
+			using Type = decltype(m.iget(0, 0));
+
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.iat(i, j) = (i == j) ? 1 : 0;
+					m.iat(i, j) = (Type) (i == j ? 1 : 0);
 
 			return m;
 		}
@@ -77,9 +100,11 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& mat_zeroes(Matrix& m) {
 
+			using Type = decltype(m.iget(0, 0));
+
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.iat(i, j) = 0;
+					m.iat(i, j) = (Type) 0;
 
 			return m;
 		}
@@ -91,8 +116,10 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_zeroes(Vector& v) {
 
+			using Type = decltype(v.iget(0));
+
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.iat(i) = 0;
+				v.iat(i) = (Type) 0;
 
 			return v;
 		}
@@ -103,7 +130,7 @@ namespace theoretica {
 		/// @param src The matrix to copy
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& mat_copy(Matrix1& dest, Matrix2&& src) {
+		inline Matrix1& mat_copy(Matrix1& dest, const Matrix2& src) {
 
 			if(src.rows() != dest.rows()) {
 				TH_MATH_ERROR("algebra::mat_copy", src.rows(), INVALID_ARGUMENT);
@@ -131,7 +158,7 @@ namespace theoretica {
 		/// @param src The matrix to copy
 		/// @return A reference to the overwritten matrix
 		template<typename Vector1, typename Vector2>
-		inline Vector1& vec_copy(Vector1& dest, Vector2&& src) {
+		inline Vector1& vec_copy(Vector1& dest, const Vector2& src) {
 
 			if(src.size() != dest.size()) {
 				TH_MATH_ERROR("algebra::vec_copy", src.size(), INVALID_ARGUMENT);
@@ -151,12 +178,18 @@ namespace theoretica {
 		/// @param v The vector to compute the norm of
 		/// @return The norm of the given vector
 		template<typename Vector>
-		inline real sqr_norm(Vector&& v) {
+		inline auto sqr_norm(const Vector& v) {
 
-			real sum = 0;
+			using Type = decltype(v.iget(0));
+			Type sum = (Type) 0;
 
-			for (unsigned int i = 0; i < v.size(); ++i)
-				sum += v.iget(i) * conjugate(v.iget(i));
+			// Use conjugation for complex numbers
+			if(_internal::is_complex_type<Type>::value)
+				for (unsigned int i = 0; i < v.size(); ++i)
+					sum += v.iget(i) * conjugate(v.iget(i));
+			else
+				for (unsigned int i = 0; i < v.size(); ++i)
+					sum += v.iget(i) * v.iget(i);
 
 			return sum;
 		}
@@ -167,8 +200,9 @@ namespace theoretica {
 		/// @param v The vector to compute the norm of
 		/// @return The norm of the given vector
 		template<typename Vector>
-		inline real norm(Vector&& v) {
-			return sqrt(norm(v));
+		inline auto norm(const Vector& v) {
+
+			return (decltype(v.iget(0))) sqrt(sqr_norm(v));
 		}
 
 
@@ -176,7 +210,7 @@ namespace theoretica {
 		/// @param v The vector to normalize
 		/// @return The normalized vector
 		template<typename Vector>
-		inline Vector normalize(Vector&& v) {
+		inline Vector normalize(const Vector& v) {
 
 			Vector r;
 			r.resize(v.size());
@@ -186,11 +220,12 @@ namespace theoretica {
 
 			if(abs(m) < MACH_EPSILON) {
 				TH_MATH_ERROR("algebra::normalize", m, DIV_BY_ZERO);
-				vec_error(v);
+				vec_error(r);
+				return r;
 			}
 
 			for (unsigned int i = 0; i < r.size(); ++i)
-				r.iget(i) /= m;
+				r.iat(i) /= m;
 
 			return r;
 		}
@@ -222,17 +257,23 @@ namespace theoretica {
 		/// @param v2 The second vector
 		/// @return The dot product of the two vectors
 		template<typename Vector1, typename Vector2>
-		inline auto dot(Vector1&& v1, Vector2&& v2) {
+		inline auto dot(const Vector1& v1, const Vector2& v2) {
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
 				return (decltype(v1.iget(0))) nan();
 			}
 
-			decltype(v1.iget(0)) sum = 0;
+			using Type = decltype(v1.iget(0));
+			Type sum = 0;
 
-			for (unsigned int i = 0; i < v1.size(); ++i)
-				sum += v1.iget(i) * conjugate(v2.iget(i));
+			// Use conjugation for complex numbers
+			if /*constexpr*/ (_internal::is_complex_type<Type>::value)
+				for (unsigned int i = 0; i < v1.size(); ++i)
+					sum += v1.iget(i) * conjugate(v2.iget(i));
+			else
+				for (unsigned int i = 0; i < v1.size(); ++i)
+					sum += v1.iget(i) * v2.iget(i);
 
 			return sum;
 		}
@@ -243,9 +284,9 @@ namespace theoretica {
 		/// @param v2 The second 3D vector
 		/// @return The cross product of the two vectors
 		template<typename Vector1, typename Vector2>
-		inline Vector1 cross(Vector1 v1, Vector2&& v2) {
+		inline Vector1 cross(const Vector1& v1, const Vector2& v2) {
 
-			typename std::remove_reference<Vector1>::type v3;
+			Vector1 v3;
 			v3.resize(3);
 
 			if(v1.size() != 3) {
@@ -273,9 +314,9 @@ namespace theoretica {
 		/// @param m The matrix to transpose
 		/// @return The transposed matrix
 		template<typename Matrix, typename MatrixT = Matrix>
-		inline auto transpose(Matrix m) {
+		inline MatrixT transpose(const Matrix& m) {
 
-			typename std::remove_reference<MatrixT>::type res;
+			MatrixT res;
 			res.resize(m.cols(), m.rows());
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
@@ -318,7 +359,7 @@ namespace theoretica {
 		/// @param src The matrix to transpose
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& transpose(Matrix1& dest, Matrix2&& src) {
+		inline Matrix1& transpose(Matrix1& dest, const Matrix2& src) {
 
 			// Check that the two matrices have the correct
 			// number of rows and columns
@@ -348,9 +389,9 @@ namespace theoretica {
 		/// @param m The matrix to compute the hermitian of
 		/// @return The hermitian of the matrix
 		template<typename Matrix, typename MatrixT = Matrix>
-		inline auto hermitian(Matrix m) {
+		inline auto hermitian(const Matrix& m) {
 
-			typename std::remove_reference<MatrixT>::type res;
+			MatrixT res;
 			res.resize(m.cols(), m.rows());
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
@@ -396,7 +437,7 @@ namespace theoretica {
 		/// @param src The matrix to compute the hermitian of
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& hermitian(Matrix1& dest, Matrix2&& src) {
+		inline Matrix1& hermitian(Matrix1& dest, const Matrix2& src) {
 
 			// Check that the two matrices have the correct
 			// number of rows and columns
@@ -427,7 +468,7 @@ namespace theoretica {
 		/// @param src The matrix to invert
 		/// @return A reference to the inverted matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& inverse(Matrix1& dest, Matrix2&& src) {
+		inline Matrix1& inverse(Matrix1& dest, const Matrix2& src) {
 
 			if(src.rows() != src.cols()) {
 				TH_MATH_ERROR("algebra::inverse", src.rows(), INVALID_ARGUMENT);
@@ -447,6 +488,8 @@ namespace theoretica {
 				return dest;
 			}
 
+			using Type = decltype(src.iget(0, 0));
+
 			// Prepare extended matrix (A|B)
 			Matrix1 A;
 			A.resize(src.rows(), src.cols());
@@ -459,7 +502,7 @@ namespace theoretica {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.iat(i, i) == 0) {
+				if(A.iat(i, i) == (Type) 0) {
 
 					bool flag = false;
 
@@ -468,7 +511,7 @@ namespace theoretica {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
-						if(A.iat(j, i) != 0) {
+						if(A.iat(j, i) != (Type) 0) {
 
 							for (unsigned int k = 0; k < src.rows(); ++k) {
 								A.iat(i, k) += A.iat(j, k);
@@ -487,7 +530,7 @@ namespace theoretica {
 					}
 				}
 
-				real inv_pivot = 1.0 / A.iat(i, i);
+				auto inv_pivot = ((Type) 1.0) / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -499,7 +542,7 @@ namespace theoretica {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					real coeff = A.iat(j, i) * inv_pivot;
+					const auto coeff = A.iat(j, i) * inv_pivot;
 					
 					for (unsigned int k = 0; k < src.rows(); ++k) {
 						A.iat(j, k) -= coeff * A.iat(i, k);
@@ -524,8 +567,8 @@ namespace theoretica {
 		/// @param m The matrix to invert
 		/// @return The inverted matrix
 		template<typename Matrix, typename MatrixInv = Matrix>
-		inline auto inverse(Matrix m) {
-			typename std::remove_reference<MatrixInv>::type res;
+		inline auto inverse(const Matrix& m) {
+			MatrixInv res;
 			inverse(res, m);
 			return res;
 		}
@@ -559,7 +602,7 @@ namespace theoretica {
 		/// @param m A matrix of any type
 		/// @return The trace of the matrix
 		template<typename Matrix>
-		inline auto trace(Matrix&& m) {
+		inline auto trace(const Matrix& m) {
 
 			auto sum = m.iget(0, 0);
 			const size_t n = min(m.rows(), m.cols());
@@ -577,7 +620,7 @@ namespace theoretica {
 		/// @return The product of all the elements of the
 		/// main diagonal of the input matrix
 		template<typename Matrix>
-		inline auto diagonal_product(Matrix&& m) {
+		inline auto diagonal_product(const Matrix& m) {
 
 			auto mul = m.iget(0, 0);
 			const size_t n = min(m.rows(), m.cols());
@@ -589,21 +632,22 @@ namespace theoretica {
 		}
 
 
-		/// Compute the determinant of a matrix.
-		/// The matrix must be square.
+		/// Compute the determinant of a square matrix.
 		/// Gauss Jordan elimination is used to reduce the
 		/// matrix to a triangular matrix.
 		/// @param m The matrix to compute the determinant of
 		/// @return The determinant of the matrix
 		template<typename Matrix>
-		inline auto det(Matrix m) {
+		inline auto det(const Matrix& m) {
 
+			using Type = decltype(m.iget(0, 0));
+			
 			if(m.rows() != m.cols()) {
 				TH_MATH_ERROR("algebra::det", m.rows(), INVALID_ARGUMENT);
-				return nan();
+				return (Type) nan();
 			}
 
-			typename std::remove_reference<Matrix>::type A;
+			Matrix A;
 			A.resize(m.rows(), m.cols());
 			mat_copy(A, m);
 
@@ -623,10 +667,10 @@ namespace theoretica {
 						// if Aji is non-zero.
 						// The determinant does not change
 						// when adding a row to another one
-						if(A.iat(j, i) != 0) {
+						if(A.iat(j, i) != (Type) 0) {
 
 							for (unsigned int k = 0; k < A.rows(); ++k) {
-								A.iat(i, k) += A.iat(j, k);
+								A.iat(i, k) += (Type) A.iat(j, k);
 							}
 
 							flag = true;
@@ -635,11 +679,11 @@ namespace theoretica {
 					}
 
 					if(!flag) {
-						return (decltype(A.iget(0, 0))) 0;
+						return (Type) 0;
 					}
 				}
 
-				const real inv_pivot = 1.0 / A.iat(i, i);
+				const auto inv_pivot = ((Type) 1.0) / A.iat(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -647,27 +691,27 @@ namespace theoretica {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					const real coeff = A.iat(j, i) * inv_pivot;
+					const auto coeff = (Type) A.iat(j, i) * inv_pivot;
 
 					// The coefficient does not change
 					// when adding a linear combination
 					// of a row to another
 					for (unsigned int k = 0; k < A.rows(); ++k) {
-						A.iat(j, k) -= coeff * A.iat(i, k);
+						A.iat(j, k) -= (Type) A.iat(i, k) * coeff;
 					}
 				}
 			}
 
 			// The determinant of a (lower) triangular matrix
 			// is the product of the elements on its diagonal
-			return (decltype(A.iget(0, 0))) diagonal_product(A);
+			return (Type) diagonal_product(A);
 		}
 
 
 		/// Return the determinant of a 2x2 matrix.
 		/// @note No error checking is performed on the matrix size
 		template<typename Matrix>
-		inline real det_2x2(Matrix&& m) {
+		inline real det_2x2(const Matrix& m) {
 			return m.iget(0, 0) * m.iget(1, 1) - m.iget(1, 0) * m.iget(0, 1);
 		}
 
@@ -675,7 +719,7 @@ namespace theoretica {
 		/// Return the determinant if the matrix is 3x3.
 		/// @note No error checking is performed on the matrix size
 		template<typename Matrix>
-		inline real det_3x3(Matrix&& m) {
+		inline real det_3x3(const Matrix& m) {
 			return	m.iget(0, 0) * (m.iget(1, 1) * m.iget(2, 2) - m.iget(2, 1) * m.iget(1, 2)) -
 					m.iget(0, 1) * (m.iget(1, 0) * m.iget(2, 2) - m.iget(2, 0) * m.iget(1, 2)) +
 					m.iget(0, 2) * (m.iget(1, 0) * m.iget(2, 1) - m.iget(2, 0) * m.iget(1, 1));
@@ -704,7 +748,7 @@ namespace theoretica {
 		/// @param src The matrix to multiply
 		/// @return A reference to the resulting matrix
 		template<typename Field, typename Matrix1, typename Matrix2>
-		inline Matrix1& mat_scalmul(Matrix1& dest, Field a, Matrix2&& src) {
+		inline Matrix1& mat_scalmul(Matrix1& dest, Field a, const Matrix2& src) {
 
 			if(src.rows() != dest.rows()) {
 				TH_MATH_ERROR("algebra::mat_scalmul", src.rows(), INVALID_ARGUMENT);
@@ -747,7 +791,7 @@ namespace theoretica {
 		/// @param src The vector to multiply
 		/// @return A reference to the resulting vector
 		template<typename Field, typename Vector1, typename Vector2>
-		inline Vector1& vec_scalmul(Vector1& dest, Field a, Vector2&& src) {
+		inline Vector1& vec_scalmul(Vector1& dest, Field a, const Vector2& src) {
 
 			if(src.size() != dest.size()) {
 				TH_MATH_ERROR("algebra::vec_scalmul", src.size(), INVALID_ARGUMENT);
@@ -772,7 +816,7 @@ namespace theoretica {
 		/// @param v The vector to transform
 		/// @return A reference to the overwritten vector
 		template<typename Matrix, typename Vector>
-		inline Vector& transform(Matrix&& A, Vector& v) {
+		inline Vector& transform(const Matrix& A, Vector& v) {
 
 			if(v.size() != A.cols()) {
 				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
@@ -801,7 +845,7 @@ namespace theoretica {
 		/// @param v The vector to transform
 		/// @return A reference to the overwritten vector
 		template<typename Matrix, typename Vector1, typename Vector2>
-		inline Vector1& transform(Vector1& res, Matrix&& A, Vector2&& v) {
+		inline Vector1& transform(Vector1& res, const Matrix& A, const Vector2& v) {
 
 			if(v.size() != A.cols()) {
 				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
@@ -831,7 +875,7 @@ namespace theoretica {
 		/// @param res The matrix to overwrite
 		/// @return A reference to the overwritten matrix
 		template<typename Vector, typename Matrix>
-		inline Matrix& diagonal(Matrix& res, Vector&& v) {
+		inline Matrix& diagonal(Matrix& res, const Vector& v) {
 
 			if(v.size() != res.cols()) {
 				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), INVALID_ARGUMENT);
@@ -862,7 +906,7 @@ namespace theoretica {
 		/// @param B The second matrix to add
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix2& mat_sum(Matrix1& A, Matrix2&& B) {
+		inline Matrix2& mat_sum(Matrix1& A, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_sum", A.rows(), INVALID_ARGUMENT);
@@ -890,7 +934,7 @@ namespace theoretica {
 		/// @param B The second matrix to add
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2, typename Matrix3>
-		inline Matrix1& mat_sum(Matrix1& res, Matrix2&& A, Matrix3&& B) {
+		inline Matrix1& mat_sum(Matrix1& res, const Matrix2& A, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_sum", A.rows(), INVALID_ARGUMENT);
@@ -930,7 +974,7 @@ namespace theoretica {
 		/// @param B The second matrix
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix2& mat_diff(Matrix1& A, Matrix2&& B) {
+		inline Matrix2& mat_diff(Matrix1& A, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
@@ -958,7 +1002,7 @@ namespace theoretica {
 		/// @param B The second matrix
 		/// @return A reference to the overwritten matrix
 		template<typename Matrix1, typename Matrix2, typename Matrix3>
-		inline Matrix1& mat_diff(Matrix1& res, Matrix2&& A, Matrix3&& B) {
+		inline Matrix1& mat_diff(Matrix1& res, const Matrix2& A, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
@@ -1000,7 +1044,7 @@ namespace theoretica {
 		/// @return A reference to the overwritten matrix
 		template<typename Field1, typename Matrix1, typename Field2, typename Matrix2>
 		inline Matrix2& mat_lincomb(
-			Field1 alpha, Matrix1& A, Field2 beta, Matrix2&& B) {
+			Field1 alpha, Matrix1& A, Field2 beta, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), INVALID_ARGUMENT);
@@ -1034,7 +1078,7 @@ namespace theoretica {
 		template<typename Matrix1, typename Field1, typename Matrix2,
 			typename Field2, typename Matrix3>
 		inline Matrix1& mat_lincomb(
-			Matrix1& res, Field1 alpha, Matrix2&& A, Field2 beta, Matrix3&& B) {
+			Matrix1& res, Field1 alpha, const Matrix2& A, Field2 beta, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), INVALID_ARGUMENT);
@@ -1074,7 +1118,7 @@ namespace theoretica {
 		/// @param B The second matrix to multiply
 		/// @return A reference to the resulting matrix
 		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& mat_mul(Matrix1& A, Matrix2&& B) {
+		inline Matrix1& mat_mul(Matrix1& A, const Matrix2& B) {
 
 			Matrix1 res;
 			res.resize(A.rows(), B.cols());
@@ -1098,7 +1142,7 @@ namespace theoretica {
 		/// @param B The second matrix to multiply
 		/// @return A reference to the resulting matrix
 		template<typename Matrix1, typename Matrix2, typename Matrix3>
-		inline Matrix1& mat_mul(Matrix1& res, Matrix2&& A, Matrix3&& B) {
+		inline Matrix1& mat_mul(Matrix1& res, const Matrix2& A, const Matrix3& B) {
 			
 			if(res.rows() != A.rows()) {
 				TH_MATH_ERROR("algebra::mat_mul", res.rows(), INVALID_ARGUMENT);
@@ -1133,11 +1177,11 @@ namespace theoretica {
 		/// @param A The first matrix
 		/// @param B The second matrix
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MACH_EPSILON
+		/// in the comparison, defaults to 10 * MACH_EPSILON
 		/// @return A boolean value
 		template<typename Matrix1, typename Matrix2>
 		inline bool mat_equals(
-			Matrix1&& A, Matrix2&& B, real tolerance = MACH_EPSILON) {
+			const Matrix1& A, const Matrix2& B, real tolerance = 10 * MACH_EPSILON) {
 
 			if(A.rows() != B.rows() || A.cols() != B.cols())
 				return false;
@@ -1155,7 +1199,7 @@ namespace theoretica {
 		/// @param m The matrix to consider
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_square(Matrix&& m) {
+		inline bool is_square(const Matrix& m) {
 			return (m.rows() == m.cols());
 		}
 
@@ -1163,10 +1207,10 @@ namespace theoretica {
 		/// Returns whether the matrix is diagonal
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MACH_EPSILON
+		/// in the comparison, defaults to 10 * MACH_EPSILON
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_diagonal(Matrix&& m, real tolerance = MACH_EPSILON) {
+		inline bool is_diagonal(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -1179,10 +1223,10 @@ namespace theoretica {
 		/// Returns whether the matrix is symmetric
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MACH_EPSILON
+		/// in the comparison, defaults to 10 * MACH_EPSILON
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_symmetric(Matrix&& m, real tolerance = MACH_EPSILON) {
+		inline bool is_symmetric(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
 
 			if(!is_square(m))
 				return false;
@@ -1202,7 +1246,7 @@ namespace theoretica {
 		/// @param v2 The second vector to add
 		/// @return A reference to the overwritten vector
 		template<typename Vector1, typename Vector2>
-		inline Vector2& vec_sum(Vector1& v1, Vector2&& v2) {
+		inline Vector2& vec_sum(Vector1& v1, const Vector2& v2) {
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
@@ -1223,7 +1267,7 @@ namespace theoretica {
 		/// @param v2 The second vector to add
 		/// @return A reference to the overwritten vector
 		template<typename Vector1, typename Vector2, typename Vector3>
-		inline Vector1& vec_sum(Vector1& res, Vector2&& v1, Vector3&& v2) {
+		inline Vector1& vec_sum(Vector1& res, const Vector2& v1, const Vector3& v2) {
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
@@ -1250,7 +1294,7 @@ namespace theoretica {
 		/// @param v2 The second vector
 		/// @return A reference to the overwritten vector
 		template<typename Vector1, typename Vector2>
-		inline Vector2& vec_diff(Vector1& v1, Vector2&& v2) {
+		inline Vector2& vec_diff(Vector1& v1, const Vector2& v2) {
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
@@ -1271,7 +1315,7 @@ namespace theoretica {
 		/// @param v2 The second vector
 		/// @return A reference to the overwritten vector
 		template<typename Vector1, typename Vector2, typename Vector3>
-		inline Vector1& vec_diff(Vector1& res, Vector2&& v1, Vector3&& v2) {
+		inline Vector1& vec_diff(Vector1& res, const Vector2& v1, const Vector3& v2) {
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
@@ -1316,7 +1360,7 @@ namespace theoretica {
 		/// @return The diagonal matrix of the given type
 		template<typename Matrix, typename Vector>
 		inline Matrix diagonal(
-			Vector&& v, unsigned int rows = 0, unsigned int cols = 0) {
+			const Vector& v, unsigned int rows = 0, unsigned int cols = 0) {
 			
 			Matrix m;
 			if(rows && cols)
@@ -1334,7 +1378,7 @@ namespace theoretica {
 		/// @return The translation matrix
 		template<typename Matrix, typename Vector>
 		inline Matrix translation(
-			Vector&& v, unsigned int rows = 0, unsigned int cols = 0) {
+			const Vector& v, unsigned int rows = 0, unsigned int cols = 0) {
 
 			Matrix m;
 			if(rows && cols)
@@ -1404,7 +1448,7 @@ namespace theoretica {
 		/// of theta radians around the given axis.
 		template<typename Matrix, typename Vector>
 		inline Matrix rotation_3d(
-			real theta, Vector&& axis, unsigned int rows = 0, unsigned int cols = 0) {
+			real theta, const Vector& axis, unsigned int rows = 0, unsigned int cols = 0) {
 
 			Matrix m;
 			if(rows && cols)
@@ -1580,8 +1624,7 @@ namespace theoretica {
 		}
 
 
-		/// Returns a perspective matrix for projective
-		/// geometry, commonly used in 3D graphics.
+		/// Returns a perspective projection matrix
 		template<typename Matrix>
 		inline Matrix perspective(
 			real left, real right, real bottom,
@@ -1619,6 +1662,8 @@ namespace theoretica {
 		}
 
 
+		/// Returns a perspective projection matrix,
+		/// using the Field of View as parameter.
 		template<typename Matrix>
 		inline Matrix perspective_fov(
 			real fov, real aspect, real near, real far,

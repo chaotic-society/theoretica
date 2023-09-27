@@ -16,6 +16,7 @@
 #include "../core/real_analysis.h"
 #include "./vec.h"
 #include "./algebra.h"
+#include "../complex/complex.h"
 
 #include <array>
 
@@ -29,48 +30,37 @@ namespace theoretica {
 	/// @param N The number of rows
 	/// @param K The number of columns
 	///
-	template<unsigned int N, unsigned int K>
+	template<unsigned int N, unsigned int K, typename Type = real>
 	class mat {
 		public:
 
 		static_assert(N > 0, "N cannot be zero.");
 		static_assert(K > 0, "K cannot be zero.");
 
-		/// Number of elements of the matrix
-		static const unsigned int SIZE = N * K;
-
-		/// Number of rows of the matrix
-		static const unsigned int ROW_SIZE = N;
-
-		/// Number of columns of the matrix
-		static const unsigned int COL_SIZE = K;
-
-#if defined(THEORETICA_ROW_FIRST)
-
-		// Row-first allocation
-		real data[N][K];
+#ifdef THEORETICA_ROW_FIRST
+		Type data[N][K];
 #else
-
-		// Column-first allocation
-		real data[K][N];
+		Type data[K][N];
 #endif
 
 		/// Initialize a matrix to all zeroes
 		inline mat() {
-			make_null();
+			algebra::mat_zeroes(*this);
 		}
 
+
 		/// Initialize a matrix from another one
-		inline mat(const mat<N, K>& other) {
+		inline mat(const mat<N, K, Type>& other) {
 			algebra::mat_copy(*this, other);
 		}
 
+
 		/// Initialize from an initializer list of the rows
-		inline mat(const std::initializer_list<std::array<real, K>>& rows) {
+		inline mat(const std::initializer_list<std::array<Type, K>>& rows) {
 
 			if(rows.size() != N) {
-				TH_MATH_ERROR("mat::mat(std::array<vec<K>, N>)", l.size(), INVALID_ARGUMENT);
-				*this = mat<N, K>(nan());
+				TH_MATH_ERROR("mat::mat(std::array<vec<K>, N>)", rows.size(), INVALID_ARGUMENT);
+				*this = mat<N, K, Type>(nan());
 				return;
 			}
 
@@ -83,90 +73,61 @@ namespace theoretica {
 			}
 		}
 
+
 		/// Copy constructor
-		inline mat<N, K>& operator=(const mat<N, K>& other) {
+		inline mat<N, K, Type>& operator=(const mat<N, K, Type>& other) {
 			return algebra::mat_copy(*this, other);
 		}
 
+
 		/// Construct a diagonal matrix
-		inline mat(real diagonal) {
+		inline mat(Type diagonal) {
 			algebra::diagonal(*this, vec<N>(diagonal));
 		}
+
 
 		/// Default destructor
 		inline ~mat() = default;
 
-		/// Get the l-th column of the matrix as a vector
-		inline vec<K> get_column(unsigned int l) const {
-			
-			vec<K> column;
-			for (unsigned int i = 0; i < K; ++i)
-				column.at(i) = iget(i, l);
-
-			return column;
-		}
-
-		/// Get the l-th row of the matrix as a vector
-		inline vec<N> get_row(unsigned int l) const {
-			vec<N> row;
-			for (unsigned int i = 0; i < N; ++i) {
-				row.at(i) = iget(l, i);
-			}
-			return row;
-		}
-
-		/// Get the l-th row of the matrix as a vector
-		inline vec<K> operator[](unsigned int l) const {
-			return get_row(l);
-		}
-
-		/// Se the l-th column of the matrix from a vector
-		inline void set_column(unsigned int l, const vec<N>& column) {
-			for (unsigned int i = 0; i < K; ++i) {
-				iat(i, l) = column.data[i];
-			}
-		}
-
-		/// Se the l-th row of the matrix from a vector
-		inline void set_row(unsigned int l, const vec<K>& row) {
-			for (unsigned int i = 0; i < N; ++i) {
-				iat(l, i) = row.data[i];
-			}
-		}
 
 		/// Set all elements to zero
-		inline void make_null() {
+		inline void make_zeroes() {
 			algebra::mat_zeroes(*this);
 		}
 
+
 		/// Matrix addition
-		inline mat<N, K> operator+(const mat<N, K>& other) const {
-			mat<N, K> res;
+		inline mat<N, K, Type> operator+(const mat<N, K, Type>& other) const {
+			mat<N, K, Type> res;
 			return algebra::mat_sum(res, *this, other);
 		}
 
+
 		/// Matrix subtraction
-		inline mat<N, K> operator-(const mat<N, K>& other) const {
-			mat<N, K> res;
+		inline mat<N, K, Type> operator-(const mat<N, K, Type>& other) const {
+			mat<N, K, Type> res;
 			return algebra::mat_lincomb(res, 1.0, *this, -1.0, other);
 		}
 
+
 		/// Scalar multiplication
-		inline mat<N, K> operator*(real scalar) const {
-			mat<N, K> res;
+		inline mat<N, K, Type> operator*(Type scalar) const {
+			mat<N, K, Type> res;
 			return algebra::mat_scalmul(res, scalar, *this);
 		}
 
+
 		/// Friend operator to enable equations of the form
 		/// (T) * (mat)
-		inline friend mat<N, K> operator*(real a, const mat<N, K>& B) {
+		inline friend mat<N, K, Type> operator*(Type a, const mat<N, K, Type>& B) {
 			return B * a;
 		}
 
-		/// Scalar division
-		inline mat<N, K> operator/(real scalar) const {
 
-			mat<N, K> res;
+		/// Scalar division
+		inline mat<N, K, Type> operator/(Type scalar) const {
+
+			mat<N, K, Type> res;
 
 			if(scalar == 0) {
 				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
@@ -176,48 +137,55 @@ namespace theoretica {
 			return algebra::mat_scalmul(res, 1.0 / scalar, *this);
 		}
 
+
 		/// Transform a vector v by the matrix
 		inline vec<N> transform(const vec<K>& v) const {
 			vec<N> res = vec<N>();
 			return algebra::transform(res, *this, v);
 		}
 
+
 		/// Transform a vector v by the matrix
 		inline vec<N> operator*(const vec<K>& v) const {
 			return transform(v);
 		}
 
-		/// Matrix multiplication
-		template<unsigned int M>
-		inline mat<N, M> transform(const mat<K, M>& B) const {
-			mat<N, M> res;
-			return algebra::mat_mul(res, *this, B);
-		}
 
 		/// Matrix multiplication
 		template<unsigned int M>
-		inline mat<N, M> operator*(const mat<K, M>& B) const {
+		inline mat<N, M, Type> transform(const mat<K, M, Type>& B) const {
+			mat<N, M, Type> res;
+			return algebra::mat_mul(res, *this, B);
+		}
+
+
+		/// Matrix multiplication
+		template<unsigned int M>
+		inline mat<N, M, Type> operator*(const mat<K, M, Type>& B) const {
 			return transform(B);
 		}
 
 
 		/// Matrix addition
-		inline mat<N, K>& operator+=(const mat<N, K>& other) {
+		inline mat<N, K, Type>& operator+=(const mat<N, K, Type>& other) {
 			return algebra::mat_sum(*this, other);
 		}
 
+
 		/// Matrix subtraction
-		inline mat<N, K>& operator-=(const mat<N, K>& other) {
+		inline mat<N, K, Type>& operator-=(const mat<N, K, Type>& other) {
 			return algebra::mat_lincomb(1.0, *this, -1.0, other);
 		}
 
+
 		/// Scalar multiplication
-		inline mat<N, K>& operator*=(real scalar) {
+		inline mat<N, K, Type>& operator*=(Type scalar) {
 			return algebra::mat_scalmul(scalar, *this);
 		}
 
+
 		/// Scalar division
-		inline mat<N, K>& operator/=(real scalar) {
+		inline mat<N, K, Type>& operator/=(Type scalar) {
 
 			if(scalar == 0) {
 				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
@@ -227,28 +195,24 @@ namespace theoretica {
 			return algebra::mat_scalmul(1.0 / scalar, *this);
 		}
 
+
 		/// Matrix multiplication
-		inline mat<N, K>& operator*=(const mat<N, K>& B) {
+		inline mat<N, K, Type>& operator*=(const mat<N, K, Type>& B) {
 			return (*this = this->operator*(B));
 		}
 
 
 		/// Transpose the matrix itself
-		inline mat<N, K>& transpose() {
-			static_assert(N == K, "The matrix must be square to be transposed.");
+		inline mat<N, K, Type>& transpose() {
+			static_assert(
+				N == K, "The matrix must be square to be transposed in place.");
 			return algebra::make_transposed(*this);
 		}
 
+
 		/// Return the transposed matrix
-		inline mat<K, N> transposed() const {
-			return algebra::transpose<mat<N,K>, mat<K,N>>(*this);
-		}
-
-
-		/// Compute the dot product between v1 and v2
-		/// using this matrix as the product matrix
-		inline real dot(const vec<K>& v1, const vec<K>& v2) const {
-			return algebra::dot(v1, transform(*this, v2));
+		inline mat<K, N, Type> transposed() const {
+			return algebra::transpose<mat<N, K, Type>, mat<K, N, Type>>(*this);
 		}
 
 
@@ -261,7 +225,7 @@ namespace theoretica {
 		/// to access matrix elements independently from
 		/// the specific setup of storage or notation
 		/// (regardless of THEORETICA_MATRIX_LEXIC and THEORETICA_ROW_FIRST)
-		inline real& iat(unsigned int i, unsigned int j) {
+		inline Type& iat(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
 			return data[i][j];
@@ -278,7 +242,7 @@ namespace theoretica {
 		/// If THEORETICA_MATRIX_LEXIC is defined,
 		/// the indices will instead refer to columns
 		/// and rows respectively.
-		inline real& at(unsigned int i, unsigned int j) {
+		inline Type& at(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_MATRIX_LEXIC
 			return iat(j, i);
@@ -289,13 +253,13 @@ namespace theoretica {
 
 
 		/// Access element at indices i and j
-		inline real& operator()(unsigned int i, unsigned int j) {
+		inline Type& operator()(unsigned int i, unsigned int j) {
 			return at(i, j);
 		}
 
 
 		/// Getters and setters
-		inline real iget(unsigned int i, unsigned int j) const {
+		inline Type iget(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
 			return data[i][j];
@@ -306,7 +270,7 @@ namespace theoretica {
 
 
 		/// Getters and setters
-		inline real get(unsigned int i, unsigned int j) const {
+		inline Type get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_MATRIX_LEXIC
 			return iget(j, i);
@@ -316,42 +280,36 @@ namespace theoretica {
 		}
 
 
-		/// Set the element at indices i and j
-		inline void set(unsigned int i, unsigned int j, real a) {
-			at(i, j) = a;
-		}
-
-
 		/// Get the number of rows of the matrix
 		TH_CONSTEXPR inline unsigned int rows() const {
-			return ROW_SIZE;
+			return N;
 		}
 
 
 		/// Get the number of columns of the matrix
 		TH_CONSTEXPR inline unsigned int cols() const {
-			return COL_SIZE;
+			return K;
 		}
 
 
 		/// Get the total number of elements of the matrix
 		/// (rows * columns)
 		inline unsigned int size() const {
-			return ROW_SIZE * COL_SIZE;
+			return N * K;
 		}
 
 
 		/// Check whether two matrices are equal element by element
-		inline bool operator==(const mat<N, K>& other) const {
+		inline bool operator==(const mat<N, K, Type>& other) const {
 			return algebra::mat_equals(*this, other);
 		}
 
-		// Matrix types
 
 		/// Return whether the matrix is square
 		inline bool is_square() const {
 			return algebra::is_square(*this);
 		}
+
 
 		/// Return whether the matrix is diagonal
 		inline bool is_diagonal() const {
@@ -365,36 +323,33 @@ namespace theoretica {
 
 
 		/// Compute the trace (sum of elements on the diagonal) of a square matrix
-		inline real trace() {
+		inline Type trace() {
 			return algebra::trace(*this);
 		}
 
 
 		/// Compute the product of the diagonal elements of a square matrix
-		inline real diagonal_product() {
+		inline Type diagonal_product() {
 			return algebra::diagonal_product(*this);
 		}
 
 
 		/// Compute the determinant of the matrix
-		inline real det() const {
+		inline Type det() const {
 			static_assert(N == K, "The matrix must be square to compute the determinant.");
 			return algebra::det(*this);
 		}
 
 
-		// Matrix inversion
-
-
 		/// Compute the inverse of a generic square matrix
-		inline mat<N, K> inverse() const {
+		inline mat<N, K, Type> inverse() const {
 			static_assert(N == K, "The matrix must be square to be invertible.");
 			return algebra::inverse(*this);
 		}
 
 
 		/// Invert a generic square matrix
-		inline mat<N, K>& invert() {
+		inline mat<N, K, Type>& invert() {
 			static_assert(N == K, "The matrix must be square to be invertible.");
 			return algebra::invert(*this);
 		}
@@ -407,101 +362,101 @@ namespace theoretica {
 		/// as the matrix's.
 		inline void resize(unsigned int n, unsigned int k) const {
 
-			if(N != n)
+			if(N != n) {
 				TH_MATH_ERROR("mat::resize", n, INVALID_ARGUMENT);
-
-			if(K != k)
+			} else if(K != k) {
 				TH_MATH_ERROR("mat::resize", k, INVALID_ARGUMENT);
+			}
 		}
 
 
 		// Transformation matrices
 
 		/// Get the identity matrix
-		inline static mat<N, K> identity() {
-			return algebra::identity<mat<N, K>>();
+		inline static mat<N, K, Type> identity() {
+			return algebra::identity<mat<N, K, Type>>();
 		}
 
 		/// Get a diagonal matrix
-		inline static mat<N, K> diagonal(real diag) {
-			return mat<N, K>(diag);
+		inline static mat<N, K, Type> diagonal(Type diag) {
+			return mat<N, K, Type>(diag);
 		}
 
 		/// Get a 4x4 matrix which translates by {x, y, z}
 		template<typename Vector = vec<N - 1>>
-		inline static mat<N, K> translation(Vector&& t) {
-			return algebra::translation<mat<N, K>>(t);
+		inline static mat<N, K, Type> translation(Vector&& t) {
+			return algebra::translation<mat<N, K, Type>>(t);
 		}
 
 		/// Get a matrix which rotates the 2D plane of <theta> radians
-		inline static mat<N, K> rotation_2d(real theta) {
+		inline static mat<N, K, Type> rotation_2d(real theta) {
 			static_assert(N >= 2 && K >= 2, "The matrix must be 2x2 or bigger");
-			return algebra::rotation_2d<mat<N, K>>(theta);
+			return algebra::rotation_2d<mat<N, K, Type>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the x axis
-		inline static mat<N, K> rotation_3d_xaxis(real theta) {
+		inline static mat<N, K, Type> rotation_3d_xaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_xaxis<mat<N, K>>(theta);
+			return algebra::rotation_3d_xaxis<mat<N, K, Type>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the y axis
-		inline static mat<N, K> rotation_3d_yaxis(real theta) {
+		inline static mat<N, K, Type> rotation_3d_yaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_yaxis<mat<N, K>>(theta);
+			return algebra::rotation_3d_yaxis<mat<N, K, Type>>(theta);
 		}
 
 		/// Get a matrix which rotates <theta> radians around the z axis
-		inline static mat<N, K> rotation_3d_zaxis(real theta) {
+		inline static mat<N, K, Type> rotation_3d_zaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_zaxis<mat<N, K>>(theta);
+			return algebra::rotation_3d_zaxis<mat<N, K, Type>>(theta);
 		}
 
 
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
 		template<typename Vector = vec<3>>
-		inline static mat<N, K> rotation_3d(real theta, Vector&& axis) {
+		inline static mat<N, K, Type> rotation_3d(real theta, Vector&& axis) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d<mat<N, K>>(theta, axis);
+			return algebra::rotation_3d<mat<N, K, Type>>(theta, axis);
 		}
 
 
-		inline static mat<N, K> perspective(
+		inline static mat<N, K, Type> perspective(
 			real left, real right, real bottom,
 			real top, real near, real far) {
 
 			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::perspective<mat<N, K>>(
+			return algebra::perspective<mat<N, K, Type>>(
 				left, right, bottom, top, near, far);
 		}
 
 
-		inline static mat<N, K> perspective_fov(
+		inline static mat<N, K, Type> perspective_fov(
 			real fov, real aspect, real near, real far) {
 
 			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::perspective_fov<mat<N, K>>(fov, aspect, near, far);
+			return algebra::perspective_fov<mat<N, K, Type>>(fov, aspect, near, far);
 		}
 
 
-		inline static mat<N, K> ortho(
+		inline static mat<N, K, Type> ortho(
 			real left, real right, real bottom, real top, real near, real far) {
 			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::ortho<mat<N, K>>(left, right, bottom, top, near, far);
+			return algebra::ortho<mat<N, K, Type>>(left, right, bottom, top, near, far);
 		}
 
-		/// Return a transformation matrix that points the
+		/// Return a 4x4 transformation matrix that points the
 		/// field of view towards a given point from the <camera> point
-		inline static mat<4, 4> look_at(vec3 camera, vec3 target, vec3 up) {
+		inline static mat<4, 4> look_at(vec<3> camera, vec<3> target, vec<3> up) {
 			return algebra::look_at<mat<4, 4>>(camera, target, up);
 		}
 
 
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
-		inline static mat<N, K> symplectic() {
+		inline static mat<N, K, Type> symplectic() {
 			static_assert(N == K && (N % 2 == 0),
 				"N must equal K and they should be a multiple of 2");
-			return algebra::symplectic<mat<N, K>>();
+			return algebra::symplectic<mat<N, K, Type>>();
 		}
 
 
@@ -509,26 +464,29 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 			/// Convert the matrix to string representation
-			inline std::string to_string(std::string separator = ", ") const {
+			inline std::string to_string(
+				std::string separator = ", ", bool parenthesis = true) const {
 
 				std::stringstream res;
 
 				for (unsigned int i = 0; i < rows(); ++i) {
 						
-					res << "(";
+					if(parenthesis)
+						res << "(";
 
 					for (unsigned int j = 0; j < cols(); ++j) {
 						
 						if(j)
-							res << ", ";
+							res << separator;
 
 						if(abs(iget(i, j)) < MACH_EPSILON)
 							res << "0";
 						else
 							res << iget(i, j);
 					}
-
-					res << ")" << std::endl;
+		
+					if(parenthesis)
+						res << ")" << std::endl;
 				}
 
 				return res.str();
@@ -536,24 +494,14 @@ namespace theoretica {
 
 
 			/// Stream the matrix in string representation to an output stream (std::ostream)
-			inline friend std::ostream& operator<<(std::ostream& out, const mat<N, K>& obj) {
+			inline friend std::ostream& operator<<(
+				std::ostream& out, const mat<N, K, Type>& obj) {
 				return out << obj.to_string();
 			}
 
 #endif
 
 	};
-
-	// Square matrices types
-
-	/// A 2x2 matrix with real entries
-	using mat2 = mat<2, 2>;
-
-	/// A 3x3 matrix with real entries
-	using mat3 = mat<3, 3>;
-
-	/// A 4x4 matrix with real entries
-	using mat4 = mat<4, 4>;
 
 }
 

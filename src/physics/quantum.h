@@ -29,21 +29,21 @@ namespace theoretica {
 
 
 	/// One-dimensional complex wave function
-	using wavefunc_1D = std::function<complex(real)>;
+	using wavefunc_1D = std::function<complex<>(real)>;
 	
 	/// Two-dimensional complex wave function
-	using wavefunc_2D = std::function<complex(real, real)>;
+	using wavefunc_2D = std::function<complex<>(real, real)>;
 	
 	/// Three-dimensional complex wave function
-	using wavefunc_3D = std::function<complex(real, real, real)>;
+	using wavefunc_3D = std::function<complex<>(real, real, real)>;
 
 
 	/// Spherical harmonics normalized for quantum mechanics
-	inline std::function<complex(real, real)> spherical_harmonic_qm(unsigned int l, int m) {
+	inline std::function<complex<>(real, real)> spherical_harmonic_qm(unsigned int l, int m) {
 
 		if(abs(m) > l) {
 			TH_MATH_ERROR("spherical_harmonic", m, IMPOSSIBLE_OPERATION);
-			return [](real a, real b) { return complex(nan(), nan()); };
+			return [](real a, real b) { return complex<>(nan(), nan()); };
 		}
 
 		const auto Leg = assoc_legendre_polynomial(l, m);
@@ -53,7 +53,7 @@ namespace theoretica {
 		if(m != 0) {
 
 			return [=](real theta, real phi) {
-				return K * Leg(cos(theta)) * exp(complex::i() * m * phi);
+				return K * Leg(cos(theta)) * exp(complex<>::i() * m * phi);
 			};
 
 		} else {
@@ -92,17 +92,17 @@ namespace theoretica {
 		// Check quantum numbers
 		if(n == 0) {
 			TH_MATH_ERROR("wavefunc_hydrogen", n, IMPOSSIBLE_OPERATION);
-			return [](real a, real b, real c) { return complex(nan(), nan()); };
+			return [](real a, real b, real c) { return complex<>(nan(), nan()); };
 		}
 
 		if(l >= n) {
 			TH_MATH_ERROR("wavefunc_hydrogen", l, IMPOSSIBLE_OPERATION);
-			return [](real a, real b, real c) { return complex(nan(), nan()); };
+			return [](real a, real b, real c) { return complex<>(nan(), nan()); };
 		}
 
 		if(abs(m) > l) {
 			TH_MATH_ERROR("wavefunc_hydrogen", m, IMPOSSIBLE_OPERATION);
-			return [](real a, real b, real c) { return complex(nan(), nan()); };
+			return [](real a, real b, real c) { return complex<>(nan(), nan()); };
 		}
 
 

@@ -30,10 +30,7 @@ namespace theoretica {
 		public:
 
 		static_assert(N > 0, "N cannot be zero.");
-
-		static constexpr unsigned int SIZE = N;
 		T data[N];
-
 
 		vec() = default;
 
@@ -223,34 +220,12 @@ namespace theoretica {
 
 		/// Vector normalization (v / |v|)
 		inline void normalize() {
-
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				*this = vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] /= m;
-			}
+			algebra::make_normalized(*this);
 		}
 
 		/// Return the normalized vector (v / |v|)
 		inline vec<N, T> normalized() const {
-
-			vec<N, T> result = vec<N, T>();
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				return vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i)
-				result[i] = data[i] / m;
-
-			return result;
+			return algebra::normalize(*this);
 		}
 
 
@@ -290,8 +265,9 @@ namespace theoretica {
 		/// as the vector's.
 		inline void resize(size_t n) const {
 			
-			if(N != n)
+			if(N != n) {
 				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
+			}
 		}
 
 
@@ -339,32 +315,6 @@ namespace theoretica {
 #endif
 
 	};
-
-	// Common vector types
-
-	/// A 2-dimensional vector with real elements
-	using vec2 = vec<2, real>;
-
-	/// A 3-dimensional vector with real elements
-	using vec3 = vec<3, real>;
-
-	/// A 4-dimensional vector with real elements
-	using vec4 = vec<4, real>;
-
-
-	/// Compute the dot product of two vectors
-	template<unsigned int N, typename T>
-	inline real dot(const vec<N, T>& v1, const vec<N, T>& v2) {
-		return v1.dot(v2);
-	}
-
-
-	/// Compute the cross product of two vectors.
-	/// The vectors have to be 3-dimensional
-	template<typename T>
-	inline vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
-		return v1.cross(v2);
-	}
 
 }
 
