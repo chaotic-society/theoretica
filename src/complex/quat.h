@@ -21,17 +21,18 @@ namespace theoretica {
 	/// Quaternion in the form \f$a + bi + cj + dk\f$,
 	/// stored as \f$(a + \vec v)\f$ where \f$a \in \mathbb{R}\f$ and
 	/// \f$\vec v \in \mathbb{R}^3\f$
+	template<typename T = real>
 	class quat {
 		public:
 
-			real a;
-			vec3 v;
+			T a;
+			vec<3, T> v;
 
 			/// Initialize as (0 + 0i + 0j + 0k)
-			quat() : a(0), v(vec3()) {}
+			quat() : a(0), v(vec<3, T>()) {}
 
 			/// Initialize from a real number and a vector
-			quat(real a, const vec3& v) : a(a), v(v) {}
+			quat(T a, const vec<3, T>& v) : a(a), v(v) {}
 
 			/// Initialize from another quaternion
 			quat(const quat& other) : a(other.a), v(other.v) {}
@@ -42,7 +43,7 @@ namespace theoretica {
 				return *this;
 			}
 
-			inline quat& operator=(const std::array<real, 4>& v) {
+			inline quat& operator=(const std::array<T, 4>& v) {
 				a = v[0];
 				this->v.data[0] = v[1];
 				this->v.data[1] = v[2];
@@ -51,7 +52,7 @@ namespace theoretica {
 			}
 
 			/// Initialize from four real numbers
-			quat(real a, real b, real c, real d) : a(a) {
+			quat(T a, T b, T c, T d) : a(a) {
 				v.data[0] = b;
 				v.data[1] = c;
 				v.data[2] = d;
@@ -60,12 +61,12 @@ namespace theoretica {
 			~quat() = default;
 
 			/// Get the norm of a quaternion
-			inline real norm() const {
+			inline T norm() const {
 				return sqrt(a * a + v.square_magnitude());
 			}
 
 			/// Get the square norm of a quaternion
-			inline real square_norm() const {
+			inline T square_norm() const {
 				return a * a + v.square_magnitude();
 			}
 
@@ -77,16 +78,16 @@ namespace theoretica {
 			// Operators
 
 			/// Multiply a quaternion by a scalar value
-			inline quat operator*(real scalar) const {
+			inline quat operator*(T scalar) const {
 				return quat(a * scalar, v * scalar);
 			}
 
 			/// Divide a quaternion by a scalar value
-			inline quat operator/(real scalar) const {
+			inline quat operator/(T scalar) const {
 
 				if(scalar == 0) {
 					TH_MATH_ERROR("quat::operator/", scalar, DIV_BY_ZERO);
-					return quat(nan(), vec3(nan()));
+					return quat(nan(), vec<3, T>(nan()));
 				}
 
 				return quat(a / scalar, v / scalar);
@@ -115,7 +116,7 @@ namespace theoretica {
 
 
 			/// Multiply this quaternion by a scalar value
-			inline quat& operator*=(real scalar) {
+			inline quat& operator*=(T scalar) {
 
 				a *= scalar;
 				v *= scalar;
@@ -123,11 +124,11 @@ namespace theoretica {
 			}
 
 			/// Divide this quaternion by a scalar value
-			inline quat& operator/=(real scalar) {
+			inline quat& operator/=(T scalar) {
 
 				if(scalar == 0) {
 					TH_MATH_ERROR("quat::operator/=", scalar, DIV_BY_ZERO);
-					return (*this = quat(nan(), vec3(nan())));
+					return (*this = quat(nan(), vec<3, T>(nan())));
 				}
 
 				a /= scalar;
@@ -168,11 +169,11 @@ namespace theoretica {
 			/// Normalize the quaternion
 			inline void normalize() {
 
-				real n = norm();
+				T n = norm();
 
 				if(n == 0) {
 					TH_MATH_ERROR("quat::normalize", n, DIV_BY_ZERO);
-					*this = quat(nan(), vec3(nan()));
+					*this = quat(nan(), vec<3, T>(nan()));
 				}
 
 				a /= n;
@@ -182,11 +183,11 @@ namespace theoretica {
 			/// Return the normalized quaternion
 			inline quat normalized() const {
 
-				real n = norm();
+				T n = norm();
 
 				if(n == 0) {
 					TH_MATH_ERROR("quat::normalized", n, DIV_BY_ZERO);
-					return quat(nan(), vec3(nan()));
+					return quat(nan(), vec<3, T>(nan()));
 				}
 
 				return quat(a / n, v / n);
@@ -195,11 +196,11 @@ namespace theoretica {
 			/// Return the inverse of a quaternion
 			inline quat inverse() const {
 
-				real sqr_norm = square_norm();
+				T sqr_norm = square_norm();
 
 				if(sqr_norm == 0) {
 					TH_MATH_ERROR("quat::inverse", sqr_norm, DIV_BY_ZERO);
-					return quat(nan(), vec3(nan()));
+					return quat(nan(), vec<3, T>(nan()));
 				}
 
 				return conjugate() / sqr_norm;
@@ -215,10 +216,10 @@ namespace theoretica {
 			/// Convert the quaternion to a 4x4 matrix
 			inline mat4 to_mat4() const {
 
-				real x = v.get(0);
-				real y = v.get(1);
-				real z = v.get(2);
-				real w = a;
+				T x = v.get(0);
+				T y = v.get(1);
+				T z = v.get(2);
+				T w = a;
 
 				mat4 res;
 
@@ -248,10 +249,10 @@ namespace theoretica {
 			/// Convert the quaternion to a 3x3 matrix
 			inline mat3 to_mat3() const {
 
-				real x = v.get(0);
-				real y = v.get(1);
-				real z = v.get(2);
-				real w = a;
+				T x = v.get(0);
+				T y = v.get(1);
+				T z = v.get(2);
+				T w = a;
 
 				mat3 res;
 
@@ -272,24 +273,23 @@ namespace theoretica {
 
 
 			/// Transform a 3D vector
-			inline vec3 transform(const vec3& v) const {
+			inline vec<3, T> transform(const vec<3, T>& v) const {
 				return (operator*(quat(0, v)) * inverse()).v;
 			}
 
 
 			/// Construct a quaternion which represents a rotation
 			/// of <rad> radians around the <axis> arbitrary axis
-			inline static quat rotation(real rad, const vec3& axis) {
-				return quat(cos(rad / 2.0),
-							axis.normalized() * sin(rad / 2.0));
+			inline static quat rotation(T rad, const vec<3, T>& axis) {
+				return quat(cos(rad / 2.0), axis.normalized() * sin(rad / 2.0));
 			}
 
 
 			/// Rotate a 3D vector <v> by <rad> radians around
 			/// the <axis> arbitrary axis
-			inline static vec3 rotate(const vec3& v, real rad, const vec3& axis) {
+			inline static vec<3, T> rotate(const vec<3, T>& v, T rad, const vec<3, T>& axis) {
 
-				vec3 n_axis = axis.normalized();
+				vec<3, T> n_axis = axis.normalized();
 
 				quat q = quat(cos(rad / 2.0),
 					n_axis * sin(rad / 2.0));
@@ -306,19 +306,19 @@ namespace theoretica {
 			// Friend operators to enable equations of the form
 			// (real) op. (quat)
 
-			inline friend quat operator+(real r, const quat& z) {
+			inline friend quat operator+(T r, const quat& z) {
 				return z + quat(r, 0, 0, 0);
 			}
 
-			inline friend quat operator-(real r, const quat& z) {
+			inline friend quat operator-(T r, const quat& z) {
 				return (z * -1) + quat(r, 0, 0, 0);
 			}
 
-			inline friend quat operator*(real r, const quat& z) {
+			inline friend quat operator*(T r, const quat& z) {
 				return z * r;
 			}
 
-			inline friend quat operator/(real r, const quat& z) {
+			inline friend quat operator/(T r, const quat& z) {
 				return quat(r, 0, 0, 0) / z;
 			}
 
@@ -331,9 +331,9 @@ namespace theoretica {
 				std::stringstream res;
 
 				res << a;
-				res << (v.get(0) >= 0 ? " + " : " - ") << "i" << abs(v.get(0));
-				res << (v.get(1) >= 0 ? " + " : " - ") << "j" << abs(v.get(1));
-				res << (v.get(2) >= 0 ? " + " : " - ") << "k" << abs(v.get(2));
+				res << (v.get(0) >= 0 ? " + " : " - ") << abs(v.get(0)) << "i";
+				res << (v.get(1) >= 0 ? " + " : " - ") << abs(v.get(1)) << "j";
+				res << (v.get(2) >= 0 ? " + " : " - ") << abs(v.get(2)) << "k";
 
 				return res.str();
 			}

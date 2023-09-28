@@ -28,6 +28,13 @@ namespace theoretica {
 	}
 
 
+	/// Return the conjugate of a multidual number
+	template<unsigned int N>
+	multidual<N> conjugate(multidual<N> x) {
+		return x.conjugate();
+	}
+
+
 	/// Compute the n-th power of a multidual number
 	template<unsigned int N>
 	multidual<N> pow(multidual<N> x, int n) {

@@ -193,7 +193,7 @@ namespace theoretica {
 #ifdef THEORETICA_ONLY_EXCEPTIONS
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
+	{ throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE); }
 
 #define TH_MATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
 	TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)
@@ -202,14 +202,14 @@ namespace theoretica {
 #elif defined(THEORETICA_THROW_EXCEPTIONS)
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	errno = th_errcode_to_errno(EXCEPTION); \
-	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE);
+	{ errno = th_errcode_to_errno(EXCEPTION); \
+	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE); }
 
 // Modify errno only by default
 #else
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	errno = th_errcode_to_errno(EXCEPTION);
+	{ errno = th_errcode_to_errno(EXCEPTION); }
 
 #endif
 

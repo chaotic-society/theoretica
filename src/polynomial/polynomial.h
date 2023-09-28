@@ -339,14 +339,14 @@ namespace theoretica {
 
 
 			/// Compute the roots of a quadratic polynomial
-			inline vec<2, complex> quadratic_roots() const {
+			inline vec<2, complex<>> quadratic_roots() const {
 
 				const int order = find_order();
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
 					TH_MATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
-					return vec<2, complex>({nan(), nan()});
+					return vec<2, complex<>>({nan(), nan()});
 				}
 
 				const T p = coeff[1] / coeff[2];
@@ -354,20 +354,20 @@ namespace theoretica {
 
 				// Case when 0 is a root
 				if(abs(q) < MACH_EPSILON)
-					return {complex(-p), complex(0)};
+					return {complex<>(-p), complex<>(0)};
 
-				complex z1, z2;
+				complex<> z1, z2;
 
 				// Use Vieta's theorem to avoid catastrophic cancellation
 				if(abs(p) > 1) {
 
 					z1 = -sgn(p) * (abs(p) / 2.0
-						+ abs(p) * sqrt(complex(0.25 - (q / p) / p)));
+						+ abs(p) * sqrt(complex<>(0.25 - (q / p) / p)));
 					z2 = q / z1;
 
 				} else {
 
-					const complex s = sqrt(complex(0.25 * square(p) - q));
+					const complex<> s = sqrt(complex<>(0.25 * square(p) - q));
 					z1 = -p / 2.0 + s;
 					z2 = -p / 2.0 - s;
 				}

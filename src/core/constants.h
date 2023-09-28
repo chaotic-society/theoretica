@@ -157,6 +157,8 @@
 #define TH_CONSTEXPR
 #endif
 
+// TO-DO Add TH_IFCONSTEXPR macro for "if constexpr" when C++17 is supported
+
 
 /// @namespace theoretica Main namespace of the library which contains all functions and objects
 namespace theoretica {

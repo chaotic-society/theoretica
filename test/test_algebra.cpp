@@ -280,14 +280,14 @@ prec::estimate_result test_hermitian(interval k, Real tol, unsigned int n) {
 
 	for (size_t i = 0; i < n; ++i) {
 
-		vec<N, complex> v;
+		vec<N, complex<>> v;
 
 		for (unsigned int j = 0; j < N; ++j) {
 			v[j].a = rand_uniform(k.a, k.b, g);
 			v[j].b = rand_uniform(k.a, k.b, g);
 		}
 
-		vec<N, complex> w = v;		
+		vec<N, complex<>> w = v;		
 		real diff = hermitian_distance(v, w).modulus();
 		
 		sum += diff;

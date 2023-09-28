@@ -106,8 +106,8 @@ namespace theoretica {
 	}
 
 
-	/// Compute the distance between two complex numbers
-	inline complex distance(complex z1, complex z2) {
+	/// Compute the distance between two complex<> numbers
+	inline complex<> distance(complex<> z1, complex<> z2) {
 		return (z1 - z2).modulus();
 	}
 
@@ -133,17 +133,17 @@ namespace theoretica {
 
 	/// Compute the Hermitian distance between two vectors
 	template<typename Vector>
-	inline complex hermitian_distance(Vector v1, Vector v2) {
+	inline complex<> hermitian_distance(Vector v1, Vector v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("hermitian_distance", v1.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
-		complex sum = 0;
+		complex<> sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
-			const complex diff = v1[i] - conjugate(v2[i]);
+			const complex<> diff = v1[i] - conjugate(v2[i]);
 			sum += diff * diff.conjugate();
 		}
 
@@ -153,7 +153,7 @@ namespace theoretica {
 
 	/// Compute the Hermitian distance between two vectors
 	template<unsigned int N>
-	inline complex distance(vec<N, complex> v1, vec<N, complex> v2) {
+	inline complex<> distance(vec<N, complex<>> v1, vec<N, complex<>> v2) {
 		return hermitian_distance(v1, v2);
 	}
 

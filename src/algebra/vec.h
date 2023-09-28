@@ -16,6 +16,7 @@
 #include "../core/error.h"
 #include "../core/real_analysis.h"
 #include "../core/vec_buff.h"
+#include "./algebra.h"
 
 
 namespace theoretica {
@@ -29,10 +30,7 @@ namespace theoretica {
 		public:
 
 		static_assert(N > 0, "N cannot be zero.");
-
-		static constexpr unsigned int SIZE = N;
 		T data[N];
-
 
 		vec() = default;
 
@@ -45,17 +43,12 @@ namespace theoretica {
 
 		/// Copy constructor
 		vec(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
+			algebra::vec_copy(*this, other);
 		}
 
 		/// Copy from other
 		vec<N, T>& operator=(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
-			return *this;
+			return algebra::vec_copy(*this, other);
 		}
 
 		/// Initialize from a list, e.g. {1, 2, 3}
@@ -84,12 +77,9 @@ namespace theoretica {
 
 		/// Vector sum (v + w = (v.x + w.x, ...))
 		inline vec<N, T> operator+(const vec<N, T>& other) const {
+			
 			vec<N, T> result;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] + other.data[i];
-			}
-
+			algebra::vec_sum(result, *this, other);
 			return result;
 		}
 
@@ -99,12 +89,9 @@ namespace theoretica {
 		}
 
 		inline vec<N, T> operator-(const vec<N, T>& other) const {
+			
 			vec<N, T> result;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] - other.data[i];
-			}
-
+			algebra::vec_diff(result, *this, other);
 			return result;
 		}
 
@@ -133,14 +120,7 @@ namespace theoretica {
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
 		inline T dot(const vec<N, T>& other) const {
-
-			T result = 0;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result += data[i] * other.data[i];
-			}
-
-			return result;
+			return algebra::dot(*this, other);
 		}
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
@@ -150,20 +130,9 @@ namespace theoretica {
 
 
 		/// Cross product between vectors
-		inline vec<3> cross(const vec<3>& other) const {
-
-			if(N != 3) {
-				TH_MATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
-				return vec<N, T>(nan());
-			}
-
-			vec<3> res;
-
-			res.data[0] = data[1] * other.data[2] - data[2] * other.data[1];
-			res.data[1] = data[2] * other.data[0] - data[0] * other.data[2];
-			res.data[2] = data[0] * other.data[1] - data[1] * other.data[0];
-
-			return res;
+		inline vec<N> cross(const vec<N>& other) const {
+			static_assert(N == 3, "The vector must be three dimensional");
+			return algebra::cross(*this, other);
 		}
 
 
@@ -194,12 +163,7 @@ namespace theoretica {
 
 		/// Magnitude of vector (sqrt(v * v))
 		inline T magnitude() const {
-
-			T m = 0;
-			for (unsigned int i = 0; i < N; ++i)
-				m += data[i] * conjugate(data[i]);
-
-			return sqrt(m);
+			return algebra::norm(*this);
 		}
 
 		/// Alias for magnitude()
@@ -229,7 +193,17 @@ namespace theoretica {
 		}
 
 		/// Access i-th element
+		inline T& iat(unsigned int i) {
+			return data[i];
+		}
+
+		/// Access i-th element
 		inline T& at(unsigned int i) {
+			return data[i];
+		}
+
+		/// Getters and setters
+		inline T iget(unsigned int i) const {
 			return data[i];
 		}
 
@@ -246,34 +220,12 @@ namespace theoretica {
 
 		/// Vector normalization (v / |v|)
 		inline void normalize() {
-
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				*this = vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] /= m;
-			}
+			algebra::make_normalized(*this);
 		}
 
 		/// Return the normalized vector (v / |v|)
 		inline vec<N, T> normalized() const {
-
-			vec<N, T> result = vec<N, T>();
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				return vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i)
-				result[i] = data[i] / m;
-
-			return result;
+			return algebra::normalize(*this);
 		}
 
 
@@ -301,8 +253,21 @@ namespace theoretica {
 
 
 		/// Returns the size of the vector (N)
-		inline TH_CONSTEXPR unsigned int size() {
+		inline TH_CONSTEXPR unsigned int size() const {
 			return N;
+		}
+
+
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		inline void resize(size_t n) const {
+			
+			if(N != n) {
+				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
+			}
 		}
 
 
@@ -350,32 +315,6 @@ namespace theoretica {
 #endif
 
 	};
-
-	// Common vector types
-
-	/// A 2-dimensional vector with real elements
-	using vec2 = vec<2, real>;
-
-	/// A 3-dimensional vector with real elements
-	using vec3 = vec<3, real>;
-
-	/// A 4-dimensional vector with real elements
-	using vec4 = vec<4, real>;
-
-
-	/// Compute the dot product of two vectors
-	template<unsigned int N, typename T>
-	inline real dot(const vec<N, T>& v1, const vec<N, T>& v2) {
-		return v1.dot(v2);
-	}
-
-
-	/// Compute the cross product of two vectors.
-	/// The vectors have to be 3-dimensional
-	template<typename T>
-	inline vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
-		return v1.cross(v2);
-	}
 
 }
 
