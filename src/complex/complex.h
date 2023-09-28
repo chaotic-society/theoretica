@@ -1,6 +1,6 @@
 
 ///
-/// @file complex.h Complex numbers
+/// @file complex.h Complex number class
 ///
 
 #ifndef THEORETICA_COMPLEX_H
@@ -22,249 +22,292 @@ namespace  theoretica {
 
 	/// @class complex
 	/// Complex number in algebraic form \f$a + ib\f$
-	template<typename T = real>
+	template<typename Type = real>
 	class complex {
 		public:
 
-			T a; // Real part
-			T b; // Imaginary part
+			/// Real part
+			Type a;
 
-			/// Initialize as \f$(0 + i0)\f$
+			/// Imaginary part
+			Type b;
+
+
+			/// Default constructor, initializes
+			/// the number to zero
 			complex() : a(0), b(0) {}
 
-			/// Initialize from a real number (zero imaginary part)
-			complex(T real_part) : a(real_part), b(0) {}
 
-			/// Initialize from two real numbers
-			complex(T real_part, T imag_part) : a(real_part), b(imag_part) {}
+			/// Construct a complex number from its real
+			/// and complex parts.
+			complex(Type real_part, Type imag_part) : a(real_part), b(imag_part) {}
 
-			/// Initialize from a real number (zero imaginary part)
-			complex(int real_part) : a(real_part), b(0) {}
 
-			/// Initialize a complex number from a std::array
+			/// Construct a complex number from a real number,
+			/// with zero imaginary part.
+			complex(Type real_part) : a(real_part), b((Type) 0) {}
+
+
+			/// Copy constructor
+			complex(const complex& z) : a(z.a), b(z.b) {}
+
+
+			/// Assignment operator
+			inline complex& operator=(const complex& z) {
+				a = z.a;
+				b = z.b;
+				return *this;
+			}
+
+
+			/// Assignment operator from a 2D array
+			template<typename T>
 			inline complex& operator=(const std::array<T, 2>& v) {
 				a = v[0];
 				b = v[1];
 				return *this;
 			}
 
-			~complex() = default;
 
-			/// Return real part
-			inline T Re() const {
+			/// Get the real part of the complex number
+			inline Type Re() const {
 				return a;
 			}
 
-			/// Return imaginary part
-			inline T Im() const {
+
+			/// Extract the real part of the complex number
+			inline friend Type Re(const complex& z) {
+				return z.a;
+			}
+
+
+			/// Get the imaginary part of the complex number
+			inline Type Im() const {
 				return b;
 			}
 
 
-			/// Extract the real part
-			inline friend T Re(const complex& z) {
-				return z.Re();
+			/// Extract the imaginary part of the complex number
+			inline friend Type Im(const complex& z) {
+				return z.z;
 			}
 
 
-			/// Extract the imaginary part
-			inline friend T Im(const complex& z) {
-				return z.Im();
-			}
-
-			/// Get the modulus of a complex number
-			inline T modulus() const {
-				return sqrt(a * a + b * b);
-			}
-
-			/// Get the square modulus of a complex number
-			inline T square_modulus() const {
-				return a * a + b * b;
-			}
-
-			/// Get the complex conjugate of a complex number
+			/// Compute the conjugate of the complex number
 			inline complex conjugate() const {
 				return complex(a, -b);
 			}
 
-			/// Get the inverse of a complex number
-			inline complex inverse() const {
-				return conjugate() / square_modulus();
+
+			/// Compute the square norm of the complex number
+			inline Type sqr_norm() const {
+				return a * a + b * b;
 			}
 
-			/// Get the argument of a complex number
-			inline T arg() const {
 
-				if(b == 0)
-					return 0;
+			/// Compute the norm of the complex number
+			inline Type norm() const {
+				return sqrt(sqr_norm());
+			}
 
+
+			/// Compute the inverse of the complex number
+			inline complex inverse() const {
+
+				const Type n = sqr_norm();
+
+				if(n < MACH_EPSILON) {
+					TH_MATH_ERROR("complex::inverse", n, DIV_BY_ZERO);
+					return complex(nan(), nan());
+				}
+
+				return conjugate() / n;
+			}
+
+
+			/// Invert the complex number
+			inline complex& invert() {
+
+				const Type n = sqr_norm();
+
+				if(n < MACH_EPSILON) {
+					TH_MATH_ERROR("complex::invert", n, DIV_BY_ZERO);
+					a = (Type) nan();
+					b = (Type) nan();
+					return *this;
+				}
+
+				a = a / n;
+				b = -b / n;
+
+				return *this;
+			}
+
+
+			/// Get the argument of the complex number
+			inline Type arg() const {
+
+				// Real number case
+				if(abs(b) < MACH_EPSILON) {
+					return (a >= 0) ? ((Type) 0) : ((Type) PI);
+				}
+
+				// Pure imaginary number case
+				if(abs(a) < MACH_EPSILON) {
+					return (b >= 0) ? ((Type) PI / 2.0) : ((Type) -PI / 2.0);
+				}
+
+				// Use the 2-parameter arctangent in the general case
 				return atan2(b, a);
 			}
+
 
 			/// Identity (for consistency)
 			inline complex operator+() const {
 				return complex(a, b);
 			}
 
-			/// Sum two complex numbers
-			inline complex operator+(const complex& other) const {
-				return complex(a + other.a, b + other.b);
+
+			/// Add two complex numbers
+			inline complex operator+(const complex& z) const {
+				return complex(a + z.a, b + z.b);
 			}
 
-			/// Sum a T number to a complex number
-			inline complex operator+(T r) const {
-				return complex(a + r, b);
-			}
 
-			/// Get the opposite of a complex number
+			/// Get the opposite of the complex number
 			inline complex operator-() const {
 				return complex(-a, -b);
 			}
 
+
 			/// Subtract two complex numbers
-			inline complex operator-(const complex& other) const {
-				return complex(a - other.a, b - other.b);
+			inline complex operator-(const complex& z) const {
+				return complex(a - z.a, b - z.b);
 			}
 
-			/// Subtract a real number from a complex number
-			inline complex operator-(T r) const {
-				return complex(a - r, b);
-			}
 
 			/// Multiply two complex numbers
-			inline complex operator*(const complex& other) const {
-				return complex((a * other.a) - (b * other.b), (a * other.b) + (b * other.a));
-			}
-
-			/// Multiply a complex number by a real number
-			inline complex operator*(T r) const {
-				return complex(a * r, b * r);
-			}
-
-			/// Complex division
-			inline complex operator/(const complex& other) const {
-				T m = other.square_modulus();
-				return complex((a * other.a + b * other.b) / m,
-								(b * other.a - a * other.b) / m);
-			}
-
-			/// Divide a complex number by a real number
-			inline complex operator/(T r) const {
-				return complex(a / r, b / r);
+			inline complex operator*(const complex& z) const {
+				return complex(
+					a * z.a - b * z.b,
+					a * z.b + b * z.a
+				);
 			}
 
 
-			/// Add a real number to this one
-			inline complex& operator+=(const complex& other) {
-
-				a += other.a;
-				b += other.b;
-				return *this;
+			/// Divide two complex numbers
+			inline complex operator/(const complex& z) const {
+				return operator*(z.inverse());
 			}
 
 
-			/// Sum a real number to this complex number
-			inline complex& operator+=(T r) {
-
-				a += r;
-				return *this;
+			/// Add a complex number to this one
+			inline complex& operator+=(const complex& z) {
+				return (*this = complex(a + z.a, b + z.b));
 			}
 
-			/// Subtract a real number from this one
-			inline complex& operator-=(const complex& other) {
 
-				a -= other.a;
-				b -= other.b;
-				return *this;
+			/// Subtract a complex number from this one
+			inline complex& operator-=(const complex& z) {
+				return (*this = complex(a - z.a, b - z.b));
 			}
 
-			/// Subtract a real number from this complex number
-			inline complex& operator-=(T r) {
 
-				a -= r;
-				return *this;
+			/// Multiply the complex number by another
+			inline complex& operator*=(const complex& z) {
+				return (*this = complex(
+					a * z.a - b * z.b,
+					a * z.b + b * z.a
+				));
 			}
 
-			/// Multiply this complex number by another one
-			inline complex& operator*=(const complex& other) {
 
-				a = (a * other.a) - (b * other.b);
-				b = (a * other.b) + (b * other.a);
-				return *this;
+			/// Divide the complex number by another
+			inline complex& operator/=(const complex& z) {
+				return (*this = operator*(z.inverse()));
 			}
 
-			/// Multiply this complex number by a real number
-			inline complex& operator*=(T r) {
 
-				a *= r;
-				b *= r;
-				return *this;
+			/// Add a real number to the complex number
+			inline complex operator+(Type k) const {
+				return complex(a + k, b);
 			}
 
-			/// Divide this complex number by another one
-			inline complex& operator/=(const complex& other) {
 
-				T m = other.square_modulus();
-				a = (a * other.a + b * other.b) / m;
-				b = (b * other.a - a * other.b) / m;
-				return *this;
+			/// Subtract a real number from the complex number
+			inline complex operator-(Type k) const {
+				return complex(a - k, b);
 			}
 
-			/// Divide a complex number by a real number
-			inline complex& operator/=(T r) {
 
-				if(r == 0) {
-					TH_MATH_ERROR("complex::operator/=", r, DIV_BY_ZERO);
-					a = nan();
-					b = nan();
-					return *this;
+			/// Multiply the complex number by a real number
+			inline complex operator*(Type k) const {
+				return complex(a * k, b * k);
+			}
+
+
+			/// Divide the complex number by a real number
+			inline complex operator/(Type k) const {
+
+				if(abs(k) < MACH_EPSILON) {
+					TH_MATH_ERROR("complex::operator/", k, DIV_BY_ZERO);
+					return complex(nan(), nan());
 				}
 
-				a /= r;
-				b /= r;
-
-				return *this;
+				return complex(a / k, b / k);
 			}
 
 
-			/// Check whether two complex numbers have the same
-			/// real and imaginary parts
-			inline bool operator==(const complex& other) {
-				return (a == other.a) && (b == other.b);
+			/// Add a real number to the complex number
+			inline complex& operator+=(Type k) {
+				return (*this = complex(a + k, b));
 			}
 
 
-			/// Check whether two complex numbers have the same
-			/// real and imaginary parts
-			inline bool operator!=(const complex& other) {
-				return !(*this == other);
+			/// Subtract a real number from the complex number
+			inline complex& operator-=(Type k) {
+				return (*this = complex(a - k, b));
 			}
 
 
-			/// Convert a complex number to a vector
-			template<typename Vector>
-			inline Vector to_vec() const {
-				Vector res;
-				res[0] = a;
-				res[1] = b;
-				return res;
+			/// Multiply the complex number by a real number
+			inline complex& operator*=(Type k) {
+				return (*this = complex(a * k, b * k));
 			}
 
-			/// Initialize from a vector
-			template<typename Vector>
-			inline void from_vec(const Vector& v) {
-				a = v[0];
-				b = v[1];
+
+			/// Divide the complex number by a real number
+			inline complex& operator/=(Type k) {
+
+				if(abs(k) < MACH_EPSILON) {
+					TH_MATH_ERROR("complex::operator/=", k, DIV_BY_ZERO);
+					return complex(nan(), nan());
+				}
+
+				return (*this = complex(a / k, b / k));
+			}
+
+
+			/// Check whether two complex numbers are the same
+			inline bool operator==(const complex& z) const {
+				return (a == z.a) && (b == z.b);
+			}
+
+
+			/// Check whether two complex numbers are not the same
+			inline bool operator!=(const complex& z) const {
+				return !(*this == z);
 			}
 
 
 			/// Construct a complex number representing a rotation
 			/// of <rad> radians in 2 dimensions
-			inline static complex rotor(T rad) {
+			inline static complex rotor(Type rad) {
 				return complex(cos(rad), sin(rad));
 			}
 
 
+			/// Imaginary unit
 			inline static complex i() {
 				return complex(0, 1);
 			}
@@ -273,19 +316,19 @@ namespace  theoretica {
 			// Friend operators to enable equations of the form
 			// (real) op. (complex)
 
-			inline friend complex operator+(T r, const complex& z) {
+			inline friend complex operator+(Type r, const complex& z) {
 				return z + r;
 			}
 
-			inline friend complex operator-(T r, const complex& z) {
+			inline friend complex operator-(Type r, const complex& z) {
 				return -z + r;
 			}
 
-			inline friend complex operator*(T r, const complex& z) {
+			inline friend complex operator*(Type r, const complex& z) {
 				return z * r;
 			}
 
-			inline friend complex operator/(T r, const complex& z) {
+			inline friend complex operator/(Type r, const complex& z) {
 				return complex(r, 0) / z;
 			}
 
@@ -320,10 +363,17 @@ namespace  theoretica {
 	};
 
 
-	// To-DO: Does not compile on GCC v6	
-	// constexpr complex operator""i(long double b) {
-	// 	return complex(0, b);
-	// }
+	/// Check whether the given type is a specialization
+	/// of the complex number class or not, using the
+	/// static boolean element is_complex_type<T>::value
+	template<typename T>
+	struct is_complex_type : std::false_type {};
+
+	/// Check whether the given type is a specialization
+	/// of the complex number class or not, using the
+	/// static boolean element is_complex_type<T>::value
+	template<typename T>
+	struct is_complex_type<complex<T>> : std::true_type {};
 
 }
 

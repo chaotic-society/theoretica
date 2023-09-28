@@ -108,7 +108,7 @@ namespace theoretica {
 
 	/// Compute the distance between two complex<> numbers
 	inline complex<> distance(complex<> z1, complex<> z2) {
-		return (z1 - z2).modulus();
+		return (z1 - z2).norm();
 	}
 
 

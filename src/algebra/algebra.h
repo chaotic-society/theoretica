@@ -21,19 +21,6 @@
 
 namespace theoretica {
 
-	/// @namespace theoretica::_internal
-	namespace _internal {
-
-		/// Check whether the given type is a specialization
-		/// of the complex number class or not.
-		template<typename T>
-		struct is_complex_type : std::false_type {};
-
-		template<typename T>
-		struct is_complex_type<complex<T>> : std::true_type {};
-
-	}
-
 
 	/// @namespace theoretica::algebra
 	namespace algebra {
@@ -184,7 +171,7 @@ namespace theoretica {
 			Type sum = (Type) 0;
 
 			// Use conjugation for complex numbers
-			if(_internal::is_complex_type<Type>::value)
+			if(is_complex_type<Type>::value)
 				for (unsigned int i = 0; i < v.size(); ++i)
 					sum += v.iget(i) * conjugate(v.iget(i));
 			else
@@ -269,7 +256,7 @@ namespace theoretica {
 			Type sum = 0;
 
 			// Use conjugation for complex numbers
-			if /*constexpr*/ (_internal::is_complex_type<Type>::value)
+			if /*constexpr*/ (is_complex_type<Type>::value)
 				for (unsigned int i = 0; i < v1.size(); ++i)
 					sum += v1.iget(i) * conjugate(v2.iget(i));
 			else

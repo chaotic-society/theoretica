@@ -127,7 +127,7 @@ prec::estimate_result test_polynomial_quadroots(
 		polynomial<real> P = polynomial<real>::from_roots({x1, x2});
 		auto comp_roots = P.quadratic_roots();
 
-		const real err1 = (comp_roots[0] + comp_roots[1] - complex<>(x1) - complex<>(x2)).modulus();
+		const real err1 = (comp_roots[0] + comp_roots[1] - complex<>(x1) - complex<>(x2)).norm();
 		const real diff = err1;
 		sum += diff;
 		sum2 += square(diff);

@@ -45,7 +45,7 @@ namespace theoretica {
 			/// Initialize from a complex<> number
 			phasor(const complex<>& z) {
 				phase = z.arg();
-				modulus = z.modulus();
+				modulus = z.norm();
 			}
 
 			phasor(T r) {
