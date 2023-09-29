@@ -45,7 +45,7 @@ namespace  theoretica {
 
 			/// Construct a complex number from a real number,
 			/// with zero imaginary part.
-			complex(Type real_part) : a(real_part), b((Type) 0) {}
+			complex(Type real_part) : a(real_part), b(0) {}
 
 
 			/// Copy constructor
