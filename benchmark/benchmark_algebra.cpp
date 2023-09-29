@@ -15,7 +15,7 @@ mat<N, M> rand_mat(real min, real max, PRNG& g) {
 
 	for (unsigned int i = 0; i < N; ++i)
 		for (unsigned int j = 0; j < M; ++j)
-			A.iat(i, j) = rand_uniform(min, max, g);
+			A.at(i, j) = rand_uniform(min, max, g);
 
 	return A;
 }
