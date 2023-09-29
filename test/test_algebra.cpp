@@ -182,7 +182,8 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 
 template<unsigned int N>
 prec::estimate_result test_distance(
-	real(*d)(vec<N, real>, vec<N, real>), interval k, Real tol, unsigned int n) {
+	std::function<real(const vec<N>&, const vec<N>&)> d,
+	interval k, Real tol, unsigned int n) {
 
 	Real max = 0;
 	Real sum = 0;
@@ -226,7 +227,7 @@ prec::estimate_result test_distance(
 
 template<unsigned int N>
 prec::estimate_result test_distance_tol(
-	real(*d)(vec<N, real>, vec<N, real>, real), interval k, Real tol, unsigned int n) {
+	std::function<real(const vec<N>&, const vec<N>&, real)> d, interval k, Real tol, unsigned int n) {
 
 	Real max = 0;
 	Real sum = 0;
@@ -367,7 +368,8 @@ int main(int argc, char const *argv[]) {
 		// Distances
 		prec::estimate("euclidean_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<100>(euclidean_distance<vec<100>>, k, tol, n);
+				return test_distance<100>(
+					euclidean_distance<vec<100>>, k, tol, n);
 			}, intervals);
 
 

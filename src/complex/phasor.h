@@ -20,21 +20,27 @@ namespace theoretica {
 
 	/// @class phasor
 	/// Complex number in exponential form \f$\rho e^{i \theta}\f$
-	template<typename T = real>
+	template<typename Type = real>
 	class phasor {
 		public:
 
-			T phase;
-			T modulus;
+			/// Modulus of the complex number
+			Type modulus;
+
+			/// Phase of the complex number
+			Type phase;
+
 
 			/// Initialize as 0/0
 			phasor() : phase(0), modulus(0) {}
 
+
 			/// Initialize from two real numbers
-			phasor(T modulus, T phase) {
+			phasor(Type modulus, Type phase) {
 				this->phase = phase;
 				this->modulus = modulus;
 			}
+
 
 			/// Initialize from another phasor
 			phasor(const phasor& other) {
@@ -42,21 +48,124 @@ namespace theoretica {
 				modulus = other.modulus;
 			}
 
-			/// Initialize from a complex<> number
-			phasor(const complex<>& z) {
+			/// Construct a phasor from a complex number
+			template<typename T>
+			phasor(const complex<T>& z) {
 				phase = z.arg();
 				modulus = z.norm();
 			}
 
-			phasor(T r) {
+			/// Construct a phasor from a real number
+			phasor(Type r) {
 				modulus = abs(r);
 				phase = (r >= 0 ? 0 : PI);
 			}
 
+
+			/// Assignment operator
+			inline phasor& operator=(const phasor& z) {
+				phase = z.phase;
+				modulus = z.modulus;
+				return *this;
+			}
+
+
+			/// Assignment operator from a 2D array
+			/// as {modulus, phase}.
+			template<typename T>
+			inline phasor& operator=(const std::array<T, 2>& v) {
+				modulus = v[0];
+				phase = v[1];
+				return *this;
+			}
+
+
 			~phasor() = default;
 
 
+			/// Get the real part of the complex number
+			inline Type Re() const {
+				return modulus * cos(phase);
+			}
+
+
+			/// Extract the real part of the complex number
+			inline friend Type Re(const phasor& z) {
+				return z.Re();
+			}
+
+
+			/// Get the imaginary part of the complex number
+			inline Type Im() const {
+				return modulus * sin(phase);
+			}
+
+
+			/// Extract the imaginary part of the complex number
+			inline friend Type Im(const phasor& z) {
+				return z.Im();
+			}
+
+
+			/// Compute the conjugate of the complex number
+			inline phasor conjugate() const {
+				return phasor(modulus, -phase);
+			}
+
+
+			/// Compute the square norm of the complex number
+			inline Type sqr_norm() const {
+				return modulus * modulus;
+			}
+
+
+			/// Compute the norm of the complex number
+			inline Type norm() const {
+				return modulus;
+			}
+
+
+			/// Compute the inverse of the complex number
+			inline Type inverse() const {
+
+				if(modulus < MACH_EPSILON) {
+					TH_MATH_ERROR("phasor::inverse", modulus, DIV_BY_ZERO);
+					return (Type) nan();
+				}
+
+				return phasor(
+					((Type) 1.0) / modulus,
+					-phase
+				);
+			}
+
+
+			/// Invert the complex number
+			inline phasor& invert() {
+
+				if(modulus < MACH_EPSILON) {
+					TH_MATH_ERROR("phasor::invert", modulus, DIV_BY_ZERO);
+					modulus = (Type) nan();
+					phase = (Type) nan();
+					return *this;
+				}
+
+				phase = phase * -1;
+				modulus = ((Type) 1.0) / modulus;
+				return *this;
+			}
+
+
+			/// Get the argument of the complex number
+			inline Type arg() const {
+				return phase;
+			}
+
+
 			/// Add two phasors
+			/// @note This operation is particularly slow
+			/// for phasors as opposed to complex numbers
+			/// in algebraic form.
 			inline phasor operator+(const phasor& other) const {
 
 				if(abs(phase - other.phase) < MACH_EPSILON)
@@ -67,6 +176,9 @@ namespace theoretica {
 
 
 			/// Subtract two phasors
+			/// @note This operation is particularly slow
+			/// for phasors as opposed to complex numbers
+			/// in algebraic form.
 			inline phasor operator-(const phasor& other) const {
 
 				if(abs(phase - other.phase) < MACH_EPSILON)
@@ -84,10 +196,31 @@ namespace theoretica {
 			}
 
 
+			/// Multiply a complex number in algebraic form
+			/// and a phasor
+			template<typename T>
+			inline phasor operator*(const complex<T>& other) const {
+				return phasor(
+					modulus * other.norm(),
+					phase + other.arg());
+			}
+
+
+			/// Multiply a complex number in algebraic form
+			/// and a phasor
+			template<typename T>
+			inline friend phasor operator*(const complex<T>& z, const phasor& w) {
+				return phasor(
+					z.norm() * w.modulus,
+					z.arg() + w.phase
+				);
+			}
+
+
 			/// Divide two phasors
 			inline phasor operator/(const phasor& other) const {
 
-				if(other.modulus == 0) {
+				if(abs(other.modulus) < MACH_EPSILON) {
 					TH_MATH_ERROR("phasor::operator/", other.modulus, DIV_BY_ZERO);
 					return phasor(nan(), nan());
 				}
@@ -137,7 +270,7 @@ namespace theoretica {
 			/// Divide this phasor by another one
 			inline phasor& operator/=(const phasor& other) {
 
-				if(other.modulus == 0) {
+				if(abs(other.modulus) < MACH_EPSILON) {
 					TH_MATH_ERROR("phasor::operator/=", other.modulus, DIV_BY_ZERO);
 					modulus = nan();
 					phase = nan();
@@ -151,30 +284,63 @@ namespace theoretica {
 			}
 
 
+			/// Check whether two phasors are the same
+			inline bool operator==(const phasor& z) const {
+				return (modulus == z.modulus) && (phase == z.phase);
+			}
+
+
+			/// Check whether two phasors are not the same
+			inline bool operator!=(const phasor& z) const {
+				return !(*this == z);
+			}
+
+
 			/// Transform a phasor to a complex number
-			complex<> to_complex() const {
-				return complex<>(
+			template<typename T = Type>
+			complex<T> to_complex() const {
+				return complex<T>(
 					modulus * cos(phase),
 					modulus * sin(phase));
+			}
+
+
+			/// Cast to complex
+			template<typename T>
+			inline operator complex<T> () {
+				return to_complex<T>();
+			}
+
+
+			/// Construct a phasor representing a rotation
+			/// of <rad> radians in 2 dimensions
+			inline static phasor rotor(Type rad) {
+				return phasor((Type) 1.0, rad);
+			}
+
+
+			/// Imaginary unit in exponential form
+			inline static phasor i() {
+				return phasor(1, PI / 2.0);
 			}
 
 
 			// Friend operators to enable equations of the form
 			// (real) op. (phasor)
 
-			inline friend phasor operator+(T r, const phasor& z) {
+			inline friend phasor operator+(Type r, const phasor& z) {
 				return z + phasor(r);
 			}
 
-			inline friend phasor operator-(T r, const phasor& z) {
+			inline friend phasor operator-(Type r, const phasor& z) {
 				return phasor(z.modulus, z.phase + PI) + phasor(r);
 			}
 
-			inline friend phasor operator*(T r, const phasor& z) {
+			inline friend phasor operator*(Type r, const phasor& z) {
 				return z * phasor(r);
 			}
 
-			inline friend phasor operator/(T r, const phasor& z) {
+			inline friend phasor operator/(Type r, const phasor& z) {
 				return phasor(r) / z;
 			}
 
