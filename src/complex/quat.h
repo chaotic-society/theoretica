@@ -12,7 +12,7 @@
 #endif
 
 #include "../core/real_analysis.h"
-#include "../algebra/vec.h"
+#include "../algebra/algebra.h"
 
 
 namespace theoretica {
@@ -144,7 +144,7 @@ namespace theoretica {
 					return quat((Type) nan());
 				}
 
-				return conjugate() / sqr_norm;
+				return conjugate() / sqr_norm();
 			}
 
 
@@ -304,7 +304,7 @@ namespace theoretica {
 
 				if(v.size() != 3) {
 					TH_MATH_ERROR("quat::transform", v.size(), INVALID_ARGUMENT);
-					vec_error(res);
+					algebra::vec_error(res);
 					return res;
 				}
 
@@ -340,13 +340,13 @@ namespace theoretica {
 
 				if(axis.size() != 3) {
 					TH_MATH_ERROR("quat::rotate", axis.size(), INVALID_ARGUMENT);
-					vec_error(res);
+					algebra::vec_error(res);
 					return res;
 				}
 
 				if(v.size() != 3) {
 					TH_MATH_ERROR("quat::rotate", v.size(), INVALID_ARGUMENT);
-					vec_error(res);
+					algebra::vec_error(res);
 					return res;
 				}
 
@@ -355,9 +355,11 @@ namespace theoretica {
 				const Type s = sin(rad / 2.0);
 				const Type c = cos(rad / 2.0);
 
-				const quat q = quat(c, n_axis[0] * s, n_axis[1] * s, n_axis[2] * s);
+				const quat q = quat(
+					c, n_axis.get(0) * s, n_axis.get(1) * s, n_axis.get(2) * s);
+
 				const quat q_inv = q.conjugate();
-				const quat p = quat(0, v[0], v[1], v[2]);
+				const quat p = quat(0, v.get(0), v.get(1), v.get(2));
 
 				const quat r = q * p * q_inv;
 				res[0] = r.b;
