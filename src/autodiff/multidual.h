@@ -281,7 +281,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < N; ++i)
 					for (unsigned int j = 0; j < N; ++j)
-						J.iat(j, i) = v.get(j).Dual().get(i);
+						J.at(j, i) = v.get(j).Dual().get(i);
 				
 				return J;
 			}
@@ -298,7 +298,7 @@ namespace theoretica {
 				for (unsigned int i = 0; i < N; ++i) {
 					
 					for (unsigned int j = 0; j < N; ++j)
-						J.iat(j, i) = v.get(j).Dual().get(i);
+						J.at(j, i) = v.get(j).Dual().get(i);
 					
 					x[i] = v.get(i).Re();
 				}

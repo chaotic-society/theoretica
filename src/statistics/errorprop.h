@@ -31,7 +31,7 @@ namespace theoretica {
 
 		for (unsigned int i = 0; i < N; ++i)
 			for (unsigned int j = 0; j < N; ++j)
-				cm.iat(i, j) = sample_covariance(v[i], v[j]);
+				cm.at(i, j) = sample_covariance(v[i], v[j]);
 
 		return cm;
 	}
@@ -87,7 +87,7 @@ namespace theoretica {
 		for (unsigned int i = 0; i < N; ++i)
 			for (unsigned int j = 0; j < N; ++j)
 				err_sqr += df.Dual().get(i) * df.Dual().get(j)
-					* cm.iget(i, j);
+					* cm.get(i, j);
 
 		return sqrt(err_sqr);
 	}

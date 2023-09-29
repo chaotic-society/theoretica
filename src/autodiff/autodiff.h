@@ -138,7 +138,7 @@ namespace theoretica {
 		mat<M, N> J;
 		for (unsigned int i = 0; i < N; ++i) {
 			for (unsigned int j = 0; j < M; ++j) {
-				J.iat(j, i) = res.at(j).Dual().at(i);
+				J.at(j, i) = res.at(j).Dual().at(i);
 			}
 		}
 
@@ -165,9 +165,9 @@ namespace theoretica {
 		mat3 J = jacobian<3, 3>(f, x);
 		vec3 res;
 
-		res.at(0) = J.iat(2, 1) - J.iat(1, 2);
-		res.at(1) = J.iat(0, 2) - J.iat(2, 0);
-		res.at(2) = J.iat(1, 0) - J.iat(0, 1);
+		res.at(0) = J.at(2, 1) - J.at(1, 2);
+		res.at(1) = J.at(0, 2) - J.at(2, 0);
+		res.at(2) = J.at(1, 0) - J.at(0, 1);
 
 		return res;
 	}

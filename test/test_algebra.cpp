@@ -16,7 +16,7 @@ mat<N, M> rand_mat(real a, real b, PRNG& g) {
 	mat<N, M> A;
 	for (size_t i = 0; i < N; ++i)
 		for (size_t j = 0; j < M; ++j)
-			A.iat(i, j) = rand_uniform(a, b, g);
+			A.at(i, j) = rand_uniform(a, b, g);
 
 	return A;
 }
@@ -49,7 +49,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 		for (size_t j = 0; j < N; ++j) {
 			for (size_t k = 0; k < N; ++k) {
 
-				Real diff = th::abs(R.iat(j, k) - kronecker_delta(j, k));
+				Real diff = th::abs(R.at(j, k) - kronecker_delta(j, k));
 
 				sum += diff;
 				sum2 += square(diff);
@@ -154,7 +154,7 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 	for (unsigned int i = 0; i < res.rows(); ++i) {
 		for (unsigned int j = 0; j < res.cols(); ++j) {
 			
-			real diff = th::abs(res.iat(i, j) - C.iat(i, j));
+			real diff = th::abs(res.at(i, j) - C.at(i, j));
 
 			if(max < diff)
 				max = diff;

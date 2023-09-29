@@ -193,17 +193,7 @@ namespace theoretica {
 		}
 
 		/// Access i-th element
-		inline T& iat(unsigned int i) {
-			return data[i];
-		}
-
-		/// Access i-th element
 		inline T& at(unsigned int i) {
-			return data[i];
-		}
-
-		/// Getters and setters
-		inline T iget(unsigned int i) const {
 			return data[i];
 		}
 
