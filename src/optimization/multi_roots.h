@@ -36,7 +36,7 @@ namespace theoretica {
 		);
 
 		// Jacobian matrix
-		mat<N, N> J;
+		mat<real, N, N> J;
 
 		while(f_x.square_length() > square(tolerance) && iter <= max_iter) {
 

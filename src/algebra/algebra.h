@@ -562,6 +562,7 @@ namespace theoretica {
 		template<typename Matrix, typename MatrixInv = Matrix>
 		inline MatrixInv inverse(const Matrix& m) {
 			MatrixInv res;
+			res.resize(m.rows(), m.cols());
 			inverse(res, m);
 			return res;
 		}
@@ -582,6 +583,7 @@ namespace theoretica {
 
 			// Prepare extended matrix (A|B)
 			Matrix tmp;
+			tmp.resize(m.rows(), m.cols());
 			inverse(tmp, m);
 
 			// Modify the matrix only when the inversion

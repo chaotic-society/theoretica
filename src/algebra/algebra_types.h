@@ -14,22 +14,22 @@ namespace theoretica {
 
 
 	/// A 2x2 matrix with real entries
-	using mat2 = mat<2, 2, real>;
+	using mat2 = mat<real, 2, 2>;
 
 	/// A 3x3 matrix with real entries
-	using mat3 = mat<3, 3, real>;
+	using mat3 = mat<real, 3, 3>;
 
 	/// A 4x4 matrix with real entries
-	using mat4 = mat<4, 4, real>;
+	using mat4 = mat<real, 4, 4>;
 
 	/// A 2x2 matrix with real entries
-	using cmat2 = mat<2, 2, complex<>>;
+	using cmat2 = mat<complex<real>, 2, 2>;
 
 	/// A 3x3 matrix with real entries
-	using cmat3 = mat<3, 3, complex<>>;
+	using cmat3 = mat<complex<real>, 3, 3>;
 
 	/// A 4x4 matrix with real entries
-	using cmat4 = mat<4, 4, complex<>>;
+	using cmat4 = mat<complex<real>, 4, 4>;
 
 
 	/// A 2-dimensional vector with real elements

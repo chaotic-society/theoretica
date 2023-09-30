@@ -11,9 +11,9 @@ using namespace chebyshev;
 
 // Generate a random matrix with elements inside the interval [a, b]
 template<unsigned int N, unsigned int M>
-mat<N, M> rand_mat(real a, real b, PRNG& g) {
+mat<real, N, M> rand_mat(real a, real b, PRNG& g) {
 
-	mat<N, M> A;
+	mat<real, N, M> A;
 	for (size_t i = 0; i < N; ++i)
 		for (size_t j = 0; j < M; ++j)
 			A.at(i, j) = rand_uniform(a, b, g);
@@ -22,7 +22,7 @@ mat<N, M> rand_mat(real a, real b, PRNG& g) {
 }
 
 
-// Test mat<N, N>::inverse()
+// Test mat<real, N, N>::inverse()
 template<unsigned int N>
 prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) {
 
@@ -35,7 +35,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 
 	for (size_t i = 0; i < n; ++i) {
 
-		mat<N, N> A = rand_mat<N, N>(k.a, k.b, g);
+		mat<real, N, N> A = rand_mat<N, N>(k.a, k.b, g);
 
 		// Skip singular matrices
 		if(th::abs(A.det()) <= MACH_EPSILON) {
@@ -44,7 +44,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 		}
 
 		// Resulting matrix expected to be identity
-		mat<N, N> R = A * A.inverse();
+		mat<real, N, N> R = A * A.inverse();
 
 		for (size_t j = 0; j < N; ++j) {
 			for (size_t k = 0; k < N; ++k) {
@@ -76,7 +76,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 }
 
 
-// Test mat<N, N>::det()
+// Test mat<real, N, N>::det()
 template<unsigned int N>
 prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 
@@ -89,7 +89,7 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 
 	for (size_t i = 0; i < n; ++i) {
 
-		mat<N, N> A = mat<N, N>();
+		mat<real, N, N> A = mat<real, N, N>();
 		for (size_t j = 0; j < N; ++j)
 			A.at(j, j) = rand_uniform(k.a, k.b, g);
 
@@ -125,27 +125,27 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 
 
-	mat<3, 3> A = {
+	mat<real, 3, 3> A = {
 		{1, 5, 9},
 		{10, 7, 18},
 		{3, 11, 5}
 	};
 
 
-	mat<3, 4> B = {
+	mat<real, 3, 4> B = {
 		{7, 5, 0, 11},
 		{4, 12, 1, 6},
 		{3, 7, 9, 0},
 	};
 
-	mat<3, 4> C = {
+	mat<real, 3, 4> C = {
 		{54, 128, 86, 41},
 		{152, 260, 169, 152},
 		{80, 182, 56, 99}
 	};
 
 
-	mat<3, 4> res = A * B;
+	mat<real, 3, 4> res = A * B;
 
 	real max = 0;
 	real sum = 0;

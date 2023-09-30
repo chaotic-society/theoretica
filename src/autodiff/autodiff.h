@@ -130,12 +130,13 @@ namespace theoretica {
 	/// Compute the jacobian of a generic function of the form
 	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$
 	template<unsigned int N, unsigned int M>
-	inline mat<M, N> jacobian(vec<M, multidual<N>>(*f)(vec<N, multidual<N>>), const vec<N, real>& x) {
+	inline mat<real, M, N> jacobian(
+		vec<M, multidual<N>>(*f)(vec<N, multidual<N>>), const vec<N, real>& x) {
 
 		vec<M, multidual<N>> res = f(multidual<N>::make_argument(x));
 
 		// Construct the jacobian matrix
-		mat<M, N> J;
+		mat<real, M, N> J;
 		for (unsigned int i = 0; i < N; ++i) {
 			for (unsigned int j = 0; j < M; ++j) {
 				J.at(j, i) = res.at(j).Dual().at(i);
@@ -149,7 +150,8 @@ namespace theoretica {
 	/// Get a function which computes the jacobian of a generic function of the form
 	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$ for a given $\vec x$
 	template<unsigned int N, unsigned int M>
-	inline std::function<mat<M, N>(vec<N, real>)> jacobian(vec<M, multidual<N>>(*f)(vec<N, multidual<N>>)) {
+	inline std::function<mat<real, M, N>(vec<N, real>)> jacobian(
+		vec<M, multidual<N>>(*f)(vec<N, multidual<N>>)) {
 
 		return [f](vec<N, real> x) {
 			return jacobian(f, x);
@@ -269,7 +271,7 @@ namespace theoretica {
 	/// conjugate momenta.
 	template<unsigned int M>
 	inline real sturm_liouville(dual(*f)(vec<M, dual>), dual(*H)(vec<M, dual>), vec<M> eta) {
-		return gradient(f, eta) * mat<M, M>::symplectic() * gradient(H, eta);
+		return gradient(f, eta) * mat<real, M, M>::symplectic() * gradient(H, eta);
 	}
 
 }

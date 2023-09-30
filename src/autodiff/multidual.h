@@ -274,10 +274,10 @@ namespace theoretica {
 			/// Extract the dual matrix (Jacobian)
 			/// from a vector of multidual numbers
 			/// as a mat<N, N>
-			inline static mat<N, N> extract_dual(
+			inline static mat<real, N, N> extract_dual(
 				const vec<N, multidual<N>>& v) {
 
-				mat<N, N> J;
+				mat<real, N, N> J;
 
 				for (unsigned int i = 0; i < N; ++i)
 					for (unsigned int j = 0; j < N; ++j)
@@ -289,11 +289,11 @@ namespace theoretica {
 
 			/// Extract the real vector and dual matrix
 			/// from a vector of multidual numbers
-			/// as a vec<N, real> and mat<N, N>
+			/// as a vec<N, real> and mat<real, N, N>
 			inline static void extract(
 				const vec<N, multidual<N>>& v,
 				vec<N>& x,
-				mat<N, N>& J) {
+				mat<real, N, N>& J) {
 
 				for (unsigned int i = 0; i < N; ++i) {
 					
