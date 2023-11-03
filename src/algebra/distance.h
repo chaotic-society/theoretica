@@ -89,7 +89,7 @@ namespace theoretica {
 
 	/// Compute the Euclidean distance between two vectors
 	template<unsigned int N>
-	inline real distance(const vec<N, real>& v1, const vec<N, real>& v2) {
+	inline real distance(const vec<real, N>& v1, const vec<real, N>& v2) {
 		return euclidean_distance(v1, v2);
 	}
 
@@ -155,9 +155,9 @@ namespace theoretica {
 	/// Compute the Hermitian distance between two vectors
 	template<unsigned int N, typename T>
 	inline complex<T> distance(
-		const vec<N, complex<T>>& v1, const vec<N, complex<T>>& v2) {
+		const vec<complex<T>, N>& v1, const vec<complex<T>, N>& v2) {
 
-		return hermitian_distance<vec<N, complex<T>>, T>(v1, v2);
+		return hermitian_distance<vec<complex<T>, N>, T>(v1, v2);
 	}
 
 

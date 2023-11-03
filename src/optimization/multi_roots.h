@@ -18,27 +18,27 @@ namespace theoretica {
 	/// stopping the algorithm
 	/// @result The computed vector at which f is approximately zero
 	template<unsigned int N>
-	inline vec<N> multiroot_newton(
-		vec<N, multidual<N>>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0),
+	inline vec<real, N> multiroot_newton(
+		vec<multidual<N>, N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
 		// Current position
-		vec<N> x = guess;
+		vec<real, N> x = guess;
 
 		// Number of iterations
 		unsigned int iter = 0;
 
 		// The current value of f(x)
-		vec<N> f_x = multidual<N>::extract_real(
+		vec<real, N> f_x = multidual<N>::extract_real(
 			f(multidual<N>::make_argument(x))
 		);
 
 		// Jacobian matrix
 		mat<real, N, N> J;
 
-		while(f_x.square_length() > square(tolerance) && iter <= max_iter) {
+		while(f_x.sqr_norm() > square(tolerance) && iter <= max_iter) {
 
 			// Compute the function value and Jacobian
 			// using automatic differentiation
@@ -53,7 +53,7 @@ namespace theoretica {
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_root_newton", x, NO_ALGO_CONVERGENCE);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		return x;

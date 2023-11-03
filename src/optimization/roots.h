@@ -441,7 +441,6 @@ namespace theoretica {
 		const Field M = max(a_hi, a_sum);
 
 		// Back track from the bounds to the first sign inversion ?
-
 		
 		return roots(
 			[p](real x) { return p(x); },

@@ -9,7 +9,7 @@ using namespace theoretica;
 // Multivariate root search
 // {1, e} is a root
 template<typename NumType>
-inline vec<2, NumType> f1(vec<2, NumType> v) {
+inline vec<NumType, 2> f1(vec<NumType, 2> v) {
 
 	const NumType x = v[0];
 	const NumType y = v[1];

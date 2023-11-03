@@ -50,8 +50,8 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		const vec<N>& x_best, const vec<N>& delta_x) {
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		const vec<real, N>& x_best, const vec<real, N>& delta_x) {
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
@@ -78,8 +78,8 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		const vec<N>& x_best, const mat<real, N, N>& cm) {
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		const vec<real, N>& x_best, const mat<real, N, N>& cm) {
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
@@ -106,10 +106,10 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
+		multidual<N>(*f)(vec<multidual<N>, N>),
 		const std::vector<vec_buff>& v) {
 
-		vec<N> x_mean;
+		vec<real, N> x_mean;
 
 		for (unsigned int i = 0; i < N; ++i)
 			x_mean[i] = mean(v[i]);

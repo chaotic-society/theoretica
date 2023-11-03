@@ -51,7 +51,7 @@ namespace theoretica {
 
 		if(sqrt_x == 0) {
 			TH_MATH_ERROR("sqrt(multidual)", sqrt_x, DIV_BY_ZERO);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(sqrt_x, x.Dual() * 0.5 / sqrt_x);
@@ -80,7 +80,7 @@ namespace theoretica {
 
 		if(cos_x == 0) {
 			TH_MATH_ERROR("tan(multidual)", cos_x, DIV_BY_ZERO);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(tan(x.Re()), x.Dual() / square(cos_x));
@@ -95,7 +95,7 @@ namespace theoretica {
 
 		if(sin_x == 0) {
 			TH_MATH_ERROR("cot(multidual)", sin_x, DIV_BY_ZERO);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(cot(x.Re()), x.Dual() * (-1 / square(sin_x)));
@@ -116,7 +116,7 @@ namespace theoretica {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("ln(multidual)", x.Re(), OUT_OF_DOMAIN);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(ln(x.Re()), x.Dual() / x.Re());
@@ -129,7 +129,7 @@ namespace theoretica {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log2(multidual)", x.Re(), OUT_OF_DOMAIN);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(log2(x.Re()), x.Dual() * LOG2E / x.Re());
@@ -142,7 +142,7 @@ namespace theoretica {
 
 		if(x.Re() <= 0) {
 			TH_MATH_ERROR("log10(multidual)", x.Re(), OUT_OF_DOMAIN);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(log10(x.Re()), x.Dual() * LOG10E / x.Re());
@@ -162,7 +162,7 @@ namespace theoretica {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("asin(multidual)", x.Re(), OUT_OF_DOMAIN);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(asin(x.Re()), x.Dual() / sqrt(1 - square(x.Re())));
@@ -175,7 +175,7 @@ namespace theoretica {
 
 		if(x.Re() >= 1) {
 			TH_MATH_ERROR("acos(multidual)", x.Re(), OUT_OF_DOMAIN);
-			return multidual<N>(nan(), vec<N>(nan()));
+			return multidual<N>(nan(), vec<real, N>(nan()));
 		}
 
 		return multidual<N>(acos(x.Re()), x.Dual() * (-1 / sqrt(1 - square(x.Re()))));

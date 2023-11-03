@@ -26,7 +26,7 @@ namespace theoretica {
 
 	// Operations on datasets
 	// The Vector type must have size() and operator[]() functions
-	// (e.g. vec_buff and vec<N>)
+	// (e.g. vec_buff and vec<real, N>)
 
 
 	/// Compute the product of a set of values

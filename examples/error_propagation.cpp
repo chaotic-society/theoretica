@@ -12,7 +12,7 @@ using namespace th;
 
 // Example function to compute error on
 template<typename NumType>
-NumType f(vec<3, NumType> v) {
+NumType f(vec<NumType, 3> v) {
 
 	const NumType x = v[0];
 	const NumType y = v[1];

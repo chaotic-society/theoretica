@@ -162,13 +162,13 @@ namespace theoretica {
 
 
 		/// Transform a vector by the matrix
-		inline vec<N, Type> transform(const vec<K, Type>& v) const {
+		inline vec<Type, N> transform(const vec<Type, K>& v) const {
 			return algebra::transform(*this, v);
 		}
 
 
 		/// Transform a vector by the matrix
-		inline vec<N, Type> operator*(const vec<K, Type>& v) const {
+		inline vec<Type, N> operator*(const vec<Type, K>& v) const {
 			return transform(v);
 		}
 
@@ -414,7 +414,7 @@ namespace theoretica {
 
 
 		/// Get a 4x4 matrix which translates by {x, y, z}
-		template<typename Vector = vec<N - 1>>
+		template<typename Vector = vec<real, N - 1>>
 		inline static mat<Type, N, K> translation(Vector&& t) {
 			return algebra::translation<mat<Type, N, K>>(t);
 		}
@@ -449,7 +449,7 @@ namespace theoretica {
 
 
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
-		template<typename Vector = vec<3>>
+		template<typename Vector = vec<real, 3>>
 		inline static mat<Type, N, K> rotation_3d(real theta, Vector&& axis) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
 			return algebra::rotation_3d<mat<Type, N, K>>(theta, axis);
@@ -710,14 +710,14 @@ namespace theoretica {
 
 		/// Transform a vector by the matrix
 		template<unsigned int N, unsigned int K>
-		inline vec<N, Type> transform(const vec<K, Type>& v) const {
+		inline vec<Type, N> transform(const vec<Type, K>& v) const {
 			return algebra::transform(*this, v);
 		}
 
 
 		/// Transform a vector by the matrix
 		template<unsigned int N, unsigned int K>
-		inline vec<N, Type> operator*(const vec<K, Type>& v) const {
+		inline vec<Type, N> operator*(const vec<Type, K>& v) const {
 			return transform(v);
 		}
 
@@ -1010,13 +1010,8 @@ namespace theoretica {
 					}
 				}
 
-				// for (unsigned int i = 0; i < row_sz; ++i)
-				// 	data[i].clear();
 				data.clear();
-
 				data = new_data;
-				// for (unsigned int i = 0; i < size1; ++i)
-				// 	data[i] = new_data[i];
 
 				row_sz = n;
 				col_sz = k;
@@ -1073,7 +1068,7 @@ namespace theoretica {
 
 
 		/// Get a matrix which rotates <theta> radians around the <axis> axis
-		template<typename Vector = vec<3>>
+		template<typename Vector = vec<real, 3>>
 		inline static mat<Type> rotation_3d(real theta, Vector&& axis) {
 			return algebra::rotation_3d<mat<Type>>(theta, axis);
 		}

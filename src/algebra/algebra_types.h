@@ -22,6 +22,9 @@ namespace theoretica {
 	/// A 4x4 matrix with real entries
 	using mat4 = mat<real, 4, 4>;
 
+	/// A variable size matrix with complex entries
+	using cmat = mat<complex<>>;
+
 	/// A 2x2 matrix with real entries
 	using cmat2 = mat<complex<real>, 2, 2>;
 
@@ -33,22 +36,25 @@ namespace theoretica {
 
 
 	/// A 2-dimensional vector with real elements
-	using vec2 = vec<2, real>;
+	using vec2 = vec<real, 2>;
 
 	/// A 3-dimensional vector with real elements
-	using vec3 = vec<3, real>;
+	using vec3 = vec<real, 3>;
 
 	/// A 4-dimensional vector with real elements
-	using vec4 = vec<4, real>;
+	using vec4 = vec<real, 4>;
+
+	/// A variable size vector with complex elements
+	using cvec = vec<complex<>>;
 
 	/// A 2-dimensional vector with complex elements
-	using cvec2 = vec<2, complex<>>;
+	using cvec2 = vec<complex<>, 2>;
 
 	/// A 3-dimensional vector with complex elements
-	using cvec3 = vec<3, complex<>>;
+	using cvec3 = vec<complex<>, 3>;
 
 	/// A 4-dimensional vector with complex elements
-	using cvec4 = vec<4, complex<>>;
+	using cvec4 = vec<complex<>, 4>;
 
 }
 

@@ -52,9 +52,9 @@ namespace theoretica {
 	/// 
 	/// @note The alpha argument should be an irrational number.
 	template<unsigned int N>
-	inline vec<N> qrand_weyl_multi(unsigned int n, real alpha) {
+	inline vec<real, N> qrand_weyl_multi(unsigned int n, real alpha) {
 		
-		vec<N> r;
+		vec<real, N> r;
 		for (unsigned int i = 0; i < N; ++i)
 			r[i] = fract(n * pow(alpha, i + 1));
 

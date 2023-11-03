@@ -20,7 +20,7 @@ namespace theoretica {
 
 	/// Linear interpolation
 	template<unsigned int N>
-	inline vec<N> lerp(vec<N> P1, vec<N> P2, real interp) {
+	inline vec<real, N> lerp(vec<real, N> P1, vec<real, N> P2, real interp) {
 		return (P1 + (P2 - P1) * interp);
 	}
 
@@ -33,7 +33,7 @@ namespace theoretica {
 
 	/// Inverse linear interpolation
 	template<unsigned int N>
-	inline vec<N> invlerp(vec<N> P1, vec<N> P2, real value) {
+	inline vec<real, N> invlerp(vec<real, N> P1, vec<real, N> P2, real value) {
 
 		real t = invlerp(P1.get(0), P2.get(0), value);
 
@@ -60,32 +60,32 @@ namespace theoretica {
 
 	/// Remap a vector value from one range to another
 	template<unsigned int N>
-	inline vec<N> remap(vec<N> iFrom, vec<N> iTo, vec<N> oFrom, vec<N> oTo, real value) {
+	inline vec<real, N> remap(vec<real, N> iFrom, vec<real, N> iTo, vec<real, N> oFrom, vec<real, N> oTo, real value) {
 		return lerp(oFrom, oTo, invlerp(iFrom, iTo, value));
 	}
 
 
 	/// Normalized linear interpolation
 	template<unsigned int N>
-	inline vec<N> nlerp(vec<N> P1, vec<N> P2, real interp) {
+	inline vec<real, N> nlerp(vec<real, N> P1, vec<real, N> P2, real interp) {
 		return (P1 + (P2 - P1) * interp).normalized();
 	}
 
 
 	/// Spherical interpolation
 	template<unsigned int N>
-	inline vec<N> slerp(vec<N> P1, vec<N> P2, real t) {
+	inline vec<real, N> slerp(vec<real, N> P1, vec<real, N> P2, real t) {
 
 		// Compute (only once) the length
 		// of the input vectors
-		real P1_l = P1.length();
-		real P2_l = P2.length();
+		real P1_l = P1.norm();
+		real P2_l = P2.norm();
 
 		// Check whether one of the vectors is null,
 		// which would make the computation impossible
 		if(P1_l == 0 || P2_l == 0) {
 			TH_MATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		// Angle between P1 and P2 (from the dot product)
@@ -95,7 +95,7 @@ namespace theoretica {
 		// Check that the sine of the angle is not zero
 		if(s == 0) {
 			TH_MATH_ERROR("slerp", s, DIV_BY_ZERO);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		return (P1 * sin((1 - t) * omega) + P2 * sin(t * omega)) / s;
@@ -142,21 +142,21 @@ namespace theoretica {
 
 	/// Quadratic Bezier curve
 	template<unsigned int N>
-	inline vec<N> quadratic_bezier(vec<N> P0, vec<N> P1, vec<N> P2, real t) {
+	inline vec<real, N> quadratic_bezier(vec<real, N> P0, vec<real, N> P1, vec<real, N> P2, real t) {
 		return lerp(lerp(P0, P1, t), lerp(P1, P2, t), t);
 	}
 
 
 	/// Cubic Bezier curve
 	template<unsigned int N>
-	inline vec<N> cubic_bezier(vec<N> P0, vec<N> P1, vec<N> P2, vec<N> P3, real t) {
+	inline vec<real, N> cubic_bezier(vec<real, N> P0, vec<real, N> P1, vec<real, N> P2, vec<real, N> P3, real t) {
 
-		vec<N> A = lerp(P0, P1, t);
-		vec<N> B = lerp(P1, P2, t);
-		vec<N> C = lerp(P2, P3, t);
+		vec<real, N> A = lerp(P0, P1, t);
+		vec<real, N> B = lerp(P1, P2, t);
+		vec<real, N> C = lerp(P2, P3, t);
 
-		vec<N> D = lerp(A, B, t);
-		vec<N> E = lerp(B, C, t);
+		vec<real, N> D = lerp(A, B, t);
+		vec<real, N> E = lerp(B, C, t);
 
 		return lerp(D, E, t);
 	}
@@ -173,16 +173,16 @@ namespace theoretica {
 	/// \see quadratic_bezier
 	/// \see cubic_bezier
 	template<unsigned int N>
-	inline vec<N> bezier(std::vector<vec<N>> points, real t) {
+	inline vec<real, N> bezier(std::vector<vec<real, N>> points, real t) {
 		
 		if(points.size() < 2) {
 			TH_MATH_ERROR("bezier", points.size(), INVALID_ARGUMENT);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		if(t < 0 || t > 1) {
 			TH_MATH_ERROR("bezier", t, INVALID_ARGUMENT);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		for (int index = points.size(); index > 1; --index) {

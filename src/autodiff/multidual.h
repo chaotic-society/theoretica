@@ -28,27 +28,27 @@ namespace theoretica {
 		
 		public:
 			real a;
-			vec<N> v;
+			vec<real, N> v;
 
 
 			/// Construct a multidual number
 			/// as \f$(0 + \vec 0)\f$
-			multidual() : a(0), v(vec<N>(0)) {}
+			multidual() : a(0), v(vec<real, N>(0)) {}
 
 
 			/// Construct a multidual number from
 			/// a real number and an N dimensional vector
-			multidual(real r, vec<N> u) : a(r), v(u) {}
+			multidual(real r, vec<real, N> u) : a(r), v(u) {}
 
 
 			/// Construct a multidual number from
 			/// a real number
-			multidual(real r) : a(r), v(vec<N>(0)) {}
+			multidual(real r) : a(r), v(vec<real, N>(0)) {}
 
 
 			/// Construct a multidual number from
 			/// a (1 + N) dimensional vector
-			multidual(const vec<1 + N>& data) : a(data.get(0)) {
+			multidual(const vec<real, 1 + N>& data) : a(data.get(0)) {
 
 				for (int i = 1; i < N + 1; ++i) {
 					v.at(i - 1) = data.get(i);
@@ -61,7 +61,7 @@ namespace theoretica {
 			/// Initialize a multidual number from a real number
 			inline multidual& operator=(real x) {
 				a = x;
-				v = vec<N>();
+				v = vec<real, N>();
 				return *this;
 			}
 
@@ -73,7 +73,7 @@ namespace theoretica {
 
 
 			/// Return multidual part
-			inline vec<N> Dual() const {
+			inline vec<real, N> Dual() const {
 				return v;
 			}
 
@@ -89,7 +89,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<N>(nan()));
+					return multidual(nan(), vec<real, N>(nan()));
 				}
 
 				return multidual(1.0 / a, v * (-1 / (a * a)));
@@ -149,7 +149,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<N>(nan()));
+					return multidual(nan(), vec<real, N>(nan()));
 				}
 
 				return multidual(a / other.a,
@@ -223,7 +223,7 @@ namespace theoretica {
 				if(r == 0) {
 					TH_MATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
-					v = vec<N>(nan());
+					v = vec<real, N>(nan());
 					return *this;
 				}
 
@@ -244,13 +244,13 @@ namespace theoretica {
 			/// Construct an N-dimensional vector of multidual numbers
 			/// to be passed as argument to a multidual function
 			/// @param x A vector of real numbers containing the variables to pass
-			inline static vec<N, multidual<N>> make_argument(
-				const vec<N, real>& x) {
+			inline static vec<multidual<N>, N> make_argument(
+				const vec<real, N>& x) {
 
-				vec<N, multidual<N>> arg;
+				vec<multidual<N>, N> arg;
 				for (unsigned int i = 0; i < N; ++i)
 					arg.at(i) = multidual<N>(
-						x.get(i), vec<N>::euclidean_base(i)
+						x.get(i), vec<real, N>::euclidean_base(i)
 					);
 
 				return arg;
@@ -258,11 +258,11 @@ namespace theoretica {
 
 
 			/// Extract the real vector from a vector of
-			/// multidual numbers as a vec<N, real>
-			inline static vec<N> extract_real(
-				const vec<N, multidual<N>>& v) {
+			/// multidual numbers as a vec<real, N>
+			inline static vec<real, N> extract_real(
+				const vec<multidual<N>, N>& v) {
 
-				vec<N> x;
+				vec<real, N> x;
 
 				for (unsigned int i = 0; i < N; ++i)
 					x[i] = v.get(i).Re();
@@ -275,7 +275,7 @@ namespace theoretica {
 			/// from a vector of multidual numbers
 			/// as a mat<N, N>
 			inline static mat<real, N, N> extract_dual(
-				const vec<N, multidual<N>>& v) {
+				const vec<multidual<N>, N>& v) {
 
 				mat<real, N, N> J;
 
@@ -289,10 +289,10 @@ namespace theoretica {
 
 			/// Extract the real vector and dual matrix
 			/// from a vector of multidual numbers
-			/// as a vec<N, real> and mat<real, N, N>
+			/// as a vec<real, N> and mat<real, N, N>
 			inline static void extract(
-				const vec<N, multidual<N>>& v,
-				vec<N>& x,
+				const vec<multidual<N>, N>& v,
+				vec<real, N>& x,
 				mat<real, N, N>& J) {
 
 				for (unsigned int i = 0; i < N; ++i) {

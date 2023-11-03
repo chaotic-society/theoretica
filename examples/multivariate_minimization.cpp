@@ -10,11 +10,11 @@ using namespace th;
 
 
 // The function to minimize.
-// Should be declared either as a template to allow
+// Should be declared as a template to allow
 // the algorithms to automatically compute the derivatives
 // using autodiff.
 template<typename NumType>
-NumType f(vec<2, NumType> v) {
+NumType f(vec<NumType, 2> v) {
 
     const NumType x = v[0];
     const NumType y = v[1];

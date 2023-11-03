@@ -339,14 +339,14 @@ namespace theoretica {
 
 
 			/// Compute the roots of a quadratic polynomial
-			inline vec<2, complex<>> quadratic_roots() const {
+			inline vec<complex<>, 2> quadratic_roots() const {
 
 				const int order = find_order();
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
 					TH_MATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
-					return vec<2, complex<>>({nan(), nan()});
+					return vec<complex<>, 2>({nan(), nan()});
 				}
 
 				const T p = coeff[1] / coeff[2];
