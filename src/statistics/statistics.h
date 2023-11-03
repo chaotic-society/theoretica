@@ -19,7 +19,8 @@ namespace theoretica {
 
 
 	/// Compute the arithmetic mean of a set of values
-	inline real arithmetic_mean(const vec_buff& data) {
+	template<typename Dataset>
+	inline real arithmetic_mean(const Dataset& data) {
 
 		if(!data.size()) {
 			TH_MATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
@@ -33,13 +34,15 @@ namespace theoretica {
 
 	/// Compute the arithmetic mean of a set of values
 	/// Alias for arithmetic_mean
-	inline real mean(const vec_buff& data) {
+	template<typename Dataset>
+	inline real mean(const Dataset& data) {
 		return arithmetic_mean(data);
 	}
 
 
 	/// Compute the harmonic mean of a set of values
-	inline real harmonic_mean(const vec_buff& data) {
+	template<typename Dataset>
+	inline real harmonic_mean(const Dataset& data) {
 
 		if(!data.size()) {
 			TH_MATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
@@ -64,14 +67,16 @@ namespace theoretica {
 
 	/// Compute the geometric mean of a set of values
 	/// as \f$\sqrt[n]{\Pi_i x_i}\f$
-	inline real geometric_mean(const vec_buff& data) {
+	template<typename Dataset>
+	inline real geometric_mean(const Dataset& data) {
 		return root(product(data), data.size());
 	}
 
 
 	/// Compute the weighted mean of a set of values
 	/// <data> and <weights> must have the same size
-	inline real weighted_mean(const vec_buff& data, const vec_buff& weights) {
+	template<typename Dataset1, typename Dataset2>
+	inline real weighted_mean(const Dataset1& data, const Dataset2& weights) {
 
 		// Sum of x_i * w_i / Sum of w_i
 		return product_sum(data, weights) / sum(weights);
@@ -80,7 +85,8 @@ namespace theoretica {
 
 	/// Compute the quadratic mean (Root Mean Square) of a set of values
 	/// \f$m_q = \sqrt{x1^2 + x2^2 + ...}\f$
-	inline real quadratic_mean(const vec_buff& data) {
+	template<typename Dataset>
+	inline real quadratic_mean(const Dataset& data) {
 
 		if(!data.size()) {
 			TH_MATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
@@ -94,7 +100,8 @@ namespace theoretica {
 	/// Compute the quadratic mean (Root Mean Square) of a set of values
 	/// \f$m_q = \sqrt{x_1^2 + x_2^2 + ...}\f$
 	/// @see quadratic_mean
-	inline real rms(const vec_buff& data) {
+	template<typename Dataset>
+	inline real rms(const Dataset& data) {
 
 		return quadratic_mean(data);
 	}
@@ -102,7 +109,8 @@ namespace theoretica {
 
 	/// Computes the range of a data set
 	/// defined as \f$x_{max} - {x_min}\f$
-	inline real range(const vec_buff& data) {
+	template<typename Dataset>
+	inline real range(const Dataset& data) {
 
 		return max(data) - min(data);
 	}
@@ -110,7 +118,8 @@ namespace theoretica {
 
 	/// Computes the maximum semidispersion of a data set
 	/// defined as \f$(x_{max} - {x_min}) / 2\f$
-	inline real semidispersion(const vec_buff& data) {
+	template<typename Dataset>
+	inline real semidispersion(const Dataset& data) {
 
 		return range(data) / 2.0;
 	}
@@ -118,7 +127,8 @@ namespace theoretica {
 
 	/// Propagate error of a sum of values
 	/// as sqrt(sigma_x^2 + sigma_y^2 + ...)
-	inline real propagate_sum(const vec_buff& sigma) {
+	template<typename Dataset>
+	inline real propagate_sum(const Dataset& sigma) {
 
 		return sqrt(sum_squares(sigma));
 	}
@@ -127,7 +137,8 @@ namespace theoretica {
 	/// Propagate error of a product (or quotient) of values
 	/// as \f$\sqrt{(sigma_x / x_{mean})^2 + (sigma_y / y_{mean})^2 + ...}\f$
 	/// The result is the propagated relative error
-	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
+	template<typename Dataset1, typename Dataset2>
+	inline real propagate_product(const Dataset1& sigma, const Dataset2& mean) {
 
 		if(sigma.size() != mean.size()) {
 			TH_MATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
@@ -152,7 +163,8 @@ namespace theoretica {
 
 	/// Total sum of squares (TSS)
 	/// Computed as \f$sum(square(x_i - x_{mean}))\f$
-	inline real total_sum_squares(const vec_buff& X) {
+	template<typename Dataset>
+	inline real total_sum_squares(const Dataset& X) {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
@@ -171,13 +183,15 @@ namespace theoretica {
 	/// Total sum of squares (TSS)
 	/// Computed as \f$\sum_i^n (x_i - x_{mean})^2 \f$
 	/// @see total_sum_squares
-	inline real tss(const vec_buff& X) {
+	template<typename Dataset>
+	inline real tss(const Dataset& X) {
 		return total_sum_squares(X);
 	}
 
 
 	/// Compute the variance of a population
-	inline real variance(const vec_buff& data) {
+	template<typename Dataset>
+	inline real variance(const Dataset& data) {
 
 		if(!data.size()) {
 			TH_MATH_ERROR("variance", data.size(), INVALID_ARGUMENT);
@@ -190,7 +204,8 @@ namespace theoretica {
 
 	/// Compute the variance of a sample
 	/// This function uses Bessel correction
-	inline real sample_variance(const vec_buff& data) {
+	template<typename Dataset>
+	inline real sample_variance(const Dataset& data) {
 
 		if(!data.size()) {
 			TH_MATH_ERROR("sample_variance", data.size(), INVALID_ARGUMENT);
@@ -203,32 +218,37 @@ namespace theoretica {
 
 
 	/// Compute the standard deviation of a population
-	inline real standard_deviation(const vec_buff& data) {
+	template<typename Dataset>
+	inline real standard_deviation(const Dataset& data) {
 		return sqrt(variance(data));
 	}
 
 
 	/// Compute the standard deviation of a population
-	inline real stdev(const vec_buff& data) {
+	template<typename Dataset>
+	inline real stdev(const Dataset& data) {
 		return standard_deviation(data);
 	}
 
 
 	/// Compute the standard deviation of a sample
-	inline real sample_standard_deviation(const vec_buff& data) {
+	template<typename Dataset>
+	inline real sample_standard_deviation(const Dataset& data) {
 		return sqrt(sample_variance(data));
 	}
 
 
 	/// Compute the standard deviation of a sample
-	inline real smpl_stdev(const vec_buff& data) {
+	template<typename Dataset>
+	inline real smpl_stdev(const Dataset& data) {
 		return sample_standard_deviation(data);
 	}
 
 
 	/// Compute the relative error on a population measure
 	/// using standard deviation
-	inline real standard_relative_error(const vec_buff& X) {
+	template<typename Dataset>
+	inline real standard_relative_error(const Dataset& X) {
 
 		real x_mean = mean(X);
 
@@ -243,7 +263,8 @@ namespace theoretica {
 
 	/// Compute the relative error on a sample measure
 	/// using standard deviation
-	inline real sample_standard_relative_error(const vec_buff& X) {
+	template<typename Dataset>
+	inline real sample_standard_relative_error(const Dataset& X) {
 
 		real x_mean = mean(X);
 
@@ -257,33 +278,38 @@ namespace theoretica {
 
 
 	/// Compute the standard deviation on the mean of a set of values
-	inline real mean_standard_deviation(const vec_buff& data) {
+	template<typename Dataset>
+	inline real mean_standard_deviation(const Dataset& data) {
 		return sqrt(variance(data)) / sqrt(data.size());
 	}
 
 
 	/// Compute the standard deviation on the mean of a set of values
-	inline real stdom(const vec_buff& data) {
+	template<typename Dataset>
+	inline real stdom(const Dataset& data) {
 		return mean_standard_deviation(data);
 	}
 
 
 	/// Compute the standard deviation on the mean of a set of measures
 	/// Bessel correction is used in the calculation of the variance
-	inline real sample_mean_standard_deviation(const vec_buff& data) {
+	template<typename Dataset>
+	inline real sample_mean_standard_deviation(const Dataset& data) {
 		return sqrt(sample_variance(data)) / sqrt(data.size());
 	}
 
 
 	/// Compute the standard deviation on the mean of a set of measures
 	/// Bessel correction is used in the calculation of the variance
-	inline real smpl_stdom(const vec_buff& data) {
+	template<typename Dataset>
+	inline real smpl_stdom(const Dataset& data) {
 		return sample_mean_standard_deviation(data);
 	}
 
 
 	/// Compute the covariance of two sets of measures
-	inline real covariance(const vec_buff& X, const vec_buff& Y) {
+	template<typename Dataset1, typename Dataset2>
+	inline real covariance(const Dataset1& X, const Dataset2& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
@@ -303,7 +329,8 @@ namespace theoretica {
 
 	/// Compute the covariance between two sets of sample measures
 	/// This function uses Bessel correction
-	inline real sample_covariance(const vec_buff& X, const vec_buff& Y) {
+	template<typename Dataset1, typename Dataset2>
+	inline real sample_covariance(const Dataset1& X, const Dataset2& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("sample_covariance", X.size(), INVALID_ARGUMENT);
@@ -323,13 +350,19 @@ namespace theoretica {
 
 
 	/// Pearson's correlation coefficient R for a population
-	inline real correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
+	template<typename Dataset1, typename Dataset2>
+	inline real correlation_coefficient(
+		const Dataset1& X, const Dataset2& Y) {
+
 		return covariance(X, Y) / (stdev(X) * stdev(Y));
 	}
 
 
 	/// Pearson's correlation coefficient r for a sample
-	inline real sample_correlation_coefficient(const vec_buff& X, const vec_buff& Y) {
+	template<typename Dataset1, typename Dataset2>
+	inline real sample_correlation_coefficient(
+		const Dataset1& X, const Dataset2& Y) {
+
 		return sample_covariance(X, Y) / (smpl_stdev(X) * smpl_stdev(Y));
 	}
 
@@ -338,7 +371,8 @@ namespace theoretica {
 	/// @param X The dataset
 	/// @param n The lag (defaults to lag-1)
 	/// @return The lag-n autocorrelation of the given dataset
-	inline real autocorrelation(const vec_buff& X, unsigned int n = 1) {
+	template<typename Dataset>
+	inline real autocorrelation(const Dataset& X, unsigned int n = 1) {
 
 		if(X.size() < n) {
 			TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
@@ -361,7 +395,8 @@ namespace theoretica {
 
 
 	/// Absolute deviation from the mean
-	inline real absolute_deviation(const vec_buff& X) {
+	template<typename Dataset>
+	inline real absolute_deviation(const Dataset& X) {
 
 		real mu = mean(X);
 		real res = 0;
@@ -374,13 +409,15 @@ namespace theoretica {
 
 
 	/// Absolute deviation from the mean
-	inline real absdev(const vec_buff& X) {
+	template<typename Dataset>
+	inline real absdev(const Dataset& X) {
 		return absolute_deviation(X);
 	}
 
 
 	/// Skewness of a dataset
-	inline real skewness(const vec_buff& X) {
+	template<typename Dataset>
+	inline real skewness(const Dataset& X) {
 
 		const real mu = mean(X);
 		const real sigma = smpl_stdev(X);
@@ -394,7 +431,8 @@ namespace theoretica {
 
 
 	/// Normalized Kurtosis of a dataset
-	inline real kurtosis(const vec_buff& X) {
+	template<typename Dataset>
+	inline real kurtosis(const Dataset& X) {
 
 		const real mu = mean(X);
 		const real sigma = smpl_stdev(X);
@@ -435,10 +473,11 @@ namespace theoretica {
 	/// @param E The set of expected values
 	/// @param sigma The set of standard deviations on the observations
 	/// @return The computed Chi-squared
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real chi_square(
-		const vec_buff& O,
-		const vec_buff& E,
-		const vec_buff& sigma) {
+		const Dataset1& O,
+		const Dataset2& E,
+		const Dataset3& sigma) {
 
 		if(O.size() != E.size() || E.size() != sigma.size()) {
 			TH_MATH_ERROR("chi_square", E.size(), INVALID_ARGUMENT);
@@ -511,8 +550,9 @@ namespace theoretica {
 
 
 	/// Compute the intercept of the minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2>
 	inline real least_squares_linear_intercept(
-		const vec_buff& X, const vec_buff& Y) {
+		const Dataset1& X, const Dataset2& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("least_squares_linear_intercept", X.size(), INVALID_ARGUMENT);
@@ -527,15 +567,17 @@ namespace theoretica {
 
 
 	/// Compute the intercept of the minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2>
 	inline real lst_sqrs_lin_intercept(
-		const vec_buff& X, const vec_buff& Y) {
+		const Dataset1& X, const Dataset2& Y) {
 		return least_squares_linear_intercept(X, Y);
 	}
 
 
 	/// Compute the error on the intercept (A)
+	template<typename Dataset1, typename Dataset2>
 	inline real least_squares_linear_sigma_A(
-		const vec_buff& X, const vec_buff& Y, real sigma_Y) {
+		const Dataset1& X, const Dataset2& Y, real sigma_Y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		return sqrt(sum_squares(X) / Delta) * abs(sigma_Y);
@@ -543,8 +585,9 @@ namespace theoretica {
 
 
 	/// Compute the slope of the minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2>
 	inline real least_squares_linear_slope(
-		const vec_buff& X, const vec_buff& Y) {
+		const Dataset1& X, const Dataset2& Y) {
 
 		if(X.size() != Y.size()) {
 			TH_MATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
@@ -559,14 +602,16 @@ namespace theoretica {
 
 
 	/// Compute the slope of the minimum squares linearization of X and Y
-	inline real lst_sqrs_lin_slope(const vec_buff& X, const vec_buff& Y) {
+	template<typename Dataset1, typename Dataset2>
+	inline real lst_sqrs_lin_slope(const Dataset1& X, const Dataset2& Y) {
 		return least_squares_linear_slope(X, Y);
 	}
 
 
 	/// Compute the error on the slope coefficient (B)
+	template<typename Dataset1, typename Dataset2>
 	inline real least_squares_linear_sigma_B(
-		const vec_buff& X, const vec_buff& Y, real sigma_Y) {
+		const Dataset1& X, const Dataset2& Y, real sigma_Y) {
 
 		real Delta = X.size() * sum_squares(X) - square(sum(X));
 		return sqrt(X.size() / Delta) * abs(sigma_Y);
@@ -574,8 +619,9 @@ namespace theoretica {
 
 
 	/// Compute the error of the minimum squares linearization of a sample
+	template<typename Dataset1, typename Dataset2>
 	inline real least_squares_linear_error(
-		const vec_buff& X, const vec_buff& Y,
+		const Dataset1& X, const Dataset2& Y,
 		real intercept, real slope) {
 
 		if(X.size() != Y.size()) {
@@ -594,17 +640,19 @@ namespace theoretica {
 
 
 	/// Compute the error of the minimum squares linearization of a sample
+	template<typename Dataset1, typename Dataset2>
 	inline real lst_sqrs_lin_error(
-		const vec_buff& X, const vec_buff& Y,
+		const Dataset1& X, const Dataset2& Y,
 		real intercept, real slope) {
 		return least_squares_linear_error(X, Y, intercept, slope);
 	}
 
 
 	/// Compute the chi-square on a linearization
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real chi_square_linearization(
-		const vec_buff& X, const vec_buff& Y,
-		const vec_buff& sigma, real intercept, real slope) {
+		const Dataset1& X, const Dataset2& Y,
+		const Dataset3& sigma, real intercept, real slope) {
 
 		if(X.size() != Y.size() || X.size() != sigma.size()) {
 			TH_MATH_ERROR(
@@ -623,8 +671,9 @@ namespace theoretica {
 
 
 	/// Compute the reduced chi-squared on a linearization
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real reduced_chi_square_linearization(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
+		const Dataset1& X, const Dataset2& Y, const Dataset3& sigma,
 		real intercept, real slope) {
 
 		// Divide by degrees of freedom (N - 2)
@@ -634,8 +683,9 @@ namespace theoretica {
 
 
 	/// Compute the intercept of the weighted minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real least_squares_weighted_linear_intercept(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		const Dataset1& X, const Dataset2& Y, const Dataset3& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
 			TH_MATH_ERROR(
@@ -654,15 +704,17 @@ namespace theoretica {
 
 
 	/// Compute the intercept of the weighted minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real lst_sqrs_weight_lin_intercept(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		const Dataset1& X, const Dataset2& Y, const Dataset3& W) {
 		return least_squares_weighted_linear_intercept(X, Y, W);
 	}
 
 
 	/// Compute the slope of the weighted minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real least_squares_weighted_linear_slope(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		const Dataset1& X, const Dataset2& Y, const Dataset3& W) {
 
 		if(X.size() != Y.size() || X.size() != W.size()) {
 			TH_MATH_ERROR(
@@ -681,8 +733,9 @@ namespace theoretica {
 
 
 	/// Compute the slope of the weighted minimum squares linearization of X and Y
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real lst_sqrs_weight_lin_slope(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
+		const Dataset1& X, const Dataset2& Y, const Dataset3& W) {
 		return least_squares_weighted_linear_slope(X, Y, W);
 	}
 
