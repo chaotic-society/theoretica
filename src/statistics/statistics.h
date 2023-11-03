@@ -79,7 +79,7 @@ namespace theoretica {
 
 
 	/// Compute the quadratic mean (Root Mean Square) of a set of values
-	/// m_q = sqrt(x1^2 + x2^2 + ...)
+	/// \f$m_q = \sqrt{x1^2 + x2^2 + ...}\f$
 	inline real quadratic_mean(const vec_buff& data) {
 
 		if(!data.size()) {
@@ -92,7 +92,7 @@ namespace theoretica {
 
 
 	/// Compute the quadratic mean (Root Mean Square) of a set of values
-	/// m_q = sqrt(x1^2 + x2^2 + ...)
+	/// \f$m_q = \sqrt{x_1^2 + x_2^2 + ...}\f$
 	/// @see quadratic_mean
 	inline real rms(const vec_buff& data) {
 
@@ -101,7 +101,7 @@ namespace theoretica {
 
 
 	/// Computes the range of a data set
-	/// defined as x_max - x_min
+	/// defined as \f$x_{max} - {x_min}\f$
 	inline real range(const vec_buff& data) {
 
 		return max(data) - min(data);
@@ -109,7 +109,7 @@ namespace theoretica {
 
 
 	/// Computes the maximum semidispersion of a data set
-	/// defined as (x_max - x_min) / 2
+	/// defined as \f$(x_{max} - {x_min}) / 2\f$
 	inline real semidispersion(const vec_buff& data) {
 
 		return range(data) / 2.0;
@@ -125,7 +125,7 @@ namespace theoretica {
 
 
 	/// Propagate error of a product (or quotient) of values
-	/// as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...)
+	/// as \f$\sqrt{(sigma_x / x_{mean})^2 + (sigma_y / y_{mean})^2 + ...}\f$
 	/// The result is the propagated relative error
 	inline real propagate_product(const vec_buff& sigma, const vec_buff& mean) {
 
@@ -151,7 +151,7 @@ namespace theoretica {
 
 
 	/// Total sum of squares (TSS)
-	/// Computed as sum(square(x_i - x_mean))
+	/// Computed as \f$sum(square(x_i - x_{mean}))\f$
 	inline real total_sum_squares(const vec_buff& X) {
 
 		if(!X.size()) {
@@ -169,7 +169,7 @@ namespace theoretica {
 	}
 
 	/// Total sum of squares (TSS)
-	/// Computed as sum(square(x_i - x_mean))
+	/// Computed as \f$\sum_i^n (x_i - x_{mean})^2 \f$
 	/// @see total_sum_squares
 	inline real tss(const vec_buff& X) {
 		return total_sum_squares(X);
@@ -404,6 +404,26 @@ namespace theoretica {
 			res += pow((x - mu) / sigma, 4);
 
 		return (res / X.size()) - 3;
+	}
+
+
+	/// Compute the expectation of a given function with respect
+	/// to a Gaussian distribution with the given parameters.
+	/// This function uses Gauss-Hermite quadrature to compute
+	/// the integral \f$\int_{-\infty}^{+\infty} g(x) e^{-x^2} dx\f$
+	///
+	/// @param mean The mean of the Gaussian distribution
+	/// @param sigma The standard deviation of the Gaussian distribution
+	/// @param g The function to compute the expectation of
+	/// @return The Gaussian expectation of the given function
+	template<typename RealFunction>
+	real gaussian_expectation(real mean, real sigma, RealFunction g) {
+
+		return integral_hermite(
+			[=](real x) {
+				return g(SQRT2 * sigma * x + mean);
+			}
+		) / SQRTPI;
 	}
 
 

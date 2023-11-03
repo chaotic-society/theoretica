@@ -330,22 +330,14 @@ namespace theoretica {
 	}
 
 
-	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
-	/// a definite integral.
-	///
-	/// @note This function computes the n roots of the n-th degree Legendre
-	/// polynomial and the associated weights each time it is called. If multiple
-	/// calculations at the same degree are needed, it is more efficient to compute
-	/// them only once using legendre_roots.
-	///
-	/// @note This function uses Newton's method to compute the roots of the
-	/// n-th degree Legendre polynomial, so for higher degrees (>> 20) the algorithm
-	/// may fail to correctly find all of the zeroes.
+	/// Use Gauss-Legendre quadrature of degree 2, 4, 8, 16 or 32
+	/// using pre-computed values.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
-	/// @param n The order of the polynomial
+	/// @param n The order of the polynomial (available values are
+	/// 2, 4, 8, 16 or 32).
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
 	inline real integral_legendre(RealFunction f, real a, real b, unsigned int n = 16) {
@@ -359,6 +351,8 @@ namespace theoretica {
 				tables::legendre_roots_8, tables::legendre_weights_8, 8); break;
 			case 16: return integral_legendre(f, a, b,
 				tables::legendre_roots_16, tables::legendre_weights_16, 16); break;
+			case 32: return integral_legendre(f, a, b,
+				tables::legendre_roots_32, tables::legendre_weights_32, 32); break;
 			default: return integral_legendre(f, a, b, legendre_roots(n)); break;
 		}
 	}
@@ -393,7 +387,8 @@ namespace theoretica {
 	/// @param b The upper extreme of integration
 	/// @return The Gauss-Laguerre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_laguerre(RealFunction f, real a, real b, const std::vector<real>& x) {
+	inline real integral_laguerre(
+		RealFunction f, real a, real b, const std::vector<real>& x) {
 		
 		const std::vector<real> weights = laguerre_weights(x);
 
@@ -409,11 +404,12 @@ namespace theoretica {
 	}
 
 
-	/// Use Gauss-Laguerre quadrature of degree 2, 4, 8 or 16.
+	/// Use Gauss-Laguerre quadrature of degree 2, 4, 8, 16 or 32
+	/// using pre-computed values.
 	///
 	/// @param f The function to integrate
 	/// @param n The order of the polynomial (available values are
-	/// 2, 4, 8 or 16).
+	/// 2, 4, 8, 16 or 32).
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
 	inline real integral_laguerre(RealFunction f, unsigned int n = 16) {
@@ -427,6 +423,8 @@ namespace theoretica {
 				tables::laguerre_roots_8, tables::laguerre_weights_8, 8); break;
 			case 16: return integral_gauss(f,
 				tables::laguerre_roots_16, tables::laguerre_weights_16, 16); break;
+			case 32: return integral_gauss(f,
+				tables::laguerre_roots_32, tables::laguerre_weights_32, 32); break;
 			default: {
 				TH_MATH_ERROR("integral_laguerre", n, INVALID_ARGUMENT);
 				return nan(); break;
@@ -452,6 +450,33 @@ namespace theoretica {
 			res += weights[i] * f(x[i]);
 
 		return res;
+	}
+
+
+	/// Use Gauss-Hermite quadrature of degree 2, 4, 8 or 16
+	/// using pre-computed values.
+	///
+	/// @param f The function to integrate
+	/// @param n The order of the polynomial (available values are
+	/// 2, 4, 8 or 16).
+	/// @return The Gauss-Hermite quadrature of the given function
+	template<typename RealFunction>
+	inline real integral_hermite(RealFunction f, unsigned int n = 16) {
+		
+		switch(n) {
+			case 2: return integral_gauss(f,
+				tables::hermite_roots_2, tables::hermite_weights_2, 2); break;
+			case 4: return integral_gauss(f,
+				tables::hermite_roots_4, tables::hermite_weights_4, 4); break;
+			case 8: return integral_gauss(f,
+				tables::hermite_roots_8, tables::hermite_weights_8, 8); break;
+			case 16: return integral_gauss(f,
+				tables::hermite_roots_16, tables::hermite_weights_16, 16); break;
+			default: {
+				TH_MATH_ERROR("integral_hermite", n, INVALID_ARGUMENT);
+				return nan(); break;
+			}
+		}
 	}
 
 
