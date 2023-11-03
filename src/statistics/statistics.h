@@ -470,11 +470,37 @@ namespace theoretica {
 	/// @param chi_sqr The computed Chi-squared
 	/// @param ndf Number of Degrees of Freedom
 	/// @result The computed p-value
-	/// @note The current implementation works up to ndf = 36
+	/// @note The current implementation works up to ndf = 350
 	inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
+
+		if(ndf == 0) {
+			TH_MATH_ERROR("pvalue_chi_squared", ndf, INVALID_ARGUMENT);
+			return nan();
+		}
+
+		// The current implementation cannot handle ndf > 350
+		if(ndf > 350) {
+			TH_MATH_ERROR("pvalue_chi_squared", ndf, OUT_OF_DOMAIN);
+			return nan();
+		}
 
 		// Compute the coefficient using a stable equivalent formula
 		const real coeff = exp(-special::lngamma(ndf / 2.0) - chi_sqr / 2.0);
+
+		// Use different methods when Gauss-Laguerre is not numerically stable
+		if((ndf > 70 && chi_sqr < (ndf / 2.0)) || ndf > 250) {
+
+			// Use equivalent formula around potential singularity
+			real res = integral_romberg_tol([=](real x) {
+				return pow(sqrt(x + chi_sqr / 2), ndf - 2) * exp(-x);
+			}, 0, 1, 1E-12);
+
+			res += integral_inf_riemann([=](real x) {
+				return exp((ndf - 2) / 2.0 * ln(x + chi_sqr / 2) - x);
+			}, 1, ndf / 2, 1E-12, 100);
+
+			return coeff * res;
+		}
 
 		// Approximate the integral using Gauss-Laguerre quadrature
 		return coeff * integral_gauss(

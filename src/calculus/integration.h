@@ -351,8 +351,8 @@ namespace theoretica {
 				tables::legendre_roots_8, tables::legendre_weights_8, 8); break;
 			case 16: return integral_legendre(f, a, b,
 				tables::legendre_roots_16, tables::legendre_weights_16, 16); break;
-			case 32: return integral_legendre(f, a, b,
-				tables::legendre_roots_32, tables::legendre_weights_32, 32); break;
+			// case 32: return integral_legendre(f, a, b,
+			// 	tables::legendre_roots_32, tables::legendre_weights_32, 32); break;
 			default: return integral_legendre(f, a, b, legendre_roots(n)); break;
 		}
 	}
@@ -365,16 +365,9 @@ namespace theoretica {
 	/// @param x The roots of the n degree Laguerre polynomial
 	/// @return The Gauss-Laguerre quadrature of the given function
 	template<typename RealFunction>
-	inline real integral_laguerre(RealFunction f, const std::vector<real>& x) {
-		
-		const std::vector<real> weights = laguerre_weights(x);
+	inline real integral_laguerre(RealFunction f, const std::vector<real>& x) {		
 
-		real res = 0;
-
-		for (int i = x.size() - 1; i >= 0; --i)
-			res += weights[i] * f(x[i]);
-
-		return res;
+		return integral_gauss(f, x, laguerre_weights(x));
 	}
 
 
@@ -423,8 +416,8 @@ namespace theoretica {
 				tables::laguerre_roots_8, tables::laguerre_weights_8, 8); break;
 			case 16: return integral_gauss(f,
 				tables::laguerre_roots_16, tables::laguerre_weights_16, 16); break;
-			case 32: return integral_gauss(f,
-				tables::laguerre_roots_32, tables::laguerre_weights_32, 32); break;
+			// case 32: return integral_gauss(f,
+			// 	tables::laguerre_roots_32, tables::laguerre_weights_32, 32); break;
 			default: {
 				TH_MATH_ERROR("integral_laguerre", n, INVALID_ARGUMENT);
 				return nan(); break;
@@ -442,14 +435,7 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real integral_hermite(RealFunction f, const std::vector<real>& x) {
 		
-		const std::vector<real> weights = hermite_weights(x);
-
-		real res = 0;
-
-		for (int i = x.size() - 1; i >= 0; --i)
-			res += weights[i] * f(x[i]);
-
-		return res;
+		return integral_gauss(f, x, hermite_weights(x));
 	}
 
 
@@ -477,6 +463,43 @@ namespace theoretica {
 				return nan(); break;
 			}
 		}
+	}
+
+
+	/// Integrate a function from a point up to infinity
+	/// by integrating it by steps, stopping execution when
+	/// the variation of the integral is small enough or
+	/// the number of steps reaches a maximum value.
+	real integral_inf_riemann(
+		real_function f, real a, real step_sz = 1,
+		real tol = INTEGRATION_TOL, unsigned int max_iter = 100) {
+
+		// Current lower extreme of the interval
+		real x_n = a + step_sz;
+
+		// Total integral sum
+		real sum = integral_romberg_tol(f, a, x_n, tol);
+		
+		// Variation between steps
+		real delta = inf();
+
+		// Number of steps performed
+		unsigned int i = 0;
+
+		while(abs(delta) > tol && i <= max_iter) {
+
+			delta = integral_romberg_tol(f, x_n, x_n + step_sz, tol);
+			sum += delta;
+			x_n += step_sz;
+			i++;
+		}
+
+		if(i >= max_iter) {
+			TH_MATH_ERROR("integral_inf_riemann", i, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return sum;
 	}
 
 
