@@ -470,7 +470,7 @@ namespace theoretica {
 	/// by integrating it by steps, stopping execution when
 	/// the variation of the integral is small enough or
 	/// the number of steps reaches a maximum value.
-	real integral_inf_riemann(
+	inline real integral_inf_riemann(
 		real_function f, real a, real step_sz = 1,
 		real tol = INTEGRATION_TOL, unsigned int max_iter = 100) {
 

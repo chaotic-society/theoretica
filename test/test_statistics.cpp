@@ -38,22 +38,23 @@ int main(int argc, char const *argv[]) {
 
 
 		// P-value
+		// Error bounds are 10^-6
 
 		for (int i = 0; i < 10; ++i) {
 
-			unsigned int chi = g() % 300 + 1;
-			unsigned int ndf = g() % 300 + 1;
+			unsigned int chi = g() % 500 + 1;
+			unsigned int ndf = g() % 500 + 1;
 
 			std::stringstream str;
 			str << "pvalue_...(" << chi << "," << ndf << ") < 1";
 
 			prec::equals(str.str(),
-				pvalue_chi_squared(chi, ndf) < 1, 1);
+				(pvalue_chi_squared(chi, ndf) - 1) < 1E-6, 1);
 		}
 
 		for (int i = 0; i < 10; ++i) {
 
-			unsigned int ndf = g() % 300 + 1;
+			unsigned int ndf = g() % 500 + 1;
 
 			std::stringstream str;
 			str << "pvalue_...(0," << ndf << ")";

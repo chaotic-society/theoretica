@@ -43,6 +43,12 @@ namespace theoretica {
 			real sqr_sum;
 
 
+			/// Default constructor
+			histogram() :
+			N(0), range_max(0), range_min(0),
+			max_val(0), min_val(0), sum(0), sqr_sum(0) {}
+
+
 			/// Construct from parameters
 			histogram(unsigned int bin_count, real max, real min)
 				: N(0), max_val(0), min_val(0), sum(0), sqr_sum(0) {
@@ -54,7 +60,8 @@ namespace theoretica {
 
 
 			/// Construct from data
-			histogram(const vec_buff& data, unsigned int bin_count = 0) {
+			template<typename Dataset>
+			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
 				range_max = max(data);
 				range_min = min(data);

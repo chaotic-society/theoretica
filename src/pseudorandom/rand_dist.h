@@ -439,7 +439,8 @@ namespace theoretica {
 		}
 
 		// Fill a vector with sampled points
-		inline void fill(vec_buff& x, size_t N) {
+		template<typename Vector>
+		inline void fill(Vector& x, size_t N) {
 
 			for (size_t i = 0; i < N; ++i)
 				x[i] = next();

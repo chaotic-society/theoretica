@@ -509,7 +509,9 @@ namespace theoretica {
 	/// @param chi_sqr The computed Chi-squared
 	/// @param ndf Number of Degrees of Freedom
 	/// @result The computed p-value
-	/// @note The current implementation works up to ndf = 350
+	/// @note The current implementation has reduced precision for 260 <= ndf < 1000
+	/// because for ndf >= 260 the Gaussian approximation is used, which becomes
+	/// more precise the higher the ndf.
 	inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
 
 		if(ndf == 0) {
@@ -517,17 +519,42 @@ namespace theoretica {
 			return nan();
 		}
 
-		// The current implementation cannot handle ndf > 350
-		if(ndf > 350) {
-			TH_MATH_ERROR("pvalue_chi_squared", ndf, OUT_OF_DOMAIN);
-			return nan();
+		// For ndf >= 260 use the Gaussian approximation
+		// as the coefficients are not stable
+		if(ndf >= 260) {
+			
+			const real new_x = (chi_sqr - ndf) / sqrt(2.0 * ndf);
+
+			// For really low Chi-squared the Gaussian is
+			// below tolerance value for integration
+			if(new_x < 0) {
+
+				if(new_x < -3)
+					return 1 - integral_inf_riemann([=](real x) {
+						return exp(-x * x / 2) / SQRTPI / SQRT2;
+					}, -new_x, 1E-16, 25);
+
+				return 0.5 + integral_romberg_tol([=](real x) {
+					return exp(-x * x / 2) / SQRTPI / SQRT2;
+				}, new_x, 0, 1E-16);
+			} else {
+
+				if(new_x > 3)
+					return integral_inf_riemann([=](real x) {
+						return exp(-x * x / 2) / SQRTPI / SQRT2;
+					}, new_x, 1E-16, 25);
+
+				return 0.5 - integral_romberg_tol([=](real x) {
+					return exp(-x * x / 2) / SQRTPI / SQRT2;
+				}, 0, new_x, 1E-16);
+			}
 		}
 
 		// Compute the coefficient using a stable equivalent formula
 		const real coeff = exp(-special::lngamma(ndf / 2.0) - chi_sqr / 2.0);
 
 		// Use different methods when Gauss-Laguerre is not numerically stable
-		if((ndf > 70 && chi_sqr < (ndf / 2.0)) || ndf > 250) {
+		if((ndf > 70 && chi_sqr < (ndf / 2.0))) {
 
 			// Use equivalent formula around potential singularity
 			real res = integral_romberg_tol([=](real x) {
@@ -536,7 +563,7 @@ namespace theoretica {
 
 			res += integral_inf_riemann([=](real x) {
 				return exp((ndf - 2) / 2.0 * ln(x + chi_sqr / 2) - x);
-			}, 1, ndf / 2, 1E-12, 100);
+			}, 1, ndf / 2, 1E-12, 25);
 
 			return coeff * res;
 		}
