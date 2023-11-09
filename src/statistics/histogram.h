@@ -103,8 +103,13 @@ namespace theoretica {
 			/// Find the index corresponding to a given data point
 			inline unsigned int index(real x) const {
 
-				return (x - range_min)
-					/ ((range_max - range_min) / bins.size());
+				if(abs(x - range_max) < MACH_EPSILON)
+					return bins.size() - 1;
+
+				return floor(
+					(x - range_min) / (range_max - range_min)
+					* bins.size()
+				);
 			}
 
 

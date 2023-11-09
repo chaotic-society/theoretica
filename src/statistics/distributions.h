@@ -384,7 +384,7 @@ namespace theoretica {
 		/// Laplace distribution
 		inline real laplace(real x, const vec_buff& theta) {
 
-			if(theta.size() != 3) {
+			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::laplace", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}

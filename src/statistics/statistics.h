@@ -455,7 +455,7 @@ namespace theoretica {
 	/// @param g The function to compute the expectation of
 	/// @return The Gaussian expectation of the given function
 	template<typename RealFunction>
-	real gaussian_expectation(real mean, real sigma, RealFunction g) {
+	real gaussian_expectation(RealFunction g, real mean, real sigma) {
 
 		return integral_hermite(
 			[=](real x) {
