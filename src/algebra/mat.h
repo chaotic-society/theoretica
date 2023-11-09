@@ -287,6 +287,12 @@ namespace theoretica {
 
 
 		/// Get the element at the i-th row and j-th column
+		inline const Type& operator()(unsigned int i, unsigned int j) const {
+			return at(i, j);
+		}
+
+
+		/// Get the element at the i-th row and j-th column
 		inline Type get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
@@ -833,6 +839,12 @@ namespace theoretica {
 
 		/// Access the element at the i-th row and j-th column
 		inline Type& operator()(unsigned int i, unsigned int j) {
+			return at(i, j);
+		}
+
+
+		/// Get the element at the i-th row and j-th column
+		inline const Type& operator()(unsigned int i, unsigned int j) const {
 			return at(i, j);
 		}
 
