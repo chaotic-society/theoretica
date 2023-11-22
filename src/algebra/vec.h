@@ -311,17 +311,23 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation
-		inline std::string to_string(const std::string& separator = ", ") const {
+		inline std::string to_string(
+			const std::string& separator = ", ",
+			bool parenthesis = true) const {
 
 			std::stringstream res;
 
-			res << "(";
+			if(parenthesis)
+				res << "(";
+			
 			for (unsigned int i = 0; i < N; ++i) {
 				res << data[i];
 				if(i != N - 1)
 					res << separator;
 			}
-			res << ")";
+
+			if(parenthesis)
+				res << ")";
 
 			return res.str();
 		}
@@ -653,17 +659,23 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation
-		inline std::string to_string(const std::string& separator = ", ") const {
+		inline std::string to_string(
+			const std::string& separator = ", ",
+			bool parenthesis = true) const {
 
 			std::stringstream res;
 
-			res << "(";
+			if(parenthesis)
+				res << "(";
+			
 			for (unsigned int i = 0; i < size(); ++i) {
 				res << data[i];
 				if(i != size() - 1)
 					res << separator;
 			}
-			res << ")";
+			
+			if(parenthesis)
+				res << ")";
 
 			return res.str();
 		}

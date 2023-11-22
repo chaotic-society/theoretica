@@ -2,7 +2,7 @@ default_target: all
 .PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff \
 		test_calculus test_statistics automatic_differentiation hamiltonian error_propagation \
 		statistics sampling_distributions multivariate_minimization benchmark \
-		clean attractor montecarlo_comparison histogram
+		clean attractor montecarlo_comparison histogram random_walk
 
 all: examples test
 
@@ -116,9 +116,13 @@ histogram:
 	@echo Compiling \"Histogram\" example...
 	@g++ examples/histogram.cpp ${CXXFLAGS} -o ./examples/histogram
 
+random_walk:
+	@echo Compiling \"Random walk\" example...
+	@g++ examples/random_walk.cpp ${CXXFLAGS} -o ./examples/random_walk
+
 examples: example automatic_differentiation hamiltonian error_propagation \
 		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
-		  logfit attractor histogram
+		  logfit attractor histogram random_walk
 
 
 # Benchmarks
