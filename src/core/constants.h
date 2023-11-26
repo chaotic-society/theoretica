@@ -204,7 +204,7 @@ namespace theoretica {
 	constexpr real PI = 3.141592653589793238462643;
 
 	/// Half of Pi
-	constexpr real PI2 = PI / 2.0;
+	constexpr real PI2 = 1.57079632679489655799898;
 
 	/// A quarter of Pi
 	constexpr real PI4 = PI / 4.0;
