@@ -1,7 +1,7 @@
 
 ///
-/// @file multivariate_minimization.cpp Gradient descent minimization example.
-/// This example may be compiled using 'make multivariate_minimization'
+/// @file gradient_descent.cpp Gradient descent minimization example.
+/// This example may be compiled using 'make gradient_descent'
 ///
 
 #include <iostream>

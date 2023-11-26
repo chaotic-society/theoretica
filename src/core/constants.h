@@ -33,7 +33,7 @@
 
 /// Relative precision for derivative approximation
 #ifndef THEORETICA_DERIV_PREC
-#define THEORETICA_DERIV_PREC 100000.0
+#define THEORETICA_DERIV_PREC 10E+5
 #endif
 
 /// Default number of steps for integral approximation
@@ -107,7 +107,7 @@
 
 /// Default variation for derivative approximation
 #ifndef THEORETICA_DERIV_STEPSIZE
-#define THEORETICA_DERIV_STEPSIZE 0.001
+#define THEORETICA_DERIV_STEPSIZE 1E-3
 #endif
 
 /// Default step size for gradient descent minimization
@@ -117,7 +117,7 @@
 
 /// Default tolerance for gradient descent minimization
 #ifndef THEORETICA_MINGRAD_TOLERANCE
-#define THEORETICA_MINGRAD_TOLERANCE 0.001
+#define THEORETICA_MINGRAD_TOLERANCE 1E-3
 #endif
 
 /// Maximum number of iterations for gradient descent minimization

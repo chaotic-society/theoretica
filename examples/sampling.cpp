@@ -1,7 +1,7 @@
 
 ///
-/// @file sampling_distributions.cpp Distribution sampling example.
-/// This example may be compiled using 'make sampling_distributions'
+/// @file sampling.cpp Distribution sampling example.
+/// This example may be compiled using 'make sampling'
 ///
 
 #include "theoretica.h"

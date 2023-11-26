@@ -1,7 +1,7 @@
 
 ///
-/// @file differentiation.cpp Automatic differentiation example.
-/// This example may be compiled using 'make automatic_differentiation'
+/// @file autodiff.cpp Automatic differentiation example.
+/// This example may be compiled using 'make autodiff'
 ///
 
 #include <iostream>

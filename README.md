@@ -75,11 +75,11 @@ int main() {
 ```
 
 ### Other examples
-- [Chaotic Attractors](https://github.com/chaotic-society/theoretica/blob/master/examples/attractor.cpp)
 - [Statistics](https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp)
-- [Automatic differentiation](https://github.com/chaotic-society/theoretica/blob/master/examples/automatic_differentiation.cpp)
-- [Sampling distributions](https://github.com/chaotic-society/theoretica/blob/master/examples/sampling_distributions.cpp)
-- [Monte Carlo methods](https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_comparison.cpp)
+- [Chaotic Attractors](https://github.com/chaotic-society/theoretica/blob/master/examples/attractor.cpp)
+- [Automatic differentiation](https://github.com/chaotic-society/theoretica/blob/master/examples/autodiff.cpp)
+- [Sampling distributions](https://github.com/chaotic-society/theoretica/blob/master/examples/sampling.cpp)
+- [Monte Carlo integration](https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_integral.cpp)
 - [Fitting data](https://github.com/chaotic-society/theoretica/blob/master/examples/logfit.cpp)
 - [Automatic error propagation](https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp)
 - [Histogram usage](https://github.com/chaotic-society/theoretica/blob/master/examples/histogram.cpp)
