@@ -48,13 +48,13 @@ int main(int argc, char const *argv[]) {
 
 
     // Compute the intercept and slope of the interpolating line
-    real intercept = lst_sqrs_lin_intercept(X, Y);
-    real slope = lst_sqrs_lin_slope(X, Y);
+    real intercept = regression::ols_linear_intercept(X, Y);
+    real slope = regression::ols_linear_slope(X, Y);
 
     std::cout << "Model: y = A + Bx" << std::endl;
     std::cout << "A = " << intercept << std::endl;
     std::cout << "B = " << slope << std::endl;
-    std::cout << "Err. = " << lst_sqrs_lin_error(X, Y, intercept, slope) << std::endl;
+    std::cout << "Err. = " << regression::ols_linear_error(X, Y, intercept, slope) << std::endl;
 
     return 0;
 }

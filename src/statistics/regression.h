@@ -132,8 +132,8 @@ namespace theoretica {
 			error = sqrt(residual / (real) (X.size() - 2));
 
 			// Compute the propagated error on the coefficients
-			sigma_A = 0;
-			sigma_B = 0;
+			sigma_A = nan();
+			sigma_B = nan();
 		}
 
 
