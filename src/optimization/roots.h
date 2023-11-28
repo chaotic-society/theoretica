@@ -159,14 +159,14 @@ namespace theoretica {
 	/// when reached.
 	/// @param max_iter The maximum number of iterations before stopping
 	/// the algorithm.
-	inline complex root_newton(
-		complex(*f)(complex),
-		complex(*df)(complex),
-		complex guess = complex(0, 0),
+	inline complex<> root_newton(
+		complex<>(*f)(complex<>),
+		complex<>(*df)(complex<>),
+		complex<> guess = complex<>(0, 0),
 		real tolerance = NEWTON_RAPHSON_TOL,
 		unsigned int max_iter = MAX_NEWTON_ITER) {
 
-		complex z = guess;
+		complex<> z = guess;
 		unsigned int iter = 0;
 
 		while(abs(f(z)) > tolerance && iter <= MAX_NEWTON_ITER) {
@@ -175,7 +175,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			TH_MATH_ERROR("root_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", z.Re(), NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -441,7 +441,6 @@ namespace theoretica {
 		const Field M = max(a_hi, a_sum);
 
 		// Back track from the bounds to the first sign inversion ?
-
 		
 		return roots(
 			[p](real x) { return p(x); },

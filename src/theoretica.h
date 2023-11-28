@@ -16,10 +16,11 @@
 #include "./core/real_analysis.h"
 
 // Vector and matrix algebra
+#include "./algebra/algebra.h"
+#include "./algebra/algebra_types.h"
 #include "./algebra/vec.h"
 #include "./algebra/mat.h"
 #include "./algebra/distance.h"
-#include "./algebra/geometry.h"
 
 // Complex and quaternion classes
 #include "./complex/complex.h"
@@ -28,6 +29,9 @@
 
 // All other headers
 #ifndef THEORETICA_INCLUDE_BASE
+
+// Special functions
+#include "./core/special.h"
 
 // Ratio
 #include "./core/ratio.h"

@@ -1,7 +1,7 @@
 
 ///
-/// @file montecarlo_comparison.cpp A comparison between Monte Carlo techniques
-/// This example may be compiled using 'make montecarlo_comparison'
+/// @file montecarlo_integral.cpp A comparison between Monte Carlo techniques
+/// This example may be compiled using 'make montecarlo_integral'
 ///
 
 #include <iostream>

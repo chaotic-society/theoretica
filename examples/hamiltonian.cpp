@@ -17,12 +17,12 @@ constexpr unsigned int N = 3;
 constexpr unsigned int M = 2 * N;
 
 // M-dimensional symplectic matrix
-const mat<M, M> M_symplectic = mat<M, M>::symplectic();
+const auto M_symplectic = mat<real, M, M>::symplectic();
 
 
 // Hamiltonian for the N-dimensional harmonic oscillator (m = 1, omega = 1)
 template<typename NumType>
-NumType harmonic_oscillator(vec<M, NumType> eta) {
+NumType harmonic_oscillator(vec<NumType, M> eta) {
 
 	return (eta * eta) / 2.0;
 }
@@ -30,14 +30,14 @@ NumType harmonic_oscillator(vec<M, NumType> eta) {
 
 // Hamiltonian for the simple pendulum
 template<typename NumType>
-NumType pendulum(vec<2, NumType> eta) {
+NumType pendulum(vec<NumType, 2> eta) {
 
 	return square(eta[1]) / 2.0 - cos(eta[0]);
 }
 
 
 // Differential vector field
-vec<M> f(real t, vec<M> eta) {
+vec<real, M> f(real t, vec<real, M> eta) {
 
 	return M_symplectic * gradient<M>(harmonic_oscillator, eta);
 }
@@ -46,7 +46,7 @@ vec<M> f(real t, vec<M> eta) {
 int main(int argc, char const *argv[]) {
 
 	// Initial conditions
-	vec<M> s0 = {0, 1, 2, 1, 0.5, 0};
+	vec<real, M> s0 = {0, 1, 2, 1, 0.5, 0};
 
 	// State of the system
 	ode_state<M> state(s0);

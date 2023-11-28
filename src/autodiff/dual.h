@@ -237,10 +237,10 @@ namespace theoretica {
 			inline mat2 to_mat() const {
 
 				mat2 m;
-				m.iat(0, 0) = a;
-				m.iat(1, 0) = 0;
-				m.iat(0, 1) = b;
-				m.iat(1, 1) = a;
+				m.at(0, 0) = a;
+				m.at(1, 0) = 0;
+				m.at(0, 1) = b;
+				m.at(1, 1) = a;
 				return m;
 			}
 

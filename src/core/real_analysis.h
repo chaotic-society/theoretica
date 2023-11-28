@@ -912,7 +912,7 @@ namespace theoretica {
 		return sin(PI2 - x);
 #endif
 	}
-
+	
 
 	/// Compute the tangent of x
 	/// @param x An angle in **radians**
@@ -943,26 +943,16 @@ namespace theoretica {
 
 #else
 
-		// Domain reduction
-		if(abs(x) >= PI)
-			x -= floor(x / PI) * PI;
+		const real s = sin(x);
+		const real c = cos(x);
 
-		// Slow computation when near the singularities
-		if(abs(x - PI2) < 0.5) {
-
-			const real s = sin(x);
-			const real c = cos(x);
-
-			return s / c;
+		if(abs(c) < MACH_EPSILON) {
+			TH_MATH_ERROR("tan", c, DIV_BY_ZERO);
+			return nan();
 		}
 
-		// Padé approximant of order (7,8)
-		return (x - (2 * cube(x)) / 15.0
-					+ (2 * pow(x, 5)) / 585.0
-					- (4 * pow(x, 7)) / 225225.0)
-				/ (1 - (7 * square(x)) / 15.0
-					+ pow(x, 4) / 39.0
-					- (2 * pow(x, 6)) / 6435.0 + pow(x, 8) / 2027025.0);
+		return s / c;
+
 #endif
 	}
 

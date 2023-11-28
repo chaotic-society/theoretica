@@ -43,18 +43,25 @@ namespace theoretica {
 			real sqr_sum;
 
 
+			/// Default constructor
+			histogram() :
+			N(0), range_max(0), range_min(0),
+			max_val(0), min_val(0), sum(0), sqr_sum(0) {}
+
+
 			/// Construct from parameters
 			histogram(unsigned int bin_count, real max, real min)
 				: N(0), max_val(0), min_val(0), sum(0), sqr_sum(0) {
 
 				bins.resize(bin_count);
-				this->range_max = range_max;
-				this->range_min = range_min;
+				this->range_max = max;
+				this->range_min = min;
 			}
 
 
 			/// Construct from data
-			histogram(const vec_buff& data, unsigned int bin_count = 0) {
+			template<typename Dataset>
+			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
 				range_max = max(data);
 				range_min = min(data);
@@ -96,8 +103,13 @@ namespace theoretica {
 			/// Find the index corresponding to a given data point
 			inline unsigned int index(real x) const {
 
-				return (x - range_min)
-					/ ((range_max - range_min) / bins.size());
+				if(abs(x - range_max) < MACH_EPSILON)
+					return bins.size() - 1;
+
+				return floor(
+					(x - range_min) / (range_max - range_min)
+					* bins.size()
+				);
 			}
 
 

@@ -19,14 +19,14 @@
 namespace theoretica {
 
 
-	/// A dynamically allocated variable-size container
+	/// A dynamically allocated variable-size container.
 	/// Defined by default as an alias for `std::vector<real>`
 	using vec_buff = std::vector<real>;
 
 
 	// Operations on datasets
 	// The Vector type must have size() and operator[]() functions
-	// (e.g. vec_buff and vec<N>)
+	// (e.g. vec_buff and vec<real, N>)
 
 
 	/// Compute the product of a set of values

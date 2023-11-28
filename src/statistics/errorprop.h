@@ -20,18 +20,18 @@ namespace theoretica {
 	/// @param v A vector of datasets of measures
 	/// @return The covariance matrix of the datasets
 	template<unsigned int N>
-	inline mat<N, N> covar_mat(const std::vector<vec_buff>& v) {
+	inline mat<real, N, N> covar_mat(const std::vector<vec_buff>& v) {
 
 		if(v.size() != N) {
 			TH_MATH_ERROR("covar_mat", v.size(), INVALID_ARGUMENT);
-			return mat<N, N>(nan());
+			return mat<real, N, N>(nan());
 		}
 
-		mat<N, N> cm;
+		mat<real, N, N> cm;
 
 		for (unsigned int i = 0; i < N; ++i)
 			for (unsigned int j = 0; j < N; ++j)
-				cm.iat(i, j) = sample_covariance(v[i], v[j]);
+				cm.at(i, j) = sample_covariance(v[i], v[j]);
 
 		return cm;
 	}
@@ -50,8 +50,8 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		const vec<N>& x_best, const vec<N>& delta_x) {
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		const vec<real, N>& x_best, const vec<real, N>& delta_x) {
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
@@ -78,8 +78,8 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		const vec<N>& x_best, const mat<N, N>& cm) {
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		const vec<real, N>& x_best, const mat<real, N, N>& cm) {
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
@@ -87,7 +87,7 @@ namespace theoretica {
 		for (unsigned int i = 0; i < N; ++i)
 			for (unsigned int j = 0; j < N; ++j)
 				err_sqr += df.Dual().get(i) * df.Dual().get(j)
-					* cm.iget(i, j);
+					* cm.get(i, j);
 
 		return sqrt(err_sqr);
 	}
@@ -106,10 +106,10 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<unsigned int N>
 	inline real propagate_err(
-		multidual<N>(*f)(vec<N, multidual<N>>),
+		multidual<N>(*f)(vec<multidual<N>, N>),
 		const std::vector<vec_buff>& v) {
 
-		vec<N> x_mean;
+		vec<real, N> x_mean;
 
 		for (unsigned int i = 0; i < N; ++i)
 			x_mean[i] = mean(v[i]);

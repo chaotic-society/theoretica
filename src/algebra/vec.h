@@ -6,66 +6,58 @@
 #ifndef THEORETICA_VECTOR_H
 #define THEORETICA_VECTOR_H
 
-#ifndef THEORETICA_NO_PRINT
-#include <sstream>
-#include <ostream>
-#endif
-
-#include <array>
-
 #include "../core/error.h"
 #include "../core/real_analysis.h"
 #include "../core/vec_buff.h"
+#include "./algebra.h"
 
 
 namespace theoretica {
 
 	/// 
 	/// @class vec
-	/// An N-dimensional vector of T type elements.
+	/// An N-dimensional vector of Type elements.
 	/// 
-	template<unsigned int N, typename T = real>
+	template<typename Type = real, unsigned int N = 0>
 	class vec {
-
 		public:
 
-		static constexpr unsigned int SIZE = N;
-
-		T data[N];
+		Type data[N];
 
 
-		vec() = default;
+		vec() {
+			algebra::vec_zeroes(*this);
+		}
+
 
 		/// Initialize all elements to the same value
-		vec(T a) {
-			for (unsigned int i = 0; i < N; ++i) {
+		vec(Type a) {
+			for (unsigned int i = 0; i < N; ++i)
 				data[i] = a;
-			}
 		}
+
 
 		/// Copy constructor
-		vec(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
+		vec(const vec<Type, N>& other) {
+			algebra::vec_copy(*this, other);
 		}
+
 
 		/// Copy from other
-		vec<N, T>& operator=(const vec<N, T>& other) {
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] = other.data[i];
-			}
-			return *this;
+		template<typename Vector>
+		vec<Type, N>& operator=(const Vector& other) {
+			return algebra::vec_copy(*this, other);
 		}
 
+
 		/// Initialize from a list, e.g. {1, 2, 3}
-		vec(std::initializer_list<T> l) {
+		vec(std::initializer_list<Type> l) {
 
 			if(l.size() != N) {
-				TH_MATH_ERROR("vec::vec(initializer_list<T>)", l.size(),
+				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
 					INVALID_ARGUMENT);
 				// Set all elements to NaN
-				*this = vec<N, T>(nan());
+				*this = vec<Type, N>(nan());
 				return;
 			}
 
@@ -75,250 +67,243 @@ namespace theoretica {
 		~vec() = default;
 
 
-		// Operators
-
 		/// Identity
-		inline vec<N, T> operator+() const {
+		inline vec<Type, N> operator+() const {
 			return *this;
 		}
 
+
 		/// Vector sum (v + w = (v.x + w.x, ...))
-		inline vec<N, T> operator+(const vec<N, T>& other) const {
-			vec<N, T> result;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] + other.data[i];
-			}
-
+		inline vec<Type, N> operator+(const vec<Type, N>& other) const {
+			
+			vec<Type, N> result;
+			algebra::vec_sum(result, *this, other);
 			return result;
 		}
+
 
 		/// Opposite vector
-		inline vec<N, T> operator-() const {
-			return *this * -1;
+		inline vec<Type, N> operator-() const {
+			return *this * (Type) -1;
 		}
 
-		inline vec<N, T> operator-(const vec<N, T>& other) const {
-			vec<N, T> result;
 
-			for (unsigned int i = 0; i < N; ++i) {
-				result.data[i] = data[i] - other.data[i];
-			}
-
+		/// Vector subtraction
+		inline vec<Type, N> operator-(const vec<Type, N>& other) const {
+			
+			vec<Type, N> result;
+			algebra::vec_diff(result, *this, other);
 			return result;
 		}
+
 
 		/// Scalar multiplication (av = (v.x * a, ...))
-		inline vec<N, T> operator*(T scalar) const {
-			vec<N, T> result;
+		inline vec<Type, N> operator*(Type scalar) const {
+			vec<Type, N> result;
 
-			for (unsigned int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i)
 				result.data[i] = scalar * data[i];
-			}
 
 			return result;
 		}
+
 
 		/// Scalar division (v / a = (v.x / a, ...))
-		inline vec<N, T> operator/(T scalar) const {
-			vec<N, T> result;
+		inline vec<Type, N> operator/(Type scalar) const {
+			vec<Type, N> result;
 
-			for (unsigned int i = 0; i < N; ++i) {
+			for (unsigned int i = 0; i < N; ++i)
 				result.data[i] = data[i] / scalar;
-			}
 
 			return result;
 		}
 
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		inline T dot(const vec<N, T>& other) const {
-
-			T result = 0;
-
-			for (unsigned int i = 0; i < N; ++i) {
-				result += data[i] * other.data[i];
-			}
-
-			return result;
+		template<typename Vector>
+		inline Type dot(const Vector& other) const {
+			return algebra::dot(*this, other);
 		}
 
+
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		inline T operator*(const vec<N, T>& other) const {
+		template<typename Vector>
+		inline Type operator*(const Vector& other) const {
 			return dot(other);
 		}
 
 
 		/// Cross product between vectors
-		inline vec<3> cross(const vec<3>& other) const {
-
-			if(N != 3) {
-				TH_MATH_ERROR("vec::cross", N, IMPOSSIBLE_OPERATION);
-				return vec<N, T>(nan());
-			}
-
-			vec<3> res;
-
-			res.data[0] = data[1] * other.data[2] - data[2] * other.data[1];
-			res.data[1] = data[2] * other.data[0] - data[0] * other.data[2];
-			res.data[2] = data[0] * other.data[1] - data[1] * other.data[0];
-
-			return res;
+		inline vec<Type, N> cross(const vec<Type, N>& other) const {
+			static_assert(N == 3, "The vector must be three dimensional");
+			return algebra::cross(*this, other);
 		}
 
 
-		inline void operator+=(const vec<N, T>& other) {
+		/// Cross product between vectors
+		template<typename Vector>
+		inline vec<Type, N> cross(const Vector& other) const {
+		
+			if(other.size() != 3) {
+				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
+				return vec<Type, N>((Type) nan());
+			}
+
+			return algebra::cross(*this, other);
+		}
+
+
+		/// Sum a vector the the vector itself
+		template<typename Vector>
+		inline vec<Type, N>& operator+=(const Vector& other) {
 
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] += other.data[i];
+		
+			return *this;
 		}
 
-		inline void operator-=(const vec<N, T>& other) {
+
+		/// Subtract a vector the the vector itself
+		template<typename Vector>
+		inline vec<Type, N>& operator-=(const Vector& other) {
 
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] -= other.data[i];
+		
+			return *this;
 		}
 
-		inline void operator*=(T scalar) {
+
+		/// Multiply the vector itself by a scalar
+		inline vec<Type, N>& operator*=(Type scalar) {
 
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] *= scalar;
+		
+			return *this;
 		}
 
-		inline void operator/=(T scalar) {
+
+		/// Divide the vector itself by a scalar
+		inline vec<Type, N>& operator/=(Type scalar) {
 
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] /= scalar;
+		
+			return *this;
 		}
 
 
-		/// Magnitude of vector (sqrt(v * v))
-		inline T magnitude() const {
-
-			T m = 0;
-			for (unsigned int i = 0; i < N; ++i)
-				m += data[i] * conjugate(data[i]);
-
-			return sqrt(m);
-		}
-
-		/// Alias for magnitude()
-		inline T length() const {
-			return magnitude();
-		}
-
-		/// Square magnitude of vector (v * v)
-		inline T square_magnitude() const {
-
-			T m = 0;
-			for (unsigned int i = 0; i < N; ++i)
-				m += data[i] * conjugate(data[i]);
-
-			return m;
+		/// Compute the norm of the vector (sqrt(v * v))
+		inline Type norm() const {
+			return algebra::norm(*this);
 		}
 
 
-		/// Alias for square_magnitude()
-		inline real square_length() const {
-			return square_magnitude();
+		/// Compute the square norm of the vector (v * v)
+		inline Type sqr_norm() const {
+			return algebra::sqr_norm(*this);
 		}
+
 
 		/// Access i-th component
-		inline T& operator[](unsigned int i) {
+		inline Type& operator[](unsigned int i) {
 			return data[i];
 		}
+
+
+		/// Get the i-th component
+		inline const Type& operator[](unsigned int i) const {
+			return data[i];
+		}
+
 
 		/// Access i-th element
-		inline T& at(unsigned int i) {
+		inline Type& at(unsigned int i) {
 			return data[i];
 		}
+
 
 		/// Getters and setters
-		inline T get(unsigned int i) const {
+		inline Type get(unsigned int i) const {
 			return data[i];
 		}
 
+
 		/// Set the i-th element
-		inline void set(unsigned int i, T x) {
+		inline void set(unsigned int i, Type x) {
 			data[i] = x;
 		}
 
 
 		/// Vector normalization (v / |v|)
 		inline void normalize() {
-
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				*this = vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i) {
-				data[i] /= m;
-			}
+			algebra::make_normalized(*this);
 		}
 
+
 		/// Return the normalized vector (v / |v|)
-		inline vec<N, T> normalized() const {
-
-			vec<N, T> result = vec<N, T>();
-			real m = magnitude();
-
-			if(m == 0) {
-				TH_MATH_ERROR("vec::normalize", m, DIV_BY_ZERO);
-				return vec<N, T>(nan());
-			}
-
-			for (unsigned int i = 0; i < N; ++i)
-				result[i] = data[i] / m;
-
-			return result;
+		inline vec<Type, N> normalized() const {
+			return algebra::normalize(*this);
 		}
 
 
 		/// Check whether all elements of both vectors are equal
-		inline bool operator==(const vec<N, T>& other) const {
-			for (unsigned int i = 0; i < N; ++i) {
+		template<typename Vector>
+		inline bool operator==(const Vector& other) const {
+
+			if(size() != other.size())
+				return false;
+
+			for (unsigned int i = 0; i < N; ++i)
 				if(data[i] != other[i])
 					return false;
-			}
 
 			return true;
 		}
 
 
-		/// Convert a vec<N, T> to a vec_buff
-		inline vec_buff to_vec_buff() {
-			
-			vec_buff res;
-			res.reserve(N);
-			for (unsigned int i = 0; i < N; ++i)
-				res.push_back(static_cast<real>(data[i]));
-
-			return res;
+		/// Check whether all elements of both vectors are unequal
+		template<typename Vector>
+		inline bool operator!=(const Vector& other) const {
+			return !(*this == other);
 		}
 
 
 		/// Returns the size of the vector (N)
-		inline TH_CONSTEXPR unsigned int size() {
+		inline TH_CONSTEXPR unsigned int size() const {
 			return N;
+		}
+
+
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		inline void resize(size_t n) const {
+			
+			if(N != n) {
+				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
+			}
 		}
 
 
 		/// Returns an N-dimensional euclidean base unit vector
 		/// with the i-th element set to 1.
-		inline static vec<N> euclidean_base(unsigned int i) {
+		inline static vec<Type, N> euclidean_base(unsigned int i) {
 
-			vec<N> e_i = vec<N>(0);
+			vec<Type, N> e_i = vec<Type, N>(0);
 			e_i.at(i) = 1;
 
 			return e_i;
 		}
 
+
 		/// Friend operator to enable equations of the form
-		/// (T) * (vec)
-		inline friend vec<N> operator*(T a, const vec<N, T>& v) {
+		/// (Type) * (vec)
+		inline friend vec<Type, N> operator*(Type a, const vec<Type, N>& v) {
 			return v * a;
 		}
 
@@ -326,24 +311,31 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation
-		inline std::string to_string(const std::string& separator = ", ") const {
+		inline std::string to_string(
+			const std::string& separator = ", ",
+			bool parenthesis = true) const {
 
 			std::stringstream res;
 
-			res << "(";
+			if(parenthesis)
+				res << "(";
+			
 			for (unsigned int i = 0; i < N; ++i) {
 				res << data[i];
 				if(i != N - 1)
 					res << separator;
 			}
-			res << ")";
+
+			if(parenthesis)
+				res << ")";
 
 			return res.str();
 		}
 
 
 		/// Stream the vector in string representation to an output stream (std::ostream)
-		inline friend std::ostream& operator<<(std::ostream& out, const vec<N, T>& obj) {
+		inline friend std::ostream& operator<<(
+			std::ostream& out, const vec<Type, N>& obj) {
 			return out << obj.to_string();
 		}
 
@@ -351,31 +343,352 @@ namespace theoretica {
 
 	};
 
-	// Common vector types
 
-	/// A 2-dimensional vector with real elements
-	using vec2 = vec<2, real>;
+	/// 
+	/// @class vec
+	/// A vector of Type elements and variable size.
+	/// 
+	template<typename Type>
+	class vec<Type, 0> {
+		public:
 
-	/// A 3-dimensional vector with real elements
-	using vec3 = vec<3, real>;
+		std::vector<Type> data;
 
-	/// A 4-dimensional vector with real elements
-	using vec4 = vec<4, real>;
-
-
-	/// Compute the dot product of two vectors
-	template<unsigned int N, typename T>
-	inline real dot(const vec<N, T>& v1, const vec<N, T>& v2) {
-		return v1.dot(v2);
-	}
+		vec() {}
 
 
-	/// Compute the cross product of two vectors.
-	/// The vectors have to be 3-dimensional
-	template<typename T>
-	inline vec<3, T> cross(const vec<3, T>& v1, const vec<3, T>& v2) {
-		return v1.cross(v2);
-	}
+		/// Initialize to the given size
+		vec(unsigned int n) {
+			resize(n);
+			algebra::vec_zeroes(*this);
+		}
+
+
+		/// Initialize all elements to the same value
+		vec(Type a, unsigned int n) {
+			data = std::vector<Type>(a, n);
+		}
+
+
+		/// Copy constructor
+		template<unsigned int N>
+		vec(const vec<Type, N>& other) {
+			algebra::vec_copy(*this, other);
+		}
+
+
+		/// Copy from other
+		template<typename Vector>
+		vec<Type>& operator=(const Vector& other) {
+			return algebra::vec_copy(*this, other);
+		}
+
+
+		/// Initialize from a list, e.g. {1, 2, 3}
+		vec(std::initializer_list<Type> l) {
+
+			if(l.size() != size()) {
+				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
+					INVALID_ARGUMENT);
+				// Set all elements to NaN
+				*this = vec<Type>(nan(), size());
+				return;
+			}
+
+			std::copy(l.begin(), l.end(), &data[0]);
+		}
+
+		~vec() = default;
+
+
+		/// Identity
+		inline vec<Type> operator+() const {
+			return *this;
+		}
+
+
+		/// Vector sum (v + w = (v.x + w.x, ...))
+		template<typename Vector>
+		inline vec<Type> operator+(const Vector& other) const {
+			
+			vec<Type> result;
+			result.resize(size());
+			algebra::vec_sum(result, *this, other);
+			return result;
+		}
+
+
+		/// Opposite vector
+		inline vec<Type> operator-() const {
+			return *this * (Type) -1;
+		}
+
+
+		/// Vector subtraction
+		template<typename Vector>
+		inline vec<Type> operator-(const Vector& other) const {
+			
+			vec<Type> result;
+			result.resize(size());
+			algebra::vec_diff(result, *this, other);
+			return result;
+		}
+
+
+		/// Scalar multiplication (av = (v.x * a, ...))
+		inline vec<Type> operator*(Type scalar) const {
+
+			vec<Type> result;
+			result.resize(size());
+
+			for (unsigned int i = 0; i < size(); ++i)
+				result.data[i] = scalar * data[i];
+
+			return result;
+		}
+
+
+		/// Scalar division (v / a = (v.x / a, ...))
+		inline vec<Type> operator/(Type scalar) const {
+
+			vec<Type> result;
+			result.resize(size());
+
+			for (unsigned int i = 0; i < size(); ++i)
+				result.data[i] = data[i] / scalar;
+
+			return result;
+		}
+
+
+		/// Dot product between vectors (v * w = v.x * w.x + ...)
+		template<typename Vector>
+		inline Type dot(const Vector& other) const {
+			return algebra::dot(*this, other);
+		}
+
+
+		/// Dot product between vectors (v * w = v.x * w.x + ...)
+		template<typename Vector>
+		inline Type operator*(const Vector& other) const {
+			return dot(other);
+		}
+
+
+		/// Cross product between vectors
+		template<typename Vector>
+		inline vec<Type> cross(const Vector& other) const {
+		
+			if(other.size() != 3) {
+				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
+				return vec<Type>((Type) nan(), 3);
+			}
+
+			return algebra::cross(*this, other);
+		}
+
+
+		/// Sum a vector to the vector itself
+		template<typename Vector>
+		inline vec<Type>& operator+=(const Vector& other) {
+
+			if(size() != other.size()) {
+				TH_MATH_ERROR("vec::operator+=", size(), INVALID_ARGUMENT);
+				return vec<Type>(nan(), size());
+			}
+
+			for (unsigned int i = 0; i < size(); ++i)
+				data[i] += other.data[i];
+		
+			return *this;
+		}
+
+
+		/// Subtract a vector the the vector itself
+		template<typename Vector>
+		inline vec<Type>& operator-=(const Vector& other) {
+
+			if(size() != other.size()) {
+				TH_MATH_ERROR("vec::operator-=", size(), INVALID_ARGUMENT);
+				return vec<Type>(nan(), size());
+			}
+
+			for (unsigned int i = 0; i < size(); ++i)
+				data[i] -= other.data[i];
+		
+			return *this;
+		}
+
+
+		/// Multiply the vector itself by a scalar
+		inline vec<Type>& operator*=(Type scalar) {
+
+			for (unsigned int i = 0; i < size(); ++i)
+				data[i] *= scalar;
+		
+			return *this;
+		}
+
+
+		/// Divide the vector itself by a scalar
+		inline vec<Type>& operator/=(Type scalar) {
+
+			if(abs(scalar) < MACH_EPSILON) {
+				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
+				return vec<Type>(nan(), size());
+			}
+
+			for (unsigned int i = 0; i < size(); ++i)
+				data[i] /= scalar;
+		
+			return *this;
+		}
+
+
+		/// Compute the norm of the vector (sqrt(v * v))
+		inline Type norm() const {
+			return algebra::norm(*this);
+		}
+
+
+		/// Compute the square norm of the vector (v * v)
+		inline Type sqr_norm() const {
+			return algebra::sqr_norm(*this);
+		}
+
+
+		/// Access i-th component
+		inline Type& operator[](unsigned int i) {
+			return data[i];
+		}
+
+
+		/// Get the i-th component
+		inline const Type& operator[](unsigned int i) const {
+			return data[i];
+		}
+
+
+		/// Access i-th element
+		inline Type& at(unsigned int i) {
+			return data[i];
+		}
+
+
+		/// Getters and setters
+		inline Type get(unsigned int i) const {
+			return data[i];
+		}
+
+
+		/// Set the i-th element
+		inline void set(unsigned int i, Type x) {
+			data[i] = x;
+		}
+
+
+		/// Vector normalization (v / |v|)
+		inline void normalize() {
+			algebra::make_normalized(*this);
+		}
+
+
+		/// Return the normalized vector (v / |v|)
+		inline vec<Type> normalized() const {
+			return algebra::normalize(*this);
+		}
+
+
+		/// Check whether all elements of both vectors are equal
+		template<typename Vector>
+		inline bool operator==(const Vector& other) const {
+
+			if(size() != other.size())
+				return false;
+
+			for (unsigned int i = 0; i < size(); ++i)
+				if(data[i] != other[i])
+					return false;
+
+			return true;
+		}
+
+
+		/// Check whether all elements of both vectors are unequal
+		template<typename Vector>
+		inline bool operator!=(const Vector& other) const {
+			return !(*this == other);
+		}
+
+
+		/// Returns the size of the vector
+		inline TH_CONSTEXPR unsigned int size() const {
+			return data.size();
+		}
+
+
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		inline void resize(size_t n) {
+			data.resize(n);
+		}
+
+
+		/// Returns an euclidean base unit vector
+		/// with the i-th element set to 1 and size n.
+		inline static vec<Type> euclidean_base(
+			unsigned int i, unsigned int n) {
+
+			vec<Type> e_i = vec<Type>(0, n);
+			e_i.at(i) = 1;
+
+			return e_i;
+		}
+
+
+		/// Friend operator to enable equations of the form
+		/// (Type) * (vec)
+		inline friend vec<Type> operator*(Type a, const vec<Type>& v) {
+			return v * a;
+		}
+
+
+#ifndef THEORETICA_NO_PRINT
+
+		/// Convert the vector to string representation
+		inline std::string to_string(
+			const std::string& separator = ", ",
+			bool parenthesis = true) const {
+
+			std::stringstream res;
+
+			if(parenthesis)
+				res << "(";
+			
+			for (unsigned int i = 0; i < size(); ++i) {
+				res << data[i];
+				if(i != size() - 1)
+					res << separator;
+			}
+			
+			if(parenthesis)
+				res << ")";
+
+			return res.str();
+		}
+
+
+		/// Stream the vector in string representation to an output stream (std::ostream)
+		inline friend std::ostream& operator<<(std::ostream& out, const vec<Type>& obj) {
+			return out << obj.to_string();
+		}
+
+#endif
+
+	};
 
 }
 

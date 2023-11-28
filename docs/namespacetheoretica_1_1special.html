@@ -102,6 +102,15 @@ $(document).ready(function(){initNavTree('namespacetheoretica_1_1special.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac9efc48a9230770363a8cd4a03a0102b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1special.html#ac9efc48a9230770363a8cd4a03a0102b">gamma</a> (unsigned int k)</td></tr>
+<tr class="memdesc:ac9efc48a9230770363a8cd4a03a0102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gamma special function of positive integer argument.  <a href="namespacetheoretica_1_1special.html#ac9efc48a9230770363a8cd4a03a0102b">More...</a><br /></td></tr>
+<tr class="separator:ac9efc48a9230770363a8cd4a03a0102b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a213ad9804721f762884b987d865a4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1special.html#a6a213ad9804721f762884b987d865a4a">half_gamma</a> (unsigned int k)</td></tr>
+<tr class="memdesc:a6a213ad9804721f762884b987d865a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half Gamma special function, defined as HG(n) = Gamma(n / 2) for any positive integer n.  <a href="namespacetheoretica_1_1special.html#a6a213ad9804721f762884b987d865a4a">More...</a><br /></td></tr>
+<tr class="separator:a6a213ad9804721f762884b987d865a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29859ab2c5f4f9d96e476d173a95567"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1special.html#ac29859ab2c5f4f9d96e476d173a95567">lngamma</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memdesc:ac29859ab2c5f4f9d96e476d173a95567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log Gamma special function of real argument.  <a href="namespacetheoretica_1_1special.html#ac29859ab2c5f4f9d96e476d173a95567">More...</a><br /></td></tr>
+<tr class="separator:ac29859ab2c5f4f9d96e476d173a95567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a910251fd108396ceae7cda8a2e98c790"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1special.html#a910251fd108396ceae7cda8a2e98c790">gamma</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:a910251fd108396ceae7cda8a2e98c790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gamma special function of real argument.  <a href="namespacetheoretica_1_1special.html#a910251fd108396ceae7cda8a2e98c790">More...</a><br /></td></tr>
 <tr class="separator:a910251fd108396ceae7cda8a2e98c790"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,11 +166,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The Beta function of x1 and x2 </dd></dl>
 
 </div>
 </div>
 <a id="a910251fd108396ceae7cda8a2e98c790" name="a910251fd108396ceae7cda8a2e98c790"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910251fd108396ceae7cda8a2e98c790">&#9670;&nbsp;</a></span>gamma()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a910251fd108396ceae7cda8a2e98c790">&#9670;&nbsp;</a></span>gamma() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,13 +195,120 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gamma special function of real argument. </p>
+<p >This function uses Lanczos' approximation with gamma = 5.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>The real argument</td></tr>
+    <tr><td class="paramname">x</td><td>The real argument </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>This approximation is accurate to 4 significant digits for positive x, 2 significant digits for negative x and exact for integer values. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The Gamma function of x </dd></dl>
+
+</div>
+</div>
+<a id="ac9efc48a9230770363a8cd4a03a0102b" name="ac9efc48a9230770363a8cd4a03a0102b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9efc48a9230770363a8cd4a03a0102b">&#9670;&nbsp;</a></span>gamma() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::special::gamma </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gamma special function of positive integer argument. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The positive integer argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The Gamma function computed using the factorial. </dd></dl>
+
+</div>
+</div>
+<a id="a6a213ad9804721f762884b987d865a4a" name="a6a213ad9804721f762884b987d865a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a213ad9804721f762884b987d865a4a">&#9670;&nbsp;</a></span>half_gamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::special::half_gamma </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Half Gamma special function, defined as HG(n) = Gamma(n / 2) for any positive integer n. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The positive integer argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The Gamma function computed using the factorial or double factorial identity. </dd></dl>
+
+</div>
+</div>
+<a id="ac29859ab2c5f4f9d96e476d173a95567" name="ac29859ab2c5f4f9d96e476d173a95567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29859ab2c5f4f9d96e476d173a95567">&#9670;&nbsp;</a></span>lngamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::special::lngamma </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Log Gamma special function of real argument. </p>
+<p >This function uses Lanczos' approximation with gamma = 5.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The real argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The logarithm of the Gamma function of x </dd></dl>
 
 </div>
 </div>
@@ -226,6 +343,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The Pi function of x, equal to Gamma(x + 1) </dd></dl>
 
 </div>
 </div>
@@ -235,7 +353,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1special.html">special</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 15:20:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

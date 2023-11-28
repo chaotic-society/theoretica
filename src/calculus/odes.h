@@ -19,14 +19,16 @@ namespace theoretica {
 	template<unsigned int N>
 	struct ode_state {
 
+			static_assert(N > 0, "N cannot be zero.");
+
 			real t;
-			vec<N> y;
+			vec<real, N> y;
 
 			ode_state() : t(0), y(0) {}
 
-			ode_state(real t, vec<N> y) : t(t), y(y) {}
+			ode_state(real t, vec<real, N> y) : t(t), y(y) {}
 
-			ode_state(vec<N> y) : t(0), y(y) {}
+			ode_state(vec<real, N> y) : t(0), y(y) {}
 
 			inline ode_state<N>& operator=(const std::array<real, 4>& v) {
 				t = v[0];
@@ -125,7 +127,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_euler(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_euler(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
 		return ode_state<N>(s.t + h, s.y + h * f(s.t, s.y));
 	}
@@ -150,7 +152,7 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_midpoint(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_midpoint(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
 		return ode_state<N>(
 			s.t + h,
@@ -178,9 +180,9 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_heun(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_heun(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
-		const vec<N> y_p = s.y + h * f(s.t, s.y);
+		const vec<real, N> y_p = s.y + h * f(s.t, s.y);
 		const real t_new = s.t + h;
 
 		return ode_state<N>(t_new, s.y + (f(s.t, s.y) + f(t_new, y_p)) * h / 2.0);
@@ -207,10 +209,10 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_rk2(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_rk2(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
-		const vec<N> k1 = f(s.t, s.y);
-		const vec<N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
+		const vec<real, N> k1 = f(s.t, s.y);
+		const vec<real, N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
 
 		return ode_state<N>(s.t + h, s.y + k2 * h);
 	}
@@ -238,12 +240,12 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_rk4(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_rk4(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
-		const vec<N> k1 = f(s.t, s.y);
-		const vec<N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
-		const vec<N> k3 = f(s.t + (h / 2.0), s.y + k2 * (h / 2.0));
-		const vec<N> k4 = f(s.t + h, s.y + k3 * h / 2.0);
+		const vec<real, N> k1 = f(s.t, s.y);
+		const vec<real, N> k2 = f(s.t + (h / 2.0), s.y + k1 * (h / 2.0));
+		const vec<real, N> k3 = f(s.t + (h / 2.0), s.y + k2 * (h / 2.0));
+		const vec<real, N> k4 = f(s.t + h, s.y + k3 * h / 2.0);
 
 		return ode_state<N>(s.t + h, s.y + (k1 + 2 * k2 + 2 * k3 + k4) * h / 6.0);
 	}
@@ -271,12 +273,12 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	template<unsigned int N>
-	inline ode_state<N> ode_k38(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	inline ode_state<N> ode_k38(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
-		const vec<N> k1 = f(s.t, s.y);
-		const vec<N> k2 = f(s.t + (h / 3.0), s.y + k1 * (h / 3.0));
-		const vec<N> k3 = f(s.t + (h * 2 / 3.0), s.y + h * (-k1 / 3.0 + k2));
-		const vec<N> k4 = f(s.t + h, s.y + h * (k1 - k2 + k1));
+		const vec<real, N> k1 = f(s.t, s.y);
+		const vec<real, N> k2 = f(s.t + (h / 3.0), s.y + k1 * (h / 3.0));
+		const vec<real, N> k3 = f(s.t + (h * 2 / 3.0), s.y + h * (-k1 / 3.0 + k2));
+		const vec<real, N> k4 = f(s.t + h, s.y + h * (k1 - k2 + k1));
 
 		return ode_state<N>(s.t + h, s.y + (k1 + 3 * k2 + 3 * k3 + k4) * h / 8.0);
 	}
@@ -337,25 +339,25 @@ namespace theoretica {
 	/// @param s The current state of the ODE
 	/// @param h Step size
 	// template<unsigned int N>
-	// inline ode_state<N> ode_rkdp(vec<N>(*f)(real, vec<N>), ode_state<N> s, real h) {
+	// inline ode_state<N> ode_rkdp(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 
-	// 	const vec<N> k1 = f(s.t, s.y);
-	// 	const vec<N> k2 = f(s.t + h / 5.0,
+	// 	const vec<real, N> k1 = f(s.t, s.y);
+	// 	const vec<real, N> k2 = f(s.t + h / 5.0,
 	// 		s.y + h * (k1 * 1.0 / 5.0));
 
-	// 	const vec<N> k3 = f(s.t + h * 3.0 / 10.0,
+	// 	const vec<real, N> k3 = f(s.t + h * 3.0 / 10.0,
 	// 		s.y + h * (k1 * 3.0 / 40.0 + k2 * 9.0 / 40.0));
 
-	// 	const vec<N> k4 = f(s.t + h * 4.0 / 5.0,
+	// 	const vec<real, N> k4 = f(s.t + h * 4.0 / 5.0,
 	// 		s.y + h * (k1 * 44.0 / 45.0 - k2 * 56.0 / 15.0 + k3 * 32.0 / 9.0));
 
-	// 	const vec<N> k5 = f(s.t + h * 8.0 / 9.0,
+	// 	const vec<real, N> k5 = f(s.t + h * 8.0 / 9.0,
 	// 		s.y + h * (k1 * 19372.0/6561.0 - k2 * 25360.0/2187.0 + k3 * 64448.0/6561.0 - k4 * 212.0/729.0));
 
-	// 	const vec<N> k6 = f(s.t + h,
+	// 	const vec<real, N> k6 = f(s.t + h,
 	// 		s.y + h * (k1 * 9017.0/3168.0 - k2 * 355.0/33.0 + k3 * 46732.0/5247.0 + k4 * 49.0/176.0 - k5 * 5103.0/18656.0));
 
-	// 	const vec<N> k7 = f(s.t + h,
+	// 	const vec<real, N> k7 = f(s.t + h,
 	// 		s.y + h * (k1 * 35.0/384 + k3 * 500.0/1113.0 + k4 * 125.0/192.0 - k5 * 2187.0/6784 + k6 * 11.0/84.0));
 
 	// 	return ode_state<N>(s.t + h, s.y + h * (
@@ -379,7 +381,7 @@ namespace theoretica {
 	/// Integrate numerically a differential equation in N unknowns
 	/// using the Adams-Bashforth linear multistep method of the second order
 	template<unsigned int N>
-	inline ode_state<N> ode_adams(vec<N>(*f)(real, vec<N>),
+	inline ode_state<N> ode_adams(vec<real, N>(*f)(real, vec<real, N>),
 		ode_state<N> s0, ode_state<N> s1, real h) {
 
 		return ode_state<N>(
@@ -404,7 +406,7 @@ namespace theoretica {
 	/// Integrate numerically a differential equation in N unknowns
 	/// using the Adams-Bashforth linear multistep method of third order
 	template<unsigned int N>
-	inline ode_state<N> ode_adams3(vec<N>(*f)(real, vec<N>),
+	inline ode_state<N> ode_adams3(vec<real, N>(*f)(real, vec<real, N>),
 		ode_state<N> s0, ode_state<N> s1, ode_state<N> s2, real h) {
 
 		return ode_state<N>(

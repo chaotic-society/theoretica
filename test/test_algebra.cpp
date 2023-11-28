@@ -11,18 +11,18 @@ using namespace chebyshev;
 
 // Generate a random matrix with elements inside the interval [a, b]
 template<unsigned int N, unsigned int M>
-mat<N, M> rand_mat(real a, real b, PRNG& g) {
+mat<real, N, M> rand_mat(real a, real b, PRNG& g) {
 
-	mat<N, M> A;
+	mat<real, N, M> A;
 	for (size_t i = 0; i < N; ++i)
 		for (size_t j = 0; j < M; ++j)
-			A.iat(i, j) = rand_uniform(a, b, g);
+			A.at(i, j) = rand_uniform(a, b, g);
 
 	return A;
 }
 
 
-// Test mat<N, N>::inverse()
+// Test mat<real, N, N>::inverse()
 template<unsigned int N>
 prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) {
 
@@ -35,7 +35,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 
 	for (size_t i = 0; i < n; ++i) {
 
-		mat<N, N> A = rand_mat<N, N>(k.a, k.b, g);
+		mat<real, N, N> A = rand_mat<N, N>(k.a, k.b, g);
 
 		// Skip singular matrices
 		if(th::abs(A.det()) <= MACH_EPSILON) {
@@ -44,12 +44,12 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 		}
 
 		// Resulting matrix expected to be identity
-		mat<N, N> R = A * A.inverse();
+		mat<real, N, N> R = A * A.inverse();
 
 		for (size_t j = 0; j < N; ++j) {
 			for (size_t k = 0; k < N; ++k) {
 
-				Real diff = th::abs(R.iat(j, k) - kronecker_delta(j, k));
+				Real diff = th::abs(R.at(j, k) - kronecker_delta(j, k));
 
 				sum += diff;
 				sum2 += square(diff);
@@ -76,7 +76,7 @@ prec::estimate_result test_matrix_inverse(interval k, Real tol, unsigned int n) 
 }
 
 
-// Test mat<N, N>::det()
+// Test mat<real, N, N>::det()
 template<unsigned int N>
 prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 
@@ -89,7 +89,7 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 
 	for (size_t i = 0; i < n; ++i) {
 
-		mat<N, N> A = mat<N, N>();
+		mat<real, N, N> A = mat<real, N, N>();
 		for (size_t j = 0; j < N; ++j)
 			A.at(j, j) = rand_uniform(k.a, k.b, g);
 
@@ -125,36 +125,36 @@ prec::estimate_result test_matrix_det(interval k, Real tol, unsigned int n) {
 prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 
 
-	mat<3, 3> A = {
+	mat<real, 3, 3> A = {
 		{1, 5, 9},
 		{10, 7, 18},
 		{3, 11, 5}
 	};
 
 
-	mat<3, 4> B = {
+	mat<real, 3, 4> B = {
 		{7, 5, 0, 11},
 		{4, 12, 1, 6},
 		{3, 7, 9, 0},
 	};
 
-	mat<3, 4> C = {
+	mat<real, 3, 4> C = {
 		{54, 128, 86, 41},
 		{152, 260, 169, 152},
 		{80, 182, 56, 99}
 	};
 
 
-	mat<3, 4> res = A * B;
+	mat<real, 3, 4> res = A * B;
 
 	real max = 0;
 	real sum = 0;
 	real sum2 = 0;
 
-	for (unsigned int i = 0; i < res.row_size(); ++i) {
-		for (unsigned int j = 0; j < res.col_size(); ++j) {
+	for (unsigned int i = 0; i < res.rows(); ++i) {
+		for (unsigned int j = 0; j < res.cols(); ++j) {
 			
-			real diff = th::abs(res.iat(i, j) - C.iat(i, j));
+			real diff = th::abs(res.at(i, j) - C.at(i, j));
 
 			if(max < diff)
 				max = diff;
@@ -182,7 +182,8 @@ prec::estimate_result test_matrix_mul(interval k, Real tol, unsigned int n) {
 
 template<unsigned int N>
 prec::estimate_result test_distance(
-	real(*d)(vec<N, real>, vec<N, real>), interval k, Real tol, unsigned int n) {
+	std::function<real(const vec<real, N>&, const vec<real, N>&)> d,
+	interval k, Real tol, unsigned int n) {
 
 	Real max = 0;
 	Real sum = 0;
@@ -193,13 +194,13 @@ prec::estimate_result test_distance(
 
 	for (size_t i = 0; i < n; ++i) {
 
-		vec<N, real> v;
+		vec<real, N> v;
 
 		for (unsigned int j = 0; j < N; ++j) {
 			v[j] = rand_uniform(k.a, k.b, g);
 		}
 
-		vec<N, real> w = v;		
+		vec<real, N> w = v;		
 		real diff = th::abs(d(v, w));
 		
 		sum += diff;
@@ -226,7 +227,7 @@ prec::estimate_result test_distance(
 
 template<unsigned int N>
 prec::estimate_result test_distance_tol(
-	real(*d)(vec<N, real>, vec<N, real>, real), interval k, Real tol, unsigned int n) {
+	std::function<real(const vec<real, N>&, const vec<real, N>&, real)> d, interval k, Real tol, unsigned int n) {
 
 	Real max = 0;
 	Real sum = 0;
@@ -237,13 +238,13 @@ prec::estimate_result test_distance_tol(
 
 	for (size_t i = 0; i < n; ++i) {
 
-		vec<N, real> v;
+		vec<real, N> v;
 
 		for (unsigned int j = 0; j < N; ++j) {
 			v[j] = rand_uniform(k.a, k.b, g);
 		}
 
-		vec<N, real> w = v;		
+		vec<real, N> w = v;		
 		real diff = th::abs(d(v, w, MACH_EPSILON));
 		
 		sum += diff;
@@ -280,14 +281,14 @@ prec::estimate_result test_hermitian(interval k, Real tol, unsigned int n) {
 
 	for (size_t i = 0; i < n; ++i) {
 
-		vec<N, complex> v;
+		vec<complex<>, N> v;
 
 		for (unsigned int j = 0; j < N; ++j) {
 			v[j].a = rand_uniform(k.a, k.b, g);
 			v[j].b = rand_uniform(k.a, k.b, g);
 		}
 
-		vec<N, complex> w = v;		
+		vec<complex<>, N> w = v;		
 		real diff = hermitian_distance(v, w).modulus();
 		
 		sum += diff;
@@ -341,55 +342,56 @@ int main(int argc, char const *argv[]) {
 
 		// Test Lp norms from 1 to 10
 		for (unsigned int p = 1; p <= 10; ++p)
-			prec::equals("lp_norm<vec3>", lp_norm(vec<3>(0), p), 0);
+			prec::equals("lp_norm<vec3>", lp_norm(vec3(0), p), 0);
 
-		prec::equals("lp_norm<vec100>", lp_norm(vec<100>(0), 2), 0);
+		prec::equals("lp_norm<vec100>", lp_norm(vec<real, 100>(0), 2), 0);
 
 		// L1
-		prec::equals("l1_norm<vec3>", l1_norm(vec<3>(0)), 0);
-		prec::equals("l1_norm<vec100>", l1_norm(vec<100>(0)), 0);
+		prec::equals("l1_norm<vec3>", l1_norm(vec3(0)), 0);
+		prec::equals("l1_norm<vec100>", l1_norm(vec<real, 100>(0)), 0);
 
-		prec::equals("l1_norm<vec4>", l1_norm(vec<4>(1)), 4);
-		prec::equals("l1_norm<vec100>", l1_norm(vec<100>(1)), 100);
+		prec::equals("l1_norm<vec4>", l1_norm(vec4(1)), 4);
+		prec::equals("l1_norm<vec100>", l1_norm(vec<real, 100>(1)), 100);
 
 		// L2
-		prec::equals("l2_norm<vec3>", l2_norm(vec<3>(0)), 0);
-		prec::equals("l2_norm<vec100>", l2_norm(vec<100>(0)), 0);
+		prec::equals("l2_norm<vec3>", l2_norm(vec3(0)), 0);
+		prec::equals("l2_norm<vec100>", l2_norm(vec<real, 100>(0)), 0);
 
-		prec::equals("l2_norm<vec4>", l2_norm(vec<4>(1)), 2);
-		prec::equals("l2_norm<vec9>", l2_norm(vec<9>(1)), 3);
+		prec::equals("l2_norm<vec4>", l2_norm(vec4(1)), 2);
+		prec::equals("l2_norm<vec9>", l2_norm(vec<real, 9>(1)), 3);
 
 		// Linf
-		prec::equals("linf_norm<vec3>", linf_norm(vec<3>(0)), 0);
-		prec::equals("linf_norm<vec100>", linf_norm(vec<100>(0)), 0);
-		prec::equals("linf_norm<vec100>", linf_norm(vec<100>(1)), 1);
+		prec::equals("linf_norm<vec3>", linf_norm(vec3(0)), 0);
+		prec::equals("linf_norm<vec100>", linf_norm(vec<real, 100>(0)), 0);
+		prec::equals("linf_norm<vec100>", linf_norm(vec<real, 100>(1)), 1);
 
 		// Distances
 		prec::estimate("euclidean_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<100>(euclidean_distance<vec<100>>, k, tol, n);
+				return test_distance<100>(
+					euclidean_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 
 		prec::estimate("manhattan_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<100>(manhattan_distance<vec<100>>, k, tol, n);
+				return test_distance<100>(manhattan_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 		prec::estimate("chebyshev_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<100>(chebyshev_distance<vec<100>>, k, tol, n);
+				return test_distance<100>(chebyshev_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 		prec::estimate("discrete_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance_tol<100>(discrete_distance<vec<100>>, k, tol, n);
+				return test_distance_tol<100>(discrete_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 		prec::estimate("minkowski_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
 				return test_distance<100>(
-					[](vec<100> v, vec<100> w) {
+					[](vec<real, 100> v, vec<real, 100> w) {
 						return minkowski_distance(v, w, 1);
 					}, k, tol, n);
 			}, intervals);
@@ -397,7 +399,7 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("minkowski_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
 				return test_distance<100>(
-					[](vec<100> v, vec<100> w) {
+					[](vec<real, 100> v, vec<real, 100> w) {
 						return minkowski_distance(v, w, 2);
 					}, k, tol, n);
 			}, intervals);
@@ -405,7 +407,7 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("minkowski_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
 				return test_distance<100>(
-					[](vec<100> v, vec<100> w) {
+					[](vec<real, 100> v, vec<real, 100> w) {
 						return minkowski_distance(v, w, 10);
 					}, k, tol, n);
 			}, intervals);
@@ -415,19 +417,19 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("cosine_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
 				return test_distance<100>(
-					[](vec<100> v, vec<100> w) {
+					[](vec<real, 100> v, vec<real, 100> w) {
 						return th::abs(1 - cosine_distance(v, w));
 					}, k, tol, n);
 			}, intervals);
 
 		prec::estimate("canberra_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance<100>(canberra_distance<vec<100>>, k, tol, n);
+				return test_distance<100>(canberra_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 		prec::estimate("hamming_distance<100>",
 			[](interval k, Real tol, unsigned int n) {
-				return test_distance_tol<100>(hamming_distance<vec<100>>, k, tol, n);
+				return test_distance_tol<100>(hamming_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
 	prec::terminate();

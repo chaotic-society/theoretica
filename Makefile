@@ -1,7 +1,8 @@
 default_target: all
-.PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff test_calculus automatic_differentiation hamiltonian \
-		error_propagation statistics sampling_distributions multivariate_minimization benchmark \
-		clean attractor montecarlo_comparison histogram
+.PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff \
+		test_calculus test_statistics autodiff hamiltonian error_propagation \
+		statistics sampling gradient_descent benchmark \
+		clean attractor montecarlo_integral histogram random_walk
 
 all: examples test
 
@@ -63,14 +64,21 @@ ifndef windows_build
 	@./test/test_pseudorandom
 endif
 
-test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom
+test_statistics:
+ifndef windows_build
+	@echo Compiling statistics test cases...
+	@g++ test/test_statistics.cpp ${CXXFLAGS} -I./test/ -o test/test_statistics
+	@./test/test_statistics
+endif
+
+test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom test_statistics
 
 
 # Example programs
 
-automatic_differentiation:
+autodiff:
 	@echo Compiling \"Automatic differentiation\" example...
-	@g++ examples/automatic_differentiation.cpp ${CXXFLAGS} -o ./examples/automatic_differentiation
+	@g++ examples/autodiff.cpp ${CXXFLAGS} -o ./examples/autodiff
 
 hamiltonian:
 	@echo Compiling \"Hamiltonian\" example...
@@ -84,17 +92,17 @@ statistics:
 	@echo Compiling \"Statistics\" example...
 	@g++ examples/statistics.cpp ${CXXFLAGS} -o ./examples/statistics
 
-sampling_distributions:
+sampling:
 	@echo Compiling \"Sampling distributions\" example...
-	@g++ examples/sampling_distributions.cpp ${CXXFLAGS} -o ./examples/sampling_distributions
+	@g++ examples/sampling.cpp ${CXXFLAGS} -o ./examples/sampling
 
-montecarlo_comparison:
+montecarlo_integral:
 	@echo Compiling \"Montecarlo comparison\" example...
-	@g++ examples/montecarlo_comparison.cpp ${CXXFLAGS} -o ./examples/montecarlo_comparison
+	@g++ examples/montecarlo_integral.cpp ${CXXFLAGS} -o ./examples/montecarlo_integral
 
-multivariate_minimization:
+gradient_descent:
 	@echo Compiling \"Multivariate minimization\" example...
-	@g++ examples/multivariate_minimization.cpp ${CXXFLAGS} -o ./examples/multivariate_minimization
+	@g++ examples/gradient_descent.cpp ${CXXFLAGS} -o ./examples/gradient_descent
 
 logfit:
 	@echo Compiling \"Log fit\" example...
@@ -108,9 +116,13 @@ histogram:
 	@echo Compiling \"Histogram\" example...
 	@g++ examples/histogram.cpp ${CXXFLAGS} -o ./examples/histogram
 
-examples: example automatic_differentiation hamiltonian error_propagation \
-		  statistics sampling_distributions montecarlo_comparison multivariate_minimization \
-		  logfit attractor histogram
+random_walk:
+	@echo Compiling \"Random walk\" example...
+	@g++ examples/random_walk.cpp ${CXXFLAGS} -o ./examples/random_walk
+
+examples: example autodiff hamiltonian error_propagation \
+		  statistics sampling montecarlo_integral gradient_descent \
+		  logfit attractor histogram random_walk
 
 
 # Benchmarks

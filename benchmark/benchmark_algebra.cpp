@@ -9,13 +9,13 @@ using benchmark::benchmark_result;
 
 
 template<unsigned int N, unsigned int M = N>
-mat<N, M> rand_mat(real min, real max, PRNG& g) {
+mat<real, N, M> rand_mat(real min, real max, PRNG& g) {
 
-	mat<N, M> A;
+	mat<real, N, M> A;
 
 	for (unsigned int i = 0; i < N; ++i)
 		for (unsigned int j = 0; j < M; ++j)
-			A.iat(i, j) = rand_uniform(min, max, g);
+			A.at(i, j) = rand_uniform(min, max, g);
 
 	return A;
 }
@@ -24,7 +24,7 @@ mat<N, M> rand_mat(real min, real max, PRNG& g) {
 template<unsigned int N>
 benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 
-	std::vector<mat<N, N>> A(iter);
+	std::vector<mat<real, N, N>> A(iter);
 	volatile real c = 0;
 
 	const int MAX = 100000;
@@ -53,7 +53,7 @@ benchmark_result benchmark_mat_det(unsigned int iter, unsigned int runs) {
 template<unsigned int N>
 benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
-	std::vector<mat<N, N>> A(iter);
+	std::vector<mat<real, N, N>> A(iter);
 	volatile real c = 0;
 
 	const int MAX = 100000;

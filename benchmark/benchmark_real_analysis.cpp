@@ -86,5 +86,7 @@ int main(int argc, char const *argv[]) {
 		benchmark::request("th::binomial_coeff",
 			[](real x) { return binomial_coeff<uint32_t>(10, x); }, uniform_generator(0, 9));
 
+		BENCHMARK(th::special::gamma, 0.1, 20);
+
 	benchmark::terminate();
 }

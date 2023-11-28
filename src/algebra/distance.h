@@ -20,12 +20,12 @@ namespace theoretica {
 	/// Compute the Lp norm of a vector.
 	/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
 	template<typename Vector>
-	inline real lp_norm(Vector v, unsigned int p) {
+	inline real lp_norm(const Vector& v, unsigned int p) {
 
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += pow(abs(v[i]), p);
+			sum += pow(abs(v.get(i)), p);
 
 		return root(sum, p);
 	}
@@ -34,12 +34,12 @@ namespace theoretica {
 	/// Compute the L1 norm of a vector.
 	/// \f$L_1(\vec v) = \Sigma_i \ |v_i|\f$
 	template<typename Vector>
-	inline real l1_norm(Vector v) {
+	inline real l1_norm(const Vector& v) {
 
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += abs(v[i]);
+			sum += abs(v.get(i));
 
 		return sum;
 	}
@@ -47,12 +47,12 @@ namespace theoretica {
 	/// Compute the L2 norm of a vector.
 	/// \f$L_2(\vec v) = \sqrt{\Sigma_i \ v_i^2}\f$
 	template<typename Vector>
-	inline real l2_norm(Vector v) {
+	inline real l2_norm(const Vector& v) {
 
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += square(v[i]);
+			sum += square(v.get(i));
 
 		return sqrt(sum);
 	}
@@ -61,12 +61,12 @@ namespace theoretica {
 	/// Compute the Linf norm of a vector.
 	/// \f$L_{inf}(\vec v) = max(|v_i|)\f$
 	template<typename Vector>
-	inline real linf_norm(Vector v) {
+	inline real linf_norm(const Vector& v) {
 
-		real res = abs(v[0]);
+		real res = abs(v.get(0));
 
 		for (unsigned int i = 1; i < v.size(); ++i)
-			res = max(res, abs(v[i]));
+			res = max(res, abs(v.get(i)));
 
 		return res;
 	}
@@ -76,7 +76,7 @@ namespace theoretica {
 
 	/// Compute the Euclidean distance between two vectors
 	template<typename Vector>
-	inline real euclidean_distance(Vector v1, Vector v2) {
+	inline real euclidean_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("euclidean_distance", v1.size(), INVALID_ARGUMENT);
@@ -89,7 +89,7 @@ namespace theoretica {
 
 	/// Compute the Euclidean distance between two vectors
 	template<unsigned int N>
-	inline real distance(vec<N, real> v1, vec<N, real> v2) {
+	inline real distance(const vec<real, N>& v1, const vec<real, N>& v2) {
 		return euclidean_distance(v1, v2);
 	}
 
@@ -107,14 +107,15 @@ namespace theoretica {
 
 
 	/// Compute the distance between two complex numbers
-	inline complex distance(complex z1, complex z2) {
-		return (z1 - z2).modulus();
+	template<typename T>
+	inline complex<T> distance(complex<T> z1, complex<T> z2) {
+		return (z1 - z2).norm();
 	}
 
 
 	/// Compute the Minkowski distance between two vectors
 	template<typename Vector>
-	inline real minkowski_distance(Vector v1, Vector v2, unsigned int p) {
+	inline real minkowski_distance(const Vector& v1, const Vector& v2, unsigned int p) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("minkowski_distance", v1.size(), INVALID_ARGUMENT);
@@ -132,18 +133,18 @@ namespace theoretica {
 
 
 	/// Compute the Hermitian distance between two vectors
-	template<typename Vector>
-	inline complex hermitian_distance(Vector v1, Vector v2) {
+	template<typename Vector, typename T = real>
+	inline auto hermitian_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("hermitian_distance", v1.size(), INVALID_ARGUMENT);
-			return nan();
+			return  complex<T>(nan());
 		}
 
-		complex sum = 0;
+		complex<T> sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
-			const complex diff = v1[i] - conjugate(v2[i]);
+			const complex<T> diff = v1.get(i) - conjugate(v2.get(i));
 			sum += diff * diff.conjugate();
 		}
 
@@ -152,15 +153,17 @@ namespace theoretica {
 
 
 	/// Compute the Hermitian distance between two vectors
-	template<unsigned int N>
-	inline complex distance(vec<N, complex> v1, vec<N, complex> v2) {
-		return hermitian_distance(v1, v2);
+	template<unsigned int N, typename T>
+	inline complex<T> distance(
+		const vec<complex<T>, N>& v1, const vec<complex<T>, N>& v2) {
+
+		return hermitian_distance<vec<complex<T>, N>, T>(v1, v2);
 	}
 
 
 	/// Compute the Manhattan distance between two vectors
 	template<typename Vector>
-	inline real manhattan_distance(Vector v1, Vector v2) {
+	inline real manhattan_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("manhattan_distance", v1.size(), INVALID_ARGUMENT);
@@ -173,7 +176,7 @@ namespace theoretica {
 
 	/// Compute the Chebyshev distance between two vectors
 	template<typename Vector>
-	inline real chebyshev_distance(Vector v1, Vector v2) {
+	inline real chebyshev_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("chebyshev_distance", v1.size(), INVALID_ARGUMENT);
@@ -186,7 +189,8 @@ namespace theoretica {
 
 	/// Compute the discrete distance between two vectors
 	template<typename Vector>
-	inline real discrete_distance(Vector v1, Vector v2, real tolerance = MACH_EPSILON) {
+	inline real discrete_distance(
+		const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("discrete_distance", v1.size(), INVALID_ARGUMENT);
@@ -199,7 +203,7 @@ namespace theoretica {
 
 			// The vectors differ if a pair of elements differs
 			// more than the given tolerance
-			if(abs(v1[i] - v2[i]) > tolerance) {
+			if(abs(v1.get(i) - v2.get(i)) > tolerance) {
 				diff = true;
 				break;
 			}
@@ -211,7 +215,7 @@ namespace theoretica {
 
 	/// Compute the Canberra distance between two vectors
 	template<typename Vector>
-	inline real canberra_distance(Vector v1, Vector v2) {
+	inline real canberra_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("canberra_distance", v1.size(), INVALID_ARGUMENT);
@@ -221,7 +225,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i)
-			sum += abs(v1[i] - v2[i]) / (abs(v1[i]) + abs(v2[i]));
+			sum += abs(v1.get(i) - v2.get(i)) / (abs(v1.get(i)) + abs(v2.get(i)));
 
 		return sum;
 	}
@@ -229,7 +233,7 @@ namespace theoretica {
 
 	/// Compute the cosine distance between two vectors
 	template<typename Vector>
-	inline real cosine_distance(Vector v1, Vector v2) {
+	inline real cosine_distance(const Vector& v1, const Vector& v2) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("cosine_distance", v1.size(), INVALID_ARGUMENT);
@@ -241,9 +245,9 @@ namespace theoretica {
 		real sum_sqr_y = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
-			product += v1[i] * v2[i];
-			sum_sqr_x += square(v1[i]);
-			sum_sqr_y += square(v2[i]);
+			product += v1.get(i) * v2.get(i);
+			sum_sqr_x += square(v1.get(i));
+			sum_sqr_y += square(v2.get(i));
 		}
 
 		return product / sqrt(sum_sqr_x * sum_sqr_y);
@@ -252,7 +256,8 @@ namespace theoretica {
 
 	/// Compute the Hamming distance between two vectors
 	template<typename Vector>
-	inline real hamming_distance(Vector v1, Vector v2, real tolerance = MACH_EPSILON) {
+	inline real hamming_distance(
+		const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 		if(v1.size() != v2.size()) {
 			TH_MATH_ERROR("hamming_distance", v1.size(), INVALID_ARGUMENT);
@@ -263,7 +268,7 @@ namespace theoretica {
 
 		// Count how many elements differ to some tolerance
 		for (unsigned int i = 0; i < v1.size(); ++i)
-			if(abs(v1[i] - v2[i]) > tolerance)
+			if(abs(v1.get(i) - v2.get(i)) > tolerance)
 				count++;
 
 		return count;

@@ -1,7 +1,7 @@
 
 ///
-/// @file differentiation.cpp Automatic differentiation example.
-/// This example may be compiled using 'make automatic_differentiation'
+/// @file autodiff.cpp Automatic differentiation example.
+/// This example may be compiled using 'make autodiff'
 ///
 
 #include <iostream>
@@ -11,7 +11,7 @@ using namespace th;
 
 // A function from R^2 to R
 template<typename NumType>
-NumType f(vec<2, NumType> v) {
+NumType f(vec<NumType, 2> v) {
 
 	const NumType x = v[0];
 	const NumType y = v[1];
@@ -24,7 +24,7 @@ NumType f(vec<2, NumType> v) {
 
 // A function from R^2 to R^2
 template<typename NumType>
-vec<2, NumType> g(vec<2, NumType> v) {
+vec<NumType, 2> g(vec<NumType, 2> v) {
 
 	const NumType x = v[0];
 	const NumType y = v[1];

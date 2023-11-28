@@ -325,7 +325,7 @@ namespace theoretica {
 
 		for (unsigned int i = 0; i < n; ++i) {
 			weights.push_back(
-				((1 << (n - 1)) * fact(n) * SQRTPI) / square(n * roots[i])
+				((1 << (n - 1)) * fact(n) * SQRTPI) / square(n * H(roots[i]))
 			);
 		}
 

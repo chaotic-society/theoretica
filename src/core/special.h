@@ -19,8 +19,7 @@ namespace theoretica {
 		/// Gamma special function of positive integer argument
 		///
 		/// @param k The positive integer argument
-		/// @result The Gamma function computed using
-		/// the factorial.
+		/// @result The Gamma function computed using the factorial.
 		inline real gamma(unsigned int k) {
 
 			if(k == 0) {
@@ -52,79 +51,83 @@ namespace theoretica {
 		}
 
 
-		/// Gamma special function of real argument
+		/// Log Gamma special function of real argument.
+		/// This function uses Lanczos' approximation with gamma = 5.
 		///
 		/// @param x The real argument
-		///
-		/// @note This approximation is accurate to 4 significant
-		/// digits for positive x, 2 significant digits
-		/// for negative x and exact for integer values.
-		inline real gamma(real x) {
+		/// @result The logarithm of the Gamma function of x
+		inline real lngamma(real x) {
 
-			real x_fract = fract(x);
+			// Reflection formula for negative values
+			if(x < 0) {
 
-			// Identity with the factorial
-			if(x_fract <= MACH_EPSILON) {
-
-				if(x >= 1) {
-					return fact(int(x) - 1);
-				} else {
-					TH_MATH_ERROR("gamma", x, OUT_OF_DOMAIN);
+				// Check for negative values of Gamma(x)
+				if(floor(-x) % 2 == 0) {
+					TH_MATH_ERROR("lngamma", x, OUT_OF_DOMAIN);
 					return nan();
 				}
 
-
+				return ln(PI / sin(PI * x)) - lngamma(1 - x);
 			}
 
-			// If x is n/2 for positive integer n,
-			// use half_gamma function
-			if(abs(x_fract - 0.5) < MACH_EPSILON && x > 0)
-				return half_gamma(2 * x);
+			// Lanczos' coefficients
+			const real c[7] = {
+				1.000000000178,
+				76.180091729400,
+				-86.505320327112,
+				24.014098222230,
+				-1.231739516140,
+				0.001208580030,
+				-0.000005363820
+			};
 
-			real mul = 1;
+			// Simplified logarithmic formula
+			// for Lanczos' approximation
+			real A5 = c[0];
 
-			// Recursion relation for the Gamma function
-			// used for domain reduction to [1, 2]
-			while(x > 2) {
-				x -= 1;
-				mul *= x;
+			for (int i = 1; i < 7; ++i)
+				A5 += c[i] / (x + i - 1);
+
+			return (x - 0.5) * (ln(x + 4.5) - 1)
+					- 5 + ln(SQRTPI * SQRT2 * A5);
+		}
+
+
+		/// Gamma special function of real argument.
+		/// This function uses Lanczos' approximation with gamma = 5.
+		///
+		/// @param x The real argument
+		/// @result The Gamma function of x
+		inline real gamma(real x) {
+
+			const real x_fract = fract(x);
+
+			// Check if x is a pole or an integer number
+			if(x_fract < MACH_EPSILON) {
+
+				if(x <= 0) {
+					TH_MATH_ERROR("gamma", x, OUT_OF_DOMAIN);
+					return inf();
+				} else
+					return gamma((unsigned int) x);
 			}
 
-			while(x < 1) {
-				mul /= x;
-				x += 1;
-			}
+			// Check for negative values of Gamma(x)
+			// and use the translation identity
+			if(x < 0 && floor(-x) % 2 == 0)
+				return exp(lngamma(x + 1)) / x;
 
-			// Sixth degree interpolating polynomial in [1, 2]
-			return mul * (
-				3.0569 + x * (
-					-4.34693 + x * (
-						3.25067 + x * (
-							-1.12613 + x * 0.165215))));
-
-			// Fourth degree
-			// {1.02447174185, 0.9864538837131499882884},
-			// {1.20610737385, 0.9165709651955217873784},
-			// {1.5, 0.8862269254527580136491},
-			// {1.79389262615, 0.9297768595085857482919},
-			// {1.97552825815, 0.9898991992254261074602}
-
-			// Eighth degree
-			// {1.00759612349, 0.9898991992254261074602},
-			// {1.06698729811, 0.9655178178006569003207},
-			// {1.17860619516, 0.924134227524792371539},
-			// {1.32898992834, 0.8935010083062180359727},
-			// {1.5, 0.8862269254527580136491},
-			// {1.67101007166, 0.9034652031152693621302},
-			// {1.82139380484, 0.9372370730882858255166},
-			// {1.93301270189, 0.9735038451293283591075},
-			// {1.99240387651, 0.996812206109454852289}
+			// Compute the Gamma function as the exponential
+			// of the log Gamma function which uses Lanczos'
+			// approximation
+			return exp(lngamma(x));
 		}
 
 
 		/// Pi special function of real argument
 		///
 		/// @param x The real argument
+		/// @return The Pi function of x, equal to Gamma(x + 1)
 		inline real pi(real x) {
 			return gamma(x + 1);
 		}
@@ -134,8 +137,10 @@ namespace theoretica {
 		///
 		/// @param x1 The first real argument
 		/// @param x2 The second real argument
+		/// @return The Beta function of x1 and x2
 		inline real beta(real x1, real x2) {
-			return (gamma(x1) * gamma(x2)) / gamma(x1 + x2);
+
+			return exp(lngamma(x1) + lngamma(x2) - lngamma(x1 + x2));
 		}
 
 	}

@@ -184,6 +184,48 @@ namespace theoretica {
 		}
 
 
+		/// Gamma distribution density function with parameters
+		/// alpha (shape) and beta (rate)
+		inline real gamma_dist(real x, real alpha, real beta) {
+
+			return powf(beta, alpha) * powf(x, alpha - 1)
+				* exp(-beta * x) / special::gamma(alpha);
+		}
+
+
+		/// Wrapper for distribution::gamma_dist(real, real, real)
+		inline real gamma_dist(real x, const vec_buff& theta) {
+
+			if(theta.size() != 2) {
+				TH_MATH_ERROR("distribution::gamma_dist", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return gamma_dist(x, theta[0], theta[1]);
+		}
+
+
+		/// Beta distribution density function with parameters
+		/// alpha (shape) and beta (shape)
+		inline real beta_dist(real x, real alpha, real beta) {
+
+			return powf(x, alpha - 1) * powf(1 - x, beta - 1)
+				/ special::beta(alpha, beta);
+		}
+
+
+		/// Wrapper for distribution::beta_dist(real, real, real)
+		inline real beta_dist(real x, const vec_buff& theta) {
+
+			if(theta.size() != 2) {
+				TH_MATH_ERROR("distribution::beta_dist", theta.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			return beta_dist(x, theta[0], theta[1]);
+		}
+
+
 		/// Student's t distribution
 		inline real student(real x, unsigned int nu) {
 
@@ -342,7 +384,7 @@ namespace theoretica {
 		/// Laplace distribution
 		inline real laplace(real x, const vec_buff& theta) {
 
-			if(theta.size() != 3) {
+			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::laplace", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}

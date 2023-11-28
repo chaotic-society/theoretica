@@ -97,31 +97,24 @@ $(document).ready(function(){initNavTree('error__propagation_8cpp.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Automatic error propagation using automatic differentiation.  
+<p>Automatic propagation of uncertainties.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="theoretica_8h_source.html">theoretica.h</a>&quot;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a47ca358886489d86b34432cdd5e878d1"><td class="memTemplParams" colspan="2"><a id="a47ca358886489d86b34432cdd5e878d1" name="a47ca358886489d86b34432cdd5e878d1"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a47ca358886489d86b34432cdd5e878d1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>product_sum</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; g, <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; v)</td></tr>
-<tr class="separator:a47ca358886489d86b34432cdd5e878d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1354d531434369dd091802877bcddd8c"><td class="memTemplParams" colspan="2"><a id="a1354d531434369dd091802877bcddd8c" name="a1354d531434369dd091802877bcddd8c"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a1354d531434369dd091802877bcddd8c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>product_sum_quad</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; g, <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; N &gt; v)</td></tr>
-<tr class="separator:a1354d531434369dd091802877bcddd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56a2e896cbb48d14b9100b62ab4a8bda"><td class="memTemplParams" colspan="2"><a id="a56a2e896cbb48d14b9100b62ab4a8bda" name="a56a2e896cbb48d14b9100b62ab4a8bda"></a>
+<tr class="memitem:a28e7972eb1e1ea08433018f7449278e8"><td class="memTemplParams" colspan="2"><a id="a28e7972eb1e1ea08433018f7449278e8" name="a28e7972eb1e1ea08433018f7449278e8"></a>
 template&lt;typename NumType &gt; </td></tr>
-<tr class="memitem:a56a2e896cbb48d14b9100b62ab4a8bda"><td class="memTemplItemLeft" align="right" valign="top">NumType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theta</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; 2, NumType &gt; v)</td></tr>
-<tr class="separator:a56a2e896cbb48d14b9100b62ab4a8bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28e7972eb1e1ea08433018f7449278e8"><td class="memTemplItemLeft" align="right" valign="top">NumType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>f</b> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; 3, NumType &gt; v)</td></tr>
+<tr class="separator:a28e7972eb1e1ea08433018f7449278e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top"><a id="abf9e6b7e6f15df4b525a2e7705ba3089" name="abf9e6b7e6f15df4b525a2e7705ba3089"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char const *argv[])</td></tr>
 <tr class="separator:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Automatic error propagation using automatic differentiation. </p>
+<div class="textblock"><p >Automatic propagation of uncertainties. </p>
 <p >This example may be compiled using 'make error_propagation' </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
@@ -129,7 +122,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="error__propagation_8cpp.html">error_propagation.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 27 2023 15:20:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

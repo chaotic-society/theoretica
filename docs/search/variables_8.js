@@ -9,8 +9,9 @@ var searchData=
   ['max_5fsteffensen_5fiter_6',['MAX_STEFFENSEN_ITER',['../namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059',1,'theoretica']]],
   ['max_5ftryandcatch_5fiter_7',['MAX_TRYANDCATCH_ITER',['../namespacetheoretica.html#a3299f783527ae72a24c832a7b1cd8ef8',1,'theoretica']]],
   ['max_5fval_8',['max_val',['../classtheoretica_1_1histogram.html#a6fd0164740ef2274ef1a8150535531d3',1,'theoretica::histogram']]],
-  ['min_5fval_9',['min_val',['../classtheoretica_1_1histogram.html#a15c511d16e423252222e3024872f69cc',1,'theoretica::histogram']]],
-  ['mingrad_5fgamma_10',['MINGRAD_GAMMA',['../namespacetheoretica.html#ab33f363492da480d62e2e0b5ad2c4ee9',1,'theoretica']]],
-  ['mingrad_5fmax_5fiter_11',['MINGRAD_MAX_ITER',['../namespacetheoretica.html#acd4ef8ed777e402e2ae0c7f736ba20cb',1,'theoretica']]],
-  ['mingrad_5ftolerance_12',['MINGRAD_TOLERANCE',['../namespacetheoretica.html#a5ebee50e5a5a80baaa6532a736ce7d55',1,'theoretica']]]
+  ['metropolis_5fdepth_9',['METROPOLIS_DEPTH',['../namespacetheoretica.html#a1ad823e40ceef73bd9114b0a05e6cd5f',1,'theoretica']]],
+  ['min_5fval_10',['min_val',['../classtheoretica_1_1histogram.html#a15c511d16e423252222e3024872f69cc',1,'theoretica::histogram']]],
+  ['mingrad_5fgamma_11',['MINGRAD_GAMMA',['../namespacetheoretica.html#ab33f363492da480d62e2e0b5ad2c4ee9',1,'theoretica']]],
+  ['mingrad_5fmax_5fiter_12',['MINGRAD_MAX_ITER',['../namespacetheoretica.html#acd4ef8ed777e402e2ae0c7f736ba20cb',1,'theoretica']]],
+  ['mingrad_5ftolerance_13',['MINGRAD_TOLERANCE',['../namespacetheoretica.html#a5ebee50e5a5a80baaa6532a736ce7d55',1,'theoretica']]]
 ];

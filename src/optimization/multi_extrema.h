@@ -29,20 +29,20 @@ namespace theoretica {
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> minimize_grad(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0),
+	inline vec<real, N> minimize_grad(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0),
 		real gamma = MINGRAD_GAMMA,
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
 		if(gamma >= 0) {
 			TH_MATH_ERROR("minimize_grad", gamma, INVALID_ARGUMENT);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
-		vec<N> x = guess;
-		vec<N> grad;
+		vec<real, N> x = guess;
+		vec<real, N> grad;
 		unsigned int iter = 0;
 
 		do {
@@ -51,11 +51,11 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.length() > MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("minimize_grad", iter, NO_ALGO_CONVERGENCE);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		return x;
@@ -75,9 +75,9 @@ namespace theoretica {
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> maximize_grad(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0),
+	inline vec<real, N> maximize_grad(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0),
 		real gamma = MINGRAD_GAMMA,
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
@@ -98,14 +98,14 @@ namespace theoretica {
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> minimize_lingrad(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0),
+	inline vec<real, N> minimize_lingrad(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
-		vec<N> x = guess;
-		vec<N> grad;
+		vec<real, N> x = guess;
+		vec<real, N> grad;
 		unsigned int iter = 0;
 
 		do {
@@ -118,7 +118,8 @@ namespace theoretica {
 				[f, x, grad](real gamma){
 					return f(
 						multidual<N>::make_argument(x)
-						+ multidual<N>::make_argument(grad) * gamma).Re();
+						+ multidual<N>::make_argument(grad)
+						* multidual<N>(gamma)).Re();
 				},
 				-1, 0);
 
@@ -129,11 +130,11 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.length() > MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		return x;
@@ -152,14 +153,14 @@ namespace theoretica {
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> maximize_lingrad(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0),
+	inline vec<real, N> maximize_lingrad(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
-		vec<N> x = guess;
-		vec<N> grad;
+		vec<real, N> x = guess;
+		vec<real, N> grad;
 		unsigned int iter = 0;
 
 		do {
@@ -183,11 +184,11 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.length() > MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("maximize_lingrad", iter, NO_ALGO_CONVERGENCE);
-			return vec<N>(nan());
+			return vec<real, N>(nan());
 		}
 
 		return x;
@@ -204,9 +205,9 @@ namespace theoretica {
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> minimize(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0), real tolerance = MINGRAD_TOLERANCE) {
+	inline vec<real, N> minimize(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0), real tolerance = MINGRAD_TOLERANCE) {
 
 		return minimize_lingrad(f, guess, tolerance);
 	}
@@ -222,9 +223,9 @@ namespace theoretica {
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<N> maximize(
-		multidual<N>(*f)(vec<N, multidual<N>>),
-		vec<N> guess = vec<N>(0), real tolerance = MINGRAD_TOLERANCE) {
+	inline vec<real, N> maximize(
+		multidual<N>(*f)(vec<multidual<N>, N>),
+		vec<real, N> guess = vec<real, N>(0), real tolerance = MINGRAD_TOLERANCE) {
 
 		return maximize_lingrad<N>(f, guess, tolerance);
 	}

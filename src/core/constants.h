@@ -33,7 +33,7 @@
 
 /// Relative precision for derivative approximation
 #ifndef THEORETICA_DERIV_PREC
-#define THEORETICA_DERIV_PREC 100000.0
+#define THEORETICA_DERIV_PREC 10E+5
 #endif
 
 /// Default number of steps for integral approximation
@@ -107,7 +107,7 @@
 
 /// Default variation for derivative approximation
 #ifndef THEORETICA_DERIV_STEPSIZE
-#define THEORETICA_DERIV_STEPSIZE 0.001
+#define THEORETICA_DERIV_STEPSIZE 1E-3
 #endif
 
 /// Default step size for gradient descent minimization
@@ -117,7 +117,7 @@
 
 /// Default tolerance for gradient descent minimization
 #ifndef THEORETICA_MINGRAD_TOLERANCE
-#define THEORETICA_MINGRAD_TOLERANCE 0.001
+#define THEORETICA_MINGRAD_TOLERANCE 1E-3
 #endif
 
 /// Maximum number of iterations for gradient descent minimization
@@ -156,6 +156,8 @@
 #else
 #define TH_CONSTEXPR
 #endif
+
+// TO-DO Add TH_IFCONSTEXPR macro for "if constexpr" when C++17 is supported
 
 
 /// @namespace theoretica Main namespace of the library which contains all functions and objects
@@ -202,7 +204,7 @@ namespace theoretica {
 	constexpr real PI = 3.141592653589793238462643;
 
 	/// Half of Pi
-	constexpr real PI2 = PI / 2.0;
+	constexpr real PI2 = 1.57079632679489655799898;
 
 	/// A quarter of Pi
 	constexpr real PI4 = PI / 4.0;
@@ -217,7 +219,7 @@ namespace theoretica {
 	constexpr real INVPI = 1.0 / PI;
 
 	/// The square root of Pi
-	constexpr real SQRTPI = 1.772454;
+	constexpr real SQRTPI = 1.7724538509055159927;
 
 	/// The Euler mathematical constant (e)
 	constexpr real E = 2.718281828459045235360287;
@@ -244,7 +246,7 @@ namespace theoretica {
 	constexpr real RAD2DEG = 57.2957795130823228646477218717;
 
 	/// The square root of 2
-	constexpr real SQRT2 = 1.414213562373095;
+	constexpr real SQRT2 = 1.4142135623730950488;
 
 	/// The inverse of the square root of 2
 	constexpr real INVSQR2 = 0.7071067811865475;

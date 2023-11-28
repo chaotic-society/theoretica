@@ -55,6 +55,61 @@ namespace theoretica {
 	}
 
 
+	/// Coin toss random generator.
+	/// Extracts 1 or -1 with equal probability.
+	///
+	/// @param g An already initialized PRNG
+	inline real rand_cointoss(PRNG& g) {
+
+		return (g() % 2 == 0) ? 1 : -1;
+	}
+
+
+	/// Wrapper for rand_cointoss(PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_cointoss(const std::vector<real>& theta, PRNG& g) {
+		return rand_cointoss(g);
+	}
+
+
+	/// Dice roll random generator.
+	/// Extracts a random natural number in [1, faces]
+	/// with equal probability.
+	///
+	/// @param faces The number of faces of the dice
+	inline real rand_diceroll(unsigned int faces, PRNG& g) {
+
+		if(faces == 0) {
+			TH_MATH_ERROR("rand_diceroll", faces, INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return (g() % faces) + 1;
+	}
+
+
+	/// Wrapper for rand_diceroll(PRNG)
+	///
+	/// @param theta The parameters of the distribution
+	/// @param g An already initialized PRNG
+	inline real rand_diceroll(const std::vector<real>& theta, PRNG& g) {
+
+		if(theta.size() != 1) {
+			TH_MATH_ERROR("rand_diceroll", theta.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		if(theta[0] < 0) {
+			TH_MATH_ERROR("rand_diceroll", theta[0], INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return rand_diceroll(theta[0], g);
+	}
+
+
 	/// Generate a pseudorandom value following any
 	/// probability distribution function using the
 	/// Try-and-Catch (rejection) algorithm.
@@ -365,8 +420,8 @@ namespace theoretica {
 	/// distribution using the quantile (inverse) function method.
 	inline real rand_laplace(real mu, real b, PRNG& g) {
 
-		real u = rand_uniform(0, 1, g);
-		return mu - b * sgn(u) * ln(1 - 2 * abs(u));
+		const real u = rand_uniform(0, 0.5, g);
+		return mu - b * rand_cointoss(g) * ln(1 - 2 * abs(u));
 	}
 
 
@@ -439,7 +494,8 @@ namespace theoretica {
 		}
 
 		// Fill a vector with sampled points
-		inline void fill(vec_buff& x, size_t N) {
+		template<typename Vector>
+		inline void fill(Vector& x, size_t N) {
 
 			for (size_t i = 0; i < N; ++i)
 				x[i] = next();

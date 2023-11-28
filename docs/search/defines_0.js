@@ -14,12 +14,13 @@ var searchData=
   ['theoretica_5fmax_5fpolyndiv_5fiter_11',['THEORETICA_MAX_POLYNDIV_ITER',['../constants_8h.html#a8d401b6f12e61a0bb1fde6d124f6bd4e',1,'constants.h']]],
   ['theoretica_5fmax_5fsteffensen_5fiter_12',['THEORETICA_MAX_STEFFENSEN_ITER',['../constants_8h.html#a079d3def41600f49deb005b75b524adc',1,'constants.h']]],
   ['theoretica_5fmax_5ftryandcatch_5fiter_13',['THEORETICA_MAX_TRYANDCATCH_ITER',['../constants_8h.html#a9185ccd5fcdd822ae6b8b06eb1437674',1,'constants.h']]],
-  ['theoretica_5fmingrad_5fgamma_14',['THEORETICA_MINGRAD_GAMMA',['../constants_8h.html#aac8e3eb0953959ada47984923ba5ca8e',1,'constants.h']]],
-  ['theoretica_5fmingrad_5fmax_5fiter_15',['THEORETICA_MINGRAD_MAX_ITER',['../constants_8h.html#ac7c192f4ff34c26e248e6d218a944027',1,'constants.h']]],
-  ['theoretica_5fmingrad_5ftolerance_16',['THEORETICA_MINGRAD_TOLERANCE',['../constants_8h.html#ab1f00908cc1227294e6c5be8de0e1423',1,'constants.h']]],
-  ['theoretica_5fnewton_5fraphson_5ftol_17',['THEORETICA_NEWTON_RAPHSON_TOL',['../constants_8h.html#a961e7eb071044645d790bcf11974fa67',1,'constants.h']]],
-  ['theoretica_5fpowf_5fapprox_5ftol_18',['THEORETICA_POWF_APPROX_TOL',['../constants_8h.html#a694c73eb196485f1bec84c5075600f89',1,'constants.h']]],
-  ['theoretica_5frand_5freal_5fprec_19',['THEORETICA_RAND_REAL_PREC',['../constants_8h.html#ac13dd04d659ae36e514a06cd075f0e0e',1,'constants.h']]],
-  ['theoretica_5froot_5fapprox_5ftol_20',['THEORETICA_ROOT_APPROX_TOL',['../constants_8h.html#a021c58c225740fa33459a6378975e759',1,'constants.h']]],
-  ['theoretica_5ftaylor_5forder_21',['THEORETICA_TAYLOR_ORDER',['../constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6',1,'constants.h']]]
+  ['theoretica_5fmetropolis_5fdepth_14',['THEORETICA_METROPOLIS_DEPTH',['../constants_8h.html#af21e0dc38514fc6ac32da33a7f3b6ee7',1,'constants.h']]],
+  ['theoretica_5fmingrad_5fgamma_15',['THEORETICA_MINGRAD_GAMMA',['../constants_8h.html#aac8e3eb0953959ada47984923ba5ca8e',1,'constants.h']]],
+  ['theoretica_5fmingrad_5fmax_5fiter_16',['THEORETICA_MINGRAD_MAX_ITER',['../constants_8h.html#ac7c192f4ff34c26e248e6d218a944027',1,'constants.h']]],
+  ['theoretica_5fmingrad_5ftolerance_17',['THEORETICA_MINGRAD_TOLERANCE',['../constants_8h.html#ab1f00908cc1227294e6c5be8de0e1423',1,'constants.h']]],
+  ['theoretica_5fnewton_5fraphson_5ftol_18',['THEORETICA_NEWTON_RAPHSON_TOL',['../constants_8h.html#a961e7eb071044645d790bcf11974fa67',1,'constants.h']]],
+  ['theoretica_5fpowf_5fapprox_5ftol_19',['THEORETICA_POWF_APPROX_TOL',['../constants_8h.html#a694c73eb196485f1bec84c5075600f89',1,'constants.h']]],
+  ['theoretica_5frand_5freal_5fprec_20',['THEORETICA_RAND_REAL_PREC',['../constants_8h.html#ac13dd04d659ae36e514a06cd075f0e0e',1,'constants.h']]],
+  ['theoretica_5froot_5fapprox_5ftol_21',['THEORETICA_ROOT_APPROX_TOL',['../constants_8h.html#a021c58c225740fa33459a6378975e759',1,'constants.h']]],
+  ['theoretica_5ftaylor_5forder_22',['THEORETICA_TAYLOR_ORDER',['../constants_8h.html#ad693d152d21cfd12f2d4c8bc8b1122e6',1,'constants.h']]]
 ];

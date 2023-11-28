@@ -40,7 +40,7 @@ namespace theoretica {
 	/// @param N The number of points to generate
 	template<unsigned int S>
 	inline real integral_crude(
-		real(*f)(vec<S>), vec<S, vec2> extremes,
+		real(*f)(vec<real, S>), vec<vec2, S> extremes,
 		PRNG& g, unsigned int N = 1000) {
 
 		real sum_y = 0;
@@ -48,7 +48,7 @@ namespace theoretica {
 		// Sample the function at random points in the integration region
 		for (unsigned int i = 0; i < N; ++i) {
 		
-			vec<S> v;
+			vec<real, S> v;
 			for (unsigned int k = 0; k < S; ++k)
 				v[k] = rand_uniform(extremes[k][0], extremes[k][1], g);
 
@@ -94,14 +94,14 @@ namespace theoretica {
 	/// @param N The number of points to generate
 	template<unsigned int S>
 	inline real integral_quasi_crude(
-		real(*f)(vec<S>), vec<S, vec2> extremes,
-		unsigned int N, vec<S> alpha) {
+		real(*f)(vec<real, S>), vec<vec2, S> extremes,
+		unsigned int N, vec<real, S> alpha) {
 
 		real sum_y = 0;
 
 		for (unsigned int i = 0; i < N; ++i) {
 		
-			vec<S> v;
+			vec<real, S> v;
 			for (unsigned int k = 0; k < S; ++k)
 				v[k] = extremes[k][0] + (qrand_weyl(i, alpha[k]) * (extremes[k][1] - extremes[k][0]));
 
@@ -125,7 +125,7 @@ namespace theoretica {
 	/// @param N The number of points to generate
 	template<unsigned int S>
 	inline real integral_quasi_crude(
-		real(*f)(vec<S>), vec<S, vec2> extremes,
+		real(*f)(vec<real, S>), vec<vec2, S> extremes,
 		unsigned int N = 1000, real alpha = 0) {
 
 		if(alpha == 0) {
@@ -139,7 +139,7 @@ namespace theoretica {
 				}, 0, 2);
 		}
 
-		vec<S> v;
+		vec<real, S> v;
 		for (unsigned int i = 0; i < S; ++i)
 			v[i] = pow(alpha, i + 1);
 

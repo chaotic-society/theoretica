@@ -16,6 +16,7 @@ namespace theoretica {
 	/// @namespace theoretica::taylor Taylor series expansions
 	namespace taylor {
 
+
 		/// Computes the first order Taylor expansion of a generic function
 		/// around x0, computed using dual numbers.
 		/// Automatic differentiation is used to compute the exact values

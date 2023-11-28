@@ -518,5 +518,52 @@ int main(int argc, char const *argv[]) {
 		);
 
 
+		// Special functions
+
+
+		// Gamma function
+
+		// Check translation identity
+		prec::estimate(
+			"gamma (1)",
+			[](real x) {
+				return special::gamma(x);
+			},
+			[](real x) {
+				return special::gamma(x + 1) / x;
+			},
+			interval(0.1, 20),
+			10E-8, false,
+			prec::state.defaultIterations, prec::fail_on_rel_err
+		);
+
+		// Check identity with factorial
+		prec::estimate(
+			"gamma (2)",
+			[](real x) {
+				return special::gamma((real) th::floor(x));
+			},
+			[](real x) {
+				return (real) fact<uint64_t>((unsigned int) (th::floor(x) - 1));
+			},
+			interval(1, 20)
+		);
+
+
+		// Pi function
+
+		// Check identity with factorial
+		prec::estimate(
+			"pi (2)",
+			[](real x) {
+				return special::pi((real) th::floor(x));
+			},
+			[](real x) {
+				return (real) fact<uint64_t>((unsigned int) (th::floor(x)));
+			},
+			interval(1, 20)
+		);
+
+
 	prec::terminate();
 }
