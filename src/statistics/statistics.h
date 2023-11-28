@@ -462,100 +462,11 @@ namespace theoretica {
 	}
 
 
-	/// Compute the intercept of the minimum squares linearization of X and Y
-	inline real least_squares_linear_intercept(
-		const vec_buff& X, const vec_buff& Y) {
-
-		if(X.size() != Y.size()) {
-			TH_MATH_ERROR("least_squares_linear_intercept", X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		real A = (sum_squares(X) * sum(Y) - sum(X) * product_sum(X, Y)) / Delta;
-
-		return A;
-	}
-
-
-	/// Compute the intercept of the minimum squares linearization of X and Y
-	inline real lst_sqrs_lin_intercept(
-		const vec_buff& X, const vec_buff& Y) {
-		return least_squares_linear_intercept(X, Y);
-	}
-
-
-	/// Compute the error on the intercept (A)
-	inline real least_squares_linear_sigma_A(
-		const vec_buff& X, const vec_buff& Y, real sigma_y) {
-
-		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		return sqrt(sum_squares(X) / Delta) * abs(sigma_y);
-	}
-
-
-	/// Compute the slope of the minimum squares linearization of X and Y
-	inline real least_squares_linear_slope(const vec_buff& X, const vec_buff& Y) {
-
-		if(X.size() != Y.size()) {
-			TH_MATH_ERROR("least_squares_linear_slope", X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		real B = (X.size() * product_sum(X, Y) - sum(X) * sum(Y)) / Delta;
-
-		return B;
-	}
-
-
-	/// Compute the slope of the minimum squares linearization of X and Y
-	inline real lst_sqrs_lin_slope(const vec_buff& X, const vec_buff& Y) {
-		return least_squares_linear_slope(X, Y);
-	}
-
-
-	/// Compute the error on the slope coefficient (B)
-	inline real least_squares_linear_sigma_B(
-		const vec_buff& X, const vec_buff& Y, real sigma_y) {
-
-		real Delta = X.size() * sum_squares(X) - square(sum(X));
-		return sqrt(X.size() / Delta) * abs(sigma_y);
-	}
-
-
-	/// Compute the error of the minimum squares linearization of a sample
-	inline real least_squares_linear_error(
-		const vec_buff& X, const vec_buff& Y,
-		real intercept, real slope) {
-
-		if(X.size() != Y.size()) {
-			TH_MATH_ERROR("least_squares_linear_error", X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		real err = 0;
-		for (unsigned int i = 0; i < X.size(); ++i) {
-			err += square(Y[i] - intercept - slope * X[i]);
-		}
-
-		// Correction by degrees of freedom (N - 2)
-		return sqrt(err / (real) (X.size() - 2));
-	}
-
-
-	/// Compute the error of the minimum squares linearization of a sample
-	inline real lst_sqrs_lin_error(
-		const vec_buff& X, const vec_buff& Y,
-		real intercept, real slope) {
-		return least_squares_linear_error(X, Y, intercept, slope);
-	}
-
-
 	/// Compute the chi-square on a linearization
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real chi_square_linearization(
-		const vec_buff& X, const vec_buff& Y,
-		const vec_buff& sigma, real intercept, real slope) {
+		const Dataset1& X, const Dataset2& Y,
+		const Dataset3& sigma, real intercept, real slope) {
 
 		if(X.size() != Y.size() || X.size() != sigma.size()) {
 			TH_MATH_ERROR(
@@ -566,6 +477,12 @@ namespace theoretica {
 
 		real chi_squared = 0;
 		for (unsigned int i = 0; i < X.size(); ++i) {
+
+			if(abs(sigma[i]) <= MACH_EPSILON) {
+				TH_MATH_ERROR("chi_square_linearization", sigma[i], DIV_BY_ZERO);
+				return nan();
+			}
+
 			chi_squared += square((Y[i] - intercept - slope * X[i]) / sigma[i]);
 		}
 
@@ -574,69 +491,21 @@ namespace theoretica {
 
 
 	/// Compute the reduced chi-squared on a linearization
+	template<typename Dataset1, typename Dataset2, typename Dataset3>
 	inline real reduced_chi_square_linearization(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& sigma,
-		real intercept, real slope) {
+		const Dataset1& X, const Dataset2& Y,
+		const Dataset3& sigma, real intercept, real slope) {
+
+		if(Y.size() <= 2) {
+			TH_MATH_ERROR("reduced_chi_square_linearization",
+				Y.size(), INVALID_ARGUMENT);
+			return nan();
+		}
 
 		// Divide by degrees of freedom (N - 2)
 		return chi_square_linearization(X, Y, sigma, intercept, slope)
 			/ (real) (Y.size() - 2);
 	}
-
-
-	/// Compute the intercept of the weighted minimum squares linearization of X and Y
-	inline real least_squares_weighted_linear_intercept(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
-
-		if(X.size() != Y.size() || X.size() != W.size()) {
-			TH_MATH_ERROR(
-				"least_squares_weighted_linear_intercept",
-				X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
-
-		real A = (product_sum(X, X, W) * product_sum(Y, W) -
-			product_sum(X, W) * product_sum(X, Y, W)) / Delta;
-
-		return A;
-	}
-
-
-	/// Compute the intercept of the weighted minimum squares linearization of X and Y
-	inline real lst_sqrs_weight_lin_intercept(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
-		return least_squares_weighted_linear_intercept(X, Y, W);
-	}
-
-
-	/// Compute the slope of the weighted minimum squares linearization of X and Y
-	inline real least_squares_weighted_linear_slope(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
-
-		if(X.size() != Y.size() || X.size() != W.size()) {
-			TH_MATH_ERROR(
-				"least_squares_weighted_linear_slope",
-				X.size(), INVALID_ARGUMENT);
-			return nan();
-		}
-
-		real Delta = sum(W) * product_sum(X, X, W) - square(product_sum(X, W));
-
-		real B = (sum(W) * product_sum(X, Y, W) -
-			product_sum(X, W) * product_sum(Y, W)) / Delta;
-
-		return B;
-	}
-
-
-	/// Compute the slope of the weighted minimum squares linearization of X and Y
-	inline real lst_sqrs_weight_lin_slope(
-		const vec_buff& X, const vec_buff& Y, const vec_buff& W) {
-		return least_squares_weighted_linear_slope(X, Y, W);
-	}
-
 
 }
 
