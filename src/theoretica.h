@@ -51,6 +51,7 @@
 #include "./statistics/distributions.h"
 #include "./statistics/errorprop.h"
 #include "./statistics/histogram.h"
+#include "./statistics/regression.h"
 
 // Roots and extrema approximation of real functions
 #include "./optimization/roots.h"
