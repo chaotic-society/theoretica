@@ -8,6 +8,7 @@
 
 #include "./prng.h"
 #include "./quasirandom.h"
+#include "./rand_dist.h"
 
 
 namespace theoretica {
@@ -354,6 +355,32 @@ namespace theoretica {
 		}		
 
 		return sum_y / static_cast<real>(N);
+	}
+
+
+	/// Generate a Monte Carlo sample of values of a given function
+	/// of arbitrary variables following the given distributions.
+	///
+	/// @param f The function with argument vec<real>
+	/// @param rv A vector of distribution samplers from the
+	/// distributions of the random variables
+	/// @param N The size of the sample
+	/// @return The sampled values
+	template<typename Function>
+	vec_buff mc_sample(Function f, std::vector<pdf_sampler> rv, unsigned int N) {
+
+		vec_buff sample(N);
+		vec<real> v(rv.size());
+
+		for (unsigned int i = 0; i < N; ++i) {
+
+			for (unsigned int j = 0; j < rv.size(); ++j)
+				v[j] = rv[j]();
+
+			sample[i] = f(v);
+		}
+
+		return sample;
 	}
 
 }

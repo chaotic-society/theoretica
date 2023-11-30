@@ -10,6 +10,8 @@
 #include "../algebra/vec.h"
 #include "../autodiff/autodiff.h"
 #include "../statistics/statistics.h"
+#include "../pseudorandom/montecarlo.h"
+#include "../pseudorandom/rand_dist.h"
 
 
 namespace theoretica {
@@ -49,7 +51,7 @@ namespace theoretica {
 	/// @param delta_x Vector of uncertainties on the variables
 	/// @return The propagated error on the function
 	template<unsigned int N>
-	inline real propagate_err(
+	inline real error_propagation(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		const vec<real, N>& x_best, const vec<real, N>& delta_x) {
 
@@ -77,7 +79,7 @@ namespace theoretica {
 	/// using the function covar_mat.
 	/// @return The propagated error on the function
 	template<unsigned int N>
-	inline real propagate_err(
+	inline real error_propagation(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		const vec<real, N>& x_best, const mat<real, N, N>& cm) {
 
@@ -105,7 +107,7 @@ namespace theoretica {
 	/// measures of the variables
 	/// @return The propagated error on the function
 	template<unsigned int N>
-	inline real propagate_err(
+	inline real error_propagation(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		const std::vector<vec_buff>& v) {
 
@@ -114,7 +116,28 @@ namespace theoretica {
 		for (unsigned int i = 0; i < N; ++i)
 			x_mean[i] = mean(v[i]);
 
-		return propagate_err(f, x_mean, covar_mat<N>(v));
+		return error_propagation(f, x_mean, covar_mat<N>(v));
+	}
+
+
+	/// Propagate the statistical error on a given function
+	/// using the Monte Carlo method, by
+	/// generating a sample following the probability
+	/// distribution of the function and computing
+	/// its standard deviation.
+	///
+	/// @param f The function to propagate error on
+	/// @param rv A list of distribution samplers
+	/// which sample from the probability distributions
+	/// of the random variables.
+	/// @param N The number of sampled values to use, defaults to
+	/// 1 million.
+	/// @return The standard deviation of the Monte Carlo sample
+	template<typename Function>
+	real mc_error_propagation(
+		Function f, std::vector<pdf_sampler> rv, unsigned int N = 10E6) {
+
+		return smpl_stdev(mc_sample(f, rv, N));
 	}
 
 }

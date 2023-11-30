@@ -48,10 +48,10 @@ int main(int argc, char const *argv[]) {
 	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << propagate_err<3>(f, data) << std::endl;
+	std::cout << error_propagation<3>(f, data) << std::endl;
 
 	// Propagate using only the standard deviation
-	std::cout << propagate_err<3>(f,
+	std::cout << error_propagation<3>(f,
 		{mean(data[0]), mean(data[1]), mean(data[2])},
 		{smpl_stdev(data[0]), smpl_stdev(data[1]), smpl_stdev(data[2])}
 	) << std::endl;
