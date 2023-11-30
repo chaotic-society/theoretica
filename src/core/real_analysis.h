@@ -877,7 +877,7 @@ namespace theoretica {
 		real s = x;
 		const real sqr_x = x * x;
 
-		for (int i = 1; i < 14; ++i) {
+		for (int i = 1; i < 16; ++i) {
 			s = s * -sqr_x / (4 * i * i + 2 * i);
 			res += s;
 		}
@@ -942,6 +942,17 @@ namespace theoretica {
 		return s / c;
 
 #else
+		// Reflection
+		if(x < 0)
+			return -tan(-x);
+
+		// Domain reduction to [0, PI]
+		x -= floor(x / PI) * PI;
+
+		// Domain reduction to [0, PI / 4]
+		if(x > (PI / 4))
+			return (1 + tan(x - (PI / 4.0))) /
+				   (1 - tan(x - (PI / 4.0)));
 
 		const real s = sin(x);
 		const real c = cos(x);
@@ -952,7 +963,6 @@ namespace theoretica {
 		}
 
 		return s / c;
-
 #endif
 	}
 

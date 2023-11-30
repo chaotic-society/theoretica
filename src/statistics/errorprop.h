@@ -135,7 +135,7 @@ namespace theoretica {
 	/// @return The standard deviation of the Monte Carlo sample
 	template<typename Function>
 	real mc_error_propagation(
-		Function f, std::vector<pdf_sampler> rv, unsigned int N = 10E6) {
+		Function f, std::vector<pdf_sampler> rv, unsigned int N = 1E+6) {
 
 		return smpl_stdev(mc_sample(f, rv, N));
 	}
