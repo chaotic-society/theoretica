@@ -950,9 +950,10 @@ namespace theoretica {
 		x -= floor(x / PI) * PI;
 
 		// Domain reduction to [0, PI / 4]
-		if(x > (PI / 4))
-			return (1 + tan(x - (PI / 4.0))) /
-				   (1 - tan(x - (PI / 4.0)));
+		if(x > (PI / 4)) {
+			const real t = tan(x - PI / 4.0);
+			return (1 + t) / (1 - t);
+		}
 
 		const real s = sin(x);
 		const real c = cos(x);

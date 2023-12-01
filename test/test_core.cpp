@@ -108,7 +108,6 @@ int main(int argc, char const *argv[]) {
 
 	prec::state.outputFolder = "test/";
 	prec::state.defaultIterations = 100000;
-	// prec::state.pickedTests["th::tan(real)"] = true;
 
 	prec::setup("core", argc, argv);
 
@@ -340,8 +339,7 @@ int main(int argc, char const *argv[]) {
 			"th::tan(real)",
 			REAL_LAMBDA(th::tan),
 			REAL_LAMBDA(std::tan),
-			interval(MIN, MAX), 1E-5, false, 100,
-			prec::fail_on_rel_err);
+			interval(MIN, MAX), 1E-6, false, 1000);
 
 		prec::equals("tan(2) = tan(2 + 100 PI)",
 			th::tan(2), th::tan(2 + 100 * PI));

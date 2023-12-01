@@ -137,6 +137,51 @@ namespace theoretica {
 		}
 
 
+		/// Compute the coefficients of the linear regression
+		/// using Weighted Least Squares
+		template<typename Dataset1, typename Dataset2>
+		inline void wls_linear(
+			const Dataset1& X, const Dataset2& Y,
+			real sigma_X, real sigma_Y,
+			real& intercept, real& slope, real& error,
+			real& sigma_A, real& sigma_B) {
+
+			if(X.size() != Y.size()) {
+				TH_MATH_ERROR("wls_linear", X.size(), INVALID_ARGUMENT);
+				intercept = nan();
+				slope = nan();
+				error = nan();
+				return;
+			}
+
+			// Pre-compute values
+			const real mean_x = mean(X);
+			const real mean_y = mean(Y);
+			const real delta_x = (sum_squares(X) / X.size()) - square(mean_x);
+			const real delta_y = (sum_squares(Y) / Y.size()) - square(mean_y);
+			const real delta_xy = (product_sum(X, Y) / X.size()) - mean_x * mean_y;
+			const real Delta = square(sigma_X) * delta_y - square(sigma_Y) * delta_x;
+
+			slope = (Delta + sqrt(
+					square(Delta) + 4 * square(sigma_X * sigma_Y * delta_xy)
+				)) / (2 * square(sigma_X) * delta_xy);
+
+			intercept = mean_y - slope * mean_x;
+
+			// Compute the error on the model
+			real residual = 0;
+			for (unsigned int i = 0; i < X.size(); ++i)
+				residual += square(Y[i] - intercept - slope * X[i]);
+
+			// Correction by degrees of freedom (N - 2)
+			error = sqrt(residual / (real) (X.size() - 2));
+
+			// Compute the propagated error on the coefficients
+			sigma_A = nan();
+			sigma_B = nan();
+		}
+
+
 		/// @class linear_model Linear regression structure
 		/// for computation and storage of least squares linear
 		/// regression results with model \f$y = A + Bx\f$.
@@ -195,6 +240,15 @@ namespace theoretica {
 			inline linear_model(
 				const Dataset1& X, const Dataset2& Y, const Dataset3& sigma_Y) {
 				fit(X, Y, sigma_Y);
+			}
+
+
+			/// Construct a linear model from data
+			/// and compute the fit
+			template<typename Dataset1, typename Dataset2>
+			inline linear_model(
+				const Dataset1& X, const Dataset2& Y, real sigma_X, real sigma_Y) {
+				fit(X, Y, sigma_X, sigma_Y);
 			}
 
 
@@ -306,6 +360,39 @@ namespace theoretica {
 					return;
 
 				chi_squared = chi_square_linearization(X, Y, sigma, A, B);
+				ndf = Y.size() - 2;
+				p_value = pvalue_chi_squared(chi_squared, ndf);
+			}
+
+
+			/// Compute the linear regression of two sets of data of the same size
+			/// using least squares linear regression.
+			///
+			/// @param X The set of values on the x axis
+			/// @param Y The set of values on the y axis
+			/// @param sigma The different errors on the y axis
+			template<typename Dataset1, typename Dataset2>
+			inline void fit(
+				const Dataset1& X, const Dataset2& Y, real sigma_X, real sigma_Y) {
+
+				if(X.size() != Y.size()) {
+					TH_MATH_ERROR("linear_model::fit", X.size(), INVALID_ARGUMENT);
+					A = nan(); B = nan();
+					return;
+				}
+
+				if(Y.size() < 2) {
+					TH_MATH_ERROR("linear_model::fit", Y.size(), INVALID_ARGUMENT);
+					A = nan(); B = nan();
+					return;
+				}
+
+				wls_linear(X, Y, sigma_X, sigma_Y, A, B, err, sigma_A, sigma_B);
+
+				if(is_nan(A))
+					return;
+
+				chi_squared = err / (square(sigma_Y) + square(B * sigma_X));
 				ndf = Y.size() - 2;
 				p_value = pvalue_chi_squared(chi_squared, ndf);
 			}
