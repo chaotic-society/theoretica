@@ -7,6 +7,7 @@
 #define THEORETICA_REGRESSION_H
 
 #include "./statistics.h"
+#include "../algebra/mat.h"
 
 
 namespace theoretica {
@@ -20,14 +21,12 @@ namespace theoretica {
 		template<typename Dataset1, typename Dataset2>
 		inline void ols_linear(
 			const Dataset1& X, const Dataset2& Y,
-			real& intercept, real& slope, real& error) {
+			real& intercept, real& slope) {
 
 			// Check that the two data sets have the same size
 			if(X.size() != Y.size()) {
 				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
-				intercept = nan();
-				slope = nan();
-				error = nan();
+				intercept = nan(); slope = nan();
 				return;
 			}
 
@@ -39,18 +38,16 @@ namespace theoretica {
 			const real sum_x = sum(X);
 			const real sum_y = sum(Y);
 
+			if(abs(Delta) < MACH_EPSILON) {
+				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				intercept = nan(); slope = nan();
+				return;
+			}
+
 			// Ordinary Least Squares formula for the linear model
 			// without weights.
 			intercept = (sum_sqr_x * sum_y - sum_x * prod_sum_xy) / Delta;
 			slope = (X.size() * prod_sum_xy - sum_x * sum_y) / Delta;
-
-			// Compute the error on the model
-			real residual = 0;
-			for (unsigned int i = 0; i < X.size(); ++i)
-				residual += square(Y[i] - intercept - slope * X[i]);
-
-			// Correction by degrees of freedom (N - 2)
-			error = sqrt(residual / (real) (X.size() - 2));
 		}
 
 
@@ -59,15 +56,13 @@ namespace theoretica {
 		template<typename Dataset1, typename Dataset2>
 		inline void ols_linear(
 			const Dataset1& X, const Dataset2& Y, real sigma_Y,
-			real& intercept, real& slope, real& error,
+			real& intercept, real& slope,
 			real& sigma_A, real& sigma_B) {
 
 			// Check that the two data sets have the same size
 			if(X.size() != Y.size()) {
 				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
-				intercept = nan();
-				slope = nan();
-				error = nan();
+				intercept = nan(); slope = nan();
 				return;
 			}
 
@@ -79,21 +74,62 @@ namespace theoretica {
 			const real sum_x = sum(X);
 			const real sum_y = sum(Y);
 
+			if(abs(Delta) < MACH_EPSILON) {
+				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				intercept = nan(); slope = nan();
+				return;
+			}
+
 			// Ordinary Least Squares formula for the linear model
 			// without weights.
 			intercept = (sum_sqr_x * sum_y - sum_x * sum_xy) / Delta;
 			slope = (X.size() * sum_xy - sum_x * sum_y) / Delta;
 
-			// Compute the error on the model
-			real residual = 0;
-			for (unsigned int i = 0; i < X.size(); ++i)
-				residual += square(Y[i] - intercept - slope * X[i]);
+			// Compute the uncertainties on the coefficients
+			sigma_A = sqrt(square(sigma_Y) * sum_sqr_x / Delta);
+			sigma_B = sqrt(square(sigma_Y) * X.size() / Delta);
+		}
 
-			// Correction by degrees of freedom (N - 2)
-			error = sqrt(residual / (real) (X.size() - 2));
 
-			sigma_A = sqrt(sum_sqr_x / Delta) * abs(sigma_Y);
-			sigma_B = sqrt(X.size() / Delta) * abs(sigma_Y);
+		/// Compute the coefficients of the linear regression
+		/// using Ordinary Least Squares
+		template<typename Dataset1, typename Dataset2>
+		inline void ols_linear(
+			const Dataset1& X, const Dataset2& Y, real sigma_Y,
+			real& intercept, real& slope, mat2& covar_mat) {
+
+			// Check that the two data sets have the same size
+			if(X.size() != Y.size()) {
+				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
+				intercept = nan();
+				slope = nan();
+				return;
+			}
+
+			// Pre-compute values
+			const real sum_sqr_x = sum_squares(X);
+			const real sqr_sum_x = square(sum(X));
+			const real Delta = X.size() * sum_sqr_x - sqr_sum_x;
+			const real sum_xy = product_sum(X, Y);
+			const real sum_x = sum(X);
+			const real sum_y = sum(Y);
+
+			if(abs(Delta) < MACH_EPSILON) {
+				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				intercept = nan(); slope = nan();
+				return;
+			}
+
+			// Ordinary Least Squares formula for the linear model
+			// without weights.
+			intercept = (sum_sqr_x * sum_y - sum_x * sum_xy) / Delta;
+			slope = (X.size() * sum_xy - sum_x * sum_y) / Delta;
+
+			// Compute the Covariance Matrix for the coefficients
+			covar_mat(0, 0) = square(sigma_Y) * sum_sqr_x / Delta;
+			covar_mat(1, 1) = square(sigma_Y) * X.size() / Delta;
+			covar_mat(0, 1) = -square(sigma_Y) * sum_x / Delta;
+			covar_mat(1, 0) = covar_mat(0, 1);
 		}
 
 
@@ -102,14 +138,11 @@ namespace theoretica {
 		template<typename Dataset1, typename Dataset2, typename Dataset3>
 		inline void wls_linear(
 			const Dataset1& X, const Dataset2& Y, const Dataset3& W,
-			real& intercept, real& slope, real& error,
-			real& sigma_A, real& sigma_B) {
+			real& intercept, real& slope, mat2& covar_mat) {
 
 			if(X.size() != Y.size() || X.size() != W.size()) {
 				TH_MATH_ERROR("wls_linear", X.size(), INVALID_ARGUMENT);
-				intercept = nan();
-				slope = nan();
-				error = nan();
+				intercept = nan(); slope = nan();
 				return;
 			}
 
@@ -118,22 +151,23 @@ namespace theoretica {
 			const real sum_xxw = product_sum(X, X, W);
 			const real sum_xyw = product_sum(X, Y, W);
 			const real sum_yw = product_sum(Y, W);
-			const real Delta = sum(W) * sum_xxw - square(sum_xw);
+			const real sum_w = sum(W);
+			const real Delta = sum_w * sum_xxw - square(sum_xw);
+
+			if(abs(Delta) < MACH_EPSILON) {
+				TH_MATH_ERROR("wls_linear", Delta, DIV_BY_ZERO);
+				intercept = nan(); slope = nan();
+				return;
+			}
 
 			intercept = (sum_xxw * sum_yw - sum_xw * sum_xyw) / Delta;
-			slope = (sum(W) * sum_xyw - sum_xw * sum_yw) / Delta;
+			slope = (sum_w * sum_xyw - sum_xw * sum_yw) / Delta;
 
-			// Compute the error on the model
-			real residual = 0;
-			for (unsigned int i = 0; i < X.size(); ++i)
-				residual += square(Y[i] - intercept - slope * X[i]);
-
-			// Correction by degrees of freedom (N - 2)
-			error = sqrt(residual / (real) (X.size() - 2));
-
-			// Compute the propagated error on the coefficients
-			sigma_A = nan();
-			sigma_B = nan();
+			// Compute the Covariance Matrix for the coefficients
+			covar_mat(0, 0) = sum_xxw / Delta;
+			covar_mat(1, 1) = sum_w / Delta;
+			covar_mat(0, 1) = -sum_xw / Delta;
+			covar_mat(1, 0) = covar_mat(0, 1);
 		}
 
 
@@ -143,14 +177,13 @@ namespace theoretica {
 		inline void wls_linear(
 			const Dataset1& X, const Dataset2& Y,
 			real sigma_X, real sigma_Y,
-			real& intercept, real& slope, real& error,
-			real& sigma_A, real& sigma_B) {
+			real& intercept, real& slope,
+			mat2& covar_mat) {
 
 			if(X.size() != Y.size()) {
 				TH_MATH_ERROR("wls_linear", X.size(), INVALID_ARGUMENT);
 				intercept = nan();
 				slope = nan();
-				error = nan();
 				return;
 			}
 
@@ -168,17 +201,30 @@ namespace theoretica {
 
 			intercept = mean_y - slope * mean_x;
 
-			// Compute the error on the model
-			real residual = 0;
-			for (unsigned int i = 0; i < X.size(); ++i)
-				residual += square(Y[i] - intercept - slope * X[i]);
+			// TO-DO Compute Covariance Matrix for this case
+			covar_mat = mat2(nan());
+		}
+
+
+		/// Compute the error of the least squares
+		/// linear regression from the X and Y datasets
+		template<typename Dataset1, typename Dataset2>
+		inline real ols_linear_error(
+			const Dataset1& X, const Dataset2& Y,
+			real intercept, real slope) {
+
+			if(X.size() != Y.size()) {
+				TH_MATH_ERROR("ols_linear_error", X.size(), INVALID_ARGUMENT);
+				return nan();
+			}
+
+			real err = 0;
+			for (unsigned int i = 0; i < X.size(); ++i) {
+				err += square(Y[i] - intercept - slope * X[i]);
+			}
 
 			// Correction by degrees of freedom (N - 2)
-			error = sqrt(residual / (real) (X.size() - 2));
-
-			// Compute the propagated error on the coefficients
-			sigma_A = nan();
-			sigma_B = nan();
+			return sqrt(err / (real) (X.size() - 2));
 		}
 
 
@@ -198,6 +244,9 @@ namespace theoretica {
 
 			/// Estimated error on B
 			real sigma_B;
+
+			/// Covariance matrix of the coefficients A and B
+			mat2 covar_mat;
 
 			/// Total error on linearization
 			real err;
@@ -274,11 +323,13 @@ namespace theoretica {
 					return;
 				}
 
-				ols_linear(X, Y, A, B, err);
+				ols_linear(X, Y, A, B);
 
 				if(is_nan(A))
 					return;
 
+				err = ols_linear_error(X, Y, A, B);
+				covar_mat = mat2(nan());
 				sigma_A = nan();
 				sigma_B = nan();
 				chi_squared = nan();
@@ -315,11 +366,15 @@ namespace theoretica {
 					return;
 				}
 
-				ols_linear(X, Y, sigma_Y, A, B, err, sigma_A, sigma_B);
+				ols_linear(X, Y, sigma_Y, A, B, this->covar_mat);
 
 				if(is_nan(A))
 					return;
 
+				sigma_A = sqrt(this->covar_mat(0, 0));
+				sigma_B = sqrt(this->covar_mat(1, 1));
+
+				err = ols_linear_error(X, Y, A, B);
 				chi_squared = err / sigma_Y;
 				ndf = Y.size() - 2;
 				p_value = pvalue_chi_squared(chi_squared, ndf);
@@ -354,11 +409,15 @@ namespace theoretica {
 					return 1 / square(x);
 				});
 
-				wls_linear(X, Y, W, A, B, err, sigma_A, sigma_B);
+				wls_linear(X, Y, W, A, B, covar_mat);
 
 				if(is_nan(A))
 					return;
 
+				sigma_A = sqrt(this->covar_mat(0, 0));
+				sigma_B = sqrt(this->covar_mat(1, 1));
+
+				err = ols_linear_error(X, Y, A, B);
 				chi_squared = chi_square_linearization(X, Y, sigma, A, B);
 				ndf = Y.size() - 2;
 				p_value = pvalue_chi_squared(chi_squared, ndf);
@@ -387,11 +446,15 @@ namespace theoretica {
 					return;
 				}
 
-				wls_linear(X, Y, sigma_X, sigma_Y, A, B, err, sigma_A, sigma_B);
+				wls_linear(X, Y, sigma_X, sigma_Y, A, B, covar_mat);
 
 				if(is_nan(A))
 					return;
 
+				sigma_A = sqrt(this->covar_mat(0, 0));
+				sigma_B = sqrt(this->covar_mat(1, 1));
+
+				err = ols_linear_error(X, Y, A, B);
 				chi_squared = err / (square(sigma_Y) + square(B * sigma_X));
 				ndf = Y.size() - 2;
 				p_value = pvalue_chi_squared(chi_squared, ndf);
@@ -425,6 +488,9 @@ namespace theoretica {
 
 			if(!is_nan(p_value))
 				res << "p-value = " << p_value << std::endl;
+
+			if(!is_nan(covar_mat(0, 0)))
+				res << "Covariance Matrix:\n" << covar_mat;
 
 			return res.str();
 		}
@@ -495,28 +561,6 @@ namespace theoretica {
 
 			const real Delta = X.size() * sum_squares(X) - square(sum(X));
 			return sqrt(X.size() / Delta) * abs(sigma_y);
-		}
-
-
-		/// Compute the error of the least squares
-		/// linear regression from X and Y
-		template<typename Dataset1, typename Dataset2>
-		inline real ols_linear_error(
-			const Dataset1& X, const Dataset2& Y,
-			real intercept, real slope) {
-
-			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("ols_linear_error", X.size(), INVALID_ARGUMENT);
-				return nan();
-			}
-
-			real err = 0;
-			for (unsigned int i = 0; i < X.size(); ++i) {
-				err += square(Y[i] - intercept - slope * X[i]);
-			}
-
-			// Correction by degrees of freedom (N - 2)
-			return sqrt(err / (real) (X.size() - 2));
 		}
 
 
