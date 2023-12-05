@@ -205,6 +205,58 @@ namespace theoretica {
 			covar_mat = mat2(nan());
 		}
 
+		/// Compute the Ordinary Least Squares regression
+		/// to a line passing through the origin.
+		template<typename Dataset1, typename Dataset2>
+		inline void ols_linear_orig(
+			const Dataset1& X, const Dataset2& Y, real sigma_Y,
+			real& B, real& sigma_B) {
+
+			if(X.size() != Y.size()) {
+				TH_MATH_ERROR("ols_linear_orig", X.size(), INVALID_ARGUMENT);
+				B = nan();
+				return;
+			}
+
+			const real sum_x = sum(X);
+			const real sum_y = sum(Y);
+
+			if(abs(sum_y) < MACH_EPSILON) {
+				TH_MATH_ERROR("ols_linear_orig", sum_y, DIV_BY_ZERO);
+				B = nan();
+				return;
+			}
+
+			B = sum_x / sum_y;
+			sigma_B = sqrt(X.size() * square(sigma_Y / sum_x));
+		}
+
+		/// Compute the Weight Least Squares regression
+		/// to a line passing through the origin.
+		template<typename Dataset1, typename Dataset2, typename Dataset3>
+		inline void wls_linear_orig(
+			const Dataset1& X, const Dataset2& Y,
+			const Dataset3& W, real& B, real& sigma_B) {
+
+			if(X.size() != Y.size() || X.size() != W.size()) {
+				TH_MATH_ERROR("wls_linear_orig", X.size(), INVALID_ARGUMENT);
+				B = nan();
+				return;
+			}
+
+			const real sum_xw = product_sum(X, W);
+			const real sum_yw = product_sum(Y, W);
+
+			if(abs(sum_yw) < MACH_EPSILON) {
+				TH_MATH_ERROR("ols_linear_orig", sum_yw, DIV_BY_ZERO);
+				B = nan();
+				return;
+			}
+
+			B = sum_xw / sum_yw;
+			sigma_B = sqrt(sum(W) / sum_xw);
+		}
+
 
 		/// Compute the error of the least squares
 		/// linear regression from the X and Y datasets
