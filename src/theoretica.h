@@ -43,7 +43,7 @@
 #include "./core/vec_buff.h"
 
 // Interpolation
-#include "./interpolation/spline_interp.h"
+#include "./interpolation/splines.h"
 #include "./interpolation/polyn_interp.h"
 	
 // Statistical functions
