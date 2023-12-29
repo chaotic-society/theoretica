@@ -3,7 +3,7 @@ This is a non-comprehensive list of features. Elements marked with an 'x' have b
 
 A functionality is considered "fully implemented" when it has at least one implementation which is architecture independent that passed all test cases and has no performance issues. Every function may have an **architecture independent** implementation, possibly of **arbitrary precision**, and one or more **architecture dependent** implementations, eventually making use of Assembly instructions.
 
-- Real analysis (_real_analysis.h_)
+- Real analysis (_core/real_analysis.h_)
   - [x] sqrt
   - [x] cbrt
   - [x] square
@@ -17,9 +17,9 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] clamp
   - [x] floor
   - [x] fract
-  - [ ] log2 - Architecture-independent version has low precision
-  - [ ] log10 - Architecture-independent version has low precision
-  - [ ] ln - Architecture-independent version has low precision
+  - [x] log2
+  - [x] log10
+  - [x] ln
   - [x] ilog2
   - [x] pow
   - [x] powf
@@ -28,12 +28,12 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] exp
   - [x] sin
   - [x] cos
-  - [ ] tan - Architecture-independent version has low precision
-  - [ ] cot - Architecture-independent version has low precision
+  - [x] tan
+  - [x] cot
   - [x] atan
-  - [ ] asin - Architecture-independent version has low precision
-  - [ ] acos - Architecture-independent version has low precision
-  - [ ] atan2 - Architecture-independent version has low precision
+  - [x] asin
+  - [x] acos
+  - [x] atan2
   - [x] sinh
   - [x] cosh
   - [x] tanh
@@ -41,6 +41,13 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] binomial_coeff
   - [x] radians
   - [x] degrees
+ 
+- Rational class (_core/ratio.h_)
+  - [x] Addition
+  - [x] Multiplication
+  - [x] Division
+  - [x] Evaluation
+  - [x] Conversion to string
 
 - Vector algebra (_algebra/vector.h_)
   - [x] Addition and subtraction (_operator+_, _-_)
@@ -53,7 +60,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Euclidean distance
   - [x] Lp-norm
 
-- Matrix algebra (_algebra/mat.h_)
+- Matrix algebra (_algebra/mat.h_, _algebra/algebra.h_)
   - [x] Addition and subtraction (_operator+_, _-_)
   - [x] Scalar multiplication (_operator*_)
   - [x] Matrix-Vector product (_operator*_, _transform_)
@@ -64,9 +71,19 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Matrix types (_is_square_, _is_diagonal_, _is_symmetric_)
   - [x] Transformation matrices (_identity_, _translation_, _rotation_4x4_, _rotation_3x3_, _scaling_)
   - [x] Perspective and Ortho matrices
-  - [x] Inversion
+  - [x] Inverse of a generic matrix
   - [x] Determinant of a generic matrix
-  - [x] Determinant of 2x2 and 3x3 matrices
+
+- Distances and norms (_algebra/distance.h_)
+  - [x] Lp norm
+  - [x] L1, L2, Linf norm
+  - [x] Euclidean distance
+  - [x] Minkowski distance
+  - [x] Hermitian distance
+  - [x] Manhattan distance
+  - [x] Chebyshev distance
+  - [x] Discrete distance
+  - [x] Hamming distance
 
 - Complex numbers (_complex/complex.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -86,10 +103,10 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cos
   - [x] tan
   - [x] sqrt
-  - [x] ln - Architecture-independent version has low precision
-  - [x] asin - Architecture-independent version has low precision
-  - [x] acos - Architecture-independent version has low precision
-  - [x] atan - Architecture-independent version has low precision
+  - [x] ln
+  - [x] asin
+  - [x] acos
+  - [x] atan
 
 - Phasors (_complex/phasor.h_) - **NO TEST CASES**
   - [x] Addition and subtraction
@@ -105,20 +122,20 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Matrix form
   - [x] Rotation construction
 
-- Polynomials (_polynomial.h_)
+- Polynomials (_polynomial/polynomial.h_)
   - [x] Addition and subtraction
   - [x] Multiplication
   - [x] Differentiation
   - [x] Integration
   - [x] Division
 
-- Orthogonal polynomials (_ortho_polyn.h_) - **NO TEST CASES**
+- Orthogonal polynomials (_polynomial/ortho_polyn.h_) - **NO TEST CASES**
   - [x] Laguerre polynomials
   - [x] Legendre polynomials
   - [x] Hermite polynomials
   - [x] Chebyshev polynomials
 
-- Calculus (_calculus/derivation.h_, _calculus/integration.h_, _calculus/taylor.h_) - **NO TEST CASES**
+- Calculus (_calculus/derivation.h_, _calculus/integration.h_, _calculus/taylor.h_)
   - [x] Integral approximation using midpoint, trapezoid and Simpson
   - [x] Romberg integral approximation
   - [x] Monte Carlo integral approximation (Crude, Hit-or-Miss)
@@ -132,11 +149,11 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Approximation of roots using Newton, bisection, Steffensen and Chebyshev
   - [x] Approximation of extrema using Newton, bisection and golden section search
 
-- Approximation of roots and extrema of multivariate functions (_optimization/multi_extrema.h_) - **NO TEST CASES**
+- Approximation of roots and extrema of multivariate functions (_optimization/multi_extrema.h_)
   - [x] Crude gradient descent
   - [x] Gradient descent with linear search
 
-- Dual numbers (_autodiff/dual.h_, _autodiff/dual2.h_) - **NO TEST CASES**
+- Dual numbers (_autodiff/dual.h_, _autodiff/dual2.h_)
   - [x] Addition and subtraction
   - [x] Multiplication and division
   - [x] Conjugate and inverse
@@ -155,14 +172,14 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] cube
   - [x] pow
   - [x] sqrt
-  - [x] sin - Architecture-independent version has low precision
-  - [x] cos - Architecture-independent version has low precision
-  - [x] tan - Architecture-independent version has low precision
-  - [x] cot - Architecture-independent version has low precision
+  - [x] sin
+  - [x] cos
+  - [x] tan
+  - [x] cot
   - [x] exp
-  - [x] ln - Depends on real function
-  - [x] log2 - Depends on real function
-  - [x] log10 - Depends on real function
+  - [x] ln
+  - [x] log2
+  - [x] log10
   - [x] asin
   - [x] acos
   - [x] atan
@@ -175,6 +192,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Divergence
   - [x] Curl
   - [x] Laplacian
+  - [ ] Hessian
   - [x] Sturm-Liouville
 
 - Interpolation (_interpolation/polyn_interp.h_, _interpolation/spline_interp.h_) - **NO TEST CASES**
@@ -186,8 +204,9 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Quadratic Bezier
   - [x] Cubic Bezier
   - [x] Generic Bezier
+  - [x] Natural Cubic Splines
 
-- Pseudorandom numbers (_pseudorandom/pseudorandom.h_, _pseudorandom/prng.h_) - **NO TEST CASES**
+- Pseudorandom numbers (_pseudorandom/pseudorandom.h_, _pseudorandom/prng.h_)
   - [x] PRNG class
   - [x] Congruential generator
   - [x] Xoroshiro256++
@@ -199,7 +218,7 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [ ] Sobol sequence
   - [ ] Halton sequence
 
-- Statistical functions (_statistics/statistics.h_) - **NO TEST CASES**
+- Statistical functions (_statistics/statistics.h_)
   - [x] Mean and weighted mean
   - [x] Sum and product error propagation
   - [x] Total sum of squares
@@ -210,6 +229,17 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Correlation coefficient
   - [x] Least squares linearization
   - [x] Chi square of a linearization
+  - [x] p-value
+
+- Linear model regression (_statistics/regression.h_)
+  - [x] Linear Ordinary Least Squares
+  - [x] Linear Weighted Least Squares
+  - [x] Linear Ordinary Least Squares through origin
+ 
+- Error propagation (_statistics/errorprop.h_) - **NO TEST CASES**
+  - [x] Automatic error propagation
+  - [x] Covariance Matrix estimation
+  - [x] Monte Carlo error propagation
 
 - Distributions (_statistics/distributions.h_) - **NO TEST CASES**
   - [x] Likelihood and log likelihood
@@ -228,6 +258,11 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Chi-squared
   - [x] Student's t
 
+- Histogram class (_statistics/histogram.h_) - **NO TEST CASES**
+  - [x] Histogram initialization from data
+  - [x] Frequency histogram to string format
+  - [x] Running statistics
+
 - Random number-based algorithms (_pseudorandom/rand_dist.h_, _pseudorandom/montecarlo.h_) - **NO TEST CASES**
   - [x] Try-and-catch number generation following a distribution
   - [x] pdf_sampler class
@@ -239,12 +274,12 @@ A functionality is considered "fully implemented" when it has at least one imple
   - [x] Pareto sampling
   - [x] Crude Monte Carlo
   - [x] Hit-or-miss Monte Carlo
-  - [ ] Metropolis-Hastings Monte Carlo Markov Chain method
+  - [x] Metropolis-Hastings Monte Carlo Markov Chain method
 
-- Special functions (_core/special.h_) - EXPERIMENTAL - **NO TEST CASES**
-  - [ ] Gamma function - Low precision
-  - [ ] Pi function - Low precision
-  - [ ] Beta function - Low precision
+- Special functions (_core/special.h_)
+  - [x] Gamma function
+  - [x] Pi function
+  - [x] Beta function
 
 - Operations on bits (_core/bit_op.h_) - **NO TEST CASES*
   - [x] 128-bit integer multiplication
