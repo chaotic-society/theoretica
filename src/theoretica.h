@@ -90,9 +90,6 @@
 // Monte Carlo methods
 #include "./pseudorandom/montecarlo.h"
 
-// Physics
-#include "./physics/quantum.h"
-
 #endif
 
 #ifndef THEORETICA_NO_NAMESPACE
