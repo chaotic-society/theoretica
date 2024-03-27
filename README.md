@@ -108,9 +108,8 @@ These are common macros that can be defined to change the library's behaviour:
 |**THEORETICA_FLOAT_PREC**|Floating point precision (`float`) will be used for the `real` type (by default `double` is used)|
 |**THEORETICA_LONG_DOUBLE_PREC**|Long double precision (`long double`) will be used|
 |**THEORETICA_ROW_FIRST**|The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.|
-|**THEORETICA_MATRIX_LEXIC**|Lexicographical notation for matrices (column first access) will be used for matrix functions `at`, `get` and `set`. By default, matrix indices refer to row and column, in this order.|
 
-See `constants.h` for more specific macros.
+See `src/core/constants.h` for more specific macros.
 
 ### Error handling
 The library uses `errno` and `th::math_exception` (if enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.

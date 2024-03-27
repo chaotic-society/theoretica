@@ -18,9 +18,8 @@ It might help to add some resources to further read about the subject if it refe
 Please make sure that your new issue is **not a duplicate** before opening it.
 
 ## Contributing with research
-The library needs active research of algorithms, approximations and new concepts.
-You can contribute greatly by opening a new [issue](https://github.com/chaotic-society/theoretica/issues) about your idea, where you can describe how it might improve
-the library. You can also write in the [Discussion](https://github.com/chaotic-society/theoretica/discussions) if you want to open a discussion about a certain topic and confront your ideas with others.
+The library needs active research of algorithms, approximations and new concepts. The [Bibliography](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/BIBLIOGRAPHY.md) contains the literature used in the development of the library. You can contribute greatly by opening a new [issue](https://github.com/chaotic-society/theoretica/issues) about your idea, where you can describe how it might improve
+the library. You can also write in the [Discussion](https://github.com/chaotic-society/theoretica/discussions) page if you want to open a discussion about a certain topic and confront your ideas with others.
 
 ## Writing new code
 If you want to contribute by writing new code, make sure to add it in the right place and to follow the [Coding Standard](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/CODING_STANDARD.md).
@@ -39,9 +38,38 @@ namespace theoretica {
 #endif
 ```
 
+## Writing test cases
+Test cases are just as important as new code, because they ensure that the library works correctly! You can help writing test cases by adding new cases to existing test programs, in the folder `test`, or by writing entirely new test programs for different parts of the library. The standard way is to create a different program for each module of the library (a "module" being symbolized by a different folder in the `src` directory, e.g. `src/complex` is the `complex` module). You can follow this template to start writing test cases:
+
+```cpp
+#include "theoretica.h"
+#include "chebyshev/prec.h"
+
+using namespace chebyshev;
+using namespace theoretica;
+
+
+prec::estimate_result test_custom(interval k, Real tol, unsigned int n) {
+	// Custom test
+}
+
+
+int main(int argc, char const *argv[]) {
+
+	prec::state.outputFolder = "test/";
+	
+	prec::setup("module name");
+
+		prec::estimate(...);
+
+		prec::equals(...);
+
+	prec::terminate();
+}
+```
+
 ### Guidelines for code
-- Use **snake case** (e.g. `weighted_mean`, not `weightedMean`)
-- Use **tabs** instead of spaces.
+- Follow the [Coding Standard](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/CODING_STANDARD.md).
 - Make sure to run `make all` before making a pull request, to ensure that your commit does not break other code.
 - Write test cases for your code or at least leave information on how it could be tested and its expected behaviour.
 - Comment your code to make clear what it does, eventually adding links to resources.
