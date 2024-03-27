@@ -145,12 +145,50 @@ namespace theoretica {
 	}
 
 
-	/// Apply a function to a set of values
-	template<typename Vector>
-	inline void apply(Vector& X, std::function<real(real)> f) {
+	/// Apply a function to a set of values element-wise
+	/// (vectorized evaluation)
+	template<typename Function, typename Vector>
+	inline Vector& apply(Function f, Vector& X) {
 
-		for (real& x : X)
-			x = f(x);
+		for (unsigned int i = 0; i < X.size(); i++)
+			X[i] = f(X[i]);
+
+		return X;
+	}
+
+
+	/// Get a new vector obtained by applying
+	/// the function element-wise
+	/// (vectorized evaluation)
+	template<typename Function, typename Vector1, typename Vector2 = Vector1>
+	inline Vector2& map(Function f, const Vector1& src, Vector2& dest) {
+
+		if(src.size() != dest.size()) {
+			TH_MATH_ERROR("th::map", dest.size(), INVALID_ARGUMENT);
+			dest = Vector2(nan());
+			return dest;
+		}
+
+		for (unsigned int i = 0; i < src.size(); i++)
+			dest[i] = f(src[i]);
+
+		return dest;
+	}
+
+
+	/// Get a new vector obtained by applying
+	/// the function element-wise
+	/// (vectorized evaluation)
+	template<typename Function, typename Vector1, typename Vector2 = Vector1>
+	inline Vector1 map(Function f, const Vector1& X) {
+
+		Vector2 res;
+		res.resize(X.size());
+
+		for (unsigned int i = 0; i < X.size(); i++)
+			res[i] = f(X[i]);
+
+		return res;
 	}
 
 
@@ -195,7 +233,7 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 	/// Stream the buffer in string representation to an output stream (std::ostream)
-	inline std::ostream& operator<<(std::ostream& out, const vec_buff& obj) {
+	inline std::ostream& operator<<(std::ostream& out, const std::vector<real>& obj) {
 
 		for (real x : obj) {
 			out << x << std::endl;
@@ -206,15 +244,15 @@ namespace theoretica {
 
 
 	/// Stream a vector in string representation to an output stream (std::ostream)
-	template<typename T>
-	inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& obj) {
+	// template<typename T>
+	// inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& obj) {
 
-		for (T x : obj) {
-			out << x << std::endl;
-		}
+	// 	for (T x : obj) {
+	// 		out << x << std::endl;
+	// 	}
 
-		return out;
-	}
+	// 	return out;
+	// }
 
 #endif
 

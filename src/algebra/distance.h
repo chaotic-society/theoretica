@@ -126,7 +126,7 @@ namespace theoretica {
 	}
 
 
-	/// Compute the Euclidian distance between two values
+	/// Compute the Minkowski distance between two values
 	inline real minkowski_distance(real a, real b, unsigned int p) {
 		return root(pow(abs(b - a), p), p);
 	}

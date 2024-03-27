@@ -387,14 +387,7 @@ namespace theoretica {
 		/// Initialize from a list, e.g. {1, 2, 3}
 		vec(std::initializer_list<Type> l) {
 
-			if(l.size() != size()) {
-				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
-					INVALID_ARGUMENT);
-				// Set all elements to NaN
-				*this = vec<Type>(nan(), size());
-				return;
-			}
-
+			resize(l.size());
 			std::copy(l.begin(), l.end(), &data[0]);
 		}
 

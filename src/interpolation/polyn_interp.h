@@ -69,9 +69,10 @@ namespace theoretica {
 	/// @param a The lower bound of the interval
 	/// @param b The upper bound of the interval
 	/// @param n The number of points to evaluate
-	inline vec_buff chebyshev_nodes(real a, real b, unsigned int n) {
+	template<typename VectorType = std::vector<real>>
+	inline VectorType chebyshev_nodes(real a, real b, unsigned int n) {
 
-		vec_buff nodes;
+		VectorType nodes;
 		nodes.resize(n);
 
 		real m = (b + a) / 2.0;
@@ -93,8 +94,7 @@ namespace theoretica {
 	/// @return A polynomial of (n - 1) degree interpolating the function
 	inline polynomial<real> interpolate_grid(real_function f, real a, real b, unsigned int order) {
 
-		std::vector<vec2> points;
-		points.resize(order + 1);
+		std::vector<vec2> points(order + 1);
 
 		// Sample <order + 1> equidistant points
 		for (unsigned int i = 0; i < order + 1; ++i) {
@@ -119,10 +119,9 @@ namespace theoretica {
 	/// \see lagrange_polynomial
 	inline polynomial<real> interpolate_chebyshev(real_function f, real a, real b, unsigned int order) {
 
-		std::vector<vec2> points;
-		points.resize(order + 1);
+		std::vector<vec2> points(order + 1);
 
-		vec_buff nodes = chebyshev_nodes(a, b, order + 1);
+		std::vector<real> nodes = chebyshev_nodes(a, b, order + 1);
 
 		// Sample <order + 1> equidistant points
 		for (unsigned int i = 0; i < order + 1; ++i)
