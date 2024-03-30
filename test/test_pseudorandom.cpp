@@ -92,7 +92,7 @@ int main(int argc, char const *argv[]) {
 			PRNG g = PRNG::xoshiro(time(nullptr));
 			pdf_sampler gauss = pdf_sampler::gaussian(0, 1, g);
 
-			vec_buff sample;
+			std::vector<real> sample;
 			real res = 0;
 
 			for (int i = 0; i < 100; ++i) {

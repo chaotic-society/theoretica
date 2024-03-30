@@ -40,7 +40,7 @@
 #include "./core/bit_op.h"
 
 // Data sets
-#include "./core/vec_buff.h"
+#include "./core/dataset.h"
 
 // Interpolation
 #include "./interpolation/splines.h"

@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
 	PRNG g = PRNG::xoshiro(time(nullptr));
 	pdf_sampler gauss = pdf_sampler::gaussian(0, 1, g);
 
-	std::vector<vec_buff> data;
+	std::vector<std::vector<real>> data;
 	data.resize(3);
 
 	// Simulate a toy experiment with Gaussian deviations

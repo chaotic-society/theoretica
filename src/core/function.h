@@ -8,7 +8,7 @@
 
 #include "./constants.h"
 #include "../complex/complex.h"
-#include "./vec_buff.h"
+#include "../algebra/vec.h"
 
 #include <functional>
 
@@ -22,7 +22,7 @@ namespace theoretica {
 	using complex_function = std::function<complex<>(complex<>)>;
 
 	/// Function pointer to a statistical function
-	using stat_function = std::function<real(real, const vec_buff&)>;
+	using stat_function = std::function<real(real, const vec<real>&)>;
 
 }
 

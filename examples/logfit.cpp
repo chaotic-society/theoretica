@@ -32,8 +32,8 @@ int main(int argc, char const *argv[]) {
 
     // Read X and Y data from the file and compute the logarithm
     std::string line;
-    vec_buff X;
-    vec_buff Y;
+    std::vector<real> X;
+    std::vector<real> Y;
 
     while(std::getline(file, line)) {
         

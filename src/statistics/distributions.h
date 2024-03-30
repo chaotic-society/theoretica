@@ -7,6 +7,7 @@
 #define THEORETICA_DISTRIBUTIONS
 
 #include "../core/real_analysis.h"
+#include "../algebra/vec.h"
 #include "./statistics.h"
 #include "../core/function.h"
 #include "../core/special.h"
@@ -22,7 +23,7 @@ namespace theoretica {
 	/// @param theta The parameters of the distribution
 	/// @param f The statistical distribution function
 	/// @result The likelihood of the given sample
-	inline real likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
+	inline real likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
 
 		real res = 1;
 
@@ -39,7 +40,7 @@ namespace theoretica {
 	/// @param theta The parameters of the distribution
 	/// @param f The statistical distribution function
 	/// @result The log-likelihood of the given sample
-	inline real log_likelihood(const vec_buff& X, const vec_buff& theta, stat_function f) {
+	inline real log_likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
 
 		real res = 0;
 
@@ -63,7 +64,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::gaussian(real, real, real)
-		inline real gaussian(real x, const vec_buff& theta) {
+		inline real gaussian(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::gaussian", theta.size(), INVALID_ARGUMENT);
@@ -82,7 +83,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::bernoulli(unsigned int, real)
-		inline real bernoulli(real k, const vec_buff& theta) {
+		inline real bernoulli(real k, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::bernoulli", theta.size(), INVALID_ARGUMENT);
@@ -102,7 +103,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::poisson(unsigned int, real)
-		inline real poisson(real k, const vec_buff& theta) {
+		inline real poisson(real k, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::poisson", theta.size(), INVALID_ARGUMENT);
@@ -122,7 +123,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::binomial(unsigned int, unsigned int, real)
-		inline real binomial(real nu, const vec_buff& theta) {
+		inline real binomial(real nu, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::binomial", theta.size(), INVALID_ARGUMENT);
@@ -173,7 +174,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::chi_squared(real, unsigned int)
-		inline real chi_squared(real x, const vec_buff& theta) {
+		inline real chi_squared(real x, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::chi_squared", theta.size(), INVALID_ARGUMENT);
@@ -194,7 +195,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::gamma_dist(real, real, real)
-		inline real gamma_dist(real x, const vec_buff& theta) {
+		inline real gamma_dist(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::gamma_dist", theta.size(), INVALID_ARGUMENT);
@@ -215,7 +216,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::beta_dist(real, real, real)
-		inline real beta_dist(real x, const vec_buff& theta) {
+		inline real beta_dist(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::beta_dist", theta.size(), INVALID_ARGUMENT);
@@ -237,7 +238,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::student(real, unsigned int)
-		inline real student(real x, const vec_buff& theta) {
+		inline real student(real x, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::student", theta.size(), INVALID_ARGUMENT);
@@ -257,7 +258,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::log_normal(real, real, real)
-		inline real log_normal(real x, const vec_buff& theta) {
+		inline real log_normal(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::log_normal", theta.size(), INVALID_ARGUMENT);
@@ -279,7 +280,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::exponential(real, real)
-		inline real exponential(real x, const vec_buff& theta) {
+		inline real exponential(real x, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::exponential", theta.size(), INVALID_ARGUMENT);
@@ -306,7 +307,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::rayleigh(real, real)
-		inline real rayleigh(real x, const vec_buff& theta) {
+		inline real rayleigh(real x, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::rayleigh", theta.size(), INVALID_ARGUMENT);
@@ -325,7 +326,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::cauchy(real, real, real)
-		inline real cauchy(real x, const vec_buff& theta) {
+		inline real cauchy(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::cauchy", theta.size(), INVALID_ARGUMENT);
@@ -344,7 +345,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::breit_wigner(real, real, real)
-		inline real breit_wigner(real x, const vec_buff& theta) {
+		inline real breit_wigner(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::breit_wigner", theta.size(), INVALID_ARGUMENT);
@@ -363,7 +364,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::maxwell(real, real)
-		inline real maxwell(real x, const vec_buff& theta) {
+		inline real maxwell(real x, const vec<real>& theta) {
 
 			if(theta.size() != 1) {
 				TH_MATH_ERROR("distribution::maxwell", theta.size(), INVALID_ARGUMENT);
@@ -382,7 +383,7 @@ namespace theoretica {
 
 
 		/// Laplace distribution
-		inline real laplace(real x, const vec_buff& theta) {
+		inline real laplace(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::laplace", theta.size(), INVALID_ARGUMENT);
@@ -409,7 +410,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::pareto(real, real, real)
-		inline real pareto(real x, const vec_buff& theta) {
+		inline real pareto(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::pareto", theta.size(), INVALID_ARGUMENT);
@@ -434,7 +435,7 @@ namespace theoretica {
 
 
 		/// Wrapper for distribution::erlang(real, unsigned int, real)
-		inline real erlang(real x, const vec_buff& theta) {
+		inline real erlang(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
 				TH_MATH_ERROR("distribution::erlang", theta.size(), INVALID_ARGUMENT);

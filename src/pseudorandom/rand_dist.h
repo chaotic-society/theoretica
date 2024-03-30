@@ -131,7 +131,7 @@ namespace theoretica {
 	/// defined by x1, x2, y1 and y2 following a uniform distribution.
 	/// Only numbers below the pdf are returned.
 	inline real rand_trycatch(stat_function f,
-		const vec_buff& theta,
+		const vec<real>& theta,
 		real x1, real x2,
 		real y1, real y2, PRNG& g,
 		unsigned int max_iter = MAX_TRYANDCATCH_ITER) {
@@ -167,7 +167,7 @@ namespace theoretica {
 	/// @param max_tries Maximum number of tries before
 	/// stopping execution.
 	inline real rand_rejectsamp(
-		stat_function f, const vec_buff& theta,
+		stat_function f, const vec<real>& theta,
 		real_function p, real_function Pinv,
 		PRNG& g, unsigned int max_tries = 100) {
 

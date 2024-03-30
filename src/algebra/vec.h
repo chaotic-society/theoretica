@@ -8,8 +8,8 @@
 
 #include "../core/error.h"
 #include "../core/real_analysis.h"
-#include "../core/vec_buff.h"
 #include "./algebra.h"
+#include <vector>
 
 
 namespace theoretica {
@@ -620,11 +620,7 @@ namespace theoretica {
 		}
 
 
-		/// Compatibility function to allow for allocation
-		/// or resizing of dynamic vectors. Since statically
-		/// allocated vectors cannot change size, this function
-		/// only checks whether the target size is the same
-		/// as the vector's.
+		/// Change the size of the vector
 		inline void resize(size_t n) {
 			data.resize(n);
 		}

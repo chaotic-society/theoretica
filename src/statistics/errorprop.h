@@ -6,7 +6,6 @@
 #ifndef THEORETICA_ERRORPROP_H
 #define THEORETICA_ERRORPROP_H
 
-#include "../core/vec_buff.h"
 #include "../algebra/vec.h"
 #include "../autodiff/autodiff.h"
 #include "../statistics/statistics.h"
@@ -21,8 +20,8 @@ namespace theoretica {
 	/// by computing the covariance between all couples of sets.
 	/// @param v A vector of datasets of measures
 	/// @return The covariance matrix of the datasets
-	template<unsigned int N>
-	inline mat<real, N, N> covar_mat(const std::vector<vec_buff>& v) {
+	template<unsigned int N, typename Dataset = vec<real>>
+	inline mat<real, N, N> covar_mat(const std::vector<Dataset>& v) {
 
 		if(v.size() != N) {
 			TH_MATH_ERROR("covar_mat", v.size(), INVALID_ARGUMENT);
@@ -106,10 +105,10 @@ namespace theoretica {
 	/// @param v A vector of different datasets of the
 	/// measures of the variables
 	/// @return The propagated error on the function
-	template<unsigned int N>
+	template<unsigned int N, typename Dataset = vec<real>>
 	inline real error_propagation(
 		multidual<N>(*f)(vec<multidual<N>, N>),
-		const std::vector<vec_buff>& v) {
+		const std::vector<Dataset>& v) {
 
 		vec<real, N> x_mean;
 

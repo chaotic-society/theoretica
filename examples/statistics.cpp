@@ -15,10 +15,7 @@ using namespace th;
 int main(int argc, char const *argv[]) {
 
 
-	// Data sets can be stored in a vec_buff class.
-	// (defined by default as std::vector<real>)
-	vec_buff X;
-
+	std::vector<real> X;
 
 	// Get the data from standard input
 	std::cout << "Insert X (write END to stop):" << std::endl;

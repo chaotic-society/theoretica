@@ -8,7 +8,6 @@
 
 #include "../core/constants.h"
 #include "../algebra/vec.h"
-#include "../core/vec_buff.h"
 #include "../core/real_analysis.h"
 #include "../core/special.h"
 #include "../calculus/integration.h"

@@ -7,7 +7,6 @@
 #define THEORETICA_HISTOGRAM_H
 
 #include "../core/real_analysis.h"
-#include "../core/vec_buff.h"
 
 
 namespace theoretica {

@@ -1,10 +1,10 @@
 
 ///
-/// @file core/vec_buff.h Operations on datasets
+/// @file core/dataset.h Operations on datasets
 ///
 
-#ifndef THEORETICA_VEC_BUFF_H
-#define THEORETICA_VEC_BUFF_H
+#ifndef THEORETICA_DATASET_H
+#define THEORETICA_DATASET_H
 
 #include <vector>
 #include "./constants.h"
@@ -19,14 +19,9 @@
 namespace theoretica {
 
 
-	/// A dynamically allocated variable-size container.
-	/// Defined by default as an alias for `std::vector<real>`
-	using vec_buff = std::vector<real>;
-
-
-	// Operations on datasets
+	// Operations on datasets and generic ordered sets of numbers
 	// The Vector type must have size() and operator[]() functions
-	// (e.g. vec_buff and vec<real, N>)
+	// (e.g. std::vector<real> and vec<real>)
 
 
 	/// Compute the product of a set of values
@@ -147,7 +142,7 @@ namespace theoretica {
 
 	/// Apply a function to a set of values element-wise
 	/// (vectorized evaluation)
-	template<typename Function, typename Vector>
+	template<typename Vector, typename Function>
 	inline Vector& apply(Function f, Vector& X) {
 
 		for (unsigned int i = 0; i < X.size(); i++)
@@ -160,7 +155,7 @@ namespace theoretica {
 	/// Get a new vector obtained by applying
 	/// the function element-wise
 	/// (vectorized evaluation)
-	template<typename Function, typename Vector1, typename Vector2 = Vector1>
+	template<typename Vector1, typename Vector2 = Vector1, typename Function>
 	inline Vector2& map(Function f, const Vector1& src, Vector2& dest) {
 
 		if(src.size() != dest.size()) {
@@ -179,7 +174,7 @@ namespace theoretica {
 	/// Get a new vector obtained by applying
 	/// the function element-wise
 	/// (vectorized evaluation)
-	template<typename Function, typename Vector1, typename Vector2 = Vector1>
+	template<typename Vector1, typename Vector2 = Vector1, typename Function>
 	inline Vector1 map(Function f, const Vector1& X) {
 
 		Vector2 res;

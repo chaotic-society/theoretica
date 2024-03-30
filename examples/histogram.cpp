@@ -27,7 +27,7 @@ int main() {
     pdf_sampler p = pdf_sampler::gaussian(0, 1, g);
 
     // Fill a vector with N samples
-    vec_buff data(N);
+    vec<real> data(N);
     p.fill(data, N);
 
     // Initialize the histogram from data

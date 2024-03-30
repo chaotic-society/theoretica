@@ -369,7 +369,8 @@ namespace theoretica {
 	template<typename Function, typename VectorType = std::vector<real>>
 	VectorType mc_sample(Function f, std::vector<pdf_sampler> rv, unsigned int N) {
 
-		vec_buff sample(N);
+		VectorType sample;
+		sample.resize(N);
 		vec<real> v(rv.size());
 
 		for (unsigned int i = 0; i < N; ++i) {

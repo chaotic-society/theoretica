@@ -11,7 +11,6 @@
 #include <ostream>
 #endif
 
-#include "../core/vec_buff.h"
 #include "../core/real_analysis.h"
 #include "../algebra/vec.h"
 #include "../complex/complex.h"

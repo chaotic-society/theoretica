@@ -10,15 +10,14 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
-#include "./core/vec_buff.h"
+#include <vector>
 
 
 namespace theoretica {
 
 
-	/// Insert a `vec_buff` data set from standard input
-	inline void insert_data(vec_buff& data, std::string terminator = "") {
+	/// Insert a data set from standard input
+	inline void insert_data(std::vector<real>& data, std::string terminator = "") {
 
 		std::string line;
 		real value;
