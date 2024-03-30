@@ -279,6 +279,13 @@ int main(int argc, char const *argv[]) {
 			interval(-100, 10));
 
 
+		prec::estimate(
+			"th::expm1(real)",
+			REAL_LAMBDA(th::expm1),
+			REAL_LAMBDA(std::expm1),
+			interval(-1, 1));
+
+
 	// test_start("th::pow");
 
 	// 	const unsigned int N = 7;
