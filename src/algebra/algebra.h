@@ -124,17 +124,7 @@ namespace theoretica {
 		template<typename Matrix1, typename Matrix2>
 		inline Matrix1& mat_copy(Matrix1& dest, const Matrix2& src) {
 
-			if(src.rows() != dest.rows()) {
-				TH_MATH_ERROR("algebra::mat_copy", src.rows(), INVALID_ARGUMENT);
-				mat_error(dest);
-				return dest;
-			}
-
-			if(src.cols() != dest.cols()) {
-				TH_MATH_ERROR("algebra::mat_copy", src.cols(), INVALID_ARGUMENT);
-				mat_error(dest);
-				return dest;
-			}
+			dest.resize(src.rows(), src.cols());
 
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
@@ -152,11 +142,7 @@ namespace theoretica {
 		template<typename Vector1, typename Vector2>
 		inline Vector1& vec_copy(Vector1& dest, const Vector2& src) {
 
-			if(src.size() != dest.size()) {
-				TH_MATH_ERROR("algebra::vec_copy", src.size(), INVALID_ARGUMENT);
-				vec_error(dest);
-				return dest;
-			}
+			dest.resize(src.size());
 
 			for (unsigned int i = 0; i < src.size(); ++i)
 				dest.at(i) = src.get(i);

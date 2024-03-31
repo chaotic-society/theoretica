@@ -131,6 +131,15 @@ namespace theoretica {
 		}
 
 
+		/// Friend operator to enable equations of the form
+		/// (vec) * (mat)
+		template<typename VecType, unsigned int M>
+		inline friend vec<VecType, K> operator*(
+			const vec<VecType, M>& a, const mat<Type, N, K>& B) {
+			return B * a;
+		}
+
+
 		/// Scalar division
 		inline mat<Type, N, K> operator/(Type scalar) const {
 
@@ -149,10 +158,10 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector transform(const Vector& v) const {
 
-			if(v.size() != N) {
+			if(v.size() != cols()) {
 				TH_MATH_ERROR("mat::transform", v.size(), INVALID_ARGUMENT);
 				Vector res;
-				res.resize(N);
+				res.resize(cols());
 				algebra::vec_error(res);
 				return res;
 			}
@@ -694,6 +703,15 @@ namespace theoretica {
 		}
 
 
+		/// Friend operator to enable equations of the form
+		/// (vec) * (mat)
+		template<typename VecType, unsigned int M>
+		inline friend vec<VecType, 0> operator*(
+			const vec<VecType, M>& a, const mat<Type, 0, 0>& B) {
+			return B * a;
+		}
+
+
 		/// Scalar division
 		inline mat<Type> operator/(Type scalar) const {
 
@@ -726,14 +744,14 @@ namespace theoretica {
 
 
 		/// Transform a vector by the matrix
-		template<unsigned int N, unsigned int K>
+		template<unsigned int N = 0, unsigned int K = 0>
 		inline vec<Type, N> transform(const vec<Type, K>& v) const {
 			return algebra::transform(*this, v);
 		}
 
 
 		/// Transform a vector by the matrix
-		template<unsigned int N, unsigned int K>
+		template<unsigned int N = 0, unsigned int K = 0>
 		inline vec<Type, N> operator*(const vec<Type, K>& v) const {
 			return transform(v);
 		}
@@ -1140,8 +1158,8 @@ namespace theoretica {
 
 
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
-		inline static mat<Type> symplectic() {
-			return algebra::symplectic<mat<Type>>();
+		inline static mat<Type> symplectic(unsigned int rows, unsigned int cols) {
+			return algebra::symplectic<mat<Type>>(rows, cols);
 		}
 
 

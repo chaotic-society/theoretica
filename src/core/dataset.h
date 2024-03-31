@@ -7,8 +7,8 @@
 #define THEORETICA_DATASET_H
 
 #include <vector>
-#include "./constants.h"
 #include <functional>
+#include "./constants.h"
 
 #ifndef THEORETICA_NO_PRINT
 #include <sstream>
@@ -187,6 +187,24 @@ namespace theoretica {
 	}
 
 
+	/// Concatenate two datasets to form a single one
+	template<typename Vector1, typename Vector2, typename Vector3 = Vector1>
+	inline Vector3 concatenate(const Vector1& v1, const Vector2& v2) {
+
+		Vector3 res;
+		res.resize(v1.size() + v2.size());
+		const unsigned int offset = v1.size();
+
+		for (unsigned int i = 0; i < offset; ++i)
+			res[i] = v1[i];
+
+		for (unsigned int i = 0; i < v2.size(); ++i)
+			res[i + offset] = v2[i];
+
+		return res;
+	}
+
+
 	/// Finds the maximum value inside a dataset
 	template<typename Vector>
 	inline real max(const Vector& X) {
@@ -223,33 +241,6 @@ namespace theoretica {
 
 		return curr;
 	}
-
-
-#ifndef THEORETICA_NO_PRINT
-
-	/// Stream the buffer in string representation to an output stream (std::ostream)
-	inline std::ostream& operator<<(std::ostream& out, const std::vector<real>& obj) {
-
-		for (real x : obj) {
-			out << x << std::endl;
-		}
-
-		return out;
-	}
-
-
-	/// Stream a vector in string representation to an output stream (std::ostream)
-	// template<typename T>
-	// inline std::ostream& operator<<(std::ostream& out, const std::vector<T>& obj) {
-
-	// 	for (T x : obj) {
-	// 		out << x << std::endl;
-	// 	}
-
-	// 	return out;
-	// }
-
-#endif
 
 }
 

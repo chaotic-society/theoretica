@@ -31,7 +31,12 @@ namespace theoretica {
 
 
 		/// Initialize all elements to the same value
-		vec(Type a) {
+		/// (the size variable is for coherence)
+		vec(Type a, unsigned int size = 0) {
+
+			if(size)
+				resize(size);
+
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] = a;
 		}
@@ -292,10 +297,17 @@ namespace theoretica {
 
 		/// Returns an N-dimensional euclidean base unit vector
 		/// with the i-th element set to 1.
-		inline static vec<Type, N> euclidean_base(unsigned int i) {
+		inline static vec<Type, N> euclidean_base(
+			unsigned int i, unsigned int n = N) {
 
-			vec<Type, N> e_i = vec<Type, N>(0);
-			e_i.at(i) = 1;
+			if(i >= n) {
+				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				return vec<Type, N>(nan(), N);
+			}
+
+			vec<Type, N> e_i = vec<Type, N>(0, n);
+			e_i.resize(n);
+			e_i[i] = 1;
 
 			return e_i;
 		}
@@ -474,7 +486,7 @@ namespace theoretica {
 		
 			if(other.size() != 3) {
 				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type>((Type) nan(), 3);
+				return vec<Type>(nan(), 3);
 			}
 
 			return algebra::cross(*this, other);
@@ -485,9 +497,15 @@ namespace theoretica {
 		template<typename Vector>
 		inline vec<Type>& operator+=(const Vector& other) {
 
+			// If the vector is uninitialized,
+			// initialize it to be a zero vector
+			// with the target size
+			if(size() == 0)
+				resize(other.size());
+
 			if(size() != other.size()) {
 				TH_MATH_ERROR("vec::operator+=", size(), INVALID_ARGUMENT);
-				return vec<Type>(nan(), size());
+				return (*this = vec<Type>(nan(), size()));
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -497,13 +515,13 @@ namespace theoretica {
 		}
 
 
-		/// Subtract a vector the the vector itself
+		/// Subtract a vector from the vector itself
 		template<typename Vector>
 		inline vec<Type>& operator-=(const Vector& other) {
 
 			if(size() != other.size()) {
 				TH_MATH_ERROR("vec::operator-=", size(), INVALID_ARGUMENT);
-				return vec<Type>(nan(), size());
+				return (*this = vec<Type>(nan(), size()));
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -631,8 +649,14 @@ namespace theoretica {
 		inline static vec<Type> euclidean_base(
 			unsigned int i, unsigned int n) {
 
+			if(i >= n) {
+				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				return vec<Type>(nan(), n);
+			}
+
 			vec<Type> e_i = vec<Type>(0, n);
-			e_i.at(i) = 1;
+			e_i.resize(n);
+			e_i[i] = 1;
 
 			return e_i;
 		}

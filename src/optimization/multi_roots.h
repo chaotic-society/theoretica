@@ -19,7 +19,7 @@ namespace theoretica {
 	/// @result The computed vector at which f is approximately zero
 	template<unsigned int N>
 	inline vec<real, N> multiroot_newton(
-		vec<multidual<N>, N>(*f)(vec<multidual<N>, N>),
+		d_vec<N>(*f)(d_vec<N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
@@ -52,7 +52,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_root_newton", iter, NO_ALGO_CONVERGENCE);
 			return vec<real, N>(nan());
 		}
 

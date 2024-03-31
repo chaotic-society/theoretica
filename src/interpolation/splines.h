@@ -250,7 +250,7 @@ namespace theoretica {
 	inline std::vector<spline_node> cubic_splines(DataPoints p) {
 
 		if(p.size() < 2) {
-			TH_MATH_ERROR("cubic_splines", x.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("cubic_splines", p.size(), INVALID_ARGUMENT);
 			return {spline_node(nan(), nan(), nan(), nan(), nan())};
 		}
 
