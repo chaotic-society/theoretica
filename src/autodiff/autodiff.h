@@ -18,12 +18,23 @@
 namespace theoretica {
 
 
+	/// Types for multivariate automatic differentiation
+
+	template<unsigned int N = 0>
+	using d_real = multidual<N>;
+
+	template<unsigned int N = 0>
+	using d_vec = vec<d_real<N>, N>;
+
+
 	/// Compute the gradient for a given \f$\vec x\f$ of a function
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// using automatic differentiation.
 	template<unsigned int N>
-	inline vec<real, N> gradient(multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
-		return f(multidual<N>::make_argument(x)).Dual();
+	inline vec<real, N> gradient(
+		d_real<N>(*f)(d_vec<N>), const vec<real, N>& x) {
+
+		return f(d_real<N>::make_argument(x)).Dual();
 	}
 
 
@@ -31,10 +42,11 @@ namespace theoretica {
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// at a given \f$\vec x\f$ using automatic differentiation.
 	template<unsigned int N>
-	inline std::function<vec<real, N>(vec<real, N>)> gradient(multidual<N>(*f)(vec<multidual<N>, N>)) {
+	inline std::function<vec<real, N>(vec<real, N>)> gradient(
+		d_real<N>(*f)(d_vec<N>)) {
 
 		return [f](vec<real, N> x) {
-			return f(multidual<N>::make_argument(x)).Dual();
+			return gradient(f, x);
 		};
 	}
 
@@ -72,9 +84,9 @@ namespace theoretica {
 	/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 	/// using automatic differentiation
 	template<unsigned int N>
-	inline real divergence(multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+	inline real divergence(d_real<N>(*f)(d_vec<N>), const vec<real, N>& x) {
 
-		multidual<N> d = f(multidual<N>::make_argument(x));
+		d_real<N> d = f(d_real<N>::make_argument(x));
 
 		real div = 0;
 		for (unsigned int i = 0; i < N; ++i)
@@ -89,10 +101,9 @@ namespace theoretica {
 	/// at a given \f$\vec x\f$ using automatic differentiation.
 	template<unsigned int N>
 	inline std::function<real(vec<real, N>)>
-	divergence(multidual<N>(*f)(vec<multidual<N>, N>)) {
+	divergence(d_real<N>(*f)(d_vec<N>)) {
 
 		return [f](vec<real, N> x) {
-
 			return divergence(f, x);
 		};
 	}
@@ -131,9 +142,9 @@ namespace theoretica {
 	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$
 	template<unsigned int N, unsigned int M>
 	inline mat<real, M, N> jacobian(
-		vec<multidual<N>, M>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+		vec<d_real<N>, M>(*f)(d_vec<N>), const vec<real, N>& x) {
 
-		vec<multidual<N>, M> res = f(multidual<N>::make_argument(x));
+		vec<d_real<N>, M> res = f(d_real<N>::make_argument(x));
 
 		// Construct the jacobian matrix
 		mat<real, M, N> J;
@@ -151,7 +162,7 @@ namespace theoretica {
 	/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}^M\f$ for a given $\vec x$
 	template<unsigned int N, unsigned int M>
 	inline std::function<mat<real, M, N>(vec<real, N>)> jacobian(
-		vec<multidual<N>, M>(*f)(vec<multidual<N>, N>)) {
+		vec<d_real<N>, M>(*f)(d_vec<N>)) {
 
 		return [f](vec<real, N> x) {
 			return jacobian(f, x);
@@ -162,14 +173,23 @@ namespace theoretica {
 	/// Compute the curl for a given \f$\vec x\f$ of a vector field
 	/// defined by \f$f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\f$
 	/// using automatic differentiation.
-	inline vec3 curl(vec<multidual<3>, 3>(*f)(vec<multidual<3>, 3>), const vec3& x) {
+	template<unsigned int N>
+	inline vec<real, N> curl(d_vec<N>(*f)(d_vec<N>), const vec<real, N>& x) {
 
-		mat3 J = jacobian<3, 3>(f, x);
-		vec3 res;
+		if(x.size() != 3) {
+			TH_MATH_ERROR("th::curl", x.size(), INVALID_ARGUMENT);
+			return vec<real, N>(nan(), x.size());
+		}
 
-		res.at(0) = J.at(2, 1) - J.at(1, 2);
-		res.at(1) = J.at(0, 2) - J.at(2, 0);
-		res.at(2) = J.at(1, 0) - J.at(0, 1);
+		mat<real, N, N> J = jacobian<N, N>(f, x);
+		J.resize(3, 3);
+
+		vec<real, N> res;
+		res.resize(x.size());
+
+		res[0] = J(2, 1) - J(1, 2);
+		res[1] = J(0, 2) - J(2, 0);
+		res[2] = J(1, 0) - J(0, 1);
 
 		return res;
 	}
@@ -178,9 +198,10 @@ namespace theoretica {
 	/// Get a function which computes the curl for a given \f$\vec x\f$ of a vector field
 	/// defined by \f$f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\f$
 	/// using automatic differentiation.
-	inline std::function<vec3(vec3)> curl(vec<multidual<3>, 3>(*f)(vec<multidual<3>, 3>)) {
+	template<unsigned int N>
+	inline std::function<vec<real, N>(vec<real, N>)> curl(d_vec<N>(*f)(d_vec<N>)) {
 
-		return [f](vec3 x) {
+		return [f](vec<real, N> x) {
 			return curl(f, x);
 		};
 	}
@@ -196,7 +217,7 @@ namespace theoretica {
 	/// but the function does not control whether the vector has
 	/// unit length or not.
 	template<unsigned int N>
-	inline vec<real, N> directional_derivative(multidual<N>(*f)(vec<multidual<N>, N>),
+	inline vec<real, N> directional_derivative(d_real<N>(*f)(d_vec<N>),
 		const vec<real, N>& x, const vec<real, N>& v) {
 
 		return v * dot(v, gradient(f, x));
@@ -214,7 +235,7 @@ namespace theoretica {
 	/// unit length or not.
 	template<unsigned int N>
 	inline std::function<vec<real, N>(vec<real, N>)>
-	directional_derivative(multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& v) {
+	directional_derivative(d_real<N>(*f)(d_vec<N>), const vec<real, N>& v) {
 
 		return [f, v](vec<real, N> x) {
 			return directional_derivative(f, x, v);
@@ -230,6 +251,7 @@ namespace theoretica {
 
 		real res = 0;
 		vec<dual2, N> d;
+		d.resize(x.size());
 
 		for (unsigned int i = 0; i < N; ++i)
 			d[i] = x.get(i);

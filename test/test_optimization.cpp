@@ -8,11 +8,10 @@ using namespace theoretica;
 
 // Multivariate root search
 // {1, e} is a root
-template<typename NumType>
-inline vec<NumType, 2> f1(vec<NumType, 2> v) {
+inline d_vec<2> f1(d_vec<2> v) {
 
-	const NumType x = v[0];
-	const NumType y = v[1];
+	const d_real<2> x = v[0];
+	const d_real<2> y = v[1];
 
 	return {
 		exp(x) - y,

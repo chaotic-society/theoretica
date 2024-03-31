@@ -21,10 +21,8 @@ namespace theoretica {
 	/// Multidual number algebra for functions
 	/// of the form \f$f: \mathbb{R}^n \rightarrow \mathbb{R}\f$
 	///
-	template<unsigned int N>
+	template<unsigned int N = 0>
 	class multidual {
-
-		static_assert(N > 0, "N cannot be zero.");
 		
 		public:
 			real a;
@@ -33,7 +31,7 @@ namespace theoretica {
 
 			/// Construct a multidual number
 			/// as \f$(0 + \vec 0)\f$
-			multidual() : a(0), v(vec<real, N>(0)) {}
+			multidual() : a(0) {}
 
 
 			/// Construct a multidual number from
@@ -43,17 +41,7 @@ namespace theoretica {
 
 			/// Construct a multidual number from
 			/// a real number
-			multidual(real r) : a(r), v(vec<real, N>(0)) {}
-
-
-			/// Construct a multidual number from
-			/// a (1 + N) dimensional vector
-			multidual(const vec<real, 1 + N>& data) : a(data.get(0)) {
-
-				for (int i = 1; i < N + 1; ++i) {
-					v.at(i - 1) = data.get(i);
-				}
-			}
+			multidual(real r) : a(r), v(vec<real, N>()) {}
 
 			~multidual() = default;
 
@@ -89,7 +77,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan()));
+					return multidual(nan(), vec<real, N>(nan(), N));
 				}
 
 				return multidual(1.0 / a, v * (-1 / (a * a)));
@@ -149,7 +137,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan()));
+					return multidual(nan(), vec<real, N>(nan(), N));
 				}
 
 				return multidual(a / other.a,
@@ -223,7 +211,7 @@ namespace theoretica {
 				if(r == 0) {
 					TH_MATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
-					v = vec<real, N>(nan());
+					v = vec<real, N>(nan(), N);
 					return *this;
 				}
 
@@ -248,9 +236,11 @@ namespace theoretica {
 				const vec<real, N>& x) {
 
 				vec<multidual<N>, N> arg;
-				for (unsigned int i = 0; i < N; ++i)
-					arg.at(i) = multidual<N>(
-						x.get(i), vec<real, N>::euclidean_base(i)
+				arg.resize(x.size());
+
+				for (unsigned int i = 0; i < x.size(); ++i)
+					arg[i] = multidual<N>(
+						x[i], vec<real, N>::euclidean_base(i, x.size())
 					);
 
 				return arg;
@@ -263,6 +253,7 @@ namespace theoretica {
 				const vec<multidual<N>, N>& v) {
 
 				vec<real, N> x;
+				x.resize(v.size());
 
 				for (unsigned int i = 0; i < N; ++i)
 					x[i] = v.get(i).Re();
@@ -278,6 +269,7 @@ namespace theoretica {
 				const vec<multidual<N>, N>& v) {
 
 				mat<real, N, N> J;
+				J.resize(v.size(), v.size());
 
 				for (unsigned int i = 0; i < N; ++i)
 					for (unsigned int j = 0; j < N; ++j)
@@ -302,6 +294,13 @@ namespace theoretica {
 					
 					x[i] = v.get(i).Re();
 				}
+			}
+
+
+			/// Change the size of the dual part of the number
+			/// (only for dynamically allocated vectors)
+			inline void resize(unsigned int size) {
+				v.resize(size);
 			}
 
 
