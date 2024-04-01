@@ -14,6 +14,8 @@
 
 #include <functional>
 
+#include "../core/error.h"
+
 
 namespace theoretica {
 
@@ -145,14 +147,14 @@ namespace theoretica {
 		vec<d_real<N>, M>(*f)(d_vec<N>), const vec<real, N>& x) {
 
 		vec<d_real<N>, M> res = f(d_real<N>::make_argument(x));
-
+		
 		// Construct the jacobian matrix
 		mat<real, M, N> J;
-		for (unsigned int i = 0; i < N; ++i) {
-			for (unsigned int j = 0; j < M; ++j) {
-				J.at(j, i) = res.at(j).Dual().at(i);
-			}
-		}
+		J.resize(res.size(), x.size());
+
+		for (unsigned int j = 0; j < J.rows(); ++j)
+			for (unsigned int i = 0; i < res[j].v.size(); ++i)
+				J(j, i) = res[j].v[i];
 
 		return J;
 	}
@@ -185,7 +187,7 @@ namespace theoretica {
 		J.resize(3, 3);
 
 		vec<real, N> res;
-		res.resize(x.size());
+		res.resize(3);
 
 		res[0] = J(2, 1) - J(1, 2);
 		res[1] = J(0, 2) - J(2, 0);
@@ -253,10 +255,10 @@ namespace theoretica {
 		vec<dual2, N> d;
 		d.resize(x.size());
 
-		for (unsigned int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < x.size(); ++i)
 			d[i] = x.get(i);
 
-		for (unsigned int i = 0; i < N; ++i) {
+		for (unsigned int i = 0; i < x.size(); ++i) {
 			d[i].b = 1;
 			res += f(d).Dual2();
 			d[i].b = 0;
@@ -288,12 +290,16 @@ namespace theoretica {
 	///
 	/// @param f The function to apply the operator to
 	/// @param H The Hamiltonian
-	/// @param eta A vector containing M = 2N elements, where the first
-	/// N elements are the coordinates and the last N elements are the
+	/// @param eta A vector containing N = 2K elements, where the first
+	/// K elements are the coordinates and the last K elements are the
 	/// conjugate momenta.
-	template<unsigned int M>
-	inline real sturm_liouville(dual(*f)(vec<dual, M>), dual(*H)(vec<dual, M>), vec<real, M> eta) {
-		return gradient(f, eta) * mat<real, M, M>::symplectic() * gradient(H, eta);
+	template<unsigned int N>
+	inline real sturm_liouville(
+		d_real<N>(*f)(d_vec<N>), d_real<N>(*H)(d_vec<N>), vec<real, N> eta) {
+
+		return gradient(f, eta)
+			 * mat<real, N, N>::symplectic(eta.size(), eta.size())
+			 * gradient(H, eta);
 	}
 
 }

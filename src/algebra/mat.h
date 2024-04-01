@@ -517,10 +517,10 @@ namespace theoretica {
 
 
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
-		inline static mat<Type, N, K> symplectic() {
+		inline static mat<Type, N, K> symplectic(unsigned int n = 0, unsigned int k = 0) {
 			static_assert(N == K && (N % 2 == 0),
 				"N must equal K and they should be a multiple of 2");
-			return algebra::symplectic<mat<Type, N, K>>();
+			return algebra::symplectic<mat<Type, N, K>>(n, k);
 		}
 
 

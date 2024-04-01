@@ -297,6 +297,13 @@ namespace theoretica {
 			}
 
 
+			/// Get the number of independent variables associated
+			/// with the multidual number.
+			unsigned int size() const {
+				return v.size();
+			}
+
+
 			/// Change the size of the dual part of the number
 			/// (only for dynamically allocated vectors)
 			inline void resize(unsigned int size) {
@@ -320,7 +327,7 @@ namespace theoretica {
 			}
 
 			inline friend multidual operator/(real a, const multidual& d) {
-				return multidual(a) / d;
+				return a * d.inverse();
 			}
 
 
