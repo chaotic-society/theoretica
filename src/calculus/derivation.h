@@ -20,10 +20,16 @@ namespace theoretica {
 	template<typename T = real>
 	inline polynomial<T> deriv_polynomial(const polynomial<T>& p) {
 
+		if(p.coeff.size() == 0) {
+			TH_MATH_ERROR("deriv_polynomial", p.coeff.size(), INVALID_ARGUMENT);
+			return polynomial<T>({T(nan())});
+		}
+
 		polynomial<T> Dp;
+		Dp.coeff.resize(p.coeff.size() - 1);
 
 		for (unsigned int i = 1; i < p.size(); ++i)
-			Dp.coeff.push_back(p.get(i) * i);
+			Dp.coeff[i - 1] = p[i] * i;
 
 		return Dp;
 	}

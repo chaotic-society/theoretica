@@ -55,6 +55,12 @@ namespace theoretica {
 
 
 			/// Return the nth order coefficient
+			inline const T& operator[](unsigned int i) const {
+				return coeff[i];
+			}
+
+
+			/// Return the nth order coefficient
 			inline T& operator[](unsigned int i) {
 				return coeff[i];
 			}

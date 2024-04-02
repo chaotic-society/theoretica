@@ -137,7 +137,7 @@ int main(int argc, char const *argv[]) {
 			[=](interval k, Real tol, unsigned int n) {
 				return test_operator(
 					[=](vec<> v) {
-						return gradient(f, v) * J * gradient(H, v);
+						return gradient(f, v) * (J * gradient(H, v));
 					},
 					PRNG::xoshiro(time(nullptr)),
 					k, 1E-8, n, 4

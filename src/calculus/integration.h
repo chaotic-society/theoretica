@@ -24,10 +24,11 @@ namespace theoretica {
 	inline polynomial<T> integrate_polynomial(const polynomial<T>& p) {
 
 		polynomial<T> P;
-		P.coeff.push_back(0);
+		P.coeff.resize(p.size() + 1);
+		P[0] = 0;
 
 		for (unsigned int i = 0; i < p.size(); ++i)
-			P.coeff.push_back(p.get(i) / T(i + 1));
+			P[i + 1] = p[i] / T(i + 1);
 
 		return P;
 	}
