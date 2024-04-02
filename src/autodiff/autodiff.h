@@ -67,14 +67,19 @@ namespace theoretica {
 	inline vec<real, N> gradient_mono(dual(*f)(vec<dual, N>), const vec<real, N>& x) {
 
 		vec<real, N> res;
+		res.resize(x.size());
+
 		vec<dual, N> dual_x;
+		dual_x.resize(x.size());
 
-		for (unsigned int i = 0; i < N; ++i)
-			dual_x[i] = x.get(i);
+		for (unsigned int i = 0; i < x.size(); ++i)
+			dual_x[i].a = x[i];
 
-		for (unsigned int i = 0; i < N; ++i) {
+		// Re-evaluate the function with varying
+		// dual part to extract each derivative
+		for (unsigned int i = 0; i < x.size(); ++i) {
 			dual_x[i].b = 1;
-			res.at(i) = f(dual_x).Dual();
+			res[i] = f(dual_x).Dual();
 			dual_x[i].b = 0;
 		}
 
@@ -91,8 +96,8 @@ namespace theoretica {
 		d_real<N> d = f(d_real<N>::make_argument(x));
 
 		real div = 0;
-		for (unsigned int i = 0; i < N; ++i)
-			div += d.v.get(i);
+		for (unsigned int i = 0; i < d.v.size(); ++i)
+			div += d.v[i];
 
 		return div;
 	}
@@ -126,9 +131,10 @@ namespace theoretica {
 
 		real res = 0;
 		vec<dual, N> dual_x;
+		dual_x.resize(x.size());
 
 		for (unsigned int i = 0; i < N; ++i)
-			dual_x[i] = x.get(i);
+			dual_x[i].a = x[i];
 
 		for (unsigned int i = 0; i < N; ++i) {
 			dual_x[i].b = 1;
@@ -256,7 +262,7 @@ namespace theoretica {
 		d.resize(x.size());
 
 		for (unsigned int i = 0; i < x.size(); ++i)
-			d[i] = x.get(i);
+			d[i].a = x[i];
 
 		for (unsigned int i = 0; i < x.size(); ++i) {
 			d[i].b = 1;

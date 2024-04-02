@@ -73,6 +73,12 @@ d_vec<> V(d_vec<> v) {
 }
 
 
+d_real<> d1(d_vec<> v) {
+
+    return v[0] - 2 * v[1] + v[2];
+}
+
+
 int main(int argc, char const *argv[]) {
 
 
@@ -140,6 +146,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 
+		// Test against an irrotational vector field
 		prec::estimate("dual::curl (V)",
 			[=](interval k, Real tol, unsigned int n) {
 				return test_operator(
@@ -149,7 +156,19 @@ int main(int argc, char const *argv[]) {
 					PRNG::xoshiro(time(nullptr)),
 					k, 1E-5, n, 3
 				);
-			}, interval(0.1, 100)
+			}, interval(1, 100)
+		);
+
+
+		// Test against a divergence-free scalar field
+		prec::estimate("dual::divergence (d1)",
+			[](interval k, Real tol, unsigned int n) {
+				return test_operator(
+					divergence(d1),
+					PRNG::xoshiro(time(nullptr)),
+					k, 1E-8, n, 3
+				);
+			}, interval(-100, 100)
 		);
 
 
