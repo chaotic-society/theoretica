@@ -86,6 +86,38 @@ int main(int argc, char const *argv[]) {
 				return test_generator(PRNG::middlesquare(time(nullptr)), k, tol, n);
 			}, I);
 
+		// Test autocorrelation of sequences
+
+		vec<> rng_xoshiro(N);
+		PRNG g_xoshiro = PRNG::xoshiro(time(nullptr));
+		pdf_sampler::uniform(0, 1, g_xoshiro).fill(rng_xoshiro, N);
+		prec::equals("PRNG::xoshiro (autocorr.)",
+			th::autocorrelation(rng_xoshiro), 0, 1E-2);
+
+		vec<> rng_wyrand(N);
+		PRNG g_wyrand = PRNG::wyrand(time(nullptr));
+		pdf_sampler::uniform(0, 1, g_wyrand).fill(rng_wyrand, N);
+		prec::equals("PRNG::wyrand (autocorr.)",
+			th::autocorrelation(rng_wyrand), 0, 1E-2);
+
+		vec<> rng_lincong(N);
+		PRNG g_lincong = PRNG::linear_congruential(time(nullptr));
+		pdf_sampler::uniform(0, 1, g_lincong).fill(rng_lincong, N);
+		prec::equals("PRNG::linear_congruential (autocorr.)",
+			th::autocorrelation(rng_lincong), 0, 1E-2);
+
+		vec<> rng_splitmix(N);
+		PRNG g_splitmix = PRNG::splitmix64(time(nullptr));
+		pdf_sampler::uniform(0, 1, g_splitmix).fill(rng_splitmix, N);
+		prec::equals("PRNG::splitmix64 (autocorr.)",
+			th::autocorrelation(rng_splitmix), 0, 1E-2);
+
+		vec<> rng_middlesquare(N);
+		PRNG g_middlesquare = PRNG::middlesquare(time(nullptr));
+		pdf_sampler::uniform(0, 1, g_middlesquare).fill(rng_middlesquare, N);
+		prec::equals("PRNG::middlesquare (autocorr.)",
+			th::autocorrelation(rng_middlesquare), 0, 1E-2);
+
 
 		// Metropolis
 		{
