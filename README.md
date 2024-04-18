@@ -12,7 +12,8 @@ Theoretica is a header-only mathematical library which provides algorithms for *
 ### A short example
 Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its _exact_ time derivative at a position eta = (q, p) like this:
 $$\frac{df}{dt} = \nabla f(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
-Which can be translated into code as:
+
+Where J is the symplectic matrix. The equation can be translated into code as:
 ```java
 mat<N, N> J = mat<N, N>::symplectic();
 real df_dt = gradient(f, eta) * J * gradient(H, eta);
@@ -27,7 +28,7 @@ The library includes real and complex analysis functions optimized for the x86 a
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [Testing](#testing)
-- [Other informations](#other-informations)
+- [Other information](#other-information)
 
 ---
 
