@@ -458,7 +458,7 @@ namespace theoretica {
 				// The weights are given by the squared inverse of the sigma
 				auto W = sigma;
 				apply(W, [](real x) {
-					return 1 / square(x);
+					return 1.0 / (x * x);
 				});
 
 				wls_linear(X, Y, W, A, B, covar_mat);
