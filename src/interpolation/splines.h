@@ -227,16 +227,16 @@ namespace theoretica {
 
 
 		/// Evaluate the interpolating cubic spline
-		/// (no check on the input value is performed)
-		inline real operator()(real X) {
+		/// (no check on the input value is performed!)
+		inline real operator()(real X) const {
 			const real h = X - x;
 			return a + h * (b + h * (c + h * d));
 		}
 
 
 		/// Evaluate the derivative of the interpolating cubic spline
-		/// (no check on the input value is performed)
-		inline real deriv(real X) {
+		/// (no check on the input value is performed!)
+		inline real deriv(real X) const {
 			const real h = X - x;
 			return b + h * (c * 2 + h * d * 3);
 		}
@@ -411,11 +411,18 @@ namespace theoretica {
 		}
 
 
+		/// Copy from another spline
+		inline spline& operator=(const spline& other) {
+			nodes = other.nodes;
+			return *this;
+		}
+
+
 		/// Evaluate the natural cubic spline interpolation
 		/// at a given point.
-		inline real operator()(real x) {
+		inline real operator()(real x) const {
 			
-			for (unsigned int i = nodes.size() - 1; i > 0; --i)
+			for (int i = int(nodes.size()) - 1; i > 0; --i)
 				if(x >= nodes[i].x)
 					return nodes[i](x);
 
@@ -426,7 +433,7 @@ namespace theoretica {
 
 		/// Evaluate the derivative of the natural cubic
 		/// spline interpolation at a given point.
-		inline real deriv(real x) {
+		inline real deriv(real x) const {
 			
 			for (unsigned int i = nodes.size() - 1; i > 0; --i)
 				if(x >= nodes[i].x)
