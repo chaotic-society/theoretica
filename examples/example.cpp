@@ -7,16 +7,24 @@
 #include "theoretica.h"
 using namespace th;
 
+#include "algebra/sparse_vec.h"
+
+
 int main() {
     
-    // Declare a 3D vector
-    vec3 v = {1, 2, 3};
+    sparse_vec<> v1 = sparse_vec<>({
+        vec2({1, PI}), vec2({9, PHI})
+    });
 
-    // Create a 3x3 identity matrix
-    mat3 A = mat3::identity();
+    sparse_vec<> v2 = sparse_vec<>({
+        vec2({1, 3.0})
+    });
 
-    // Transform v by A
-    vec3 w = A * v;
- 
+    std::cout << v1 << std::endl;
+    std::cout << v2 << std::endl;
+    std::cout << v1 * v2 << std::endl;
+    
+    char c;
+    std::cin >> c;
     return 0;
 }
