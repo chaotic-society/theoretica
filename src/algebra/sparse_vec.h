@@ -44,7 +44,7 @@ namespace theoretica {
 				sparse_vec res;
 				res.data = this->data;
 
-				for (auto& pair : other)
+				for (auto& pair : other.data)
 					res[pair.first] += pair.second;
 
 				return res;
@@ -78,6 +78,15 @@ namespace theoretica {
 			/// Access the n-th element
 			inline T& operator[](IndexType index) {
 				return data[index];
+			}
+
+
+			/// Erase resulting null elements
+			inline void trim() {
+
+				for (auto& pair : data)
+					if(abs(pair.second) <= MACH_EPSILON)
+						data.erase(pair.first);
 			}
 
 

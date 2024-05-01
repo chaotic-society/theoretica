@@ -45,9 +45,9 @@ int main(int argc, char* argv[]) {
 
         // Update the trajectory
         pos[i] = pos[i - 1] + vec3({
-            r * sin(theta) * cos(phi),
-            r * sin(theta) * sin(phi),
-            r * cos(theta)
+            r * th::sin(theta) * th::cos(phi),
+            r * th::sin(theta) * th::sin(phi),
+            r * th::cos(theta)
         });
 
         file << pos[i].to_string(" ", false) << std::endl;
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
     for (unsigned int i = 0; i < N; ++i)
         sqr_disp += pos[i] * pos[i] / N;
 
-    std::cout << "RMS Displacement: " << sqrt(sqr_disp) << std::endl;
+    std::cout << "RMS Displacement: " << th::sqrt(sqr_disp) << std::endl;
 
     return 0;
 }

@@ -17,14 +17,18 @@ int main() {
     });
 
     sparse_vec<> v2 = sparse_vec<>({
-        vec2({1, 3.0})
+        vec2({1, -PI})
     });
 
     std::cout << v1 << std::endl;
     std::cout << v2 << std::endl;
     std::cout << v1 * v2 << std::endl;
-    
-    char c;
-    std::cin >> c;
+    std::cout << v1 + v2 << std::endl;
+
+    auto v3 = v1 + v2;
+    v3.trim();
+
+    std::cout << v3 << std::endl;
+
     return 0;
 }
