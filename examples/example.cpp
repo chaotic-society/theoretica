@@ -12,13 +12,13 @@ using namespace th;
 
 int main() {
     
-    sparse_vec<> v1 = sparse_vec<>({
+    sparse_vec<> v1 = {
         vec2({1, PI}), vec2({9, PHI})
-    });
+    };
 
-    sparse_vec<> v2 = sparse_vec<>({
+    sparse_vec<> v2 = {
         vec2({1, -PI})
-    });
+    };
 
     std::cout << v1 << std::endl;
     std::cout << v2 << std::endl;
