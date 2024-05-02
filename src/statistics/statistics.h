@@ -279,7 +279,7 @@ namespace theoretica {
 	/// Compute the standard deviation on the mean of a set of values
 	template<typename Dataset>
 	inline real mean_standard_deviation(const Dataset& data) {
-		return sqrt(variance(data)) / sqrt(data.size());
+		return sqrt(variance(data) / data.size());
 	}
 
 
@@ -294,7 +294,7 @@ namespace theoretica {
 	/// Bessel correction is used in the calculation of the variance
 	template<typename Dataset>
 	inline real sample_mean_standard_deviation(const Dataset& data) {
-		return sqrt(sample_variance(data)) / sqrt(data.size());
+		return sqrt(sample_variance(data) / data.size());
 	}
 
 
@@ -454,13 +454,38 @@ namespace theoretica {
 	/// @param g The function to compute the expectation of
 	/// @return The Gaussian expectation of the given function
 	template<typename RealFunction>
-	real gaussian_expectation(RealFunction g, real mean, real sigma) {
+	inline real gaussian_expectation(RealFunction g, real mean, real sigma) {
 
 		return integral_hermite(
 			[=](real x) {
 				return g(SQRT2 * sigma * x + mean);
 			}
 		) / SQRTPI;
+	}
+
+
+	/// Compute the Z-score of an observed value with
+	/// respect to a Gaussian distribution with the
+	/// given parameters
+	///
+	/// @param x The observed value
+	/// @param mean The mean of the distribution
+	/// @param sigma The standard deviation of the distribution
+	/// @return The Z-score of x, computed as (x - mean) / sigma
+	inline real z_score(real x, real mean, real sigma) {
+
+		return (x - mean) / sigma;
+	}
+
+
+	/// Normalize a data set using Z-score normalization
+	template<typename Dataset>
+	inline Dataset normalize_z_score(const Dataset& X) {
+
+		const real m = mean(X);
+		const real s = sample_standard_deviation(X);
+
+		return map([m, s](real x) { return z_score(x, m, s); }, X);
 	}
 
 
