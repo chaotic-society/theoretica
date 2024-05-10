@@ -93,6 +93,12 @@ Contributions are welcome and very appreciated! Make sure to read the [Contribut
 
 The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
 
+## Branches
+- `main`  Where the current stable version of the library is developed. Code in this branch should be tested and pass those tests.
+- `physics`  The physics module implementing quantum mechanics features, still in development and testing
+- `machine-learning`  Machine learning development branch
+- `sparse`  Sparse matrix and vector algebra
+
 ## Other information
 
 ### License
