@@ -235,7 +235,7 @@ namespace theoretica {
 
 
 		/// Evaluate the derivative of the interpolating cubic spline
-		/// (no check on the input value is performed!)
+		/// (no check on the input value is performed)
 		inline real deriv(real X) const {
 			const real h = X - x;
 			return b + h * (c * 2 + h * d * 3);
@@ -441,6 +441,18 @@ namespace theoretica {
 
 			// Extrapolation for x < x_0
 			return nodes[0].deriv(x);
+		}
+
+
+		/// Get an iterator to the first spline element.
+		inline auto begin() {
+			return nodes.begin();
+		}
+
+
+		/// Get an iterator to one plus the last spline element.
+		inline auto end() {
+			return nodes.end();
 		}
 	};
 

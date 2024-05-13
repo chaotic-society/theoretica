@@ -40,7 +40,10 @@ namespace theoretica {
 		m[3] = a_high * b_high;
 
 		// Multiplication carry for c_high
-		uint64_t carry = ((m[0] >> 32) + (m[1] & 0xffffffff) + (m[2] & 0xffffffff)) >> 32;
+		uint64_t carry = (
+			(m[0] >> 32) +
+			(m[1] & 0xffffffff) +
+			(m[2] & 0xffffffff)) >> 32;
 
 		c_low = m[0] + (m[1] << 32) + (m[2] << 32);
 		c_high = m[3] + (m[1] >> 32) + (m[2] >> 32) + carry;
