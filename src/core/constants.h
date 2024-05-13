@@ -11,10 +11,11 @@
 #include <cstdint>
 
 
+#ifndef THEORETICA_DISABLE_X86
+
 /// @macro THEORETICA_X86 Define this macro if the
 /// machine has a x86 architecture to use hardware
 /// enhanced functions.
-#ifndef THEORETICA_DISABLE_X86
 #ifndef THEORETICA_X86
 #if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) \
 	|| defined(_M_AMD64) || defined(_M_X64) || defined(i386) \

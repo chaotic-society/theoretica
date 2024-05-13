@@ -479,6 +479,9 @@ namespace theoretica {
 
 
 	/// Normalize a data set using Z-score normalization
+	///
+	/// @param The data set to normalize
+	/// @return The normalized data set
 	template<typename Dataset>
 	inline Dataset normalize_z_score(const Dataset& X) {
 

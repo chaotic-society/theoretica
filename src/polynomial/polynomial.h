@@ -21,53 +21,53 @@ namespace theoretica {
 
 	/// @class polynomial
 	/// A polynomial of arbitrary order
-	template<typename T = real>
+	template<typename Type = real>
 	class polynomial {
 		public:
-			std::vector<T> coeff;
+			std::vector<Type> coeff;
 
 			/// Initialize as an empty polynomial
 			polynomial() : coeff() {}
 
 			/// Initialize as a constant
-			polynomial(T a) : coeff({a}) {}
+			polynomial(Type a) : coeff({a}) {}
 
 			/// Initialize from an std::vector
-			polynomial(const std::vector<T>& c) : coeff(c) {}
+			polynomial(const std::vector<Type>& c) : coeff(c) {}
 					
 			/// Initialize from an std::initializer_list
-			polynomial(std::initializer_list<T> l) : coeff(l) {}
+			polynomial(std::initializer_list<Type> l) : coeff(l) {}
 
 			/// Default destructor
 			~polynomial() {}
 
 
 			/// Access i-th coefficient
-			inline T& at(int i) {
+			inline Type& at(int i) {
 				return coeff[i];
 			}
 
 
 			/// Get the i-th by value
-			inline T get(int i) const {
+			inline Type get(int i) const {
 				return coeff[i];
 			}
 
 
 			/// Return the nth order coefficient
-			inline const T& operator[](unsigned int i) const {
+			inline const Type& operator[](unsigned int i) const {
 				return coeff[i];
 			}
 
 
 			/// Return the nth order coefficient
-			inline T& operator[](unsigned int i) {
+			inline Type& operator[](unsigned int i) {
 				return coeff[i];
 			}
 
 
 			/// Evaluate the polynomial using x as variable
-			template<typename EvalType = T>
+			template<typename EvalType = Type>
 			inline EvalType eval(EvalType x) const {
 
 				if(!coeff.size())
@@ -87,7 +87,7 @@ namespace theoretica {
 
 
 			/// Evaluate the polynomial using x as variable
-			template<typename EvalType = T>
+			template<typename EvalType = Type>
 			inline EvalType operator()(EvalType x) const {
 				return eval(x);
 			}
@@ -194,7 +194,7 @@ namespace theoretica {
 						break;
 
 					// Simple division between highest degree terms
-					const polynomial t = polynomial<T>::monomial(
+					const polynomial t = polynomial<Type>::monomial(
 						r.get(r_order) / d.get(d_order),
 						r_order - d_order);
 
@@ -218,7 +218,7 @@ namespace theoretica {
 
 
 			/// Multiply a polynomial by a scalar
-			inline polynomial operator*(T a) const {
+			inline polynomial operator*(Type a) const {
 
 				polynomial r = polynomial(*this);
 
@@ -230,7 +230,7 @@ namespace theoretica {
 
 
 			/// Divide a polynomial by a scalar
-			inline polynomial operator/(T a) const {
+			inline polynomial operator/(Type a) const {
 
 				if(a == 0) {
 					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
@@ -250,7 +250,7 @@ namespace theoretica {
 
 				// Make room for the new coefficients
 				if(coeff.size() < p.size())
-					coeff.resize(p.size(), T(0));
+					coeff.resize(p.size(), Type(0));
 
 				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] += p.get(i);
@@ -264,7 +264,7 @@ namespace theoretica {
 
 				// Make room for the new coefficients
 				if(coeff.size() < p.size())
-					coeff.resize(p.size(), T(0));
+					coeff.resize(p.size(), Type(0));
 
 				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
 					coeff[i] -= p.get(i);
@@ -277,7 +277,7 @@ namespace theoretica {
 			inline polynomial& operator*=(const polynomial& p) {
 
 				polynomial r = polynomial();
-				r.coeff.resize(this->size() + p.size() - 1, T(0));
+				r.coeff.resize(this->size() + p.size() - 1, Type(0));
 
 				for (unsigned int i = 0; i < size(); ++i)
 					for (unsigned int j = 0; j < p.size(); ++j)
@@ -289,7 +289,7 @@ namespace theoretica {
 
 
 			/// Multiply a polynomial by a scalar value
-			inline polynomial& operator*=(T a) {
+			inline polynomial& operator*=(Type a) {
 
 				for (unsigned int i = 0; i < coeff.size(); ++i)
 					coeff[i] *= a;
@@ -305,7 +305,7 @@ namespace theoretica {
 
 
 			/// Divide a polynomial by a scalar value
-			inline polynomial& operator/=(T a) {
+			inline polynomial& operator/=(Type a) {
 
 				if(a == 0) {
 					TH_MATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
@@ -322,7 +322,8 @@ namespace theoretica {
 			/// Check whether two polynomials are equal
 			inline bool operator==(const polynomial& other) const {
 
-				for (unsigned int i = 0; i < min(other.size(), this->size()); ++i) {
+				const unsigned int n = min(other.size(), this->size());
+				for (unsigned int i = 0; i < n; ++i) {
 					if(other.coeff[i] != coeff[i])
 						return false;
 				}
@@ -343,6 +344,20 @@ namespace theoretica {
 			}
 
 
+			/// Get an iterator for the first coefficient
+			/// of the polynomial.
+			inline auto begin() {
+				return coeff.begin();
+			}
+
+
+			/// Get an iterator for the one plus last coefficient
+			/// of the polynomial.
+			inline auto end() {
+				return coeff.end();
+			}
+
+
 			/// Compute the roots of a quadratic polynomial
 			inline vec<complex<>, 2> quadratic_roots() const {
 
@@ -354,8 +369,8 @@ namespace theoretica {
 					return vec<complex<>, 2>({nan(), nan()});
 				}
 
-				const T p = coeff[1] / coeff[2];
-				const T q = coeff[0] / coeff[2];
+				const Type p = coeff[1] / coeff[2];
+				const Type q = coeff[0] / coeff[2];
 
 				// Case when 0 is a root
 				if(abs(q) < MACH_EPSILON)
@@ -382,40 +397,47 @@ namespace theoretica {
 
 
 			/// Construct a polynomial from its roots
-			inline static polynomial<T> from_roots(const std::vector<T>& roots) {
+			inline static polynomial<Type> from_roots(
+				const std::vector<Type>& roots) {
 
-				polynomial<T> P = {1};
+				polynomial<Type> P = {1};
 
 				// P = product((x - r_i))
 				for (unsigned int i = 0; i < roots.size(); ++i)
-					P *= polynomial<T>({roots[i] * -1, 1});
+					P *= polynomial<Type>({roots[i] * -1, 1});
 
 				return P;
 			}
 
 
 			/// Returns a monomial of the given degree and coefficient
-			inline static polynomial<T> monomial(T c, unsigned int order) {
+			inline static polynomial<Type> monomial(Type c, unsigned int order) {
 				
 				polynomial m;
-				m.coeff = std::vector<T>(order + 1, T(0));
+				m.coeff = std::vector<Type>(order + 1, Type(0));
 				m.coeff[order] = c;
 				return m;
 			}
 
 
 			// Friend operators to enable equations of the form
-			// (T) op. (polynomial<T>)
+			// (Type) op. (polynomial<Type>)
 
-			inline friend polynomial<T> operator+(T r, const polynomial<T>& z) {
+			inline friend polynomial<Type> operator+(
+				Type r, const polynomial<Type>& z) {
+
 				return z + polynomial(r);
 			}
 
-			inline friend polynomial<T> operator-(T r, const polynomial<T>& z) {
+			inline friend polynomial<Type> operator-(
+				Type r, const polynomial<Type>& z) {
+
 				return (z * -1) + polynomial(r);
 			}
 
-			inline friend polynomial<T> operator*(T r, const polynomial<T>& z) {
+			inline friend polynomial<Type> operator*(
+				Type r, const polynomial<Type>& z) {
+
 				return z * r;
 			}
 

@@ -29,7 +29,7 @@ namespace theoretica {
 			/// The denominator
 			T2 den;
 
-			/// Construct the object from the default contructors
+			/// Construct the object from the default constructors
 			/// of the two types
 			ratio() : num(T1()), den(T2()) {}
 

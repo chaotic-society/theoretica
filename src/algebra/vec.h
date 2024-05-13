@@ -242,6 +242,64 @@ namespace theoretica {
 		}
 
 
+		class vec_iterator {
+
+			private:
+				Type* data;
+				size_t index;
+			
+			public:
+				vec_iterator() : data(nullptr), index(0) {}
+
+				~vec_iterator() = default;
+
+				vec_iterator(Type* data, size_t index) : data(data), index(index) {}
+
+				/// Dereference the iterator
+				/// to get the current element.
+				Type& operator*() {
+					return data[index];
+				}
+
+				/// Move to the next element
+				/// in the vector.
+				vec_iterator& operator++() {
+					++index;
+					return *this;
+				}
+
+				/// Move to the previous element
+				/// in the vector.
+				vec_iterator& operator--() {
+					--index;
+					return *this;
+				}
+
+				/// Comparison operators.
+				bool operator==(const vec_iterator& other) const {
+					return index == other.index;
+				}
+
+				bool operator!=(const vec_iterator& other) const {
+					return !(*this == other);
+				}
+		};
+
+
+		/// Get an iterator to the first element
+		/// of the vector.
+		inline auto begin() {
+			return vec<Type, N>::vec_iterator(data, 0);
+		}
+
+
+		/// Get an iterator to one plus the last element
+		/// of the vector.
+		inline auto end() {
+			return vec<Type, N>::vec_iterator(data, N);
+		}
+
+
 		/// Vector normalization (v / |v|)
 		inline void normalize() {
 			algebra::make_normalized(*this);
@@ -595,6 +653,20 @@ namespace theoretica {
 		/// Set the i-th element
 		inline void set(unsigned int i, Type x) {
 			data[i] = x;
+		}
+
+
+		/// Get an iterator to the first element
+		/// of the vector.
+		inline auto begin() {
+			return data.begin();
+		}
+
+
+		/// Get an iterator to one plus the last element
+		/// of the vector.
+		inline auto end() {
+			return data.end();
 		}
 
 
