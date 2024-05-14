@@ -304,6 +304,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the dual number to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the dual number in string representation
 			/// to an output stream (std::ostream)
 			inline friend std::ostream& operator<<(std::ostream& out, const dual2& obj) {

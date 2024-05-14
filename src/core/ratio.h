@@ -113,6 +113,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the ratio to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the ratio in string representation
 			/// to an output stream (std::ostream)
 			inline friend std::ostream& operator<<(std::ostream& out, const ratio<T1, T2>& obj) {

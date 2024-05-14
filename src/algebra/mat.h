@@ -323,6 +323,64 @@ namespace theoretica {
 		}
 
 
+		class mat_iterator {
+
+			private:
+				Type* data;
+				size_t index;
+			
+			public:
+				mat_iterator() : data(nullptr), index(0) {}
+
+				~mat_iterator() = default;
+
+				mat_iterator(Type* data, size_t index) : data(data), index(index) {}
+
+				/// Dereference the iterator
+				/// to get the current element.
+				Type& operator*() {
+					return ((Type*) data)[index];
+				}
+
+				/// Move to the next element
+				/// in the matrix.
+				mat_iterator& operator++() {
+					++index;
+					return *this;
+				}
+
+				/// Move to the previous element
+				/// in the matrix.
+				mat_iterator& operator--() {
+					--index;
+					return *this;
+				}
+
+				/// Comparison operators.
+				bool operator==(const mat_iterator& other) const {
+					return index == other.index;
+				}
+
+				bool operator!=(const mat_iterator& other) const {
+					return!(*this == other);
+				}
+		};
+
+
+		/// Get an iterator to the first element
+		/// of the vector.
+		inline auto begin() {
+			return mat<Type, N, K>::mat_iterator((Type*) data, 0);
+		}
+
+
+		/// Get an iterator to one plus the last element
+		/// of the vector.
+		inline auto end() {
+			return mat<Type, N, K>::mat_iterator((Type*) data, size());
+		}
+
+
 		/// Get the number of rows of the matrix
 		TH_CONSTEXPR inline unsigned int rows() const {
 			return N;
@@ -555,6 +613,12 @@ namespace theoretica {
 				}
 
 				return res.str();
+			}
+
+
+			/// Convert the matrix to string representation.
+			inline operator std::string() {
+				return to_string();
 			}
 
 
@@ -900,6 +964,86 @@ namespace theoretica {
 		}
 
 
+		class mat_iterator {
+
+			private:
+				Container<Container<Type>>* data;
+				size_t index1;
+				size_t index2;
+			
+			public:
+				mat_iterator() : data(nullptr), index1(0), index2(0) {}
+
+				~mat_iterator() = default;
+
+				mat_iterator(
+					Container<Container<Type>>* data,
+					size_t index1, size_t index2)
+					: data(data), index1(index1), index2(index2) {}
+
+				/// Dereference the iterator
+				/// to get the current element.
+				Type& operator*() {
+					return (*data)[index1][index2];
+				}
+
+				/// Move to the next element
+				/// in the matrix.
+				mat_iterator& operator++() {
+
+					index2++;
+
+					if(index2 == (*data)[index1].size()) {
+						index1++;
+						index2 = 0;
+					}
+
+					return *this;
+				}
+
+				/// Move to the previous element
+				/// in the matrix.
+				mat_iterator& operator--() {
+
+					if(index2 == 0) {
+						index1--;
+						index2 = (*data)[index1].size();
+					}
+
+					return *this;
+				}
+
+				/// Comparison operators.
+				bool operator==(const mat_iterator& other) const {
+					return (index1 == other.index1) &&
+						(index2 == other.index2);
+				}
+
+				bool operator!=(const mat_iterator& other) const {
+					return !(*this == other);
+				}
+		};
+
+
+		/// Get an iterator to the first element
+		/// of the vector.
+		inline auto begin() {
+			return mat<Type, 0, 0>::mat_iterator(&data, 0, 0);
+		}
+
+
+		/// Get an iterator to one plus the last element
+		/// of the vector.
+		inline auto end() {
+
+#ifdef THEORETICA_ROW_FIRST
+			return mat<Type, 0, 0>::mat_iterator(&data, rows(), cols());
+#else
+			return mat<Type, 0, 0>::mat_iterator(&data, cols(), rows());
+#endif
+		}
+
+
 		/// Get the number of rows of the matrix
 		TH_CONSTEXPR inline unsigned int rows() const {
 			return row_sz;
@@ -1077,14 +1221,17 @@ namespace theoretica {
 
 
 		/// Get the identity matrix
-		inline static mat<Type> identity() {
-			return algebra::identity<mat<Type>>();
+		inline static mat<Type> identity(
+			unsigned int row_sz, unsigned int col_sz) {
+
+			return algebra::identity<mat<Type>>(row_sz, col_sz);
 		}
 
 
 		/// Get a diagonal matrix
-		inline static mat<Type> diagonal(Type diag) {
-			return mat<Type>(diag);
+		inline static mat<Type> diagonal(
+			Type diag, unsigned int row_sz, unsigned int col_sz) {
+			return mat<Type>(diag, row_sz, col_sz);
 		}
 
 
@@ -1194,6 +1341,12 @@ namespace theoretica {
 				}
 
 				return res.str();
+			}
+
+
+			/// Convert the matrix to string representation.
+			inline operator std::string() {
+				return to_string();
 			}
 
 

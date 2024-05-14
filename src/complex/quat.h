@@ -408,6 +408,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the quaternion to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the quaternion in string representation
 			/// to an output stream (std::ostream)
 			inline friend std::ostream& operator<<(std::ostream& out, const quat& obj) {

@@ -548,6 +548,12 @@ namespace theoretica {
 		}
 
 
+		/// Convert the vector to string representation.
+		inline operator std::string() {
+			return to_string();
+		}
+
+
 		/// Stream the vector in string representation to an output stream (std::ostream)
 		inline friend std::ostream& operator<<(
 			std::ostream& out, const linear_model& obj) {

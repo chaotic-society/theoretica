@@ -169,6 +169,12 @@ namespace theoretica {
 		}
 
 
+		/// Convert the exception to string representation.
+		inline operator std::string() {
+			return to_string();
+		}
+
+
 		/// Stream the exception in string representation
 		/// to an output stream (std::ostream)
 		inline friend std::ostream& operator<<(std::ostream& out, const math_exception& obj) {

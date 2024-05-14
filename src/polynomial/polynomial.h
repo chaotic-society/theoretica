@@ -476,6 +476,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the polynomial to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the polynomial in string representation
 			/// to an output stream (std::ostream)
 			friend std::ostream& operator<<(std::ostream& out, const polynomial& obj) {

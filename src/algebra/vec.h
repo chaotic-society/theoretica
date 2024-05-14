@@ -403,6 +403,12 @@ namespace theoretica {
 		}
 
 
+		/// Convert the vector to string representation.
+		inline operator std::string() {
+			return to_string();
+		}
+
+
 		/// Stream the vector in string representation to an output stream (std::ostream)
 		inline friend std::ostream& operator<<(
 			std::ostream& out, const vec<Type, N>& obj) {
@@ -763,6 +769,12 @@ namespace theoretica {
 				res << ")";
 
 			return res.str();
+		}
+
+
+		/// Convert the vector to string representation.
+		inline operator std::string() {
+			return to_string();
 		}
 
 

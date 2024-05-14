@@ -68,6 +68,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the ODE state to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the ODE state in string representation
 			/// to an output stream (std::ostream)
 			inline friend std::ostream& operator<<(

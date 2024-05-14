@@ -356,6 +356,12 @@ namespace theoretica {
 			}
 
 
+			/// Convert the phasor to string representation.
+			inline operator std::string() {
+				return to_string();
+			}
+
+
 			/// Stream the phasor in string representation
 			/// to an output stream (std::ostream)
 			inline friend std::ostream& operator<<(std::ostream& out, const phasor& obj) {
