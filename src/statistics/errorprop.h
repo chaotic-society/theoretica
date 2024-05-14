@@ -18,21 +18,18 @@ namespace theoretica {
 
 	/// Build the covariance matrix given a vector of datasets
 	/// by computing the covariance between all couples of sets.
+	///
 	/// @param v A vector of datasets of measures
 	/// @return The covariance matrix of the datasets
-	template<unsigned int N, typename Dataset = vec<real>>
-	inline mat<real, N, N> covar_mat(const std::vector<Dataset>& v) {
+	template<typename Matrix = mat<real>, typename Dataset = vec<real>>
+	inline Matrix covar_mat(const std::vector<Dataset>& v) {
 
-		if(v.size() != N) {
-			TH_MATH_ERROR("covar_mat", v.size(), INVALID_ARGUMENT);
-			return mat<real, N, N>(nan());
-		}
+		Matrix cm;
+		cm.resize(v.size(), v.size());
 
-		mat<real, N, N> cm;
-
-		for (unsigned int i = 0; i < N; ++i)
-			for (unsigned int j = 0; j < N; ++j)
-				cm.at(i, j) = sample_covariance(v[i], v[j]);
+		for (unsigned int i = 0; i < cm.rows(); ++i)
+			for (unsigned int j = 0; j < cm.cols(); ++j)
+				cm(i, j) = sample_covariance(v[i], v[j]);
 
 		return cm;
 	}
@@ -49,15 +46,17 @@ namespace theoretica {
 	/// @param x Best values for the variables
 	/// @param delta_x Vector of uncertainties on the variables
 	/// @return The propagated error on the function
-	template<unsigned int N>
+	template<
+		unsigned int N = 0,
+		typename MultiDualFunction = d_real<N>(*)(d_vec<N>)>
 	inline real error_propagation(
-		multidual<N>(*f)(vec<multidual<N>, N>),
+		MultiDualFunction f,
 		const vec<real, N>& x_best, const vec<real, N>& delta_x) {
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
 
-		for (unsigned int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < x_best.size(); ++i)
 			err_sqr += square(df.Dual().get(i) * delta_x.get(i));
 
 		return sqrt(err_sqr);
@@ -77,18 +76,31 @@ namespace theoretica {
 	/// different variables. May be constructed from datasets
 	/// using the function covar_mat.
 	/// @return The propagated error on the function
-	template<unsigned int N>
+	template <
+		unsigned int N = 0, unsigned int M = 0,
+		typename MultiDualFunction = d_real<N>(*)(d_vec<N>)>
 	inline real error_propagation(
-		multidual<N>(*f)(vec<multidual<N>, N>),
-		const vec<real, N>& x_best, const mat<real, N, N>& cm) {
+		MultiDualFunction f,
+		const vec<real, N>& x_best, const mat<real, M, M>& cm) {
+
+
+		if(cm.rows() != x_best.size()) {
+			TH_MATH_ERROR("error_propagation", cm.rows(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		if(cm.cols() != x_best.size()) {
+			TH_MATH_ERROR("error_propagation", cm.cols(), INVALID_ARGUMENT);
+			return nan();
+		}
 
 		real err_sqr = 0;
 		const multidual<N> df = f(multidual<N>::make_argument(x_best));
 
-		for (unsigned int i = 0; i < N; ++i)
-			for (unsigned int j = 0; j < N; ++j)
+		for (unsigned int i = 0; i < cm.rows(); ++i)
+			for (unsigned int j = 0; j < cm.cols(); ++j)
 				err_sqr += df.Dual().get(i) * df.Dual().get(j)
-					* cm.get(i, j);
+					* cm(i, j);
 
 		return sqrt(err_sqr);
 	}
@@ -105,17 +117,22 @@ namespace theoretica {
 	/// @param v A vector of different datasets of the
 	/// measures of the variables
 	/// @return The propagated error on the function
-	template<unsigned int N, typename Dataset = vec<real>>
+	template<
+		unsigned int N = 0,
+		typename MultiDualFunction = multidual<N>(*)(vec<multidual<N>, N>),
+		typename Dataset = vec<real, N>>
 	inline real error_propagation(
-		multidual<N>(*f)(vec<multidual<N>, N>),
+		MultiDualFunction f,
 		const std::vector<Dataset>& v) {
 
 		vec<real, N> x_mean;
+		x_mean.resize(v.size());
 
-		for (unsigned int i = 0; i < N; ++i)
+		for (unsigned int i = 0; i < v.size(); ++i)
 			x_mean[i] = mean(v[i]);
 
-		return error_propagation(f, x_mean, covar_mat<N>(v));
+		return error_propagation(
+			f, x_mean, covar_mat<mat<real, N, N>, Dataset>(v));
 	}
 
 
@@ -123,7 +140,11 @@ namespace theoretica {
 	/// using the Monte Carlo method, by
 	/// generating a sample following the probability
 	/// distribution of the function and computing
-	/// its standard deviation.
+	/// its standard deviation. N sample vectors are generated
+	/// from the pdf_sampler vector, with the same number of
+	/// elements, and are then passed to the function to compute
+	/// a sample of the final random variable and its sample
+	/// standard deviation.
 	///
 	/// @param f The function to propagate error on
 	/// @param rv A list of distribution samplers
@@ -140,5 +161,6 @@ namespace theoretica {
 	}
 
 }
+
 
 #endif

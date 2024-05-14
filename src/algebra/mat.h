@@ -931,7 +931,7 @@ namespace theoretica {
 
 
 		/// Access the element at the i-th row and j-th column
-		inline Type& at(unsigned int i, unsigned int j) const {
+		inline const Type& at(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
 			return data[i][j];

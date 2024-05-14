@@ -10,9 +10,9 @@
 using namespace th;
 
 
-// Example function to compute error on
+// Example function to propagate error on
 template<typename NumType>
-NumType f(vec<NumType, 3> v) {
+NumType f(vec<NumType> v) {
 
 	const NumType x = v[0];
 	const NumType y = v[1];
@@ -24,9 +24,11 @@ NumType f(vec<NumType, 3> v) {
 
 int main(int argc, char const *argv[]) {
 
+
 	// Parameters of the toy experiment
 	real mu1 = 1, mu2 = 2, mu3 = 3;
 	real stdev1 = 0.2, stdev2 = 0.1, stdev3 = 0.4;
+
 
 	// Random generators
 	PRNG g = PRNG::xoshiro(time(nullptr));
@@ -35,6 +37,7 @@ int main(int argc, char const *argv[]) {
 	std::vector<std::vector<real>> data;
 	data.resize(3);
 
+
 	// Simulate a toy experiment with Gaussian deviations
 	for (int i = 0; i < 1000; ++i) {
 		data[0].push_back(mu1 + gauss() * stdev1);
@@ -42,18 +45,21 @@ int main(int argc, char const *argv[]) {
 		data[2].push_back(mu3 + gauss() * stdev3);
 	}
 
+
 	// Compute the covariance matrix
-	std::cout << covar_mat<3>(data) << std::endl;
+	std::cout << covar_mat(data) << std::endl;
+
 
 	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << error_propagation<3>(f, data) << std::endl;
+	std::cout << error_propagation(f, data) << std::endl;
+
 
 	// Propagate using only the standard deviation
-	std::cout << error_propagation<3>(f,
-		{mean(data[0]), mean(data[1]), mean(data[2])},
-		{smpl_stdev(data[0]), smpl_stdev(data[1]), smpl_stdev(data[2])}
+	std::cout << error_propagation(f,
+		vec<>({ mean(data[0]), mean(data[1]), mean(data[2]) }),
+		vec<>({ smpl_stdev(data[0]), smpl_stdev(data[1]), smpl_stdev(data[2]) })
 	) << std::endl;
 
 	return 0;
