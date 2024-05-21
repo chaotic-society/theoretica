@@ -1,5 +1,5 @@
 
-/// @file rand_dist.h Random numbers following a pdf
+/// @file rand_dist.h Sampling from a probability distribution
 
 #ifndef THEORETICA_RAND_DIST_H
 #define THEORETICA_RAND_DIST_H

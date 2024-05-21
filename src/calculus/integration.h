@@ -151,7 +151,7 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				const uint64_t coeff = 1 << (2 * k);
+				const uint64_t coeff = uint64_t(1) << (2 * k);
 				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
 			}
 		}
@@ -187,7 +187,7 @@ namespace theoretica {
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
-				const uint64_t coeff = 1 << (2 * k);
+				const uint64_t coeff = uint64_t(1) << (2 * k);
 				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
 			}
 
@@ -265,7 +265,7 @@ namespace theoretica {
 
 
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
-	/// a definite integral providing the roots of the n degree Legendre polynomial
+	/// a definite integral providing the roots of the n degree Legendre polynomial.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -290,7 +290,7 @@ namespace theoretica {
 
 
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
-	/// a definite integral providing the roots of the n degree Legendre polynomial
+	/// a definite integral providing the roots of the n degree Legendre polynomial.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -316,7 +316,7 @@ namespace theoretica {
 
 
 	/// Use Gauss-Legendre quadrature of arbitrary degree to approximate
-	/// a definite integral providing the roots of the n degree Legendre polynomial
+	/// a definite integral providing the roots of the n degree Legendre polynomial.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -331,8 +331,9 @@ namespace theoretica {
 	}
 
 
-	/// Use Gauss-Legendre quadrature of degree 2, 4, 8, 16 or 32
-	/// using pre-computed values.
+	/// Use Gauss-Legendre quadrature of degree 2, 4, 8 or 16,
+	/// using pre-computed values, to approximate
+	/// an integral over [a, b].
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -398,12 +399,13 @@ namespace theoretica {
 	}
 
 
-	/// Use Gauss-Laguerre quadrature of degree 2, 4, 8, 16 or 32
-	/// using pre-computed values.
+	/// Use Gauss-Laguerre quadrature of degree 2, 4, 8 or 16,
+	/// using pre-computed values, to approximate
+	/// an integral over [0, +inf).
 	///
 	/// @param f The function to integrate
 	/// @param n The order of the polynomial (available values are
-	/// 2, 4, 8, 16 or 32).
+	/// 2, 4, 8 or 16).
 	/// @return The Gauss-Legendre quadrature of the given function
 	template<typename RealFunction>
 	inline real integral_laguerre(RealFunction f, unsigned int n = 16) {
@@ -440,8 +442,9 @@ namespace theoretica {
 	}
 
 
-	/// Use Gauss-Hermite quadrature of degree 2, 4, 8 or 16
-	/// using pre-computed values.
+	/// Use Gauss-Hermite quadrature of degree 2, 4, 8 or 16,
+	/// using pre-computed values, to approximate
+	/// an integral over (-inf, +inf).
 	///
 	/// @param f The function to integrate
 	/// @param n The order of the polynomial (available values are

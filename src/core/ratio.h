@@ -19,7 +19,7 @@ namespace theoretica {
 	///
 	/// @note For the class to properly work, the template types
 	/// need to have operator*, operator+ and operator- defined.
-	template <typename T1, typename T2>
+	template <typename T1, typename T2 = T1>
 	class ratio {
 		public:
 
@@ -72,7 +72,7 @@ namespace theoretica {
 			}
 
 			/// Evaluate the ratio as the division
-			/// between numerator and denominator converted
+			/// between numerator and denominator cast
 			/// to the specified type.
 			///
 			/// This function is well-defined only if division
@@ -85,7 +85,7 @@ namespace theoretica {
 
 
 			/// Evaluate the ratio as the division
-			/// between numerator and denominator converted
+			/// between numerator and denominator cast
 			/// to the type of the denominator.
 			inline T2 eval() {
 				return static_cast<T2>(num) / static_cast<T2>(den);
@@ -93,7 +93,7 @@ namespace theoretica {
 
 
 			/// Evaluate the ratio as the division
-			/// between numerator and denominator converted
+			/// between numerator and denominator cast
 			/// to the type of the denominator.
 			///
 			/// @see eval
