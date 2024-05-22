@@ -10,7 +10,7 @@
 #include "../autodiff/autodiff.h"
 #include "../statistics/statistics.h"
 #include "../pseudorandom/montecarlo.h"
-#include "../pseudorandom/rand_dist.h"
+#include "../pseudorandom/sampling.h"
 
 
 namespace theoretica {

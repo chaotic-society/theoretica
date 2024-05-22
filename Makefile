@@ -137,7 +137,12 @@ benchmark_algebra:
 	@g++ benchmark/benchmark_algebra.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_algebra
 	@./benchmark/benchmark_algebra
 
-benchmark: benchmark_real_analysis benchmark_algebra
+benchmark_dataset:
+	@echo Compiling dataset benchmark...
+	@g++ benchmark/benchmark_dataset.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_dataset
+	@./benchmark/benchmark_dataset
+
+benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset
 
 
 clean:

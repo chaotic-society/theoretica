@@ -8,7 +8,7 @@
 
 #include "./prng.h"
 #include "./quasirandom.h"
-#include "./rand_dist.h"
+#include "./sampling.h"
 
 
 namespace theoretica {

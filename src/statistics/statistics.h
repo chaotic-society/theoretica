@@ -160,8 +160,10 @@ namespace theoretica {
 	}
 
 
-	/// Total sum of squares (TSS)
-	/// Computed as \f$sum(square(x_i - x_{mean}))\f$
+	/// Total sum of squares (TSS) equal to
+	/// \f$sum(square(x_i - x_{mean}))\f$,
+	/// computed using Welford's one-pass method to
+	/// improve numerical stability.
 	template<typename Dataset>
 	inline real total_sum_squares(const Dataset& X) {
 
@@ -170,13 +172,22 @@ namespace theoretica {
 			return nan();
 		}
 
-		real res = 0;
-		real x_m = mean(X);
-		
-		for (unsigned int i = 0; i < X.size(); ++i)
-			res += square(X[i] - x_m);
+		// Running average
+		real m = X[0];
 
-		return res;
+		// Total sum
+		real s = 0;
+		
+		for (size_t i = 1; i < X.size(); ++i) {
+			
+			// m_{i - 1}
+			const real m_tmp = m;
+
+			m = m_tmp + (X[i] - m_tmp) / (i + 1);
+			s += (X[i] - m_tmp) * (X[i] - m);
+		}
+
+		return s;
 	}
 
 	/// Total sum of squares (TSS)
@@ -206,7 +217,7 @@ namespace theoretica {
 	template<typename Dataset>
 	inline real sample_variance(const Dataset& data) {
 
-		if(!data.size()) {
+		if(data.size() < 2) {
 			TH_MATH_ERROR("sample_variance", data.size(), INVALID_ARGUMENT);
 			return nan();
 		}
@@ -251,7 +262,7 @@ namespace theoretica {
 
 		real x_mean = mean(X);
 
-		if(x_mean == 0) {
+		if(abs(x_mean) < MACH_EPSILON) {
 			TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
 			return nan();
 		}
@@ -267,7 +278,7 @@ namespace theoretica {
 
 		real x_mean = mean(X);
 
-		if(x_mean == 0) {
+		if(abs(x_mean) < MACH_EPSILON) {
 			TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
 			return nan();
 		}

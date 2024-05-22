@@ -1,8 +1,8 @@
 
-/// @file rand_dist.h Sampling from a probability distribution
+/// @file sampling.h Sampling from probability distributions
 
-#ifndef THEORETICA_RAND_DIST_H
-#define THEORETICA_RAND_DIST_H
+#ifndef THEORETICA_SAMPLING_H
+#define THEORETICA_SAMPLING_H
 
 
 #include "../core/function.h"
@@ -498,6 +498,15 @@ namespace theoretica {
 		inline void fill(Vector& x, size_t N) {
 
 			for (size_t i = 0; i < N; ++i)
+				x[i] = next();
+		}
+
+
+		// Fill a vector with sampled points
+		template<typename Vector>
+		inline void fill(Vector& x) {
+
+			for (size_t i = 0; i < x.size(); ++i)
 				x[i] = next();
 		}
 

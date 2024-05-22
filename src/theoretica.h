@@ -85,7 +85,7 @@
 // Pseudorandom number generation
 #include "./pseudorandom/pseudorandom.h"
 #include "./pseudorandom/prng.h"
-#include "./pseudorandom/rand_dist.h"
+#include "./pseudorandom/sampling.h"
 
 // Monte Carlo methods
 #include "./pseudorandom/montecarlo.h"

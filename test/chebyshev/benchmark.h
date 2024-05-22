@@ -139,8 +139,8 @@ namespace chebyshev {
 		/// Setup a module's benchmark
 		inline void setup(const std::string& module = "unknown",
 			int argc = 0, const char** argv = nullptr,
-			unsigned int iter = CHEBYSHEV_ITER,
-			unsigned int runs = CHEBYSHEV_RUNS) {
+			unsigned int iter = 0,
+			unsigned int runs = 0) {
 
 			// Initialize pick list
 			if(argc && argv) {
@@ -150,8 +150,13 @@ namespace chebyshev {
 			}
 
 			state.moduleName = module;
-			state.defaultIterations = iter;
-			state.defaultRuns = runs;
+
+			if(iter)
+				state.defaultIterations = iter;
+
+			if(runs)
+				state.defaultRuns = runs;
+
 			srand(time(nullptr));
 
 			if(state.outputFile.is_open())

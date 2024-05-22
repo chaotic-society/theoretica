@@ -6,8 +6,7 @@
 #ifndef THEORETICA_DATASET_H
 #define THEORETICA_DATASET_H
 
-#include <vector>
-#include <functional>
+#include <type_traits>
 #include "./constants.h"
 
 #ifndef THEORETICA_NO_PRINT
@@ -128,9 +127,105 @@ namespace theoretica {
     }
 
 
-    /// Sum together a set of values
+    /// Compute the sum of a set of values using
+	/// the compensated Neumaier-Kahan-Babushka summation
+	/// algorithm to reduce round-off error.
+	///
+	/// @param X The vector of real values to sum
+	template<typename Vector>
+	inline real sum_compensated(const Vector& X) {
+
+		// Total sum
+		real sum = 0;
+
+		// Correction term
+		real corr = 0;
+
+		for (unsigned int i = 0; i < X.size(); i++) {
+
+			const real temp = sum + X[i];
+
+			// Sort the two addends to preserve bits
+			corr += (abs(sum) >= abs(X[i]))
+			  ? ((sum - temp) + X[i])
+			  : ((X[i] - temp) + sum);
+
+			sum = temp;
+		}
+
+		// Apply correction
+		return sum + corr;
+	}
+
+
+	/// Compute the sum of a set of values using
+	/// pairwise summation to reduce round-off error.
+	/// The function does not check for validity of begin and end indices.
+	///
+	/// @param X The vector of real values to sum
+	/// @param begin The starting index of the sum, defaults to 0
+	/// @param end One plus the last index of the sum, defaults to X.size()
+	/// @param base_size The size of the base case, defaults to 128
+	template<typename Vector>
+	inline real sum_pairwise(
+		const Vector& X, size_t begin = 0,
+		size_t end = 0, size_t base_size = 128) {
+
+		if(end == 0)
+			end = X.size();
+
+		real sum = 0;
+
+		// Base case with given size (defaults to 128)
+		if((end - begin) <= base_size) {
+
+			for (size_t i = begin; i < end; ++i)
+				sum += X[i];
+
+		} else {
+
+			// Recursive sum of two halves
+			const size_t m = (end - begin) / 2;
+			const size_t cutoff = begin + m;
+
+			sum = sum_pairwise(X, begin, cutoff, base_size)
+				+ sum_pairwise(X, cutoff, end, base_size);
+		}
+
+		return sum;
+	}
+
+
+	/// Compute the sum of a vector of real values
+	/// using pairwise summation to reduce round-off error.
+	///
+	/// @param X The vector of values to sum
+	template<unsigned int N>
+	inline auto sum(const vec<real, N>& X) {
+		return sum_pairwise(X);
+	}
+
+
+	/// Compute the sum of a vector of real values
+	/// using pairwise summation to reduce round-off error.
+	///
+	/// @param X The vector of values to sum
+	inline auto sum(const std::vector<real>& X) {
+		return sum_pairwise(X);
+	}
+
+
+	/// Compute the sum of a set of values.
+	///
+	/// @param X The vector of values to sum
 	template<typename Vector>
 	inline auto sum(const Vector& X) {
+
+		// For floating point types,
+		// use pairwise sum to reduce error
+		using Type = std::remove_reference<decltype(X[0])>;
+		if(std::is_floating_point<Type>::value)
+			return sum_pairwise(X);
 
 		auto res = X[0];
 		for(unsigned int i = 1; i < X.size(); i++)
