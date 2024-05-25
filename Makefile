@@ -1,12 +1,13 @@
 default_target: all
-.PHONY: all example test_core test_algebra test_polynomial test_optimization test_autodiff \
-		test_calculus test_statistics autodiff hamiltonian error_propagation \
-		statistics sampling gradient_descent benchmark \
-		clean attractor montecarlo_integral histogram random_walk
-
 all: test examples
 
-CXXFLAGS = -std=c++14 -I./src/ -Wall -fopenmp
+OPENMP = -fopenmp
+
+ifdef MACOS
+	OPENMP = -fopenmp=libomp
+endif
+
+CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
 
 example:
 	@echo Compiling quickstart example program...
