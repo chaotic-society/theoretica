@@ -323,61 +323,111 @@ namespace theoretica {
 		}
 
 
+		/// @class mat_iterator
+		/// A sequential iterator for statically allocated matrices,
+		/// iterates the matrix element by element in the order
+		/// that it is stored in memory (row-first vs column-first).
 		class mat_iterator {
 
+			using DataType = decltype(mat<Type, N, K>::data);
+
 			private:
-				Type* data;
-				size_t index;
+				DataType& data;
+				size_t index1;
+				size_t index2;
+
+#ifdef THEORETICA_ROW_FIRST
+				static constexpr size_t max_index1 = N;
+				static constexpr size_t max_index2 = K;
+#else			
+				static constexpr size_t max_index1 = K;
+				static constexpr size_t max_index2 = N;
+#endif
 			
 			public:
-				mat_iterator() : data(nullptr), index(0) {}
 
-				~mat_iterator() = default;
+				/// Construct iterator from a matrix
+				mat_iterator(
+					mat<Type, N, K>& m,
+					size_t index1 = 0, size_t index2 = 0)
+					: data(m.data), index1(index1), index2(index2) {}
 
-				mat_iterator(Type* data, size_t index) : data(data), index(index) {}
 
 				/// Dereference the iterator
 				/// to get the current element.
 				Type& operator*() {
-					return ((Type*) data)[index];
+
+					return data[index1][index2];
 				}
+
 
 				/// Move to the next element
 				/// in the matrix.
 				mat_iterator& operator++() {
-					++index;
+
+					index2++;
+
+					if((index2 == max_index2) && (index1 != max_index1 - 1)) {
+
+						index2 = 0;
+						index1++;
+					}
+
 					return *this;
 				}
+
 
 				/// Move to the previous element
 				/// in the matrix.
-				mat_iterator& operator--() {
-					--index;
-					return *this;
-				}
+				// mat_iterator& operator--() {
+
+				// 	if(index1 == 0) {
+				// 		TH_MATH_ERROR(
+				// 			"mat_iterator::operator--",
+				// 			index1, IMPOSSIBLE_OPERATION);
+				// 		return *this;
+				// 	}
+
+				// 	if(index2 == 0) {
+
+				// 		index2 = max_index2;
+				// 		index1--;
+				// 	}
+
+				// 	index2--;
+
+				// 	return *this;
+				// }
+
 
 				/// Comparison operators.
 				bool operator==(const mat_iterator& other) const {
-					return index == other.index;
+					return (index1 == other.index1) &&
+						(index2 == other.index2);
 				}
 
 				bool operator!=(const mat_iterator& other) const {
-					return!(*this == other);
+					return !(*this == other);
 				}
 		};
 
 
 		/// Get an iterator to the first element
-		/// of the vector.
+		/// of the matrix.
 		inline auto begin() {
-			return mat<Type, N, K>::mat_iterator((Type*) data, 0);
+			return mat<Type, N, K>::mat_iterator(*this, 0, 0);
 		}
 
 
 		/// Get an iterator to one plus the last element
-		/// of the vector.
+		/// of the matrix.
 		inline auto end() {
-			return mat<Type, N, K>::mat_iterator((Type*) data, size());
+
+#ifdef THEORETICA_ROW_FIRST
+			return mat<Type, N, K>::mat_iterator(*this, rows() - 1, cols());
+#else
+			return mat<Type, N, K>::mat_iterator(*this, cols() - 1, rows());
+#endif
 		}
 
 
@@ -472,9 +522,9 @@ namespace theoretica {
 		/// as the matrix's.
 		inline mat<Type, N, K> resize(unsigned int n, unsigned int k) const {
 
-			if(N != n) {
+			if(rows() != n) {
 				TH_MATH_ERROR("mat::resize", n, INVALID_ARGUMENT);
-			} else if(K != k) {
+			} else if(cols() != k) {
 				TH_MATH_ERROR("mat::resize", k, INVALID_ARGUMENT);
 			}
 
@@ -964,36 +1014,40 @@ namespace theoretica {
 		}
 
 
+		/// @class mat_iterator
+		/// A sequential iterator for dynamically allocated matrices,
+		/// iterates the matrix element by element in the order
+		/// that it is stored in memory (row-first vs column-first).
 		class mat_iterator {
 
 			private:
-				Container<Container<Type>>* data;
+				Container<Container<Type>>& data;
 				size_t index1;
 				size_t index2;
 			
 			public:
-				mat_iterator() : data(nullptr), index1(0), index2(0) {}
 
-				~mat_iterator() = default;
+				/// Initialize the iterator from a matrix.
+				mat_iterator(mat<Type>& m,
+					size_t index1 = 0, size_t index2 = 0)
+					: data(m.data), index1(index1), index2(index2) {}
 
-				mat_iterator(
-					Container<Container<Type>>* data,
-					size_t index1, size_t index2)
-					: data(data), index1(index1), index2(index2) {}
 
 				/// Dereference the iterator
 				/// to get the current element.
-				Type& operator*() {
-					return (*data)[index1][index2];
+				inline Type& operator*() {
+
+					return data[index1][index2];
 				}
+
 
 				/// Move to the next element
 				/// in the matrix.
-				mat_iterator& operator++() {
+				inline mat_iterator& operator++() {
 
 					index2++;
 
-					if(index2 == (*data)[index1].size()) {
+					if((index2 == data[0].size()) && (index1 != data.size() - 1)) {
 						index1++;
 						index2 = 0;
 					}
@@ -1001,45 +1055,49 @@ namespace theoretica {
 					return *this;
 				}
 
+
 				/// Move to the previous element
 				/// in the matrix.
-				mat_iterator& operator--() {
+				// inline mat_iterator& operator--() {
 
-					if(index2 == 0) {
-						index1--;
-						index2 = (*data)[index1].size();
-					}
+				// 	if(index2 == 0) {
+				// 		index1--;
+				// 		index2 = data[0].size();
+				// 	}
 
-					return *this;
-				}
+				// 	index2--;
+
+				// 	return *this;
+				// }
+
 
 				/// Comparison operators.
-				bool operator==(const mat_iterator& other) const {
+				inline bool operator==(const mat_iterator& other) const {
 					return (index1 == other.index1) &&
 						(index2 == other.index2);
 				}
 
-				bool operator!=(const mat_iterator& other) const {
+				inline bool operator!=(const mat_iterator& other) const {
 					return !(*this == other);
 				}
 		};
 
 
 		/// Get an iterator to the first element
-		/// of the vector.
+		/// of the matrix.
 		inline auto begin() {
-			return mat<Type, 0, 0>::mat_iterator(&data, 0, 0);
+			return mat<Type, 0, 0>::mat_iterator(*this, 0, 0);
 		}
 
 
 		/// Get an iterator to one plus the last element
-		/// of the vector.
+		/// of the matrix.
 		inline auto end() {
 
 #ifdef THEORETICA_ROW_FIRST
-			return mat<Type, 0, 0>::mat_iterator(&data, rows(), cols());
+			return mat<Type, 0, 0>::mat_iterator(*this, rows() - 1, cols());
 #else
-			return mat<Type, 0, 0>::mat_iterator(&data, cols(), rows());
+			return mat<Type, 0, 0>::mat_iterator(*this, cols() - 1, rows());
 #endif
 		}
 

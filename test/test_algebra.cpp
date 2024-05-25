@@ -432,5 +432,28 @@ int main(int argc, char const *argv[]) {
 				return test_distance_tol<100>(hamming_distance<vec<real, 100>>, k, tol, n);
 			}, intervals);
 
+
+		// Test sequential iterator
+		{
+			mat<real> m1 = mat<real>::identity(10, 10);
+			auto m2 = mat<real, 10, 10>::identity();
+
+			real sum1 = 0;
+			for (auto x : m1) {
+				sum1 += x;
+			}
+
+			real sum2 = 0;
+			for (auto x : m2) {
+				sum2 += x;
+			}
+
+			prec::equals("mat_iterator(10,10)", sum1, 10);
+			prec::equals("mat_iterator<10,10>", sum2, 10);
+		}
+		
+
+
+
 	prec::terminate();
 }

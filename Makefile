@@ -4,7 +4,7 @@ default_target: all
 		statistics sampling gradient_descent benchmark \
 		clean attractor montecarlo_integral histogram random_walk
 
-all: examples test
+all: test examples
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall
 

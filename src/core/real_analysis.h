@@ -835,8 +835,15 @@ namespace theoretica {
 			return 1.0 / root(1.0 / x, n);
 		}
 
-		// Approximate n-th root using Newton-Raphson
+		// Approximate n-th root using Newton-Raphson.
+		// If fast exponentials and logarithms are available,
+		// use a first calculation to speed up convergence.
+#ifdef THEORETICA_X86
+		real y = exp(ln(x) / n);
+#else
 		real y = x;
+#endif
+
 		unsigned int i = 0;
 
 		while(i < MAX_NEWTON_ITER) {
