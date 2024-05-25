@@ -3,8 +3,8 @@ all: test examples
 
 OPENMP = -fopenmp
 
-ifdef MACOS
-	OPENMP = -fopenmp=libomp
+ifdef DISABLE_OPENMP
+	OPENMP = 
 endif
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
