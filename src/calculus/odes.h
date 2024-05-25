@@ -7,7 +7,7 @@
 #define THEORETICA_ODES_H
 
 #include "../core/constants.h"
-#include <tuple>
+#include <array>
 
 
 namespace theoretica {

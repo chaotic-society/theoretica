@@ -6,7 +6,7 @@ default_target: all
 
 all: test examples
 
-CXXFLAGS = -std=c++14 -I./src/ -Wall
+CXXFLAGS = -std=c++14 -I./src/ -Wall -fopenmp
 
 example:
 	@echo Compiling quickstart example program...
@@ -142,7 +142,12 @@ benchmark_dataset:
 	@g++ benchmark/benchmark_dataset.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_dataset
 	@./benchmark/benchmark_dataset
 
-benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset
+benchmark_vectorized:
+	@echo Compiling vectorized benchmark...
+	@g++ benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_vectorized
+	@./benchmark/benchmark_vectorized
+
+benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_vectorized
 
 
 clean:

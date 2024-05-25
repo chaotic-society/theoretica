@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]) {
 	benchmark::state.defaultIterations = 10;
 	benchmark::state.defaultRuns = 10;
 
-	benchmark::setup("real_analysis", argc, argv);
+	benchmark::setup("dataset", argc, argv);
 
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
 
 	    // Generate a gaussian sample
 	    vec<real> v = vec<real>(N);
-	    gauss.fill(v, N);
+	    gauss.fill(v);
 
 	    benchmark::request("sum",
 			[v](real x) { return sum(v); }, dummy);
