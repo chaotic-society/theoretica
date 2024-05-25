@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make all
-      run: make all
+      run: make MACOS=1 all
