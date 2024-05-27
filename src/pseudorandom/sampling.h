@@ -463,29 +463,30 @@ namespace theoretica {
 
 	/// A probability density function sampler which
 	/// generates pseudorandom numbers following
-	/// asymptotically a given distribution.
+	/// asymptotically a given distribution
+	/// \f$f(x; \vec \theta)\f$.
 	struct pdf_sampler {
 
 		/// A p.d.f sampling function
-		pdf_sampling_function f;
+		pdf_sampling_function pdf;
 
 		/// The parameters of the target distribution
 		std::vector<real> theta;
 
 		/// A pseudorandom number generator
-		PRNG& g;
+		PRNG& generator;
 
 
 		/// Initialize the sampler with the given parameters
 		pdf_sampler(
-			pdf_sampling_function f,
+			pdf_sampling_function pdf,
 			const std::vector<real>& theta,
-			PRNG& g) : f(f), theta(theta), g(g) {}
+			PRNG& generator) : pdf(pdf), theta(theta), generator(generator) {}
 
 
 		/// Generate the next number
 		inline real next() {
-			return f(theta, g);
+			return pdf(theta, generator);
 		}
 
 		/// Generate the next number
@@ -493,7 +494,7 @@ namespace theoretica {
 			return next();
 		}
 
-		// Fill a vector with sampled points
+		/// Fill a vector with sampled points
 		template<typename Vector>
 		inline void fill(Vector& x, size_t N) {
 
@@ -502,7 +503,7 @@ namespace theoretica {
 		}
 
 
-		// Fill a vector with sampled points
+		/// Fill a vector with sampled points
 		template<typename Vector>
 		inline void fill(Vector& x) {
 
@@ -511,45 +512,52 @@ namespace theoretica {
 		}
 
 
+		/// Stream the next generated number
+		inline pdf_sampler& operator>>(real& x) {
+			x = next();
+			return *this;
+		}
+
+
 		/// Returns a uniform distribution sampler
-		static pdf_sampler uniform(real a, real b, PRNG& g) {
-			return pdf_sampler(rand_uniform, {a, b}, g);
+		static pdf_sampler uniform(real a, real b, PRNG& generator) {
+			return pdf_sampler(rand_uniform, {a, b}, generator);
 		}
 
 
 		/// Returns a Gaussian distribution sampler
-		static pdf_sampler gaussian(real mean, real sigma, PRNG& g) {
-			return pdf_sampler(rand_gaussian, {mean, sigma}, g);
+		static pdf_sampler gaussian(real mean, real sigma, PRNG& generator) {
+			return pdf_sampler(rand_gaussian, {mean, sigma}, generator);
 		}
 
 
 		/// Returns an exponential distribution sampler
-		static pdf_sampler exponential(real lambda, PRNG& g) {
-			return pdf_sampler(rand_exponential, {lambda}, g);
+		static pdf_sampler exponential(real lambda, PRNG& generator) {
+			return pdf_sampler(rand_exponential, {lambda}, generator);
 		}
 
 
 		/// Returns a Cauchy distribution sampler
-		static pdf_sampler cauchy(real mu, real alpha, PRNG& g) {
-			return pdf_sampler(rand_cauchy, {mu, alpha}, g);
+		static pdf_sampler cauchy(real mu, real alpha, PRNG& generator) {
+			return pdf_sampler(rand_cauchy, {mu, alpha}, generator);
 		}
 
 
 		/// Returns a Rayleigh distribution sampler
-		static pdf_sampler rayleigh(real sigma, PRNG& g) {
-			return pdf_sampler(rand_rayleigh, {sigma}, g);
+		static pdf_sampler rayleigh(real sigma, PRNG& generator) {
+			return pdf_sampler(rand_rayleigh, {sigma}, generator);
 		}
 
 
 		/// Returns a Pareto distribution sampler
-		static pdf_sampler pareto(real x_m, real alpha, PRNG& g) {
-			return pdf_sampler(rand_pareto, {x_m, alpha}, g);
+		static pdf_sampler pareto(real x_m, real alpha, PRNG& generator) {
+			return pdf_sampler(rand_pareto, {x_m, alpha}, generator);
 		}
 
 
 		/// Returns a Laplace distribution sampler
-		static pdf_sampler laplace(real mu, real b, PRNG& g) {
-			return pdf_sampler(rand_laplace, {mu, b}, g);
+		static pdf_sampler laplace(real mu, real b, PRNG& generator) {
+			return pdf_sampler(rand_laplace, {mu, b}, generator);
 		}
 
 	};
@@ -557,14 +565,14 @@ namespace theoretica {
 	/// Metropolis algorithm for distribution sampling
 	/// using a symmetric proposal distribution.
 	///
-	/// @param f The target distribution
+	/// @param pdf The target distribution
 	/// @param g A pdf_sampler already initialized to sample
 	/// from the proposal distribution
 	/// @param rnd An already initialized PRNG
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to METROPOLIS_DEPTH)
 	inline real metropolis(
-		real_function f, pdf_sampler& g,
+		real_function pdf, pdf_sampler& g,
 		real x0, PRNG& rnd, unsigned int depth = METROPOLIS_DEPTH) {
 
 		real current = x0, next;
@@ -575,7 +583,7 @@ namespace theoretica {
 			next = current + g();
 
 			// Checks acceptance rate
-			if(rand_uniform(0, 1, rnd) * f(current) <= f(next))
+			if(rand_uniform(0, 1, rnd) * pdf(current) <= pdf(next))
 				current = next;
 		}
 
@@ -588,14 +596,14 @@ namespace theoretica {
 	/// This function uses the same PRNG as the proposal
 	/// distribution sampler to generate uniform samples.
 	///
-	/// @param f The target distribution
+	/// @param pdf The target distribution
 	/// @param g A pdf_sampler already initialized to sample
 	/// from the proposal distribution
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to METROPOLIS_DEPTH)
-	inline real metropolis(real_function f, pdf_sampler& g,
+	inline real metropolis(real_function pdf, pdf_sampler& g,
 		real x0, unsigned int depth = METROPOLIS_DEPTH) {
-		return metropolis(f, g, x0, g.g, depth);
+		return metropolis(pdf, g, x0, g.g, depth);
 	}
 
 }

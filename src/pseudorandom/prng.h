@@ -99,6 +99,13 @@ namespace theoretica {
 			}
 
 
+			/// Stream the next generated number
+			inline PRNG& operator>>(uint64_t& n) {
+				n = next();
+				return *this;
+			}
+
+
 			/// Returns a standard linear congruential generator
 			/// @param seed The seed to use for the generator (defaults to 1)
 			/// @return A standard linear congruential PRNG object
