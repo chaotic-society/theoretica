@@ -27,7 +27,7 @@ namespace theoretica {
 		/// @param x0 The center of the Taylor expansion
 		/// @return The Taylor series expansion of the function to first degree
 		template<typename DualFunction>
-		inline polynomial<real> linear_expansion(DualFunction f, real x0 = 0) {
+		inline polynomial<real> expand_linear(DualFunction f, real x0 = 0) {
 
 			dual d = f(dual(x0, 1));
 			real fx = d.Re();
@@ -50,7 +50,7 @@ namespace theoretica {
 		/// @param x0 The center of the Taylor expansion
 		/// @return The Taylor series expansion of the function to second degree
 		template<typename Dual2Function>
-		inline polynomial<real> quadratic_expansion(Dual2Function f, real x0 = 0) {
+		inline polynomial<real> expand_quadratic(Dual2Function f, real x0 = 0) {
 
 			dual2 d = f(dual2(x0, 1, 0));
 			real fx = d.Re();

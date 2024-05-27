@@ -10,8 +10,6 @@
 #include "../optimization/roots.h"
 #include <functional>
 
-#include <iostream>
-
 
 namespace theoretica {
 

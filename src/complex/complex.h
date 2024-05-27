@@ -75,8 +75,20 @@ namespace  theoretica {
 			}
 
 
+			/// Get the real part of the complex number
+			inline Type& Re() {
+				return a;
+			}
+
+
 			/// Extract the real part of the complex number
 			inline friend Type Re(const complex& z) {
+				return z.a;
+			}
+
+
+			/// Extract the real part of the complex number
+			inline friend Type& Re(const complex& z) {
 				return z.a;
 			}
 
@@ -87,9 +99,21 @@ namespace  theoretica {
 			}
 
 
+			/// Get the imaginary part of the complex number
+			inline Type& Im() {
+				return b;
+			}
+
+
 			/// Extract the imaginary part of the complex number
 			inline friend Type Im(const complex& z) {
-				return z.z;
+				return z.b;
+			}
+
+
+			/// Extract the imaginary part of the complex number
+			inline friend Type& Im(const complex& z) {
+				return z.b;
 			}
 
 

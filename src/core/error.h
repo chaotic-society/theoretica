@@ -24,7 +24,7 @@
 namespace theoretica {
 
 	/// Math error enumeration
-	enum MATH_ERRCODE{
+	enum MATH_ERRCODE {
 		NO_ERROR = 0x00, // No error
 		DIV_BY_ZERO = 0x01, // Division by zero
 		OUT_OF_DOMAIN = 0x02, // An argument is out of range
@@ -64,6 +64,9 @@ namespace theoretica {
 	/// operations. This is valid for real types but
 	/// also for any mathematical structure, as NaNs
 	/// are used to report failure inside the library.
+	///
+	/// @param x The mathematical structure to test
+	/// for being a NaN or NaN-equivalent structure.
 	template<typename T>
 	inline bool is_nan(const T& x) {
 		return !(x == x);

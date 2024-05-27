@@ -726,13 +726,14 @@ namespace theoretica {
 #endif
 
 
-	/// Compute \f$e^x\f$
+	/// Compute the real exponential.
+	///
 	/// @param x A real number
 	/// @return The exponential of x
 	///
-	/// The exponential is computed as \f$e^{floor(x)} e^{fract(x)}\f$,
+	/// The exponential is computed as \f$e^{floor(x)} \cdot e^{fract(x)}\f$,
 	/// where \f$e^{floor(x)} = pow(e, floor(x))\f$ and \f$e^{fract(x)}\f$
-	/// is approximated using Taylor series on [0, 0.5]
+	/// is approximated using Taylor series on [0, 0.25]
 	inline real exp(real x) {
 
 		// Domain reduction to [0, +inf]

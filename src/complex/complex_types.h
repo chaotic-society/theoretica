@@ -11,7 +11,8 @@ namespace theoretica {
 
 
 	/// A bi-complex number
-	using bicomplex = complex<complex<real>>;
+	template<typename Type = real>
+	using bicomplex = complex<complex<Type>>;
 
 }
 
