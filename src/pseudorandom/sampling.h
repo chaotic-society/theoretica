@@ -603,7 +603,7 @@ namespace theoretica {
 	/// (defaults to METROPOLIS_DEPTH)
 	inline real metropolis(real_function pdf, pdf_sampler& g,
 		real x0, unsigned int depth = METROPOLIS_DEPTH) {
-		return metropolis(pdf, g, x0, g.g, depth);
+		return metropolis(pdf, g, x0, g.generator, depth);
 	}
 
 }

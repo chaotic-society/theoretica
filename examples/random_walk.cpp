@@ -1,18 +1,19 @@
 
 ///
 /// @file random_walk.cpp A 3D random walk generator
-/// This example may be compiled uth::sing 'make random_walk'
+/// This example may be compiled using 'make random_walk'
 ///
 
 #include "theoretica.h"
 using namespace th;
 
+#include <iostream>
 #include <fstream>
 #include <ctime>
 #include <algorithm>
 
 
-// You can plot the data file uth::sing gnuplot:
+// You can plot the data file using gnuplot:
 // splot "random_walk.dat" with lines title "3D Random Walk"
 
 
