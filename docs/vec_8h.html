@@ -93,28 +93,28 @@ $(document).ready(function(){initNavTree('vec_8h.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">vec.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Vector class and operations.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;ostream&gt;</code><br />
-<code>#include &lt;array&gt;</code><br />
-<code>#include &quot;<a class="el" href="error_8h_source.html">../core/error.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="error_8h_source.html">../core/error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec__buff_8h_source.html">../core/vec_buff.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="algebra_8h_source.html">./algebra.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="vec_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html">theoretica::vec&lt; N, T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An N-dimensional vector of T type elements.  <a href="classtheoretica_1_1vec.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html">theoretica::vec&lt; Type, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An N-dimensional vector of Type elements.  <a href="classtheoretica_1_1vec.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec_1_1vec__iterator.html">theoretica::vec&lt; Type, N &gt;::vec_iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html">theoretica::vec&lt; Type, 0 &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -122,33 +122,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a78450ba4db2e132788cc0566b22848b9"><td class="memItemLeft" align="right" valign="top"><a id="a78450ba4db2e132788cc0566b22848b9" name="a78450ba4db2e132788cc0566b22848b9"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::vec2</b> = vec&lt; 2, real &gt;</td></tr>
-<tr class="memdesc:a78450ba4db2e132788cc0566b22848b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 2-dimensional vector with real elements. <br /></td></tr>
-<tr class="separator:a78450ba4db2e132788cc0566b22848b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a9580d98118f2e1692c1f5d6dbf3ea5"><td class="memItemLeft" align="right" valign="top"><a id="a3a9580d98118f2e1692c1f5d6dbf3ea5" name="a3a9580d98118f2e1692c1f5d6dbf3ea5"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::vec3</b> = vec&lt; 3, real &gt;</td></tr>
-<tr class="memdesc:a3a9580d98118f2e1692c1f5d6dbf3ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 3-dimensional vector with real elements. <br /></td></tr>
-<tr class="separator:a3a9580d98118f2e1692c1f5d6dbf3ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5b773a1d88bcfb2a577b25224fe5477"><td class="memItemLeft" align="right" valign="top"><a id="aa5b773a1d88bcfb2a577b25224fe5477" name="aa5b773a1d88bcfb2a577b25224fe5477"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::vec4</b> = vec&lt; 4, real &gt;</td></tr>
-<tr class="memdesc:aa5b773a1d88bcfb2a577b25224fe5477"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 4-dimensional vector with real elements. <br /></td></tr>
-<tr class="separator:aa5b773a1d88bcfb2a577b25224fe5477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a0eeeb57f2d2b147c1dcddfca6ee0e93b"><td class="memTemplParams" colspan="2"><a id="a0eeeb57f2d2b147c1dcddfca6ee0e93b" name="a0eeeb57f2d2b147c1dcddfca6ee0e93b"></a>
-template&lt;unsigned int N, typename T &gt; </td></tr>
-<tr class="memitem:a0eeeb57f2d2b147c1dcddfca6ee0e93b"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::dot</b> (const vec&lt; N, T &gt; &amp;v1, const vec&lt; N, T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a0eeeb57f2d2b147c1dcddfca6ee0e93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the dot product of two vectors. <br /></td></tr>
-<tr class="separator:a0eeeb57f2d2b147c1dcddfca6ee0e93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12940c0bd43e6edcabb9064ccfd6cc5a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a12940c0bd43e6edcabb9064ccfd6cc5a"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; 3, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12940c0bd43e6edcabb9064ccfd6cc5a">theoretica::cross</a> (const vec&lt; 3, T &gt; &amp;v1, const vec&lt; 3, T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a12940c0bd43e6edcabb9064ccfd6cc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product of two vectors.  <a href="namespacetheoretica.html#a12940c0bd43e6edcabb9064ccfd6cc5a">More...</a><br /></td></tr>
-<tr class="separator:a12940c0bd43e6edcabb9064ccfd6cc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Vector class and operations. </p>
@@ -158,7 +131,7 @@ template&lt;unsigned int N, typename T &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="vec_8h.html">vec.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -100,17 +100,17 @@ $(document).ready(function(){initNavTree('structtheoretica_1_1pdf__sampler.html'
 </div><!--header-->
 <div class="contents">
 
-<p>A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution.  
+<p>A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution \(f(x; \vec \theta)\).  
  <a href="structtheoretica_1_1pdf__sampler.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="rand__dist_8h_source.html">rand_dist.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="sampling_8h_source.html">sampling.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade1af5808ad5bd332527c4c12d9b1bce"><td class="memItemLeft" align="right" valign="top"><a id="ade1af5808ad5bd332527c4c12d9b1bce" name="ade1af5808ad5bd332527c4c12d9b1bce"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>pdf_sampler</b> (<a class="el" href="namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e">pdf_sampling_function</a> <a class="el" href="structtheoretica_1_1pdf__sampler.html#a45eea39e7e8993096b19f18513ea0368">f</a>, const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a446762157cb77687e4951b0faaa4ea14">theta</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:ade1af5808ad5bd332527c4c12d9b1bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the sampler with the given parameters. <br /></td></tr>
-<tr class="separator:ade1af5808ad5bd332527c4c12d9b1bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9980e062c23e0cdebe4db321e4bf98"><td class="memItemLeft" align="right" valign="top"><a id="aad9980e062c23e0cdebe4db321e4bf98" name="aad9980e062c23e0cdebe4db321e4bf98"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pdf_sampler</b> (<a class="el" href="namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e">pdf_sampling_function</a> <a class="el" href="structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e">pdf</a>, const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a446762157cb77687e4951b0faaa4ea14">theta</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:aad9980e062c23e0cdebe4db321e4bf98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the sampler with the given parameters. <br /></td></tr>
+<tr class="separator:aad9980e062c23e0cdebe4db321e4bf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c13b4714c080501d2e14ca2834d49c"><td class="memItemLeft" align="right" valign="top"><a id="af0c13b4714c080501d2e14ca2834d49c" name="af0c13b4714c080501d2e14ca2834d49c"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>next</b> ()</td></tr>
 <tr class="memdesc:af0c13b4714c080501d2e14ca2834d49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the next number. <br /></td></tr>
@@ -119,60 +119,71 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td></tr>
 <tr class="memdesc:a95faaf9e3d1914d735fc05204962bfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the next number. <br /></td></tr>
 <tr class="separator:a95faaf9e3d1914d735fc05204962bfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7a5d27fd048204969bc86192c4062ee"><td class="memItemLeft" align="right" valign="top"><a id="aa7a5d27fd048204969bc86192c4062ee" name="aa7a5d27fd048204969bc86192c4062ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b> (<a class="el" href="namespacetheoretica.html#a9a50102b320dcdc6a61e5a15234327a7">vec_buff</a> &amp;x, size_t N)</td></tr>
-<tr class="separator:aa7a5d27fd048204969bc86192c4062ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02301a6898722cf941c095fa13e338f5"><td class="memTemplParams" colspan="2"><a id="a02301a6898722cf941c095fa13e338f5" name="a02301a6898722cf941c095fa13e338f5"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a02301a6898722cf941c095fa13e338f5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>fill</b> (Vector &amp;x, size_t N)</td></tr>
+<tr class="memdesc:a02301a6898722cf941c095fa13e338f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a vector with sampled points. <br /></td></tr>
+<tr class="separator:a02301a6898722cf941c095fa13e338f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23493bbdec32c2ce50f5036b13fd044d"><td class="memTemplParams" colspan="2"><a id="a23493bbdec32c2ce50f5036b13fd044d" name="a23493bbdec32c2ce50f5036b13fd044d"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a23493bbdec32c2ce50f5036b13fd044d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>fill</b> (Vector &amp;x)</td></tr>
+<tr class="memdesc:a23493bbdec32c2ce50f5036b13fd044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a vector with sampled points. <br /></td></tr>
+<tr class="separator:a23493bbdec32c2ce50f5036b13fd044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ffb0f4e77a49a22a5f5e677bcad7a7"><td class="memItemLeft" align="right" valign="top"><a id="a37ffb0f4e77a49a22a5f5e677bcad7a7" name="a37ffb0f4e77a49a22a5f5e677bcad7a7"></a>
+<a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &amp;x)</td></tr>
+<tr class="memdesc:a37ffb0f4e77a49a22a5f5e677bcad7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream the next generated number. <br /></td></tr>
+<tr class="separator:a37ffb0f4e77a49a22a5f5e677bcad7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6de6e7daeef433517a55b61eef33e80b"><td class="memItemLeft" align="right" valign="top"><a id="a6de6e7daeef433517a55b61eef33e80b" name="a6de6e7daeef433517a55b61eef33e80b"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uniform</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:a6de6e7daeef433517a55b61eef33e80b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a uniform distribution sampler. <br /></td></tr>
-<tr class="separator:a6de6e7daeef433517a55b61eef33e80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0847ec2694a3e69d6f1ffb0f9f6ee74"><td class="memItemLeft" align="right" valign="top"><a id="ab0847ec2694a3e69d6f1ffb0f9f6ee74" name="ab0847ec2694a3e69d6f1ffb0f9f6ee74"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gaussian</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a63412fa6d4323c24f2c571dfc6b14e1d">mean</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:ab0847ec2694a3e69d6f1ffb0f9f6ee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Gaussian distribution sampler. <br /></td></tr>
-<tr class="separator:ab0847ec2694a3e69d6f1ffb0f9f6ee74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29aab43d60b5371df8ea1dcac56bc80a"><td class="memItemLeft" align="right" valign="top"><a id="a29aab43d60b5371df8ea1dcac56bc80a" name="a29aab43d60b5371df8ea1dcac56bc80a"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>exponential</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> lambda, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:a29aab43d60b5371df8ea1dcac56bc80a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an exponential distribution sampler. <br /></td></tr>
-<tr class="separator:a29aab43d60b5371df8ea1dcac56bc80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e766745137a6ad124bcc2c33fa7306b"><td class="memItemLeft" align="right" valign="top"><a id="a2e766745137a6ad124bcc2c33fa7306b" name="a2e766745137a6ad124bcc2c33fa7306b"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cauchy</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mu, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:a2e766745137a6ad124bcc2c33fa7306b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Cauchy distribution sampler. <br /></td></tr>
-<tr class="separator:a2e766745137a6ad124bcc2c33fa7306b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ceed304b4539d0843bcb5eb81bace0"><td class="memItemLeft" align="right" valign="top"><a id="af5ceed304b4539d0843bcb5eb81bace0" name="af5ceed304b4539d0843bcb5eb81bace0"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rayleigh</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:af5ceed304b4539d0843bcb5eb81bace0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Rayleigh distribution sampler. <br /></td></tr>
-<tr class="separator:af5ceed304b4539d0843bcb5eb81bace0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c0d43c3484fed4553802f7cbd1f7ec7"><td class="memItemLeft" align="right" valign="top"><a id="a0c0d43c3484fed4553802f7cbd1f7ec7" name="a0c0d43c3484fed4553802f7cbd1f7ec7"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pareto</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x_m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:a0c0d43c3484fed4553802f7cbd1f7ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Pareto distribution sampler. <br /></td></tr>
-<tr class="separator:a0c0d43c3484fed4553802f7cbd1f7ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ac41684b48f4de2504f2f3b7fb02234"><td class="memItemLeft" align="right" valign="top"><a id="a6ac41684b48f4de2504f2f3b7fb02234" name="a6ac41684b48f4de2504f2f3b7fb02234"></a>
-static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>laplace</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mu, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a811c27e337484fb0af26be9f207bd0b7">g</a>)</td></tr>
-<tr class="memdesc:a6ac41684b48f4de2504f2f3b7fb02234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Laplace distribution sampler. <br /></td></tr>
-<tr class="separator:a6ac41684b48f4de2504f2f3b7fb02234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9362c0e4cc8ab22220433aa89ad26ee"><td class="memItemLeft" align="right" valign="top"><a id="af9362c0e4cc8ab22220433aa89ad26ee" name="af9362c0e4cc8ab22220433aa89ad26ee"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uniform</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:af9362c0e4cc8ab22220433aa89ad26ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a uniform distribution sampler. <br /></td></tr>
+<tr class="separator:af9362c0e4cc8ab22220433aa89ad26ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1c046c3b0cd057774855314abe831d"><td class="memItemLeft" align="right" valign="top"><a id="acc1c046c3b0cd057774855314abe831d" name="acc1c046c3b0cd057774855314abe831d"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gaussian</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#ae3bb9ab9b5d37b364981e1082f93e587">mean</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:acc1c046c3b0cd057774855314abe831d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Gaussian distribution sampler. <br /></td></tr>
+<tr class="separator:acc1c046c3b0cd057774855314abe831d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4822f909ee489ad0a033fecc42a59e4"><td class="memItemLeft" align="right" valign="top"><a id="ac4822f909ee489ad0a033fecc42a59e4" name="ac4822f909ee489ad0a033fecc42a59e4"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>exponential</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> lambda, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:ac4822f909ee489ad0a033fecc42a59e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an exponential distribution sampler. <br /></td></tr>
+<tr class="separator:ac4822f909ee489ad0a033fecc42a59e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b407555ecb35830bdec0906a9d337c"><td class="memItemLeft" align="right" valign="top"><a id="a90b407555ecb35830bdec0906a9d337c" name="a90b407555ecb35830bdec0906a9d337c"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cauchy</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mu, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:a90b407555ecb35830bdec0906a9d337c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Cauchy distribution sampler. <br /></td></tr>
+<tr class="separator:a90b407555ecb35830bdec0906a9d337c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553bb05180560a1e032279043f87f4c8"><td class="memItemLeft" align="right" valign="top"><a id="a553bb05180560a1e032279043f87f4c8" name="a553bb05180560a1e032279043f87f4c8"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rayleigh</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:a553bb05180560a1e032279043f87f4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Rayleigh distribution sampler. <br /></td></tr>
+<tr class="separator:a553bb05180560a1e032279043f87f4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7eae432e57f35ae16a73231d4ce1d5a"><td class="memItemLeft" align="right" valign="top"><a id="ae7eae432e57f35ae16a73231d4ce1d5a" name="ae7eae432e57f35ae16a73231d4ce1d5a"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pareto</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x_m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:ae7eae432e57f35ae16a73231d4ce1d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Pareto distribution sampler. <br /></td></tr>
+<tr class="separator:ae7eae432e57f35ae16a73231d4ce1d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcd3feead7afd80bcfda8ea973000e89"><td class="memItemLeft" align="right" valign="top"><a id="adcd3feead7afd80bcfda8ea973000e89" name="adcd3feead7afd80bcfda8ea973000e89"></a>
+static <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a>&#160;</td><td class="memItemRight" valign="bottom"><b>laplace</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mu, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551">generator</a>)</td></tr>
+<tr class="memdesc:adcd3feead7afd80bcfda8ea973000e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Laplace distribution sampler. <br /></td></tr>
+<tr class="separator:adcd3feead7afd80bcfda8ea973000e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a45eea39e7e8993096b19f18513ea0368"><td class="memItemLeft" align="right" valign="top"><a id="a45eea39e7e8993096b19f18513ea0368" name="a45eea39e7e8993096b19f18513ea0368"></a>
-<a class="el" href="namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e">pdf_sampling_function</a>&#160;</td><td class="memItemRight" valign="bottom"><b>f</b></td></tr>
-<tr class="memdesc:a45eea39e7e8993096b19f18513ea0368"><td class="mdescLeft">&#160;</td><td class="mdescRight">A p.d.f sampling function. <br /></td></tr>
-<tr class="separator:a45eea39e7e8993096b19f18513ea0368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbc9ded7aa00c8492433cf57f32813e"><td class="memItemLeft" align="right" valign="top"><a id="aafbc9ded7aa00c8492433cf57f32813e" name="aafbc9ded7aa00c8492433cf57f32813e"></a>
+<a class="el" href="namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e">pdf_sampling_function</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pdf</b></td></tr>
+<tr class="memdesc:aafbc9ded7aa00c8492433cf57f32813e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A p.d.f sampling function. <br /></td></tr>
+<tr class="separator:aafbc9ded7aa00c8492433cf57f32813e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a446762157cb77687e4951b0faaa4ea14"><td class="memItemLeft" align="right" valign="top"><a id="a446762157cb77687e4951b0faaa4ea14" name="a446762157cb77687e4951b0faaa4ea14"></a>
 std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>theta</b></td></tr>
 <tr class="memdesc:a446762157cb77687e4951b0faaa4ea14"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameters of the target distribution. <br /></td></tr>
 <tr class="separator:a446762157cb77687e4951b0faaa4ea14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a811c27e337484fb0af26be9f207bd0b7"><td class="memItemLeft" align="right" valign="top"><a id="a811c27e337484fb0af26be9f207bd0b7" name="a811c27e337484fb0af26be9f207bd0b7"></a>
-<a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>g</b></td></tr>
-<tr class="memdesc:a811c27e337484fb0af26be9f207bd0b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom number generator. <br /></td></tr>
-<tr class="separator:a811c27e337484fb0af26be9f207bd0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520652b6313a53c2d0d01de48b8d8551"><td class="memItemLeft" align="right" valign="top"><a id="a520652b6313a53c2d0d01de48b8d8551" name="a520652b6313a53c2d0d01de48b8d8551"></a>
+<a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>generator</b></td></tr>
+<tr class="memdesc:a520652b6313a53c2d0d01de48b8d8551"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom number generator. <br /></td></tr>
+<tr class="separator:a520652b6313a53c2d0d01de48b8d8551"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution. </p>
+<div class="textblock"><p >A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution \(f(x; \vec \theta)\). </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>pseudorandom/<a class="el" href="rand__dist_8h_source.html">rand_dist.h</a></li>
+<li>pseudorandom/<a class="el" href="sampling_8h_source.html">sampling.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -180,7 +191,7 @@ std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

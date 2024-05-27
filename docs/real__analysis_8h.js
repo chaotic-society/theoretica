@@ -22,6 +22,7 @@ var real__analysis_8h =
     [ "degrees", "real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d", null ],
     [ "double_fact", "real__analysis_8h.html#a56a0989004608c56e6dd4bcc2bd148c7", null ],
     [ "exp", "real__analysis_8h.html#ac61f8810fcedeaa35f54c834e934828e", null ],
+    [ "expm1", "real__analysis_8h.html#ae57235e0b29cc687c5084e5f0aa2515c", null ],
     [ "fact", "real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2", null ],
     [ "falling_fact", "real__analysis_8h.html#adb032626b2f25bf5c31026c1ee6e639d", null ],
     [ "floor", "real__analysis_8h.html#afad5c92586d6a0f841bfcd3759eff317", null ],

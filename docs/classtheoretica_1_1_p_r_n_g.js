@@ -9,6 +9,7 @@ var classtheoretica_1_1_p_r_n_g =
     [ "last", "classtheoretica_1_1_p_r_n_g.html#a18c18598f4b05e205bebcaddd30e2d69", null ],
     [ "next", "classtheoretica_1_1_p_r_n_g.html#afb4f56a38e82dc3e046171f696523ee0", null ],
     [ "operator()", "classtheoretica_1_1_p_r_n_g.html#a40f0c53d8f2228b048c6d673995afb9e", null ],
+    [ "operator>>", "classtheoretica_1_1_p_r_n_g.html#acb340ce975b737de62e7d007fc6c231b", null ],
     [ "seed", "classtheoretica_1_1_p_r_n_g.html#a4038539834d240f50a82eed369d5633a", null ],
     [ "set_function", "classtheoretica_1_1_p_r_n_g.html#ada29bd26a98a09eb78acf49d5d795419", null ],
     [ "set_param", "classtheoretica_1_1_p_r_n_g.html#a31f7086b111eda98c62ba96eb81bcae1", null ],

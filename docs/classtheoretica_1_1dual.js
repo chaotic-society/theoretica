@@ -8,6 +8,7 @@ var classtheoretica_1_1dual =
     [ "Dual", "classtheoretica_1_1dual.html#a9c799bfbd8da204769a47f5305a49e28", null ],
     [ "from_vec", "classtheoretica_1_1dual.html#a8d557fd083d30bed1e77c611bf002b9e", null ],
     [ "inverse", "classtheoretica_1_1dual.html#a89601f9a20326b8ef2c3b9253636fb45", null ],
+    [ "operator std::string", "classtheoretica_1_1dual.html#a9d93dda7bf61a7b2739aab8be5c3e567", null ],
     [ "operator*", "classtheoretica_1_1dual.html#abe3269208f612434606a536f76bce052", null ],
     [ "operator*", "classtheoretica_1_1dual.html#a30832e57115a210c129932922ab07c61", null ],
     [ "operator*=", "classtheoretica_1_1dual.html#a76bb39f7c6c728eeff1df8e08481296d", null ],

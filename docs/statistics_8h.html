@@ -102,7 +102,6 @@ $(document).ready(function(){initNavTree('statistics_8h.html',''); initResizable
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="constants_8h_source.html">../core/constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec__buff_8h_source.html">../core/vec_buff.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="special_8h_source.html">../core/special.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="integration_8h_source.html">../calculus/integration.h</a>&quot;</code><br />
@@ -118,201 +117,201 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae123cdac0d487fd0cc12a32dc06672d6"><td class="memItemLeft" align="right" valign="top"><a id="ae123cdac0d487fd0cc12a32dc06672d6" name="ae123cdac0d487fd0cc12a32dc06672d6"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::arithmetic_mean</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:ae123cdac0d487fd0cc12a32dc06672d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arithmetic mean of a set of values. <br /></td></tr>
-<tr class="separator:ae123cdac0d487fd0cc12a32dc06672d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63412fa6d4323c24f2c571dfc6b14e1d"><td class="memItemLeft" align="right" valign="top"><a id="a63412fa6d4323c24f2c571dfc6b14e1d" name="a63412fa6d4323c24f2c571dfc6b14e1d"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::mean</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a63412fa6d4323c24f2c571dfc6b14e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arithmetic mean of a set of values Alias for arithmetic_mean. <br /></td></tr>
-<tr class="separator:a63412fa6d4323c24f2c571dfc6b14e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a417963e2cd3792705565275926c54f0c"><td class="memItemLeft" align="right" valign="top"><a id="a417963e2cd3792705565275926c54f0c" name="a417963e2cd3792705565275926c54f0c"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::harmonic_mean</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a417963e2cd3792705565275926c54f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the harmonic mean of a set of values. <br /></td></tr>
-<tr class="separator:a417963e2cd3792705565275926c54f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41411deb0f028d9ff90e06f9dd703b3f"><td class="memItemLeft" align="right" valign="top"><a id="a41411deb0f028d9ff90e06f9dd703b3f" name="a41411deb0f028d9ff90e06f9dd703b3f"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::geometric_mean</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a41411deb0f028d9ff90e06f9dd703b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the geometric mean of a set of values as \(\sqrt[n]{\Pi_i x_i}\). <br /></td></tr>
-<tr class="separator:a41411deb0f028d9ff90e06f9dd703b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a301b9526d5e857f82786aa83af8f0d44"><td class="memItemLeft" align="right" valign="top"><a id="a301b9526d5e857f82786aa83af8f0d44" name="a301b9526d5e857f82786aa83af8f0d44"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::weighted_mean</b> (const vec_buff &amp;data, const vec_buff &amp;weights)</td></tr>
-<tr class="memdesc:a301b9526d5e857f82786aa83af8f0d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size. <br /></td></tr>
-<tr class="separator:a301b9526d5e857f82786aa83af8f0d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="memItemLeft" align="right" valign="top"><a id="a9e5247854c4b50f7ac1d71e7d23a9ef4" name="a9e5247854c4b50f7ac1d71e7d23a9ef4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::quadratic_mean</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values m_q = sqrt(x1^2 + x2^2 + ...) <br /></td></tr>
-<tr class="separator:a9e5247854c4b50f7ac1d71e7d23a9ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac984b5416b7e1b86cb772f735d4cb42d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac984b5416b7e1b86cb772f735d4cb42d">theoretica::rms</a> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:ac984b5416b7e1b86cb772f735d4cb42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values m_q = sqrt(x1^2 + x2^2 + ...)  <a href="namespacetheoretica.html#ac984b5416b7e1b86cb772f735d4cb42d">More...</a><br /></td></tr>
-<tr class="separator:ac984b5416b7e1b86cb772f735d4cb42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="memItemLeft" align="right" valign="top"><a id="a4e1e037e416f8f9c3ee70909e3eca4c5" name="a4e1e037e416f8f9c3ee70909e3eca4c5"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::range</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the range of a data set defined as x_max - x_min. <br /></td></tr>
-<tr class="separator:a4e1e037e416f8f9c3ee70909e3eca4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec64d95066eeb32de65ceda8ce135b84"><td class="memItemLeft" align="right" valign="top"><a id="aec64d95066eeb32de65ceda8ce135b84" name="aec64d95066eeb32de65ceda8ce135b84"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::semidispersion</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:aec64d95066eeb32de65ceda8ce135b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum semidispersion of a data set defined as (x_max - x_min) / 2. <br /></td></tr>
-<tr class="separator:aec64d95066eeb32de65ceda8ce135b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c42fd9cadef340b3420309453758078"><td class="memItemLeft" align="right" valign="top"><a id="a5c42fd9cadef340b3420309453758078" name="a5c42fd9cadef340b3420309453758078"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::propagate_sum</b> (const vec_buff &amp;sigma)</td></tr>
-<tr class="memdesc:a5c42fd9cadef340b3420309453758078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a sum of values as sqrt(sigma_x^2 + sigma_y^2 + ...) <br /></td></tr>
-<tr class="separator:a5c42fd9cadef340b3420309453758078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad8729f104e3aec72c05706a8d56a1de"><td class="memItemLeft" align="right" valign="top"><a id="aad8729f104e3aec72c05706a8d56a1de" name="aad8729f104e3aec72c05706a8d56a1de"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::propagate_product</b> (const vec_buff &amp;sigma, const vec_buff &amp;mean)</td></tr>
-<tr class="memdesc:aad8729f104e3aec72c05706a8d56a1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a product (or quotient) of values as sqrt((sigma_x / x_mean)^2 + (sigma_y / y_mean)^2 + ...) The result is the propagated relative error. <br /></td></tr>
-<tr class="separator:aad8729f104e3aec72c05706a8d56a1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0857f4b940f5790cd733317780b8ad3"><td class="memItemLeft" align="right" valign="top"><a id="ad0857f4b940f5790cd733317780b8ad3" name="ad0857f4b940f5790cd733317780b8ad3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::total_sum_squares</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:ad0857f4b940f5790cd733317780b8ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as sum(square(x_i - x_mean)) <br /></td></tr>
-<tr class="separator:ad0857f4b940f5790cd733317780b8ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2a3acaf39bd4f7e9c87e1fb72768de32">theoretica::tss</a> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as sum(square(x_i - x_mean))  <a href="namespacetheoretica.html#a2a3acaf39bd4f7e9c87e1fb72768de32">More...</a><br /></td></tr>
-<tr class="separator:a2a3acaf39bd4f7e9c87e1fb72768de32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c4321efb6e8ba42e62eef768e30924"><td class="memItemLeft" align="right" valign="top"><a id="a17c4321efb6e8ba42e62eef768e30924" name="a17c4321efb6e8ba42e62eef768e30924"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::variance</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a17c4321efb6e8ba42e62eef768e30924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of a population. <br /></td></tr>
-<tr class="separator:a17c4321efb6e8ba42e62eef768e30924"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a638369113c0be46702092755e3b3d485"><td class="memItemLeft" align="right" valign="top"><a id="a638369113c0be46702092755e3b3d485" name="a638369113c0be46702092755e3b3d485"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_variance</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a638369113c0be46702092755e3b3d485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of a sample This function uses Bessel correction. <br /></td></tr>
-<tr class="separator:a638369113c0be46702092755e3b3d485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9b89c11ebe910e4da6eff8e23100fb3"><td class="memItemLeft" align="right" valign="top"><a id="af9b89c11ebe910e4da6eff8e23100fb3" name="af9b89c11ebe910e4da6eff8e23100fb3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::standard_deviation</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:af9b89c11ebe910e4da6eff8e23100fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a population. <br /></td></tr>
-<tr class="separator:af9b89c11ebe910e4da6eff8e23100fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af69e38f6bd2b461c238693537f5faa24"><td class="memItemLeft" align="right" valign="top"><a id="af69e38f6bd2b461c238693537f5faa24" name="af69e38f6bd2b461c238693537f5faa24"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::stdev</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:af69e38f6bd2b461c238693537f5faa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a population. <br /></td></tr>
-<tr class="separator:af69e38f6bd2b461c238693537f5faa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7748584aef1c94107441ca9e921daefb"><td class="memItemLeft" align="right" valign="top"><a id="a7748584aef1c94107441ca9e921daefb" name="a7748584aef1c94107441ca9e921daefb"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_standard_deviation</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a7748584aef1c94107441ca9e921daefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a sample. <br /></td></tr>
-<tr class="separator:a7748584aef1c94107441ca9e921daefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c956ff97660f395a7b603673eb648e4"><td class="memItemLeft" align="right" valign="top"><a id="a7c956ff97660f395a7b603673eb648e4" name="a7c956ff97660f395a7b603673eb648e4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::smpl_stdev</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a7c956ff97660f395a7b603673eb648e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a sample. <br /></td></tr>
-<tr class="separator:a7c956ff97660f395a7b603673eb648e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad83ed7e95c4ab0b5910c30384f48b554"><td class="memItemLeft" align="right" valign="top"><a id="ad83ed7e95c4ab0b5910c30384f48b554" name="ad83ed7e95c4ab0b5910c30384f48b554"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::standard_relative_error</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:ad83ed7e95c4ab0b5910c30384f48b554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the relative error on a population measure using standard deviation. <br /></td></tr>
-<tr class="separator:ad83ed7e95c4ab0b5910c30384f48b554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b77710d75bde23b067dfe85aa460561"><td class="memItemLeft" align="right" valign="top"><a id="a9b77710d75bde23b067dfe85aa460561" name="a9b77710d75bde23b067dfe85aa460561"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_standard_relative_error</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a9b77710d75bde23b067dfe85aa460561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the relative error on a sample measure using standard deviation. <br /></td></tr>
-<tr class="separator:a9b77710d75bde23b067dfe85aa460561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ac12b99fe1e96268796f1d2100f7649"><td class="memItemLeft" align="right" valign="top"><a id="a3ac12b99fe1e96268796f1d2100f7649" name="a3ac12b99fe1e96268796f1d2100f7649"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::mean_standard_deviation</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a3ac12b99fe1e96268796f1d2100f7649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of values. <br /></td></tr>
-<tr class="separator:a3ac12b99fe1e96268796f1d2100f7649"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ea2bd4390f09c4a28c18f12c67383c3"><td class="memItemLeft" align="right" valign="top"><a id="a1ea2bd4390f09c4a28c18f12c67383c3" name="a1ea2bd4390f09c4a28c18f12c67383c3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::stdom</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a1ea2bd4390f09c4a28c18f12c67383c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of values. <br /></td></tr>
-<tr class="separator:a1ea2bd4390f09c4a28c18f12c67383c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5783be076823764d2c2dbb91b365a4b"><td class="memItemLeft" align="right" valign="top"><a id="ab5783be076823764d2c2dbb91b365a4b" name="ab5783be076823764d2c2dbb91b365a4b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_mean_standard_deviation</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:ab5783be076823764d2c2dbb91b365a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of measures Bessel correction is used in the calculation of the variance. <br /></td></tr>
-<tr class="separator:ab5783be076823764d2c2dbb91b365a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533d837210e486032eaffee74aabc909"><td class="memItemLeft" align="right" valign="top"><a id="a533d837210e486032eaffee74aabc909" name="a533d837210e486032eaffee74aabc909"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::smpl_stdom</b> (const vec_buff &amp;data)</td></tr>
-<tr class="memdesc:a533d837210e486032eaffee74aabc909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of measures Bessel correction is used in the calculation of the variance. <br /></td></tr>
-<tr class="separator:a533d837210e486032eaffee74aabc909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a866cc382ff78470c179bebec73ffd7a9"><td class="memItemLeft" align="right" valign="top"><a id="a866cc382ff78470c179bebec73ffd7a9" name="a866cc382ff78470c179bebec73ffd7a9"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::covariance</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a866cc382ff78470c179bebec73ffd7a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the covariance of two sets of measures. <br /></td></tr>
-<tr class="separator:a866cc382ff78470c179bebec73ffd7a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fd67e52123a8b943d41216102e3248c"><td class="memItemLeft" align="right" valign="top"><a id="a9fd67e52123a8b943d41216102e3248c" name="a9fd67e52123a8b943d41216102e3248c"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_covariance</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a9fd67e52123a8b943d41216102e3248c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the covariance between two sets of sample measures This function uses Bessel correction. <br /></td></tr>
-<tr class="separator:a9fd67e52123a8b943d41216102e3248c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a443605539362b54c90d073de610a5ee8"><td class="memItemLeft" align="right" valign="top"><a id="a443605539362b54c90d073de610a5ee8" name="a443605539362b54c90d073de610a5ee8"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::correlation_coefficient</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a443605539362b54c90d073de610a5ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pearson's correlation coefficient R for a population. <br /></td></tr>
-<tr class="separator:a443605539362b54c90d073de610a5ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d59f457c7baf9e58eb44e990d79c149"><td class="memItemLeft" align="right" valign="top"><a id="a6d59f457c7baf9e58eb44e990d79c149" name="a6d59f457c7baf9e58eb44e990d79c149"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::sample_correlation_coefficient</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a6d59f457c7baf9e58eb44e990d79c149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pearson's correlation coefficient r for a sample. <br /></td></tr>
-<tr class="separator:a6d59f457c7baf9e58eb44e990d79c149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8de49712eef6281ed6820264058481f0"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8de49712eef6281ed6820264058481f0">theoretica::autocorrelation</a> (const vec_buff &amp;X, unsigned int n=1)</td></tr>
-<tr class="memdesc:a8de49712eef6281ed6820264058481f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lag-n autocorrelation of a dataset.  <a href="namespacetheoretica.html#a8de49712eef6281ed6820264058481f0">More...</a><br /></td></tr>
-<tr class="separator:a8de49712eef6281ed6820264058481f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d63025aa79b7ae116ef3f784f3605e"><td class="memItemLeft" align="right" valign="top"><a id="ab5d63025aa79b7ae116ef3f784f3605e" name="ab5d63025aa79b7ae116ef3f784f3605e"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::absolute_deviation</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:ab5d63025aa79b7ae116ef3f784f3605e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute deviation from the mean. <br /></td></tr>
-<tr class="separator:ab5d63025aa79b7ae116ef3f784f3605e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d5de8338299e4c2fd63178fa3125eb8"><td class="memItemLeft" align="right" valign="top"><a id="a8d5de8338299e4c2fd63178fa3125eb8" name="a8d5de8338299e4c2fd63178fa3125eb8"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::absdev</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a8d5de8338299e4c2fd63178fa3125eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute deviation from the mean. <br /></td></tr>
-<tr class="separator:a8d5de8338299e4c2fd63178fa3125eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2afc6c53096ccbd9f04e58824d83b7d"><td class="memItemLeft" align="right" valign="top"><a id="ac2afc6c53096ccbd9f04e58824d83b7d" name="ac2afc6c53096ccbd9f04e58824d83b7d"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::skewness</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:ac2afc6c53096ccbd9f04e58824d83b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skewness of a dataset. <br /></td></tr>
-<tr class="separator:ac2afc6c53096ccbd9f04e58824d83b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39e8a178bb127d3a97a237d58dbd153f"><td class="memItemLeft" align="right" valign="top"><a id="a39e8a178bb127d3a97a237d58dbd153f" name="a39e8a178bb127d3a97a237d58dbd153f"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::kurtosis</b> (const vec_buff &amp;X)</td></tr>
-<tr class="memdesc:a39e8a178bb127d3a97a237d58dbd153f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized Kurtosis of a dataset. <br /></td></tr>
-<tr class="separator:a39e8a178bb127d3a97a237d58dbd153f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4b8cfe28dfc97081bd8fb6768c1212c4">theoretica::chi_square</a> (const vec_buff &amp;O, const vec_buff &amp;E, const vec_buff &amp;sigma)</td></tr>
-<tr class="memdesc:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square from the set of observed quantities, expected quantities and errors.  <a href="namespacetheoretica.html#a4b8cfe28dfc97081bd8fb6768c1212c4">More...</a><br /></td></tr>
-<tr class="separator:a4b8cfe28dfc97081bd8fb6768c1212c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1191a32286f176c367f648431b1444ac"><td class="memTemplParams" colspan="2"><a id="a1191a32286f176c367f648431b1444ac" name="a1191a32286f176c367f648431b1444ac"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a1191a32286f176c367f648431b1444ac"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::arithmetic_mean</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a1191a32286f176c367f648431b1444ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arithmetic mean of a set of values. <br /></td></tr>
+<tr class="separator:a1191a32286f176c367f648431b1444ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3bb9ab9b5d37b364981e1082f93e587"><td class="memTemplParams" colspan="2"><a id="ae3bb9ab9b5d37b364981e1082f93e587" name="ae3bb9ab9b5d37b364981e1082f93e587"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:ae3bb9ab9b5d37b364981e1082f93e587"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::mean</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:ae3bb9ab9b5d37b364981e1082f93e587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arithmetic mean of a set of values Alias for arithmetic_mean. <br /></td></tr>
+<tr class="separator:ae3bb9ab9b5d37b364981e1082f93e587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memTemplParams" colspan="2"><a id="a1638fb86d8cb03965ff398d41f7b00fb" name="a1638fb86d8cb03965ff398d41f7b00fb"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::harmonic_mean</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a1638fb86d8cb03965ff398d41f7b00fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the harmonic mean of a set of values. <br /></td></tr>
+<tr class="separator:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c73eaa2f2276a66b309426cc308d1b"><td class="memTemplParams" colspan="2"><a id="a73c73eaa2f2276a66b309426cc308d1b" name="a73c73eaa2f2276a66b309426cc308d1b"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a73c73eaa2f2276a66b309426cc308d1b"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::geometric_mean</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a73c73eaa2f2276a66b309426cc308d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the geometric mean of a set of values as \(\sqrt[n]{\Pi_i x_i}\). <br /></td></tr>
+<tr class="separator:a73c73eaa2f2276a66b309426cc308d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memTemplParams" colspan="2"><a id="a0e8a4b7178a8558fc4ba3ab3b9b3f926" name="a0e8a4b7178a8558fc4ba3ab3b9b3f926"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::weighted_mean</b> (const Dataset1 &amp;data, const Dataset2 &amp;weights)</td></tr>
+<tr class="memdesc:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size. <br /></td></tr>
+<tr class="separator:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9473c3dfdbe71e408fb3241d458254c0"><td class="memTemplParams" colspan="2"><a id="a9473c3dfdbe71e408fb3241d458254c0" name="a9473c3dfdbe71e408fb3241d458254c0"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a9473c3dfdbe71e408fb3241d458254c0"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::quadratic_mean</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a9473c3dfdbe71e408fb3241d458254c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values \(m_q = \sqrt{x1^2 + x2^2 + ...}\). <br /></td></tr>
+<tr class="separator:a9473c3dfdbe71e408fb3241d458254c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d4ff06b43d112a71509f9798619dcd"><td class="memTemplParams" colspan="2">template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a11d4ff06b43d112a71509f9798619dcd"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a11d4ff06b43d112a71509f9798619dcd">theoretica::rms</a> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a11d4ff06b43d112a71509f9798619dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values \(m_q = \sqrt{x_1^2 + x_2^2 + ...}\).  <a href="namespacetheoretica.html#a11d4ff06b43d112a71509f9798619dcd">More...</a><br /></td></tr>
+<tr class="separator:a11d4ff06b43d112a71509f9798619dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f63944f2a89b87b85edfdb3f9dccae"><td class="memTemplParams" colspan="2"><a id="a61f63944f2a89b87b85edfdb3f9dccae" name="a61f63944f2a89b87b85edfdb3f9dccae"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a61f63944f2a89b87b85edfdb3f9dccae"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::range</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a61f63944f2a89b87b85edfdb3f9dccae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the range of a data set defined as \(x_{max} - {x_min}\). <br /></td></tr>
+<tr class="separator:a61f63944f2a89b87b85edfdb3f9dccae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d79ef7ca93743bde1109c00313db4a1"><td class="memTemplParams" colspan="2"><a id="a0d79ef7ca93743bde1109c00313db4a1" name="a0d79ef7ca93743bde1109c00313db4a1"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a0d79ef7ca93743bde1109c00313db4a1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::semidispersion</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a0d79ef7ca93743bde1109c00313db4a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum semidispersion of a data set defined as \((x_{max} - {x_min}) / 2\). <br /></td></tr>
+<tr class="separator:a0d79ef7ca93743bde1109c00313db4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43654deea871dfb60779ae5e8b7c44ca"><td class="memTemplParams" colspan="2"><a id="a43654deea871dfb60779ae5e8b7c44ca" name="a43654deea871dfb60779ae5e8b7c44ca"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a43654deea871dfb60779ae5e8b7c44ca"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::propagate_sum</b> (const Dataset &amp;sigma)</td></tr>
+<tr class="memdesc:a43654deea871dfb60779ae5e8b7c44ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a sum of values as sqrt(sigma_x^2 + sigma_y^2 + ...) <br /></td></tr>
+<tr class="separator:a43654deea871dfb60779ae5e8b7c44ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621c79bbdd5545018e1e941a652c739e"><td class="memTemplParams" colspan="2"><a id="a621c79bbdd5545018e1e941a652c739e" name="a621c79bbdd5545018e1e941a652c739e"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a621c79bbdd5545018e1e941a652c739e"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::propagate_product</b> (const Dataset1 &amp;sigma, const Dataset2 &amp;mean)</td></tr>
+<tr class="memdesc:a621c79bbdd5545018e1e941a652c739e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate error of a product (or quotient) of values as \(\sqrt{(sigma_x / x_{mean})^2 + (sigma_y / y_{mean})^2 + ...}\) The result is the propagated relative error. <br /></td></tr>
+<tr class="separator:a621c79bbdd5545018e1e941a652c739e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaccd3a2b293f4d080b5fa2655ed89d7a"><td class="memTemplParams" colspan="2"><a id="aaccd3a2b293f4d080b5fa2655ed89d7a" name="aaccd3a2b293f4d080b5fa2655ed89d7a"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:aaccd3a2b293f4d080b5fa2655ed89d7a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::total_sum_squares</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:aaccd3a2b293f4d080b5fa2655ed89d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) equal to \(sum(square(x_i - x_{mean}))\), computed using Welford's one-pass method to improve numerical stability. <br /></td></tr>
+<tr class="separator:aaccd3a2b293f4d080b5fa2655ed89d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c492643bae592a0e15d4d54aca8a5c"><td class="memTemplParams" colspan="2">template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:ad8c492643bae592a0e15d4d54aca8a5c"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad8c492643bae592a0e15d4d54aca8a5c">theoretica::tss</a> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:ad8c492643bae592a0e15d4d54aca8a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total sum of squares (TSS) Computed as \(\sum_i^n (x_i - x_{mean})^2 \).  <a href="namespacetheoretica.html#ad8c492643bae592a0e15d4d54aca8a5c">More...</a><br /></td></tr>
+<tr class="separator:ad8c492643bae592a0e15d4d54aca8a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa049e1fe6c0203b5ad31c6c28b618c"><td class="memTemplParams" colspan="2"><a id="a8aa049e1fe6c0203b5ad31c6c28b618c" name="a8aa049e1fe6c0203b5ad31c6c28b618c"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a8aa049e1fe6c0203b5ad31c6c28b618c"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::variance</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a8aa049e1fe6c0203b5ad31c6c28b618c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of a population. <br /></td></tr>
+<tr class="separator:a8aa049e1fe6c0203b5ad31c6c28b618c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297ae9e3203f03cecf832bc5aa8d0235"><td class="memTemplParams" colspan="2"><a id="a297ae9e3203f03cecf832bc5aa8d0235" name="a297ae9e3203f03cecf832bc5aa8d0235"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a297ae9e3203f03cecf832bc5aa8d0235"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_variance</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a297ae9e3203f03cecf832bc5aa8d0235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of a sample This function uses Bessel correction. <br /></td></tr>
+<tr class="separator:a297ae9e3203f03cecf832bc5aa8d0235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5027a1bac6fae59b3fdff60dfeb4790b"><td class="memTemplParams" colspan="2"><a id="a5027a1bac6fae59b3fdff60dfeb4790b" name="a5027a1bac6fae59b3fdff60dfeb4790b"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a5027a1bac6fae59b3fdff60dfeb4790b"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::standard_deviation</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a5027a1bac6fae59b3fdff60dfeb4790b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a population. <br /></td></tr>
+<tr class="separator:a5027a1bac6fae59b3fdff60dfeb4790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b6a6c7688b2c99f4cf73aaec774e82"><td class="memTemplParams" colspan="2"><a id="a88b6a6c7688b2c99f4cf73aaec774e82" name="a88b6a6c7688b2c99f4cf73aaec774e82"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a88b6a6c7688b2c99f4cf73aaec774e82"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::stdev</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a88b6a6c7688b2c99f4cf73aaec774e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a population. <br /></td></tr>
+<tr class="separator:a88b6a6c7688b2c99f4cf73aaec774e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a269a687c255334dca83c41dc57e342ed"><td class="memTemplParams" colspan="2"><a id="a269a687c255334dca83c41dc57e342ed" name="a269a687c255334dca83c41dc57e342ed"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a269a687c255334dca83c41dc57e342ed"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_standard_deviation</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a269a687c255334dca83c41dc57e342ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a sample. <br /></td></tr>
+<tr class="separator:a269a687c255334dca83c41dc57e342ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72301cabd20838f16f2cd3673aea8bb"><td class="memTemplParams" colspan="2"><a id="ab72301cabd20838f16f2cd3673aea8bb" name="ab72301cabd20838f16f2cd3673aea8bb"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:ab72301cabd20838f16f2cd3673aea8bb"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::smpl_stdev</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:ab72301cabd20838f16f2cd3673aea8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a sample. <br /></td></tr>
+<tr class="separator:ab72301cabd20838f16f2cd3673aea8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85f34eb806e24ad9b27198d8296f9c6"><td class="memTemplParams" colspan="2"><a id="ad85f34eb806e24ad9b27198d8296f9c6" name="ad85f34eb806e24ad9b27198d8296f9c6"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:ad85f34eb806e24ad9b27198d8296f9c6"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::standard_relative_error</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:ad85f34eb806e24ad9b27198d8296f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the relative error on a population measure using standard deviation. <br /></td></tr>
+<tr class="separator:ad85f34eb806e24ad9b27198d8296f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f97972afc109f647fb453740ac5588b"><td class="memTemplParams" colspan="2"><a id="a0f97972afc109f647fb453740ac5588b" name="a0f97972afc109f647fb453740ac5588b"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a0f97972afc109f647fb453740ac5588b"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_standard_relative_error</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:a0f97972afc109f647fb453740ac5588b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the relative error on a sample measure using standard deviation. <br /></td></tr>
+<tr class="separator:a0f97972afc109f647fb453740ac5588b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5edf19e377a1eca716693d9ff7b3cb35"><td class="memTemplParams" colspan="2"><a id="a5edf19e377a1eca716693d9ff7b3cb35" name="a5edf19e377a1eca716693d9ff7b3cb35"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a5edf19e377a1eca716693d9ff7b3cb35"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::mean_standard_deviation</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a5edf19e377a1eca716693d9ff7b3cb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of values. <br /></td></tr>
+<tr class="separator:a5edf19e377a1eca716693d9ff7b3cb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7002b34046d5ca42715a875c6b089f"><td class="memTemplParams" colspan="2"><a id="acb7002b34046d5ca42715a875c6b089f" name="acb7002b34046d5ca42715a875c6b089f"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:acb7002b34046d5ca42715a875c6b089f"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::stdom</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:acb7002b34046d5ca42715a875c6b089f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of values. <br /></td></tr>
+<tr class="separator:acb7002b34046d5ca42715a875c6b089f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bc17addd765f5048a90a7e3f0b36db"><td class="memTemplParams" colspan="2"><a id="a86bc17addd765f5048a90a7e3f0b36db" name="a86bc17addd765f5048a90a7e3f0b36db"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a86bc17addd765f5048a90a7e3f0b36db"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_mean_standard_deviation</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a86bc17addd765f5048a90a7e3f0b36db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of measures Bessel correction is used in the calculation of the variance. <br /></td></tr>
+<tr class="separator:a86bc17addd765f5048a90a7e3f0b36db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6cd60917a9ddcdfbefdcf803c3f28a"><td class="memTemplParams" colspan="2"><a id="a5c6cd60917a9ddcdfbefdcf803c3f28a" name="a5c6cd60917a9ddcdfbefdcf803c3f28a"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a5c6cd60917a9ddcdfbefdcf803c3f28a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::smpl_stdom</b> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a5c6cd60917a9ddcdfbefdcf803c3f28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation on the mean of a set of measures Bessel correction is used in the calculation of the variance. <br /></td></tr>
+<tr class="separator:a5c6cd60917a9ddcdfbefdcf803c3f28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc9d6df4a15d54fae74e6faf25f9e7d"><td class="memTemplParams" colspan="2"><a id="a0cc9d6df4a15d54fae74e6faf25f9e7d" name="a0cc9d6df4a15d54fae74e6faf25f9e7d"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a0cc9d6df4a15d54fae74e6faf25f9e7d"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::covariance</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
+<tr class="memdesc:a0cc9d6df4a15d54fae74e6faf25f9e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the covariance of two sets of measures. <br /></td></tr>
+<tr class="separator:a0cc9d6df4a15d54fae74e6faf25f9e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac0f5ec66a73a046a06f7702a2db5ecf"><td class="memTemplParams" colspan="2"><a id="aac0f5ec66a73a046a06f7702a2db5ecf" name="aac0f5ec66a73a046a06f7702a2db5ecf"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:aac0f5ec66a73a046a06f7702a2db5ecf"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_covariance</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
+<tr class="memdesc:aac0f5ec66a73a046a06f7702a2db5ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the covariance between two sets of sample measures This function uses Bessel correction. <br /></td></tr>
+<tr class="separator:aac0f5ec66a73a046a06f7702a2db5ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeded2a87fa7be1207b3621413ccd2ad"><td class="memTemplParams" colspan="2"><a id="aeeded2a87fa7be1207b3621413ccd2ad" name="aeeded2a87fa7be1207b3621413ccd2ad"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:aeeded2a87fa7be1207b3621413ccd2ad"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::correlation_coefficient</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
+<tr class="memdesc:aeeded2a87fa7be1207b3621413ccd2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pearson's correlation coefficient R for a population. <br /></td></tr>
+<tr class="separator:aeeded2a87fa7be1207b3621413ccd2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79422fdbe42219e4780c002ace4e794a"><td class="memTemplParams" colspan="2"><a id="a79422fdbe42219e4780c002ace4e794a" name="a79422fdbe42219e4780c002ace4e794a"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a79422fdbe42219e4780c002ace4e794a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::sample_correlation_coefficient</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
+<tr class="memdesc:a79422fdbe42219e4780c002ace4e794a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pearson's correlation coefficient r for a sample. <br /></td></tr>
+<tr class="separator:a79422fdbe42219e4780c002ace4e794a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e81b8c2e385958ad33f7ba9fb6c05fd"><td class="memTemplParams" colspan="2">template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a8e81b8c2e385958ad33f7ba9fb6c05fd"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8e81b8c2e385958ad33f7ba9fb6c05fd">theoretica::autocorrelation</a> (const Dataset &amp;X, unsigned int n=1)</td></tr>
+<tr class="memdesc:a8e81b8c2e385958ad33f7ba9fb6c05fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lag-n autocorrelation of a dataset.  <a href="namespacetheoretica.html#a8e81b8c2e385958ad33f7ba9fb6c05fd">More...</a><br /></td></tr>
+<tr class="separator:a8e81b8c2e385958ad33f7ba9fb6c05fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3405b4350b80531601740d63af7def59"><td class="memTemplParams" colspan="2"><a id="a3405b4350b80531601740d63af7def59" name="a3405b4350b80531601740d63af7def59"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a3405b4350b80531601740d63af7def59"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::absolute_deviation</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:a3405b4350b80531601740d63af7def59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute deviation from the mean. <br /></td></tr>
+<tr class="separator:a3405b4350b80531601740d63af7def59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8499e00f131a02b27c3c24335b3be697"><td class="memTemplParams" colspan="2"><a id="a8499e00f131a02b27c3c24335b3be697" name="a8499e00f131a02b27c3c24335b3be697"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a8499e00f131a02b27c3c24335b3be697"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::absdev</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:a8499e00f131a02b27c3c24335b3be697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute deviation from the mean. <br /></td></tr>
+<tr class="separator:a8499e00f131a02b27c3c24335b3be697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc96f375971a0c8ef77802f8fccad56c"><td class="memTemplParams" colspan="2"><a id="acc96f375971a0c8ef77802f8fccad56c" name="acc96f375971a0c8ef77802f8fccad56c"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:acc96f375971a0c8ef77802f8fccad56c"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::skewness</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:acc96f375971a0c8ef77802f8fccad56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skewness of a dataset. <br /></td></tr>
+<tr class="separator:acc96f375971a0c8ef77802f8fccad56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41346f193f61b7e83364457e152237b0"><td class="memTemplParams" colspan="2"><a id="a41346f193f61b7e83364457e152237b0" name="a41346f193f61b7e83364457e152237b0"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a41346f193f61b7e83364457e152237b0"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::kurtosis</b> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:a41346f193f61b7e83364457e152237b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized Kurtosis of a dataset. <br /></td></tr>
+<tr class="separator:a41346f193f61b7e83364457e152237b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d700698899f2a3c313a13a65025a61"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a26d700698899f2a3c313a13a65025a61"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61">theoretica::gaussian_expectation</a> (RealFunction g, real mean, real sigma)</td></tr>
+<tr class="memdesc:a26d700698899f2a3c313a13a65025a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the expectation of a given function with respect to a Gaussian distribution with the given parameters.  <a href="namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61">More...</a><br /></td></tr>
+<tr class="separator:a26d700698899f2a3c313a13a65025a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c17656f2680b638683e38d85c503dd"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a04c17656f2680b638683e38d85c503dd">theoretica::z_score</a> (real x, real mean, real sigma)</td></tr>
+<tr class="memdesc:a04c17656f2680b638683e38d85c503dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Z-score of an observed value with respect to a Gaussian distribution with the given parameters.  <a href="namespacetheoretica.html#a04c17656f2680b638683e38d85c503dd">More...</a><br /></td></tr>
+<tr class="separator:a04c17656f2680b638683e38d85c503dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6db3f30bb8eec3b5b9ae3bf70aeaca"><td class="memTemplParams" colspan="2">template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:afc6db3f30bb8eec3b5b9ae3bf70aeaca"><td class="memTemplItemLeft" align="right" valign="top">Dataset&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afc6db3f30bb8eec3b5b9ae3bf70aeaca">theoretica::normalize_z_score</a> (const Dataset &amp;X)</td></tr>
+<tr class="memdesc:afc6db3f30bb8eec3b5b9ae3bf70aeaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize a data set using Z-score normalization.  <a href="namespacetheoretica.html#afc6db3f30bb8eec3b5b9ae3bf70aeaca">More...</a><br /></td></tr>
+<tr class="separator:afc6db3f30bb8eec3b5b9ae3bf70aeaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f574c0d09d108278202db201226e727"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
+<tr class="memitem:a6f574c0d09d108278202db201226e727"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6f574c0d09d108278202db201226e727">theoretica::chi_square</a> (const Dataset1 &amp;O, const Dataset2 &amp;E, const Dataset3 &amp;sigma)</td></tr>
+<tr class="memdesc:a6f574c0d09d108278202db201226e727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square from the set of observed quantities, expected quantities and errors.  <a href="namespacetheoretica.html#a6f574c0d09d108278202db201226e727">More...</a><br /></td></tr>
+<tr class="separator:a6f574c0d09d108278202db201226e727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad9e2f9b3a40981abbab7c998c4fb1554">theoretica::pvalue_chi_squared</a> (real chi_sqr, unsigned int ndf)</td></tr>
 <tr class="memdesc:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the (right-tailed) p-value associated to a computed Chi-square value as the integral of the Chi-squared distribution from the given value to infinity (right-tailed).  <a href="namespacetheoretica.html#ad9e2f9b3a40981abbab7c998c4fb1554">More...</a><br /></td></tr>
 <tr class="separator:ad9e2f9b3a40981abbab7c998c4fb1554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84617261decc110caf3052d68f06d7d4"><td class="memItemLeft" align="right" valign="top"><a id="a84617261decc110caf3052d68f06d7d4" name="a84617261decc110caf3052d68f06d7d4"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a84617261decc110caf3052d68f06d7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:a84617261decc110caf3052d68f06d7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f6955f75727be37a27e0927224e5876"><td class="memItemLeft" align="right" valign="top"><a id="a0f6955f75727be37a27e0927224e5876" name="a0f6955f75727be37a27e0927224e5876"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_lin_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:a0f6955f75727be37a27e0927224e5876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:a0f6955f75727be37a27e0927224e5876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="memItemLeft" align="right" valign="top"><a id="af8a8bacdb4620a2f8e41d61abbbcfeff" name="af8a8bacdb4620a2f8e41d61abbbcfeff"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_A</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_Y)</td></tr>
-<tr class="memdesc:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the intercept (A) <br /></td></tr>
-<tr class="separator:af8a8bacdb4620a2f8e41d61abbbcfeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6bb7752cf25bc4154c3487384eb0841"><td class="memItemLeft" align="right" valign="top"><a id="ab6bb7752cf25bc4154c3487384eb0841" name="ab6bb7752cf25bc4154c3487384eb0841"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:ab6bb7752cf25bc4154c3487384eb0841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:ab6bb7752cf25bc4154c3487384eb0841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8eefa3fdd67863bd14365f6332935ed"><td class="memItemLeft" align="right" valign="top"><a id="ac8eefa3fdd67863bd14365f6332935ed" name="ac8eefa3fdd67863bd14365f6332935ed"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_lin_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y)</td></tr>
-<tr class="memdesc:ac8eefa3fdd67863bd14365f6332935ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:ac8eefa3fdd67863bd14365f6332935ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="memItemLeft" align="right" valign="top"><a id="a0524b589ff87a1d9e3ff247434ffd7e8" name="a0524b589ff87a1d9e3ff247434ffd7e8"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_sigma_B</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real sigma_Y)</td></tr>
-<tr class="memdesc:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error on the slope coefficient (B) <br /></td></tr>
-<tr class="separator:a0524b589ff87a1d9e3ff247434ffd7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c799e8666d59de6de60326dcc09294e"><td class="memItemLeft" align="right" valign="top"><a id="a3c799e8666d59de6de60326dcc09294e" name="a3c799e8666d59de6de60326dcc09294e"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_linear_error</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real intercept, real slope)</td></tr>
-<tr class="memdesc:a3c799e8666d59de6de60326dcc09294e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error of the minimum squares linearization of a sample. <br /></td></tr>
-<tr class="separator:a3c799e8666d59de6de60326dcc09294e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a543e7d1f53e6e88371ae148abcd3bbc3"><td class="memItemLeft" align="right" valign="top"><a id="a543e7d1f53e6e88371ae148abcd3bbc3" name="a543e7d1f53e6e88371ae148abcd3bbc3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_lin_error</b> (const vec_buff &amp;X, const vec_buff &amp;Y, real intercept, real slope)</td></tr>
-<tr class="memdesc:a543e7d1f53e6e88371ae148abcd3bbc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the error of the minimum squares linearization of a sample. <br /></td></tr>
-<tr class="separator:a543e7d1f53e6e88371ae148abcd3bbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad04a75aef8d4652b07e330779fb3ea3"><td class="memItemLeft" align="right" valign="top"><a id="aad04a75aef8d4652b07e330779fb3ea3" name="aad04a75aef8d4652b07e330779fb3ea3"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::chi_square_linearization</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;sigma, real intercept, real slope)</td></tr>
-<tr class="memdesc:aad04a75aef8d4652b07e330779fb3ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square on a linearization. <br /></td></tr>
-<tr class="separator:aad04a75aef8d4652b07e330779fb3ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba036e24bb6cda4b1f7dc901387f88ad"><td class="memItemLeft" align="right" valign="top"><a id="aba036e24bb6cda4b1f7dc901387f88ad" name="aba036e24bb6cda4b1f7dc901387f88ad"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::reduced_chi_square_linearization</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;sigma, real intercept, real slope)</td></tr>
-<tr class="memdesc:aba036e24bb6cda4b1f7dc901387f88ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the reduced chi-squared on a linearization. <br /></td></tr>
-<tr class="separator:aba036e24bb6cda4b1f7dc901387f88ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38b76d028b67c36167f9b7b2b9ecc368"><td class="memItemLeft" align="right" valign="top"><a id="a38b76d028b67c36167f9b7b2b9ecc368" name="a38b76d028b67c36167f9b7b2b9ecc368"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_weighted_linear_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;W)</td></tr>
-<tr class="memdesc:a38b76d028b67c36167f9b7b2b9ecc368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the weighted minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:a38b76d028b67c36167f9b7b2b9ecc368"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7787cd3050ea6b521f585061c8d8e024"><td class="memItemLeft" align="right" valign="top"><a id="a7787cd3050ea6b521f585061c8d8e024" name="a7787cd3050ea6b521f585061c8d8e024"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_weight_lin_intercept</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;W)</td></tr>
-<tr class="memdesc:a7787cd3050ea6b521f585061c8d8e024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intercept of the weighted minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:a7787cd3050ea6b521f585061c8d8e024"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac738af92a679b937956c3aaba943363b"><td class="memItemLeft" align="right" valign="top"><a id="ac738af92a679b937956c3aaba943363b" name="ac738af92a679b937956c3aaba943363b"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::least_squares_weighted_linear_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;W)</td></tr>
-<tr class="memdesc:ac738af92a679b937956c3aaba943363b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the weighted minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:ac738af92a679b937956c3aaba943363b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad340e45331b7332ee2fb72e6978d82a0"><td class="memItemLeft" align="right" valign="top"><a id="ad340e45331b7332ee2fb72e6978d82a0" name="ad340e45331b7332ee2fb72e6978d82a0"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_weight_lin_slope</b> (const vec_buff &amp;X, const vec_buff &amp;Y, const vec_buff &amp;W)</td></tr>
-<tr class="memdesc:ad340e45331b7332ee2fb72e6978d82a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the slope of the weighted minimum squares linearization of X and Y. <br /></td></tr>
-<tr class="separator:ad340e45331b7332ee2fb72e6978d82a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c670987384cd789b6b7fcf390db88d"><td class="memTemplParams" colspan="2"><a id="a16c670987384cd789b6b7fcf390db88d" name="a16c670987384cd789b6b7fcf390db88d"></a>
+template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
+<tr class="memitem:a16c670987384cd789b6b7fcf390db88d"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::chi_square_linearization</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
+<tr class="memdesc:a16c670987384cd789b6b7fcf390db88d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square on a linearization. <br /></td></tr>
+<tr class="separator:a16c670987384cd789b6b7fcf390db88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b287ed859418ce0fbf21b13e722cd67"><td class="memTemplParams" colspan="2"><a id="a1b287ed859418ce0fbf21b13e722cd67" name="a1b287ed859418ce0fbf21b13e722cd67"></a>
+template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
+<tr class="memitem:a1b287ed859418ce0fbf21b13e722cd67"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::reduced_chi_square_linearization</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
+<tr class="memdesc:a1b287ed859418ce0fbf21b13e722cd67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the reduced chi-squared on a linearization. <br /></td></tr>
+<tr class="separator:a1b287ed859418ce0fbf21b13e722cd67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Statistical functions. </p>
@@ -322,7 +321,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::lst_sqrs_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="statistics_8h.html">statistics.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

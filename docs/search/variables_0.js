@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bins_0',['bins',['../classtheoretica_1_1histogram.html#abe79188d28747c74b27feaf63e0fc511',1,'theoretica::histogram']]],
-  ['bisection_5fapprox_5ftol_1',['BISECTION_APPROX_TOL',['../namespacetheoretica.html#a28fc38a93f999c3c98056f3dac665f42',1,'theoretica']]]
+  ['a_0',['a',['../classtheoretica_1_1complex.html#a2617776ed3773386fb1979a416652296',1,'theoretica::complex::a()'],['../classtheoretica_1_1quat.html#aee60407b8e3ec8f39431c6334de01b29',1,'theoretica::quat::a()'],['../structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c',1,'theoretica::spline_node::a()']]],
+  ['a_1',['A',['../structtheoretica_1_1regression_1_1linear__model.html#af7cad9f424b0341ae8727e672ca62879',1,'theoretica::regression::linear_model']]]
 ];

@@ -6,6 +6,8 @@ var integration_8h =
     [ "integral_gauss", "integration_8h.html#aa72ca0802148fca511bdb53d2cf958a8", null ],
     [ "integral_gauss", "integration_8h.html#a500bb7c67e29e96e7f6c3655b8f7d3b3", null ],
     [ "integral_hermite", "integration_8h.html#abbe2540b2ff381a14b61588280cb9016", null ],
+    [ "integral_hermite", "integration_8h.html#abd783739794f700157cc7f7d6f9d9632", null ],
+    [ "integral_inf_riemann", "integration_8h.html#a3c185da4a1deaea582889cbc534989e7", null ],
     [ "integral_laguerre", "integration_8h.html#aa4a53869de63d5c2daf7790511ce8aac", null ],
     [ "integral_laguerre", "integration_8h.html#a0c209d0975ad962d9b5e68a3661150ab", null ],
     [ "integral_laguerre", "integration_8h.html#ab15d3b8d15def86bb228a46811100bca", null ],

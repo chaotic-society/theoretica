@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: theoretica::quat Class Reference</title>
+<title>Theoretica: theoretica::quat&lt; Type &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,173 +97,224 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1quat.html',''); ini
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classtheoretica_1_1quat-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">theoretica::quat Class Reference</div></div>
+  <div class="headertitle"><div class="title">theoretica::quat&lt; Type &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Quaternion in the form \(a + bi + cj + dk\), stored as \((a + \vec v)\) where \(a \in \mathbb{R}\) and \(\vec v \in \mathbb{R}^3\).  
+<p>Quaternion class in the form \(a + bi + cj + dk\).  
  <a href="classtheoretica_1_1quat.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="quat_8h_source.html">quat.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5829c1d7dbdf9631fff73ec88e8ca6cd"><td class="memItemLeft" align="right" valign="top"><a id="a5829c1d7dbdf9631fff73ec88e8ca6cd" name="a5829c1d7dbdf9631fff73ec88e8ca6cd"></a>
+<tr class="memitem:a17036d739b6a87d9afea13bfca6bc9e7"><td class="memItemLeft" align="right" valign="top"><a id="a17036d739b6a87d9afea13bfca6bc9e7" name="a17036d739b6a87d9afea13bfca6bc9e7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> ()</td></tr>
-<tr class="memdesc:a5829c1d7dbdf9631fff73ec88e8ca6cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize as (0 + 0i + 0j + 0k) <br /></td></tr>
-<tr class="separator:a5829c1d7dbdf9631fff73ec88e8ca6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf0bd9bac911322fba8093fb0bc1f8a"><td class="memItemLeft" align="right" valign="top"><a id="a7cf0bd9bac911322fba8093fb0bc1f8a" name="a7cf0bd9bac911322fba8093fb0bc1f8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, const <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> &amp;v)</td></tr>
-<tr class="memdesc:a7cf0bd9bac911322fba8093fb0bc1f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from a real number and a vector. <br /></td></tr>
-<tr class="separator:a7cf0bd9bac911322fba8093fb0bc1f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b0782b57eb69504facda6396e1b64ea"><td class="memItemLeft" align="right" valign="top"><a id="a6b0782b57eb69504facda6396e1b64ea" name="a6b0782b57eb69504facda6396e1b64ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="memdesc:a6b0782b57eb69504facda6396e1b64ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from another quaternion. <br /></td></tr>
-<tr class="separator:a6b0782b57eb69504facda6396e1b64ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb43ed00bb5b8b7d6c585c732865a79f"><td class="memItemLeft" align="right" valign="top"><a id="aeb43ed00bb5b8b7d6c585c732865a79f" name="aeb43ed00bb5b8b7d6c585c732865a79f"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="separator:aeb43ed00bb5b8b7d6c585c732865a79f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5ad7f048ed31adb275340c81b5811d5"><td class="memItemLeft" align="right" valign="top"><a id="ae5ad7f048ed31adb275340c81b5811d5" name="ae5ad7f048ed31adb275340c81b5811d5"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const std::array&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, 4 &gt; &amp;v)</td></tr>
-<tr class="separator:ae5ad7f048ed31adb275340c81b5811d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea006925c9debd97fda7849ab16d0894"><td class="memItemLeft" align="right" valign="top"><a id="aea006925c9debd97fda7849ab16d0894" name="aea006925c9debd97fda7849ab16d0894"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> c, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> d)</td></tr>
-<tr class="memdesc:aea006925c9debd97fda7849ab16d0894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from four real numbers. <br /></td></tr>
-<tr class="separator:aea006925c9debd97fda7849ab16d0894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75b1065ad5a521a9fcabff083f5eda9a"><td class="memItemLeft" align="right" valign="top"><a id="a75b1065ad5a521a9fcabff083f5eda9a" name="a75b1065ad5a521a9fcabff083f5eda9a"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>norm</b> () const</td></tr>
-<tr class="memdesc:a75b1065ad5a521a9fcabff083f5eda9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the norm of a quaternion. <br /></td></tr>
-<tr class="separator:a75b1065ad5a521a9fcabff083f5eda9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af523043273924defa46900a260bea6f3"><td class="memItemLeft" align="right" valign="top"><a id="af523043273924defa46900a260bea6f3" name="af523043273924defa46900a260bea6f3"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>square_norm</b> () const</td></tr>
-<tr class="memdesc:af523043273924defa46900a260bea6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the square norm of a quaternion. <br /></td></tr>
-<tr class="separator:af523043273924defa46900a260bea6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9f4b3a75dae673bda3adae3fe4aa71c"><td class="memItemLeft" align="right" valign="top"><a id="aa9f4b3a75dae673bda3adae3fe4aa71c" name="aa9f4b3a75dae673bda3adae3fe4aa71c"></a>
+<tr class="memdesc:a17036d739b6a87d9afea13bfca6bc9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion with all zero components. <br /></td></tr>
+<tr class="separator:a17036d739b6a87d9afea13bfca6bc9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85ddd2761391c4e78f199d23d9b55d8e"><td class="memItemLeft" align="right" valign="top"><a id="a85ddd2761391c4e78f199d23d9b55d8e" name="a85ddd2761391c4e78f199d23d9b55d8e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (Type r)</td></tr>
+<tr class="memdesc:a85ddd2761391c4e78f199d23d9b55d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion from a real number. <br /></td></tr>
+<tr class="separator:a85ddd2761391c4e78f199d23d9b55d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7988aba883f65781a8a441df1f03c3f6"><td class="memItemLeft" align="right" valign="top"><a id="a7988aba883f65781a8a441df1f03c3f6" name="a7988aba883f65781a8a441df1f03c3f6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (Type <a class="el" href="classtheoretica_1_1quat.html#aee60407b8e3ec8f39431c6334de01b29">a</a>, Type <a class="el" href="classtheoretica_1_1quat.html#a500630514cf9dc918ca682371535b197">b</a>, Type c, Type d)</td></tr>
+<tr class="memdesc:a7988aba883f65781a8a441df1f03c3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion from its components. <br /></td></tr>
+<tr class="separator:a7988aba883f65781a8a441df1f03c3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4001c8051be5989455739700d1bd5835"><td class="memItemLeft" align="right" valign="top"><a id="a4001c8051be5989455739700d1bd5835" name="a4001c8051be5989455739700d1bd5835"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>quat</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:a4001c8051be5989455739700d1bd5835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:a4001c8051be5989455739700d1bd5835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c131f4429fdc8c5e1cc1d1ef07fe226"><td class="memItemLeft" align="right" valign="top"><a id="a5c131f4429fdc8c5e1cc1d1ef07fe226" name="a5c131f4429fdc8c5e1cc1d1ef07fe226"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:a5c131f4429fdc8c5e1cc1d1ef07fe226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br /></td></tr>
+<tr class="separator:a5c131f4429fdc8c5e1cc1d1ef07fe226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67f9a34cd35a2fca9c44275e6a523683"><td class="memTemplParams" colspan="2"><a id="a67f9a34cd35a2fca9c44275e6a523683" name="a67f9a34cd35a2fca9c44275e6a523683"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a67f9a34cd35a2fca9c44275e6a523683"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const std::array&lt; T, 4 &gt; &amp;v)</td></tr>
+<tr class="memdesc:a67f9a34cd35a2fca9c44275e6a523683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator from a 4D array. <br /></td></tr>
+<tr class="separator:a67f9a34cd35a2fca9c44275e6a523683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa0137405d2225863cedd70d7da4e14"><td class="memItemLeft" align="right" valign="top"><a id="a7aa0137405d2225863cedd70d7da4e14" name="a7aa0137405d2225863cedd70d7da4e14"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Re</b> () const</td></tr>
+<tr class="memdesc:a7aa0137405d2225863cedd70d7da4e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the real part of the quaternion. <br /></td></tr>
+<tr class="separator:a7aa0137405d2225863cedd70d7da4e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3556f1f92a8dff336f39e32b02f31638"><td class="memItemLeft" align="right" valign="top"><a id="a3556f1f92a8dff336f39e32b02f31638" name="a3556f1f92a8dff336f39e32b02f31638"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im1</b> () const</td></tr>
+<tr class="memdesc:a3556f1f92a8dff336f39e32b02f31638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:a3556f1f92a8dff336f39e32b02f31638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad168a54be87c7e53a65dee27d8027ac3"><td class="memItemLeft" align="right" valign="top"><a id="ad168a54be87c7e53a65dee27d8027ac3" name="ad168a54be87c7e53a65dee27d8027ac3"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im2</b> () const</td></tr>
+<tr class="memdesc:ad168a54be87c7e53a65dee27d8027ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the second imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:ad168a54be87c7e53a65dee27d8027ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa510ee43460e7790a1b594f2dec36ae4"><td class="memItemLeft" align="right" valign="top"><a id="aa510ee43460e7790a1b594f2dec36ae4" name="aa510ee43460e7790a1b594f2dec36ae4"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im3</b> () const</td></tr>
+<tr class="memdesc:aa510ee43460e7790a1b594f2dec36ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the third imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:aa510ee43460e7790a1b594f2dec36ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a4c5a429b57e521c3bfc5c3a96ce02"><td class="memItemLeft" align="right" valign="top"><a id="a62a4c5a429b57e521c3bfc5c3a96ce02" name="a62a4c5a429b57e521c3bfc5c3a96ce02"></a>
 <a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>conjugate</b> () const</td></tr>
-<tr class="memdesc:aa9f4b3a75dae673bda3adae3fe4aa71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the conjugate of a quaternion. <br /></td></tr>
-<tr class="separator:aa9f4b3a75dae673bda3adae3fe4aa71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca28bc634ed11ac1316ca18724d7eca9"><td class="memItemLeft" align="right" valign="top"><a id="aca28bc634ed11ac1316ca18724d7eca9" name="aca28bc634ed11ac1316ca18724d7eca9"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> scalar) const</td></tr>
-<tr class="memdesc:aca28bc634ed11ac1316ca18724d7eca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a quaternion by a scalar value. <br /></td></tr>
-<tr class="separator:aca28bc634ed11ac1316ca18724d7eca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb7e203b47755c3f659f0e14fcfc9871"><td class="memItemLeft" align="right" valign="top"><a id="acb7e203b47755c3f659f0e14fcfc9871" name="acb7e203b47755c3f659f0e14fcfc9871"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> scalar) const</td></tr>
-<tr class="memdesc:acb7e203b47755c3f659f0e14fcfc9871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a quaternion by a scalar value. <br /></td></tr>
-<tr class="separator:acb7e203b47755c3f659f0e14fcfc9871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed1c80f280c3ef4fdba6ea5431a45dc0"><td class="memItemLeft" align="right" valign="top"><a id="aed1c80f280c3ef4fdba6ea5431a45dc0" name="aed1c80f280c3ef4fdba6ea5431a45dc0"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
-<tr class="memdesc:aed1c80f280c3ef4fdba6ea5431a45dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add two quaternions. <br /></td></tr>
-<tr class="separator:aed1c80f280c3ef4fdba6ea5431a45dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9697c8f1138bb507637f9c6bf84f1a40"><td class="memItemLeft" align="right" valign="top"><a id="a9697c8f1138bb507637f9c6bf84f1a40" name="a9697c8f1138bb507637f9c6bf84f1a40"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
-<tr class="memdesc:a9697c8f1138bb507637f9c6bf84f1a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract two quaternions. <br /></td></tr>
-<tr class="separator:a9697c8f1138bb507637f9c6bf84f1a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5db16bd1eaa5af4583653075932c8073"><td class="memItemLeft" align="right" valign="top"><a id="a5db16bd1eaa5af4583653075932c8073" name="a5db16bd1eaa5af4583653075932c8073"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
-<tr class="memdesc:a5db16bd1eaa5af4583653075932c8073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two quaternions. <br /></td></tr>
-<tr class="separator:a5db16bd1eaa5af4583653075932c8073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad709405b379086ded8f30dec2348fc44"><td class="memItemLeft" align="right" valign="top"><a id="ad709405b379086ded8f30dec2348fc44" name="ad709405b379086ded8f30dec2348fc44"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
-<tr class="memdesc:ad709405b379086ded8f30dec2348fc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide two quaternions. <br /></td></tr>
-<tr class="separator:ad709405b379086ded8f30dec2348fc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53de97560e38604331395996bdecc358"><td class="memItemLeft" align="right" valign="top"><a id="a53de97560e38604331395996bdecc358" name="a53de97560e38604331395996bdecc358"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> scalar)</td></tr>
-<tr class="memdesc:a53de97560e38604331395996bdecc358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by a scalar value. <br /></td></tr>
-<tr class="separator:a53de97560e38604331395996bdecc358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1de725a16d89af2b9050358c8c85d823"><td class="memItemLeft" align="right" valign="top"><a id="a1de725a16d89af2b9050358c8c85d823" name="a1de725a16d89af2b9050358c8c85d823"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> scalar)</td></tr>
-<tr class="memdesc:a1de725a16d89af2b9050358c8c85d823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by a scalar value. <br /></td></tr>
-<tr class="separator:a1de725a16d89af2b9050358c8c85d823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a950e5f6225cef0b6e6264add3fa1bc27"><td class="memItemLeft" align="right" valign="top"><a id="a950e5f6225cef0b6e6264add3fa1bc27" name="a950e5f6225cef0b6e6264add3fa1bc27"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="memdesc:a950e5f6225cef0b6e6264add3fa1bc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a quaternion to this one. <br /></td></tr>
-<tr class="separator:a950e5f6225cef0b6e6264add3fa1bc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f940a3b27d3511d3357dcc155787ab8"><td class="memItemLeft" align="right" valign="top"><a id="a4f940a3b27d3511d3357dcc155787ab8" name="a4f940a3b27d3511d3357dcc155787ab8"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="memdesc:a4f940a3b27d3511d3357dcc155787ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract a quaternion to this one. <br /></td></tr>
-<tr class="separator:a4f940a3b27d3511d3357dcc155787ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcdf02090f4023c1618298aa0abae608"><td class="memItemLeft" align="right" valign="top"><a id="adcdf02090f4023c1618298aa0abae608" name="adcdf02090f4023c1618298aa0abae608"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="memdesc:adcdf02090f4023c1618298aa0abae608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by another one. <br /></td></tr>
-<tr class="separator:adcdf02090f4023c1618298aa0abae608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0fa963266a0654db53ac6a8805c5a28"><td class="memItemLeft" align="right" valign="top"><a id="af0fa963266a0654db53ac6a8805c5a28" name="af0fa963266a0654db53ac6a8805c5a28"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
-<tr class="memdesc:af0fa963266a0654db53ac6a8805c5a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by another one. <br /></td></tr>
-<tr class="separator:af0fa963266a0654db53ac6a8805c5a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e45be64a80673de58b60779158d2e77"><td class="memItemLeft" align="right" valign="top"><a id="a8e45be64a80673de58b60779158d2e77" name="a8e45be64a80673de58b60779158d2e77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="memdesc:a8e45be64a80673de58b60779158d2e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the quaternion. <br /></td></tr>
-<tr class="separator:a8e45be64a80673de58b60779158d2e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4da94c75c6f4b669d2150b5f3614d614"><td class="memItemLeft" align="right" valign="top"><a id="a4da94c75c6f4b669d2150b5f3614d614" name="a4da94c75c6f4b669d2150b5f3614d614"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>normalized</b> () const</td></tr>
-<tr class="memdesc:a4da94c75c6f4b669d2150b5f3614d614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normalized quaternion. <br /></td></tr>
-<tr class="separator:a4da94c75c6f4b669d2150b5f3614d614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada659b2078c21cca781657073404823d"><td class="memItemLeft" align="right" valign="top"><a id="ada659b2078c21cca781657073404823d" name="ada659b2078c21cca781657073404823d"></a>
+<tr class="memdesc:a62a4c5a429b57e521c3bfc5c3a96ce02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the conjugate of the quaternion. <br /></td></tr>
+<tr class="separator:a62a4c5a429b57e521c3bfc5c3a96ce02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a982ac42bc34d2dbbf7f7702e52efc"><td class="memItemLeft" align="right" valign="top"><a id="ab7a982ac42bc34d2dbbf7f7702e52efc" name="ab7a982ac42bc34d2dbbf7f7702e52efc"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>sqr_norm</b> () const</td></tr>
+<tr class="memdesc:ab7a982ac42bc34d2dbbf7f7702e52efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the square norm of the quaternion. <br /></td></tr>
+<tr class="separator:ab7a982ac42bc34d2dbbf7f7702e52efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5687507f2f32525c37ae22168e7503e"><td class="memItemLeft" align="right" valign="top"><a id="aa5687507f2f32525c37ae22168e7503e" name="aa5687507f2f32525c37ae22168e7503e"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>norm</b> () const</td></tr>
+<tr class="memdesc:aa5687507f2f32525c37ae22168e7503e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the norm of the quaternion. <br /></td></tr>
+<tr class="separator:aa5687507f2f32525c37ae22168e7503e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a608f11c7a18374567fbb4ee328792e4a"><td class="memItemLeft" align="right" valign="top"><a id="a608f11c7a18374567fbb4ee328792e4a" name="a608f11c7a18374567fbb4ee328792e4a"></a>
 <a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inverse</b> () const</td></tr>
-<tr class="memdesc:ada659b2078c21cca781657073404823d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the inverse of a quaternion. <br /></td></tr>
-<tr class="separator:ada659b2078c21cca781657073404823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45a2ccb496eb98173c0e22451090fa94"><td class="memItemLeft" align="right" valign="top"><a id="a45a2ccb496eb98173c0e22451090fa94" name="a45a2ccb496eb98173c0e22451090fa94"></a>
-<a class="el" href="namespacetheoretica.html#aa5b773a1d88bcfb2a577b25224fe5477">vec4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>to_vec4</b> () const</td></tr>
-<tr class="memdesc:a45a2ccb496eb98173c0e22451090fa94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a quaternion to a vector in the form (a, b, c, d) <br /></td></tr>
-<tr class="separator:a45a2ccb496eb98173c0e22451090fa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26c2e357213b552ba9069f08491879a"><td class="memItemLeft" align="right" valign="top"><a id="af26c2e357213b552ba9069f08491879a" name="af26c2e357213b552ba9069f08491879a"></a>
-<a class="el" href="namespacetheoretica.html#ae28e3d5a1e0743ea34a6c627c47b421b">mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>to_mat4</b> () const</td></tr>
-<tr class="memdesc:af26c2e357213b552ba9069f08491879a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to a 4x4 matrix. <br /></td></tr>
-<tr class="separator:af26c2e357213b552ba9069f08491879a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae04ee69ddd9c453aef85090176a4bf8f"><td class="memItemLeft" align="right" valign="top"><a id="ae04ee69ddd9c453aef85090176a4bf8f" name="ae04ee69ddd9c453aef85090176a4bf8f"></a>
-<a class="el" href="namespacetheoretica.html#ae2899e9929670cbd58f39d6f1642ce19">mat3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>to_mat3</b> () const</td></tr>
-<tr class="memdesc:ae04ee69ddd9c453aef85090176a4bf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to a 3x3 matrix. <br /></td></tr>
-<tr class="separator:ae04ee69ddd9c453aef85090176a4bf8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ff08e77470ab62fe4f75b2caa90650"><td class="memItemLeft" align="right" valign="top"><a id="ab7ff08e77470ab62fe4f75b2caa90650" name="ab7ff08e77470ab62fe4f75b2caa90650"></a>
-<a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b> (const <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> &amp;v) const</td></tr>
-<tr class="memdesc:ab7ff08e77470ab62fe4f75b2caa90650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a 3D vector. <br /></td></tr>
-<tr class="separator:ab7ff08e77470ab62fe4f75b2caa90650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624fda31c100457358f9e86903e25836"><td class="memItemLeft" align="right" valign="top"><a id="a624fda31c100457358f9e86903e25836" name="a624fda31c100457358f9e86903e25836"></a>
+<tr class="memdesc:a608f11c7a18374567fbb4ee328792e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of the quaternion. <br /></td></tr>
+<tr class="separator:a608f11c7a18374567fbb4ee328792e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ebdaeea21c4963117878046c3fb49f2"><td class="memItemLeft" align="right" valign="top"><a id="a4ebdaeea21c4963117878046c3fb49f2" name="a4ebdaeea21c4963117878046c3fb49f2"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> ()</td></tr>
+<tr class="memdesc:a4ebdaeea21c4963117878046c3fb49f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invert the quaternion. <br /></td></tr>
+<tr class="separator:a4ebdaeea21c4963117878046c3fb49f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c74922d6e5c35fdfcd2698a80b784f8"><td class="memItemLeft" align="right" valign="top"><a id="a5c74922d6e5c35fdfcd2698a80b784f8" name="a5c74922d6e5c35fdfcd2698a80b784f8"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> () const</td></tr>
+<tr class="memdesc:a5c74922d6e5c35fdfcd2698a80b784f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identity (for consistency) <br /></td></tr>
+<tr class="separator:a5c74922d6e5c35fdfcd2698a80b784f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc3886f191cbf4cd33f1afc699c1189"><td class="memItemLeft" align="right" valign="top"><a id="a0dc3886f191cbf4cd33f1afc699c1189" name="a0dc3886f191cbf4cd33f1afc699c1189"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const</td></tr>
+<tr class="memdesc:a0dc3886f191cbf4cd33f1afc699c1189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the opposite of the quaternion. <br /></td></tr>
+<tr class="separator:a0dc3886f191cbf4cd33f1afc699c1189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f6dd8aed12af747af296f1277106056"><td class="memItemLeft" align="right" valign="top"><a id="a4f6dd8aed12af747af296f1277106056" name="a4f6dd8aed12af747af296f1277106056"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (Type k) const</td></tr>
+<tr class="memdesc:a4f6dd8aed12af747af296f1277106056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum a quaternion and a scalar value. <br /></td></tr>
+<tr class="separator:a4f6dd8aed12af747af296f1277106056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af152264c46b579e1bae089b19508a562"><td class="memItemLeft" align="right" valign="top"><a id="af152264c46b579e1bae089b19508a562" name="af152264c46b579e1bae089b19508a562"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (Type k) const</td></tr>
+<tr class="memdesc:af152264c46b579e1bae089b19508a562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract a quaternion and a scalar value. <br /></td></tr>
+<tr class="separator:af152264c46b579e1bae089b19508a562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b5ed75114c560c5a0bccc27bb42b2c"><td class="memItemLeft" align="right" valign="top"><a id="a95b5ed75114c560c5a0bccc27bb42b2c" name="a95b5ed75114c560c5a0bccc27bb42b2c"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (Type k) const</td></tr>
+<tr class="memdesc:a95b5ed75114c560c5a0bccc27bb42b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a quaternion by a scalar value. <br /></td></tr>
+<tr class="separator:a95b5ed75114c560c5a0bccc27bb42b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18dd00e0e1dcd286bef2a4899bf8ab51"><td class="memItemLeft" align="right" valign="top"><a id="a18dd00e0e1dcd286bef2a4899bf8ab51" name="a18dd00e0e1dcd286bef2a4899bf8ab51"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (Type k) const</td></tr>
+<tr class="memdesc:a18dd00e0e1dcd286bef2a4899bf8ab51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide a quaternion by a scalar value. <br /></td></tr>
+<tr class="separator:a18dd00e0e1dcd286bef2a4899bf8ab51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8796157f00269d9e77373e8a7254f6"><td class="memItemLeft" align="right" valign="top"><a id="a6c8796157f00269d9e77373e8a7254f6" name="a6c8796157f00269d9e77373e8a7254f6"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a6c8796157f00269d9e77373e8a7254f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add two quaternions. <br /></td></tr>
+<tr class="separator:a6c8796157f00269d9e77373e8a7254f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a9d2949418b57fa75ad75fe52f7268"><td class="memItemLeft" align="right" valign="top"><a id="a40a9d2949418b57fa75ad75fe52f7268" name="a40a9d2949418b57fa75ad75fe52f7268"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a40a9d2949418b57fa75ad75fe52f7268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract two quaternions. <br /></td></tr>
+<tr class="separator:a40a9d2949418b57fa75ad75fe52f7268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e5cc67b3df5786946e6cf1dc3f5cd17"><td class="memItemLeft" align="right" valign="top"><a id="a6e5cc67b3df5786946e6cf1dc3f5cd17" name="a6e5cc67b3df5786946e6cf1dc3f5cd17"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q) const</td></tr>
+<tr class="memdesc:a6e5cc67b3df5786946e6cf1dc3f5cd17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two quaternions. <br /></td></tr>
+<tr class="separator:a6e5cc67b3df5786946e6cf1dc3f5cd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf100d0d23e71a16ca2b3782aac94ef"><td class="memItemLeft" align="right" valign="top"><a id="a9bf100d0d23e71a16ca2b3782aac94ef" name="a9bf100d0d23e71a16ca2b3782aac94ef"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other) const</td></tr>
+<tr class="memdesc:a9bf100d0d23e71a16ca2b3782aac94ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide two quaternions. <br /></td></tr>
+<tr class="separator:a9bf100d0d23e71a16ca2b3782aac94ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620690831b893b068db171f0980c1c46"><td class="memItemLeft" align="right" valign="top"><a id="a620690831b893b068db171f0980c1c46" name="a620690831b893b068db171f0980c1c46"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (Type k)</td></tr>
+<tr class="memdesc:a620690831b893b068db171f0980c1c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by a scalar value. <br /></td></tr>
+<tr class="separator:a620690831b893b068db171f0980c1c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a9510d494348b0ba29056c0d1221e7"><td class="memItemLeft" align="right" valign="top"><a id="aa0a9510d494348b0ba29056c0d1221e7" name="aa0a9510d494348b0ba29056c0d1221e7"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (Type k)</td></tr>
+<tr class="memdesc:aa0a9510d494348b0ba29056c0d1221e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by a scalar value. <br /></td></tr>
+<tr class="separator:aa0a9510d494348b0ba29056c0d1221e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13ba0c6eb9716b848ade2de4117f491d"><td class="memItemLeft" align="right" valign="top"><a id="a13ba0c6eb9716b848ade2de4117f491d" name="a13ba0c6eb9716b848ade2de4117f491d"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:a13ba0c6eb9716b848ade2de4117f491d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a quaternion to this one. <br /></td></tr>
+<tr class="separator:a13ba0c6eb9716b848ade2de4117f491d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59980b9ef33b67db6a0629042b00e3d"><td class="memItemLeft" align="right" valign="top"><a id="ae59980b9ef33b67db6a0629042b00e3d" name="ae59980b9ef33b67db6a0629042b00e3d"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:ae59980b9ef33b67db6a0629042b00e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract a quaternion to this one. <br /></td></tr>
+<tr class="separator:ae59980b9ef33b67db6a0629042b00e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaebf0756b09e894c8f8fc6b04276a386"><td class="memItemLeft" align="right" valign="top"><a id="aaebf0756b09e894c8f8fc6b04276a386" name="aaebf0756b09e894c8f8fc6b04276a386"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:aaebf0756b09e894c8f8fc6b04276a386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply this quaternion by another one. <br /></td></tr>
+<tr class="separator:aaebf0756b09e894c8f8fc6b04276a386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52e13a3d3d55220556bd768d022a7c0"><td class="memItemLeft" align="right" valign="top"><a id="ab52e13a3d3d55220556bd768d022a7c0" name="ab52e13a3d3d55220556bd768d022a7c0"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;other)</td></tr>
+<tr class="memdesc:ab52e13a3d3d55220556bd768d022a7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide this quaternion by another one. <br /></td></tr>
+<tr class="separator:ab52e13a3d3d55220556bd768d022a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af809c7a66a6029e74474a172d5505a56"><td class="memTemplParams" colspan="2"><a id="af809c7a66a6029e74474a172d5505a56" name="af809c7a66a6029e74474a172d5505a56"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:af809c7a66a6029e74474a172d5505a56"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><b>transform</b> (const Vector &amp;v) const</td></tr>
+<tr class="memdesc:af809c7a66a6029e74474a172d5505a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a 3D vector. <br /></td></tr>
+<tr class="separator:af809c7a66a6029e74474a172d5505a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd9dcf134df6729b9dc9b5d7dd13442"><td class="memItemLeft" align="right" valign="top"><a id="a9dd9dcf134df6729b9dc9b5d7dd13442" name="a9dd9dcf134df6729b9dc9b5d7dd13442"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> () const</td></tr>
-<tr class="memdesc:a624fda31c100457358f9e86903e25836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to string representation. <br /></td></tr>
-<tr class="separator:a624fda31c100457358f9e86903e25836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a9dd9dcf134df6729b9dc9b5d7dd13442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to string representation. <br /></td></tr>
+<tr class="separator:a9dd9dcf134df6729b9dc9b5d7dd13442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c7fc40d989dbc332d86cb4a29f55374"><td class="memItemLeft" align="right" valign="top"><a id="a9c7fc40d989dbc332d86cb4a29f55374" name="a9c7fc40d989dbc332d86cb4a29f55374"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator std::string</b> ()</td></tr>
+<tr class="memdesc:a9c7fc40d989dbc332d86cb4a29f55374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to string representation. <br /></td></tr>
+<tr class="separator:a9c7fc40d989dbc332d86cb4a29f55374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aab3d5f4a814b8c988fcc9137dec134a8"><td class="memItemLeft" align="right" valign="top"><a id="aab3d5f4a814b8c988fcc9137dec134a8" name="aab3d5f4a814b8c988fcc9137dec134a8"></a>
-static <a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotation</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> rad, const <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> &amp;axis)</td></tr>
-<tr class="memdesc:aab3d5f4a814b8c988fcc9137dec134a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion which represents a rotation of &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. <br /></td></tr>
-<tr class="separator:aab3d5f4a814b8c988fcc9137dec134a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5170ff7f7ad8b5f339fb8d1f25d75d0"><td class="memItemLeft" align="right" valign="top"><a id="af5170ff7f7ad8b5f339fb8d1f25d75d0" name="af5170ff7f7ad8b5f339fb8d1f25d75d0"></a>
-static <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (const <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> &amp;v, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> rad, const <a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a> &amp;axis)</td></tr>
-<tr class="memdesc:af5170ff7f7ad8b5f339fb8d1f25d75d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a 3D vector &lt;v&gt; by &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. <br /></td></tr>
-<tr class="separator:af5170ff7f7ad8b5f339fb8d1f25d75d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1331684f787b65d5cc424bfc20221649"><td class="memTemplParams" colspan="2"><a id="a1331684f787b65d5cc424bfc20221649" name="a1331684f787b65d5cc424bfc20221649"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a1331684f787b65d5cc424bfc20221649"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>rotation</b> (Type rad, const Vector &amp;axis)</td></tr>
+<tr class="memdesc:a1331684f787b65d5cc424bfc20221649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion which represents a rotation of &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. <br /></td></tr>
+<tr class="separator:a1331684f787b65d5cc424bfc20221649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53f4c64883895f0473c742daeff5f3c9"><td class="memTemplParams" colspan="2"><a id="a53f4c64883895f0473c742daeff5f3c9" name="a53f4c64883895f0473c742daeff5f3c9"></a>
+template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a53f4c64883895f0473c742daeff5f3c9"><td class="memTemplItemLeft" align="right" valign="top">static Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><b>rotate</b> (const Vector &amp;v, Type rad, const Vector &amp;axis)</td></tr>
+<tr class="memdesc:a53f4c64883895f0473c742daeff5f3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a 3D vector &lt;v&gt; by &lt;rad&gt; radians around the &lt;axis&gt; arbitrary axis. <br /></td></tr>
+<tr class="separator:a53f4c64883895f0473c742daeff5f3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab9baf480eb17d8c81cef4535e29b01cc"><td class="memItemLeft" align="right" valign="top"><a id="ab9baf480eb17d8c81cef4535e29b01cc" name="ab9baf480eb17d8c81cef4535e29b01cc"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>a</b></td></tr>
-<tr class="separator:ab9baf480eb17d8c81cef4535e29b01cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9674e06f5eceb5dd7ab5d2b4273de9b6"><td class="memItemLeft" align="right" valign="top"><a id="a9674e06f5eceb5dd7ab5d2b4273de9b6" name="a9674e06f5eceb5dd7ab5d2b4273de9b6"></a>
-<a class="el" href="namespacetheoretica.html#a3a9580d98118f2e1692c1f5d6dbf3ea5">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>v</b></td></tr>
-<tr class="separator:a9674e06f5eceb5dd7ab5d2b4273de9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee60407b8e3ec8f39431c6334de01b29"><td class="memItemLeft" align="right" valign="top"><a id="aee60407b8e3ec8f39431c6334de01b29" name="aee60407b8e3ec8f39431c6334de01b29"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>a</b></td></tr>
+<tr class="memdesc:aee60407b8e3ec8f39431c6334de01b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real part. <br /></td></tr>
+<tr class="separator:aee60407b8e3ec8f39431c6334de01b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a500630514cf9dc918ca682371535b197"><td class="memItemLeft" align="right" valign="top"><a id="a500630514cf9dc918ca682371535b197" name="a500630514cf9dc918ca682371535b197"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>b</b></td></tr>
+<tr class="memdesc:a500630514cf9dc918ca682371535b197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imaginary parts. <br /></td></tr>
+<tr class="separator:a500630514cf9dc918ca682371535b197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b9d7bf7b5a68f85877e4b3c4980c94"><td class="memItemLeft" align="right" valign="top"><a id="a47b9d7bf7b5a68f85877e4b3c4980c94" name="a47b9d7bf7b5a68f85877e4b3c4980c94"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>c</b></td></tr>
+<tr class="separator:a47b9d7bf7b5a68f85877e4b3c4980c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b2f0868f8f6230c98f453eda65c75b2"><td class="memItemLeft" align="right" valign="top"><a id="a9b2f0868f8f6230c98f453eda65c75b2" name="a9b2f0868f8f6230c98f453eda65c75b2"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>d</b></td></tr>
+<tr class="separator:a9b2f0868f8f6230c98f453eda65c75b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a92a7a36f793e5a10e7a96f1727fe8f98"><td class="memItemLeft" align="right" valign="top"><a id="a92a7a36f793e5a10e7a96f1727fe8f98" name="a92a7a36f793e5a10e7a96f1727fe8f98"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
-<tr class="separator:a92a7a36f793e5a10e7a96f1727fe8f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc3b51d81b1da47bd760c4721bf75b1c"><td class="memItemLeft" align="right" valign="top"><a id="abc3b51d81b1da47bd760c4721bf75b1c" name="abc3b51d81b1da47bd760c4721bf75b1c"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
-<tr class="separator:abc3b51d81b1da47bd760c4721bf75b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a318c9b1fc151cb44cd1a4f4b131b0"><td class="memItemLeft" align="right" valign="top"><a id="ad8a318c9b1fc151cb44cd1a4f4b131b0" name="ad8a318c9b1fc151cb44cd1a4f4b131b0"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
-<tr class="separator:ad8a318c9b1fc151cb44cd1a4f4b131b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3604ac224e75150c2eef5084312c8d59"><td class="memItemLeft" align="right" valign="top"><a id="a3604ac224e75150c2eef5084312c8d59" name="a3604ac224e75150c2eef5084312c8d59"></a>
-<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
-<tr class="separator:a3604ac224e75150c2eef5084312c8d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372e5bb8b53b9d829898b8900e721da6"><td class="memItemLeft" align="right" valign="top"><a id="a372e5bb8b53b9d829898b8900e721da6" name="a372e5bb8b53b9d829898b8900e721da6"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Re</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:a372e5bb8b53b9d829898b8900e721da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the real part of the quaternion. <br /></td></tr>
+<tr class="separator:a372e5bb8b53b9d829898b8900e721da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fc23db628ad036ef8924cc5accc1c6"><td class="memItemLeft" align="right" valign="top"><a id="ad4fc23db628ad036ef8924cc5accc1c6" name="ad4fc23db628ad036ef8924cc5accc1c6"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im1</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:ad4fc23db628ad036ef8924cc5accc1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the first imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:ad4fc23db628ad036ef8924cc5accc1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31035257055d795449826f0673016a55"><td class="memItemLeft" align="right" valign="top"><a id="a31035257055d795449826f0673016a55" name="a31035257055d795449826f0673016a55"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im2</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:a31035257055d795449826f0673016a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the second imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:a31035257055d795449826f0673016a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e527c502d2f67192c3b7f4486a61e7d"><td class="memItemLeft" align="right" valign="top"><a id="a4e527c502d2f67192c3b7f4486a61e7d" name="a4e527c502d2f67192c3b7f4486a61e7d"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>Im3</b> (const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;q)</td></tr>
+<tr class="memdesc:a4e527c502d2f67192c3b7f4486a61e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the third imaginary part of the quaternion. <br /></td></tr>
+<tr class="separator:a4e527c502d2f67192c3b7f4486a61e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7453d1714ab10fa6bc773e8d004f6324"><td class="memItemLeft" align="right" valign="top"><a id="a7453d1714ab10fa6bc773e8d004f6324" name="a7453d1714ab10fa6bc773e8d004f6324"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (Type r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
+<tr class="separator:a7453d1714ab10fa6bc773e8d004f6324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba79a9fe55bb3b239a9b72c9eaffc1ad"><td class="memItemLeft" align="right" valign="top"><a id="aba79a9fe55bb3b239a9b72c9eaffc1ad" name="aba79a9fe55bb3b239a9b72c9eaffc1ad"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (Type r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
+<tr class="separator:aba79a9fe55bb3b239a9b72c9eaffc1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76218888b49bd2719208212c7815cbfc"><td class="memItemLeft" align="right" valign="top"><a id="a76218888b49bd2719208212c7815cbfc" name="a76218888b49bd2719208212c7815cbfc"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (Type r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
+<tr class="separator:a76218888b49bd2719208212c7815cbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd30333f91cf9bf48afe8f5addac3b0"><td class="memItemLeft" align="right" valign="top"><a id="a5dd30333f91cf9bf48afe8f5addac3b0" name="a5dd30333f91cf9bf48afe8f5addac3b0"></a>
+<a class="el" href="classtheoretica_1_1quat.html">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (Type r, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;z)</td></tr>
+<tr class="separator:a5dd30333f91cf9bf48afe8f5addac3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="memItemLeft" align="right" valign="top"><a id="abf9ce958a55c1af1cb33a3a3aca26dce" name="abf9ce958a55c1af1cb33a3a3aca26dce"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="classtheoretica_1_1quat.html">quat</a> &amp;obj)</td></tr>
 <tr class="memdesc:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream the quaternion in string representation to an output stream (std::ostream) <br /></td></tr>
 <tr class="separator:abf9ce958a55c1af1cb33a3a3aca26dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Quaternion in the form \(a + bi + cj + dk\), stored as \((a + \vec v)\) where \(a \in \mathbb{R}\) and \(\vec v \in \mathbb{R}^3\). </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Type = real&gt;<br />
+class theoretica::quat&lt; Type &gt;</div><p >Quaternion class in the form \(a + bi + cj + dk\). </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>complex/<a class="el" href="quat_8h_source.html">quat.h</a></li>
 </ul>
@@ -273,7 +324,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1quat.html">quat</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

@@ -25,31 +25,33 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Table of Contents", "index.html#autotoc_md2", null ],
-    [ "Key Features", "index.html#autotoc_md4", null ],
-    [ "Dependencies", "index.html#autotoc_md5", null ],
-    [ "Setup", "index.html#autotoc_md6", null ],
-    [ "Documentation", "index.html#autotoc_md7", [
-      [ "A short example", "index.html#autotoc_md1", null ],
-      [ "Quickstart", "index.html#autotoc_md8", null ],
-      [ "Other examples", "index.html#autotoc_md9", null ]
-    ] ],
-    [ "Contributing", "index.html#autotoc_md10", null ],
-    [ "Testing", "index.html#autotoc_md11", null ],
-    [ "Other information", "index.html#autotoc_md12", [
-      [ "License", "index.html#autotoc_md13", null ],
-      [ "Macros", "index.html#autotoc_md14", null ],
-      [ "Error handling", "index.html#autotoc_md15", null ]
-    ] ],
     [ "Contributing Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
+      [ "Table of Contents", "index.html#autotoc_md1", null ],
+      [ "Key Features", "index.html#autotoc_md3", null ],
+      [ "Dependencies", "index.html#autotoc_md4", null ],
+      [ "Setup", "index.html#autotoc_md5", null ],
+      [ "Documentation", "index.html#autotoc_md6", [
+        [ "A short example", "index.html#autotoc_md0", null ],
+        [ "Quickstart", "index.html#autotoc_md7", null ],
+        [ "Other examples", "index.html#autotoc_md8", null ]
+      ] ],
+      [ "Contributing", "index.html#autotoc_md9", null ],
+      [ "Testing", "index.html#autotoc_md10", null ],
+      [ "Branches", "index.html#autotoc_md11", null ],
+      [ "Other information", "index.html#autotoc_md12", [
+        [ "License", "index.html#autotoc_md13", null ],
+        [ "Macros", "index.html#autotoc_md14", null ],
+        [ "Error handling", "index.html#autotoc_md15", null ]
+      ] ],
       [ "Code of Conduct", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
       [ "What is to be done?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
       [ "Suggesting new features", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ],
       [ "Contributing with research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", null ],
-      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", [
-        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
+      [ "Writing new code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
+      [ "Writing test cases", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", [
+        [ "Guidelines for code", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", null ]
       ] ],
-      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", null ]
+      [ "Pull request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -64,6 +66,7 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
@@ -83,15 +86,17 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classtheoretica_1_1dual2.html#abaf4d9497e60d25c9cba4ed87bfee24a",
-"classtheoretica_1_1phasor.html#aa5ae29fdf08a9f511ea4f961f31356b1",
-"constants_8h.html#a3bc384f25a1d4c7c19169a5ce6c51710",
-"functions_q.html",
-"namespacetheoretica.html#a2b34801047d52afccf3b4120c3d2d74e",
-"namespacetheoretica.html#ab5d63025aa79b7ae116ef3f784f3605e",
-"pseudorandom_8h.html#ad198dee1300488d1b3e51767d62beedf",
-"vec__buff_8h.html#a9647965ac479e8f39a40af4e8d9c805e"
+"algebra_8h.html",
+"classtheoretica_1_1dual.html#a66f41daddf0ad1c91a15fd6760f2774a",
+"classtheoretica_1_1mat.html#ac5140b2d140af1878f51c2d7812a0210",
+"classtheoretica_1_1phasor.html#a6bada02cf307a0895d587e0575b6a4a1",
+"classtheoretica_1_1vec.html#a0a8100b917398d63627a81899bb7d772",
+"dataset_8h.html#a79c3cffe1db6b2cb178d41bfc98b1c41",
+"integration_8h.html#a0c209d0975ad962d9b5e68a3661150ab",
+"namespacetheoretica.html#a39df0b112f893ca611b133774bcc76b8",
+"namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed",
+"odes_8h.html#ad8746a65c6b5bf54a5df9d1506645ef3",
+"statistics_8h.html#ae3bb9ab9b5d37b364981e1082f93e587"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

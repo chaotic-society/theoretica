@@ -8,7 +8,6 @@ var files_dup =
     [ "examples", "dir_d28a4824dc47e487b107a5db32ef43c4.html", "dir_d28a4824dc47e487b107a5db32ef43c4" ],
     [ "interpolation", "dir_264890e5c091f8c8d7fe1f842870c25e.html", "dir_264890e5c091f8c8d7fe1f842870c25e" ],
     [ "optimization", "dir_a57e94efe769f9ed34acbb385fd2b2a4.html", "dir_a57e94efe769f9ed34acbb385fd2b2a4" ],
-    [ "physics", "dir_8250e12e5a19acb8ece30f1703b6dc16.html", "dir_8250e12e5a19acb8ece30f1703b6dc16" ],
     [ "polynomial", "dir_80b12a04080342cac66dddc13ab3e1e7.html", "dir_80b12a04080342cac66dddc13ab3e1e7" ],
     [ "pseudorandom", "dir_7abfcc991e7b5ee9bf0b7bf536481a35.html", "dir_7abfcc991e7b5ee9bf0b7bf536481a35" ],
     [ "statistics", "dir_65ad14ba617219a91653797a9020c4d5.html", "dir_65ad14ba617219a91653797a9020c4d5" ],

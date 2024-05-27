@@ -1,5 +1,5 @@
 var taylor_8h =
 [
-    [ "linear_expansion", "taylor_8h.html#a754c932e3e873fa444e27799cb0e0342", null ],
-    [ "quadratic_expansion", "taylor_8h.html#a45f688396079f3731fdd8027c2347a4b", null ]
+    [ "expand_linear", "taylor_8h.html#ac283de0137c7b9b65eeeb8cdeb5b1d0f", null ],
+    [ "expand_quadratic", "taylor_8h.html#abfb5a062851fab757d29c2c2d30c3034", null ]
 ];

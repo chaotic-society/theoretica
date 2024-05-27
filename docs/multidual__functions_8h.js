@@ -4,6 +4,7 @@ var multidual__functions_8h =
     [ "acos", "multidual__functions_8h.html#afcf0ac356621f93c30fc6bdd9a1977a3", null ],
     [ "asin", "multidual__functions_8h.html#a5b9fac1b91317d696fc2b4ea479b30b9", null ],
     [ "atan", "multidual__functions_8h.html#a0f31ace8ee7a5730ba7f0b1a60df5835", null ],
+    [ "conjugate", "multidual__functions_8h.html#ab554a86db7527158fdd4f3fa000989af", null ],
     [ "cos", "multidual__functions_8h.html#ac8ac8631aae8f4c3ae5dc63cbabc57c8", null ],
     [ "cosh", "multidual__functions_8h.html#ae2b0ad9b86faf6ab2d308f9f76d31010", null ],
     [ "cot", "multidual__functions_8h.html#ac8839aa97612a40db14f1c8818b463d0", null ],

@@ -13,5 +13,6 @@ var searchData=
   ['min_5fval_10',['min_val',['../classtheoretica_1_1histogram.html#a15c511d16e423252222e3024872f69cc',1,'theoretica::histogram']]],
   ['mingrad_5fgamma_11',['MINGRAD_GAMMA',['../namespacetheoretica.html#ab33f363492da480d62e2e0b5ad2c4ee9',1,'theoretica']]],
   ['mingrad_5fmax_5fiter_12',['MINGRAD_MAX_ITER',['../namespacetheoretica.html#acd4ef8ed777e402e2ae0c7f736ba20cb',1,'theoretica']]],
-  ['mingrad_5ftolerance_13',['MINGRAD_TOLERANCE',['../namespacetheoretica.html#a5ebee50e5a5a80baaa6532a736ce7d55',1,'theoretica']]]
+  ['mingrad_5ftolerance_13',['MINGRAD_TOLERANCE',['../namespacetheoretica.html#a5ebee50e5a5a80baaa6532a736ce7d55',1,'theoretica']]],
+  ['modulus_14',['modulus',['../classtheoretica_1_1phasor.html#a0d4254d619edb4e6cd560f44bdd7aa85',1,'theoretica::phasor']]]
 ];

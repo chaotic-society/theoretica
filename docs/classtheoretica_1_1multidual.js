@@ -1,12 +1,12 @@
 var classtheoretica_1_1multidual =
 [
     [ "multidual", "classtheoretica_1_1multidual.html#af9e0465d651001b25de2872d5e6d8e3a", null ],
-    [ "multidual", "classtheoretica_1_1multidual.html#ae57559ddf564bc0104e7a22f9b0d8cd9", null ],
+    [ "multidual", "classtheoretica_1_1multidual.html#a6a9fd6e046ccc0225207d53219e3ab17", null ],
     [ "multidual", "classtheoretica_1_1multidual.html#ab189d796f9f13a25d89e0e6fb41e38ef", null ],
-    [ "multidual", "classtheoretica_1_1multidual.html#aae6910a16d6caed3de974fbf5a349426", null ],
     [ "conjugate", "classtheoretica_1_1multidual.html#aeebcdca3f57a9f6f15f31b6638dbf55c", null ],
-    [ "Dual", "classtheoretica_1_1multidual.html#ac06ca96e1b4354a1790057d65d593383", null ],
+    [ "Dual", "classtheoretica_1_1multidual.html#a9fd0e82025184b4a165b483b9bf64cb6", null ],
     [ "inverse", "classtheoretica_1_1multidual.html#abff404cfd9e0d9e7faa85c0a807183b9", null ],
+    [ "operator std::string", "classtheoretica_1_1multidual.html#a87acbbe4cdd77f45947caa308e384096", null ],
     [ "operator*", "classtheoretica_1_1multidual.html#a45c62574dbf774c8a658b7db985d70a6", null ],
     [ "operator*", "classtheoretica_1_1multidual.html#a5e77f80b799dc1e0bafd2d855dd4e7c3", null ],
     [ "operator*=", "classtheoretica_1_1multidual.html#a287b5ddff22f29c840a1b88ead40d095", null ],
@@ -28,6 +28,8 @@ var classtheoretica_1_1multidual =
     [ "operator=", "classtheoretica_1_1multidual.html#afd167e6aeffefc56d83429671fa8c031", null ],
     [ "operator==", "classtheoretica_1_1multidual.html#a1a7b958ec9e3f66b1c47a0679b19b603", null ],
     [ "Re", "classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3", null ],
+    [ "resize", "classtheoretica_1_1multidual.html#aee3b3b06ee0491a6fdd91a543ab07ea1", null ],
+    [ "size", "classtheoretica_1_1multidual.html#a3ef596a91554f0ea02b26b7e84c28404", null ],
     [ "to_string", "classtheoretica_1_1multidual.html#ab743ed53a4df22caed47a851f32bdaa9", null ],
     [ "operator<<", "classtheoretica_1_1multidual.html#a3b18acb574b44db20dc8913748da7940", null ]
 ];

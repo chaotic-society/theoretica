@@ -93,9 +93,7 @@ $(document).ready(function(){initNavTree('mat_8h.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">mat.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -104,18 +102,29 @@ $(document).ready(function(){initNavTree('mat_8h.html',''); initResizable(); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;ostream&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="error_8h_source.html">../core/error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">../core/constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="algebra_8h_source.html">./algebra.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="vec_8h_source.html">./vec.h</a>&quot;</code><br />
-<code>#include &lt;array&gt;</code><br />
 </div>
 <p><a href="mat_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html">theoretica::mat&lt; N, K &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic matrix with real entries.  <a href="classtheoretica_1_1mat.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html">theoretica::mat&lt; Type, N, K &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic matrix with a fixed number of rows and columns.  <a href="classtheoretica_1_1mat.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_1_1mat__iterator.html">theoretica::mat&lt; Type, N, K &gt;::mat_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sequential iterator for statically allocated matrices, iterates the matrix element by element in the order that it is stored in memory (row-first vs column-first).  <a href="classtheoretica_1_1mat_1_1mat__iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html">theoretica::mat&lt; Type, 0, 0 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic matrix with a variable number of rows and columns.  <a href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4_1_1mat__iterator.html">theoretica::mat&lt; Type, 0, 0 &gt;::mat_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sequential iterator for dynamically allocated matrices, iterates the matrix element by element in the order that it is stored in memory (row-first vs column-first).  <a href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4_1_1mat__iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -123,34 +132,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a33850a221dc370e7a23083dd94a9abed"><td class="memItemLeft" align="right" valign="top"><a id="a33850a221dc370e7a23083dd94a9abed" name="a33850a221dc370e7a23083dd94a9abed"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::mat2</b> = mat&lt; 2, 2 &gt;</td></tr>
-<tr class="memdesc:a33850a221dc370e7a23083dd94a9abed"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 2x2 matrix with real entries. <br /></td></tr>
-<tr class="separator:a33850a221dc370e7a23083dd94a9abed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2899e9929670cbd58f39d6f1642ce19"><td class="memItemLeft" align="right" valign="top"><a id="ae2899e9929670cbd58f39d6f1642ce19" name="ae2899e9929670cbd58f39d6f1642ce19"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::mat3</b> = mat&lt; 3, 3 &gt;</td></tr>
-<tr class="memdesc:ae2899e9929670cbd58f39d6f1642ce19"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 3x3 matrix with real entries. <br /></td></tr>
-<tr class="separator:ae2899e9929670cbd58f39d6f1642ce19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae28e3d5a1e0743ea34a6c627c47b421b"><td class="memItemLeft" align="right" valign="top"><a id="ae28e3d5a1e0743ea34a6c627c47b421b" name="ae28e3d5a1e0743ea34a6c627c47b421b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::mat4</b> = mat&lt; 4, 4 &gt;</td></tr>
-<tr class="memdesc:ae28e3d5a1e0743ea34a6c627c47b421b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 4x4 matrix with real entries. <br /></td></tr>
-<tr class="separator:ae28e3d5a1e0743ea34a6c627c47b421b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a46133a50196ddb171e0cf6a16321c92c"><td class="memTemplParams" colspan="2"><a id="a46133a50196ddb171e0cf6a16321c92c" name="a46133a50196ddb171e0cf6a16321c92c"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a46133a50196ddb171e0cf6a16321c92c"><td class="memTemplItemLeft" align="right" valign="top">vec&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::solve</b> (mat&lt; N, N &gt; A, vec&lt; N &gt; b)</td></tr>
-<tr class="memdesc:a46133a50196ddb171e0cf6a16321c92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve a linear system. <br /></td></tr>
-<tr class="separator:a46133a50196ddb171e0cf6a16321c92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702b5e6317a8cb92da28782d857ddc47"><td class="memTemplParams" colspan="2"><a id="a702b5e6317a8cb92da28782d857ddc47" name="a702b5e6317a8cb92da28782d857ddc47"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a702b5e6317a8cb92da28782d857ddc47"><td class="memTemplItemLeft" align="right" valign="top">mat&lt; N, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::solve</b> (mat&lt; N, N &gt; A, mat&lt; N, N &gt; B)</td></tr>
-<tr class="memdesc:a702b5e6317a8cb92da28782d857ddc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve a linear system. <br /></td></tr>
-<tr class="separator:a702b5e6317a8cb92da28782d857ddc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Matrix class and operations. </p>
@@ -160,7 +141,7 @@ template&lt;unsigned int N&gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="mat_8h.html">mat.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

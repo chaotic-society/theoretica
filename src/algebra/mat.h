@@ -684,7 +684,7 @@ namespace theoretica {
 
 
 
-	/// @class mat
+	/// @class mat<Type,0,0>
 	/// A generic matrix with a variable number of rows and columns.
 	///
 	/// @param Type The type of the elements

@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('function_8h.html',''); initResizable()
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="constants_8h_source.html">./constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="complex_8h_source.html">../complex/complex.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec__buff_8h_source.html">./vec_buff.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 </div>
 <p><a href="function_8h_source.html">Go to the source code of this file.</a></p>
@@ -117,16 +117,16 @@ Namespaces</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ad60d62492ac4137c837c50b1fdc8a904"><td class="memItemLeft" align="right" valign="top"><a id="ad60d62492ac4137c837c50b1fdc8a904" name="ad60d62492ac4137c837c50b1fdc8a904"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::real_function</b> = std::function&lt; real(real)&gt;</td></tr>
-<tr class="memdesc:ad60d62492ac4137c837c50b1fdc8a904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a real function. <br /></td></tr>
+<tr class="memdesc:ad60d62492ac4137c837c50b1fdc8a904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a real function of real variable. <br /></td></tr>
 <tr class="separator:ad60d62492ac4137c837c50b1fdc8a904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4e54892f67a30eff9bede88ed8aad65"><td class="memItemLeft" align="right" valign="top"><a id="aa4e54892f67a30eff9bede88ed8aad65" name="aa4e54892f67a30eff9bede88ed8aad65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::complex_function</b> = std::function&lt; complex(complex)&gt;</td></tr>
-<tr class="memdesc:aa4e54892f67a30eff9bede88ed8aad65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a complex function. <br /></td></tr>
-<tr class="separator:aa4e54892f67a30eff9bede88ed8aad65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5955d73b5602813dca8d4d64bed8466d"><td class="memItemLeft" align="right" valign="top"><a id="a5955d73b5602813dca8d4d64bed8466d" name="a5955d73b5602813dca8d4d64bed8466d"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::stat_function</b> = std::function&lt; real(real, const vec_buff &amp;)&gt;</td></tr>
-<tr class="memdesc:a5955d73b5602813dca8d4d64bed8466d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a statistical function. <br /></td></tr>
-<tr class="separator:a5955d73b5602813dca8d4d64bed8466d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7620593d89c6c46fc98e488683382d1"><td class="memItemLeft" align="right" valign="top"><a id="ae7620593d89c6c46fc98e488683382d1" name="ae7620593d89c6c46fc98e488683382d1"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::complex_function</b> = std::function&lt; complex&lt;&gt;(complex&lt;&gt;)&gt;</td></tr>
+<tr class="memdesc:ae7620593d89c6c46fc98e488683382d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a complex function of complex variable. <br /></td></tr>
+<tr class="separator:ae7620593d89c6c46fc98e488683382d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a0bafb035970e4921b84f75661e2b1"><td class="memItemLeft" align="right" valign="top"><a id="ac7a0bafb035970e4921b84f75661e2b1" name="ac7a0bafb035970e4921b84f75661e2b1"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::stat_function</b> = std::function&lt; real(real, const vec&lt; real &gt; &amp;)&gt;</td></tr>
+<tr class="memdesc:ac7a0bafb035970e4921b84f75661e2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a probability distribution function where the first argument is the variable and the second argument is a vector of the parameters of the distribution. <br /></td></tr>
+<tr class="separator:ac7a0bafb035970e4921b84f75661e2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Mathematical function pointers. </p>
@@ -136,7 +136,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::stat_fun
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="function_8h.html">function.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

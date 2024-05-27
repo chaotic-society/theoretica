@@ -27,7 +27,7 @@
 namespace theoretica {
 
 
-	/// @namespace theoretica::algebra
+	/// @namespace theoretica::algebra Linear algebra routines
 	namespace algebra {
 
 

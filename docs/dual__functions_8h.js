@@ -4,6 +4,7 @@ var dual__functions_8h =
     [ "acos", "dual__functions_8h.html#abd7f07a4d7a0abca49824b5926f259f1", null ],
     [ "asin", "dual__functions_8h.html#a892e7542b82c516e65023555a0e30f6b", null ],
     [ "atan", "dual__functions_8h.html#a6b9ae8cb187999582be3db40cf149f43", null ],
+    [ "conjugate", "dual__functions_8h.html#aec7b08c40c17a7b35ba2b1e3c6c3357b", null ],
     [ "cos", "dual__functions_8h.html#a39630b09f7294762464b1eb5301b508f", null ],
     [ "cosh", "dual__functions_8h.html#a1b8d81973a127a1e66c180cba58d08ee", null ],
     [ "cot", "dual__functions_8h.html#aacdf17b1485bdfb0f967caee134136b6", null ],

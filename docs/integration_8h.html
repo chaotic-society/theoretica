@@ -166,7 +166,7 @@ Functions</h2></td></tr>
 <tr class="separator:ad3f79a7b3f80ff901eba3340d1ba14a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8406b9711bb256a289bb656c4c52e39"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:aa8406b9711bb256a289bb656c4c52e39"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa8406b9711bb256a289bb656c4c52e39">theoretica::integral_legendre</a> (RealFunction f, real a, real b, unsigned int n=16)</td></tr>
-<tr class="memdesc:aa8406b9711bb256a289bb656c4c52e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Legendre quadrature of arbitrary degree to approximate a definite integral.  <a href="namespacetheoretica.html#aa8406b9711bb256a289bb656c4c52e39">More...</a><br /></td></tr>
+<tr class="memdesc:aa8406b9711bb256a289bb656c4c52e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Legendre quadrature of degree 2, 4, 8 or 16, using pre-computed values, to approximate an integral over [a, b].  <a href="namespacetheoretica.html#aa8406b9711bb256a289bb656c4c52e39">More...</a><br /></td></tr>
 <tr class="separator:aa8406b9711bb256a289bb656c4c52e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4a53869de63d5c2daf7790511ce8aac"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:aa4a53869de63d5c2daf7790511ce8aac"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa4a53869de63d5c2daf7790511ce8aac">theoretica::integral_laguerre</a> (RealFunction f, const std::vector&lt; real &gt; &amp;x)</td></tr>
@@ -178,12 +178,20 @@ Functions</h2></td></tr>
 <tr class="separator:a0c209d0975ad962d9b5e68a3661150ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15d3b8d15def86bb228a46811100bca"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:ab15d3b8d15def86bb228a46811100bca"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab15d3b8d15def86bb228a46811100bca">theoretica::integral_laguerre</a> (RealFunction f, unsigned int n=16)</td></tr>
-<tr class="memdesc:ab15d3b8d15def86bb228a46811100bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Laguerre quadrature of degree 2, 4, 8 or 16.  <a href="namespacetheoretica.html#ab15d3b8d15def86bb228a46811100bca">More...</a><br /></td></tr>
+<tr class="memdesc:ab15d3b8d15def86bb228a46811100bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Laguerre quadrature of degree 2, 4, 8 or 16, using pre-computed values, to approximate an integral over [0, +inf).  <a href="namespacetheoretica.html#ab15d3b8d15def86bb228a46811100bca">More...</a><br /></td></tr>
 <tr class="separator:ab15d3b8d15def86bb228a46811100bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbe2540b2ff381a14b61588280cb9016"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:abbe2540b2ff381a14b61588280cb9016"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abbe2540b2ff381a14b61588280cb9016">theoretica::integral_hermite</a> (RealFunction f, const std::vector&lt; real &gt; &amp;x)</td></tr>
 <tr class="memdesc:abbe2540b2ff381a14b61588280cb9016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Hermite quadrature of arbitrary degree to approximate an integral over (-inf, +inf) providing the roots of the n degree Hermite polynomial.  <a href="namespacetheoretica.html#abbe2540b2ff381a14b61588280cb9016">More...</a><br /></td></tr>
 <tr class="separator:abbe2540b2ff381a14b61588280cb9016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd783739794f700157cc7f7d6f9d9632"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:abd783739794f700157cc7f7d6f9d9632"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abd783739794f700157cc7f7d6f9d9632">theoretica::integral_hermite</a> (RealFunction f, unsigned int n=16)</td></tr>
+<tr class="memdesc:abd783739794f700157cc7f7d6f9d9632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Gauss-Hermite quadrature of degree 2, 4, 8 or 16, using pre-computed values, to approximate an integral over (-inf, +inf).  <a href="namespacetheoretica.html#abd783739794f700157cc7f7d6f9d9632">More...</a><br /></td></tr>
+<tr class="separator:abd783739794f700157cc7f7d6f9d9632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c185da4a1deaea582889cbc534989e7"><td class="memItemLeft" align="right" valign="top"><a id="a3c185da4a1deaea582889cbc534989e7" name="a3c185da4a1deaea582889cbc534989e7"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::integral_inf_riemann</b> (real_function f, real a, real step_sz=1, real tol=INTEGRATION_TOL, unsigned int max_iter=100)</td></tr>
+<tr class="memdesc:a3c185da4a1deaea582889cbc534989e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a function from a point up to infinity by integrating it by steps, stopping execution when the variation of the integral is small enough or the number of steps reaches a maximum value. <br /></td></tr>
+<tr class="separator:a3c185da4a1deaea582889cbc534989e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">theoretica::integral</a> (RealFunction f, real a, real b)</td></tr>
 <tr class="memdesc:ae095e7eee4b03eddc3b035b2bde14a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the definite integral of a real function.  <a href="namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e">More...</a><br /></td></tr>
@@ -201,7 +209,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9a0a70b22cd06b0ba8c72fe77098c2e0.html">calculus</a></li><li class="navelem"><a class="el" href="integration_8h.html">integration.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

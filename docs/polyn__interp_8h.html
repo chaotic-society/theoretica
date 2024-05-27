@@ -116,13 +116,14 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9b3f2ff840d6e5dae38dfc1e6176a7be"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
-<tr class="memitem:a9b3f2ff840d6e5dae38dfc1e6176a7be"><td class="memTemplItemLeft" align="right" valign="top">polynomial&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9b3f2ff840d6e5dae38dfc1e6176a7be">theoretica::lagrange_polynomial</a> (const std::vector&lt; vec&lt; 2, T &gt; &gt; &amp;points)</td></tr>
-<tr class="memdesc:a9b3f2ff840d6e5dae38dfc1e6176a7be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Lagrange polynomial interpolating a set of points.  <a href="namespacetheoretica.html#a9b3f2ff840d6e5dae38dfc1e6176a7be">More...</a><br /></td></tr>
-<tr class="separator:a9b3f2ff840d6e5dae38dfc1e6176a7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77c5c6195e30df1e423b0922cc0776e"><td class="memItemLeft" align="right" valign="top">vec_buff&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af77c5c6195e30df1e423b0922cc0776e">theoretica::chebyshev_nodes</a> (real a, real b, unsigned int n)</td></tr>
-<tr class="memdesc:af77c5c6195e30df1e423b0922cc0776e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the n Chebyshev nodes on a given interval.  <a href="namespacetheoretica.html#af77c5c6195e30df1e423b0922cc0776e">More...</a><br /></td></tr>
-<tr class="separator:af77c5c6195e30df1e423b0922cc0776e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b367e4460b8aec5f8c29282f671006"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
+<tr class="memitem:ab8b367e4460b8aec5f8c29282f671006"><td class="memTemplItemLeft" align="right" valign="top">polynomial&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab8b367e4460b8aec5f8c29282f671006">theoretica::lagrange_polynomial</a> (const std::vector&lt; vec&lt; T, 2 &gt; &gt; &amp;points)</td></tr>
+<tr class="memdesc:ab8b367e4460b8aec5f8c29282f671006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Lagrange polynomial interpolating a set of points.  <a href="namespacetheoretica.html#ab8b367e4460b8aec5f8c29282f671006">More...</a><br /></td></tr>
+<tr class="separator:ab8b367e4460b8aec5f8c29282f671006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e8ede5b63e3e928ba06999468f33ef"><td class="memTemplParams" colspan="2">template&lt;typename VectorType  = std::vector&lt;real&gt;&gt; </td></tr>
+<tr class="memitem:a25e8ede5b63e3e928ba06999468f33ef"><td class="memTemplItemLeft" align="right" valign="top">VectorType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a25e8ede5b63e3e928ba06999468f33ef">theoretica::chebyshev_nodes</a> (real a, real b, unsigned int n)</td></tr>
+<tr class="memdesc:a25e8ede5b63e3e928ba06999468f33ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the n Chebyshev nodes on a given interval.  <a href="namespacetheoretica.html#a25e8ede5b63e3e928ba06999468f33ef">More...</a><br /></td></tr>
+<tr class="separator:a25e8ede5b63e3e928ba06999468f33ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dc2216d71f0d7147b5c0dacdeea80db"><td class="memItemLeft" align="right" valign="top">polynomial&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9dc2216d71f0d7147b5c0dacdeea80db">theoretica::interpolate_grid</a> (real_function f, real a, real b, unsigned int order)</td></tr>
 <tr class="memdesc:a9dc2216d71f0d7147b5c0dacdeea80db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the interpolating polynomial of a real function on an equidistant point sample.  <a href="namespacetheoretica.html#a9dc2216d71f0d7147b5c0dacdeea80db">More...</a><br /></td></tr>
 <tr class="separator:a9dc2216d71f0d7147b5c0dacdeea80db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +139,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_264890e5c091f8c8d7fe1f842870c25e.html">interpolation</a></li><li class="navelem"><a class="el" href="polyn__interp_8h.html">polyn_interp.h</a></li>
-    <li class="footer">Generated on Wed Sep 13 2023 16:25:42 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon May 27 2024 16:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

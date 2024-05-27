@@ -1,11 +1,13 @@
 var classtheoretica_1_1histogram =
 [
+    [ "histogram", "classtheoretica_1_1histogram.html#a70075f40f39985dc10974c063c8212d1", null ],
     [ "histogram", "classtheoretica_1_1histogram.html#a24ce8f3305c7986b42f4edc27814c48f", null ],
-    [ "histogram", "classtheoretica_1_1histogram.html#ad8d76cb322d42eab494e9e6a6e7a3429", null ],
+    [ "histogram", "classtheoretica_1_1histogram.html#a69ff48503cdcd11abcc357644cb9f969", null ],
     [ "index", "classtheoretica_1_1histogram.html#a4c6e96deec4f677ac8cdec9f63149910", null ],
     [ "insert", "classtheoretica_1_1histogram.html#acfeeea8ad894735b918789128c64a074", null ],
     [ "mean", "classtheoretica_1_1histogram.html#ad5bd716d6734f1246d8a549f667101ff", null ],
     [ "number", "classtheoretica_1_1histogram.html#afd218d7290763815c3bd62a5b1193361", null ],
+    [ "operator std::string", "classtheoretica_1_1histogram.html#a9a77554b5796e7d2dfa915d62bb007b9", null ],
     [ "stdev", "classtheoretica_1_1histogram.html#a2970d5e096329e83ae7cd6e19aaef49a", null ],
     [ "to_string", "classtheoretica_1_1histogram.html#aa9c1aae7e0979827990f7b7914c8e0ef", null ],
     [ "variance", "classtheoretica_1_1histogram.html#a8b9971be33cd11dd69ed8fe59313e15a", null ],
