@@ -301,6 +301,22 @@ int main(int argc, char const *argv[]) {
 
 	// test_end();
 
+		{
+			prec::equals("th::pow", th::pow(1, 1E+06), 1);
+			prec::equals("th::pow", th::pow(1, -1E+06), 1);
+			prec::equals("th::pow", th::pow(2, 10), (1 << 10));
+			prec::equals("th::pow", th::pow(10, 6), 1E+6);
+			prec::equals("th::pow", th::pow(E, 10) * th::pow(E, -10), 1);
+			prec::equals("th::pow", th::pow(1E-08, 10) * th::pow(1E-08, -10), 1);
+		}
+
+
+		{
+			prec::equals("th::ipow", th::ipow(1, 1E+06), 1);
+			prec::equals("th::ipow", th::ipow(2, 10), (1 << 10));
+			prec::equals("th::ipow", th::ipow(10, 6), 1E+6);
+		}
+
 
 		{
 			prec::equals("th::powf", th::powf(2, 0.5), th::SQRT2);

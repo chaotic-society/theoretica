@@ -605,12 +605,10 @@ namespace theoretica {
 			int i = 1;
 
 			// Self-multiply up to biggest power of 2
-			while ((i * 2) <= n) {
+			for (; i < (n / 2); i *= 2)
 				res = res * res;
-				i *= 2;
-			}
 
-			// Multiply by x^2 for remaining even power
+			// Multiply by x^2 for remaining even powers
 			for (; i < (n - 1); i += 2)
 				res = res * x_sqr;
 
@@ -621,7 +619,7 @@ namespace theoretica {
 			return res;
 
 		} else if(n < 0) {
-			return 1.0 / pow(x, -n);
+			return T(1.0) / pow(x, -n);
 		} else {
 			return 1;
 		}
@@ -634,8 +632,9 @@ namespace theoretica {
 	/// @param neutral_element The neutral element of the given type T
 	/// @return x to the power n
 	///
-	/// @note This function should be preferred when computing the power
-	/// of objects which are not strictly numbers.
+	/// @note This function should be preferred when computing the
+	/// non-negative power of objects which are not strictly numbers
+	/// but have a multiplication operation.
 	template<typename T = real>
 	TH_CONSTEXPR inline T ipow(T x, unsigned int n, T neutral_element = T(1)) {
 
@@ -647,12 +646,10 @@ namespace theoretica {
 		unsigned int i = 1;
 
 		// Self-multiply up to biggest power of 2
-		while ((i * 2) <= n) {
+		for (; i <= (n / 2); i *= 2)
 			res = res * res;
-			i *= 2;
-		}
 
-		// Multiply by x^2 for remaining even power
+		// Multiply by x^2 for remaining even powers
 		for (; i < (n - 1); i += 2)
 			res = res * x_sqr;
 
