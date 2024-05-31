@@ -45,14 +45,14 @@ namespace theoretica {
 		
 			/// Initialize from a vec2
 			dual(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
+				a = v[0];
+				b = v[1];
 			}
 
 			/// Initialize a dual number from a vec2
 			inline dual& operator=(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
+				a = v[0];
+				b = v[1];
 				return *this;
 			}
 
@@ -221,15 +221,15 @@ namespace theoretica {
 			/// Convert a dual number to a vector
 			inline vec2 to_vec() const {
 				vec2 res;
-				res.data[0] = a;
-				res.data[1] = b;
+				res[0] = a;
+				res[1] = b;
 				return res;
 			}
 
 			/// Initialize from a vector
 			inline void from_vec(const vec2& v) {
-				a = v.data[0];
-				b = v.data[1];
+				a = v[0];
+				b = v[1];
 			}
 
 

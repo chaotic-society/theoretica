@@ -16,29 +16,42 @@ namespace theoretica {
 
 	/// 
 	/// @class vec
-	/// An N-dimensional vector of Type elements.
+	/// A statically allocated N-dimensional vector
+	/// with elements of the given type.
 	/// 
 	template<typename Type = real, unsigned int N = 0>
 	class vec {
+		
+		private:		
+			Type data[N];
+
 		public:
 
-		Type data[N];
-
-
+		/// Construct a vector with all
+		/// elements equal to zero.
 		vec() {
 			algebra::vec_zeroes(*this);
 		}
 
 
-		/// Initialize all elements to the same value
-		/// (the size variable is for coherence)
-		vec(Type a, unsigned int size = 0) {
-
-			if(size)
-				resize(size);
+		/// Construct a vector with all elements
+		/// equal to the given value.
+		vec(Type val) {
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] = a;
+				data[i] = val;
+		}
+
+
+		/// Construct a vector with all elements
+		/// equal to the given value, checking that
+		/// the given size matches that of the vector type.
+		vec(unsigned int size, Type val) {
+
+			resize(size);
+
+			for (unsigned int i = 0; i < N; ++i)
+				data[i] = val;
 		}
 
 
@@ -62,7 +75,7 @@ namespace theoretica {
 				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
 					INVALID_ARGUMENT);
 				// Set all elements to NaN
-				*this = vec<Type, N>(nan());
+				*this = vec<Type, N>(Type(nan()));
 				return;
 			}
 
@@ -151,7 +164,7 @@ namespace theoretica {
 		
 			if(other.size() != 3) {
 				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type, N>((Type) nan());
+				return vec<Type, N>(Type(nan()));
 			}
 
 			return algebra::cross(*this, other);
@@ -360,10 +373,10 @@ namespace theoretica {
 
 			if(i >= n) {
 				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
-				return vec<Type, N>(nan(), N);
+				return vec<Type, N>(Type(nan()));
 			}
 
-			vec<Type, N> e_i = vec<Type, N>(0, n);
+			vec<Type, N> e_i = vec<Type, N>(n, Type(0.0));
 			e_i.resize(n);
 			e_i[i] = 1;
 
@@ -422,27 +435,33 @@ namespace theoretica {
 
 	/// 
 	/// @class vec
-	/// A vector of Type elements and variable size.
-	/// 
+	/// A dynamically allocated vector
+	/// with elements of the given type.
+	///
 	template<typename Type>
 	class vec<Type, 0> {
+
+		private:
+			std::vector<Type> data;
+
 		public:
 
-		std::vector<Type> data;
-
+		/// Construct an empty vector.
 		vec() {}
 
 
-		/// Initialize to the given size
+		/// Construct a vector with the given size
+		/// and all elements equal to zero.
 		vec(unsigned int n) {
 			resize(n);
 			algebra::vec_zeroes(*this);
 		}
 
 
-		/// Initialize all elements to the same value
-		vec(Type a, unsigned int n) {
-			data = std::vector<Type>(a, n);
+		/// Construct a vector with the given size
+		/// and all elements equal to the given value
+		vec(unsigned int n, Type a) {
+			data = std::vector<Type>(n, a);
 		}
 
 
@@ -550,7 +569,7 @@ namespace theoretica {
 		
 			if(other.size() != 3) {
 				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type>(nan(), 3);
+				return vec<Type>(3, nan());
 			}
 
 			return algebra::cross(*this, other);
@@ -569,7 +588,7 @@ namespace theoretica {
 
 			if(size() != other.size()) {
 				TH_MATH_ERROR("vec::operator+=", size(), INVALID_ARGUMENT);
-				return (*this = vec<Type>(nan(), size()));
+				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -585,7 +604,7 @@ namespace theoretica {
 
 			if(size() != other.size()) {
 				TH_MATH_ERROR("vec::operator-=", size(), INVALID_ARGUMENT);
-				return (*this = vec<Type>(nan(), size()));
+				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -610,7 +629,7 @@ namespace theoretica {
 
 			if(abs(scalar) < MACH_EPSILON) {
 				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
-				return vec<Type>(nan(), size());
+				return vec<Type>(max(size(), 1), nan());
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -729,10 +748,10 @@ namespace theoretica {
 
 			if(i >= n) {
 				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
-				return vec<Type>(nan(), n);
+				return vec<Type>(n, nan());
 			}
 
-			vec<Type> e_i = vec<Type>(0, n);
+			vec<Type> e_i = vec<Type>(n, Type(0.0));
 			e_i.resize(n);
 			e_i[i] = 1;
 

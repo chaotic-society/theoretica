@@ -58,7 +58,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < y.size(); ++i) {
 
-					res << y.data[i];
+					res << y[i];
 
 					if(i != y.size() - 1)
 						res << separator;
