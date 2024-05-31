@@ -7,7 +7,7 @@
 
 > A numerical and automatic math library for scientific research and graphical applications
 
-Theoretica is a header-only mathematical library which provides algorithms for **systems simulation**, **statistical analysis** of lab data and **numerical approximation**, using a **functional** oriented paradigm to mimic **mathematical notation** and formulas. The aim of the library is to provide _simple_ access to powerful algorithms while keeping an _elegant_ and _transparent_ interface, enabling the user to focus on the problem at hand.
+Theoretica is a header-only mathematical library which provides algorithms for **systems simulation**, **statistical analysis** of experimental data and **numerical approximation**, using a **functional** oriented paradigm to mimic **mathematical notation** and formulas. The aim of the library is to provide _simple_ access to powerful algorithms while keeping an _elegant_ and _transparent_ interface, enabling the user to focus on the problem at hand.
 
 ### A short example
 Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its _exact_ time derivative at a position eta = (q, p) like this:

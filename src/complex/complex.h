@@ -40,7 +40,8 @@ namespace  theoretica {
 
 			/// Construct a complex number from its real
 			/// and complex parts.
-			complex(Type real_part, Type imag_part) : a(real_part), b(imag_part) {}
+			complex(Type real_part, Type imag_part)
+				: a(real_part), b(imag_part) {}
 
 
 			/// Construct a complex number from a real number,

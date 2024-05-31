@@ -56,7 +56,8 @@ namespace theoretica {
 
 
 		/// Copy constructor
-		vec(const vec<Type, N>& other) {
+		template<unsigned int M>
+		vec(const vec<Type, M>& other) {
 			algebra::vec_copy(*this, other);
 		}
 
@@ -466,8 +467,8 @@ namespace theoretica {
 
 
 		/// Copy constructor
-		template<unsigned int N>
-		vec(const vec<Type, N>& other) {
+		template<unsigned int M>
+		vec(const vec<Type, M>& other) {
 			algebra::vec_copy(*this, other);
 		}
 

@@ -25,7 +25,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += pow(abs(v.get(i)), p);
+			sum += pow(abs(v[i]), p);
 
 		return root(sum, p);
 	}
@@ -39,7 +39,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += abs(v.get(i));
+			sum += abs(v[i]);
 
 		return sum;
 	}
@@ -52,7 +52,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += square(v.get(i));
+			sum += square(v[i]);
 
 		return sqrt(sum);
 	}
@@ -63,10 +63,10 @@ namespace theoretica {
 	template<typename Vector>
 	inline real linf_norm(const Vector& v) {
 
-		real res = abs(v.get(0));
+		real res = abs(v[0]);
 
 		for (unsigned int i = 1; i < v.size(); ++i)
-			res = max(res, abs(v.get(i)));
+			res = max(res, abs(v[i]));
 
 		return res;
 	}
@@ -144,7 +144,7 @@ namespace theoretica {
 		complex<T> sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
-			const complex<T> diff = v1.get(i) - conjugate(v2.get(i));
+			const complex<T> diff = v1[i] - conjugate(v2[i]);
 			sum += diff * diff.conjugate();
 		}
 
@@ -203,7 +203,7 @@ namespace theoretica {
 
 			// The vectors differ if a pair of elements differs
 			// more than the given tolerance
-			if(abs(v1.get(i) - v2.get(i)) > tolerance) {
+			if(abs(v1[i] - v2[i]) > tolerance) {
 				diff = true;
 				break;
 			}
@@ -225,7 +225,7 @@ namespace theoretica {
 		real sum = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i)
-			sum += abs(v1.get(i) - v2.get(i)) / (abs(v1.get(i)) + abs(v2.get(i)));
+			sum += abs(v1[i] - v2[i]) / (abs(v1[i]) + abs(v2[i]));
 
 		return sum;
 	}
@@ -245,9 +245,9 @@ namespace theoretica {
 		real sum_sqr_y = 0;
 
 		for (size_t i = 0; i < v1.size(); ++i) {
-			product += v1.get(i) * v2.get(i);
-			sum_sqr_x += square(v1.get(i));
-			sum_sqr_y += square(v2.get(i));
+			product += v1[i] * v2[i];
+			sum_sqr_x += square(v1[i]);
+			sum_sqr_y += square(v2[i]);
 		}
 
 		return product / sqrt(sum_sqr_x * sum_sqr_y);
@@ -268,7 +268,7 @@ namespace theoretica {
 
 		// Count how many elements differ to some tolerance
 		for (unsigned int i = 0; i < v1.size(); ++i)
-			if(abs(v1.get(i) - v2.get(i)) > tolerance)
+			if(abs(v1[i] - v2[i]) > tolerance)
 				count++;
 
 		return count;
