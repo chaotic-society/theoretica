@@ -7,6 +7,7 @@
 #define THEORETICA_SPLINES_H
 
 #include "../core/constants.h"
+#include "../algebra/algebra_types.h"
 
 
 namespace theoretica {

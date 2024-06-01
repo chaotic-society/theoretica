@@ -6,6 +6,11 @@
 #ifndef THEORETICA_VECTOR_H
 #define THEORETICA_VECTOR_H
 
+#ifndef THEORETICA_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
 #include "../core/error.h"
 #include "../core/real_analysis.h"
 #include "./algebra.h"

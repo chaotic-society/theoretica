@@ -7,6 +7,7 @@
 #define THEORETICA_ODES_H
 
 #include "../core/constants.h"
+#include "../algebra/vec.h"
 #include <array>
 
 

@@ -6,6 +6,9 @@
 #ifndef THEORETICA_GAUSS_H
 #define THEORETICA_GAUSS_H
 
+#include "../core/constants.h"
+
+
 namespace theoretica {
 
 	/// @namespace theoretica::tables Tabulated values

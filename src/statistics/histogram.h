@@ -6,7 +6,14 @@
 #ifndef THEORETICA_HISTOGRAM_H
 #define THEORETICA_HISTOGRAM_H
 
+#ifndef THEORETICA_NO_PRINT
+#include <sstream>
+#include <ostream>
+#endif
+
+#include <vector>
 #include "../core/real_analysis.h"
+#include "../core/dataset.h"
 
 
 namespace theoretica {
@@ -82,7 +89,9 @@ namespace theoretica {
 			}
 		
 
-			/// Insert a new data point inside the histogram
+			/// Insert a new data point inside the histogram.
+			/// 
+			/// @param x The value to insert
 			inline void insert(real x) {
 
 				if(x < range_min || x > range_max)
@@ -99,7 +108,13 @@ namespace theoretica {
 			}
 
 
-			/// Find the index corresponding to a given data point
+			/// Find the index corresponding to a given data point.
+			///
+			/// @param x The value to find the bin index of
+			/// (must be between range_min and range_max)
+			///
+			/// @note This function does not check whether the
+			/// value is between range_min and range_max.
 			inline unsigned int index(real x) const {
 
 				if(abs(x - range_max) < MACH_EPSILON)
@@ -118,6 +133,7 @@ namespace theoretica {
 			inline unsigned int number() {
 				return N;
 			}
+
 
 			/// Get the mean value of the histogram data
 			inline real mean() const {

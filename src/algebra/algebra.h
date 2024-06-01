@@ -441,7 +441,7 @@ namespace theoretica {
 		}
 
 
-		/// Invert the given matrix and overwrite it.
+		/// Invert the given matrix.
 		/// Equivalent to the operation dest = src^-1
 		/// @param dest The matrix to overwrite
 		/// @param src The matrix to invert

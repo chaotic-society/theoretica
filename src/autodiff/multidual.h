@@ -12,6 +12,7 @@
 #endif
 
 #include "../algebra/vec.h"
+#include "../algebra/mat.h"
 
 
 namespace theoretica {

@@ -6,13 +6,16 @@
 #ifndef THEORETICA_DATASET_H
 #define THEORETICA_DATASET_H
 
-#include <type_traits>
-#include "./constants.h"
-
 #ifndef THEORETICA_NO_PRINT
 #include <sstream>
 #include <ostream>
 #endif
+
+#include <type_traits>
+
+#include "./constants.h"
+#include "./error.h"
+#include "../algebra/vec.h"
 
 
 namespace theoretica {
@@ -202,15 +205,6 @@ namespace theoretica {
 	/// @param X The vector of values to sum
 	template<unsigned int N>
 	inline auto sum(const vec<real, N>& X) {
-		return sum_pairwise(X);
-	}
-
-
-	/// Compute the sum of a vector of real values
-	/// using pairwise summation to reduce round-off error.
-	///
-	/// @param X The vector of values to sum
-	inline auto sum(const std::vector<real>& X) {
 		return sum_pairwise(X);
 	}
 

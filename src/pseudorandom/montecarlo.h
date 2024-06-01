@@ -9,6 +9,7 @@
 #include "./prng.h"
 #include "./quasirandom.h"
 #include "./sampling.h"
+#include "../algebra/algebra_types.h"
 
 
 namespace theoretica {
@@ -104,7 +105,9 @@ namespace theoretica {
 		
 			vec<real, S> v;
 			for (unsigned int k = 0; k < S; ++k)
-				v[k] = extremes[k][0] + (qrand_weyl(i, alpha[k]) * (extremes[k][1] - extremes[k][0]));
+				v[k] = extremes[k][0]
+					+ (qrand_weyl(i, alpha[k])
+						* (extremes[k][1] - extremes[k][0]));
 
 			sum_y += f(v);
 		}

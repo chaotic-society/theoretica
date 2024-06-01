@@ -8,7 +8,10 @@
 
 #include <vector>
 #include <cstdint>
+
 #include "../core/bit_op.h"
+#include "../core/error.h"
+
 
 namespace theoretica {
 

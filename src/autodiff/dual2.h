@@ -13,6 +13,7 @@
 
 #include "../core/error.h"
 #include "../core/constants.h"
+#include "../algebra/algebra_types.h"
 
 
 namespace theoretica {

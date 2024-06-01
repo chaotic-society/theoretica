@@ -7,7 +7,7 @@
 #define THEORETICA_QUASIRANDOM_H
 
 #include "../core/real_analysis.h"
-#include "../algebra/vec.h"
+#include "../algebra/algebra_types.h"
 
 
 namespace theoretica {

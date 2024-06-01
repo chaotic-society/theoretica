@@ -9,7 +9,7 @@
 #include <vector>
 #include "../core/real_analysis.h"
 #include "../polynomial/polynomial.h"
-#include "../algebra/vec.h"
+#include "../algebra/algebra_types.h"
 #include "../core/function.h"
 
 

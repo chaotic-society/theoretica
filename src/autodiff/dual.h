@@ -13,6 +13,7 @@
 
 #include "../core/error.h"
 #include "../core/constants.h"
+#include "../algebra/algebra_types.h"
 
 
 namespace theoretica {
@@ -71,13 +72,45 @@ namespace theoretica {
 			}
 
 			/// Return real part
-			inline real Re() const {
+			inline const real& Re() const {
 				return a;
 			}
 
+			/// Return real part
+			inline real& Re() {
+				return a;
+			}
+
+			/// Extract the real part of the dual number
+			inline friend real Re(const dual& d) {
+				return d.a;
+			}
+
+
+			/// Extract the real part of the dual number
+			inline friend real& Re(dual& d) {
+				return d.a;
+			}
+
 			/// Return dual part
-			inline real Dual() const {
+			inline const real& Dual() const {
 				return b;
+			}
+
+			/// Return dual part
+			inline real& Dual() {
+				return b;
+			}
+
+			/// Extract the real part of the dual number
+			inline friend real Dual(const dual& d) {
+				return d.b;
+			}
+
+
+			/// Extract the real part of the dual number
+			inline friend real& Dual(dual& d) {
+				return d.b;
 			}
 
 			/// Get the dual conjugate
