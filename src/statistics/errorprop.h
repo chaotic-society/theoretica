@@ -1,6 +1,6 @@
 
 ///
-/// @file erroprop.h Automatic propagation of uncertainties on arbitrary functions
+/// @file errorprop.h Automatic propagation of uncertainties on arbitrary functions
 ///
 
 #ifndef THEORETICA_ERRORPROP_H

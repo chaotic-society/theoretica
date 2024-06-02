@@ -1,6 +1,6 @@
 
 ///
-/// @file algebra/vectorized_functions.h Vectorized functions to
+/// @file vectorized.h Vectorized functions to
 /// evaluate a function over a vector element-wise.
 ///
 

@@ -4,7 +4,7 @@ all: test examples
 OPENMP = -fopenmp
 
 ifdef DISABLE_OPENMP
-	OPENMP = 
+	OPENMP = -DTHEORETICA_DISABLE_OPENMP
 endif
 
 CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}

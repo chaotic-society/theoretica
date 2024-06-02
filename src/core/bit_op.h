@@ -68,7 +68,7 @@ namespace theoretica {
 
 	/// Bit rotation of unsigned integer types using shifts.
 	///
-	/// @param x The variable to rotate the bits of
+	/// @param x The non-negative integer to rotate the bits of
 	/// @param i The index of the rotated bits
 	template<typename UnsignedIntType>
 	inline UnsignedIntType bit_rotate(UnsignedIntType x, unsigned int i) {

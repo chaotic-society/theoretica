@@ -1,3 +1,8 @@
+
+///
+/// @file multi_roots.h Numerical methods for multivariate root finding
+///
+
 #ifndef THEORETICA_MULTI_ROOTS_H
 #define THEORETICA_MULTI_ROOTS_H
 
