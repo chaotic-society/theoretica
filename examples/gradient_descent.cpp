@@ -27,11 +27,13 @@ int main() {
 
     // Use the best available algorithm to find
     // a minimum of the function starting from
-    // a guess.
+    // a guess of x = 1 and y = 1.
+
     vec2 x = minimize<2>(f, {1, 1});
+
+    // When using fixed-size containers, you may need to
+    // specify the size by template argument.
 
     std::cout << "min at x = " << x << std::endl;
     std::cout << "f(x) = " << f(x) << std::endl;
- 
-    return 0;
 }

@@ -16,7 +16,7 @@ constexpr unsigned int N = 3;
 // Dimension of phase space
 constexpr unsigned int M = 2 * N;
 
-// M-dimensional symplectic matrix
+// MxM symplectic matrix
 const auto M_symplectic = mat<real, M, M>::symplectic();
 
 
@@ -60,13 +60,11 @@ int main(int argc, char const *argv[]) {
 	// Output file
 	std::ofstream file("hamiltonian.dat");
 
+	// Compute the trajectory using Runge-Kutta's method.
 	for (unsigned int i = 0; i < iterations; ++i) {
 
 		state = ode_rk4(f, state, dt);
 		file << state << std::endl;
 	}
-
-	file.close();
-
-	return 0;
+	
 }

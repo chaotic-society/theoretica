@@ -1,7 +1,10 @@
 
 ///
 /// @file autodiff.cpp Automatic differentiation example.
-/// This example may be compiled using 'make autodiff'
+/// This example illustrates how to use multivariate
+/// automatic differentiation using the autodiff module
+/// and the multidual<N> class.
+/// You can compile it using 'make autodiff'
 ///
 
 #include <iostream>
@@ -29,7 +32,10 @@ vec<NumType, 2> g(vec<NumType, 2> v) {
 	const NumType x = v[0];
 	const NumType y = v[1];
 
-	return {th::sqrt(x * y), x / y};
+	return {
+		th::sqrt(x * y),
+		x / y
+	};
 }
 
 
@@ -57,7 +63,7 @@ int main() {
 
 	// Compute the Jacobian matrix of g(x, y)
 	// Note that you may need to specify the input and output size
-	// for template deduction, unlike the other functions.
+	// for template deduction, when using fixed size containers.
 	std::cout << "jacobian(g):\n" << jacobian<2, 2>(g, v) << std::endl;
 
 	return 0;

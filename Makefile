@@ -1,14 +1,21 @@
+
 default_target: all
 all: test examples
 
+
+# Compiler flag for OpenMP
 OPENMP = -fopenmp
 
+# Disable OpenMP if DISABLE_OPENMP is defined
 ifdef DISABLE_OPENMP
 	OPENMP = -DTHEORETICA_DISABLE_OPENMP
 endif
 
+# Compiler flags
 CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
 
+
+# Compile a simple example program
 example:
 	@echo Compiling quickstart example program...
 	@g++ examples/example.cpp ${CXXFLAGS} -o ./examples/example
@@ -72,6 +79,7 @@ ifndef windows_build
 	@./test/test_statistics
 endif
 
+# Compile all test programs and run them
 test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom test_statistics
 
 
@@ -121,6 +129,7 @@ random_walk:
 	@echo Compiling \"Random walk\" example...
 	@g++ examples/random_walk.cpp ${CXXFLAGS} -o ./examples/random_walk
 
+# Compile all examples
 examples: example autodiff hamiltonian error_propagation \
 		  statistics sampling montecarlo_integral gradient_descent \
 		  logfit attractor histogram random_walk
@@ -148,9 +157,11 @@ benchmark_vectorized:
 	@g++ benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_vectorized
 	@./benchmark/benchmark_vectorized
 
+# Compile all benchmarks and run them
 benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_vectorized
 
 
+# Clean all directories from CSV and EXE files
 clean:
 	@rm -f ./test/*.csv
 	@rm -f ./benchmark/*.csv

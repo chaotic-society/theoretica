@@ -13,7 +13,7 @@ using namespace th;
 
 
 // Output data filename
-const std::string filename = "attractor.dat";
+const std::string filename = "examples/attractor.dat";
 
 // Initial conditions of the system
 const vec3 initial_conditions = {0.1, 0, 0};
@@ -68,6 +68,4 @@ int main() {
         // Print the state to file
         file << state << std::endl;
     }
-
-    return 0;
 }

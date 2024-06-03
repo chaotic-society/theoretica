@@ -29,38 +29,39 @@ int main(int argc, char const *argv[]) {
 	real mu1 = 1, mu2 = 2, mu3 = 3;
 	real stdev1 = 0.2, stdev2 = 0.1, stdev3 = 0.4;
 
+	// Sample size
+	const unsigned int N = 1E+06;
+
 
 	// Random generators
-	PRNG g = PRNG::xoshiro(time(nullptr));
-	pdf_sampler gauss = pdf_sampler::gaussian(0, 1, g);
+	PRNG g = PRNG::wyrand(time(nullptr));
+	pdf_sampler gauss1 = pdf_sampler::gaussian(mu1, stdev1, g);
+	pdf_sampler gauss2 = pdf_sampler::gaussian(mu2, stdev2, g);
+	pdf_sampler gauss3 = pdf_sampler::gaussian(mu3, stdev3, g);
 
-	std::vector<std::vector<real>> data;
-	data.resize(3);
+
+	// Allocate space for 3 datasets of size N
+	auto datasets = std::vector<vec<real>>(3, vec<>(N));
 
 
 	// Simulate a toy experiment with Gaussian deviations
-	for (int i = 0; i < 1000; ++i) {
-		data[0].push_back(mu1 + gauss() * stdev1);
-		data[1].push_back(mu2 + gauss() * stdev2);
-		data[2].push_back(mu3 + gauss() * stdev3);
-	}
+	gauss1.fill(datasets[0]);
+	gauss2.fill(datasets[1]);
+	gauss3.fill(datasets[2]);
 
 
 	// Compute the covariance matrix
-	std::cout << covar_mat(data) << std::endl;
+	std::cout << covar_mat(datasets) << std::endl;
 
 
 	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << error_propagation(f, data) << std::endl;
-
+	std::cout << error_propagation(f, datasets) << std::endl;
 
 	// Propagate using only the standard deviation
 	std::cout << error_propagation(f,
-		vec<>({ mean(data[0]), mean(data[1]), mean(data[2]) }),
-		vec<>({ smpl_stdev(data[0]), smpl_stdev(data[1]), smpl_stdev(data[2]) })
+		vec<>({ mean(datasets[0]), mean(datasets[1]), mean(datasets[2]) }),
+		vec<>({ smpl_stdev(datasets[0]), smpl_stdev(datasets[1]), smpl_stdev(datasets[2]) })
 	) << std::endl;
-
-	return 0;
 }

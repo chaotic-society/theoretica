@@ -65,6 +65,7 @@
 // Complex and quaternion functions
 #include "./complex/complex_analysis.h"
 #include "./complex/phasor.h"
+#include "./complex/complex_types.h"
 
 // Derivative and integral approximation
 #include "./calculus/derivation.h"

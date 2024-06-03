@@ -1,6 +1,6 @@
 
 ///
-/// @file montecarlo_integral.cpp A comparison between Monte Carlo techniques
+/// @file montecarlo_integral.cpp A comparison between Monte Carlo techniques.
 /// This example may be compiled using 'make montecarlo_integral'
 ///
 
@@ -28,8 +28,10 @@ int main() {
     std::cout.precision(8);
     std::cout << std::endl;
     std::cout << " N\tErr. HOM\tErr. Crude\tErr. q. HOM\tErr. q. Crude\n ";
+
     for (int i = 0; i < 80; ++i)
         std::cout << "-";
+    
     std::cout << std::endl;
 
 

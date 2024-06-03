@@ -12,13 +12,13 @@
 using namespace th;
 
 
-int main(int argc, char const *argv[]) {
+int main() {
 
 
 	std::vector<real> X;
 
 	// Get the data from standard input
-	std::cout << "Insert X (write END to stop):" << std::endl;
+	std::cout << "Insert dataset (write END to stop):" << std::endl;
 	insert_data(X, "END");
 
 

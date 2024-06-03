@@ -14,9 +14,10 @@ using namespace th;
 
 int main(int argc, char const *argv[]) {
 
-	std::cout.precision(4);
+	// Sample size
+	const unsigned int N = 10000;
 
-	// Ouput files
+	// Output files
 	std::ofstream f_uniform = std::ofstream("./examples/data/uniform.csv");
 	std::ofstream f_gaussian = std::ofstream("./examples/data/gaussian.csv");
 	std::ofstream f_exponential = std::ofstream("./examples/data/exponential.csv");
@@ -26,17 +27,17 @@ int main(int argc, char const *argv[]) {
 	PRNG g = PRNG::xoshiro(time(nullptr));
 
 	// Discard the first 10000 values
-	// to get better results
+	// to get better results from the PRNG
 	g.discard(10000);
 
-	// Generate 1000 values
-	for (int i = 0; i < 1000; ++i) {
+	// Generate N values
+	for (unsigned int i = 0; i < N; ++i) {
 
 		// Generate a random variable following a uniform distribution
 		// in the interval [0, 1]
 		f_uniform << rand_uniform(0, 1, g) << ",\n";
 		
-		// Generate a random variable following a gaussian distribution
+		// Generate a random variable following a Gaussian distribution
 		// with mean = 0 and standard deviation = 1
 		f_gaussian << rand_gaussian(0, 1, g) << ",\n";
 
@@ -48,6 +49,4 @@ int main(int argc, char const *argv[]) {
 		// with location 0 and scale 1
 		f_cauchy << rand_cauchy(0, 1, g) << ",\n";
 	}
-
-	return 0;
 }
