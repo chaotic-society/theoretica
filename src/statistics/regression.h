@@ -513,6 +513,13 @@ namespace theoretica {
 			}
 
 
+			/// Compute the expected Y value for the given X
+			/// value, following the computed model.
+			inline real operator()(real x) {
+				return A + B * x;
+			}
+
+
 #ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation

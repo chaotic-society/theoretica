@@ -48,7 +48,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
 
 ## Dependencies
-The library has no dependencies. Only the C++ Standard Library with C++11 capabilities is needed to use it. **You can include it in your project straight away!**
+The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.

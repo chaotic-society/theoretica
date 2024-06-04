@@ -365,6 +365,9 @@ namespace  theoretica {
 
 				std::stringstream res;
 
+				// TO-DO Check whether Type has comparison
+				// operators (bicomplex with Type=complex !)
+
 				res << a;
 				res << (b >= 0 ? " + " : " - ");
 				
