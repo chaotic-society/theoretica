@@ -22,7 +22,7 @@ NumType f(vec<NumType> v) {
 }
 
 
-int main(int argc, char const *argv[]) {
+int main() {
 
 
 	// Parameters of the toy experiment

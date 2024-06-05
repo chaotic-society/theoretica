@@ -18,12 +18,14 @@ namespace theoretica {
 
 
 	/// Find candidate intervals for root finding
-	/// @param f The function of real variable
+	///
+	/// @param f A function of real variable
 	/// @param a The lower extreme of the region of interest
 	/// @param b The upper extreme of the region of interest
 	/// @param steps The number of subintervals to check (optional)
 	template<typename RealFunction>
-	inline std::vector<vec2> find_root_intervals(RealFunction f, real a, real b, unsigned int steps = 10) {
+	inline std::vector<vec2> find_root_intervals(
+		RealFunction f, real a, real b, unsigned int steps = 10) {
 
 		std::vector<vec2> res;
 		const real dx = (b - a) / (real) steps;
@@ -43,6 +45,13 @@ namespace theoretica {
 
 	/// Approximate a root of an arbitrary function using bisection
 	/// inside a compact interval [a, b] where f(a) * f(b) < 0
+	///
+	/// @param f The real function to search the root of.
+	/// @param a The lower extreme of the interval.
+	/// @param b The upper extreme of the interval.
+	/// @param tolerance The minimum size of the bound to stop the algorithm.
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_bisection(
 		RealFunction f, real a, real b, real tolerance = BISECTION_APPROX_TOL) {
@@ -81,6 +90,12 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Newton's method
+	///
+	/// @param f The real function to search the root of.
+	/// @param Df The derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_newton(RealFunction f, RealFunction Df, real guess = 0) {
 
@@ -103,7 +118,13 @@ namespace theoretica {
 
 
 	/// Approximate a root of an arbitrary function using Newton's method,
-	/// computing the derivative using automatic differentiation
+	/// computing the derivative using automatic differentiation.
+	///
+	/// @param f The real function to search the root of,
+	/// with dual argument and return value.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	inline real root_newton(dual(*f)(dual), real guess = 0) {
 
 		real x = guess;
@@ -128,7 +149,12 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of a polynomial using Newton's method
+	/// Approximate a root of a polynomial using Newton's method.
+	///
+	/// @param p The polynomial to search the root of.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the polynomial,
+	/// or NaN if the algorithm did not converge.
 	inline real root_newton_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -152,13 +178,15 @@ namespace theoretica {
 	/// Approximate a root of an arbitrary complex function
 	/// using Newton's method,
 	///
-	/// @param f The complex function to find the root of
+	/// @param f The complex function to search the root of
 	/// @param df The derivative of the function
-	/// @param guess The initial guess, defaults to 0
+	/// @param guess The initial guess (defaults to 0).
 	/// @param tolerance The minimum tolerance to stop the algorithm
 	/// when reached.
 	/// @param max_iter The maximum number of iterations before stopping
-	/// the algorithm.
+	/// the algorithm (defaults to MAX_NEWTON_ITER).
+	/// @return The coordinate of the root of the function,
+	/// or a complex NaN if the algorithm did not converge.
 	inline complex<> root_newton(
 		complex<>(*f)(complex<>),
 		complex<>(*df)(complex<>),
@@ -169,12 +197,12 @@ namespace theoretica {
 		complex<> z = guess;
 		unsigned int iter = 0;
 
-		while(abs(f(z)) > tolerance && iter <= MAX_NEWTON_ITER) {
+		while(abs(f(z)) > tolerance && iter <= max_iter) {
 			z = z - (f(z) / df(z));
 			iter++;
 		}
 
-		if(iter > MAX_NEWTON_ITER) {
+		if(iter > max_iter) {
 			TH_MATH_ERROR("root_newton", z.Re(), NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -183,7 +211,14 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Halley's method
+	/// Approximate a root of an arbitrary function using Halley's method.
+	///
+	/// @param f The real function to search the root of.
+	/// @param Df The first derivative of the function.
+	/// @param D2f The second derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_halley(RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
@@ -205,7 +240,15 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Halley's method
+	/// Approximate a root of an arbitrary function using Halley's method,
+	/// leveraging automatic differentiation to compute the first and second
+	/// derivatives of the function.
+	///
+	/// @param f The real function to search the root of,
+	/// with dual2 argument and return value.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	inline real root_halley(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
@@ -231,7 +274,12 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of a polynomial using Halley's method
+	/// Approximate a root of a polynomial using Halley's method.
+	///
+	/// @param p The polynomial to search the root of.
+	/// @guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the polynomial,
+	/// or NaN if the algorithm did not converge.
 	inline real root_halley_polyn(polynomial<real> p, real guess = 0) {
 
 		polynomial<> Dp = deriv_polynomial(p);
@@ -253,7 +301,12 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Steffensen's method
+	/// Approximate a root of an arbitrary function using Steffensen's method.
+	///
+	/// @param f The real function to search the root of.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_steffensen(RealFunction f, real guess = 0) {
 
@@ -276,7 +329,12 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of a polynomial using Steffensen's method
+	/// Approximate a root of a polynomial using Steffensen's method.
+	///
+	/// @param p The polynomial to search the root of.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	inline real root_steffensen_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -296,7 +354,14 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Chebyshev's method
+	/// Approximate a root of an arbitrary function using Chebyshev's method.
+	///
+	/// @param f The real function to search the root of.
+	/// @param Df The first derivative of the function.
+	/// @param D2f The second derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_chebyshev(RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
@@ -318,7 +383,14 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of an arbitrary function using Chebyshev's method
+	/// Approximate a root of an arbitrary function using Chebyshev's method,
+	/// by computing the first and second derivatives using automatic differentiation.
+	///
+	/// @param f The real function to search the root of,
+	/// with dual2 argument and return value.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	inline real root_chebyshev(dual2(*f)(dual2), real guess = 0) {
 
 		real x = guess;
@@ -345,7 +417,12 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a root of a polynomial using Chebyshev's method
+	/// Approximate a root of a polynomial using Chebyshev's method.
+	///
+	/// @param p The polynomial to search the root of.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
 	inline real root_chebyshev_polyn(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
@@ -367,11 +444,14 @@ namespace theoretica {
 	}
 
 
-	/// Find the roots of a function inside a given interval
-	/// @param f The function of real variable
-	/// @param a The lower extreme of the interval
-	/// @param b The upper extreme of the interval
-	/// @param steps The number of subintervals to check for alternating sign (optional)
+	/// Find the roots of a function inside a given interval.
+	///
+	/// @param f The real function to search the root of.
+	/// @param a The lower extreme of the search interval.
+	/// @param b The upper extreme of the search interval.
+	/// @param steps The number of sub-intervals to check
+	/// for alternating sign (optional).
+	/// @return A vector of the roots of the function that were found.
 	///
 	/// @note If the number of roots inside the interval is completely unknown,
 	/// using many more steps should be preferred, to ensure all roots are found.
@@ -416,10 +496,12 @@ namespace theoretica {
 
 
 	/// Find all the roots of a polynomial.
-	/// A bound on roots is found using Cauchy's theorem.
-	/// @param p The polynomial
-	/// @param steps The number of steps to use (defaults to twice the polynomial's order)
-	/// @return The list of the roots of the polynomial
+	/// An interval bound on the roots is found using Cauchy's theorem.
+	///
+	/// @param p The polynomial to search the roots of.
+	/// @param steps The number of steps to use
+	/// (defaults to twice the polynomial's order).
+	/// @return A vector of the roots of the polynomial that were found.
 	template<typename Field>
 	inline std::vector<Field> roots(
 		polynomial<Field> p, real tolerance = BISECTION_APPROX_TOL,

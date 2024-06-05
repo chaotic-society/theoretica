@@ -17,7 +17,7 @@ using namespace th;
 // splot "random_walk.dat" with lines title "3D Random Walk"
 
 
-int main(int argc, char* argv[]) {
+int main() {
 
     // Number of steps
     const unsigned int N = 10000;

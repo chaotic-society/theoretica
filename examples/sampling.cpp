@@ -12,7 +12,7 @@
 using namespace th;
 
 
-int main(int argc, char const *argv[]) {
+int main() {
 
 	// Sample size
 	const unsigned int N = 10000;

@@ -43,7 +43,7 @@ vec<real, M> f(real t, vec<real, M> eta) {
 }
 
 
-int main(int argc, char const *argv[]) {
+int main() {
 
 	// Initial conditions
 	vec<real, M> s0 = {0, 1, 2, 1, 0.5, 0};

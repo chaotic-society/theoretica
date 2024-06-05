@@ -523,7 +523,7 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 		/// Convert the vector to string representation
-		inline std::string to_string(const std::string& separator = ", ") const {
+		inline std::string to_string() const {
 
 			std::stringstream res;
 

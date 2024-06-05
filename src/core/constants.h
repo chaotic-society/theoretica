@@ -1,6 +1,8 @@
 
 ///
-/// @file constants.h Mathematical constants and algorithm parameters
+/// @file constants.h Mathematical constants and default algorithm
+/// parameters. You may change the library's default behavior
+/// by redefining the macros starting with THEORETICA_
 ///
 
 #ifndef THEORETICA_CONSTANTS_H
@@ -11,16 +13,19 @@
 #include <cstdint>
 
 
+/// THEORETICA_DISABLE_X86 Define this macro to disable
+/// Assembly x86 optimizations.
 #ifndef THEORETICA_DISABLE_X86
 
-/// @macro THEORETICA_X86 Define this macro if the
-/// machine has a x86 architecture to use hardware
-/// enhanced functions.
 #ifndef THEORETICA_X86
 #if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) \
 	|| defined(_M_AMD64) || defined(_M_X64) || defined(i386) \
 	|| defined(__i386) || defined(__i386__) || defined(_M_IX86) \
-	|| defined(_X86_) || defined(_M_I86) || defined(__X86__)	
+	|| defined(_X86_) || defined(_M_I86) || defined(__X86__)
+
+/// THEORETICA_X86 This macro is automatically defined
+/// on most compilers to enable Assembly x86 optimizations.
+/// @see THEORETICA_DISABLE_X86
 #define THEORETICA_X86
 #endif
 #endif
@@ -86,17 +91,17 @@
 #define THEORETICA_MAX_HALLEY_ITER 100
 #endif
 
-/// Maximum number of iterations for Newton-Raphson
+/// Maximum number of iterations for Newton-Raphson root finding
 #ifndef THEORETICA_MAX_NEWTON_ITER
 #define THEORETICA_MAX_NEWTON_ITER 100
 #endif
 
-/// Maximum number of iterations for Steffensen
+/// Maximum number of iterations for Steffensen root finding
 #ifndef THEORETICA_MAX_STEFFENSEN_ITER
 #define THEORETICA_MAX_STEFFENSEN_ITER 100
 #endif
 
-/// Maximum number of iterations for Chebyshev
+/// Maximum number of iterations for Chebyshev root finding
 #ifndef THEORETICA_MAX_CHEBYSHEV_ITER
 #define THEORETICA_MAX_CHEBYSHEV_ITER 100
 #endif
