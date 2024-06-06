@@ -694,9 +694,23 @@ namespace theoretica {
 		}
 
 
+		/// Get a const iterator to the first element
+		/// of the vector.
+		inline auto begin() const {
+			return data.begin();
+		}
+
+
 		/// Get an iterator to one plus the last element
 		/// of the vector.
 		inline auto end() {
+			return data.end();
+		}
+
+
+		/// Get a const iterator to one plus the last element
+		/// of the vector.
+		inline auto end() const {
 			return data.end();
 		}
 
