@@ -11,8 +11,7 @@
 /// - cols()  Get the number of columns of the matrix (not defined for vectors)
 /// - resize() Change or set the size of the matrix
 /// The Vector template must be a class with these methods:
-/// - get(i)  Get the element in the i-th place
-/// - at(i)  Get a reference to the element in the i-th place
+/// - operator[]()  Get the element at index i by reference or const reference
 /// - size()  Get the total number of elements of the vector
 /// - resize()  Change or set the size of the vector
 ///
@@ -20,7 +19,7 @@
 #ifndef THEORETICA_ALGEBRA_H
 #define THEORETICA_ALGEBRA_H
 
-#include "../complex/complex.h"
+#include "../complex/complex_types.h"
 
 
 
@@ -61,10 +60,10 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_error(Vector& v) {
 
-			using Type = decltype(v.get(0));
+			using Type = get_indexable_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.at(i) = (Type) nan();
+				v[i] = Type(nan());
 
 			return v;
 		}
@@ -108,10 +107,10 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_zeroes(Vector& v) {
 
-			using Type = decltype(v.get(0));
+			using Type = get_indexable_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.at(i) = (Type) 0;
+				v[i] = Type(0.0);
 
 			return v;
 		}
@@ -145,7 +144,7 @@ namespace theoretica {
 			dest.resize(src.size());
 
 			for (unsigned int i = 0; i < src.size(); ++i)
-				dest.at(i) = src.get(i);
+				dest[i] = src[i];
 
 			return dest;
 		}
@@ -158,16 +157,16 @@ namespace theoretica {
 		template<typename Vector>
 		inline auto sqr_norm(const Vector& v) {
 
-			using Type = decltype(v.get(0));
+			using Type = get_indexable_element_t<Vector>;
 			Type sum = (Type) 0;
 
 			// Use conjugation for complex numbers
-			if(is_complex_type<Type>::value)
+			if(is_complex_type<Type>())
 				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += v.get(i) * conjugate(v.get(i));
+					sum += v[i] * conjugate(v[i]);
 			else
 				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += v.get(i) * v.get(i);
+					sum += v[i] * v[i];
 
 			return sum;
 		}
@@ -180,7 +179,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline auto norm(const Vector& v) {
 
-			return (decltype(v.get(0))) sqrt(sqr_norm(v));
+			return get_indexable_element_t<Vector>(sqrt(sqr_norm(v)));
 		}
 
 
@@ -203,7 +202,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < r.size(); ++i)
-				r.at(i) /= m;
+				r[i] /= m;
 
 			return r;
 		}
@@ -224,7 +223,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.at(i) /= m;
+				v[i] /= m;
 
 			return v;
 		}
@@ -237,7 +236,7 @@ namespace theoretica {
 		template<typename Vector1, typename Vector2>
 		inline auto dot(const Vector1& v1, const Vector2& v2) {
 
-			using Type = decltype(v1.get(0));
+			using Type = get_indexable_element_t<Vector1>;
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
@@ -247,12 +246,12 @@ namespace theoretica {
 			Type sum = 0;
 
 			// Use conjugation for complex numbers
-			if /*constexpr*/ (is_complex_type<Type>::value)
+			if /*constexpr*/ (is_complex_type<Type>())
 				for (unsigned int i = 0; i < v1.size(); ++i)
-					sum += v1.get(i) * conjugate(v2.get(i));
+					sum += v1[i] * conjugate(v2[i]);
 			else
 				for (unsigned int i = 0; i < v1.size(); ++i)
-					sum += v1.get(i) * v2.get(i);
+					sum += v1[i] * v2[i];
 
 			return sum;
 		}
@@ -280,9 +279,9 @@ namespace theoretica {
 				return v3;
 			}
 
-			v3.at(0) = v1.get(1) * v2.get(2) - v1.get(2) * v2.get(1);
-			v3.at(1) = v1.get(2) * v2.get(0) - v1.get(0) * v2.get(2);
-			v3.at(2) = v1.get(0) * v2.get(1) - v1.get(1) * v2.get(0);
+			v3[0] = v1[1] * v2[2] - v1[2] * v2[1];
+			v3[1] = v1[2] * v2[0] - v1[0] * v2[2];
+			v3[2] = v1[0] * v2[1] - v1[1] * v2[0];
 
 			return v3;
 		}
@@ -759,7 +758,7 @@ namespace theoretica {
 		inline Vector& vec_scalmul(Field a, Vector& v) {
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v.at(i) *= a;
+				v[i] *= a;
 
 			return v;
 		}
@@ -781,7 +780,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < src.size(); ++i)
-				dest.at(i) = a * src.get(i);
+				dest[i] = a * src[i];
 
 			return dest;
 		}
@@ -811,7 +810,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i) += A.get(i, j) * v.get(j);
+					res[i] += A.get(i, j) * v.get(j);
 
 			vec_copy(res, v);
 			return v;
@@ -839,7 +838,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i) += A.get(i, j) * v.get(j);
+					res[i] += A.get(i, j) * v.get(j);
 
 			return res;
 		}
@@ -871,7 +870,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i) += A.get(i, j) * v.get(j);
+					res[i] += A.get(i, j) * v.get(j);
 
 			return res;
 		}
@@ -899,7 +898,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < res.rows(); ++i)
 				for (unsigned int j = 0; j < res.cols(); ++j)
-					res.at(i, j) = (i == j) ? v.get(i) : 0;
+					res.at(i, j) = (i == j) ? v[i] : 0;
 
 			return res;
 		}
@@ -1275,7 +1274,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < v1.size(); ++i)
-				v1.at(i) = v1.get(i) + v2.get(i);
+				v1[i] = v1[i] + v2[i];
 
 			return v1;
 		}
@@ -1302,7 +1301,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < v1.size(); ++i)
-				res.at(i) = v1.get(i) + v2.get(i);
+				res[i] = v1[i] + v2[i];
 
 			return res;
 		}
@@ -1323,7 +1322,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < v1.size(); ++i)
-				v1.at(i) = v1.get(i) - v2.get(i);
+				v1[i] = v1[i] - v2[i];
 
 			return v1;
 		}
@@ -1350,7 +1349,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < v1.size(); ++i)
-				res.at(i) = v1.get(i) - v2.get(i);
+				res[i] = v1[i] - v2[i];
 
 			return res;
 		}
@@ -1499,9 +1498,9 @@ namespace theoretica {
 			const real s = sin(theta);
 			const real c = cos(theta);
 
-			const real Rx = (real) axis.get(0);
-			const real Ry = (real) axis.get(1);
-			const real Rz = (real) axis.get(2);
+			const real Rx = (real) axis[0];
+			const real Ry = (real) axis[1];
+			const real Rz = (real) axis[2];
 
 			const real cm1 = (1 - c);
 
@@ -1785,19 +1784,19 @@ namespace theoretica {
 			Matrix m;
 			m.resize(4, 4);
 
-			m.at(0, 0) = x_axis.get(1);
-			m.at(0, 1) = x_axis.get(2);
-			m.at(0, 2) = x_axis.get(3);
+			m.at(0, 0) = x_axis[1];
+			m.at(0, 1) = x_axis[2];
+			m.at(0, 2) = x_axis[3];
 			m.at(0, 3) = dot(camera, vec_scalmul(-1.0, x_axis));
 
-			m.at(1, 0) = y_axis.get(1);
-			m.at(1, 1) = y_axis.get(2);
-			m.at(1, 2) = y_axis.get(3);
+			m.at(1, 0) = y_axis[1];
+			m.at(1, 1) = y_axis[2];
+			m.at(1, 2) = y_axis[3];
 			m.at(1, 3) = dot(camera, vec_scalmul(-1.0, y_axis));
 
-			m.at(2, 0) = z_axis.get(1);
-			m.at(2, 1) = z_axis.get(2);
-			m.at(2, 2) = z_axis.get(3);
+			m.at(2, 0) = z_axis[1];
+			m.at(2, 1) = z_axis[2];
+			m.at(2, 2) = z_axis[3];
 			m.at(2, 3) = dot(camera, vec_scalmul(-1.0, z_axis));
 
 			m.at(3, 0) = 0;

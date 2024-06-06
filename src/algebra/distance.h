@@ -49,10 +49,16 @@ namespace theoretica {
 	template<typename Vector>
 	inline real l2_norm(const Vector& v) {
 
-		real sum = 0;
+		using Type = get_indexable_element_t<Vector>;
+		Type sum = 0;
 
-		for (unsigned int i = 0; i < v.size(); ++i)
-			sum += square(v[i]);
+		if /*constexpr*/ (!is_complex_type<Type>())
+			for (unsigned int i = 0; i < v.size(); ++i)
+				sum += v[i] * conjugate(v[i]);
+
+		else
+			for (unsigned int i = 0; i < v.size(); ++i)
+				sum += square(v[i]);
 
 		return sqrt(sum);
 	}
