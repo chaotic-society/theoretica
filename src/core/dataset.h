@@ -35,7 +35,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = decltype(X[0])(1);
+		auto res = get_indexable_element_t<Vector>(1);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res *= X[i];
 
@@ -52,7 +52,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = decltype(X[0])(0);
+		auto res = get_indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i];
 
@@ -69,7 +69,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = decltype(X[0])(0);
+		auto res = get_indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += (X[i] * X[i]) * (Y[i] * Y[i]);
 
@@ -86,7 +86,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = decltype(X[0])(0);
+		auto res = get_indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i] * Z[i];
 
@@ -103,7 +103,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = decltype(X[0])(0);
+		auto res = get_indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++) {
 
 			if(Y[i] == 0) {
@@ -215,10 +215,8 @@ namespace theoretica {
 	template<typename Vector>
 	inline auto sum(const Vector& X) {
 
-		// For floating point types,
-		// use pairwise sum to reduce error
-		using Type = std::remove_reference<decltype(X[0])>;
-		if(std::is_floating_point<Type>::value)
+		// Use pairwise sum to reduce floating point errors.
+		if(has_real_elements<Vector>())
 			return sum_pairwise(X);
 
 		auto res = X[0];

@@ -447,10 +447,14 @@ namespace theoretica {
 	template<typename Type>
 	class vec<Type, 0> {
 
-		private:
-			std::vector<Type> data;
+		// Container type for storage (alias for std::vector)
+		template<typename T>
+		using Container = std::vector<T>;
 
-		public:
+	private:
+			Container<Type> data;
+
+	public:
 
 		/// Construct an empty vector.
 		vec() {}

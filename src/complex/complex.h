@@ -62,7 +62,7 @@ namespace  theoretica {
 
 
 			/// Assignment operator from a 2D array
-			template<typename T>
+			template<typename T = Type>
 			inline complex& operator=(const std::array<T, 2>& v) {
 				a = v[0];
 				b = v[1];
@@ -395,19 +395,6 @@ namespace  theoretica {
 #endif
 
 	};
-
-
-	/// Check whether the given type is a specialization
-	/// of the complex number class or not, using the
-	/// static boolean element is_complex_type<T>::value
-	template<typename T>
-	struct is_complex_type : std::false_type {};
-
-	/// Check whether the given type is a specialization
-	/// of the complex number class or not, using the
-	/// static boolean element is_complex_type<T>::value
-	template<typename T>
-	struct is_complex_type<complex<T>> : std::true_type {};
 
 }
 
