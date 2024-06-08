@@ -701,7 +701,7 @@ namespace theoretica {
 		/// Get a const iterator to the first element
 		/// of the vector.
 		inline auto begin() const {
-			return data.begin();
+			return data.cbegin();
 		}
 
 
@@ -715,7 +715,7 @@ namespace theoretica {
 		/// Get a const iterator to one plus the last element
 		/// of the vector.
 		inline auto end() const {
-			return data.end();
+			return data.cend();
 		}
 
 
@@ -762,6 +762,20 @@ namespace theoretica {
 		/// Change the size of the vector
 		inline void resize(size_t n) {
 			data.resize(n);
+		}
+
+
+		/// Add a value at the end of the vector
+		/// (only for dynamically allocated vectors).
+		inline void push(const Type& x) {
+			data.push_back(x);
+		}
+
+
+		/// Add a value at the end of the vector
+		/// (only for dynamically allocated vectors).
+		inline void push(Type&& x) {
+			data.push_back(x);
 		}
 
 

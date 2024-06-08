@@ -750,7 +750,7 @@ namespace theoretica {
 
 
 		/// Construct a diagonal matrix with all equal entries
-		/// with n rows and k columns
+		/// with n rows and k columns.
 		mat(Type diagonal, unsigned int n, unsigned int k) {
 			
 			resize(n, k);
