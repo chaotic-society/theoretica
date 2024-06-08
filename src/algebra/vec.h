@@ -261,18 +261,23 @@ namespace theoretica {
 		}
 
 
-		class vec_iterator {
+		class iterator {
 
 			private:
 				Type* data;
 				size_t index;
 			
 			public:
-				vec_iterator() : data(nullptr), index(0) {}
 
-				~vec_iterator() = default;
+				using iterator_category = std::forward_iterator_tag;
+				using difference_type = std::ptrdiff_t;
+				using value_type = Type;
+				using pointer = Type*;
+				using reference = Type&;
 
-				vec_iterator(Type* data, size_t index) : data(data), index(index) {}
+				/// Construct the iterator from a pointer to the
+				/// elements and a starting index.
+				iterator(Type* data, size_t index) : data(data), index(index) {}
 
 				/// Dereference the iterator
 				/// to get the current element.
@@ -282,24 +287,24 @@ namespace theoretica {
 
 				/// Move to the next element
 				/// in the vector.
-				vec_iterator& operator++() {
+				iterator& operator++() {
 					++index;
 					return *this;
 				}
 
 				/// Move to the previous element
 				/// in the vector.
-				vec_iterator& operator--() {
+				iterator& operator--() {
 					--index;
 					return *this;
 				}
 
 				/// Comparison operators.
-				bool operator==(const vec_iterator& other) const {
+				bool operator==(const iterator& other) const {
 					return index == other.index;
 				}
 
-				bool operator!=(const vec_iterator& other) const {
+				bool operator!=(const iterator& other) const {
 					return !(*this == other);
 				}
 		};
@@ -308,14 +313,14 @@ namespace theoretica {
 		/// Get an iterator to the first element
 		/// of the vector.
 		inline auto begin() {
-			return vec<Type, N>::vec_iterator(data, 0);
+			return vec<Type, N>::iterator(data, 0);
 		}
 
 
 		/// Get an iterator to one plus the last element
 		/// of the vector.
 		inline auto end() {
-			return vec<Type, N>::vec_iterator(data, N);
+			return vec<Type, N>::iterator(data, N);
 		}
 
 
@@ -691,6 +696,9 @@ namespace theoretica {
 		}
 
 
+		using iterator = typename Container<Type>::iterator;
+
+
 		/// Get an iterator to the first element
 		/// of the vector.
 		inline auto begin() {
@@ -843,6 +851,31 @@ namespace theoretica {
 #endif
 
 	};
+
+
+	template<typename VecT, typename Type, typename ...Args>
+	void variadic_vec(vec<VecT>& v, size_t index, Type last) {
+		v[index] = last;
+	}
+
+	template<typename VecT, typename Type, typename ...Args>
+	void variadic_vec(vec<VecT>& v, size_t index, Type first, Args... elements) {
+
+		v[index] = first;
+		variadic_vec<VecT>(v, index + 1, elements...);
+	}
+
+	template<typename Type, typename ...Args>
+	vec<Type> variadic_vec(Type first, Args... elements) {
+
+		vec<Type> v;
+		v.resize(sizeof...(elements) + 1);
+
+		v[0] = first;
+		variadic_vec<Type>(v, 1, elements...);
+
+		return v;
+	}
 
 }
 

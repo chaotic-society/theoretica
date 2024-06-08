@@ -323,11 +323,11 @@ namespace theoretica {
 		}
 
 
-		/// @class mat_iterator
+		/// @class iterator
 		/// A sequential iterator for statically allocated matrices,
 		/// iterates the matrix element by element in the order
 		/// that it is stored in memory (row-first vs column-first).
-		class mat_iterator {
+		class iterator {
 
 			using DataType = decltype(mat<Type, N, K>::data);
 
@@ -347,7 +347,7 @@ namespace theoretica {
 			public:
 
 				/// Construct iterator from a matrix
-				mat_iterator(
+				iterator(
 					mat<Type, N, K>& m,
 					size_t index1 = 0, size_t index2 = 0)
 					: data(m.data), index1(index1), index2(index2) {}
@@ -363,7 +363,7 @@ namespace theoretica {
 
 				/// Move to the next element
 				/// in the matrix.
-				mat_iterator& operator++() {
+				iterator& operator++() {
 
 					index2++;
 
@@ -379,11 +379,11 @@ namespace theoretica {
 
 				/// Move to the previous element
 				/// in the matrix.
-				// mat_iterator& operator--() {
+				// iterator& operator--() {
 
 				// 	if(index1 == 0) {
 				// 		TH_MATH_ERROR(
-				// 			"mat_iterator::operator--",
+				// 			"iterator::operator--",
 				// 			index1, IMPOSSIBLE_OPERATION);
 				// 		return *this;
 				// 	}
@@ -401,12 +401,12 @@ namespace theoretica {
 
 
 				/// Comparison operators.
-				bool operator==(const mat_iterator& other) const {
+				bool operator==(const iterator& other) const {
 					return (index1 == other.index1) &&
 						(index2 == other.index2);
 				}
 
-				bool operator!=(const mat_iterator& other) const {
+				bool operator!=(const iterator& other) const {
 					return !(*this == other);
 				}
 		};
@@ -415,7 +415,7 @@ namespace theoretica {
 		/// Get an iterator to the first element
 		/// of the matrix.
 		inline auto begin() {
-			return mat<Type, N, K>::mat_iterator(*this, 0, 0);
+			return mat<Type, N, K>::iterator(*this, 0, 0);
 		}
 
 
@@ -424,9 +424,9 @@ namespace theoretica {
 		inline auto end() {
 
 #ifdef THEORETICA_ROW_FIRST
-			return mat<Type, N, K>::mat_iterator(*this, rows() - 1, cols());
+			return mat<Type, N, K>::iterator(*this, rows() - 1, cols());
 #else
-			return mat<Type, N, K>::mat_iterator(*this, cols() - 1, rows());
+			return mat<Type, N, K>::iterator(*this, cols() - 1, rows());
 #endif
 		}
 
@@ -1014,11 +1014,11 @@ namespace theoretica {
 		}
 
 
-		/// @class mat_iterator
+		/// @class iterator
 		/// A sequential iterator for dynamically allocated matrices,
 		/// iterates the matrix element by element in the order
 		/// that it is stored in memory (row-first vs column-first).
-		class mat_iterator {
+		class iterator {
 
 			private:
 				Container<Container<Type>>& data;
@@ -1028,7 +1028,7 @@ namespace theoretica {
 			public:
 
 				/// Initialize the iterator from a matrix.
-				mat_iterator(mat<Type>& m,
+				iterator(mat<Type>& m,
 					size_t index1 = 0, size_t index2 = 0)
 					: data(m.data), index1(index1), index2(index2) {}
 
@@ -1043,7 +1043,7 @@ namespace theoretica {
 
 				/// Move to the next element
 				/// in the matrix.
-				inline mat_iterator& operator++() {
+				inline iterator& operator++() {
 
 					index2++;
 
@@ -1058,7 +1058,7 @@ namespace theoretica {
 
 				/// Move to the previous element
 				/// in the matrix.
-				// inline mat_iterator& operator--() {
+				// inline iterator& operator--() {
 
 				// 	if(index2 == 0) {
 				// 		index1--;
@@ -1072,12 +1072,12 @@ namespace theoretica {
 
 
 				/// Comparison operators.
-				inline bool operator==(const mat_iterator& other) const {
+				inline bool operator==(const iterator& other) const {
 					return (index1 == other.index1) &&
 						(index2 == other.index2);
 				}
 
-				inline bool operator!=(const mat_iterator& other) const {
+				inline bool operator!=(const iterator& other) const {
 					return !(*this == other);
 				}
 		};
@@ -1086,7 +1086,7 @@ namespace theoretica {
 		/// Get an iterator to the first element
 		/// of the matrix.
 		inline auto begin() {
-			return mat<Type, 0, 0>::mat_iterator(*this, 0, 0);
+			return mat<Type, 0, 0>::iterator(*this, 0, 0);
 		}
 
 
@@ -1095,9 +1095,9 @@ namespace theoretica {
 		inline auto end() {
 
 #ifdef THEORETICA_ROW_FIRST
-			return mat<Type, 0, 0>::mat_iterator(*this, rows() - 1, cols());
+			return mat<Type, 0, 0>::iterator(*this, rows() - 1, cols());
 #else
-			return mat<Type, 0, 0>::mat_iterator(*this, cols() - 1, rows());
+			return mat<Type, 0, 0>::iterator(*this, cols() - 1, rows());
 #endif
 		}
 
