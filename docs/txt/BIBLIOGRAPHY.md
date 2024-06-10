@@ -1,6 +1,7 @@
 # Bibliography
 
 ## General
+- Klein, O. (2021). Modern C++ Programming Techniques for Scientific Computing. Interdisciplinary Center for Scientific Computing (IWR). Heidelberg University.
 - Wilson, G., Aruliah, D. A., Brown, C. T., Hong, N. C., Davis, M. R., Guy, R., Haddock, S. H. D., Huff, K. D., Mitchell, I. M., Plumbley, M. D., Waugh, B. M., White, E., & Wilson, P. (2014). Best practices for scientific computing. PLOS Biology, 12(1), e1001745. https://doi.org/10.1371/journal.pbio.1001745
 - M. Abramowitz; I. A. Stegun, eds. (1983) [June 1964]. Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables. Applied Mathematics Series
 - Ogita, T., Rump, S. M., & Oishi, S. (2005). Accurate sum and dot product. SIAM Journal on Scientific Computing, 26(6), 1955–1988. https://doi.org/10.1137/030601818

@@ -12,15 +12,15 @@
 namespace theoretica {
 
 
-	/// Multiply two 64-bit integers and store the result
+	/// Multiply two 64-bit unsigned integers and store the result
 	/// in two 64-bit variables, keeping 128 bits of the result.
 	///
 	/// @param a The first number to multiply
 	/// @param b The second number to multiply
-	/// @param c_low The variable where to store the lowest 64 bits
-	/// of the result
-	/// @param c_high The variable where to store the highest 64 bits
-	/// of the result
+	/// @param c_low The variable to store the lowest 64 bits
+	/// of the result.
+	/// @param c_high The variable to store the highest 64 bits
+	/// of the result.
 	inline void mul_uint128(
 		uint64_t a, uint64_t b,
 		uint64_t& c_low, uint64_t& c_high) {
@@ -57,6 +57,8 @@ namespace theoretica {
 	///
 	/// @param a The first operand
 	/// @param b The second operand
+	/// @return The XOR of the high and low bits
+	/// of the 128-bit product of a and b.
 	inline uint64_t mix_mum(uint64_t a, uint64_t b) {
 
 		uint64_t c_low, c_high;
@@ -68,8 +70,9 @@ namespace theoretica {
 
 	/// Bit rotation of unsigned integer types using shifts.
 	///
-	/// @param x The non-negative integer to rotate the bits of
+	/// @param x The unsigned integer to rotate the bits of
 	/// @param i The index of the rotated bits
+	/// @return The unsigned integer with the given bits rotated
 	template<typename UnsignedIntType>
 	inline UnsignedIntType bit_rotate(UnsignedIntType x, unsigned int i) {
 

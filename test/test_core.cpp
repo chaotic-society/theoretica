@@ -137,9 +137,23 @@ int main(int argc, char const *argv[]) {
 
 
 		prec::estimate(
+			"th::sqrt^2 = th::abs",
+			[](real x) { return th::square(th::sqrt(x)); },
+			[](real x) { return th::abs(x); },
+			interval(0, MAX));
+
+
+		prec::estimate(
 			"th::cbrt(real)",
 			REAL_LAMBDA(th::cbrt),
 			REAL_LAMBDA(std::cbrt),
+			interval(-100000, 100000));
+
+
+		prec::estimate(
+			"th::cbrt^3(x) = x",
+			[](real x) { return th::cube(th::cbrt(x)); },
+			[](real x) { return x; },
 			interval(-100000, 100000));
 
 

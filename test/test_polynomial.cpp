@@ -68,7 +68,7 @@ prec::estimate_result test_polynomial_div(interval k, Real tol, unsigned int n) 
 		unsigned int A_degree = 1 + (g() % 5);
 		unsigned int B_degree = 1 + (g() % 5);
 
-		polynomial<real> A = polynomial<>(), B = polynomial<>(), C = polynomial<>();
+		polynomial<real> A = polynomial<>(), B = polynomial<>(), C;
 
 		for (unsigned int j = 0; j < A_degree + 1; ++j)
 			A.coeff.push_back(rand_uniform(k.a, k.b, g));
