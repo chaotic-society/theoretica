@@ -201,6 +201,15 @@ namespace theoretica {
 	// Type traits.
 
 
+	// Implement a simple void_t trait in C++14.
+	namespace _internal {
+		template<typename ...Args>
+		struct make_void { typedef void type; };
+		template<typename ...Args>
+		using void_t = typename make_void<Args...>::type;
+	}
+
+
 	/// Type trait to check whether a type represents
 	/// a real number.
 	template<typename Type>
@@ -230,6 +239,51 @@ namespace theoretica {
 	/// has real elements.
 	template<typename Structure>
 	using has_real_elements = is_real_type<get_indexable_element_t<Structure>>;
+
+
+	/// Check whether a structure is orderable,
+	/// by checking that it has a comparison operator<().
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_orderable : std::false_type{};
+
+
+	/// Check whether a structure is orderable,
+	/// by checking that it has a comparison operator<().
+	template<typename Structure>
+	struct is_orderable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>() < std::declval<Structure>())>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is indexable by a single integer index,
+	/// by checking that it has the operator[](0).
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_indexable : std::false_type{};
+
+
+	/// Check whether a structure is indexable by a single integer index,
+	/// by checking that it has the operator[](0).
+	template<typename Structure>
+	struct is_indexable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()[0])>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is iterable,
+	/// by checking that it has a method begin().
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_iterable : std::false_type{};
+
+
+	/// Check whether a structure is iterable,
+	/// by checking that it has a method begin().
+	template<typename Structure>
+	struct is_iterable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>().begin())>
+	> : std::true_type{};
 
 
 
