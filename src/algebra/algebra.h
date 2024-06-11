@@ -246,7 +246,7 @@ namespace theoretica {
 			Type sum = 0;
 
 			// Use conjugation for complex numbers
-			if /*constexpr*/ (is_complex_type<Type>())
+			if TH_CONSTIF (is_complex_type<Type>())
 				for (unsigned int i = 0; i < v1.size(); ++i)
 					sum += v1[i] * conjugate(v2[i]);
 			else

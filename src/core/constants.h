@@ -157,14 +157,20 @@
 #endif
 
 
-/// Enable constexpr in function declarations if C++14 is supported
+/// Enable constexpr in function declarations if C++14 is supported.
 #if (__cplusplus >= 201402L)
 #define TH_CONSTEXPR constexpr
 #else
 #define TH_CONSTEXPR
 #endif
 
-// TO-DO Add TH_IFCONSTEXPR macro for "if constexpr" when C++17 is supported
+
+/// Enable constexpr in if statements if C++17 is supported.
+#if (__cplusplus >= 201703L)
+#define TH_CONSTIF constexpr
+#else
+#define TH_CONSTIF
+#endif
 
 
 /// @namespace theoretica Main namespace of the library which contains all functions and objects

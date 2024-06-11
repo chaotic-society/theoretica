@@ -39,6 +39,14 @@ namespace theoretica {
 			/// generating algorithm and seed
 			PRNG(pseudorandom_function p, uint64_t seed) : f(p), x(seed) {}
 
+
+			/// Construct a PRNG with the default
+			/// generator and the given seed.
+			PRNG(uint64_t seed) {
+				*this = PRNG::xoshiro(seed);
+			}
+
+
 			/// Seed the PRNG
 			inline void seed(uint64_t seed) {
 				x = seed;

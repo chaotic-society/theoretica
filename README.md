@@ -67,12 +67,15 @@ You can try to compile this simple code to check if you set up the library corre
 using namespace th;
 
 int main() {
- 
+    
+    // Declare a 3D vector
     vec3 v = {1, 2, 3};
+
+    // Create a 3x3 identity matrix
     mat3 A = mat3::identity();
+
+    // Transform v by A
     vec3 w = A * v;
- 
-    return 0;
 }
 ```
 

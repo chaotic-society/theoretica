@@ -17,6 +17,4 @@ int main() {
 
     // Transform v by A
     vec3 w = A * v;
- 
-    return 0;
 }

@@ -52,10 +52,9 @@ namespace theoretica {
 		using Type = get_indexable_element_t<Vector>;
 		Type sum = 0;
 
-		if /*constexpr*/ (!is_complex_type<Type>())
+		if TH_CONSTIF (!is_complex_type<Type>())
 			for (unsigned int i = 0; i < v.size(); ++i)
 				sum += v[i] * conjugate(v[i]);
-
 		else
 			for (unsigned int i = 0; i < v.size(); ++i)
 				sum += square(v[i]);
