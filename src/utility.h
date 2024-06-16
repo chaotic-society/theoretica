@@ -17,64 +17,65 @@ namespace theoretica {
 
 	/// Print the given argument to standard output.
 	template<typename Type>
-	void print(const Type& curr) {
+	inline void print(const Type& curr) {
 		std::cout << curr;
+	}
+
+	/// Print the given arguments to standard output
+	/// separated by a space.
+	template<typename Type, typename ...Args>
+	inline void print(const Type& curr, Args... args) {
+		print(std::cout, curr, args...);
 	}
 
 	/// Print the given argument to a stream.
 	template<typename Type>
-	void print(std::ostream& out, const Type& last) {
+	inline void fprint(std::ostream& out, const Type& last) {
 		out << last;
 	}
 
 	/// Print the given arguments to standard output
 	/// separated by a space.
 	template<typename Type, typename ...Args>
-	void print(std::ostream& out, const Type& curr, Args... args) {
+	inline void fprint(std::ostream& out, const Type& curr, Args... args) {
 		out << curr << " ";
 		print(out, args...);
 	}
 
-	/// Print the given arguments to standard output
-	/// separated by a space.
-	template<typename Type, typename ...Args>
-	void print(const Type& curr, Args... args) {
-		print(std::cout, curr, args...);
-	}
-
 
 	/// Print a newline to standard output.
-	void println() {
+	inline void println() {
 		std::cout << "\n";
 	}
 
 	/// Print the given argument to standard output
 	/// followed by a newline.
 	template<typename Type>
-	void println(const Type& curr) {
+	inline void println(const Type& curr) {
 		std::cout << curr << "\n";
 	}
 
-	/// Print the given argument to standard output
+	/// Print the given arguments to standard output
+	/// separated by a space and followed by a newline.
+	template<typename Type, typename ...Args>
+	inline void println(const Type& curr, Args... args) {
+		std::cout << curr << " ";
+		println(args...);
+	}
+
+	/// Print the given argument to an output stream
 	/// followed by a newline.
 	template<typename Type>
-	void println(std::ostream& out, const Type& curr) {
+	inline void fprintln(std::ostream& out, const Type& curr) {
 		out << curr << "\n";
 	}
 
-	/// Print the given arguments to standard output
+	/// Print the given arguments to an output stream
 	/// separated by a space and followed by a newline.
 	template<typename Type, typename ...Args>
-	void println(std::ostream& out, const Type& curr, Args... args) {
+	inline void fprintln(std::ostream& out, const Type& curr, Args... args) {
 		out << curr << " ";
-		println(out, args...);
-	}
-
-	/// Print the given arguments to standard output
-	/// separated by a space and followed by a newline.
-	template<typename Type, typename ...Args>
-	void println(const Type& curr, Args... args) {
-		println(std::cout, curr, args...);
+		fprintln(out, args...);
 	}
 
 
