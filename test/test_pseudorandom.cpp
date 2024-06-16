@@ -56,8 +56,8 @@ int main(int argc, char const *argv[]) {
 	prec::state.outputFolder = "test/";
 	prec::state.defaultIterations = N;
 
-	// Tolerance of 5 standard deviations of the mean
-	prec::state.defaultTolerance = (1.0 / SQRT3 / std::sqrt(N)) * 5;
+	// Tolerance of 4 standard deviations of the mean
+	prec::state.defaultTolerance = (1.0 / SQRT3 / std::sqrt(N)) * 4;
 	
 	prec::setup("pseudorandom");
 

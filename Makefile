@@ -152,13 +152,18 @@ benchmark_dataset:
 	@g++ benchmark/benchmark_dataset.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_dataset
 	@./benchmark/benchmark_dataset
 
+benchmark_pseudorandom:
+	@echo Compiling pseudorandom benchmark...
+	@g++ benchmark/benchmark_pseudorandom.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_pseudorandom
+	@./benchmark/benchmark_pseudorandom
+
 benchmark_vectorized:
 	@echo Compiling vectorized benchmark...
 	@g++ benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_vectorized
 	@./benchmark/benchmark_vectorized
 
 # Compile all benchmarks and run them
-benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_vectorized
+benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized
 
 
 # Clean all directories from CSV and EXE files

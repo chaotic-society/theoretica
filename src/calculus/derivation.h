@@ -17,15 +17,15 @@ namespace theoretica {
 	///
 	/// @param p The polynomial to differentiate
 	/// @return The derivative polynomial
-	template<typename T = real>
-	inline polynomial<T> deriv_polynomial(const polynomial<T>& p) {
+	template<typename Field = real>
+	inline polynomial<Field> deriv(const polynomial<Field>& p) {
 
 		if(p.coeff.size() == 0) {
-			TH_MATH_ERROR("deriv_polynomial", p.coeff.size(), INVALID_ARGUMENT);
-			return polynomial<T>({T(nan())});
+			TH_MATH_ERROR("deriv", p.coeff.size(), INVALID_ARGUMENT);
+			return polynomial<Field>({ static_cast<Field>(nan()) });
 		}
 
-		polynomial<T> Dp;
+		polynomial<Field> Dp;
 		Dp.coeff.resize(p.coeff.size() - 1);
 
 		for (unsigned int i = 1; i < p.size(); ++i)

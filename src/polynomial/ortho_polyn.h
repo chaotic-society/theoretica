@@ -93,7 +93,7 @@ namespace theoretica {
 		}
 
 		for (int i = 0; i < m; ++i)
-			L = deriv_polynomial(L);
+			L = deriv(L);
 
 
 		if(m % 2 == 0) {
@@ -128,7 +128,7 @@ namespace theoretica {
 		polynomial<real> P = ipow(polynomial<real>({1, 0, -1}), m / 2);
 
 		for (int i = 0; i < m; ++i)
-			L = deriv_polynomial(L);
+			L = deriv(L);
 
 		return L * P / K;
 	}
@@ -260,7 +260,7 @@ namespace theoretica {
 
 		for (unsigned int i = 1; i <= n; ++i) {
 			roots.push_back(
-				root_newton_polyn(P, (2.0 / (n + 1)) * i - 1.0)
+				root_newton(P, (2.0 / (n + 1)) * i - 1.0)
 			);
 		}
 
@@ -274,7 +274,7 @@ namespace theoretica {
 	inline std::vector<real> legendre_weights(const std::vector<real>& roots) {
 
 		const unsigned int n = roots.size();
-		const polynomial<real> dP = deriv_polynomial(legendre_polynomial(n));
+		const polynomial<real> dP = deriv(legendre_polynomial(n));
 
 		std::vector<real> weights;
 		weights.reserve(n);

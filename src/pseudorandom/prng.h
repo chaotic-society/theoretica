@@ -17,16 +17,25 @@ namespace theoretica {
 	/// A pseudorandom number generator
 	class PRNG {
 		private:
+			
+			/// A function which takes the state of the generator
+			/// and returns the next generated pseudorandom number.
 			pseudorandom_function f;
+
+			/// The last generated pseudorandom number.
 			uint64_t x;
+
+			/// The state of the pseudorandom generator.
 			std::vector<uint64_t> param;
 
 		public:
+
 			/// Construct a PRNG with the given
 			/// generating algorithm p, seed x and parameters s
 			PRNG(pseudorandom_function p,
 				uint64_t seed,
 				const std::vector<uint64_t>& s) : f(p), x(seed), param(s) {}
+
 
 			/// Construct a PRNG with the given
 			/// generating algorithm p and parameters s
@@ -34,6 +43,7 @@ namespace theoretica {
 			/// The seed will be set to 1.
 			PRNG(pseudorandom_function p,
 				const std::vector<uint64_t>& s) : f(p), x(1), param(s) {}
+
 
 			/// Construct a PRNG with the given
 			/// generating algorithm and seed
@@ -47,19 +57,19 @@ namespace theoretica {
 			}
 
 
-			/// Seed the PRNG
+			/// Seed the PRNG.
 			inline void seed(uint64_t seed) {
 				x = seed;
 			}
 
 
-			/// Generate a pseudorandom number
+			/// Generate a pseudorandom number.
 			inline uint64_t next() {
 				return x = f(x, param);
 			}
 
 
-			/// Generate a pseudorandom number
+			/// Generate a pseudorandom number.
 			/// \see next()
 			inline uint64_t operator()() {
 				return next();
@@ -74,34 +84,34 @@ namespace theoretica {
 			}
 
 
-			/// Return the last generated number
+			/// Return the last generated number.
 			inline uint64_t last() const {
 				return x;
 			}
 
 
-			/// Set the generating function
+			/// Set the generating function.
 			inline void set_function(pseudorandom_function p) {
 				f = p;
 			}
 
-			/// Get the generating function
+			/// Get the generating function.
 			inline pseudorandom_function get_function() const {
 				return f;
 			}
 
 
-			/// Set the generator's parameters
+			/// Set the generator's parameters.
 			inline void set_param(const std::vector<uint64_t>& v) {
 				param = v;
 			}
 
-			/// Set a specific parameter
+			/// Set a specific parameter by index.
 			inline void set_param(unsigned int i, uint64_t value) {
 				param[i] = value;
 			}
 
-			/// Get the generator's parameters
+			/// Get the generator's parameters.
 			inline std::vector<uint64_t> get_param() const {
 				return param;
 			}

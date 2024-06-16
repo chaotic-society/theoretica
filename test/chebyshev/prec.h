@@ -331,7 +331,7 @@ namespace chebyshev {
 			equation_result eq;
 			Real diff = std::abs(expected - evaluated);
 
-			if(diff > tolerance) {
+			if(diff > tolerance || (diff != diff)) {
 				state.failedTests++;
 				eq.failed = true;
 			} else {

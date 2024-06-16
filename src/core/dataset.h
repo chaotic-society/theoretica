@@ -216,7 +216,7 @@ namespace theoretica {
 	inline auto sum(const Vector& X) {
 
 		// Use pairwise sum to reduce floating point errors.
-		if(has_real_elements<Vector>())
+		if TH_CONSTIF (has_real_elements<Vector>())
 			return sum_pairwise(X);
 
 		auto res = X[0];

@@ -155,10 +155,10 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the polynomial,
 	/// or NaN if the algorithm did not converge.
-	inline real root_newton_polyn(polynomial<real> p, real guess = 0) {
+	inline real root_newton(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial<> Dp = deriv_polynomial(p);
+		polynomial<> Dp = deriv(p);
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
@@ -167,7 +167,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_NEWTON_ITER) {
-			TH_MATH_ERROR("root_newton_polyn", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -280,10 +280,10 @@ namespace theoretica {
 	/// @guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the polynomial,
 	/// or NaN if the algorithm did not converge.
-	inline real root_halley_polyn(polynomial<real> p, real guess = 0) {
+	inline real root_halley(polynomial<real> p, real guess = 0) {
 
-		polynomial<> Dp = deriv_polynomial(p);
-		polynomial<> D2p = deriv_polynomial(Dp);
+		polynomial<> Dp = deriv(p);
+		polynomial<> D2p = deriv(Dp);
 		real x = guess;
 		unsigned int iter = 0;
 
@@ -293,7 +293,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_HALLEY_ITER) {
-			TH_MATH_ERROR("root_halley_polyn", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -335,7 +335,7 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
-	inline real root_steffensen_polyn(polynomial<real> p, real guess = 0) {
+	inline real root_steffensen(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -346,7 +346,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_STEFFENSEN_ITER) {
-			TH_MATH_ERROR("root_steffensen_polyn", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -423,11 +423,11 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
-	inline real root_chebyshev_polyn(polynomial<real> p, real guess = 0) {
+	inline real root_chebyshev(polynomial<real> p, real guess = 0) {
 
 		real x = guess;
-		polynomial<> Dp = deriv_polynomial(p);
-		polynomial<> D2p = deriv_polynomial(p);
+		polynomial<> Dp = deriv(p);
+		polynomial<> D2p = deriv(p);
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
@@ -436,7 +436,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_CHEBYSHEV_ITER) {
-			TH_MATH_ERROR("root_chebyshev_polyn", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 

@@ -163,7 +163,7 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate("quadratic_roots", test_polynomial_quadroots, interval(MIN, MAX));
 
-		// Investigate polynomial division algorithm not converging
+		// TO-DO Investigate polynomial division algorithm not converging
 		// prec::estimate("polynomial<>::operator/", test_polynomial_div, interval(-100, 100),
 		// prec::state.defaultTolerance, false, 20);
 
