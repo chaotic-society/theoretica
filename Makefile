@@ -37,6 +37,13 @@ ifndef windows_build
 	@./test/test_core
 endif
 
+test_complex:
+ifndef windows_build
+	@echo Compiling complex test cases...
+	@g++ test/test_complex.cpp ${CXXFLAGS} -I./test/ -o test/test_complex
+	@./test/test_complex
+endif
+
 test_autodiff:
 ifndef windows_build
 	@echo Compiling autodiff test cases...
@@ -56,6 +63,13 @@ ifndef windows_build
 	@echo Compiling polynomial test cases...
 	@g++ test/test_polynomial.cpp ${CXXFLAGS} -I./test/ -o test/test_polynomial
 	@./test/test_polynomial
+endif
+
+test_interpolation:
+ifndef windows_build
+	@echo Compiling interpolation test cases...
+	@g++ test/test_interpolation.cpp ${CXXFLAGS} -I./test/ -o test/test_interpolation
+	@./test/test_interpolation
 endif
 
 test_optimization:
@@ -80,7 +94,7 @@ ifndef windows_build
 endif
 
 # Compile all test programs and run them
-test: test_core test_algebra test_autodiff test_calculus test_polynomial test_optimization test_pseudorandom test_statistics
+test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
 
 
 # Example programs

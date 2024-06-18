@@ -39,7 +39,7 @@ namespace theoretica {
 	template<typename Type, typename ...Args>
 	inline void fprint(std::ostream& out, const Type& curr, Args... args) {
 		out << curr << " ";
-		print(out, args...);
+		fprint(out, args...);
 	}
 
 
