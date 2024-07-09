@@ -74,7 +74,8 @@ namespace theoretica {
 	/// @param i The index of the rotated bits
 	/// @return The unsigned integer with the given bits rotated
 	template<typename UnsignedIntType>
-	inline UnsignedIntType bit_rotate(UnsignedIntType x, unsigned int i) {
+	inline TH_CONSTEXPR UnsignedIntType
+	bit_rotate(UnsignedIntType x, unsigned int i) {
 
 		return (x << i) | (x >> ((sizeof(UnsignedIntType) * 8) - i));
 	}

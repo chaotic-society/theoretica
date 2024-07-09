@@ -9,13 +9,11 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	prec::setup("example");
+	benchmark::setup("example");
 
-		prec::state.outputFolder = "test/";
+		output::state.outputFolder = "benchmark/";
 
-		// prec::estimate(...);
+		// benchmark::benchmark(...);
 
-		// prec::equals(...);
-
-	prec::terminate();
+	benchmark::terminate();
 }
