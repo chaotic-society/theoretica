@@ -1,6 +1,6 @@
 
 ///
-/// @file chebyshev.h Main include file of the testing library
+/// @file chebyshev.h Main include header of the test framework.
 ///
 
 #include "prec.h"

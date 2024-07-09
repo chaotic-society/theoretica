@@ -1,9 +1,10 @@
 
 ///
-/// @file timer.h Timer class
+/// @file timer.h A timer class to measure elapsed time in milliseconds.
 ///
 
-#pragma once
+#ifndef CHEBYSHEV_TIMER_H
+#define CHEBYSHEV_TIMER_H
 
 #include <chrono>
 
@@ -11,27 +12,28 @@
 namespace chebyshev {
 
 
-	/// @class timer Helper class for benchmarks
+	/// @class timer
+	/// Timer class to measure elapsed time in milliseconds.
 	class timer {
 		private:
 			std::chrono::time_point<std::chrono::high_resolution_clock> s;
 
 		public:
 
-			/// Constructs the timer storing the current time
+			/// Constructs the timer storing the current time.
 			timer() {
 				start();
 			}
 
 
-			/// Start the timer
+			/// Start the timer.
 			void start() {
 				s = std::chrono::high_resolution_clock::now();
 			}
 
 
 			/// Returns the elapsed time since construction or
-			/// start of the timer in milliseconds
+			/// start of the timer in milliseconds.
 			inline long double get() const {
 
 				auto start = std::chrono::time_point_cast<std::chrono::milliseconds>(s)
@@ -46,7 +48,7 @@ namespace chebyshev {
 
 
 			/// Returns the elapsed time since construction or
-			/// start of the timer in milliseconds
+			/// start of the timer in milliseconds.
 			/// @see get
 			inline long double operator()() {
 				return get();
@@ -55,3 +57,5 @@ namespace chebyshev {
 	};
 
 }
+
+#endif

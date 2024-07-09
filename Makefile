@@ -1,7 +1,6 @@
 
 default_target: all
-all: test examples
-
+all: examples
 
 # Compiler flag for OpenMP
 OPENMP = -fopenmp
@@ -24,74 +23,64 @@ example:
 # Tests
 
 test_algebra:
-ifndef windows_build
 	@echo Compiling linear algebra test cases...
 	@g++ test/test_algebra.cpp ${CXXFLAGS} -I./test/ -o test/test_algebra
 	@./test/test_algebra
-endif
+
 
 test_core:
-ifndef windows_build
 	@echo Compiling core test cases...
 	@g++ test/test_core.cpp ${CXXFLAGS} -I./test/ -o test/test_core
 	@./test/test_core
-endif
+
 
 test_complex:
-ifndef windows_build
 	@echo Compiling complex test cases...
 	@g++ test/test_complex.cpp ${CXXFLAGS} -I./test/ -o test/test_complex
 	@./test/test_complex
-endif
+
 
 test_autodiff:
-ifndef windows_build
 	@echo Compiling autodiff test cases...
 	@g++ test/test_autodiff.cpp ${CXXFLAGS} -I./test/ -o test/test_autodiff
 	@./test/test_autodiff
-endif
+
 
 test_calculus:
-ifndef windows_build
 	@echo Compiling calculus test cases...
 	@g++ test/test_calculus.cpp ${CXXFLAGS} -I./test/ -o test/test_calculus
 	@./test/test_calculus
-endif
+
 
 test_polynomial:
-ifndef windows_build
 	@echo Compiling polynomial test cases...
 	@g++ test/test_polynomial.cpp ${CXXFLAGS} -I./test/ -o test/test_polynomial
 	@./test/test_polynomial
-endif
+
 
 test_interpolation:
-ifndef windows_build
 	@echo Compiling interpolation test cases...
 	@g++ test/test_interpolation.cpp ${CXXFLAGS} -I./test/ -o test/test_interpolation
 	@./test/test_interpolation
-endif
+
 
 test_optimization:
-ifndef windows_build
 	@echo Compiling optimization test cases...
 	@g++ test/test_optimization.cpp ${CXXFLAGS} -I./test/ -o test/test_optimization
 	@./test/test_optimization
-endif
+
 
 test_pseudorandom:
-ifndef windows_build
 	@echo Compiling pseudorandom test cases...
 	@g++ test/test_pseudorandom.cpp ${CXXFLAGS} -I./test/ -o test/test_pseudorandom
 	@./test/test_pseudorandom
-endif
+
 
 test_statistics:
-ifndef windows_build
 	@echo Compiling statistics test cases...
 	@g++ test/test_statistics.cpp ${CXXFLAGS} -I./test/ -o test/test_statistics
 	@./test/test_statistics
-endif
+
 
 # Compile all test programs and run them
 test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics

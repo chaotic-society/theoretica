@@ -13,12 +13,18 @@
 namespace theoretica {
 
 
-	/// Approximate a function maximum using the Golden Section search algorithm
+	/// Approximate a function maximum using the
+	/// Golden Section search algorithm.
+	///
+	/// @param f The function to search a local maximum of.
+	/// @param a The lower extreme of the search interval.
+	/// @param b The upper extreme of the search interval.
+	/// @return The coordinate of the local maximum.
 	template<typename RealFunction>
-	inline real approx_max_goldensection(RealFunction f, real a, real b) {
+	inline real maximize_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
-			TH_MATH_ERROR("approx_max_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("maximize_goldensection", b, INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -44,7 +50,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_GOLDENSECTION_ITER) {
-			TH_MATH_ERROR("approx_max_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -52,12 +58,18 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a function minimum using the Golden Section search algorithm
+	/// Approximate a function minimum using the
+	/// Golden Section search algorithm.
+	///
+	/// @param f The function to search a local minimum of.
+	/// @param a The lower extreme of the search interval.
+	/// @param b The upper extreme of the search interval.
+	/// @return The coordinate of the local minimum.
 	template<typename RealFunction>
-	inline real approx_min_goldensection(RealFunction f, real a, real b) {
+	inline real minimize_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
-			TH_MATH_ERROR("approx_min_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("minimize_goldensection", b, INVALID_ARGUMENT);
 			return nan();
 		}
 
@@ -83,7 +95,7 @@ namespace theoretica {
 		}
 
 		if(iter > MAX_GOLDENSECTION_ITER) {
-			TH_MATH_ERROR("approx_min_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -91,16 +103,24 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a function maximum given the function and the first two derivatives using Newton-Raphson
+	/// Approximate a function maximum given the function and the
+	/// first two derivatives using Newton-Raphson's method
+	/// to find a root of the derivative.
+	///
+	/// @param f The function to search a local maximum of.
+	/// @param Df The derivative of the function.
+	/// @param D2f The second derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the local maximum.
 	template<typename RealFunction>
-	inline real approx_max_newton(
+	inline real maximize_newton(
 		RealFunction f, RealFunction Df, RealFunction D2f,
 		real guess = 0) {
 
 		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) > 0) {
-			TH_MATH_ERROR("approx_max_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -108,16 +128,24 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a function minimum given the function and the first two derivatives using Newton-Raphson
+	/// Approximate a function minimum given the function
+	/// and the first two derivatives using Newton-Raphson's
+	/// method to find a root of the derivative.
+	///
+	/// @param f The function to search a local minimum of.
+	/// @param Df The derivative of the function.
+	/// @param D2f The second derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @return The coordinate of the local minimum.
 	template<typename RealFunction>
-	inline real approx_min_newton(
+	inline real minimize_newton(
 		RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
 
 		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) < 0) {
-			TH_MATH_ERROR("approx_min_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_newton", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -126,16 +154,23 @@ namespace theoretica {
 
 
 	/// Approximate a function maximum inside an interval given
-	/// the function and its first derivative using bisection on the derivative
+	/// the function and its first derivative using bisection
+	/// on the derivative.
+	///
+	/// @param f The function to search a local minimum of.
+	/// @param Df The derivative of the function.
+	/// @param a The lower extreme of the search interval.
+	/// @param b The upper extreme of the search interval.
+	/// @return The coordinate of the local maximum.
 	template<typename RealFunction>
-	inline real approx_max_bisection(
+	inline real maximize_bisection(
 		RealFunction f, RealFunction Df,
 		real a, real b) {
 
 		real z = root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) > 0) {
-			TH_MATH_ERROR("approx_max_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_bisection", z, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -143,15 +178,22 @@ namespace theoretica {
 	}
 
 
-	/// Approximate a function minimum inside an interval given the function
-	/// and its first derivative using bisection on the derivative
+	/// Approximate a function minimum inside an interval
+	/// given the function and its first derivative using
+	/// bisection on the derivative.
+	///
+	/// @param f The function to search a local minimum of.
+	/// @param Df The derivative of the function.
+	/// @param a The lower extreme of the search interval.
+	/// @param b The upper extreme of the search interval.
+	/// @return The coordinate of the local minimum.
 	template<typename RealFunction>
-	inline real approx_min_bisection(RealFunction f, RealFunction Df, real a, real b) {
+	inline real minimize_bisection(RealFunction f, RealFunction Df, real a, real b) {
 
 		real z = root_bisection(Df, a, b);
 
 		if(deriv_central(Df, z) < 0) {
-			TH_MATH_ERROR("approx_min_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_bisection", z, NO_ALGO_CONVERGENCE);
 			return z;
 		}
 

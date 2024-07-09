@@ -19,7 +19,7 @@ namespace theoretica {
 	/// Find a local minimum of the given multivariate function
 	/// using fixed-step gradient descent
 	///
-	/// @param f The function to minimize
+	/// @param f The function to multi_minimize
 	/// @param guess The initial guess, defaults to the origin
 	/// @param gamma The fixed step size, defaults to MINGRAD_GAMMA
 	/// @param tolerance The maximum magnitude of the gradient to stop
@@ -29,7 +29,7 @@ namespace theoretica {
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> minimize_grad(
+	inline vec<real, N> multi_minimize_grad(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real gamma = MINGRAD_GAMMA,
@@ -37,7 +37,7 @@ namespace theoretica {
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
 		if(gamma >= 0) {
-			TH_MATH_ERROR("minimize_grad", gamma, INVALID_ARGUMENT);
+			TH_MATH_ERROR("multi_minimize_grad", gamma, INVALID_ARGUMENT);
 			return vec<real, N>(nan());
 		}
 
@@ -54,7 +54,7 @@ namespace theoretica {
 		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("minimize_grad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_minimize_grad", iter, NO_ALGO_CONVERGENCE);
 			return vec<real, N>(nan());
 		}
 
@@ -65,7 +65,7 @@ namespace theoretica {
 	/// Find a local maximum of the given multivariate function
 	/// using fixed-step gradient descent
 	///
-	/// @param f The function to maximize
+	/// @param f The function to multi_maximize
 	/// @param guess The initial guess, defaults to the origin
 	/// @param gamma The fixed step size, defaults to MINGRAD_GAMMA
 	/// @param tolerance The maximum magnitude of the gradient to stop
@@ -75,21 +75,21 @@ namespace theoretica {
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> maximize_grad(
+	inline vec<real, N> multi_maximize_grad(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real gamma = MINGRAD_GAMMA,
 		real tolerance = MINGRAD_TOLERANCE,
 		unsigned int max_iter = MINGRAD_MAX_ITER) {
 
-		return minimize_grad(f, guess, -gamma, tolerance, max_iter);
+		return multi_minimize_grad(f, guess, -gamma, tolerance, max_iter);
 	}
 
 
 	/// Find a local minimum of the given multivariate function
 	/// using gradient descent with linear search
 	///
-	/// @param f The function to minimize
+	/// @param f The function to multi_minimize
 	/// @param guess The initial guess, defaults to the origin
 	/// @param tolerance The maximum magnitude of the gradient to stop
 	/// the algorithm at, defaults to MINGRAD_TOLERANCE.
@@ -98,7 +98,7 @@ namespace theoretica {
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> minimize_lingrad(
+	inline vec<real, N> multi_minimize_lingrad(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
@@ -114,7 +114,7 @@ namespace theoretica {
 
 			// Minimize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = approx_min_goldensection(
+			real gamma = minimize_goldensection(
 				[f, x, grad](real gamma){
 					return f(
 						multidual<N>::make_argument(x)
@@ -133,7 +133,7 @@ namespace theoretica {
 		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
 			return vec<real, N>(nan());
 		}
 
@@ -144,7 +144,7 @@ namespace theoretica {
 	/// Find a local maximum of the given multivariate function
 	/// using gradient descent with linear search
 	///
-	/// @param f The function to maximize
+	/// @param f The function to multi_maximize
 	/// @param guess The initial guess, defaults to the origin
 	/// @param tolerance The minimum magnitude of the gradient to stop
 	/// the algorithm at, defaults to MINGRAD_TOLERANCE.
@@ -153,7 +153,7 @@ namespace theoretica {
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> maximize_lingrad(
+	inline vec<real, N> multi_maximize_lingrad(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = MINGRAD_TOLERANCE,
@@ -169,7 +169,7 @@ namespace theoretica {
 
 			// Maximize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = approx_max_goldensection(
+			real gamma = maximize_goldensection(
 				[f, x, grad](real gamma){
 					return f(
 						multidual<N>::make_argument(x)
@@ -187,7 +187,7 @@ namespace theoretica {
 		} while(grad.norm() > MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("maximize_lingrad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_maximize_lingrad", iter, NO_ALGO_CONVERGENCE);
 			return vec<real, N>(nan());
 		}
 
@@ -198,36 +198,36 @@ namespace theoretica {
 	/// Use the best available algorithm to find a local
 	/// minimum of the given multivariate function
 	///
-	/// @param f The function to minimize
+	/// @param f The function to multi_minimize
 	/// @param guess The initial guess
 	/// @param tolerance The minimum magnitude of the gradient to stop
 	/// the algorithm at, defaults to MINGRAD_TOLERANCE.
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> minimize(
+	inline vec<real, N> multi_minimize(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0), real tolerance = MINGRAD_TOLERANCE) {
 
-		return minimize_lingrad(f, guess, tolerance);
+		return multi_minimize_lingrad(f, guess, tolerance);
 	}
 
 
 	/// Use the best available algorithm to find a local
 	/// maximum of the given multivariate function
 	///
-	/// @param f The function to maximize
+	/// @param f The function to multi_maximize
 	/// @param guess The initial guess
 	/// @param tolerance The minimum magnitude of the gradient to stop
 	/// the algorithm at, defaults to MINGRAD_TOLERANCE.
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
 	template<unsigned int N>
-	inline vec<real, N> maximize(
+	inline vec<real, N> multi_maximize(
 		multidual<N>(*f)(vec<multidual<N>, N>),
 		vec<real, N> guess = vec<real, N>(0), real tolerance = MINGRAD_TOLERANCE) {
 
-		return maximize_lingrad<N>(f, guess, tolerance);
+		return multi_maximize_lingrad<N>(f, guess, tolerance);
 	}
 
 }
