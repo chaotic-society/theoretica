@@ -67,7 +67,21 @@ namespace chebyshev {
 			unsigned int iterations = CHEBYSHEV_BENCHMARK_ITER;
 
 			/// The function to use to generate input for the benchmark.
-			InputGenerator<InputType> inputGenerator = generator::uniform1D<InputType>(0, 1);
+			InputGenerator<InputType> inputGenerator = generator::uniform1D(0, 1);
+
+
+			/// Default constructor for benchmark options.
+			benchmark_options() {}
+
+
+			/// Construct benchmark options from the number of runs and iterations
+			benchmark_options(unsigned int runs, unsigned int iterations)
+			: runs(runs), iterations(iterations) {}
+
+			/// Construct benchmark options from the number of runs and iterations
+			/// and the input generator to use.
+			benchmark_options(unsigned int runs, unsigned int iterations, InputGenerator<InputType> gen)
+			: runs(runs), iterations(iterations), inputGenerator(gen) {}
 
 		};
 

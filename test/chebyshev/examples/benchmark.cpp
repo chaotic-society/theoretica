@@ -16,14 +16,23 @@ double g(double x) {
 	return std::atan(x * x);
 }
 
+unsigned int h(unsigned int n) {
+	if(n == 0)
+		return 0;
+	else
+		return n + h(n - 1);
+}
+
 
 
 int main(int argc, char const *argv[]) {
 
 	// Setup benchmarking
-	benchmark::setup("chebyshev", argc, argv);
+	benchmark::setup("example", argc, argv);
 
 		// Set options for multiple benchmarks
+		// with a benchmark_options structure,
+		// specialized for functions taking in doubles
 		benchmark::benchmark_options<double> opt {};
 		opt.inputGenerator = benchmark::generator::uniform1D(0, 1000);
 		opt.iterations = 1E+06;
@@ -32,6 +41,15 @@ int main(int argc, char const *argv[]) {
 		// Benchmark the given functions
 		benchmark::benchmark("f(x)", f, opt);
 		benchmark::benchmark("g(x)", g, opt);
+
+		// Specify parameters directly
+		benchmark::benchmark<unsigned int>(
+			"h(n)", h, 10, 1000, [](unsigned int i) {
+				return random::natural() % 1000;
+			});
+
+		// You may need to specify the input type
+		// of your function if it isn't deduced.
 
 	// Stop benchmarking and exit
 	benchmark::terminate();

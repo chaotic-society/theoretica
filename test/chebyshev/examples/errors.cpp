@@ -25,18 +25,19 @@ double g(double x) {
 int main(int argc, char const *argv[]) {
 
 	// Setup error checking
-	err::setup("chebyshev");
+	err::setup("example");
 
 		// Make an assert
 		err::assert("std::sqrt", std::sqrt(4) == 2, "sqrt(4) is 2");
 
 		// Check errno value after function call
-		err::check_errno("g(x)", f, -1, EDOM);
+		err::check_errno("f(x)", f, -1, EDOM);
 
 		// Check that a function throws an exception
 		err::check_exception("g(x)", g, -1);
 
-		// Check that a function throws an exception
+		// Check that a function throws an exception,
+		// controlling its type.
 		err::check_exception<std::runtime_error>("g(x)", g, -2);
 
 	// Stop error checking

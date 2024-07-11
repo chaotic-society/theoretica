@@ -13,10 +13,11 @@
 #include <iostream>
 #include <ctime>
 
-#include "prec/prec_structures.h"
-#include "prec/fail.h"
-#include "prec/estimator.h"
-#include "core/output.h"
+#include "./prec/prec_structures.h"
+#include "./prec/fail.h"
+#include "./prec/estimator.h"
+#include "./core/output.h"
+#include "./core/random.h"
 
 
 namespace chebyshev {
@@ -25,6 +26,7 @@ namespace chebyshev {
 	namespace prec {
 
 
+		/// @class prec_state
 		/// Global state of the precision testing module.
 		struct prec_state {
 			
@@ -34,28 +36,8 @@ namespace chebyshev {
 			/// Print to standard output or not
 			bool quiet = false;
 
-			/// Write to standard output only failed/not passed estimates?
-			bool estimateOnlyFailed = false;
-
-			/// Write to standard output only failed/not passed equations?
-			bool equalsOnlyFailed = false;
-
 			/// Output to file?
 			bool outputToFile = true;
-
-			/// Output file
-			std::ofstream outputFile;
-
-			/// Relative or absolute path to output folder
-			std::string outputFolder = "";
-
-			/// Prefix to prepend to the filename, in addition
-			/// to the module name.
-			std::string filenamePrefix = "prec_";
-
-			/// Suffix to append to the filename, in addition
-			/// to the module name.
-			std::string filenameSuffix = ".csv";
 
 			/// Total number of tests run
 			unsigned int totalTests = 0;
@@ -67,16 +49,34 @@ namespace chebyshev {
 			unsigned int defaultIterations = CHEBYSHEV_PREC_ITER;
 
 			/// Default fail function
-			FailFunction defaultFailFunction = fail::fail_on_max_err;
+			FailFunction defaultFailFunction = fail::fail_on_max_err();
 
 			/// Default tolerance on max absolute error
 			long double defaultTolerance = CHEBYSHEV_PREC_TOLERANCE;
 
 			/// Results of precision testing
 			std::map<std::string, std::vector<estimate_result>> estimateResults {};
+
+			/// Default columns to print for precision estimates.
+			std::vector<std::string> estimateColumns = {
+				"funcName", "meanErr", "rmsErr", "maxErr", "failed"
+			};
+
+			/// The files to write estimate results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> estimateFiles {};
 			
 			/// Results of equations
 			std::map<std::string, std::vector<equation_result>> equationResults {};
+
+			/// Default columns to print for equations.
+			std::vector<std::string> equationColumns = {
+				"funcName", "difference", "tolerance", "failed"
+			};
+
+			/// The files to write equation results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> equationFiles {};
 
 			/// Target tests marked for execution,
 			/// can be picked by passing test case names
@@ -110,130 +110,41 @@ namespace chebyshev {
 			state.failedTests = 0;
 			state.totalTests = 0;
 
-			srand(time(nullptr));
+			random::setup();
 			output::setup();
 		}
 
 
 		/// Terminate the precision testing environment.
 		///
-		/// @param exit Whether to exit after terminating testing.
+		/// @param exit Whether to exit after terminating the module.
 		inline void terminate(bool exit = true) {
 
-			if(state.outputToFile) {
+			output::state.quiet = state.quiet;
 
+			// Output to file is true but no specific files are specified,
+			// add default output file.
+			if(state.outputToFile && !state.estimateFiles.size() && !state.equationFiles.size()) {
 				std::string filename;
-				filename = state.outputFolder + state.filenamePrefix
-					+ state.moduleName + state.filenameSuffix;
-
-				if(state.outputFile.is_open())
-					state.outputFile.close();
-
-				state.outputFile.open(filename);
-
-				if(!state.outputFile.is_open()) {
-					std::cout << "Unable to open output file,"
-						" results will NOT be saved!" << std::endl;
-					state.outputToFile = false;
-				}
+				filename = output::state.outputFolder + state.moduleName + "_results";
+				output::state.outputFiles[filename] = std::ofstream(filename);
 			}
 
+			output::print_results(state.estimateResults, state.estimateColumns, state.estimateFiles);
+			output::print_results(state.equationResults, state.equationColumns, state.equationFiles);
 
-			output::table_state estimateTable {};
-			output::table_state equationTable {};
-
-
-			if(state.estimateResults.size()) {
-
-				// Print header for estimates
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_estimate(estimateTable);
-				}
-
-				// Print to file as CSV
-				if(state.outputToFile)
-					output::header_estimate(estimateTable, state.outputFile);
-			}
-
-
-			// Print estimate results
-			for (auto it = state.estimateResults.begin();
-				it != state.estimateResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					estimateTable.rowIndex++;
-
-					if(it != state.estimateResults.end()
-					&& std::next(it) == state.estimateResults.end()
-					&& (i == res_list.size() - 1))
-						estimateTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_estimate(res_list[i], estimateTable);
-				
-					if(state.outputToFile)
-						output::print_estimate(
-							res_list[i], estimateTable, state.outputFile);
-				}
-			}
-
-			if(state.equationResults.size()) {
-
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_equation(equationTable);
-				}
-
-				if(state.outputToFile)
-					output::header_equation(equationTable, state.outputFile);
-			}
-
-
-			// Print equation results
-			for (auto it = state.equationResults.begin();
-				it != state.equationResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					equationTable.rowIndex++;
-
-					if(it != state.equationResults.end()
-					&& std::next(it) == state.equationResults.end()
-					&& (i == res_list.size() - 1))
-						equationTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_equation(res_list[i], equationTable);
-				
-					if(state.outputToFile)
-						output::print_equation(
-							res_list[i], equationTable, state.outputFile);
-				}
-			}
-
-			std::cout << "\nFinished testing " << state.moduleName << '\n';
+			std::cout << "Finished testing " << state.moduleName << '\n';
 			std::cout << state.totalTests << " total tests, "
 				<< state.failedTests << " failed (" <<
 				(state.failedTests / (double) state.totalTests) * 100 << "%)"
 				<< '\n';
-				
-			std::cout << "Results have been saved in "
-				<< state.outputFolder << state.filenamePrefix
-				<< state.moduleName << state.filenameSuffix << std::endl;
-
-			if(state.outputFile.is_open())
-				state.outputFile.close();
 
 			state = prec_state();
 
-			if(exit)
+			if(exit) {
+				output::terminate();
 				std::exit(state.failedTests);
+			}
 		}
 
 
@@ -245,11 +156,13 @@ namespace chebyshev {
 		/// @param funcApprox The approximation to test
 		/// @param funcExpected The expected result
 		/// @param opt The options for the estimation
-		template<typename R, typename ...Args>
+		template<typename R, typename ...Args,
+			typename Function1 = std::function<R(Args...)>,
+			typename Function2 = Function1>
 		inline void estimate(
 			const std::string& name,
-			std::function<R(Args...)> funcApprox,
-			std::function<R(Args...)> funcExpected,
+			Function1 funcApprox,
+			Function2 funcExpected,
 			estimate_options<R, Args...> opt) {
 
 			// Skip the test case if any tests have been picked
@@ -290,11 +203,13 @@ namespace chebyshev {
 		/// the test failed.
 		/// @param estimator The precision estimator to use.
 		/// @param quiet Whether to output the result.
-		template<typename R, typename ...Args>
+		template<typename R, typename ...Args,
+			typename Function1 = std::function<R(Args...)>,
+			typename Function2 = Function1>
 		inline void estimate(
 			const std::string& name,
-			std::function<R(Args...)> funcApprox,
-			std::function<R(Args...)> funcExpected,
+			Function1 funcApprox,
+			Function2 funcExpected,
 			std::vector<interval> domain,
 			long double tolerance, unsigned int iterations,
 			FailFunction fail,
@@ -329,13 +244,13 @@ namespace chebyshev {
 		/// @param quiet Whether to output the result.
 		inline void estimate(
 			const std::string& name,
-			RealFunction<double> funcApprox,
-			RealFunction<double> funcExpected,
+			EndoFunction<double> funcApprox,
+			EndoFunction<double> funcExpected,
 			interval domain,
 			long double tolerance = CHEBYSHEV_PREC_TOLERANCE,
-			unsigned int iterations = CHEBYSHEV_PREC_ITER,
-			FailFunction fail = fail::fail_on_max_err,
-			Estimator<double, double> estimator = estimator::quadrature1D<double>,
+			unsigned int iterations = state.defaultIterations,
+			FailFunction fail = fail::fail_on_max_err(),
+			Estimator<double, double> estimator = estimator::quadrature1D<double>(),
 			bool quiet = false) {
 
 			estimate_options<double, double> opt {};
@@ -349,9 +264,100 @@ namespace chebyshev {
 			estimate(name, funcApprox, funcExpected, opt);
 		}
 
+		namespace property {
+
+			/// Precision testing of an endofunction which is
+			/// an involution. The function is applied two times
+			/// to input values and it is checked against the identity.
+			///
+			/// @param name The name of the test case.
+			/// @param involution The involution to test.
+			/// @param opt The options for estimation.
+			template<typename Type, typename Involution = EndoFunction<Type>>
+			inline void involution(
+				const std::string& name,
+				Involution invol,
+				const estimate_options<Type, Type>& opt) {
+
+				// Apply the involution two times
+				EndoFunction<Type> funcApprox = [&](Type x) -> Type {
+					return invol(invol(x));
+				};
+
+				// And compare it to the identity
+				EndoFunction<Type> funcExpected = [](Type x) -> Type {
+					return x;
+				};
+
+				estimate(name, funcApprox, funcExpected, opt);
+			}
+
+
+			/// Precision testing of an endofunction which is
+			/// idempotent. The function is applied two times
+			/// to input values and it is checked against itself.
+			///
+			/// @param name The name of the test case.
+			/// @param idem The idempotent function to test.
+			/// @param opt The options for estimation.
+			template<typename Type, typename Involution = EndoFunction<Type>>
+			inline void idempotence(
+				const std::string& name,
+				Involution idem,
+				const estimate_options<Type, Type>& opt) {
+
+				// Apply the idem two times
+				EndoFunction<Type> funcApprox = [&](Type x) -> Type {
+					return idem(idem(x));
+				};
+
+				// And compare it to the identity
+				EndoFunction<Type> funcExpected = [&](Type x) -> Type {
+					return idem(x);
+				};
+
+				estimate(name, funcApprox, funcExpected, opt);
+			}
+
+
+			/// Precision testing of an function which is
+			/// homogeneous over the domain. The function is applied
+			/// to input values and it is checked against zero.
+			/// The zero value is constructed as OutputType(0.0), but may
+			/// be specified as an additional argument.
+			///
+			/// @param name The name of the test case.
+			/// @param hom The homogeneous function to test.
+			/// @param opt The options for estimation.
+			/// @param zero_element The zero element of type OutputType
+			/// (defaults to OutputType(0.0)).
+			template<typename InputType, typename OutputType = InputType,
+			typename Homogeneous = std::function<OutputType(InputType)>>
+			inline void homogeneous(
+				const std::string& name,
+				Homogeneous hom,
+				const estimate_options<InputType, OutputType>& opt,
+				OutputType zero_element = OutputType(0.0)) {
+
+				// Apply the homogeneous function
+				std::function<OutputType(InputType)> funcApprox =
+					[&](InputType x) -> OutputType {
+						return hom(x);
+					};
+
+				// And compare it to the zero element
+				std::function<OutputType(InputType)> funcExpected =
+					[&](InputType x) -> OutputType {
+						return zero_element;
+					};
+
+				estimate(name, funcApprox, funcExpected, opt);
+			}
+		}
+
 
 		/// Test an equivalence up to a tolerance,
-		/// with the given options.
+		/// with the given options (e.g. for residual testing).
 		///
 		/// @param name The name of the test case
 		/// @param evaluate The evaluated value
@@ -393,7 +399,7 @@ namespace chebyshev {
 
 
 		/// Test an equivalence up to a tolerance,
-		/// with the given options.
+		/// with the given options (e.g. for residual testing).
 		///
 		/// @param name The name of the test case
 		/// @param evaluate The evaluated value
@@ -419,7 +425,7 @@ namespace chebyshev {
 
 
 		/// Test an equivalence up to a tolerance,
-		/// with the given options.
+		/// with the given options (e.g. for residual testing).
 		///
 		/// @param name The name of the test case
 		/// @param evaluate The evaluated value
@@ -465,7 +471,7 @@ namespace chebyshev {
 
 
 		/// Evaluate multiple pairs of values for equivalence
-		/// up to the given tolerance.
+		/// up to the given tolerance (e.g. for residual testing).
 		inline void equals(
 			const std::string& name,
 			std::vector<std::array<long double, 2>> values,

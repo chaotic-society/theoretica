@@ -2,6 +2,7 @@
 theoretica-cppcheck-build-dir/*
 *.cppcheck
 *.csv
+*.bat
 
 # Compiled tests and scripts on UNIX systems.
 **/test_algebra

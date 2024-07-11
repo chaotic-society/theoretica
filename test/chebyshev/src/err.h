@@ -1,6 +1,6 @@
 
 ///
-/// @file error_handling.h Error handling checks
+/// @file err.h Error checking module
 ///
 
 #ifndef CHEBYSHEV_ERR_H
@@ -10,12 +10,17 @@
 #include <cstdlib>
 
 #include "./core/common.h"
+#include "./core/random.h"
 #include "./err/err_structures.h"
 
 
 namespace chebyshev {
 
-	/// @namespace chebyshev::err Error testing
+
+	// To err is human; to forgive, divine.
+
+
+	/// @namespace chebyshev::err Error checking module
 	namespace err {
 
 
@@ -32,31 +37,44 @@ namespace chebyshev {
 			/// Number of failed checks
 			unsigned int failedChecks = 0;
 
-			/// Output file
-			std::ofstream outputFile;
-
-			/// Relative or absolute path to output folder
-			std::string outputFolder = "";
-
-			/// Prefix to prepend to the filename, in addition
-			/// to the module name.
-			std::string filenamePrefix = "err_";
-
-			/// Suffix to append to the filename, in addition
-			/// to the module name.
-			std::string filenameSuffix = ".csv";
-
 			/// Whether to print to an output file.
 			bool outputToFile = true;
 
 			/// Results of checking assertions
 			std::map<std::string, std::vector<assert_result>> assertResults {};
 
+			/// The files to write assertion results results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> assertFiles {};
+
+			/// Default columns to print for assertions.
+			std::vector<std::string> assertColumns = {
+				"funcName", "evaluated", "failed", "description"
+			};
+
 			/// Results of checking errno
 			std::map<std::string, std::vector<errno_result>> errnoResults {};
 
+			/// The files to write errno results results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> errnoFiles {};
+
+			/// Default columns to print for errno checks.
+			std::vector<std::string> errnoColumns = {
+				"funcName", "evaluated", "expectedFlags", "failed"
+			};
+
 			/// Results of exception testing
 			std::map<std::string, std::vector<exception_result>> exceptionResults {};
+
+			/// The files to write exception results results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> exceptionFiles {};
+
+			/// Default columns to print for exception checks.
+			std::vector<std::string> exceptionColumns = {
+				"funcName", "thrown", "correctType", "failed"
+			};
 
 			/// Target checks marked for execution,
 			/// can be picked by passing test case names
@@ -78,166 +96,50 @@ namespace chebyshev {
 					state.pickedChecks[argv[i]] = true;
 
 			std::cout << "Starting error checking on "
-				<< moduleName << " ...\n" << std::endl;
+				<< moduleName << " ..." << std::endl;
 
 			state.moduleName = moduleName;
 			state.failedChecks = 0;
 			state.totalChecks = 0;
 
-			srand(time(nullptr));
+			random::setup();
 			output::setup();
 		}
 
 
-		/// Terminate error checking
+		/// Terminate the error testing environment.
+		///
+		/// @param exit Whether to exit after terminating the module.
 		void terminate(bool exit = true) {
 
-			if(state.outputToFile) {
+			output::state.quiet = state.quiet;
 
+			// Output to file is true but no specific files are specified,
+			// add default output file.
+			if(state.outputToFile && !state.assertFiles.size()
+				&& !state.errnoFiles.size() && !state.exceptionFiles.size()) {
 				std::string filename;
-				filename = state.outputFolder + state.filenamePrefix
-					+ state.moduleName + state.filenameSuffix;
-
-				if(state.outputFile.is_open())
-					state.outputFile.close();
-
-				state.outputFile.open(filename);
-
-				if(!state.outputFile.is_open()) {
-					std::cout << "Unable to open output file,"
-						" results will NOT be saved!" << std::endl;
-					state.outputToFile = false;
-				}
+				filename = output::state.outputFolder + state.moduleName + "_results";
+				output::state.outputFiles[filename] = std::ofstream(filename);
 			}
 
+			output::print_results(state.assertResults, state.assertColumns, state.assertFiles);
+			output::print_results(state.errnoResults, state.errnoColumns, state.errnoFiles);
+			output::print_results(state.exceptionResults, state.exceptionColumns, state.exceptionFiles);
 
-			output::table_state assertTable {};
-			output::table_state errnoTable {};
-			output::table_state exceptionTable {};
-
-
-			// Print results of assertions
-			if(state.assertResults.size()) {
-
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_assert(assertTable);
-				}
-
-				if(state.outputToFile)
-					output::header_assert(assertTable, state.outputFile);
-			}
-
-
-			for (auto it = state.assertResults.begin();
-				it != state.assertResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					assertTable.rowIndex++;
-
-					if(it != state.assertResults.end()
-					&& std::next(it) == state.assertResults.end()
-					&& (i == res_list.size() - 1))
-						assertTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_assert(res_list[i], assertTable);
-				
-					if(state.outputToFile)
-						output::print_assert(
-							res_list[i], assertTable, state.outputFile);
-				}
-			}
-
-
-			// Print results of errno checking
-			if(state.errnoResults.size()) {
-
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_errno(errnoTable);
-				}
-
-				if(state.outputToFile)
-					output::header_errno(errnoTable, state.outputFile);
-			}
-
-			for (auto it = state.errnoResults.begin();
-				it != state.errnoResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					errnoTable.rowIndex++;
-
-					if(it != state.errnoResults.end()
-					&& std::next(it) == state.errnoResults.end()
-					&& (i == res_list.size() - 1))
-						errnoTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_errno(res_list[i], errnoTable);
-				
-					if(state.outputToFile)
-						output::print_errno(
-							res_list[i], errnoTable, state.outputFile);
-				}
-			}
-
-
-			// Print results of exception checking
-			if(state.exceptionResults.size()) {
-
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_exception(exceptionTable);
-				}
-
-				if(state.outputToFile)
-					output::header_exception(exceptionTable, state.outputFile);
-			}
-
-
-			for (auto it = state.exceptionResults.begin();
-				it != state.exceptionResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					exceptionTable.rowIndex++;
-
-					if(it != state.exceptionResults.end()
-					&& std::next(it) == state.exceptionResults.end()
-					&& (i == res_list.size() - 1))
-						exceptionTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_exception(res_list[i], exceptionTable);
-				
-					if(state.outputToFile)
-						output::print_exception(
-							res_list[i], exceptionTable, state.outputFile);
-				}
-			}
-
-
-			std::cout << "\nEnding error checking on "
-				<< state.moduleName
-				<< " ..." << std::endl;
-
+			std::cout << "Finished error checking " << state.moduleName << " ...\n";
 			std::cout << state.totalChecks
 				<< " total checks, "
 				<< state.failedChecks << " failed ("
 				<< (state.failedChecks / (double) state.totalChecks * 100.0)
 				<< "%)" << std::endl;
 
-			if(exit)
+			state = err_state();
+
+			if(exit) {
+				output::terminate();
 				std::exit(state.failedChecks);
+			}
 		}
 
 

@@ -15,3 +15,6 @@ benchmark:
 errors:
 	@echo Compiling \"errors\" example program ...
 	@g++ examples/errors.cpp ${CXXFLAGS} -o ./errors
+
+clean:
+	@rm *.csv

@@ -8,9 +8,10 @@
 
 #include <ctime>
 
-#include "benchmark/timer.h"
-#include "benchmark/generator.h"
-#include "benchmark/benchmark_structures.h"
+#include "./core/random.h"
+#include "./benchmark/timer.h"
+#include "./benchmark/generator.h"
+#include "./benchmark/benchmark_structures.h"
 
 
 namespace chebyshev {
@@ -37,20 +38,6 @@ namespace chebyshev {
 			/// Default number of runs
 			unsigned int defaultRuns = CHEBYSHEV_BENCHMARK_RUNS;
 
-			/// Output file for the current module
-			std::ofstream outputFile;
-
-			/// Relative or absolute path to output folder
-			std::string outputFolder = "";
-
-			/// Prefix to prepend to the filename, in addition
-			/// to the module name.
-			std::string filenamePrefix = "benchmark_";
-
-			/// Suffix to append to the filename, in addition
-			/// to the module name.
-			std::string filenameSuffix = ".csv";
-
 			/// Whether to output results to a file.
 			bool outputToFile = true;
 
@@ -67,8 +54,17 @@ namespace chebyshev {
 			/// (all benchmarks will be executed if empty)
 			std::map<std::string, bool> pickedBenchmarks {};
 
+			/// The files to write benchmark results to
+			/// (if empty, all results are output to a generic file).
+			std::vector<std::string> benchmarkFiles {};
+
 			/// Results of the benchmarks.
 			std::map<std::string, std::vector<benchmark_result>> benchmarkResults {};
+
+			/// Default columns to print for benchmarks.
+			std::vector<std::string> benchmarkColumns = {
+				"funcName", "averageRuntime", "runsPerSecond"
+			};
 			
 		} state;
 
@@ -84,7 +80,6 @@ namespace chebyshev {
 			int argc = 0,
 			const char** argv = nullptr) {
 
-
 			// Initialize list of picked tests
 			if(argc && argv)
 				for (int i = 1; i < argc; ++i)
@@ -96,97 +91,46 @@ namespace chebyshev {
 			state.moduleName = moduleName;
 			state.failedBenchmarks = 0;
 
-			srand(time(nullptr));
+			random::setup();
 			output::setup();
 		}
 
 
-		/// Terminate the precision testing environment.
+		/// Terminate the benchmarking environment.
 		///
-		/// @param exit Whether to exit after terminating testing.
+		/// @param exit Whether to exit after terminating the module.
 		inline void terminate(bool exit = true) {
 
+			output::state.quiet = state.quiet;
 
-			if(state.outputToFile) {
-
+			// Output to file is true but no specific files are specified,
+			// add default output file.
+			if(state.outputToFile && !state.benchmarkFiles.size()) {
 				std::string filename;
-				filename = state.outputFolder + state.filenamePrefix
-					+ state.moduleName + state.filenameSuffix;
-
-				if(state.outputFile.is_open())
-					state.outputFile.close();
-
-				state.outputFile.open(filename);
-
-				if(!state.outputFile.is_open()) {
-					std::cout << "Unable to open output file,"
-						" results will NOT be saved!" << std::endl;
-					state.outputToFile = false;
-				}
+				filename = output::state.outputFolder + state.moduleName + "_results";
+				output::state.outputFiles[filename] = std::ofstream(filename);
 			}
 
+			output::print_results(state.benchmarkResults, state.benchmarkColumns, state.benchmarkFiles);
 
-			output::table_state benchmarkTable {};
-
-			if(state.benchmarkResults.size()) {
-
-				if(!state.quiet) {
-					std::cout << "\n";
-					output::header_benchmark(benchmarkTable);
-				}
-
-				// Print to file as CSV
-				if(state.outputToFile)
-					output::header_benchmark(benchmarkTable, state.outputFile);
-			}
-
-
-			for (auto it = state.benchmarkResults.begin();
-				it != state.benchmarkResults.end(); ++it) {
-
-				const auto res_list = it->second;
-
-				for (size_t i = 0; i < res_list.size(); ++i) {
-
-					benchmarkTable.rowIndex++;
-
-					if(it != state.benchmarkResults.end()
-					&& std::next(it) == state.benchmarkResults.end()
-					&& (i == res_list.size() - 1))
-						benchmarkTable.isLastRow = true;
-
-					if(!state.quiet)
-						output::print_benchmark(res_list[i], benchmarkTable);
-				
-					if(state.outputToFile)
-						output::print_benchmark(
-							res_list[i], benchmarkTable, state.outputFile);
-				}
-			}
-
-			std::cout << "\nFinished benchmarking " << state.moduleName << '\n';
+			std::cout << "Finished benchmarking " << state.moduleName << '\n';
 			std::cout << state.totalBenchmarks << " total benchmarks, "
 				<< state.failedBenchmarks << " failed (" <<
 				(state.failedBenchmarks / (double) state.totalBenchmarks) * 100 << "%)"
 				<< '\n';
-				
-			std::cout << "Results have been saved in "
-				<< state.outputFolder << state.filenamePrefix
-				<< state.moduleName << state.filenameSuffix << std::endl;
-
-			if(state.outputFile.is_open())
-				state.outputFile.close();
 
 			state = benchmark_state();
 
-			if(exit)
+			if(exit) {
+				output::terminate();
 				std::exit(state.failedBenchmarks);
+			}
 		}
 
 
 		/// Run a benchmark on a generic function,
 		/// with the given options.
-		template<typename Function, typename InputType = double>
+		template<typename InputType = double, typename Function>
 		inline void benchmark(
 			const std::string& funcName,
 			Function func,
@@ -217,6 +161,10 @@ namespace chebyshev {
 
 					totalRuntime += t();
 				}
+
+				// Differentiate between types with operator+= or not ?
+				// c = *((&c + 1) - 1);
+
 			} catch(...) {
 				failed = true;
 			}
@@ -240,7 +188,7 @@ namespace chebyshev {
 
 		/// Run a benchmark on a generic function,
 		/// with the given options.
-		template<typename Function, typename InputType = double>
+		template<typename InputType = double, typename Function>
 		inline void benchmark(
 			const std::string& funcName,
 			Function func,

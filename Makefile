@@ -1,5 +1,6 @@
 
 default_target: all
+.PHONY: test
 all: examples
 
 # Compiler flag for OpenMP
@@ -12,6 +13,7 @@ endif
 
 # Compiler flags
 CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
+CHEBYSHEV_SRC = ./test/chebyshev/src
 
 
 # Compile a simple example program
@@ -24,62 +26,66 @@ example:
 
 test_algebra:
 	@echo Compiling linear algebra test cases...
-	@g++ test/test_algebra.cpp ${CXXFLAGS} -I./test/ -o test/test_algebra
+	@g++ test/test_algebra.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_algebra
 	@./test/test_algebra
 
 
 test_core:
 	@echo Compiling core test cases...
-	@g++ test/test_core.cpp ${CXXFLAGS} -I./test/ -o test/test_core
+	@g++ test/test_core.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_core
 	@./test/test_core
 
 
 test_complex:
 	@echo Compiling complex test cases...
-	@g++ test/test_complex.cpp ${CXXFLAGS} -I./test/ -o test/test_complex
+	@g++ test/test_complex.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_complex
 	@./test/test_complex
 
 
 test_autodiff:
 	@echo Compiling autodiff test cases...
-	@g++ test/test_autodiff.cpp ${CXXFLAGS} -I./test/ -o test/test_autodiff
+	@g++ test/test_autodiff.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_autodiff
 	@./test/test_autodiff
 
 
 test_calculus:
 	@echo Compiling calculus test cases...
-	@g++ test/test_calculus.cpp ${CXXFLAGS} -I./test/ -o test/test_calculus
+	@g++ test/test_calculus.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_calculus
 	@./test/test_calculus
 
 
 test_polynomial:
 	@echo Compiling polynomial test cases...
-	@g++ test/test_polynomial.cpp ${CXXFLAGS} -I./test/ -o test/test_polynomial
+	@g++ test/test_polynomial.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_polynomial
 	@./test/test_polynomial
 
 
 test_interpolation:
 	@echo Compiling interpolation test cases...
-	@g++ test/test_interpolation.cpp ${CXXFLAGS} -I./test/ -o test/test_interpolation
+	@g++ test/test_interpolation.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_interpolation
 	@./test/test_interpolation
 
 
 test_optimization:
 	@echo Compiling optimization test cases...
-	@g++ test/test_optimization.cpp ${CXXFLAGS} -I./test/ -o test/test_optimization
+	@g++ test/test_optimization.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_optimization
 	@./test/test_optimization
 
 
 test_pseudorandom:
 	@echo Compiling pseudorandom test cases...
-	@g++ test/test_pseudorandom.cpp ${CXXFLAGS} -I./test/ -o test/test_pseudorandom
+	@g++ test/test_pseudorandom.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_pseudorandom
 	@./test/test_pseudorandom
 
 
 test_statistics:
 	@echo Compiling statistics test cases...
-	@g++ test/test_statistics.cpp ${CXXFLAGS} -I./test/ -o test/test_statistics
+	@g++ test/test_statistics.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_statistics
 	@./test/test_statistics
+
+
+test_template:
+	@g++ test/test_template.cpp  ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_template
 
 
 # Compile all test programs and run them
@@ -142,28 +148,31 @@ examples: example autodiff hamiltonian error_propagation \
 
 benchmark_real_analysis:
 	@echo Compiling real analysis benchmark...
-	@g++ benchmark/benchmark_real_analysis.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_real_analysis
+	@g++ benchmark/benchmark_real_analysis.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_real_analysis
 	@./benchmark/benchmark_real_analysis
 
 benchmark_algebra:
 	@echo Compiling algebra benchmark...
-	@g++ benchmark/benchmark_algebra.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_algebra
+	@g++ benchmark/benchmark_algebra.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_algebra
 	@./benchmark/benchmark_algebra
 
 benchmark_dataset:
 	@echo Compiling dataset benchmark...
-	@g++ benchmark/benchmark_dataset.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_dataset
+	@g++ benchmark/benchmark_dataset.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_dataset
 	@./benchmark/benchmark_dataset
 
 benchmark_pseudorandom:
 	@echo Compiling pseudorandom benchmark...
-	@g++ benchmark/benchmark_pseudorandom.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_pseudorandom
+	@g++ benchmark/benchmark_pseudorandom.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_pseudorandom
 	@./benchmark/benchmark_pseudorandom
 
 benchmark_vectorized:
 	@echo Compiling vectorized benchmark...
-	@g++ benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I./test/ -O0 -o benchmark/benchmark_vectorized
+	@g++ benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_vectorized
 	@./benchmark/benchmark_vectorized
+
+benchmark_template:
+	@g++ benchmark/benchmark_template.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_template
 
 # Compile all benchmarks and run them
 benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized

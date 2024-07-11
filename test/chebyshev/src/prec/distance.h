@@ -10,6 +10,7 @@
 namespace chebyshev {
 namespace prec {
 
+	// @namespace chebyshev::prec::distance Distance functions for use in prec::equals
 	namespace distance {
 
 

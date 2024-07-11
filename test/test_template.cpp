@@ -11,9 +11,9 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("example");
 
-		prec::state.outputFolder = "test/";
+		// output::state.outputFolder = "test/";
 
-		// prec::estimate(...);
+		// output::estimate(...);
 
 		// prec::equals(...);
 

@@ -18,30 +18,38 @@ namespace prec {
 
 		/// Default fail function which marks the test as failed
 		/// if the maximum error on the domain is bigger than the tolerance
-		auto fail_on_max_err = [](estimate_result r) -> bool {
-			return (r.maxErr > r.tolerance) || (r.maxErr != r.maxErr);
-		};
+		inline auto fail_on_max_err() {
+			return [](const estimate_result& r) -> bool {
+				return (r.maxErr > r.tolerance) || (r.maxErr != r.maxErr);
+			};
+		}
 
 
 		/// Marks the test as failed if the mean error on the domain
 		/// is bigger than the tolerance or the error is NaN.
-		auto fail_on_mean_err = [](estimate_result r) -> bool {
-			return (r.meanErr > r.tolerance) || (r.meanErr != r.meanErr);
-		};
+		inline auto fail_on_mean_err() {
+			return [](const estimate_result& r) -> bool {
+				return (r.meanErr > r.tolerance) || (r.meanErr != r.meanErr);
+			};
+		}
 
 
 		/// Marks the test as failed if the RMS error on the domain
 		/// is bigger than the tolerance or the error is NaN.
-		auto fail_on_rms_err = [](estimate_result r) -> bool {
-			return (r.rmsErr > r.tolerance) || (r.rmsErr != r.rmsErr);
-		};
+		inline auto fail_on_rms_err() {
+			return [](const estimate_result& r) -> bool {
+				return (r.rmsErr > r.tolerance) || (r.rmsErr != r.rmsErr);
+			};
+		}
 
 
 		/// Marks the test as failed if the relative error on the
 		/// domain is bigger than the tolerance or the error is NaN.
-		auto fail_on_rel_err = [](estimate_result r) -> bool {
-			return (r.relErr > r.tolerance) || (r.relErr != r.relErr);
-		};
+		inline auto fail_on_rel_err() {
+			return [](const estimate_result& r) -> bool {
+				return (r.relErr > r.tolerance) || (r.relErr != r.relErr);
+			};
+		}
 
 	}
 }}

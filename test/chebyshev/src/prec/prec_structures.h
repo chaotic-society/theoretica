@@ -63,8 +63,8 @@ namespace chebyshev {
 		};
 
 
-		/// A function which determines whether an estimation failed
-		using FailFunction = std::function<bool(estimate_result)>;
+		/// A function which determines whether an estimation failed.
+		using FailFunction = std::function<bool(const estimate_result&)>;
 
 
 		/// Distance function between two elements.
@@ -87,19 +87,42 @@ namespace chebyshev {
 			std::vector<interval> domain {};
 
 			/// The tolerance to use to determine whether the test failed.
-			long double tolerance = get_nan();
+			long double tolerance = CHEBYSHEV_PREC_TOLERANCE;
 
 			/// Number of function evaluations to use.
-			unsigned int iterations = 0;
+			unsigned int iterations = CHEBYSHEV_PREC_ITER;
 
-			/// The function to determine whether the test failed.
-			FailFunction fail;
+			/// The function to determine whether the test failed
+			/// (defaults to fail::fail_on_max_err).
+			FailFunction fail = [](const estimate_result& r) {
+				return (r.maxErr > r.tolerance) || (r.maxErr != r.maxErr);
+			};
 
 			/// The precision estimator to use.
 			Estimator_t estimator;
 
 			/// Whether to show the test result or not.
 			bool quiet = false;
+
+
+			/// Construct estimate options with all default values.
+			/// @note The estimator and domain must be set to 
+			/// correctly use the options for test cases.
+			estimate_options() {}
+
+
+			/// Construct estimate options from a one-dimensional
+			/// interval domain and an estimator, with other fields
+			/// equal to the default values.
+			estimate_options(interval omega, Estimator_t estimator)
+			: domain({omega}), estimator(estimator) {}
+
+
+			/// Construct estimate options from a multidimensional
+			/// interval domain and an estimator, with other fields
+			/// equal to the default values.
+			estimate_options(std::vector<interval> omega, Estimator_t estimator)
+			: domain(omega), estimator(estimator) {}
 			
 		};
 
@@ -145,16 +168,35 @@ namespace chebyshev {
 		template<typename T>
 		struct equation_options {
 			
+			/// Tolerance on the absolute difference.
+			long double tolerance = 0;
+
 			/// Distance function to measure the distance
 			/// between the expected and evaluated value.
 			DistanceFunction<T> distance;
 
-			/// Tolerance on the absolute difference.
-			long double tolerance = 0;
-
 			/// Print to standard output or not.
 			bool quiet = false;
 
+
+			/// Default constructor for equation options.
+			equation_options() {}
+
+
+			/// Construct equation options from the tolerance,
+			/// setting the distance function to a simple Euclidean distance.
+			equation_options(long double tolerance) : tolerance(tolerance) {
+				distance = [](T x, T y) {
+					const auto diff = x - y;
+					return (long double) (diff > 0 ? diff : -diff);
+				};
+			}
+
+
+			/// Construct equation options from the tolerance,
+			/// the distance function and the quiet flag (defaults to false).
+			equation_options(long double tolerance, DistanceFunction<T> dist, bool quiet = false)
+			: tolerance(tolerance), distance(dist), quiet(quiet) {}
 		};
 
 	}

@@ -9,7 +9,7 @@
 #ifndef CHEBYSHEV_PREC_ITER
 /// Default number of function evaluations
 /// in precision testing.
-#define CHEBYSHEV_PREC_ITER 1E+06
+#define CHEBYSHEV_PREC_ITER 1000
 #endif
 
 #ifndef CHEBYSHEV_PREC_TOLERANCE
@@ -38,12 +38,16 @@
 #include "../prec/interval.h"
 
 
+#define CAST_LAMBDA(func, type) [=](type x){ return func(static_cast<type>(x)); }
+
+
 namespace chebyshev {
 
 
-	/// A real function of real variable.
-	template<typename FloatType = double>
-	using RealFunction = std::function<FloatType(FloatType)>;
+	/// An endofunction is a function which has the same type
+	/// of input and output (e.g. a real function of real variable).
+	template<typename Type = double>
+	using EndoFunction = std::function<Type(Type)>;
 
 
 	/// Get a quiet NaN of the specified floating point type.
@@ -51,28 +55,13 @@ namespace chebyshev {
 	inline constexpr FloatType get_nan() {
 		return std::numeric_limits<FloatType>::quiet_NaN();
 	}
-
-
-	/// Generate a pseudorandom number following
-	/// a uniform distribution over the interval.
-	inline long double random_uniform(long double a, long double b) {
-		return (rand() / (long double) RAND_MAX) * (b - a) + a;
-	}
-
-	/// Generate a pseudorandom vector
-	/// with uniformly distributed elements,
-	/// overwriting the argument.
-	template<typename Vector>
-	inline void sample_uniform(Vector& x, const std::vector<prec::interval> domain) {
-
-		if(x.size() != domain.size())
-			throw std::runtime_error(
-				"Vector and domain size mismatch in chebyshev::sample_uniform");
-
-		for (int i = 0; i < x.size(); ++i)
-			x[i] = random_uniform(domain[i].a, domain[i].b);
-	}
 	
 }
+
+
+/// Namespace alias
+#ifndef CHEBYSHEV_NO_ALIAS
+namespace ch = chebyshev;
+#endif
 
 #endif
