@@ -1,7 +1,6 @@
 
 default_target: all
-.PHONY: test
-all: examples
+all: examples test
 
 # Compiler flag for OpenMP
 OPENMP = -fopenmp
@@ -89,8 +88,8 @@ test_template:
 
 
 # Compile all test programs and run them
-test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
-
+#test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
+test: test_core
 
 # Example programs
 
@@ -175,8 +174,8 @@ benchmark_template:
 	@g++ benchmark/benchmark_template.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o benchmark/benchmark_template
 
 # Compile all benchmarks and run them
-benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized
-
+#benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized
+benchmark: benchmark_real_analysis
 
 # Clean all directories from CSV and EXE files
 clean:

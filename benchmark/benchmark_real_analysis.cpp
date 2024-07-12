@@ -1,92 +1,156 @@
 
 #include "theoretica.h"
-#include "chebyshev/benchmark.h"
+#include "chebyshev.h"
 using namespace chebyshev;
 using namespace theoretica;
 
+// A macro to benchmark a real function
+#define BENCHMARK_REAL(func, opt) \
+	benchmark::benchmark(#func, CAST_LAMBDA(func, real), opt)
+
 
 int main(int argc, char const *argv[]) {
-
-	const real MIN = -1000000;
-	const real MAX = 1000000;
-	benchmark::state.outputFolder = "benchmark/";
 	
 	benchmark::setup("real_analysis", argc, argv);
 
-		BENCHMARK(th::square, MIN, MAX);
-		BENCHMARK(th::cube, MIN, MAX);
-		BENCHMARK(th::isqrt<uint32_t>, 0, MAX);
-		BENCHMARK(th::icbrt<uint32_t>, 0, MAX);
-		BENCHMARK(th::sqrt, 0, MAX);
-		BENCHMARK(th::cbrt, MIN, MAX);
-		BENCHMARK(th::abs, MIN, MAX);
-		BENCHMARK(th::sgn, MIN, MAX);
-		BENCHMARK(th::floor, MIN, MAX);
-		BENCHMARK(th::fract, MIN, MAX);
+		output::state.outputFolder = "benchmark/";
 
-		benchmark::request("th::max (1)",
-			[MIN, MAX](real x) { return max(MIN, x); }, uniform_generator(MIN, MAX));
+		// Benchmark options for real functions
+		auto R_opt = benchmark::benchmark_options<real>(
+			10, 100'000,
+			benchmark::generator::uniform1D(-1E+06, +1E+06)
+		);
 
-		benchmark::request("th::max (2)",
-			[MIN, MAX](real x) { return max(x, MAX); }, uniform_generator(MIN, MAX));
+		// Benchmark options for functions over the positive reals
+		auto Rplus_opt = benchmark::benchmark_options<real>(
+			10, 100'000,
+			benchmark::generator::uniform1D(0, +1E+06)
+		);
 
-		benchmark::request("th::min (1)",
-			[MIN, MAX](real x) { return min(MIN, x); }, uniform_generator(MIN, MAX));
+		BENCHMARK_REAL(th::sqrt, R_opt);
 
-		benchmark::request("th::min (2)",
-			[MIN, MAX](real x) { return min(x, MAX); }, uniform_generator(MIN, MAX));
+		BENCHMARK_REAL(th::square, R_opt);
+		BENCHMARK_REAL(th::cube, R_opt);
+		BENCHMARK_REAL(th::isqrt<uint32_t>, Rplus_opt);
+		BENCHMARK_REAL(th::icbrt<uint32_t>, Rplus_opt);
+		BENCHMARK_REAL(th::sqrt, Rplus_opt);
+		BENCHMARK_REAL(th::cbrt, R_opt);
+		BENCHMARK_REAL(th::abs, R_opt);
+		BENCHMARK_REAL(th::sgn, R_opt);
+		BENCHMARK_REAL(th::floor, R_opt);
+		BENCHMARK_REAL(th::fract, R_opt);
 
-		benchmark::request("th::clamp (1)",
-			[MIN, MAX](real x) { return clamp(x, MIN, MAX); }, uniform_generator(MIN, MAX));
+		benchmark::benchmark("th::max",
+			[](real x) { return max(-1E-09, x); },
+			R_opt
+		);
 
-		benchmark::request("th::clamp (2)",
-			[MIN, MAX](real x) { return clamp(x, 0, 1); }, uniform_generator(MIN, MAX));
+		benchmark::benchmark("th::max",
+			[](real x) { return max(x, 1E+09); },
+			R_opt
+		);
 
-		BENCHMARK(th::ln, 0, MAX);
-		BENCHMARK(th::log2, 0, MAX);
-		BENCHMARK(th::log10, 0, MAX);
+		benchmark::benchmark("th::min",
+			[](real x) { return min(-1E-09, x); },
+			R_opt
+		);
 
-		benchmark::request("th::pow (1)",
-			[](real x) { return th::pow(1.1, (int) x); }, uniform_generator(-100, 100));
+		benchmark::benchmark("th::min",
+			[](real x) { return min(x, 1E+09); },
+			R_opt
+		);
 
-		benchmark::request("th::pow (2)",
-			[](real x) { return th::pow(1.1, (int) -x); }, uniform_generator(-100, 100));
+		benchmark::benchmark("th::clamp",
+			[](real x) { return clamp(x, -1E+09, +1E+09); },
+			R_opt
+		);
 
-		benchmark::request("th::root",
-			[](real x) { return th::root(x, 10); }, uniform_generator(MIN, MAX), 100000, 5);
+		benchmark::benchmark("th::clamp",
+			[](real x) { return clamp(x, 0, 1); },
+			R_opt
+		);
 
-		BENCHMARK(th::fract, 0, 20);
-		BENCHMARK(th::exp, -100, 10);
+		BENCHMARK_REAL(th::ln, Rplus_opt);
+		BENCHMARK_REAL(th::log2, Rplus_opt);
+		BENCHMARK_REAL(th::log10, Rplus_opt);
 
-		benchmark::request("th::powf (1)",
-			[](real x) { return th::powf(x, 10); }, uniform_generator(MIN, MAX));
+		benchmark::benchmark<real>(
+			"th::pow",
+			[](real x) { return th::pow(1.1, (int) x); },
+			10, 100'000, benchmark::generator::uniform1D(-100.0, 100.0)
+		);
 
-		benchmark::request("th::powf (2)",
-			[](real x) { return th::powf(x, -10); }, uniform_generator(MIN, MAX));
+		benchmark::benchmark<real>(
+			"th::pow",
+			[](real x) { return th::pow(1.1, (int) -x); },
+			10, 100'000, benchmark::generator::uniform1D(-100.0, 100.0)
+		);
 
-		BENCHMARK(th::sin, MIN, MAX);
-		BENCHMARK(th::cos, MIN, MAX);
-		BENCHMARK(th::tan, MIN, MAX);
-		BENCHMARK(th::cot, MIN, MAX);
+		benchmark::benchmark(
+			"th::root(x, 10)",
+			[](real x) { return th::root(x, 10); },
+			Rplus_opt
+		);
 
-		BENCHMARK(th::atan, MIN, MAX);
-		BENCHMARK(th::asin, MIN, MAX);
-		BENCHMARK(th::acos, MIN, MAX);
+		BENCHMARK_REAL(th::fract, R_opt);
+		
+		BENCHMARK_REAL(
+			th::exp,
+			benchmark::benchmark_options<real>(
+				10, 100'000, benchmark::generator::uniform1D(-100, 10)
+			)
+		);
 
-		BENCHMARK(th::sinh, -50, 50);
-		BENCHMARK(th::cosh, -50, 50);
-		BENCHMARK(th::tanh, -50, 50);
-		BENCHMARK(th::coth, -50, 50);
-		BENCHMARK(th::sigmoid, -50, 50);
-		BENCHMARK(th::sinc, MIN, MAX);
-		BENCHMARK(th::heaviside, MIN, MAX);
-		BENCHMARK(th::radians, MIN, MAX);
-		BENCHMARK(th::degrees, MIN, MAX);
+		benchmark::benchmark(
+			"th::powf (1)",
+			[](real x) { return th::powf(x, 10); },
+			R_opt
+		);
 
-		benchmark::request("th::binomial_coeff",
-			[](real x) { return binomial_coeff<uint32_t>(10, x); }, uniform_generator(0, 9));
+		benchmark::benchmark(
+			"th::powf (2)",
+			[](real x) { return th::powf(x, -10); },
+			R_opt
+		);
 
-		BENCHMARK(th::special::gamma, 0.1, 20);
+		BENCHMARK_REAL(th::sin, R_opt);
+		BENCHMARK_REAL(th::cos, R_opt);
+		BENCHMARK_REAL(th::tan, R_opt);
+		BENCHMARK_REAL(th::cot, R_opt);
+
+		BENCHMARK_REAL(th::atan, R_opt);
+		BENCHMARK_REAL(th::asin, R_opt);
+		BENCHMARK_REAL(th::acos, R_opt);
+
+		auto exp_opt = benchmark::benchmark_options<real>(
+			10, 100'000,
+			benchmark::generator::uniform1D(-50, 50)
+		);
+
+		BENCHMARK_REAL(th::sinh, exp_opt);
+		BENCHMARK_REAL(th::cosh, exp_opt);
+		BENCHMARK_REAL(th::tanh, exp_opt);
+		BENCHMARK_REAL(th::coth, exp_opt);
+		BENCHMARK_REAL(th::sigmoid, exp_opt);
+		BENCHMARK_REAL(th::sinc, R_opt);
+		BENCHMARK_REAL(th::heaviside, R_opt);
+		BENCHMARK_REAL(th::radians, R_opt);
+		BENCHMARK_REAL(th::degrees, R_opt);
+
+		benchmark::benchmark(
+			"th::binomial_coeff",
+			[](real x) { return binomial_coeff<uint64_t>(20, x); },
+			benchmark::benchmark_options<real>(
+				10, 10'000, benchmark::generator::uniform1D(0, 20)
+			)
+		);
+
+		BENCHMARK_REAL(
+			th::special::gamma,
+			benchmark::benchmark_options<real>(
+				10, 10'000, benchmark::generator::uniform1D(0.1, 10)
+			)
+		);
 
 	benchmark::terminate();
 }

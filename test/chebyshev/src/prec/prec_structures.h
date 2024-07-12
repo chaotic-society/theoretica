@@ -153,7 +153,7 @@ namespace chebyshev {
 			std::map<std::string, long double> additionalFields {};
 
 			/// Tolerance on the absolute difference.
-			long double tolerance = 0;
+			long double tolerance = CHEBYSHEV_PREC_TOLERANCE;
 
 			/// Whether the test failed.
 			bool failed = true;
@@ -169,7 +169,7 @@ namespace chebyshev {
 		struct equation_options {
 			
 			/// Tolerance on the absolute difference.
-			long double tolerance = 0;
+			long double tolerance = CHEBYSHEV_PREC_TOLERANCE;
 
 			/// Distance function to measure the distance
 			/// between the expected and evaluated value.

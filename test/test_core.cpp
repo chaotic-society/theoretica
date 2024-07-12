@@ -15,7 +15,6 @@ int main(int argc, char const *argv[]) {
 	prec::setup("core", argc, argv);
 
 		output::state.outputFolder = "test/";
-		output::state.fieldOptions["funcName"] = output::field_options(20);
 		prec::state.defaultIterations = 100'000;
 
 		// Estimation options for real endofunctions.
@@ -33,8 +32,8 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::sqrt(real)",
-			CAST_ENDOFUNC(th::sqrt, real),
-			CAST_ENDOFUNC(std::sqrt, real),
+			CAST_LAMBDA(th::sqrt, real),
+			CAST_LAMBDA(std::sqrt, real),
 			Rplus_opt
 		);
 
@@ -47,8 +46,8 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::cbrt(real)",
-			CAST_ENDOFUNC(th::cbrt, real),
-			CAST_ENDOFUNC(std::cbrt, real),
+			CAST_LAMBDA(th::cbrt, real),
+			CAST_LAMBDA(std::cbrt, real),
 			R_opt
 		);
 
@@ -62,7 +61,7 @@ int main(int argc, char const *argv[]) {
 		prec::estimate(
 			"th::root(real) (2)",
 			[](real x) { return th::root(x, 2); },
-			CAST_ENDOFUNC(std::sqrt, real),
+			CAST_LAMBDA(std::sqrt, real),
 			Rplus_opt
 		);
 
@@ -70,7 +69,7 @@ int main(int argc, char const *argv[]) {
 		prec::estimate(
 			"th::root(real) (3)",
 			[](real x) { return th::root(x, 3); },
-			CAST_ENDOFUNC(std::cbrt, real),
+			CAST_LAMBDA(std::cbrt, real),
 			R_opt
 		);
 
@@ -117,29 +116,29 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::abs(real)",
-			CAST_ENDOFUNC(th::abs, real),
-			CAST_ENDOFUNC(std::abs, real),
+			CAST_LAMBDA(th::abs, real),
+			CAST_LAMBDA(std::abs, real),
 			R_opt
 		);
 
 
 		prec::estimate(
 			"th::floor(real)",
-			CAST_ENDOFUNC(th::floor, real),
-			CAST_ENDOFUNC(std::floor, real),
+			CAST_LAMBDA(th::floor, real),
+			CAST_LAMBDA(std::floor, real),
 			R_opt
 		);
 
 
 		prec::estimate(
 			"th::fract(real)",
-			CAST_ENDOFUNC(th::fract, real),
+			CAST_LAMBDA(th::fract, real),
 			[](real x) { return std::abs(std::floor(x) - x); },
 			R_opt
 		);
 
 
-		// prec::equals("th::sgn(real)", CAST_ENDOFUNC(th::sgn), {
+		// prec::equals("th::sgn(real)", CAST_LAMBDA(th::sgn), {
 		// 		{1, 1},
 		// 		{2, 1},
 		// 		{-1, -1},
@@ -151,8 +150,8 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::ln(real)",
-			CAST_ENDOFUNC(th::ln, real),
-			CAST_ENDOFUNC(std::log, real),
+			CAST_LAMBDA(th::ln, real),
+			CAST_LAMBDA(std::log, real),
 			prec::estimate_options<real, real>(
 				prec::interval(1E-08, 1E+06),
 				prec::estimator::quadrature1D()
@@ -162,8 +161,8 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::log2(real)",
-			CAST_ENDOFUNC(th::log2, real),
-			CAST_ENDOFUNC(std::log2, real),
+			CAST_LAMBDA(th::log2, real),
+			CAST_LAMBDA(std::log2, real),
 			prec::estimate_options<real, real>(
 				prec::interval(1E-08, 1E+06),
 				prec::estimator::quadrature1D()
@@ -173,8 +172,8 @@ int main(int argc, char const *argv[]) {
 
 		prec::estimate(
 			"th::log10(real)",
-			CAST_ENDOFUNC(th::log10, real),
-			CAST_ENDOFUNC(std::log10, real),
+			CAST_LAMBDA(th::log10, real),
+			CAST_LAMBDA(std::log10, real),
 			prec::estimate_options<real, real>(
 				prec::interval(1E-08, 1E+06),
 				prec::estimator::quadrature1D()
@@ -182,12 +181,12 @@ int main(int argc, char const *argv[]) {
 		);
 
 
-	// 	prec::estimate(
-	// 		"th::ilog2(uint32_t)",
-	// 		[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
-	// 		[](real x) { return uint32_t(std::log2(x)); },
-	// 		interval(1, MAX)
-	// 	);
+		// prec::estimate(
+		// 	"th::ilog2(uint32_t)",
+		// 	[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
+		// 	[](real x) { return uint32_t(std::log2(x)); },
+		// 	interval(1, MAX)
+		// );
 
 
 	// 	prec::estimate(
@@ -213,15 +212,15 @@ int main(int argc, char const *argv[]) {
 
 	// 	prec::estimate(
 	// 		"th::exp(real)",
-	// 		CAST_ENDOFUNC(th::exp),
-	// 		CAST_ENDOFUNC(std::exp),
+	// 		CAST_LAMBDA(th::exp),
+	// 		CAST_LAMBDA(std::exp),
 	// 		interval(-100, 10));
 
 
 	// 	prec::estimate(
 	// 		"th::expm1(real)",
-	// 		CAST_ENDOFUNC(th::expm1),
-	// 		CAST_ENDOFUNC(std::expm1),
+	// 		CAST_LAMBDA(th::expm1),
+	// 		CAST_LAMBDA(std::expm1),
 	// 		interval(-1, 1));
 
 
@@ -240,67 +239,65 @@ int main(int argc, char const *argv[]) {
 
 	// // test_end();
 
-	// 	{
-	// 		prec::equals("th::pow", th::pow(1, 1E+06), 1);
-	// 		prec::equals("th::pow", th::pow(1, -1E+06), 1);
-	// 		prec::equals("th::pow", th::pow(2, 10), (1 << 10));
-	// 		prec::equals("th::pow", th::pow(10, 6), 1E+6);
-	// 		prec::equals("th::pow", th::pow(E, 10) * th::pow(E, -10), 1);
-	// 		prec::equals("th::pow", th::pow(1E-08, 10) * th::pow(1E-08, -10), 1);
-	// 	}
+		{
+			prec::equals("th::pow", th::pow(1, 1E+06), 1);
+			prec::equals("th::pow", th::pow(1, -1E+06), 1);
+			prec::equals("th::pow", th::pow(2, 10), (1 << 10));
+			prec::equals("th::pow", th::pow(10, 6), 1E+6);
+			prec::equals("th::pow", th::pow(E, 10) * th::pow(E, -10), 1);
+			prec::equals("th::pow", th::pow(1E-08, 10) * th::pow(1E-08, -10), 1);
+		}
 
 
-	// 	{
-	// 		prec::equals("th::ipow", th::ipow(1, 1E+06), 1);
-	// 		prec::equals("th::ipow", th::ipow(2, 10), (1 << 10));
-	// 		prec::equals("th::ipow", th::ipow(10, 6), 1E+6);
-	// 	}
+		{
+			prec::equals("th::ipow", th::ipow(1, 1E+06), 1);
+			prec::equals("th::ipow", th::ipow(2, 10), (1 << 10));
+			prec::equals("th::ipow", th::ipow(10, 6), 1E+6);
+		}
+
+		{
+			prec::equals("th::powf", th::powf(2, 0.5), th::SQRT2);
+			prec::equals("th::powf", th::powf(2, -0.5), 1 / th::SQRT2);
+			prec::equals("th::powf", th::powf(2, 2), 4);
+			prec::equals("th::powf", th::powf(3, 2), 9);
+		}
 
 
-	// 	{
-	// 		prec::equals("th::powf", th::powf(2, 0.5), th::SQRT2);
-	// 		prec::equals("th::powf", th::powf(2, -0.5), 1 / th::SQRT2);
-	// 		prec::equals("th::powf", th::powf(2, 2), 4);
-	// 		prec::equals("th::powf", th::powf(3, 2), 9);
-	// 	}
+		prec::estimate(
+			"th::sin(real)",
+			CAST_LAMBDA(th::sin, real),
+			CAST_LAMBDA(std::sin, real),
+			R_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::sin(real)",
-	// 		CAST_ENDOFUNC(th::sin),
-	// 		CAST_ENDOFUNC(std::sin),
-	// 		R_opt);
+		prec::estimate(
+			"th::cos(real)",
+			CAST_LAMBDA(th::cos, real),
+			CAST_LAMBDA(std::cos, real),
+			R_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::cos(real)",
-	// 		CAST_ENDOFUNC(th::cos),
-	// 		CAST_ENDOFUNC(std::cos),
-	// 		R_opt);
-
-
-	// 	prec::estimate(
-	// 		"sin^2 + cos^2 = 1",
-	// 		[](real x) {
-	// 			return square(th::sin(x)) + square(th::cos(x));
-	// 		},
-	// 		[](real x) {
-	// 			return 1;
-	// 		},
-	// 		R_opt);
+		prec::estimate(
+			"sin^2 + cos^2 = 1",
+			[](real x) { return square(th::sin(x)) + square(th::cos(x)); },
+			[](real x) { return 1; },
+			R_opt
+		);
 
 
 	// 	prec::estimate(
 	// 		"th::tan(real)",
-	// 		CAST_ENDOFUNC(th::tan),
-	// 		CAST_ENDOFUNC(std::tan),
+	// 		CAST_LAMBDA(th::tan),
+	// 		CAST_LAMBDA(std::tan),
 	// 		interval(-1, 1));
 
 
 	// 	prec::estimate(
 	// 		"th::tan(real)",
-	// 		CAST_ENDOFUNC(th::tan),
-	// 		CAST_ENDOFUNC(std::tan),
+	// 		CAST_LAMBDA(th::tan),
+	// 		CAST_LAMBDA(std::tan),
 	// 		R_opt, 1E-6, false, 1000);
 
 	// 	prec::equals("tan(2) = tan(2 + 100 PI)",
@@ -309,62 +306,62 @@ int main(int argc, char const *argv[]) {
 
 	// 	prec::estimate(
 	// 		"th::asin(real)",
-	// 		CAST_ENDOFUNC(th::asin),
-	// 		CAST_ENDOFUNC(std::asin),
+	// 		CAST_LAMBDA(th::asin),
+	// 		CAST_LAMBDA(std::asin),
 	// 		interval(-0.999999, 0.999999),
 	// 		0.0001);
 
 
 	// 	prec::estimate(
 	// 		"th::acos(real)",
-	// 		CAST_ENDOFUNC(th::acos),
-	// 		CAST_ENDOFUNC(std::acos),
+	// 		CAST_LAMBDA(th::acos),
+	// 		CAST_LAMBDA(std::acos),
 	// 		interval(-0.999999, 0.999999),
 	// 		0.0001);
 
 
 	// 	prec::estimate(
 	// 		"th::atan(real)",
-	// 		CAST_ENDOFUNC(th::atan),
-	// 		CAST_ENDOFUNC(std::atan),
+	// 		CAST_LAMBDA(th::atan),
+	// 		CAST_LAMBDA(std::atan),
 	// 		R_opt,
 	// 		0.0001);
 
 
 	// 	prec::estimate(
 	// 		"th::sinh(real)",
-	// 		CAST_ENDOFUNC(th::sinh),
-	// 		CAST_ENDOFUNC(std::sinh),
+	// 		CAST_LAMBDA(th::sinh),
+	// 		CAST_LAMBDA(std::sinh),
 	// 		interval(-10, 10));
 
 
 	// 	prec::estimate(
 	// 		"th::cosh(real)",
-	// 		CAST_ENDOFUNC(th::cosh),
-	// 		CAST_ENDOFUNC(std::cosh),
+	// 		CAST_LAMBDA(th::cosh),
+	// 		CAST_LAMBDA(std::cosh),
 	// 		interval(-10, 10));
 
 
 	// 	prec::estimate(
 	// 		"th::tanh(real)",
-	// 		CAST_ENDOFUNC(th::tanh),
-	// 		CAST_ENDOFUNC(std::tanh),
+	// 		CAST_LAMBDA(th::tanh),
+	// 		CAST_LAMBDA(std::tanh),
 	// 		interval(-10, 10));
 
-	// 	{
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(1, 1), 1, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(2, 0), 1, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(2, 1), 2, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(3, 2), 3, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(3, 1), 3, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(6, 3), 20, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(10, 3), 120, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(16, 7), 11440, 0);
-	// 		prec::equals("th::binomial_coeff", th::binomial_coeff(18, 6), 18564, 0);
-	// 	}
+		{
+			prec::equals("th::binomial_coeff", th::binomial_coeff(1, 1), 1, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(2, 0), 1, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(2, 1), 2, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(3, 2), 3, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(3, 1), 3, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(6, 3), 20, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(10, 3), 120, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(16, 7), 11440, 0);
+			prec::equals("th::binomial_coeff", th::binomial_coeff(18, 6), 18564, 0);
+		}
 
 
-	// 	prec::equals("th::degrees(real)", CAST_ENDOFUNC(th::degrees), {
+	// 	prec::equals("th::degrees(real)", CAST_LAMBDA(th::degrees), {
 	// 		{th::PI, 180},
 	// 		{th::PI/2.0, 90},
 	// 		{th::PI/4.0, 45},
@@ -372,7 +369,7 @@ int main(int argc, char const *argv[]) {
 	// 	});
 
 
-	// 	prec::equals("th::radians(real)", CAST_ENDOFUNC(th::radians), {
+	// 	prec::equals("th::radians(real)", CAST_LAMBDA(th::radians), {
 	// 		{180, th::PI},
 	// 		{90, th::PI/2.0},
 	// 		{45, th::PI/4.0},

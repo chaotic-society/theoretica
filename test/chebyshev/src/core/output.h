@@ -520,10 +520,11 @@ namespace chebyshev {
 			state.fieldNames["thrown"] = "Has Thrown";
 
 			// Set wider column width for some fields
-			state.fieldOptions["funcName"].columnWidth = 16;
+			state.fieldOptions["funcName"].columnWidth = 20;
 			state.fieldOptions["averageRuntime"].columnWidth = 14;
 			state.fieldOptions["runsPerSecond"].columnWidth = 14;
 			state.fieldOptions["description"].columnWidth = 20;
+			state.fieldOptions["failed"].columnWidth = 6;
 
 			// Set a special field interpreter for the "failed" field
 			state.fieldOptions["failed"].fieldInterpreter = [](const std::string& s) {
