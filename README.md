@@ -58,7 +58,7 @@ All library functions and objects are implemented in the `theoretica` namespace 
 ## Documentation
 The documentation for the library is available [here](https://chaotic-society.github.io/theoretica/).
 Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
-The bibliography used for researching the algorithms used in the library is available [here](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/BIBLIOGRAPHY.md).
+The bibliography used for researching the algorithms used in the library is available [here](https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md).
 
 ### Quickstart
 You can try to compile this simple code to check if you set up the library correctly:

@@ -763,6 +763,9 @@ namespace theoretica {
 	/// Compute the exponential of x minus 1
 	/// more accurately for really small x.
 	/// For |x| > 0.001, th::exp is used.
+	///
+	/// @param x A real number.
+	/// @return The exponential of x minus 1.
 	inline real expm1(real x) {
 
 		if(abs(x) > 0.001)
