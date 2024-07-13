@@ -15,19 +15,24 @@ int main(int argc, char const *argv[]) {
 	prec::setup("core", argc, argv);
 
 		output::state.outputFolder = "test/";
-		prec::state.defaultIterations = 100'000;
+		prec::state.defaultIterations = 1'000'000;
 
-		// Estimation options for real endofunctions.
+		// Estimate options for real endofunctions.
 		auto R_opt = prec::estimate_options<real, real>(
 				prec::interval(-1E+06, 1E+06),
 				prec::estimator::quadrature1D()
 		);
 
-		// Estimation options for functions defined
+		// Estimate options for functions defined
 		// over the positive real numbers.
 		auto Rplus_opt = prec::estimate_options<real, real>(
 				prec::interval(0, 1E+06),
 				prec::estimator::quadrature1D()
+		);
+
+		auto exp_opt = prec::estimate_options<real, real>(
+			prec::interval(-10, 10),
+			prec::estimator::quadrature1D()
 		);
 
 		prec::estimate(
@@ -138,24 +143,39 @@ int main(int argc, char const *argv[]) {
 		);
 
 
-		// prec::equals("th::sgn(real)", CAST_LAMBDA(th::sgn), {
-		// 		{1, 1},
-		// 		{2, 1},
-		// 		{-1, -1},
-		// 		{-3, -1},
-		// 		{0, 0},
-		// 		{-1.0 / 3.0, -1}
-		// });
+		prec::estimate(
+			"th::sgn (1)",
+			CAST_LAMBDA(th::sgn, real),
+			[](real x) { return 1; },
+			prec::estimate_options<real, real>(
+				prec::interval(0.1, 1E+06),
+				prec::estimator::quadrature1D()
+			)
+		);
+
+
+		prec::estimate(
+			"th::sgn (2)",
+			CAST_LAMBDA(th::sgn, real),
+			[](real x) { return -1; },
+			prec::estimate_options<real, real>(
+				prec::interval(-1E+06, -0.1),
+				prec::estimator::quadrature1D()
+			)
+		);
+
+
+		auto log_opt = prec::estimate_options<real, real>(
+			prec::interval(1E-08, 1E+06),
+			prec::estimator::quadrature1D()
+		);
 
 
 		prec::estimate(
 			"th::ln(real)",
 			CAST_LAMBDA(th::ln, real),
 			CAST_LAMBDA(std::log, real),
-			prec::estimate_options<real, real>(
-				prec::interval(1E-08, 1E+06),
-				prec::estimator::quadrature1D()
-			)
+			log_opt
 		);
 
 
@@ -163,10 +183,7 @@ int main(int argc, char const *argv[]) {
 			"th::log2(real)",
 			CAST_LAMBDA(th::log2, real),
 			CAST_LAMBDA(std::log2, real),
-			prec::estimate_options<real, real>(
-				prec::interval(1E-08, 1E+06),
-				prec::estimator::quadrature1D()
-			)
+			log_opt
 		);
 
 
@@ -174,47 +191,54 @@ int main(int argc, char const *argv[]) {
 			"th::log10(real)",
 			CAST_LAMBDA(th::log10, real),
 			CAST_LAMBDA(std::log10, real),
+			log_opt
+		);
+
+
+		prec::estimate(
+			"th::ilog2(uint32_t)",
+			[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
+			[](real x) { return uint32_t(std::log2(x)); },
+			Rplus_opt
+		);
+
+
+		prec::estimate(
+			"th::ilog2(uint64_t)",
+			[](real x) { return ilog2<uint64_t>(uint64_t(x)); },
+			[](real x) { return uint64_t(std::log2(x)); },
+			Rplus_opt
+		);
+
+
+		prec::estimate(
+			"th::pad2(uint32_t)",
+			[](real x) { return pad2<uint32_t>(uint32_t(x)); },
+			[](real x) { return 1 << (uint32_t) ceil(std::log2(x)); },
 			prec::estimate_options<real, real>(
-				prec::interval(1E-08, 1E+06),
+				prec::interval(1, 1E+06),
 				prec::estimator::quadrature1D()
 			)
 		);
 
 
-		// prec::estimate(
-		// 	"th::ilog2(uint32_t)",
-		// 	[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
-		// 	[](real x) { return uint32_t(std::log2(x)); },
-		// 	interval(1, MAX)
-		// );
+		prec::estimate(
+			"th::pad2(uint64_t)",
+			[](real x) { return pad2<uint64_t>(uint64_t(x)); },
+			[](real x) { return 1 << (uint64_t) ceil(std::log2(x)); },
+			prec::estimate_options<real, real>(
+				prec::interval(1, 1E+06),
+				prec::estimator::quadrature1D()
+			)
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::ilog2(uint64_t)",
-	// 		[](real x) { return ilog2<uint64_t>(uint64_t(x)); },
-	// 		[](real x) { return uint64_t(std::log2(x)); },
-	// 		interval(1, MAX));
-
-
-	// 	prec::estimate(
-	// 		"th::pad2(uint32_t)",
-	// 		[](real x) { return pad2<uint32_t>(uint32_t(x)); },
-	// 		[](real x) { return 1 << (uint32_t) ceil(std::log2(x)); },
-	// 		interval(1, MAX));
-
-
-	// 	prec::estimate(
-	// 		"th::pad2(uint64_t)",
-	// 		[](real x) { return pad2<uint64_t>(uint64_t(x)); },
-	// 		[](real x) { return 1 << (uint64_t) ceil(std::log2(x)); },
-	// 		interval(1, MAX));
-
-
-	// 	prec::estimate(
-	// 		"th::exp(real)",
-	// 		CAST_LAMBDA(th::exp),
-	// 		CAST_LAMBDA(std::exp),
-	// 		interval(-100, 10));
+		prec::estimate(
+			"th::exp(real)",
+			CAST_LAMBDA(th::exp, real),
+			CAST_LAMBDA(std::exp, real),
+			exp_opt
+		);
 
 
 	// 	prec::estimate(
@@ -328,25 +352,28 @@ int main(int argc, char const *argv[]) {
 	// 		0.0001);
 
 
-	// 	prec::estimate(
-	// 		"th::sinh(real)",
-	// 		CAST_LAMBDA(th::sinh),
-	// 		CAST_LAMBDA(std::sinh),
-	// 		interval(-10, 10));
+		prec::estimate(
+			"th::sinh(real)",
+			CAST_LAMBDA(th::sinh, real),
+			CAST_LAMBDA(std::sinh, real),
+			exp_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::cosh(real)",
-	// 		CAST_LAMBDA(th::cosh),
-	// 		CAST_LAMBDA(std::cosh),
-	// 		interval(-10, 10));
+		prec::estimate(
+			"th::cosh(real)",
+			CAST_LAMBDA(th::cosh, real),
+			CAST_LAMBDA(std::cosh, real),
+			exp_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::tanh(real)",
-	// 		CAST_LAMBDA(th::tanh),
-	// 		CAST_LAMBDA(std::tanh),
-	// 		interval(-10, 10));
+		prec::estimate(
+			"th::tanh(real)",
+			CAST_LAMBDA(th::tanh, real),
+			CAST_LAMBDA(std::tanh, real),
+			exp_opt
+		);
 
 		{
 			prec::equals("th::binomial_coeff", th::binomial_coeff(1, 1), 1, 0);
@@ -400,84 +427,70 @@ int main(int argc, char const *argv[]) {
 	// 		test_fact<uint64_t>, interval(1, 20));
 
 
-	// 	prec::estimate(
-	// 		"falling_fact (0)",
-	// 		[](real x) {
-	// 			return falling_fact(x, 0);
-	// 		},
-	// 		[](real x) { return 1; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"falling_fact(x, 0)",
+			[](real x) { return falling_fact(x, 0); },
+			[](real x) { return 1; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"falling_fact (1)",
-	// 		[](real x) {
-	// 			return falling_fact(x, 1);
-	// 		},
-	// 		[](real x) { return x; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"falling_fact(x, 1)",
+			[](real x) { return falling_fact(x, 1); },
+			[](real x) { return x; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"falling_fact (2)",
-	// 		[](real x) {
-	// 			return falling_fact(x, 2);
-	// 		},
-	// 		[](real x) { return square(x) - x; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"falling_fact(x, 2)",
+			[](real x) { return falling_fact(x, 2); },
+			[](real x) { return square(x) - x; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"falling_fact (3)",
-	// 		[](real x) {
-	// 			return falling_fact(x, 3);
-	// 		},
-	// 		[](real x) { return cube(x) - 3 * square(x) + 2 * x; },
-	// 		Rplus_opt
-	// 	);
+		// prec::estimate(
+		// 	"falling_fact(x, 3)",
+		// 	[](real x) { return falling_fact(x, 3); },
+		// 	[](real x) { return cube(x) - 3 * square(x) + 2 * x; },
+		// 	Rplus_opt
+		// );
 
 
-	// 	prec::estimate(
-	// 		"rising_fact (0)",
-	// 		[](real x) {
-	// 			return rising_fact(x, 0);
-	// 		},
-	// 		[](real x) { return 1; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"rising_fact(x, 0)",
+			[](real x) { return rising_fact(x, 0); },
+			[](real x) { return 1; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"rising_fact (1)",
-	// 		[](real x) {
-	// 			return rising_fact(x, 1);
-	// 		},
-	// 		[](real x) { return x; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"rising_fact(x, 1)",
+			[](real x) { return rising_fact(x, 1); },
+			[](real x) { return x; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"rising_fact (2)",
-	// 		[](real x) {
-	// 			return rising_fact(x, 2);
-	// 		},
-	// 		[](real x) { return square(x) + x; },
-	// 		Rplus_opt
-	// 	);
+		prec::estimate(
+			"rising_fact(x, 2)",
+			[](real x) { return rising_fact(x, 2); },
+			[](real x) { return square(x) + x; },
+			Rplus_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"rising_fact (3)",
-	// 		[](real x) {
-	// 			return rising_fact(x, 3);
-	// 		},
-	// 		[](real x) { return cube(x) + 3 * square(x) + 2 * x; },
-	// 		Rplus_opt
-	// 	);
+		// prec::estimate(
+		// 	"rising_fact(x, 3)",
+		// 	[](real x) {
+		// 		return rising_fact(x, 3);
+		// 	},
+		// 	[](real x) { return cube(x) + 3 * square(x) + 2 * x; },
+		// 	Rplus_opt
+		// );
 
 
 	// 	// Special functions

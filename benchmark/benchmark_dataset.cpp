@@ -1,38 +1,46 @@
 
 #include "theoretica.h"
-#include "chebyshev/benchmark.h"
+#include "chebyshev.h"
 using namespace chebyshev;
 using namespace theoretica;
 
 
 int main(int argc, char const *argv[]) {
-	
-	const size_t N = 1000000;
-
-	auto dummy = [](unsigned int i) { return 0; };
-
-	benchmark::state.outputFolder = "benchmark/";
-	benchmark::state.defaultIterations = 10;
-	benchmark::state.defaultRuns = 10;
 
 	benchmark::setup("dataset", argc, argv);
 
+		output::state.outputFolder = "benchmark/";
+		const size_t N = 1'000'000;
+		auto dummy = [](unsigned int i) { return 0; };
+
+		auto opt = benchmark::benchmark_options<real>(
+			10, 10, dummy
+		);
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
-	    pdf_sampler gauss = pdf_sampler::gaussian(0, 1000000, g);
+	    pdf_sampler gauss = pdf_sampler::gaussian(0, 1'000'000, g);
 
 	    // Generate a gaussian sample
 	    vec<real> v = vec<real>(N);
 	    gauss.fill(v);
 
-	    benchmark::request("sum",
-			[v](real x) { return sum(v); }, dummy);
+	    benchmark::benchmark(
+	    	"sum",
+	    	[v](real x) { return sum(v); },
+	    	opt
+	    );
 
-		benchmark::request("sum_pairwise",
-			[v](real x) { return sum_pairwise(v); }, dummy);
+		benchmark::benchmark(
+			"sum_pairwise",
+			[v](real x) { return sum_pairwise(v); },
+			opt
+		);
 
-		benchmark::request("sum_compensated",
-			[v](real x) { return sum_compensated(v); }, dummy);
+		benchmark::benchmark(
+			"sum_compensated",
+			[v](real x) { return sum_compensated(v); },
+			opt
+		);
 
 	benchmark::terminate();
 }

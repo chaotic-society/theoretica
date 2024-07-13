@@ -4,6 +4,7 @@
 using namespace chebyshev;
 using namespace theoretica;
 
+
 // A macro to benchmark a real function
 #define BENCHMARK_REAL(func, opt) \
 	benchmark::benchmark(#func, CAST_LAMBDA(func, real), opt)
@@ -28,7 +29,6 @@ int main(int argc, char const *argv[]) {
 		);
 
 		BENCHMARK_REAL(th::sqrt, R_opt);
-
 		BENCHMARK_REAL(th::square, R_opt);
 		BENCHMARK_REAL(th::cube, R_opt);
 		BENCHMARK_REAL(th::isqrt<uint32_t>, Rplus_opt);
