@@ -48,7 +48,7 @@ This is an overview of the library's functionalities. For a more detailed list s
 - Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
 
 ## Dependencies
-The library has no dependencies. Only the C++ Standard Library with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
+The library has no dependencies. Only the C++ Standard Library and STL with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
 
 ## Setup
 You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
@@ -96,16 +96,6 @@ Contributions are welcome and very appreciated! Make sure to read the [Contribut
 [![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
 
 The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
-
-## Branches
-- ### `main`
-Where the current stable version of the library is developed.
-- ### `physics`
-The physics module implementing quantum mechanics features.
-- ### `sparse`
-Sparse matrix and vector algebra classes.
-- ### `machine-learning`
-Machine learning development branch, with cost functions, models and training algorithms.
 
 ## Other information
 

@@ -267,6 +267,32 @@ namespace chebyshev {
 		namespace property {
 
 			/// Precision testing of an endofunction which is
+			/// equivalent to the identity.
+			///
+			/// @param name The name of the test case.
+			/// @param id The identity to test.
+			/// @param opt The options for estimation.
+			template<typename Type, typename Identity = EndoFunction<Type>>
+			inline void identity(
+				const std::string& name,
+				Identity id,
+				const estimate_options<Type, Type>& opt) {
+
+				// Apply the identity function
+				EndoFunction<Type> funcApprox = [&](Type x) -> Type {
+					return id(x);
+				};
+
+				// And compare it to the identity
+				EndoFunction<Type> funcExpected = [](Type x) -> Type {
+					return x;
+				};
+
+				estimate(name, funcApprox, funcExpected, opt);
+			}
+			
+
+			/// Precision testing of an endofunction which is
 			/// an involution. The function is applied two times
 			/// to input values and it is checked against the identity.
 			///

@@ -18,10 +18,10 @@ int main() {
 	const unsigned int N = 10000;
 
 	// Output files
-	std::ofstream f_uniform = std::ofstream("./examples/data/uniform.csv");
-	std::ofstream f_gaussian = std::ofstream("./examples/data/gaussian.csv");
-	std::ofstream f_exponential = std::ofstream("./examples/data/exponential.csv");
-	std::ofstream f_cauchy = std::ofstream("./examples/data/cauchy.csv");
+	std::ofstream f_uniform = std::ofstream("./examples/uniform.csv");
+	std::ofstream f_gaussian = std::ofstream("./examples/gaussian.csv");
+	std::ofstream f_exponential = std::ofstream("./examples/exponential.csv");
+	std::ofstream f_cauchy = std::ofstream("./examples/cauchy.csv");
 
 	// Pseudorandom Number Generator using Xoshiro256++
 	PRNG g = PRNG::xoshiro(time(nullptr));

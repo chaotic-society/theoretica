@@ -14,7 +14,7 @@ using namespace th;
 
 
 // You can plot the data file using gnuplot:
-// splot "random_walk.dat" with lines title "3D Random Walk"
+// splot "examples/random_walk.dat" with lines title "3D Random Walk"
 
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
     const unsigned int N = 10000;
 
     // Output file
-    std::ofstream file("random_walk.dat");
+    std::ofstream file("examples/random_walk.dat");
 
     // Random number generator
     PRNG g = PRNG::xoshiro(time(nullptr));
