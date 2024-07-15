@@ -241,27 +241,15 @@ int main(int argc, char const *argv[]) {
 		);
 
 
-	// 	prec::estimate(
-	// 		"th::expm1(real)",
-	// 		CAST_LAMBDA(th::expm1),
-	// 		CAST_LAMBDA(std::expm1),
-	// 		interval(-1, 1));
-
-
-	// // test_start("th::pow");
-
-	// // 	const unsigned int N = 7;
-	// // 	const unsigned int MAX_POW = 10;
-
-	// // 	for (unsigned int i = 0; i < N; ++i) {
-	// // 		for (unsigned int j = 0; j < 100; ++j) {
-	// // 			real x = 20 * i / N;
-	// // 			real p = MAX_POW * j / 100;
-	// // 			test_tol(th::pow(x, p), std::pow(x, p), x, TOLERANCE, true);
-	// // 		}
-	// // 	}
-
-	// // test_end();
+		prec::estimate(
+			"th::expm1(real)",
+			CAST_LAMBDA(th::expm1, real),
+			CAST_LAMBDA(std::expm1, real),
+			prec::estimate_options<real, real>(
+				prec::interval(-1, 1),
+				prec::estimator::quadrature1D()
+			)
+		);
 
 		{
 			prec::equals("th::pow", th::pow(1, 1E+06), 1);
@@ -404,16 +392,16 @@ int main(int argc, char const *argv[]) {
 	// 	});
 
 
-	// 	// Square a relatively small number and check that the high bits are zero
-	// 	prec::estimate("th::mul_uint128",
-	// 		[](real x) {
+		// Square a relatively small number and check that the high bits are zero
+		// prec::estimate("th::mul_uint128",
+		// 	[](real x) {
 
-	// 			uint64_t i = (uint64_t) x;
-	// 			uint64_t r1, r2;
-	// 			mul_uint128(i, i, r1, r2);
+		// 		uint64_t i = (uint64_t) x;
+		// 		uint64_t r1, r2;
+		// 		mul_uint128(i, i, r1, r2);
 
-	// 			return r2;
-	// 		}, [](real x) { return 0; }, interval(0, 1000));
+		// 		return r2;
+		// 	}, [](real x) { return 0; }, interval(0, 1000));
 
 
 	// 	prec::estimate("ratio::eval<real>", test_ratio, R_opt);
@@ -493,51 +481,44 @@ int main(int argc, char const *argv[]) {
 		// );
 
 
-	// 	// Special functions
+		// Special functions
+		auto special_opt = prec::estimate_options<real, real>(
+			prec::interval(1, 20),
+			prec::estimator::quadrature1D()
+		);
+
+		special_opt.fail = prec::fail::fail_on_rel_err();
 
 
-	// 	// Gamma function
-
-	// 	// Check translation identity
-	// 	prec::estimate(
-	// 		"gamma (1)",
-	// 		[](real x) {
-	// 			return special::gamma(x);
-	// 		},
-	// 		[](real x) {
-	// 			return special::gamma(x + 1) / x;
-	// 		},
-	// 		interval(0.1, 20),
-	// 		10E-8, false,
-	// 		prec::state.defaultIterations, prec::fail_on_rel_err
-	// 	);
-
-	// 	// Check identity with factorial
-	// 	prec::estimate(
-	// 		"gamma (2)",
-	// 		[](real x) {
-	// 			return special::gamma((real) th::floor(x));
-	// 		},
-	// 		[](real x) {
-	// 			return (real) fact<uint64_t>((unsigned int) (th::floor(x) - 1));
-	// 		},
-	// 		interval(1, 20)
-	// 	);
+		// Check translation identity
+		prec::estimate(
+			"special::gamma (1)",
+			CAST_LAMBDA(special::gamma, real),
+			[](real x) { return special::gamma(x + 1) / x; },
+			special_opt
+		);
 
 
-	// 	// Pi function
+		// Check identity with factorial
+		prec::estimate(
+			"special::gamma (2)",
+			[](real x) { return special::gamma((real) th::floor(x)); },
+			[](real x) { return (real) fact<uint64_t>((unsigned int) (th::floor(x) - 1)); },
+			special_opt
+		);
 
-	// 	// Check identity with factorial
-	// 	prec::estimate(
-	// 		"pi (2)",
-	// 		[](real x) {
-	// 			return special::pi((real) th::floor(x));
-	// 		},
-	// 		[](real x) {
-	// 			return (real) fact<uint64_t>((unsigned int) (th::floor(x)));
-	// 		},
-	// 		interval(1, 20)
-	// 	);
+
+		// Check identity with factorial
+		prec::estimate(
+			"special::pi",
+			[](real x) {
+				return special::pi((real) th::floor(x));
+			},
+			[](real x) {
+				return (real) fact<uint64_t>((unsigned int) (th::floor(x)));
+			},
+			special_opt
+		);
 
 
 	prec::terminate();
