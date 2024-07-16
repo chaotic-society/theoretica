@@ -407,78 +407,87 @@ int main(int argc, char const *argv[]) {
 	// 	prec::estimate("ratio::eval<real>", test_ratio, R_opt);
 
 
-	// 	prec::estimate("fact<uint32_t>",
-	// 		test_fact<uint32_t>, interval(1, 13));
+		auto fact_opt = prec::estimate_options<uint32_t, uint64_t>(
+			prec::interval(1, 20),
+			prec::estimator::discrete1D<uint32_t, uint64_t>()
+		);
+
+		prec::estimate("fact<uint32_t>",
+			th::fact<uint32_t>,
+			[](uint32_t x) { return th::fact<uint32_t>(x - 1) * x; },
+			fact_opt
+		);
 
 
-	// 	prec::estimate("fact<uint64_t>",
-	// 		test_fact<uint64_t>, interval(1, 20));
+		prec::estimate("fact<uint64_t>",
+			th::fact<uint64_t>,
+			[](uint32_t x) { return th::fact<uint64_t>(x - 1) * x; },
+			fact_opt
+		);
 
 
 		prec::estimate(
 			"falling_fact(x, 0)",
-			[](real x) { return falling_fact(x, 0); },
-			[](real x) { return 1; },
-			Rplus_opt
+			[](uint32_t x) { return falling_fact(x, 0); },
+			[](uint32_t x) { return 1; },
+			fact_opt
 		);
 
 
 		prec::estimate(
 			"falling_fact(x, 1)",
-			[](real x) { return falling_fact(x, 1); },
-			[](real x) { return x; },
-			Rplus_opt
+			[](uint32_t x) { return falling_fact(x, 1); },
+			[](uint32_t x) { return x; },
+			fact_opt
 		);
 
 
 		prec::estimate(
 			"falling_fact(x, 2)",
-			[](real x) { return falling_fact(x, 2); },
-			[](real x) { return square(x) - x; },
-			Rplus_opt
+			[](uint32_t x) { return falling_fact(x, 2); },
+			[](uint32_t x) { return square(x) - x; },
+			fact_opt
 		);
 
 
-		// prec::estimate(
-		// 	"falling_fact(x, 3)",
-		// 	[](real x) { return falling_fact(x, 3); },
-		// 	[](real x) { return cube(x) - 3 * square(x) + 2 * x; },
-		// 	Rplus_opt
-		// );
+		prec::estimate(
+			"falling_fact(x, 3)",
+			[](uint32_t x) { return falling_fact(x, 3); },
+			[](uint32_t x) { return cube(x) - 3 * square(x) + 2 * x; },
+			fact_opt
+		);
 
 
 		prec::estimate(
 			"rising_fact(x, 0)",
-			[](real x) { return rising_fact(x, 0); },
-			[](real x) { return 1; },
-			Rplus_opt
+			[](uint32_t x) { return rising_fact(x, 0); },
+			[](uint32_t x) { return 1; },
+			fact_opt
 		);
 
 
 		prec::estimate(
 			"rising_fact(x, 1)",
-			[](real x) { return rising_fact(x, 1); },
-			[](real x) { return x; },
-			Rplus_opt
+			[](uint32_t x) { return rising_fact(x, 1); },
+			[](uint32_t x) { return x; },
+			fact_opt
 		);
 
 
 		prec::estimate(
 			"rising_fact(x, 2)",
-			[](real x) { return rising_fact(x, 2); },
-			[](real x) { return square(x) + x; },
-			Rplus_opt
+			[](uint32_t x) { return rising_fact(x, 2); },
+			[](uint32_t x) { return square(x) + x; },
+			fact_opt
 		);
 
 
-		// prec::estimate(
-		// 	"rising_fact(x, 3)",
-		// 	[](real x) {
-		// 		return rising_fact(x, 3);
-		// 	},
-		// 	[](real x) { return cube(x) + 3 * square(x) + 2 * x; },
-		// 	Rplus_opt
-		// );
+		prec::estimate(
+			"rising_fact(x, 3)",
+			[](uint32_t x) { return rising_fact(x, 3); },
+			[](uint32_t x) { return cube(x) + 3 * square(x) + 2 * x; },
+			fact_opt
+		);
 
 
 		// Special functions

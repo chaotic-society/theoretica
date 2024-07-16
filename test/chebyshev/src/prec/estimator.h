@@ -41,8 +41,8 @@ namespace prec {
 				interval domain = options.domain[0];
 
 				FloatType sum = 0;
-				FloatType sum_sqr = 0;
-				FloatType sum_abs = 0;
+				FloatType sumSqr = 0;
+				FloatType sumAbs = 0;
 				FloatType max = 0;
 
 				const FloatType length = domain.length();
@@ -53,8 +53,8 @@ namespace prec {
 				FloatType diff = std::abs(funcApprox(domain.a) - funcExpected(domain.a));
 
 				sum += diff;
-				sum_sqr += diff * diff;
-				sum_abs += std::abs(funcExpected(domain.a));
+				sumSqr += diff * diff;
+				sumAbs += std::abs(funcExpected(domain.a));
 				max = diff;
 
 				for (unsigned int i = 1; i < options.iterations; ++i) {
@@ -71,15 +71,15 @@ namespace prec {
 						coeff = 4;
 
 					sum += coeff * diff;
-					sum_sqr += coeff * diff * diff;
-					sum_abs += coeff * funcExpected(x);
+					sumSqr += coeff * diff * diff;
+					sumAbs += coeff * funcExpected(x);
 				}
 
 				diff = std::abs(funcApprox(domain.b) - funcExpected(domain.b));
 
 				sum += diff;
-				sum_sqr += diff * diff;
-				sum_abs += std::abs(funcExpected(domain.b));
+				sumSqr += diff * diff;
+				sumAbs += std::abs(funcExpected(domain.b));
 				
 				if(diff > max)
 					max = diff;
@@ -88,20 +88,81 @@ namespace prec {
 				res.absErr = sum;
 				res.maxErr = max;
 				res.meanErr = (sum * dx / 3.0) / length;
-				res.rmsErr = std::sqrt((sum_sqr * dx / 3.0) / length);
-				res.relErr = std::abs((sum * dx / 3.0) / (sum_abs * dx / 3.0));
+				res.rmsErr = std::sqrt((sumSqr * dx / 3.0) / length);
+				res.relErr = std::abs((sum * dx / 3.0) / (sumAbs * dx / 3.0));
 				
 				return res;
 			};
 		}
 
 
+		/// Use a discrete estimator over a lattice of points, here
+		/// implemented in one dimension, to compute error sums over
+		/// a discrete domain. The function is evaluated at the discrete
+		/// integer values inside the prec::interval domain and the
+		/// errors are summed and averaged, returning a prec::estimate_result.
+		///
+		/// ReturnType must be a type that has operator-() and is castable
+		/// to long double.
+		template<typename IntType = int, typename ReturnType = IntType>
+		inline auto discrete1D() {
+
+			// Return a one-dimensional discrete estimator
+			// as a lambda function
+			return [](
+				std::function<IntType(ReturnType)> funcApprox,
+				std::function<IntType(ReturnType)> funcExpected,
+				estimate_options<IntType, ReturnType> options) {
+
+				if(options.domain.size() != 1)
+					throw std::runtime_error(
+						"estimator::discrete1D only works on mono-dimensional domains");
+
+				IntType extreme1 = IntType(std::ceil(options.domain[0].a));
+				IntType extreme2 = IntType(std::floor(options.domain[0].b));
+
+				IntType lower = extreme1 < extreme2 ? extreme1 : extreme2;
+				IntType upper = extreme1 > extreme2 ? extreme1 : extreme2;
+
+				long double maxErr = 0;
+				long double sumDiff = 0;
+				long double sumSqr = 0;
+				long double sumAbs = 0;
+				uint64_t totalPoints = 0;
+
+				for (IntType n = lower; n <= upper; ++n) {
+
+					const ReturnType resExpected = funcExpected(n);
+					const ReturnType resApprox = funcApprox(n);
+
+					const long double diff = (long double) resExpected > resApprox ?
+						(resExpected - resApprox) : (resApprox - resExpected);
+
+					maxErr = std::max(maxErr, diff);
+					sumDiff += diff;
+					sumSqr += diff * diff;
+					sumAbs += std::abs((long double) funcExpected(n));
+					totalPoints++;
+				}
+
+				estimate_result res {};
+				res.absErr = sumAbs;
+				res.maxErr = maxErr;
+				res.meanErr = totalPoints > 0 ? (sumDiff / totalPoints) : 0;
+				res.rmsErr = totalPoints > 0 ? (std::sqrt(sumSqr) / totalPoints) : 0;
+				res.relErr = sumDiff / sumAbs;
+				return res;
+			};
+		}
+
+
 		/// Use crude Monte Carlo integration to approximate error integrals
-		/// for univariate real functions.
+		/// for univariate real functions. A uniform random sampler is used
+		/// to sample points over the one-dimensional domain
 		template<typename FloatType = double>
 		inline auto montecarlo1D() {
 
-			// Return an 1-dimensional Monte Carlo estimator
+			// Return a one-dimensional Monte Carlo estimator
 			// as a lambda function
 			return [](
 				EndoFunction<FloatType> funcApprox,
@@ -110,35 +171,31 @@ namespace prec {
 
 				if(options.domain.size() != 1)
 					throw std::runtime_error(
-						"The estimation domain's dimension must be 1"
-						"in prec::estimator::montecarlo1D");
+						"estimator::montecarlo1D only works on mono-dimensional domains");
 
 				FloatType sum = 0;
-				FloatType sum_sqr = 0;
-				FloatType sum_abs = 0;
+				FloatType sumSqr = 0;
+				FloatType sumAbs = 0;
 				FloatType max = 0;
 				const FloatType length = options.domain[0].length();
 
 				for (int i = 0; i < options.iterations; ++i) {
 					
 					FloatType x = random::uniform(options.domain[0].a, options.domain[0].b);
-
 					const FloatType diff = std::abs(funcApprox(x) - funcExpected(x));
 
-					if(max < diff)
-						max = diff;
-
+					max = std::max(max, diff);
 					sum += diff;
-					sum_sqr += diff * diff;
-					sum_abs += std::abs(funcExpected(x));
+					sumSqr += diff * diff;
+					sumAbs += std::abs(funcExpected(x));
 				}
 
 				estimate_result res {};
 				res.maxErr = max;
 				res.meanErr = sum / options.iterations;
 				res.absErr = sum * (length / options.iterations);
-				res.rmsErr = sum_sqr * (length / options.iterations);
-				res.relErr = sum / sum_abs;
+				res.rmsErr = sumSqr * (length / options.iterations);
+				res.relErr = sum / sumAbs;
 
 				return res;
 			};
@@ -168,8 +225,8 @@ namespace prec {
 						"in estimator::montecarlo");
 
 				FloatType sum = 0;
-				FloatType sum_sqr = 0;
-				FloatType sum_abs = 0;
+				FloatType sumSqr = 0;
+				FloatType sumAbs = 0;
 				FloatType max = 0;
 
 				// Compute the measure of a multi-interval
@@ -189,16 +246,16 @@ namespace prec {
 						max = diff;
 
 					sum += diff;
-					sum_sqr += diff * diff;
-					sum_abs += std::abs(funcExpected(x));
+					sumSqr += diff * diff;
+					sumAbs += std::abs(funcExpected(x));
 				}
 
 				estimate_result res {};
 				res.maxErr = max;
 				res.meanErr = sum / options.iterations;
 				res.absErr = sum * (volume / options.iterations);
-				res.rmsErr = sum_sqr * (volume / options.iterations);
-				res.relErr = sum / sum_abs;
+				res.rmsErr = sumSqr * (volume / options.iterations);
+				res.relErr = sum / sumAbs;
 
 				return res;
 			};
