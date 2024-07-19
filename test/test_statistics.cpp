@@ -2,7 +2,7 @@
 #include "theoretica.h"
 #include <cmath>
 #include <ctime>
-#include "chebyshev/prec.h"
+#include "prec.h"
 
 using namespace chebyshev;
 using namespace theoretica;
@@ -10,8 +10,10 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 
-	prec::state.outputFolder = "test/";
 	prec::setup("statistics");
+
+		output::state.outputFolder = "test/";
+		output::state.fieldOptions["funcName"].columnWidth = 22;
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
 
@@ -46,7 +48,7 @@ int main(int argc, char const *argv[]) {
 			unsigned int ndf = g() % 500 + 1;
 
 			std::stringstream str;
-			str << "pvalue_...(" << chi << "," << ndf << ") < 1";
+			str << "pvalue(" << chi << "," << ndf << ") < 1";
 
 			prec::equals(str.str(),
 				(pvalue_chi_squared(chi, ndf) - 1) < 1E-6, 1);
@@ -57,7 +59,7 @@ int main(int argc, char const *argv[]) {
 			unsigned int ndf = g() % 500 + 1;
 
 			std::stringstream str;
-			str << "pvalue_...(0," << ndf << ")";
+			str << "pvalue(0," << ndf << ")";
 
 			prec::equals(str.str(),
 				pvalue_chi_squared(0, ndf), 1, 1E-6);
