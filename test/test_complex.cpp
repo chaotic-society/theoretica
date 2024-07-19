@@ -2,7 +2,7 @@
 #include <cmath>
 #include <ctime>
 #include "theoretica.h"
-#include "chebyshev/prec.h"
+#include "prec.h"
 
 using namespace chebyshev;
 using namespace theoretica;
@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]) {
 	pdf_sampler gauss = pdf_sampler::gaussian(0, MAX, g);
 
 
-	prec::state.outputFolder = "test/";
+	output::state.outputFolder = "test/";
 	
 	prec::setup("complex");
 

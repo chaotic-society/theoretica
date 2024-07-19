@@ -89,7 +89,7 @@ test_template:
 
 # Compile all test programs and run them
 #test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
-test: test_core
+test: test_core test_complex
 
 # Example programs
 
