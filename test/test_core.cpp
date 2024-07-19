@@ -299,45 +299,49 @@ int main(int argc, char const *argv[]) {
 		);
 
 
-	// 	prec::estimate(
-	// 		"th::tan(real)",
-	// 		CAST_LAMBDA(th::tan),
-	// 		CAST_LAMBDA(std::tan),
-	// 		interval(-1, 1));
+		prec::estimate(
+			"th::tan(real)",
+			CAST_LAMBDA(th::tan, real),
+			CAST_LAMBDA(std::tan, real),
+			prec::estimate_options<real, real>(
+				prec::interval(-1, 1),
+				prec::estimator::quadrature1D()
+			)
+		);
+
+		prec::equals(
+			"tan(2)=tan(2+100*PI)",
+			th::tan(2.0),
+			th::tan(2.0 + 100 * PI)
+		);
+
+		auto asin_opt = prec::estimate_options<real, real>(
+			prec::interval(-0.999999, +0.999999),
+			prec::estimator::quadrature1D()
+		);
+
+		prec::estimate(
+			"th::asin(real)",
+			CAST_LAMBDA(th::asin, real),
+			CAST_LAMBDA(std::asin, real),
+			asin_opt	
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::tan(real)",
-	// 		CAST_LAMBDA(th::tan),
-	// 		CAST_LAMBDA(std::tan),
-	// 		R_opt, 1E-6, false, 1000);
-
-	// 	prec::equals("tan(2) = tan(2 + 100 PI)",
-	// 		th::tan(2), th::tan(2 + 100 * PI));
+		prec::estimate(
+			"th::acos(real)",
+			CAST_LAMBDA(th::acos, real),
+			CAST_LAMBDA(std::acos, real),
+			asin_opt
+		);
 
 
-	// 	prec::estimate(
-	// 		"th::asin(real)",
-	// 		CAST_LAMBDA(th::asin),
-	// 		CAST_LAMBDA(std::asin),
-	// 		interval(-0.999999, 0.999999),
-	// 		0.0001);
-
-
-	// 	prec::estimate(
-	// 		"th::acos(real)",
-	// 		CAST_LAMBDA(th::acos),
-	// 		CAST_LAMBDA(std::acos),
-	// 		interval(-0.999999, 0.999999),
-	// 		0.0001);
-
-
-	// 	prec::estimate(
-	// 		"th::atan(real)",
-	// 		CAST_LAMBDA(th::atan),
-	// 		CAST_LAMBDA(std::atan),
-	// 		R_opt,
-	// 		0.0001);
+		prec::estimate(
+			"th::atan(real)",
+			CAST_LAMBDA(th::atan, real),
+			CAST_LAMBDA(std::atan, real),
+			R_opt
+		);
 
 
 		prec::estimate(
