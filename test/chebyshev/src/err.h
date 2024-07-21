@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 
 #include "./core/common.h"
 #include "./core/random.h"
@@ -130,7 +131,7 @@ namespace chebyshev {
 			std::cout << "Finished error checking " << state.moduleName << " ...\n";
 			std::cout << state.totalChecks
 				<< " total checks, "
-				<< state.failedChecks << " failed ("
+				<< state.failedChecks << " failed ("  << std::setprecision(3)
 				<< (state.failedChecks / (double) state.totalChecks * 100.0)
 				<< "%)" << std::endl;
 

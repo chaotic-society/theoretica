@@ -1,7 +1,7 @@
 
 #include "theoretica.h"
 #include <cmath>
-#include "chebyshev/prec.h"
+#include "chebyshev.h"
 
 using namespace chebyshev;
 using namespace theoretica;
@@ -48,97 +48,104 @@ vec2 sho(real t) {
 
 
 int main(int argc, char const *argv[]) {
-
-	prec::state.outputFolder = "test/";
 	
 	prec::setup("calculus");
 
+		output::state.outputFolder = "test/";
+		prec::state.estimateColumns = {
+			"funcName", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
+		};
+
 		// Compare the numerical derivative to the analytical derivative
 
+		auto deriv_opt = prec::estimate_options<real, real>(
+			prec::interval(0.001, 0.5),
+			prec::estimator::quadrature1D(),
+			10E-04
+		);
+
+
 		prec::estimate("deriv_forward",
-			[](real x) {
-				return deriv_forward(f, x, 10E-8);
-			}, Df,
-			interval(0.001, 0.5), 10E-4);
+			[](real x) { return deriv_forward(f, x, 10E-8); },
+			Df, deriv_opt);
+
 
 		prec::estimate("deriv_backward",
-			[](real x) {
-				return deriv_backward(f, x, 10E-8);
-			}, Df,
-			interval(0.001, 0.5), 10E-4);
+			[](real x) { return deriv_backward(f, x, 10E-8); },
+			Df, deriv_opt);
+
 
 		prec::estimate("deriv_central",
-			[](real x) {
-				return deriv_central(f, x, 10E-8);
-			}, Df,
-			interval(0.001, 0.5), 10E-4);
+			[](real x) { return deriv_central(f, x, 10E-8); },
+			Df, deriv_opt);
 
 
 		prec::estimate("deriv_ridders2",
-			[](real x) {
-				return deriv_ridders2(f, x, 10E-6);
-			}, Df,
-			interval(0.001, 0.5));
+			[](real x) { return deriv_ridders2(f, x, 10E-6); },
+			Df, deriv_opt);
 
 
 		prec::estimate("deriv_ridders",
-			[](real x) {
-				return deriv_ridders(f, x, 10E-6, 3);
-			}, Df,
-			interval(0.001, 0.5));
+			[](real x) { return deriv_ridders(f, x, 10E-6, 3); },
+			Df, deriv_opt);
 
 
-		// Compare quadratures to primitives
+		// Compare integral quadrature to primitives
+
+		auto integ_opt = prec::estimate_options<real, real>(
+			prec::interval(0.1, 3.0),
+			prec::estimator::quadrature1D()
+		);
+
 
 		prec::estimate("integral_trapezoid",
-			[](real x) {
-				return integral_trapezoid(g, 1, x);
-			},
-			[](real x) {
-				return G(x) - G(1); // g and G are undefined at 0
-			},
-			interval(0.1, 3), 10E-4);
+			[](real x) { return integral_trapezoid(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			{ prec::interval(0.1, 3.0) },
+			1E-04, 1'000, prec::fail::fail_on_max_err(),
+			prec::estimator::quadrature1D()
+		);
 
 
-		prec::estimate("integral_simpson",
-			[](real x) {
-				return integral_simpson(g, 1, x);
-			},
-			[](real x) {
-				return G(x) - G(1); // g and G are undefined at 0
-			},
-			interval(0.1, 3));
+		prec::estimate<real, real>(
+			"integral_simpson",
+			[](real x) { return integral_simpson(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
 
 
 		prec::estimate("integral_romberg",
-			[](real x) {
-				return integral_romberg(g, 1, x);
-			},
-			[](real x) {
-				return G(x) - G(1); // g and G are undefined at 0
-			},
-			interval(0.1, 3));
+			[](real x) { return integral_romberg(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
 
 
 		prec::estimate("integral_legendre",
-			[](real x) {
-				return integral_legendre(g, 1, x, 16);
-			},
-			[](real x) {
-				return G(x) - G(1); // g and G are undefined at 0
-			},
-			interval(0.1, 3));
+			[](real x) { return integral_legendre(g, 1, x, 16); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
 
+
+		// Integrate the simple harmonic oscillator
+
+		const real h_euler = 1E-4;
+		const real h_rk2 = 1E-4;
+		const real h_rk4 = 1E-4;
+
+		real time = 1;
+
+		auto ode_opt = prec::estimate_options<real, real>(
+			prec::interval(0, time),
+			prec::estimator::quadrature1D(),
+			1E-03
+		);
 
 		ode_state<2> s_euler(0, {0, 1});
 		ode_state<2> s_rk2(0, {0, 1});
 		ode_state<2> s_rk4(0, {0, 1});
-
-		real h_euler = 1E-4;
-		real h_rk2 = 1E-4;
-		real h_rk4 = 1E-4;
-
-		real time = 1;
 
 		std::vector<vec2> traj_euler;
 		std::vector<vec2> traj_rk2;
@@ -178,7 +185,7 @@ int main(int argc, char const *argv[]) {
 			"ode_euler",
 			[interp_euler](real t) { return interp_euler(t); },
 			[](real t) { return sho(t)[0]; },
-			interval(0, time), 1E-3
+			ode_opt
 		);
 
 
@@ -197,25 +204,13 @@ int main(int argc, char const *argv[]) {
 		// 	interval(0, time), 1E-4
 		// );
 
-		prec::equals(
-			"ode_euler",
-			s_euler.y.sqr_norm(),
-			1, 1E-3
-		);
+		// Check for energy conservation
 
+		prec::equals("ode_euler (E)", s_euler.y.sqr_norm(), 1.0, 1E-3);
 
-		prec::equals(
-			"ode_rk2",
-			s_rk2.y.sqr_norm(),
-			1, 1E-4
-		);
+		prec::equals("ode_rk2 (E)", s_rk2.y.sqr_norm(), 1.0, 1E-4);
 
-
-		prec::equals(
-			"ode_rk4",
-			s_rk4.y.sqr_norm(),
-			1, 1E-4
-		);
+		prec::equals("ode_rk4 (E)", s_rk4.y.sqr_norm(), 1.0, 1E-4);
 
 
 	prec::terminate();

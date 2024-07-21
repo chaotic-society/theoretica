@@ -590,6 +590,8 @@ namespace chebyshev {
 				value << std::scientific
 					<< std::setprecision(state.outputPrecision)
 					<< r.tolerance;
+			} else if(fieldName == "iterations") {
+				value << r.iterations;
 			} else if(fieldName == "failed") {
 				value << r.failed;
 			} else {

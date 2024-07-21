@@ -135,7 +135,7 @@ namespace chebyshev {
 
 			std::cout << "Finished testing " << state.moduleName << '\n';
 			std::cout << state.totalTests << " total tests, "
-				<< state.failedTests << " failed (" <<
+				<< state.failedTests << " failed (" << std::setprecision(3) <<
 				(state.failedTests / (double) state.totalTests) * 100 << "%)"
 				<< '\n';
 
@@ -178,6 +178,7 @@ namespace chebyshev {
 			res.domain = opt.domain;
 			res.tolerance = opt.tolerance;
 			res.quiet = opt.quiet;
+			res.iterations = opt.iterations;
 
 			// Use the fail function to determine whether the test failed.
 			res.failed = opt.fail(res);
@@ -290,7 +291,6 @@ namespace chebyshev {
 
 				estimate(name, funcApprox, funcExpected, opt);
 			}
-			
 
 			/// Precision testing of an endofunction which is
 			/// an involution. The function is applied two times
@@ -393,7 +393,7 @@ namespace chebyshev {
 		inline void equals(
 			const std::string& name,
 			const T& evaluated, const T& expected,
-			equation_options<T> opt) {
+			equation_options<T> opt = equation_options<T>()) {
 
 			// Skip the test case if any tests have been picked
 			// and this one was not picked.
@@ -498,9 +498,10 @@ namespace chebyshev {
 
 		/// Evaluate multiple pairs of values for equivalence
 		/// up to the given tolerance (e.g. for residual testing).
+		template<typename T = double>
 		inline void equals(
 			const std::string& name,
-			std::vector<std::array<long double, 2>> values,
+			std::vector<std::array<T, 2>> values,
 			long double tolerance = state.defaultTolerance,
 			bool quiet = false) {
 
@@ -513,8 +514,6 @@ namespace chebyshev {
 			for (const auto& v : values)
 				equals(name, v[0], v[1], tolerance, quiet);
 		}
-
-
 	}
 }
 

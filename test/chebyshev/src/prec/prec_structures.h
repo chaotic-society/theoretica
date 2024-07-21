@@ -59,7 +59,7 @@ namespace chebyshev {
 			bool quiet = false;
 
 			/// Total number of iterations for integral quadrature.
-			unsigned int iterations;
+			unsigned int iterations {0};
 		};
 
 
@@ -86,6 +86,15 @@ namespace chebyshev {
 			/// The domain of estimation.
 			std::vector<interval> domain {};
 
+			/// The precision estimator to use
+			/// (defaults to a dummy estimator)
+			Estimator_t estimator = [](
+				std::function<R(Args...)> f1,
+				std::function<R(Args...)> f2,
+				estimate_options opt) {
+				return estimate_result();
+			};
+
 			/// The tolerance to use to determine whether the test failed.
 			long double tolerance = CHEBYSHEV_PREC_TOLERANCE;
 
@@ -97,9 +106,6 @@ namespace chebyshev {
 			FailFunction fail = [](const estimate_result& r) {
 				return (r.maxErr > r.tolerance) || (r.maxErr != r.maxErr);
 			};
-
-			/// The precision estimator to use.
-			Estimator_t estimator;
 
 			/// Whether to show the test result or not.
 			bool quiet = false;
@@ -118,11 +124,25 @@ namespace chebyshev {
 			: domain({omega}), estimator(estimator) {}
 
 
+			/// Construct estimate options from a one-dimensional
+			/// interval domain, an estimator and the tolerance,
+			/// with other fields equal to the default values.
+			estimate_options(interval omega, Estimator_t estimator, long double tolerance)
+			: domain({omega}), estimator(estimator), tolerance(tolerance) {}
+
+
 			/// Construct estimate options from a multidimensional
 			/// interval domain and an estimator, with other fields
 			/// equal to the default values.
 			estimate_options(std::vector<interval> omega, Estimator_t estimator)
 			: domain(omega), estimator(estimator) {}
+
+
+			/// Construct estimate options from a multidimensional
+			/// interval domain, an estimator and a tolerance, with other fields
+			/// equal to the default values.
+			estimate_options(std::vector<interval> omega, Estimator_t estimator, long double tolerance)
+			: domain(omega), estimator(estimator), tolerance(tolerance) {}
 			
 		};
 
@@ -153,7 +173,7 @@ namespace chebyshev {
 			std::map<std::string, long double> additionalFields {};
 
 			/// Tolerance on the absolute difference.
-			long double tolerance = CHEBYSHEV_PREC_TOLERANCE;
+			long double tolerance = 0;
 
 			/// Whether the test failed.
 			bool failed = true;
@@ -173,7 +193,10 @@ namespace chebyshev {
 
 			/// Distance function to measure the distance
 			/// between the expected and evaluated value.
-			DistanceFunction<T> distance;
+			DistanceFunction<T> distance = [](T x, T y) {
+				const auto diff = x - y;
+				return (long double) (diff > 0 ? diff : -diff);
+			};
 
 			/// Print to standard output or not.
 			bool quiet = false;
@@ -185,12 +208,7 @@ namespace chebyshev {
 
 			/// Construct equation options from the tolerance,
 			/// setting the distance function to a simple Euclidean distance.
-			equation_options(long double tolerance) : tolerance(tolerance) {
-				distance = [](T x, T y) {
-					const auto diff = x - y;
-					return (long double) (diff > 0 ? diff : -diff);
-				};
-			}
+			equation_options(long double tolerance) : tolerance(tolerance) {}
 
 
 			/// Construct equation options from the tolerance,
