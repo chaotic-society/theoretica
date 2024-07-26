@@ -9,90 +9,90 @@
 #define THEORETICA_H
 
 // Core headers
-#include "./core/constants.h"
-#include "./core/error.h"
+#include "core/constants.h"
+#include "core/error.h"
 
 // Real functions
-#include "./core/real_analysis.h"
+#include "core/real_analysis.h"
 
 // Vector and matrix algebra
-#include "./algebra/algebra.h"
-#include "./algebra/algebra_types.h"
-#include "./algebra/vec.h"
-#include "./algebra/mat.h"
-#include "./algebra/distance.h"
+#include "algebra/algebra.h"
+#include "algebra/algebra_types.h"
+#include "algebra/vec.h"
+#include "algebra/mat.h"
+#include "algebra/distance.h"
 
 // Complex and quaternion classes
-#include "./complex/complex.h"
-#include "./complex/quat.h"
+#include "complex/complex.h"
+#include "complex/quat.h"
 
 
 // All other headers
 #ifndef THEORETICA_INCLUDE_BASE
 
 // Special functions
-#include "./core/special.h"
+#include "core/special.h"
 
 // Vectorized functions
-#include "./algebra/vectorized.h"
+#include "algebra/vectorized.h"
 
 // Ratio
-#include "./core/ratio.h"
+#include "core/ratio.h"
 
 // Bit operations
-#include "./core/bit_op.h"
+#include "core/bit_op.h"
 
 // Data sets
-#include "./core/dataset.h"
+#include "core/dataset.h"
 
 // Interpolation
-#include "./interpolation/splines.h"
-#include "./interpolation/polyn_interp.h"
+#include "interpolation/splines.h"
+#include "interpolation/polyn_interp.h"
 	
 // Statistical functions
-#include "./statistics/statistics.h"
-#include "./statistics/distributions.h"
-#include "./statistics/errorprop.h"
-#include "./statistics/histogram.h"
-#include "./statistics/regression.h"
+#include "statistics/statistics.h"
+#include "statistics/distributions.h"
+#include "statistics/errorprop.h"
+#include "statistics/histogram.h"
+#include "statistics/regression.h"
 
 // Roots and extrema approximation of real functions
-#include "./optimization/roots.h"
-#include "./optimization/extrema.h"
-#include "./optimization/multi_extrema.h"
-#include "./optimization/multi_roots.h"
+#include "optimization/roots.h"
+#include "optimization/extrema.h"
+#include "optimization/multi_extrema.h"
+#include "optimization/multi_roots.h"
 
 // Complex and quaternion functions
-#include "./complex/complex_analysis.h"
-#include "./complex/phasor.h"
-#include "./complex/complex_types.h"
+#include "complex/complex_analysis.h"
+#include "complex/phasor.h"
+#include "complex/complex_types.h"
 
 // Derivative and integral approximation
-#include "./calculus/derivation.h"
-#include "./calculus/integration.h"
-#include "./calculus/odes.h"
-#include "./calculus/taylor.h"
+#include "calculus/derivation.h"
+#include "calculus/integration.h"
+#include "calculus/odes.h"
+#include "calculus/taylor.h"
 
 // Polynomial class
-#include "./polynomial/polynomial.h"
-#include "./polynomial/ortho_polyn.h"
+#include "polynomial/polynomial.h"
+#include "polynomial/ortho_polyn.h"
 
 // Dual numbers and automatic differentiation
-#include "./autodiff/dual.h"
-#include "./autodiff/dual_functions.h"
-#include "./autodiff/multidual.h"
-#include "./autodiff/multidual_functions.h"
-#include "./autodiff/dual2.h"
-#include "./autodiff/dual2_functions.h"
-#include "./autodiff/autodiff.h"
+#include "autodiff/dual.h"
+#include "autodiff/dual_functions.h"
+#include "autodiff/multidual.h"
+#include "autodiff/multidual_functions.h"
+#include "autodiff/dual2.h"
+#include "autodiff/dual2_functions.h"
+#include "autodiff/autodiff.h"
 
 // Pseudorandom number generation
-#include "./pseudorandom/pseudorandom.h"
-#include "./pseudorandom/prng.h"
-#include "./pseudorandom/sampling.h"
+#include "pseudorandom/pseudorandom.h"
+#include "pseudorandom/prng.h"
+#include "pseudorandom/sampling.h"
 
 // Monte Carlo methods
-#include "./pseudorandom/montecarlo.h"
+#include "pseudorandom/montecarlo.h"
 
 #endif
 

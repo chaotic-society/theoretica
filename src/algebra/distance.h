@@ -7,6 +7,7 @@
 #define THEORETICA_DISTANCE_H
 
 #include "../core/constants.h"
+#include "../core/core_traits.h"
 #include "../core/real_analysis.h"
 #include "../complex/complex.h"
 #include "../complex/complex_analysis.h"
@@ -49,7 +50,7 @@ namespace theoretica {
 	template<typename Vector>
 	inline real l2_norm(const Vector& v) {
 
-		using Type = get_indexable_element_t<Vector>;
+		using Type = indexable_element_t<Vector>;
 		Type sum = 0;
 
 		if TH_CONSTIF (!is_complex_type<Type>())

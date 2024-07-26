@@ -7,7 +7,7 @@
 #define THEORETICA_COMPLEX_TYPES_H
 
 #include <type_traits>
-
+#include "../core/core_traits.h"
 #include "../core/constants.h"
 #include "./complex.h"
 
@@ -35,7 +35,7 @@ namespace theoretica {
 
 	/// Type trait to check whether a container has complex elements.
 	template<typename Structure>
-	using has_complex_elements = is_complex_type<get_indexable_element_t<Structure>>;
+	using has_complex_elements = is_complex_type<indexable_element_t<Structure>>;
 
 }
 

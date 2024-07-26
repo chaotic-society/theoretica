@@ -6,6 +6,7 @@
 #ifndef THEORETICA_COMMON_H
 #define THEORETICA_COMMON_H
 
+#include "./core_traits.h"
 #include "./constants.h"
 #include "./error.h"
 
@@ -20,7 +21,8 @@ namespace theoretica {
 
 
 	/// Complex conjugate of a real number (identity)
-	TH_CONSTEXPR inline real conjugate(real x) {
+	template<typename Type, typename = std::enable_if<is_real_type<Type>::value>>
+	TH_CONSTEXPR inline Type conjugate(Type x) {
 		return x;
 	}
 

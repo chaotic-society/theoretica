@@ -11,8 +11,7 @@
 #include <ostream>
 #endif
 
-#include <type_traits>
-
+#include "./core_traits.h"
 #include "./constants.h"
 #include "./error.h"
 #include "../algebra/vec.h"
@@ -35,7 +34,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = get_indexable_element_t<Vector>(1);
+		auto res = indexable_element_t<Vector>(1);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res *= X[i];
 
@@ -52,7 +51,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = get_indexable_element_t<Vector>(0);
+		auto res = indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i];
 
@@ -69,7 +68,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = get_indexable_element_t<Vector>(0);
+		auto res = indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += (X[i] * X[i]) * (Y[i] * Y[i]);
 
@@ -86,7 +85,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = get_indexable_element_t<Vector>(0);
+		auto res = indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++)
 			res += X[i] * Y[i] * Z[i];
 
@@ -103,7 +102,7 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = get_indexable_element_t<Vector>(0);
+		auto res = indexable_element_t<Vector>(0);
 		for(unsigned int i = 0; i < X.size(); i++) {
 
 			if(Y[i] == 0) {
