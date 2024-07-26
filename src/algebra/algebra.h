@@ -20,6 +20,7 @@
 #define THEORETICA_ALGEBRA_H
 
 #include "../complex/complex_types.h"
+#include "../core/core_traits.h"
 
 
 
@@ -60,7 +61,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_error(Vector& v) {
 
-			using Type = get_indexable_element_t<Vector>;
+			using Type = indexable_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
 				v[i] = Type(nan());
@@ -107,7 +108,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_zeroes(Vector& v) {
 
-			using Type = get_indexable_element_t<Vector>;
+			using Type = indexable_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
 				v[i] = Type(0.0);
@@ -133,10 +134,10 @@ namespace theoretica {
 		}
 
 
-		/// Copy a matrix by overwriting another.
+		/// Copy a vector by overwriting another.
 		/// Equivalent to the operation dest = src
-		/// @param dest The matrix to overwrite
-		/// @param src The matrix to copy
+		/// @param dest The vector to overwrite
+		/// @param src The vector to copy
 		/// @return A reference to the overwritten matrix
 		template<typename Vector1, typename Vector2>
 		inline Vector1& vec_copy(Vector1& dest, const Vector2& src) {
@@ -157,7 +158,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline auto sqr_norm(const Vector& v) {
 
-			using Type = get_indexable_element_t<Vector>;
+			using Type = indexable_element_t<Vector>;
 			Type sum = (Type) 0;
 
 			// Use conjugation for complex numbers
@@ -179,7 +180,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline auto norm(const Vector& v) {
 
-			return get_indexable_element_t<Vector>(sqrt(sqr_norm(v)));
+			return indexable_element_t<Vector>(sqrt(sqr_norm(v)));
 		}
 
 
@@ -236,7 +237,7 @@ namespace theoretica {
 		template<typename Vector1, typename Vector2>
 		inline auto dot(const Vector1& v1, const Vector2& v2) {
 
-			using Type = get_indexable_element_t<Vector1>;
+			using Type = indexable_element_t<Vector1>;
 
 			if(v1.size() != v2.size()) {
 				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
@@ -1352,6 +1353,66 @@ namespace theoretica {
 				res[i] = v1[i] - v2[i];
 
 			return res;
+		}
+
+
+		// Matrix decompositions
+
+
+		/// Decompose a symmetric positive definite matrix into
+		/// a triangular matrix so that A = transpose(R) * R
+		/// (Cholesky decomposition).
+		///
+		/// @param m The matrix to decompose
+		/// @return The Cholesky decomposition of the matrix
+		template<typename Matrix>
+		inline Matrix decompose_cholesky(const Matrix& A) {
+
+			Matrix L;
+			L.resize(A.rows(), A.cols());
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky", A.rows(), INVALID_ARGUMENT);
+				return mat_error(L);
+			}
+
+			if (!is_symmetric(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky", false, INVALID_ARGUMENT);
+				return mat_error(L);
+			}
+
+			mat_zeroes(L);
+
+			for (unsigned int i = 0; i < A.cols(); ++i) {
+				
+				for (unsigned int j = 0; j <= i; ++j) {
+					
+					Type sum = 0.0;
+
+					for (unsigned int k = 0; k < j; ++k)
+						sum += L(i, k) * L(j, k);
+
+					if (i == j) {
+
+						const Type sqr_diag = A(j, j) - sum;
+
+						// Additional check to ensure that the matrix is positive definite
+						if (sqr_diag < MACH_EPSILON) {
+							TH_MATH_ERROR("algebra::decompose_cholesky", sqr_diag, INVALID_ARGUMENT);
+							return mat_error(L);
+						}
+
+						L(i, j) = sqrt(sqr_diag);
+
+					} else {
+
+						L(i, j) = (A(i, j) - sum) / L(j, j);
+					}
+				}
+			}
+
+			return L;
 		}
 
 
