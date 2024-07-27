@@ -1431,9 +1431,9 @@ namespace theoretica {
 				
 				for (unsigned int j = 0; j <= i; ++j) {
 					
-					Type sum = 0.0;
+					Type sum = L(i, 0) * L(j, 0);
 
-					for (unsigned int k = 0; k < j; ++k)
+					for (unsigned int k = 1; k < j; ++k)
 						sum += L(i, k) * L(j, k);
 
 					if (i == j) {
@@ -1479,6 +1479,11 @@ namespace theoretica {
 				return vec_error(x);
 			}
 
+			if (b.size() != L.rows()) {
+				TH_MATH_ERROR("solve_triangular_lower", b.size(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
 			// Solve using forward substitution
 			for (unsigned int i = 0; i < L.cols(); ++i) {
 				
@@ -1497,6 +1502,79 @@ namespace theoretica {
 
 			return x;
 		}
+
+
+		/// Solve the linear system \f$Ux = b\f$ for upper triangular \f$U\f$.
+		/// @note No check is performed on the triangularity of \f$U\f$.
+		///
+		/// @param U The upper triangular matrix.
+		/// @param b The known vector.
+		template<typename Matrix, typename Vector>
+		inline Vector solve_triangular_upper(const Matrix& U, const Vector& b) {
+
+			Vector x;
+			x.resize(U.cols());
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(U)) {
+				TH_MATH_ERROR("solve_triangular_upper", false, INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (b.size() != U.rows()) {
+				TH_MATH_ERROR("solve_triangular_upper", b.size(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (U.rows() == 1) {
+				x[0] = b[0] / U(0, 0);
+				return x;
+			}
+
+			// Solve using backward substitution
+			for (int i = U.rows() - 1; i >= 0; --i) {
+				
+				Type sum = U(i, i + 1) * x[i + 1];
+
+				for (unsigned int j = i + 2; j < U.cols(); ++j)
+					sum += U(i, j) * x[j];
+
+				if (abs(U(i, i)) < MACH_EPSILON) {
+					TH_MATH_ERROR("solve_triangular_upper", U(i, i), DIV_BY_ZERO);
+					return vec_error(x);
+				}
+
+				x[i] = (b[i] - sum) / U(i, i);
+			}
+
+			return x;
+		}
+
+
+		/// Solve the linear system \f$Tx = b\f$ for triangular \f$T\f$.
+		/// The correct solver is selected depending on the elements of \f$T\f$,
+		/// if the property of the matrix is known a priori, calling the
+		/// specific function is more efficient.
+		/// @note No check is performed on the triangularity of \f$T\f$.
+		///
+		/// @param T The triangular matrix.
+		/// @param b The known vector.
+		template<typename Matrix, typename Vector>
+		inline Vector solve_triangular(const Matrix& T, const Vector& b) {
+
+			// Pick the correct solver
+			if (is_lower_triangular(T))
+				return solve_triangular_lower(T, b);
+			else if(is_upper_triangular(T))
+				return solve_triangular_upper(T, b);
+			else {
+				Vector err;
+				err.resize(b.size());
+				return vec_error(err);
+			}
+		}
+
+
 		// Linear transformations
 
 
