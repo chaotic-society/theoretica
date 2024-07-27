@@ -43,7 +43,7 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& mat_error(Matrix& m) {
 
-			using Type = decltype(m.get(0, 0));
+			using Type = matrix_element_t<Matrix>;
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -76,7 +76,7 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& make_identity(Matrix& m) {
 
-			using Type = decltype(m.get(0, 0));
+			using Type = matrix_element_t<Matrix>;
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -92,7 +92,7 @@ namespace theoretica {
 		template<typename Matrix>
 		inline Matrix& mat_zeroes(Matrix& m) {
 
-			using Type = decltype(m.get(0, 0));
+			using Type = matrix_element_t<Matrix>;
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -467,7 +467,7 @@ namespace theoretica {
 				return dest;
 			}
 
-			using Type = decltype(src.get(0, 0));
+			using Type = matrix_element_t<Matrix2>;
 
 			// Prepare extended matrix (A|B)
 			Matrix1 A;
@@ -621,7 +621,7 @@ namespace theoretica {
 		template<typename Matrix>
 		inline auto det(const Matrix& m) {
 
-			using Type = decltype(m.get(0, 0));
+			using Type = matrix_element_t<Matrix>;
 			
 			if(m.rows() != m.cols()) {
 				TH_MATH_ERROR("algebra::det", m.rows(), INVALID_ARGUMENT);
@@ -1215,51 +1215,6 @@ namespace theoretica {
 		}
 
 
-		/// Returns whether the matrix is square
-		/// @param m The matrix to consider
-		/// @return A boolean value
-		template<typename Matrix>
-		inline bool is_square(const Matrix& m) {
-			return (m.rows() == m.cols());
-		}
-
-
-		/// Returns whether the matrix is diagonal
-		/// @param m The matrix to consider
-		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to 10 * MACH_EPSILON
-		/// @return A boolean value
-		template<typename Matrix>
-		inline bool is_diagonal(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
-
-			for (unsigned int i = 0; i < m.rows(); ++i)
-				for (unsigned int j = 0; j < m.cols(); ++j)
-					if(i != j && abs(m.get(i, j)) > tolerance)
-						return false;
-
-			return true;
-		}
-
-		/// Returns whether the matrix is symmetric
-		/// @param m The matrix to consider
-		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to 10 * MACH_EPSILON
-		/// @return A boolean value
-		template<typename Matrix>
-		inline bool is_symmetric(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
-
-			if(!is_square(m))
-				return false;
-
-			for (unsigned int i = 0; i < m.rows(); ++i)
-				for (unsigned int j = 0; j < m.cols(); ++j)
-					if(abs(m.get(i, j) - m.get(j, i)) > tolerance)
-						return false;
-
-			return true;
-		}
-
-
 		/// Sum two vectors and store the result in the first vector.
 		/// Equivalent to the operation v1 = v1 + v2
 		/// @param v1 The first vector to add and store the result
@@ -1356,12 +1311,100 @@ namespace theoretica {
 		}
 
 
+		// Matrix properties
+
+
+		/// Returns whether the matrix is square
+		/// @param m The matrix to consider
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_square(const Matrix& m) {
+			return (m.rows() == m.cols());
+		}
+
+
+		/// Returns whether the matrix is diagonal
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to 10 * MACH_EPSILON
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_diagonal(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					if(i != j && abs(m.get(i, j)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+		/// Returns whether the matrix is symmetric
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_symmetric(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+
+			if(!is_square(m))
+				return false;
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < m.cols(); ++j)
+					if(abs(m.get(i, j) - m.get(j, i)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+
+		/// Returns whether the matrix is lower triangular
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_lower_triangular(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+
+			if(!is_square(m))
+				return false;
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = i + 1; j < m.cols(); ++j)
+					if (abs(m(i, j)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+
+		/// Returns whether the matrix is upper triangular
+		/// @param m The matrix to consider
+		/// @param tolerance The tolerance to allow for
+		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// @return A boolean value
+		template<typename Matrix>
+		inline bool is_upper_triangular(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+
+			if(!is_square(m))
+				return false;
+
+			for (unsigned int i = 0; i < m.rows(); ++i)
+				for (unsigned int j = 0; j < i; ++j)
+					if (abs(m(i, j)) > tolerance)
+						return false;
+
+			return true;
+		}
+
+
 		// Matrix decompositions
 
 
 		/// Decompose a symmetric positive definite matrix into
-		/// a triangular matrix so that A = transpose(R) * R
-		/// (Cholesky decomposition).
+		/// a triangular matrix so that \f$A = L L^T\f$ using
+		/// Cholesky decomposition.
 		///
 		/// @param m The matrix to decompose
 		/// @return The Cholesky decomposition of the matrix
@@ -1416,6 +1459,44 @@ namespace theoretica {
 		}
 
 
+		// Linear system solvers
+
+
+		/// Solve the linear system \f$Lx = b\f$ for lower triangular \f$L\f$.
+		/// @note No check is performed on the triangularity of \f$L\f$.
+		///
+		/// @param L The lower triangular matrix.
+		/// @param b The known vector.
+		template<typename Matrix, typename Vector>
+		inline Vector solve_triangular_lower(const Matrix& L, const Vector& b) {
+
+			Vector x;
+			x.resize(L.cols());
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(L)) {
+				TH_MATH_ERROR("solve_triangular_lower", false, INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			// Solve using forward substitution
+			for (unsigned int i = 0; i < L.cols(); ++i) {
+				
+				Type sum = L(i, 0) * x[0];
+
+				for (unsigned int j = 1; j < i; ++j)
+					sum += L(i, j) * x[j];
+
+				if (abs(L(i, i)) < MACH_EPSILON) {
+					TH_MATH_ERROR("solve_triangular_lower", L(i, i), DIV_BY_ZERO);
+					return vec_error(x);
+				}
+
+				x[i] = (b[i] - sum) / L(i, i);
+			}
+
+			return x;
+		}
 		// Linear transformations
 
 

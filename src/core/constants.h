@@ -31,6 +31,13 @@
 #endif
 
 
+/// Tolerance for checking the elements of a
+/// matrix (such as algebra::is_square)
+#ifndef THEORETICA_MATRIX_ELEMENT_TOL
+#define THEORETICA_MATRIX_ELEMENT_TOL (10*MACH_EPSILON)
+#endif
+
+
 /// Order of Taylor series approximations
 #ifndef THEORETICA_TAYLOR_ORDER
 #define THEORETICA_TAYLOR_ORDER 12
@@ -266,6 +273,9 @@ namespace theoretica {
 
 	/// The square root of 3
 	constexpr real SQRT3 = 1.732050807568877;
+
+	/// Tolerance for the elements of matrices
+	constexpr real MATRIX_ELEMENT_TOL = THEORETICA_MATRIX_ELEMENT_TOL;
 
 	/// Order of Taylor series approximations
 	constexpr int TAYLOR_ORDER = THEORETICA_TAYLOR_ORDER;
