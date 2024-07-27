@@ -151,6 +151,78 @@ namespace theoretica {
 		}
 
 
+		/// Swap two rows of a matrix, given the matrix and the
+		/// two indices of the rows.
+		///
+		/// @param A The matrix to swap the rows of
+		/// @param row1 The index of the first row to swap
+		/// @param row2 The index of the other row to swap
+		template<typename Matrix>
+		inline Matrix& mat_swap_rows(Matrix& A, unsigned int row1, unsigned int row2) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (row1 >= A.rows()) {
+				TH_MATH_ERROR("algebra::mat_swap_rows", row1, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (row2 >= A.rows()) {
+				TH_MATH_ERROR("algebra::mat_swap_rows", row2, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (row1 == row2)
+				return A;
+
+			for (unsigned int j = 0; j < A.cols(); ++j) {
+
+				const Type tmp = A(row1, j);
+
+				A(row1, j) = A(row2, j);
+				A(row2, j) = tmp;
+			}
+
+			return A;
+		}
+
+
+		/// Swap two columns of a matrix, given the matrix and the
+		/// two indices of the columns.
+		///
+		/// @param A The matrix to swap the columns of
+		/// @param col1 The index of the first column to swap
+		/// @param col2 The index of the other column to swap
+		template<typename Matrix>
+		inline Matrix& mat_swap_cols(Matrix& A, unsigned int col1, unsigned int col2) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (col1 >= A.cols()) {
+				TH_MATH_ERROR("algebra::mat_swap_cols", col1, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (col2 >= A.cols()) {
+				TH_MATH_ERROR("algebra::mat_swap_cols", col2, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (col1 == col2)
+				return A;
+
+			for (unsigned int i = 0; i < A.cols(); ++i) {
+
+				const Type tmp = A(i, col1);
+
+				A(i, col1) = A(i, col2);
+				A(i, col2) = tmp;
+			}
+
+			return A;
+		}
+
+
 		/// Returns the square of the Euclidean/Hermitian norm
 		/// of the given vector
 		/// @param v The vector to compute the norm of
