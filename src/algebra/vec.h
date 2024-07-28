@@ -27,7 +27,7 @@ namespace theoretica {
 	template<typename Type = real, unsigned int N = 0>
 	class vec {
 		
-		private:		
+		private:
 			Type data[N];
 
 		public:

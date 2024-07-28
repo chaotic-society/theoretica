@@ -2,18 +2,18 @@
 ///
 /// @file algebra.h Linear algebra routines.
 /// This file implements all linear algebra routines of the library,
-/// working on templated data structures. The Matrix template must 
-/// be a class with these methods:
-/// - get(i, j)  Get the element in the i-th row and j-th column
-/// - at(i, j)  Get a reference to the element in the i-th row and j-th column
-/// - size()  Get the number of elements of the matrix or vector (N. rows * N. columns)
-/// - rows()  Get the number of rows of the matrix (not defined for vectors)
-/// - cols()  Get the number of columns of the matrix (not defined for vectors)
-/// - resize() Change or set the size of the matrix
-/// The Vector template must be a class with these methods:
-/// - operator[]()  Get the element at index i by reference or const reference
-/// - size()  Get the total number of elements of the vector
-/// - resize()  Change or set the size of the vector
+/// using templates and type traits.
+/// The Matrix type must be a class with these methods:
+/// - operator()()	Get the element at the i-th row and j-th column.
+/// - rows()			Get the number of rows of the matrix (not defined for vectors)
+/// - cols()			Get the number of columns of the matrix (not defined for vectors)
+/// - resize()			Change or set the size of the matrix
+///						(may throw for statically allocated matrices)
+/// The Vector type must be a class with these methods:
+/// - operator[]()		Get the element at index i by reference or const reference
+/// - size()			Get the total number of elements of the vector
+/// - resize()			Change or set the size of the vector
+///						(may throw for statically allocated vectors)
 ///
 
 #ifndef THEORETICA_ALGEBRA_H
@@ -47,7 +47,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.at(i, j) = (Type) (i == j ? nan() : 0);
+					m(i, j) = (Type) (i == j ? nan() : 0);
 
 			return m;
 		}
@@ -80,7 +80,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.at(i, j) = (Type) (i == j ? 1 : 0);
+					m(i, j) = (Type) (i == j ? 1 : 0);
 
 			return m;
 		}
@@ -96,7 +96,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.at(i, j) = (Type) 0;
+					m(i, j) = (Type) 0;
 
 			return m;
 		}
@@ -128,7 +128,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
-					dest.at(i, j) = src.get(i, j);
+					dest(i, j) = src(i, j);
 
 			return dest;
 		}
@@ -372,7 +372,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					res.at(j, i) = m.get(i, j);
+					res(j, i) = m(i, j);
 
 			return res;
 		}
@@ -393,9 +393,9 @@ namespace theoretica {
 			for (unsigned int i = 0; i < m.rows(); ++i) {
 				for (unsigned int j = 0; j < i; ++j) {
 					
-					const auto buff = m.at(i, j);
-					m.at(i, j) = m.at(j, i);
-					m.at(j, i) = buff;
+					const auto buff = m(i, j);
+					m(i, j) = m(j, i);
+					m(j, i) = buff;
 				}
 			}
 
@@ -429,7 +429,7 @@ namespace theoretica {
 			// Overwrite dest with the transpose of src
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
-					dest.at(j, i) = src.get(i, j);
+					dest(j, i) = src(i, j);
 
 			return dest;
 		}
@@ -447,7 +447,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					res.at(j, i) = conjugate(m.get(i, j));
+					res(j, i) = conjugate(m(i, j));
 
 			return res;
 		}
@@ -470,9 +470,9 @@ namespace theoretica {
 			for (unsigned int i = 0; i < m.rows(); ++i) {
 				for (unsigned int j = 0; j < i; ++j) {
 					
-					const auto buff = m.at(i, j);
-					m.at(i, j) = conjugate(m.at(j, i));
-					m.at(j, i) = conjugate(buff);
+					const auto buff = m(i, j);
+					m(i, j) = conjugate(m(j, i));
+					m(j, i) = conjugate(buff);
 				}
 			}
 
@@ -507,7 +507,7 @@ namespace theoretica {
 			// Overwrite dest with the transpose of src
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
-					dest.at(j, i) = conjugate(src.get(i, j));
+					dest(j, i) = conjugate(src(i, j));
 
 			return dest;
 		}
@@ -553,7 +553,7 @@ namespace theoretica {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.at(i, i) == (Type) 0) {
+				if(A(i, i) == (Type) 0) {
 
 					bool flag = false;
 
@@ -562,11 +562,11 @@ namespace theoretica {
 
 						// Add the j-th row to the i-th row
 						// if Aji is non-zero
-						if(A.at(j, i) != (Type) 0) {
+						if(A(j, i) != (Type) 0) {
 
 							for (unsigned int k = 0; k < src.rows(); ++k) {
-								A.at(i, k) += A.at(j, k);
-								dest.at(i, k) += dest.at(j, k);
+								A(i, k) += A(j, k);
+								dest(i, k) += dest(j, k);
 							}
 
 							flag = true;
@@ -581,7 +581,7 @@ namespace theoretica {
 					}
 				}
 
-				auto inv_pivot = ((Type) 1.0) / A.at(i, i);
+				auto inv_pivot = ((Type) 1.0) / A(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -593,18 +593,18 @@ namespace theoretica {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					const auto coeff = A.at(j, i) * inv_pivot;
+					const auto coeff = A(j, i) * inv_pivot;
 					
 					for (unsigned int k = 0; k < src.rows(); ++k) {
-						A.at(j, k) -= coeff * A.at(i, k);
-						dest.at(j, k) -= coeff * dest.at(i, k);
+						A(j, k) -= coeff * A(i, k);
+						dest(j, k) -= coeff * dest(i, k);
 					}
 				}
 
 				// Divide the current row by the pivot
 				for (unsigned int j = 0; j < src.rows(); ++j) {
-					A.at(i, j) *= inv_pivot;
-					dest.at(i, j) *= inv_pivot;
+					A(i, j) *= inv_pivot;
+					dest(i, j) *= inv_pivot;
 				}
 				
 			}
@@ -657,11 +657,11 @@ namespace theoretica {
 		template<typename Matrix>
 		inline auto trace(const Matrix& m) {
 
-			auto sum = m.get(0, 0);
+			auto sum = m(0, 0);
 			const size_t n = min(m.rows(), m.cols());
 
 			for (unsigned int i = 1; i < n; ++i)
-				sum += m.get(i, i);
+				sum += m(i, i);
 
 			return sum;
 		}
@@ -675,11 +675,11 @@ namespace theoretica {
 		template<typename Matrix>
 		inline auto diagonal_product(const Matrix& m) {
 
-			auto mul = m.get(0, 0);
+			auto mul = m(0, 0);
 			const size_t n = min(m.rows(), m.cols());
 
 			for (unsigned int i = 1; i < n; ++i)
-				mul *= m.get(i, i);
+				mul *= m(i, i);
 
 			return mul;
 		}
@@ -709,7 +709,7 @@ namespace theoretica {
 				
 				// Make sure the element on the diagonal
 				// is non-zero by adding the first non-zero row
-				if(A.at(i, i) == 0) {
+				if(A(i, i) == 0) {
 
 					bool flag = false;
 
@@ -720,10 +720,10 @@ namespace theoretica {
 						// if Aji is non-zero.
 						// The determinant does not change
 						// when adding a row to another one
-						if(A.at(j, i) != (Type) 0) {
+						if(A(j, i) != (Type) 0) {
 
 							for (unsigned int k = 0; k < A.rows(); ++k) {
-								A.at(i, k) += (Type) A.at(j, k);
+								A(i, k) += (Type) A(j, k);
 							}
 
 							flag = true;
@@ -736,7 +736,7 @@ namespace theoretica {
 					}
 				}
 
-				const auto inv_pivot = ((Type) 1.0) / A.at(i, i);
+				const auto inv_pivot = ((Type) 1.0) / A(i, i);
 
 				// Use the current row to make all other
 				// elements of the column equal to zero
@@ -744,13 +744,13 @@ namespace theoretica {
 
 					// Multiplication coefficient for
 					// the elision of Ajk
-					const auto coeff = (Type) A.at(j, i) * inv_pivot;
+					const auto coeff = (Type) A(j, i) * inv_pivot;
 
 					// The coefficient does not change
 					// when adding a linear combination
 					// of a row to another
 					for (unsigned int k = 0; k < A.rows(); ++k) {
-						A.at(j, k) -= (Type) A.at(i, k) * coeff;
+						A(j, k) -= (Type) A(i, k) * coeff;
 					}
 				}
 			}
@@ -765,7 +765,7 @@ namespace theoretica {
 		/// @note No error checking is performed on the matrix size
 		template<typename Matrix>
 		inline real det_2x2(const Matrix& m) {
-			return m.get(0, 0) * m.get(1, 1) - m.get(1, 0) * m.get(0, 1);
+			return m(0, 0) * m(1, 1) - m(1, 0) * m(0, 1);
 		}
 
 
@@ -773,9 +773,9 @@ namespace theoretica {
 		/// @note No error checking is performed on the matrix size
 		template<typename Matrix>
 		inline real det_3x3(const Matrix& m) {
-			return	m.get(0, 0) * (m.get(1, 1) * m.get(2, 2) - m.get(2, 1) * m.get(1, 2)) -
-					m.get(0, 1) * (m.get(1, 0) * m.get(2, 2) - m.get(2, 0) * m.get(1, 2)) +
-					m.get(0, 2) * (m.get(1, 0) * m.get(2, 1) - m.get(2, 0) * m.get(1, 1));
+			return	m(0, 0) * (m(1, 1) * m(2, 2) - m(2, 1) * m(1, 2)) -
+					m(0, 1) * (m(1, 0) * m(2, 2) - m(2, 0) * m(1, 2)) +
+					m(0, 2) * (m(1, 0) * m(2, 1) - m(2, 0) * m(1, 1));
 		}
 
 
@@ -788,7 +788,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m.at(i, j) *= a;
+					m(i, j) *= a;
 
 			return m;
 		}
@@ -817,7 +817,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
-					dest.at(i, j) = a * src.get(i, j);
+					dest(i, j) = a * src(i, j);
 
 			return dest;
 		}
@@ -883,7 +883,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res[i] += A.get(i, j) * v.get(j);
+					res[i] += A(i, j) * v[j];
 
 			vec_copy(res, v);
 			return v;
@@ -911,7 +911,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res[i] += A.get(i, j) * v.get(j);
+					res[i] += A(i, j) * v[j];
 
 			return res;
 		}
@@ -943,7 +943,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res[i] += A.get(i, j) * v.get(j);
+					res[i] += A(i, j) * v[j];
 
 			return res;
 		}
@@ -971,7 +971,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < res.rows(); ++i)
 				for (unsigned int j = 0; j < res.cols(); ++j)
-					res.at(i, j) = (i == j) ? v[i] : 0;
+					res(i, j) = (i == j) ? v[i] : 0;
 
 			return res;
 		}
@@ -1002,7 +1002,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					A.at(i, j) = A.get(i, j) + B.get(i, j);
+					A(i, j) = A(i, j) + B(i, j);
 
 			return A;
 		}
@@ -1042,7 +1042,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i, j) = A.get(i, j) + B.get(i, j);
+					res(i, j) = A(i, j) + B(i, j);
 
 			return res;
 		}
@@ -1070,7 +1070,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					A.at(i, j) = A.get(i, j) - B.get(i, j);
+					A(i, j) = A(i, j) - B(i, j);
 
 			return A;
 		}
@@ -1110,7 +1110,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i, j) = A.get(i, j) - B.get(i, j);
+					res(i, j) = A(i, j) - B(i, j);
 
 			return res;
 		}
@@ -1140,7 +1140,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					A.at(i, j) = A.get(i, j) * alpha + B.get(i, j) * beta;
+					A(i, j) = A(i, j) * alpha + B(i, j) * beta;
 
 			return A;
 		}
@@ -1186,7 +1186,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					res.at(i, j) = A.get(i, j) * alpha + B.get(i, j) * beta;
+					res(i, j) = A(i, j) * alpha + B(i, j) * beta;
 
 			return A;
 		}
@@ -1219,7 +1219,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < B.cols(); ++j)
 					for (unsigned int k = 0; k < A.cols(); ++k)
-						res.at(i, j) += A.get(i, k) * B.get(k, j);
+						res(i, j) += A(i, k) * B(k, j);
 
 			A.resize(A.rows(), B.cols());
 			mat_copy(A, res);
@@ -1259,7 +1259,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < B.cols(); ++j)
 					for (unsigned int k = 0; k < A.cols(); ++k)
-						res.at(i, j) += A.get(i, k) * B.get(k, j);
+						res(i, j) += A(i, k) * B(k, j);
 
 			return res;
 		}
@@ -1280,7 +1280,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < A.cols(); ++j)
-					if(abs(A.get(i, j) - B.get(i, j)) > tolerance)
+					if(abs(A(i, j) - B(i, j)) > tolerance)
 						return false;
 
 			return true;
@@ -1405,7 +1405,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					if(i != j && abs(m.get(i, j)) > tolerance)
+					if(i != j && abs(m(i, j)) > tolerance)
 						return false;
 
 			return true;
@@ -1424,7 +1424,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					if(abs(m.get(i, j) - m.get(j, i)) > tolerance)
+					if(abs(m(i, j) - m(j, i)) > tolerance)
 						return false;
 
 			return true;
@@ -1708,7 +1708,7 @@ namespace theoretica {
 			// the last column's values to the vector,
 			// while other elements form the identity
 			for (unsigned int i = 0; i < m.rows() - 1; ++i)
-				m.at(i, m.cols() - 1) = v[i];
+				m(i, m.cols() - 1) = v[i];
 
 			return m;
 		}
@@ -1743,10 +1743,10 @@ namespace theoretica {
 			if(m.rows() > 2 || m.cols() > 2)
 				make_identity(m);
 
-			m.at(0, 0) = c;
-			m.at(0, 1) = -s;
-			m.at(1, 0) = s;
-			m.at(1, 1) = c;
+			m(0, 0) = c;
+			m(0, 1) = -s;
+			m(1, 0) = s;
+			m(1, 1) = c;
 
 			return m;
 		}
@@ -1796,17 +1796,17 @@ namespace theoretica {
 
 			const real cm1 = (1 - c);
 
-			m.at(0, 0) = c + Rx * Rx * cm1;
-			m.at(0, 1) = Rx * Ry * cm1 - Rz * s;
-			m.at(0, 2) = Rx * Rz * cm1 - Ry * s;
+			m(0, 0) = c + Rx * Rx * cm1;
+			m(0, 1) = Rx * Ry * cm1 - Rz * s;
+			m(0, 2) = Rx * Rz * cm1 - Ry * s;
 
-			m.at(1, 0) = Ry * Rx * cm1 + Rz * s;
-			m.at(1, 1) = c + Ry * Ry * cm1;
-			m.at(1, 2) = Ry * Rz * cm1 - Rx * s;
+			m(1, 0) = Ry * Rx * cm1 + Rz * s;
+			m(1, 1) = c + Ry * Ry * cm1;
+			m(1, 2) = Ry * Rz * cm1 - Rx * s;
 
-			m.at(2, 0) = Rz * Rx * cm1 - Ry * s;
-			m.at(2, 1) = Rz * Ry * cm1 + Rx * s;
-			m.at(2, 2) = c + Rz * Rz * cm1;
+			m(2, 0) = Rz * Rx * cm1 - Ry * s;
+			m(2, 1) = Rz * Ry * cm1 + Rx * s;
+			m(2, 2) = c + Rz * Rz * cm1;
 
 			return m;
 		}
@@ -1843,12 +1843,12 @@ namespace theoretica {
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);
 
-			m.at(0, 0) = 1;
-			m.at(1, 1) = c;
-			m.at(2, 2) = c;
+			m(0, 0) = 1;
+			m(1, 1) = c;
+			m(2, 2) = c;
 
-			m.at(1, 2) = -s;
-			m.at(2, 1) = s;
+			m(1, 2) = -s;
+			m(2, 1) = s;
 
 			return m;
 		}
@@ -1885,13 +1885,13 @@ namespace theoretica {
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);
 
-			m.at(0, 0) = c;
-			m.at(1, 1) = 1;
-			m.at(2, 2) = c;
-			m.at(3, 3) = 1;
+			m(0, 0) = c;
+			m(1, 1) = 1;
+			m(2, 2) = c;
+			m(3, 3) = 1;
 
-			m.at(0, 2) = s;
-			m.at(2, 0) = -s;
+			m(0, 2) = s;
+			m(2, 0) = -s;
 
 			return m;
 		}
@@ -1928,13 +1928,13 @@ namespace theoretica {
 			const real s = theoretica::sin(theta);
 			const real c = theoretica::cos(theta);
 
-			m.at(0, 0) = c;
-			m.at(1, 1) = c;
-			m.at(2, 2) = 1;
-			m.at(3, 3) = 1;
+			m(0, 0) = c;
+			m(1, 1) = c;
+			m(2, 2) = 1;
+			m(3, 3) = 1;
 
-			m.at(0, 1) = -s;
-			m.at(1, 0) = s;
+			m(0, 1) = -s;
+			m(1, 0) = s;
 
 			return m;
 		}
@@ -1965,14 +1965,14 @@ namespace theoretica {
 
 			mat_zeroes(m);
 
-			m.at(0, 0)  = 2 * near / (right - left);
-			m.at(2, 0)  = (right + left) / (right - left);
-			m.at(1, 1)  = 2 * near / (top - bottom);
-			m.at(2, 1)  = (top + bottom) / (top - bottom);
-			m.at(2, 2) = -(far + near) / (far - near);
-			m.at(3, 2) = -(2 * far * near) / (far - near);
-			m.at(2, 3) = -1;
-			m.at(3, 3) = 0;
+			m(0, 0)  = 2 * near / (right - left);
+			m(2, 0)  = (right + left) / (right - left);
+			m(1, 1)  = 2 * near / (top - bottom);
+			m(2, 1)  = (top + bottom) / (top - bottom);
+			m(2, 2) = -(far + near) / (far - near);
+			m(3, 2) = -(2 * far * near) / (far - near);
+			m(2, 3) = -1;
+			m(3, 3) = 0;
 
 			return m;
 		}
@@ -2033,12 +2033,12 @@ namespace theoretica {
 
 			mat_zeroes(m);
 
-			m.at(0, 0)  = 2 / (right - left);
-			m.at(3, 0)  = -(right + left) / (right - left);
-			m.at(1, 1)  = 2 / (top - bottom);
-			m.at(3, 1)  = -(top + bottom) / (top - bottom);
-			m.at(2, 2) = -2 / (far - near);
-			m.at(3, 2) = -(far + near) / (far - near);
+			m(0, 0)  = 2 / (right - left);
+			m(3, 0)  = -(right + left) / (right - left);
+			m(1, 1)  = 2 / (top - bottom);
+			m(3, 1)  = -(top + bottom) / (top - bottom);
+			m(2, 2) = -2 / (far - near);
+			m(3, 2) = -(far + near) / (far - near);
 
 			return m;
 		}
@@ -2076,25 +2076,25 @@ namespace theoretica {
 			Matrix m;
 			m.resize(4, 4);
 
-			m.at(0, 0) = x_axis[1];
-			m.at(0, 1) = x_axis[2];
-			m.at(0, 2) = x_axis[3];
-			m.at(0, 3) = dot(camera, vec_scalmul(-1.0, x_axis));
+			m(0, 0) = x_axis[1];
+			m(0, 1) = x_axis[2];
+			m(0, 2) = x_axis[3];
+			m(0, 3) = dot(camera, vec_scalmul(-1.0, x_axis));
 
-			m.at(1, 0) = y_axis[1];
-			m.at(1, 1) = y_axis[2];
-			m.at(1, 2) = y_axis[3];
-			m.at(1, 3) = dot(camera, vec_scalmul(-1.0, y_axis));
+			m(1, 0) = y_axis[1];
+			m(1, 1) = y_axis[2];
+			m(1, 2) = y_axis[3];
+			m(1, 3) = dot(camera, vec_scalmul(-1.0, y_axis));
 
-			m.at(2, 0) = z_axis[1];
-			m.at(2, 1) = z_axis[2];
-			m.at(2, 2) = z_axis[3];
-			m.at(2, 3) = dot(camera, vec_scalmul(-1.0, z_axis));
+			m(2, 0) = z_axis[1];
+			m(2, 1) = z_axis[2];
+			m(2, 2) = z_axis[3];
+			m(2, 3) = dot(camera, vec_scalmul(-1.0, z_axis));
 
-			m.at(3, 0) = 0;
-			m.at(3, 1) = 0;
-			m.at(3, 2) = 0;
-			m.at(3, 3) = 1;
+			m(3, 0) = 0;
+			m(3, 1) = 0;
+			m(3, 2) = 0;
+			m(3, 3) = 1;
 
 			return m;
 		}
@@ -2117,8 +2117,8 @@ namespace theoretica {
 			mat_zeroes(m);
 
 			for (unsigned int i = 0; i < half; ++i) {
-				m.at(i, i + half) = 1;
-				m.at(i + half, i) = -1;
+				m(i, i + half) = 1;
+				m(i + half, i) = -1;
 			}
 
 			return m;
@@ -2137,19 +2137,7 @@ namespace theoretica {
 			Vector1 q = p - c;
 			return c + q * square(r / q.norm());
 		}
-
-
-		// LU decomposition
-
-		// QR decomposition
-
-		// Eigenvalues
-
-		// Eigenvectors
-
-
 	}
-
 }
 
 #endif
