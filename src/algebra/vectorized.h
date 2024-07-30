@@ -1,7 +1,6 @@
 
 ///
-/// @file vectorized.h Vectorized functions to
-/// evaluate a function over a vector element-wise.
+/// @file vectorized.h Vectorized functions to evaluate a function over a vector element-wise.
 ///
 
 #ifndef THEORETICA_VECTORIZED_H

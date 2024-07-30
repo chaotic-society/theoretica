@@ -18,6 +18,7 @@
 #include "../core/constants.h"
 #include "../core/real_analysis.h"
 #include "./algebra.h"
+#include "./transform.h"
 #include "./vec.h"
 
 
