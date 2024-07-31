@@ -24,10 +24,11 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build and test
-      run: make all
+      run: make -B all
+      # -B forces a fresh build to prevent caching
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
