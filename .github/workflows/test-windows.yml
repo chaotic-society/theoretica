@@ -40,6 +40,7 @@ jobs:
       uses: github/codeql-action/analyze@v2
 
   build:
+    runs-on: windows-latest
     steps:
       - name: Build and test
         run: make all
