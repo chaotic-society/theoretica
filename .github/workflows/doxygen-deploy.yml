@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     name: Build and Deploy Documentation
@@ -28,7 +31,7 @@ jobs:
       - name: Deploy Documentation
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
           folder: "./html"
           target-folder: "./"
