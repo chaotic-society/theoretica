@@ -8,10 +8,9 @@ on:
 
 jobs:
   build:
-
+    name: Run benchmarks
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: benchmark
+    - name: Benchmark
       run: make benchmark

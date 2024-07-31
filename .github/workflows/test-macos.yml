@@ -2,14 +2,15 @@ name: Test on MacOS
 
 on:
   push:
+    branches-ignore: [ gh-pages ]
   pull_request:
+    branches-ignore: [ gh-pages ]
 
 jobs:
   build:
-
+    name: Build and run
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: make all
+    - name: Build and test
       run: make DISABLE_OPENMP=1 all

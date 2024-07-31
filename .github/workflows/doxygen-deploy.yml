@@ -1,0 +1,36 @@
+name: Doxygen Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Installation
+        shell: bash
+        run: |
+          sudo apt-get install doxygen -y
+          sudo apt-get install graphviz -y
+
+      - name: Generate Documentation
+        shell: bash
+        run: doxygen ./build/Doxyfile
+
+      - name: Deploy Documentation
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ GITHUB_TOKEN }}
+          branch: "gh-pages"
+          folder: "./html"
+          target-folder: "./"
