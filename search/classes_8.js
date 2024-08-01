@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quat_710',['quat',['../classtheoretica_1_1quat.html',1,'theoretica']]]
+  ['linear_5fmodel_864',['linear_model',['../structtheoretica_1_1regression_1_1linear__model.html',1,'theoretica::regression']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stat_5ffunction_1344',['stat_function',['../namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1',1,'theoretica']]]
+  ['outputformat_1652',['OutputFormat',['../output_8h.html#aa79830f14a5ea8e84a255822a93c41a3',1,'chebyshev::output']]]
 ];

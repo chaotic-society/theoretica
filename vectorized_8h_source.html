@@ -110,335 +110,356 @@ $(document).ready(function(){initNavTree('vectorized_8h_source.html',''); initRe
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetheoretica.html">theoretica</a> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">namespace </span>vectorized {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ab31404f20e97928f7a70d406b5dcacb8">   32</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="vectorized_8h.html#ab31404f20e97928f7a70d406b5dcacb8">apply_function</a>(Function f, <span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                res[i] = f(v[i]);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">   50</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">theoretica::square</a>(v[i]);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="vectorized_8h.html#afc0786c126e11c820e0eba712472fc98">   68</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988">cube</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988">theoretica::cube</a>(v[i]);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ac9d9f574964b1f9819613969f26329e6">   86</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a>(v[i]);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a2126fa7b1dc89e0551eaf80e0eed32e2">  104</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#afce493c565b387c0496eff49e137edb6">pow</a>(<span class="keyword">const</span> Vector&amp; v, <span class="keywordtype">int</span> n) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afce493c565b387c0496eff49e137edb6">theoretica::pow</a>(v[i], n);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ae84403a728d0457803c4335af838879a">  122</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a6f12dd8e0fc650fa75c9961e51d1406c">powf</a>(<span class="keyword">const</span> Vector&amp; v, <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a6f12dd8e0fc650fa75c9961e51d1406c">theoretica::powf</a>(v[i], x);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a3ca8a11fffa03aa06135607061b4826c">  140</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">sqrt</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a>(v[i]);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a35c3b29c867ef80657117e8bd5dc9af2">  158</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a61c3b797f94ec5bc22b4c22f85417c93">cbrt</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a61c3b797f94ec5bc22b4c22f85417c93">theoretica::cbrt</a>(v[i]);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a721ef6e879056ca90da56ef2037550f8">  176</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a3def790003197bb019f5933b4db45c44">exp</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a3def790003197bb019f5933b4db45c44">theoretica::exp</a>(v[i]);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a4ba81b07d40166de83dfcb1f092acdbb">  194</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16">ln</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16">theoretica::ln</a>(v[i]);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a6c75b99a9d6d11ee63735c589f15aaf5">  212</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a29e46804be47f0c4865014a4a763cf76">log2</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a29e46804be47f0c4865014a4a763cf76">theoretica::log2</a>(v[i]);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ace7a5aab3830bbe14fdac4a9a13bdd25">  230</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a5101414a44ee9cfda63aea95ea40ef97">log10</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a5101414a44ee9cfda63aea95ea40ef97">theoretica::log10</a>(v[i]);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        }</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ad37fd4a746ebeee8df8510e0040e59e4">  248</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">sin</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">theoretica::sin</a>(v[i]);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a6fb80a0796e896a3206caf22c1e138f1">  266</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3">cos</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3">theoretica::cos</a>(v[i]);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="vectorized_8h.html#af722ddd531c4f92c1497804597bc0fdc">  284</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#ac81dcde719b69b4d63ecd3127cb289d9">tan</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ac81dcde719b69b4d63ecd3127cb289d9">theoretica::tan</a>(v[i]);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a94017cded2332aacebb0fc4356f2954f">  302</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a9d5fed4cfa9af5d148c59a6005422edc">cot</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a9d5fed4cfa9af5d148c59a6005422edc">theoretica::cot</a>(v[i]);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        }</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a72eca724040171566c3a0dd99fc26ead">  320</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2">asin</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2">theoretica::asin</a>(v[i]);</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a63b2d642d7a184d6d4926ae3d33cc47f">  338</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#acf13d7437b2dbea2212cbff3d519b9e5">acos</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#acf13d7437b2dbea2212cbff3d519b9e5">theoretica::acos</a>(v[i]);</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        }</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ad9b5f9739ae62ec431841ab25f5478e0">  356</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292">atan</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292">theoretica::atan</a>(v[i]);</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        }</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="vectorized_8h.html#ac297ad91c9ce6b892b603bf8a4068e8c">  374</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a1f8c95ef4ed4e4da6af87e9eee675f82">sinh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            </div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1f8c95ef4ed4e4da6af87e9eee675f82">theoretica::sinh</a>(v[i]);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        }</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a01d8abc2dd1bfe10e49eeb4f1b8670d2">  392</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee">cosh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            </div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee">theoretica::cosh</a>(v[i]);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        }</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00410"></a><span class="lineno"><a class="line" href="vectorized_8h.html#af073ccb5e1d1155b5a8e497112556fc1">  410</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#afbf2c5dcfac28891e1e8a3accdf7dd21">tanh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afbf2c5dcfac28891e1e8a3accdf7dd21">theoretica::tanh</a>(v[i]);</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        }</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00428"></a><span class="lineno"><a class="line" href="vectorized_8h.html#a4c8984a076304609ac4b21f8363afdf4">  428</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica.html#a96f957ad9b2354268f56ab1ca3843080">coth</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            </div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            Vector res;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            res.resize(v.size());</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a96f957ad9b2354268f56ab1ca3843080">theoretica::coth</a>(v[i]);</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        }</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    }</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;}</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">namespace </span>vectorized {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ab31404f20e97928f7a70d406b5dcacb8">   30</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ab31404f20e97928f7a70d406b5dcacb8">apply_function</a>(Function f, <span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                res[i] = f(v[i]);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">   48</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">square</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">theoretica::square</a>(v[i]);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#afc0786c126e11c820e0eba712472fc98">   66</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#afc0786c126e11c820e0eba712472fc98">cube</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988">theoretica::cube</a>(v[i]);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">   84</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a>(v[i]);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a2126fa7b1dc89e0551eaf80e0eed32e2">  102</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a2126fa7b1dc89e0551eaf80e0eed32e2">pow</a>(<span class="keyword">const</span> Vector&amp; v, <span class="keywordtype">int</span> n) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afce493c565b387c0496eff49e137edb6">theoretica::pow</a>(v[i], n);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ae84403a728d0457803c4335af838879a">  120</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ae84403a728d0457803c4335af838879a">powf</a>(<span class="keyword">const</span> Vector&amp; v, <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a6f12dd8e0fc650fa75c9961e51d1406c">theoretica::powf</a>(v[i], x);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a3ca8a11fffa03aa06135607061b4826c">  138</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a3ca8a11fffa03aa06135607061b4826c">sqrt</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="comment">// #pragma omp parallel for</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a>(v[i]);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a35c3b29c867ef80657117e8bd5dc9af2">  156</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a35c3b29c867ef80657117e8bd5dc9af2">cbrt</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a61c3b797f94ec5bc22b4c22f85417c93">theoretica::cbrt</a>(v[i]);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a721ef6e879056ca90da56ef2037550f8">  174</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a721ef6e879056ca90da56ef2037550f8">exp</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a3def790003197bb019f5933b4db45c44">theoretica::exp</a>(v[i]);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a4ba81b07d40166de83dfcb1f092acdbb">  192</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a4ba81b07d40166de83dfcb1f092acdbb">ln</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16">theoretica::ln</a>(v[i]);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a6c75b99a9d6d11ee63735c589f15aaf5">  210</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a6c75b99a9d6d11ee63735c589f15aaf5">log2</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a29e46804be47f0c4865014a4a763cf76">theoretica::log2</a>(v[i]);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ace7a5aab3830bbe14fdac4a9a13bdd25">  228</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ace7a5aab3830bbe14fdac4a9a13bdd25">log10</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a5101414a44ee9cfda63aea95ea40ef97">theoretica::log10</a>(v[i]);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ad37fd4a746ebeee8df8510e0040e59e4">  246</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ad37fd4a746ebeee8df8510e0040e59e4">sin</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">theoretica::sin</a>(v[i]);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a6fb80a0796e896a3206caf22c1e138f1">  264</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a6fb80a0796e896a3206caf22c1e138f1">cos</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3">theoretica::cos</a>(v[i]);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#af722ddd531c4f92c1497804597bc0fdc">  282</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#af722ddd531c4f92c1497804597bc0fdc">tan</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#ac81dcde719b69b4d63ecd3127cb289d9">theoretica::tan</a>(v[i]);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a94017cded2332aacebb0fc4356f2954f">  300</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a94017cded2332aacebb0fc4356f2954f">cot</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a9d5fed4cfa9af5d148c59a6005422edc">theoretica::cot</a>(v[i]);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a72eca724040171566c3a0dd99fc26ead">  318</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a72eca724040171566c3a0dd99fc26ead">asin</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2">theoretica::asin</a>(v[i]);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a63b2d642d7a184d6d4926ae3d33cc47f">  336</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a63b2d642d7a184d6d4926ae3d33cc47f">acos</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#acf13d7437b2dbea2212cbff3d519b9e5">theoretica::acos</a>(v[i]);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00354"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ad9b5f9739ae62ec431841ab25f5478e0">  354</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ad9b5f9739ae62ec431841ab25f5478e0">atan</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292">theoretica::atan</a>(v[i]);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#ac297ad91c9ce6b892b603bf8a4068e8c">  372</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#ac297ad91c9ce6b892b603bf8a4068e8c">sinh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1f8c95ef4ed4e4da6af87e9eee675f82">theoretica::sinh</a>(v[i]);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a01d8abc2dd1bfe10e49eeb4f1b8670d2">  390</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a01d8abc2dd1bfe10e49eeb4f1b8670d2">cosh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee">theoretica::cosh</a>(v[i]);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#af073ccb5e1d1155b5a8e497112556fc1">  408</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#af073ccb5e1d1155b5a8e497112556fc1">tanh</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#afbf2c5dcfac28891e1e8a3accdf7dd21">theoretica::tanh</a>(v[i]);</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        }</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00426"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1vectorized.html#a4c8984a076304609ac4b21f8363afdf4">  426</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1vectorized.html#a4c8984a076304609ac4b21f8363afdf4">coth</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            Vector res;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            res.resize(v.size());</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="preprocessor">            #pragma omp parallel for</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); i++)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                res[i] = <a class="code" href="namespacetheoretica.html#a96f957ad9b2354268f56ab1ca3843080">theoretica::coth</a>(v[i]);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        }</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;}</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a01d8abc2dd1bfe10e49eeb4f1b8670d2"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a01d8abc2dd1bfe10e49eeb4f1b8670d2">theoretica::vectorized::cosh</a></div><div class="ttdeci">Vector cosh(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the cosh function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:390</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a2126fa7b1dc89e0551eaf80e0eed32e2"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a2126fa7b1dc89e0551eaf80e0eed32e2">theoretica::vectorized::pow</a></div><div class="ttdeci">Vector pow(const Vector &amp;v, int n)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the pow function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:102</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a35c3b29c867ef80657117e8bd5dc9af2"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a35c3b29c867ef80657117e8bd5dc9af2">theoretica::vectorized::cbrt</a></div><div class="ttdeci">Vector cbrt(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the cbrt function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:156</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a3ca8a11fffa03aa06135607061b4826c"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a3ca8a11fffa03aa06135607061b4826c">theoretica::vectorized::sqrt</a></div><div class="ttdeci">Vector sqrt(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the sqrt function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:138</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a4ba81b07d40166de83dfcb1f092acdbb"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a4ba81b07d40166de83dfcb1f092acdbb">theoretica::vectorized::ln</a></div><div class="ttdeci">Vector ln(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the ln function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:192</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a4c8984a076304609ac4b21f8363afdf4"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a4c8984a076304609ac4b21f8363afdf4">theoretica::vectorized::coth</a></div><div class="ttdeci">Vector coth(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the coth function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:426</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a63b2d642d7a184d6d4926ae3d33cc47f"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a63b2d642d7a184d6d4926ae3d33cc47f">theoretica::vectorized::acos</a></div><div class="ttdeci">Vector acos(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the acos function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:336</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a6c75b99a9d6d11ee63735c589f15aaf5"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a6c75b99a9d6d11ee63735c589f15aaf5">theoretica::vectorized::log2</a></div><div class="ttdeci">Vector log2(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the log2 function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:210</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a6fb80a0796e896a3206caf22c1e138f1"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a6fb80a0796e896a3206caf22c1e138f1">theoretica::vectorized::cos</a></div><div class="ttdeci">Vector cos(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the cos function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:264</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a721ef6e879056ca90da56ef2037550f8"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a721ef6e879056ca90da56ef2037550f8">theoretica::vectorized::exp</a></div><div class="ttdeci">Vector exp(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the exp function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:174</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a72eca724040171566c3a0dd99fc26ead"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a72eca724040171566c3a0dd99fc26ead">theoretica::vectorized::asin</a></div><div class="ttdeci">Vector asin(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the asin function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:318</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a94017cded2332aacebb0fc4356f2954f"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a94017cded2332aacebb0fc4356f2954f">theoretica::vectorized::cot</a></div><div class="ttdeci">Vector cot(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the cot function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:300</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ab31404f20e97928f7a70d406b5dcacb8"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ab31404f20e97928f7a70d406b5dcacb8">theoretica::vectorized::apply_function</a></div><div class="ttdeci">Vector apply_function(Function f, const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise) evaluation of a function, using OpenMP to speed up execution over a vector.</div><div class="ttdef"><b>Definition:</b> vectorized.h:30</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac297ad91c9ce6b892b603bf8a4068e8c"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac297ad91c9ce6b892b603bf8a4068e8c">theoretica::vectorized::sinh</a></div><div class="ttdeci">Vector sinh(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the sinh function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:372</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac8b8f6e149a2ab1d8a9dbd8493a806f1"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">theoretica::vectorized::square</a></div><div class="ttdeci">Vector square(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the square function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:48</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac9d9f574964b1f9819613969f26329e6"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">theoretica::vectorized::abs</a></div><div class="ttdeci">Vector abs(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the abs function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:84</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ace7a5aab3830bbe14fdac4a9a13bdd25"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ace7a5aab3830bbe14fdac4a9a13bdd25">theoretica::vectorized::log10</a></div><div class="ttdeci">Vector log10(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the log10 function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:228</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ad37fd4a746ebeee8df8510e0040e59e4"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ad37fd4a746ebeee8df8510e0040e59e4">theoretica::vectorized::sin</a></div><div class="ttdeci">Vector sin(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the sin function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:246</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ad9b5f9739ae62ec431841ab25f5478e0"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ad9b5f9739ae62ec431841ab25f5478e0">theoretica::vectorized::atan</a></div><div class="ttdeci">Vector atan(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the atan function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:354</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ae84403a728d0457803c4335af838879a"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ae84403a728d0457803c4335af838879a">theoretica::vectorized::powf</a></div><div class="ttdeci">Vector powf(const Vector &amp;v, real x)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the powf function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:120</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_af073ccb5e1d1155b5a8e497112556fc1"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#af073ccb5e1d1155b5a8e497112556fc1">theoretica::vectorized::tanh</a></div><div class="ttdeci">Vector tanh(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the tanh function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:408</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_af722ddd531c4f92c1497804597bc0fdc"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#af722ddd531c4f92c1497804597bc0fdc">theoretica::vectorized::tan</a></div><div class="ttdeci">Vector tan(const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise evaluation) of the tan function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:282</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_afc0786c126e11c820e0eba712472fc98"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#afc0786c126e11c820e0eba712472fc98">theoretica::vectorized::cube</a></div><div class="ttdeci">Vector cube(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the cube function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:66</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:206</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a19dd33456cffdbba3f29d85061779e7c"><div class="ttname"><a href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a></div><div class="ttdeci">dual2 sqrt(dual2 x)</div><div class="ttdoc">Compute the square root of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:54</div></div>
@@ -464,14 +485,13 @@ $(document).ready(function(){initNavTree('vectorized_8h_source.html',''); initRe
 <div class="ttc" id="anamespacetheoretica_html_afce493c565b387c0496eff49e137edb6"><div class="ttname"><a href="namespacetheoretica.html#afce493c565b387c0496eff49e137edb6">theoretica::pow</a></div><div class="ttdeci">dual2 pow(dual2 x, int n)</div><div class="ttdoc">Compute the n-th power of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:41</div></div>
 <div class="ttc" id="anamespacetheoretica_html_afd6bc324bd8ae6bbd91b89c7491fe988"><div class="ttname"><a href="namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988">theoretica::cube</a></div><div class="ttdeci">dual2 cube(dual2 x)</div><div class="ttdoc">Return the cube of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:29</div></div>
 <div class="ttc" id="avec_8h_html"><div class="ttname"><a href="vec_8h.html">vec.h</a></div><div class="ttdoc">Vector class and operations.</div></div>
-<div class="ttc" id="avectorized_8h_html_ab31404f20e97928f7a70d406b5dcacb8"><div class="ttname"><a href="vectorized_8h.html#ab31404f20e97928f7a70d406b5dcacb8">theoretica::vectorized::apply_function</a></div><div class="ttdeci">Vector apply_function(Function f, const Vector &amp;v)</div><div class="ttdoc">Vectorized (element-wise) evaluation of a function, using OpenMP to speed up execution over a vector.</div><div class="ttdef"><b>Definition:</b> vectorized.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="vectorized_8h.html">vectorized.h</a></li>
-    <li class="footer">Generated on Wed Jul 31 2024 20:59:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 1 2024 19:59:12 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

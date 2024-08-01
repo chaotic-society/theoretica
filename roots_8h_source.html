@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">while</span>(abs(f(x)) &gt; <a class="code" href="namespacetheoretica.html#ae3a871a5ce0e15ea45205f3e15eec423">NEWTON_RAPHSON_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(x)) &gt; <a class="code" href="namespacetheoretica.html#ae3a871a5ce0e15ea45205f3e15eec423">NEWTON_RAPHSON_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            x = x - (f(x) / Df(x));</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            iter++;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="classtheoretica_1_1dual.html">dual</a> s = f(<a class="code" href="classtheoretica_1_1dual.html">dual</a>(x, 1));</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">while</span>(abs(s.<a class="code" href="classtheoretica_1_1dual.html#aa528194680c06bde3c2a998e87b77d67">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#ae3a871a5ce0e15ea45205f3e15eec423">NEWTON_RAPHSON_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(s.<a class="code" href="classtheoretica_1_1dual.html#aa528194680c06bde3c2a998e87b77d67">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#ae3a871a5ce0e15ea45205f3e15eec423">NEWTON_RAPHSON_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            s = f(<a class="code" href="classtheoretica_1_1dual.html">dual</a>(x, 1));</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
@@ -218,7 +218,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <a class="code" href="classtheoretica_1_1polynomial.html">polynomial&lt;&gt;</a> Dp = <a class="code" href="namespacetheoretica.html#ad6db1f5b17bb340a18e6ed3b9b650ea8">deriv</a>(p);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">while</span>(abs(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3">MAX_NEWTON_ITER</a>) {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            x = x - (p(x) / Dp(x));</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            iter++;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
@@ -242,7 +242,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <a class="code" href="classtheoretica_1_1complex.html">complex&lt;&gt;</a> z = guess;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">while</span>(abs(f(z)) &gt; tolerance &amp;&amp; iter &lt;= max_iter) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(z)) &gt; tolerance &amp;&amp; iter &lt;= max_iter) {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            z = z - (f(z) / df(z));</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            iter++;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        }</div>
@@ -263,7 +263,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">while</span>(abs(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            x = x - (2 * f(x) * Df(x)) / (2 * Df(x) - f(x) * D2f(x));</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            iter++;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        }</div>
@@ -284,7 +284,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="classtheoretica_1_1dual2.html">dual2</a> s = f(<a class="code" href="classtheoretica_1_1dual2.html">dual2</a>(x, 1, 0));</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">while</span>(abs(s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            s = f(<a class="code" href="classtheoretica_1_1dual2.html">dual2</a>(x, 1, 0));</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
@@ -309,7 +309,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordflow">while</span>(abs(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e">MAX_HALLEY_ITER</a>) {</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            x = x - (2 * p(x) * Dp(x)) / (2 * Dp(x) - p(x) * D2p(x));</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            iter++;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        }</div>
@@ -329,7 +329,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">while</span>(abs(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059">MAX_STEFFENSEN_ITER</a>) {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059">MAX_STEFFENSEN_ITER</a>) {</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> f_x = f(x);</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            x = x - (f_x / ((f(x + f_x) / f_x) - 1));</div>
@@ -350,7 +350,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(abs(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059">MAX_STEFFENSEN_ITER</a>) {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059">MAX_STEFFENSEN_ITER</a>) {</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            iter++;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
@@ -371,8 +371,8 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = guess;</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">while</span>(abs(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            x = x - (f(x) / Df(x)) - <a class="code" href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">square</a>((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            iter++;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
@@ -392,12 +392,12 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <a class="code" href="classtheoretica_1_1dual2.html">dual2</a> s = f(<a class="code" href="classtheoretica_1_1dual2.html">dual2</a>(x, 1, 0));</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">while</span>(abs(s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>()) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            s = f(<a class="code" href="classtheoretica_1_1dual2.html">dual2</a>(x, 1, 0));</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            x = x - (s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>() / s.<a class="code" href="classtheoretica_1_1dual2.html#afe5a495e00b28d6cd40a4aa7a5725b00">Dual1</a>())</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                        - square((s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>() / s.<a class="code" href="classtheoretica_1_1dual2.html#afe5a495e00b28d6cd40a4aa7a5725b00">Dual1</a>()))</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                        - <a class="code" href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">square</a>((s.<a class="code" href="classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235">Re</a>() / s.<a class="code" href="classtheoretica_1_1dual2.html#afe5a495e00b28d6cd40a4aa7a5725b00">Dual1</a>()))</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                            * (s.<a class="code" href="classtheoretica_1_1dual2.html#afe5a495e00b28d6cd40a4aa7a5725b00">Dual1</a>() / (s.<a class="code" href="classtheoretica_1_1dual2.html#a9710e5dae1e2ba2a8ec5577a36d4c329">Dual2</a>() * 2));</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            iter++;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        }</div>
@@ -418,8 +418,8 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <a class="code" href="classtheoretica_1_1polynomial.html">polynomial&lt;&gt;</a> D2p = <a class="code" href="namespacetheoretica.html#ad6db1f5b17bb340a18e6ed3b9b650ea8">deriv</a>(p);</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter = 0;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">while</span>(abs(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            x = x - (p(x) / Dp(x)) - square((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p(x)) &gt; <a class="code" href="namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195">ROOT_APPROX_TOL</a> &amp;&amp; iter &lt;= <a class="code" href="namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43">MAX_CHEBYSHEV_ITER</a>) {</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            x = x - (p(x) / Dp(x)) - <a class="code" href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">square</a>((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            iter++;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        }</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
@@ -453,12 +453,12 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="comment">// Check whether the extremes of the candidate intervals</span></div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            <span class="comment">// happen to coincide with the roots</span></div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            <span class="keywordflow">if</span>(abs(f(intervals[i][0])) &lt;= <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(intervals[i][0])) &lt;= <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                res.push_back(intervals[i][0]);</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            }</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">if</span>(abs(f(intervals[i][1])) &lt;= <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(f(intervals[i][1])) &lt;= <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                res.push_back(intervals[i][1]);</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;            }</div>
@@ -482,12 +482,12 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        p /= p.coeff[n];</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="comment">// Absolute value of the highest coefficient</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        Field a_hi = abs(p.coeff[n]);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        Field a_hi = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p.coeff[n]);</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        Field a_sum = 0;</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="comment">// Sum the absolute values of the lesser coefficients</span></div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            a_sum += abs(p.coeff[i]);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            a_sum += <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">abs</a>(p.coeff[i]);</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="comment">// The roots are bounded in absolute value by the maximum</span></div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keyword">const</span> Field M = <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>(a_hi, a_sum);</div>
@@ -513,6 +513,8 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="ttc" id="aclasstheoretica_1_1dual_html_adc3a2a51b545e6908f83bf6db1f42cc4"><div class="ttname"><a href="classtheoretica_1_1dual.html#adc3a2a51b545e6908f83bf6db1f42cc4">theoretica::dual::Dual</a></div><div class="ttdeci">const real &amp; Dual() const</div><div class="ttdoc">Return dual part.</div><div class="ttdef"><b>Definition:</b> dual.h:96</div></div>
 <div class="ttc" id="aclasstheoretica_1_1polynomial_html"><div class="ttname"><a href="classtheoretica_1_1polynomial.html">theoretica::polynomial</a></div><div class="ttdoc">A polynomial of arbitrary order.</div><div class="ttdef"><b>Definition:</b> polynomial.h:25</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:220</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac8b8f6e149a2ab1d8a9dbd8493a806f1"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac8b8f6e149a2ab1d8a9dbd8493a806f1">theoretica::vectorized::square</a></div><div class="ttdeci">Vector square(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the square function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:48</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac9d9f574964b1f9819613969f26329e6"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">theoretica::vectorized::abs</a></div><div class="ttdeci">Vector abs(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the abs function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:84</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a04969926a4834b77f3efd544ae91f8a4"><div class="ttname"><a href="namespacetheoretica.html#a04969926a4834b77f3efd544ae91f8a4">theoretica::root_bisection</a></div><div class="ttdeci">real root_bisection(RealFunction f, real a, real b, real tolerance=BISECTION_APPROX_TOL)</div><div class="ttdoc">Approximate a root of an arbitrary function using bisection inside a compact interval [a,...</div><div class="ttdef"><b>Definition:</b> roots.h:56</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:206</div></div>
@@ -540,7 +542,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Wed Jul 31 2024 20:59:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 1 2024 19:59:12 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

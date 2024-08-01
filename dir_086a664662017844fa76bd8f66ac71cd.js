@@ -2,7 +2,7 @@ var dir_086a664662017844fa76bd8f66ac71cd =
 [
     [ "algebra.h", "algebra_8h.html", "algebra_8h" ],
     [ "algebra_types.h", "algebra__types_8h.html", "algebra__types_8h" ],
-    [ "distance.h", "distance_8h.html", "distance_8h" ],
+    [ "distance.h", "src_2algebra_2distance_8h.html", "src_2algebra_2distance_8h" ],
     [ "mat.h", "mat_8h.html", [
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "iterator", "classtheoretica_1_1mat_1_1iterator.html", "classtheoretica_1_1mat_1_1iterator" ],

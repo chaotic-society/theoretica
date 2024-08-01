@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['sigma_5fa_1309',['sigma_A',['../structtheoretica_1_1regression_1_1linear__model.html#a68b30368f310f356354dc039b9aa096f',1,'theoretica::regression::linear_model']]],
-  ['sigma_5fb_1310',['sigma_B',['../structtheoretica_1_1regression_1_1linear__model.html#a86b4a72cd91b1839ad510932c6234c36',1,'theoretica::regression::linear_model']]],
-  ['sqr_5fsum_1311',['sqr_sum',['../classtheoretica_1_1histogram.html#ac9dde74301ab9f2bb8ccd1560e2dad2b',1,'theoretica::histogram']]],
-  ['sqrt2_1312',['SQRT2',['../namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8',1,'theoretica']]],
-  ['sqrt3_1313',['SQRT3',['../namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d',1,'theoretica']]],
-  ['sqrtpi_1314',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]],
-  ['sum_1315',['sum',['../classtheoretica_1_1histogram.html#a9d2b5122b8b1e08a81ab782ac55eb390',1,'theoretica::histogram']]]
+  ['p_5fvalue_1586',['p_value',['../structtheoretica_1_1regression_1_1linear__model.html#aa62f9b0eadb97799acecd111d90f9670',1,'theoretica::regression::linear_model']]],
+  ['pdf_1587',['pdf',['../structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e',1,'theoretica::pdf_sampler']]],
+  ['phase_1588',['phase',['../classtheoretica_1_1phasor.html#a76f4b104c4183888db02705ac8e11f52',1,'theoretica::phasor']]],
+  ['phi_1589',['PHI',['../namespacetheoretica.html#ace8245ba56baa7620ff9d0d9ccfbc53f',1,'theoretica']]],
+  ['pi_1590',['PI',['../namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9',1,'theoretica']]],
+  ['pi2_1591',['PI2',['../namespacetheoretica.html#a27b5dac597409564afdc448fbef23eae',1,'theoretica']]],
+  ['pi4_1592',['PI4',['../namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2',1,'theoretica']]],
+  ['pickedbenchmarks_1593',['pickedBenchmarks',['../structchebyshev_1_1benchmark_1_1benchmark__state.html#a48b805c9693448e482d199c790c1bdbe',1,'chebyshev::benchmark::benchmark_state']]],
+  ['pickedchecks_1594',['pickedChecks',['../structchebyshev_1_1err_1_1err__state.html#aa510c0da9f8f0d6c78374e74daca0bab',1,'chebyshev::err::err_state']]],
+  ['pickedtests_1595',['pickedTests',['../structchebyshev_1_1prec_1_1prec__state.html#a7d525bc31e80243016269047860b855a',1,'chebyshev::prec::prec_state']]],
+  ['pidouble_1596',['PIDOUBLE',['../namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4',1,'theoretica']]],
+  ['powf_5fpower_5ftolerance_1597',['POWF_POWER_TOLERANCE',['../namespacetheoretica.html#af0c4976fd2f3c3dfdf02bffe927c4dd2',1,'theoretica']]]
 ];

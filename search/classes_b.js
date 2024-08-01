@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['vec_714',['vec',['../classtheoretica_1_1vec.html',1,'theoretica']]],
-  ['vec_3c_20real_2c_200_20_3e_715',['vec&lt; real, 0 &gt;',['../classtheoretica_1_1vec.html',1,'theoretica']]],
-  ['vec_3c_20type_2c_200_20_3e_716',['vec&lt; Type, 0 &gt;',['../classtheoretica_1_1vec_3_01_type_00_010_01_4.html',1,'theoretica']]]
+  ['pdf_5fsampler_873',['pdf_sampler',['../structtheoretica_1_1pdf__sampler.html',1,'theoretica']]],
+  ['phasor_874',['phasor',['../classtheoretica_1_1phasor.html',1,'theoretica']]],
+  ['polynomial_875',['polynomial',['../classtheoretica_1_1polynomial.html',1,'theoretica']]],
+  ['prec_5fstate_876',['prec_state',['../structchebyshev_1_1prec_1_1prec__state.html',1,'chebyshev::prec']]],
+  ['prng_877',['PRNG',['../classtheoretica_1_1_p_r_n_g.html',1,'theoretica']]]
 ];

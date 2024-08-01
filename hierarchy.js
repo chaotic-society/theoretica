@@ -1,15 +1,28 @@
 var hierarchy =
 [
+    [ "chebyshev::err::assert_result", "structchebyshev_1_1err_1_1assert__result.html", null ],
+    [ "chebyshev::benchmark::benchmark_options< InputType >", "structchebyshev_1_1benchmark_1_1benchmark__options.html", null ],
+    [ "chebyshev::benchmark::benchmark_result", "structchebyshev_1_1benchmark_1_1benchmark__result.html", null ],
+    [ "chebyshev::benchmark::benchmark_state", "structchebyshev_1_1benchmark_1_1benchmark__state.html", null ],
     [ "theoretica::complex< Type >", "classtheoretica_1_1complex.html", null ],
     [ "theoretica::dual", "classtheoretica_1_1dual.html", null ],
     [ "theoretica::dual2", "classtheoretica_1_1dual2.html", null ],
+    [ "chebyshev::prec::equation_options< T >", "structchebyshev_1_1prec_1_1equation__options.html", null ],
+    [ "chebyshev::prec::equation_result", "structchebyshev_1_1prec_1_1equation__result.html", null ],
+    [ "chebyshev::err::err_state", "structchebyshev_1_1err_1_1err__state.html", null ],
+    [ "chebyshev::err::errno_result", "structchebyshev_1_1err_1_1errno__result.html", null ],
+    [ "chebyshev::prec::estimate_options< R, Args >", "structchebyshev_1_1prec_1_1estimate__options.html", null ],
+    [ "chebyshev::prec::estimate_result", "structchebyshev_1_1prec_1_1estimate__result.html", null ],
+    [ "chebyshev::err::exception_result", "structchebyshev_1_1err_1_1exception__result.html", null ],
     [ "std::false_type", null, [
       [ "theoretica::is_complex_type< T >", "structtheoretica_1_1is__complex__type.html", null ],
       [ "theoretica::is_indexable< Structure, typename >", "structtheoretica_1_1is__indexable.html", null ],
       [ "theoretica::is_iterable< Structure, typename >", "structtheoretica_1_1is__iterable.html", null ],
       [ "theoretica::is_orderable< Structure, typename >", "structtheoretica_1_1is__orderable.html", null ]
     ] ],
+    [ "chebyshev::output::field_options", "structchebyshev_1_1output_1_1field__options.html", null ],
     [ "theoretica::histogram", "classtheoretica_1_1histogram.html", null ],
+    [ "chebyshev::prec::interval", "structchebyshev_1_1prec_1_1interval.html", null ],
     [ "std::is_floating_point", null, [
       [ "theoretica::is_real_type< Type >", "structtheoretica_1_1is__real__type.html", null ]
     ] ],
@@ -27,14 +40,18 @@ var hierarchy =
     [ "theoretica::multidual< N >", "classtheoretica_1_1multidual.html", null ],
     [ "theoretica::ode_state< N >", "structtheoretica_1_1ode__state.html", null ],
     [ "theoretica::ode_state< 1 >", "structtheoretica_1_1ode__state_3_011_01_4.html", null ],
+    [ "chebyshev::output::output_state", "structchebyshev_1_1output_1_1output__state.html", null ],
     [ "theoretica::pdf_sampler", "structtheoretica_1_1pdf__sampler.html", null ],
     [ "theoretica::phasor< Type >", "classtheoretica_1_1phasor.html", null ],
     [ "theoretica::polynomial< Type >", "classtheoretica_1_1polynomial.html", null ],
+    [ "chebyshev::prec::prec_state", "structchebyshev_1_1prec_1_1prec__state.html", null ],
     [ "theoretica::PRNG", "classtheoretica_1_1_p_r_n_g.html", null ],
     [ "theoretica::quat< Type >", "classtheoretica_1_1quat.html", null ],
+    [ "chebyshev::random::random_state", "structchebyshev_1_1random_1_1random__state.html", null ],
     [ "theoretica::ratio< T1, T2 >", "classtheoretica_1_1ratio.html", null ],
     [ "theoretica::spline", "classtheoretica_1_1spline.html", null ],
     [ "theoretica::spline_node", "structtheoretica_1_1spline__node.html", null ],
+    [ "chebyshev::benchmark::timer", "classchebyshev_1_1benchmark_1_1timer.html", null ],
     [ "std::true_type", null, [
       [ "theoretica::is_complex_type< complex< T > >", "structtheoretica_1_1is__complex__type_3_01complex_3_01_t_01_4_01_4.html", null ],
       [ "theoretica::is_indexable< Structure, _internal::void_t< decltype(std::declval< Structure >()[0])> >", "structtheoretica_1_1is__indexable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_19d7f4fd42f60d1d5bc87491fe492c2a4.html", null ],

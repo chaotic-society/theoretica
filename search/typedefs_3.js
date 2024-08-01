@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['has_5fcomplex_5felements_1332',['has_complex_elements',['../namespacetheoretica.html#a3d820bf5c386383914de23c4cbf07b57',1,'theoretica']]],
-  ['has_5freal_5felements_1333',['has_real_elements',['../namespacetheoretica.html#abe7f7bdc36ade4868722b357241c9bc9',1,'theoretica']]]
+  ['endofunction_1641',['EndoFunction',['../common_8h.html#a94d6aae363e21a096f05814053ec8462',1,'chebyshev']]],
+  ['estimator_1642',['Estimator',['../namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad',1,'chebyshev::prec']]]
 ];

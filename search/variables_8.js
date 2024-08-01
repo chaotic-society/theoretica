@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['mach_5fepsilon_1273',['MACH_EPSILON',['../namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211',1,'theoretica']]],
-  ['matrix_5felement_5ftol_1274',['MATRIX_ELEMENT_TOL',['../namespacetheoretica.html#a18d9d369e0e8a85844ba885b3a0ba805',1,'theoretica']]],
-  ['max_5fbisection_5fiter_1275',['MAX_BISECTION_ITER',['../namespacetheoretica.html#acf0df4d0b21cc7dbcfaf869e88da40af',1,'theoretica']]],
-  ['max_5fchebyshev_5fiter_1276',['MAX_CHEBYSHEV_ITER',['../namespacetheoretica.html#a91f2aa11982032c3035e8458f17d9a43',1,'theoretica']]],
-  ['max_5fgoldensection_5fiter_1277',['MAX_GOLDENSECTION_ITER',['../namespacetheoretica.html#ac71451b0e74e1fe8a28d1c41bc954804',1,'theoretica']]],
-  ['max_5fhalley_5fiter_1278',['MAX_HALLEY_ITER',['../namespacetheoretica.html#a10b14b1cb08bd3c634410570abf8258e',1,'theoretica']]],
-  ['max_5fnewton_5fiter_1279',['MAX_NEWTON_ITER',['../namespacetheoretica.html#a09bde3716d7598748a55fa65c9abb6e3',1,'theoretica']]],
-  ['max_5fsteffensen_5fiter_1280',['MAX_STEFFENSEN_ITER',['../namespacetheoretica.html#abe3016878f7fd372f0c459c4776e8059',1,'theoretica']]],
-  ['max_5ftryandcatch_5fiter_1281',['MAX_TRYANDCATCH_ITER',['../namespacetheoretica.html#a3299f783527ae72a24c832a7b1cd8ef8',1,'theoretica']]],
-  ['max_5fval_1282',['max_val',['../classtheoretica_1_1histogram.html#a6fd0164740ef2274ef1a8150535531d3',1,'theoretica::histogram']]],
-  ['metropolis_5fdepth_1283',['METROPOLIS_DEPTH',['../namespacetheoretica.html#a1ad823e40ceef73bd9114b0a05e6cd5f',1,'theoretica']]],
-  ['min_5fval_1284',['min_val',['../classtheoretica_1_1histogram.html#a15c511d16e423252222e3024872f69cc',1,'theoretica::histogram']]],
-  ['mingrad_5fgamma_1285',['MINGRAD_GAMMA',['../namespacetheoretica.html#ab33f363492da480d62e2e0b5ad2c4ee9',1,'theoretica']]],
-  ['mingrad_5fmax_5fiter_1286',['MINGRAD_MAX_ITER',['../namespacetheoretica.html#acd4ef8ed777e402e2ae0c7f736ba20cb',1,'theoretica']]],
-  ['mingrad_5ftolerance_1287',['MINGRAD_TOLERANCE',['../namespacetheoretica.html#a5ebee50e5a5a80baaa6532a736ce7d55',1,'theoretica']]],
-  ['modulus_1288',['modulus',['../classtheoretica_1_1phasor.html#a0d4254d619edb4e6cd560f44bdd7aa85',1,'theoretica::phasor']]]
+  ['ln10_1552',['LN10',['../namespacetheoretica.html#a3bc384f25a1d4c7c19169a5ce6c51710',1,'theoretica']]],
+  ['ln2_1553',['LN2',['../namespacetheoretica.html#a7021b7b588c9ea63d46679aaa1f7c6c4',1,'theoretica']]],
+  ['log10e_1554',['LOG10E',['../namespacetheoretica.html#a612238583a4ec50cebd32b4694d5cb9a',1,'theoretica']]],
+  ['log210_1555',['LOG210',['../namespacetheoretica.html#a4145093692043269fa4c1ebef8b4890f',1,'theoretica']]],
+  ['log2e_1556',['LOG2E',['../namespacetheoretica.html#a771e19568e0562e2fcccd740ec90dae4',1,'theoretica']]]
 ];

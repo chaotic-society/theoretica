@@ -58,32 +58,6 @@ var NAVTREE =
       ] ],
       [ "Pull request", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29", null ]
     ] ],
-    [ "Common abbreviations", "md__home_runner_work_theoretica_theoretica_docs_txt__a_b_b_r_e_v_i_a_t_i_o_n_s.html", null ],
-    [ "Coding standard", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html", [
-      [ "Scopes", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md32", null ],
-      [ "Naming conventions", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md33", null ],
-      [ "Indentation", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md34", null ],
-      [ "Documentation", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md35", null ],
-      [ "Test cases", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md36", null ],
-      [ "Other considerations", "md__home_runner_work_theoretica_theoretica_docs_txt__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md37", null ]
-    ] ],
-    [ "Getting started", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html", [
-      [ "Using the library", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md39", null ],
-      [ "Linear algebra", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md40", [
-        [ "Vectors", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md41", null ],
-        [ "Matrices", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md42", null ]
-      ] ],
-      [ "Complex numbers", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md43", null ],
-      [ "Derivatives and integrals", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md44", null ],
-      [ "Automatic Differentiation", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md45", null ],
-      [ "Statistics", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md46", [
-        [ "Probability distributions", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md47", null ],
-        [ "Linear regression", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md48", null ]
-      ] ],
-      [ "Pseudorandom generators", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md49", null ],
-      [ "Polynomials", "md__home_runner_work_theoretica_theoretica_docs_txt__e_x_a_m_p_l_e_s.html#autotoc_md50", null ]
-    ] ],
-    [ "List of features", "md__home_runner_work_theoretica_theoretica_docs_txt__f_e_a_t_u_r_e_s.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -117,16 +91,17 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"algebra_8h.html",
-"classtheoretica_1_1dual2.html#a74c9ef32502662b3c179d0d3b83796d6",
-"classtheoretica_1_1polynomial.html",
-"constants_8h.html#a4d6916417c8d2b817cfc48b8e2a1abb5",
-"functions.html",
-"namespacemembers_vars.html",
-"namespacetheoretica.html#a7a854543c4d5334c61247aed920937c7",
-"namespacetheoretica_1_1algebra.html#a326d624702e7b8c7645f917e6e8df946",
-"real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d",
-"test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089"
+"",
+"classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce",
+"classtheoretica_1_1phasor.html#a43f751446d44aa414878c0aa77350f1a",
+"complex__analysis_8h.html",
+"error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e",
+"namespacechebyshev_1_1err.html#a3515bf853e2df5e9c8d5100b615b68ef",
+"namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760aa44cd766f82e41f0989c8cdfd4ce84b3",
+"namespacetheoretica.html#ad5f05865ec8d49e6abf889d81e1cd428",
+"namespacetheoretica_1_1vectorized.html#ae84403a728d0457803c4335af838879a",
+"roots_8h.html#a959ae94aff9e106e30cf5cf76f229780",
+"structchebyshev_1_1prec_1_1estimate__result.html#af6ff1f9a5bf49c04504818da80d8d43d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

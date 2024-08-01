@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['rad2deg_1303',['RAD2DEG',['../namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0',1,'theoretica']]],
-  ['rand_5freal_5fprec_1304',['RAND_REAL_PREC',['../namespacetheoretica.html#a0e48eab9ce5928d0c754a40ddb2d068f',1,'theoretica']]],
-  ['range_5fmax_1305',['range_max',['../classtheoretica_1_1histogram.html#ab3db4909412dc1ab2e758e9c8fdd6bd7',1,'theoretica::histogram']]],
-  ['range_5fmin_1306',['range_min',['../classtheoretica_1_1histogram.html#abb58bff89b025d58c3997334209bf3e9',1,'theoretica::histogram']]],
-  ['root_5fapprox_5ftol_1307',['ROOT_APPROX_TOL',['../namespacetheoretica.html#aa4aa38ca4a41e22c4eeac0970da9b195',1,'theoretica']]],
-  ['row_5fsz_1308',['row_sz',['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a312223a6269ac9b612d96911b39a8567',1,'theoretica::mat&lt; Type, 0, 0 &gt;']]]
+  ['outputfiles_1581',['outputFiles',['../structchebyshev_1_1output_1_1output__state.html#a1c740eb8c0b41648c902cc8ef98a379c',1,'chebyshev::output::output_state']]],
+  ['outputfolder_1582',['outputFolder',['../structchebyshev_1_1output_1_1output__state.html#a3776639dd5087f4e9fec9cedb2367709',1,'chebyshev::output::output_state']]],
+  ['outputformat_1583',['outputFormat',['../structchebyshev_1_1output_1_1output__state.html#ac7a77fe0fe862ef19933c45edc2c4d38',1,'chebyshev::output::output_state']]],
+  ['outputprecision_1584',['outputPrecision',['../structchebyshev_1_1output_1_1output__state.html#abc2fc8a9fcfd46489d786798809c713e',1,'chebyshev::output::output_state']]],
+  ['outputtofile_1585',['outputToFile',['../structchebyshev_1_1benchmark_1_1benchmark__state.html#a88045e875c66dd31946551bc4d1226a5',1,'chebyshev::benchmark::benchmark_state::outputToFile()'],['../structchebyshev_1_1err_1_1err__state.html#a10f4d9afbb98fec0ed2ebcda02f20102',1,'chebyshev::err::err_state::outputToFile()'],['../structchebyshev_1_1prec_1_1prec__state.html#a629f1736359e0dc394929a1249714624',1,'chebyshev::prec::prec_state::outputToFile()']]]
 ];

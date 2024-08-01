@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['vec2_1345',['vec2',['../namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d',1,'theoretica']]],
-  ['vec3_1346',['vec3',['../namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910',1,'theoretica']]],
-  ['vec4_1347',['vec4',['../namespacetheoretica.html#a4c9f34d374aba86cc459926c45825030',1,'theoretica']]]
+  ['pdf_5fsampling_5ffunction_1653',['pdf_sampling_function',['../namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e',1,'theoretica']]],
+  ['polyn_5frecurr_5fformula_1654',['polyn_recurr_formula',['../namespacetheoretica.html#adcb53498374f76292a3da8bb8c785341',1,'theoretica']]],
+  ['pseudorandom_5ffunction_1655',['pseudorandom_function',['../namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5',1,'theoretica']]]
 ];
