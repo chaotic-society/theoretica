@@ -66,8 +66,6 @@ namespace theoretica {
 	struct is_orderable : std::false_type{};
 
 
-	/// Check whether a structure is orderable,
-	/// by checking that it has a comparison operator<().
 	template<typename Structure>
 	struct is_orderable
 	<Structure, _internal::void_t<
@@ -81,8 +79,6 @@ namespace theoretica {
 	struct is_indexable : std::false_type{};
 
 
-	/// Check whether a structure is indexable by a single integer index,
-	/// by checking that it has the operator[](0).
 	template<typename Structure>
 	struct is_indexable
 	<Structure, _internal::void_t<
@@ -96,8 +92,6 @@ namespace theoretica {
 	struct is_iterable : std::false_type{};
 
 
-	/// Check whether a structure is iterable,
-	/// by checking that it has a method begin().
 	template<typename Structure>
 	struct is_iterable
 	<Structure, _internal::void_t<

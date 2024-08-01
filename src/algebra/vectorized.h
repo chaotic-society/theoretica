@@ -17,10 +17,8 @@
 
 namespace theoretica {
 
-
-	/// @namespace theoretica::vectorized
+	/// @namespace theoretica::vectorized Element-wise, parallelized evaluation of functions.
 	namespace vectorized {
-
 
 		/// Vectorized (element-wise) evaluation of a function,
 		/// using OpenMP to speed up execution over a vector.
