@@ -4,7 +4,7 @@
 /// This file implements all linear algebra routines of the library,
 /// using templates and type traits.
 /// The Matrix type must be a class with these methods:
-/// - operator()()	Get the element at the i-th row and j-th column.
+/// - operator()()		Get the element at the i-th row and j-th column.
 /// - rows()			Get the number of rows of the matrix (not defined for vectors)
 /// - cols()			Get the number of columns of the matrix (not defined for vectors)
 /// - resize()			Change or set the size of the matrix
@@ -1450,7 +1450,7 @@ namespace theoretica {
 		/// a triangular matrix so that \f$A = L L^T\f$ using
 		/// Cholesky decomposition.
 		///
-		/// @param m The matrix to decompose
+		/// @param A The matrix to decompose
 		/// @return The Cholesky decomposition of the matrix
 		template<typename Matrix>
 		inline Matrix decompose_cholesky(const Matrix& A) {
