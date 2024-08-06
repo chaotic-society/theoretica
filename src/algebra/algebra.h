@@ -1446,6 +1446,76 @@ namespace theoretica {
 		// Matrix decompositions
 
 
+		/// Decompose a square matrix to two triangular matrices,
+		/// L and U where L is lower and U is upper, so that \f$A = LU\f$.
+		///
+		/// @param A The matrix to decompose
+		/// @param L The matrix to overwrite with the lower triangular one
+		/// @param U The matrix to overwrite with the upper triangular one
+		/// @return The LU decomposition of the matrix
+		template<typename Matrix1, typename Matrix2, typename Matrix3>
+		inline void decompose_lu(const Matrix1& A, Matrix2& L, Matrix3& U) {
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::decompose_lu", A.rows(), INVALID_ARGUMENT);
+				mat_error(L); mat_error(U);
+				return;
+			}
+
+			if (A.rows() != L.rows()) {
+				TH_MATH_ERROR("algebra::decompose_lu", L.rows(), INVALID_ARGUMENT);
+				mat_error(L); mat_error(U);
+				return;
+			}
+
+			if (A.cols() != L.cols()) {
+				TH_MATH_ERROR("algebra::decompose_lu", L.cols(), INVALID_ARGUMENT);
+				mat_error(L); mat_error(U);
+				return;
+			}
+
+			if (A.rows() != U.rows()) {
+				TH_MATH_ERROR("algebra::decompose_lu", U.rows(), INVALID_ARGUMENT);
+				mat_error(L); mat_error(U);
+				return;
+			}
+
+			if (A.cols() != U.cols()) {
+				TH_MATH_ERROR("algebra::decompose_lu", U.cols(), INVALID_ARGUMENT);
+				mat_error(L); mat_error(U);
+				return;
+			}
+
+			using Type = matrix_element_t<Matrix1>;
+
+			// Set the diagonal of L to 1.0
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				L(i, i) = (Type) 1.0;
+
+			// Compute L and U
+			for(unsigned int i = 0; i < A.rows(); ++i) {
+				
+				for(unsigned int j = 0; j < A.rows(); ++j) {
+
+					U(i, j) = A(i, j);
+				
+					for(unsigned int k = 0; k < i; ++k)
+						U(i, j) -= L(i, k) * U(k, j);
+				}
+
+				for(unsigned int j = i + 1; j < A.rows(); ++j) {
+
+					L(j, i) = A(j, i);
+
+					for(unsigned int k = 0; k < i; ++k)
+						L(j, i) -= L(j, k) * U(k, i);
+
+					L(j, i) /= U(i, i);
+				}
+			}
+		}
+
+
 		/// Decompose a symmetric positive definite matrix into
 		/// a triangular matrix so that \f$A = L L^T\f$ using
 		/// Cholesky decomposition.
