@@ -92,16 +92,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "",
-"classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce",
-"classtheoretica_1_1phasor.html#a43f751446d44aa414878c0aa77350f1a",
-"complex__analysis_8h.html",
-"error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e",
-"namespacechebyshev_1_1err.html#a3515bf853e2df5e9c8d5100b615b68ef",
-"namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760aa44cd766f82e41f0989c8cdfd4ce84b3",
-"namespacetheoretica.html#ad5f05865ec8d49e6abf889d81e1cd428",
-"namespacetheoretica_1_1vectorized.html#ae84403a728d0457803c4335af838879a",
-"roots_8h.html#a959ae94aff9e106e30cf5cf76f229780",
-"structchebyshev_1_1prec_1_1estimate__result.html#af6ff1f9a5bf49c04504818da80d8d43d"
+"classtheoretica_1_1dual.html#ac21bd18eb8a854f698813581d42d8f44",
+"classtheoretica_1_1phasor.html#a3ef41ea67cd7073d1a48727cf40ef355",
+"complex_8h_source.html",
+"error_8h.html#a252ec9220e4dab52b18b400381624538",
+"namespacechebyshev_1_1err.html#a0a5efdfd3b299de1a40655bc8596a241",
+"namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760a51f6a269aa3a6f92215230ceb2212758",
+"namespacetheoretica.html#ad531866bc4992f26f96aec0959fca06b",
+"namespacetheoretica_1_1vectorized.html#ad37fd4a746ebeee8df8510e0040e59e4",
+"roots_8h.html#a89aae9512bed56bdb44d2b5394aa6d0e",
+"structchebyshev_1_1prec_1_1estimate__result.html#ae9e2cb34c61d8cb7be2ea0b9327f12b0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -318,6 +318,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ad773c0b2321a09f999e0030316de633a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ad773c0b2321a09f999e0030316de633a">is_upper_triangular</a> (const Matrix &amp;m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a18d9d369e0e8a85844ba885b3a0ba805">MATRIX_ELEMENT_TOL</a>)</td></tr>
 <tr class="memdesc:ad773c0b2321a09f999e0030316de633a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is upper triangular.  <a href="namespacetheoretica_1_1algebra.html#ad773c0b2321a09f999e0030316de633a">More...</a><br /></td></tr>
 <tr class="separator:ad773c0b2321a09f999e0030316de633a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </td></tr>
+<tr class="memitem:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a66aafc0be7602bcdbf7b09dd130ebc38">decompose_lu</a> (const Matrix1 &amp;A, Matrix2 &amp;L, Matrix3 &amp;U)</td></tr>
+<tr class="memdesc:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose a square matrix to two triangular matrices, L and U where L is lower and U is upper, so that \(A = LU\).  <a href="namespacetheoretica_1_1algebra.html#a66aafc0be7602bcdbf7b09dd130ebc38">More...</a><br /></td></tr>
+<tr class="separator:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a752dce461a75811726c0f2c63fa0411a"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a752dce461a75811726c0f2c63fa0411a"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a752dce461a75811726c0f2c63fa0411a">decompose_cholesky</a> (const Matrix &amp;A)</td></tr>
 <tr class="memdesc:a752dce461a75811726c0f2c63fa0411a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose a symmetric positive definite matrix into a triangular matrix so that \(A = L L^T\) using Cholesky decomposition.  <a href="namespacetheoretica_1_1algebra.html#a752dce461a75811726c0f2c63fa0411a">More...</a><br /></td></tr>
@@ -749,6 +753,61 @@ template&lt;typename Matrix &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Cholesky decomposition of the matrix </dd></dl>
+
+</div>
+</div>
+<a id="a66aafc0be7602bcdbf7b09dd130ebc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66aafc0be7602bcdbf7b09dd130ebc38">&#9670;&nbsp;</a></span>decompose_lu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void theoretica::algebra::decompose_lu </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix1 &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix2 &amp;&#160;</td>
+          <td class="paramname"><em>L</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix3 &amp;&#160;</td>
+          <td class="paramname"><em>U</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decompose a square matrix to two triangular matrices, L and U where L is lower and U is upper, so that \(A = LU\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to decompose </td></tr>
+    <tr><td class="paramname">L</td><td>The matrix to overwrite with the lower triangular one </td></tr>
+    <tr><td class="paramname">U</td><td>The matrix to overwrite with the upper triangular one </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The LU decomposition of the matrix </dd></dl>
 
 </div>
 </div>
@@ -4542,7 +4601,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Tue Aug 6 2024 09:10:04 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 6 2024 14:43:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
