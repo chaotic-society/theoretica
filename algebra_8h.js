@@ -4,6 +4,7 @@ var algebra_8h =
     [ "cross", "algebra_8h.html#a038ef7f20afa9fbbdd052c020c90f581", null ],
     [ "decompose_cholesky", "algebra_8h.html#a752dce461a75811726c0f2c63fa0411a", null ],
     [ "decompose_lu", "algebra_8h.html#a66aafc0be7602bcdbf7b09dd130ebc38", null ],
+    [ "decompose_lu_inplace", "algebra_8h.html#a177fae373c752ef050bf0c7e7039f5be", null ],
     [ "det", "algebra_8h.html#a46718f17c861582ef775a9f577ac9710", null ],
     [ "det_2x2", "algebra_8h.html#a97063b884664da3b933db157fcc1899d", null ],
     [ "det_3x3", "algebra_8h.html#a42e51c761ec3171bb9af10e521029851", null ],

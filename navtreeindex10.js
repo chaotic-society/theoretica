@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"structchebyshev_1_1prec_1_1estimate__result.html#abbbe0d2515fc9ff4dc517b666a6673de":[11,0,0,3,1,2],
+"structchebyshev_1_1prec_1_1estimate__result.html#acc98c236d449c06d25e17fae024fc32d":[11,0,0,3,1,10],
 "structchebyshev_1_1prec_1_1estimate__result.html#ae9e2cb34c61d8cb7be2ea0b9327f12b0":[11,0,0,3,1,5],
 "structchebyshev_1_1prec_1_1estimate__result.html#aecabd228acf68c395f1d7c36d6ff90ec":[11,0,0,3,1,0],
 "structchebyshev_1_1prec_1_1estimate__result.html#af6ff1f9a5bf49c04504818da80d8d43d":[11,0,0,3,1,11],

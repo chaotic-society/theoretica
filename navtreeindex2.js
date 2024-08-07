@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classtheoretica_1_1phasor.html#a32445b82591f1d84231f81bfac91c981":[11,0,1,14,36],
 "classtheoretica_1_1phasor.html#a3ef41ea67cd7073d1a48727cf40ef355":[11,0,1,14,8],
 "classtheoretica_1_1phasor.html#a43f751446d44aa414878c0aa77350f1a":[11,0,1,14,22],
 "classtheoretica_1_1phasor.html#a4ec24351bcca7cc48d63811bf1af8a98":[11,0,1,14,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "common_8h.html#a94d6aae363e21a096f05814053ec8462":[10,0,0,5],
 "common_8h.html#acfbfcbde585622ab8d5f0e0bdcbedb36":[12,0,11,0,1,1,0,2],
 "common_8h.html#ad25ecae70ca92964c90b50b175bc345c":[12,0,11,0,1,1,0,0],
-"common_8h_source.html":[12,0,11,0,1,1,0],
-"complex_8h.html":[12,0,3,0]
+"common_8h_source.html":[12,0,11,0,1,1,0]
 };
