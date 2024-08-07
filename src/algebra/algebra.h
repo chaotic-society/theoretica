@@ -1516,6 +1516,38 @@ namespace theoretica {
 		}
 
 
+		/// Decompose a square matrix to two triangular matrices,
+		/// L and U where L is lower and U is upper, so that \f$A = LU\f$
+		/// overwriting the matrix A with the elements of both matrices,
+		/// omitting the diagonal of L (equal to all ones).
+		/// Particularly useful for solving linear systems.
+		///
+		/// @param A The matrix to decompose and overwrite
+		/// @return A reference to the overwritten matrix A
+		template<typename Matrix>
+		inline Matrix& decompose_lu_inplace(Matrix& A) {
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::decompose_lu_inplace", A.rows(), INVALID_ARGUMENT);
+				mat_error(A);
+				return A;
+			}
+
+			for(unsigned int j = 0; j < A.cols(); ++j) {
+
+				for(unsigned int i = j + 1; i < A.rows(); ++i) {
+
+					A(i, j) /= A(j, j);
+
+					for(unsigned int k = j + 1; k < A.rows(); ++k)
+						A(i, k) -= A(i, j) * A(j, k);
+				}
+			}
+		
+			return A;
+		}
+
+
 		/// Decompose a symmetric positive definite matrix into
 		/// a triangular matrix so that \f$A = L L^T\f$ using
 		/// Cholesky decomposition.
