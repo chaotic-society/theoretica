@@ -42,6 +42,7 @@ var algebra_8h =
     [ "mat_zeroes", "algebra_8h.html#a01ac4d9844e1bb4c7ef409277bed451f", null ],
     [ "norm", "algebra_8h.html#ae1521a586075b668b4a8765dadcdd1a3", null ],
     [ "normalize", "algebra_8h.html#af3f76287e1f911f7223ebf865ee16eea", null ],
+    [ "solve_lu", "algebra_8h.html#a6dc8b5c2fa93053f3370b22b5fad2089", null ],
     [ "solve_triangular", "algebra_8h.html#a6fc85f89aafd490490d0a7b36bed8e15", null ],
     [ "solve_triangular_lower", "algebra_8h.html#a9b7074a581766dad1465f4ea1264c229", null ],
     [ "solve_triangular_upper", "algebra_8h.html#ab64a6205ec3c0bbddcdd3aee26aec6dd", null ],

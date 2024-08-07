@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['endofunction_1646',['EndoFunction',['../common_8h.html#a94d6aae363e21a096f05814053ec8462',1,'chebyshev']]],
-  ['estimator_1647',['Estimator',['../namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad',1,'chebyshev::prec']]]
+  ['endofunction_1648',['EndoFunction',['../common_8h.html#a94d6aae363e21a096f05814053ec8462',1,'chebyshev']]],
+  ['estimator_1649',['Estimator',['../namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad',1,'chebyshev::prec']]]
 ];
