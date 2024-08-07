@@ -1719,6 +1719,59 @@ namespace theoretica {
 				return vec_error(err);
 			}
 		}
+
+
+		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$.
+		/// In-place LU decomposition is used on A, followed by forward and backward
+		/// elimination.
+		/// 
+		/// @param A The matrix of the linear system
+		/// @param b The known vector
+		/// @return x The unknown vector
+		template<typename Matrix, typename Vector>
+		inline Vector solve_lu(Matrix A, Vector b) {
+				
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::solve_lu", A.rows(), INVALID_ARGUMENT);
+				vec_error(b);
+				return b;
+			}
+
+			if (A.rows() != b.size()) {
+				TH_MATH_ERROR("algebra::solve_lu", A.rows(), INVALID_ARGUMENT);
+				vec_error(b);
+				return b;
+			}
+
+			using Type = matrix_element_t<Matrix>;
+
+			// Apply in-place LU decomposition
+			decompose_lu_inplace(A);
+
+			// Forward elimination: solves the lower system (L matrix).
+			for (unsigned int i = 1; i < A.rows(); ++i) {
+				
+				Type sum = A(i, 0) * b[0];
+
+				for (unsigned int j = 1; j < i; ++j)
+					sum += A(i, j) * b[j];
+
+				b[i] -= sum;
+			}
+
+			// Backward elimination: solves the upper system (U matrix).
+			for (int i = A.rows() - 1; i >= 0; --i) {
+				
+				Type sum = A(i, i + 1) * b[i + 1];
+
+				for (unsigned int j = i + 2; j < A.rows(); ++j)
+					sum += A(i, j) * b[j];
+
+				b[i] = (b[i] - sum) / A(i, i);
+			}
+		
+			return b;
+		}
 	}
 }
 
