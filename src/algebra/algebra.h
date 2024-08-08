@@ -1608,7 +1608,7 @@ namespace theoretica {
 		// Linear system solvers
 
 
-		/// Solve the linear system \f$Lx = b\f$ for lower triangular \f$L\f$.
+		/// Solve the linear system \f$L \vec x = b\f$ for lower triangular \f$L\f$.
 		/// @note No check is performed on the triangularity of \f$L\f$.
 		///
 		/// @param L The lower triangular matrix.
@@ -1650,7 +1650,7 @@ namespace theoretica {
 		}
 
 
-		/// Solve the linear system \f$Ux = b\f$ for upper triangular \f$U\f$.
+		/// Solve the linear system \f$U \vec x = b\f$ for upper triangular \f$U\f$.
 		/// @note No check is performed on the triangularity of \f$U\f$.
 		///
 		/// @param U The upper triangular matrix.
@@ -1697,11 +1697,10 @@ namespace theoretica {
 		}
 
 
-		/// Solve the linear system \f$Tx = b\f$ for triangular \f$T\f$.
+		/// Solve the linear system \f$T \vec x = b\f$ for triangular \f$T\f$.
 		/// The correct solver is selected depending on the elements of \f$T\f$,
 		/// if the property of the matrix is known a priori, calling the
 		/// specific function is more efficient.
-		/// @note No check is performed on the triangularity of \f$T\f$.
 		///
 		/// @param T The triangular matrix.
 		/// @param b The known vector.
@@ -1721,32 +1720,30 @@ namespace theoretica {
 		}
 
 
-		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$.
-		/// In-place LU decomposition is used on A, followed by forward and backward
-		/// elimination.
+		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$,
+		/// where the matrix A has already undergone in-place LU decomposition.
+		/// Forward and backward elimination is used to solve the system in place.
+		/// This routine is particularly efficient for
 		/// 
-		/// @param A The matrix of the linear system
+		/// @param A The matrix of the linear system, after in-place LU decomposition
 		/// @param b The known vector
 		/// @return x The unknown vector
 		template<typename Matrix, typename Vector>
-		inline Vector solve_lu(Matrix A, Vector b) {
-				
+		inline Vector solve_lu_inplace(Matrix A, Vector b) {
+
 			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::solve_lu", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
 				vec_error(b);
 				return b;
 			}
 
 			if (A.rows() != b.size()) {
-				TH_MATH_ERROR("algebra::solve_lu", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
 				vec_error(b);
 				return b;
 			}
 
 			using Type = matrix_element_t<Matrix>;
-
-			// Apply in-place LU decomposition
-			decompose_lu_inplace(A);
 
 			// Forward elimination: solves the lower system (L matrix).
 			for (unsigned int i = 1; i < A.rows(); ++i) {
@@ -1771,6 +1768,38 @@ namespace theoretica {
 			}
 		
 			return b;
+		}
+
+
+		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$.
+		/// In-place LU decomposition is used on A, followed by forward and backward
+		/// elimination.
+		/// 
+		/// @param A The matrix of the linear system
+		/// @param b The known vector
+		/// @return x The unknown vector
+		template<typename Matrix, typename Vector>
+		inline Vector solve_lu(Matrix A, Vector b) {
+
+			// Apply in-place LU decomposition
+			decompose_lu_inplace(A);
+
+			// Apply forward and backward substitution
+			return solve_lu_inplace(A, b);
+		}
+
+
+		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$
+		/// using the best available algorithm.
+		/// 
+		/// @param A The matrix of the linear system
+		/// @param b The known vector
+		/// @return x The unknown vector
+		template<typename Matrix, typename Vector>
+		inline Vector solve(const Matrix& A, const Vector& b) {
+
+			// Use LU decomposition to solve the linear system
+			return solve_lu(A, b);
 		}
 	}
 }
