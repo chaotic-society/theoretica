@@ -347,20 +347,28 @@ Functions</h2></td></tr>
 <tr class="separator:a752dce461a75811726c0f2c63fa0411a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b7074a581766dad1465f4ea1264c229"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a9b7074a581766dad1465f4ea1264c229"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">theoretica::algebra::solve_triangular_lower</a> (const Matrix &amp;L, const Vector &amp;b)</td></tr>
-<tr class="memdesc:a9b7074a581766dad1465f4ea1264c229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(Lx = b\) for lower triangular \(L\).  <a href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">More...</a><br /></td></tr>
+<tr class="memdesc:a9b7074a581766dad1465f4ea1264c229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(L \vec x = b\) for lower triangular \(L\).  <a href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">More...</a><br /></td></tr>
 <tr class="separator:a9b7074a581766dad1465f4ea1264c229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab64a6205ec3c0bbddcdd3aee26aec6dd"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:ab64a6205ec3c0bbddcdd3aee26aec6dd"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd">theoretica::algebra::solve_triangular_upper</a> (const Matrix &amp;U, const Vector &amp;b)</td></tr>
-<tr class="memdesc:ab64a6205ec3c0bbddcdd3aee26aec6dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(Ux = b\) for upper triangular \(U\).  <a href="namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd">More...</a><br /></td></tr>
+<tr class="memdesc:ab64a6205ec3c0bbddcdd3aee26aec6dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(U \vec x = b\) for upper triangular \(U\).  <a href="namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd">More...</a><br /></td></tr>
 <tr class="separator:ab64a6205ec3c0bbddcdd3aee26aec6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">theoretica::algebra::solve_triangular</a> (const Matrix &amp;T, const Vector &amp;b)</td></tr>
-<tr class="memdesc:a6fc85f89aafd490490d0a7b36bed8e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(Tx = b\) for triangular \(T\).  <a href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">More...</a><br /></td></tr>
+<tr class="memdesc:a6fc85f89aafd490490d0a7b36bed8e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(T \vec x = b\) for triangular \(T\).  <a href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">More...</a><br /></td></tr>
 <tr class="separator:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23728e00cdfe5b65b8242db4970b017"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:ab23728e00cdfe5b65b8242db4970b017"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ab23728e00cdfe5b65b8242db4970b017">theoretica::algebra::solve_lu_inplace</a> (Matrix A, Vector b)</td></tr>
+<tr class="memdesc:ab23728e00cdfe5b65b8242db4970b017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has already undergone in-place LU decomposition.  <a href="namespacetheoretica_1_1algebra.html#ab23728e00cdfe5b65b8242db4970b017">More...</a><br /></td></tr>
+<tr class="separator:ab23728e00cdfe5b65b8242db4970b017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">theoretica::algebra::solve_lu</a> (Matrix A, Vector b)</td></tr>
 <tr class="memdesc:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\).  <a href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">More...</a><br /></td></tr>
 <tr class="separator:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">theoretica::algebra::solve</a> (const Matrix &amp;A, const Vector &amp;b)</td></tr>
+<tr class="memdesc:a47d7736bbdcc4b5c721923592f6a65e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\) using the best available algorithm.  <a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">More...</a><br /></td></tr>
+<tr class="separator:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Linear algebra routines. </p>
@@ -379,7 +387,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="algebra_8h.html">algebra.h</a></li>
-    <li class="footer">Generated on Wed Aug 7 2024 21:30:33 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 8 2024 20:53:26 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
