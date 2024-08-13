@@ -132,6 +132,7 @@ namespace chebyshev {
 
 			// Output to file is true but no specific files are specified, add default output file.
 			if(	 state.outputToFile &&
+				!output::state.outputFiles.size() &&
 				!state.assertOutputFiles.size() &&
 				!state.errnoOutputFiles.size() &&
 				!state.exceptionOutputFiles.size() &&

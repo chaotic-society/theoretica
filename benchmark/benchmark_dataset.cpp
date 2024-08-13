@@ -9,7 +9,8 @@ int main(int argc, char const *argv[]) {
 
 	benchmark::setup("dataset", argc, argv);
 
-		output::state.outputFolder = "benchmark/";
+		output::state.outputFiles = { "benchmark/benchmark_dataset.csv" };
+
 		const size_t N = 1'000'000;
 		auto dummy = [](unsigned int i) { return 0; };
 
