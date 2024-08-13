@@ -94,22 +94,27 @@ $(document).ready(function(){initNavTree('md__home_runner_work_theoretica_theore
 <div class="title">Contributing Guide </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Contributions are welcome and appreciated. You don't necessarily have to contribute with code, as new ideas, algorithms and suggestions can be as useful as new code.</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
-Code of Conduct</h1>
+<div class="textblock"><p>Contributions are welcome and appreciated. You don't necessarily have to contribute with code, as new ideas and perspectives can be as useful as code contributions. The main ways to contribute are by writing code, tests and documentation or by researching algorithms. The following sections introduce how to do so.</p>
+<h2><a class="anchor" id="autotoc_md17"></a>
+Code of Conduct</h2>
 <p>If you participate to this project, you are expected to follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>. Feel free to suggest modifications to it. By participating you also accept the library's <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">License</a>.</p>
 <h1><a class="anchor" id="autotoc_md18"></a>
 What is to be done?</h1>
-<p>The first place to start to look for new features to implement or research is the <a href="https://github.com/chaotic-society/theoretica/issues">Issues</a> page. There you can find a list of features which need to be implemented or improved, and bugs to be fixed. The description of an issue gives information about what needs to be done. Pinned issues are the most important features that need to be implemented.</p>
-<h1><a class="anchor" id="autotoc_md19"></a>
-Suggesting new features</h1>
-<p>You can also suggest new features to be added to the library. You can do so by opening an issue and explaining what is the new features, how it may work and why it should be added. It might help to add some resources to further read about the subject if it refers to some algorithm, method or mathematical concept. Please make sure that your new issue is <b>not a duplicate</b> before opening it.</p>
+<p>The best place to look for new features to implement or research is the <a href="https://github.com/chaotic-society/theoretica/issues">Issues</a> page. There, you can find a list of features which need to be implemented or improved, and bugs to be fixed. The description of an issue gives information about the feature and how it may be implemented. Pinned issues contain the most important tasks that need addressing and are more urgent.</p>
+<h2><a class="anchor" id="autotoc_md19"></a>
+Suggesting new features</h2>
+<p>You can freely suggest new features, doing so by opening a new issue describing your idea and how it may be implemented, how it will improve the project in your opinion and any useful resources. Please make sure to check that your new issue is not a duplicate before opening a new one.</p>
 <h1><a class="anchor" id="autotoc_md20"></a>
-Contributing with research</h1>
-<p>The library needs active research of algorithms, approximations and new concepts. The <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/BIBLIOGRAPHY.md">Bibliography</a> contains the literature used in the development of the library. You can contribute greatly by opening a new <a href="https://github.com/chaotic-society/theoretica/issues">issue</a> about your idea, where you can describe how it might improve the library. You can also write in the <a href="https://github.com/chaotic-society/theoretica/discussions">Discussion</a> page if you want to open a discussion about a certain topic and confront your ideas with others.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
-Writing new code</h1>
-<p>If you want to contribute by writing new code, make sure to add it in the right place and to follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/CODING_STANDARD.md">Coding Standard</a>. Please read the <a href="https://chaotic-society.github.io/theoretica">Documentation</a> to know about the directory structure of the library. In the case that the new feature does not have an already existing header file to be added to, you can create a new header file following this template: </p><div class="fragment"><div class="line"><span class="preprocessor">#ifndef THEORETICA_FILENAME_H</span></div>
+Contributing with code</h1>
+<p>Writing new code or improving the existing one is a great way to push the project forward! To contribute by programming, please follow these steps:</p><ul>
+<li>Decide which issue to implement (or open a new one)</li>
+<li>Write your new implementation or changes to existing code</li>
+<li>Whenever possible, write test cases and documentation for your code</li>
+<li>Make sure your code works by running <code>make all</code></li>
+<li>Open a <b>pull request</b> (you can follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/.github/PULL_REQUEST_TEMPLATE.md">Pull Request Template</a>)</li>
+</ul>
+<p>Your code will then be reviewed for merging into the codebase. Depending on the task, you may need some technical resources on the feature to implement. If the issue does not include it, feel free to ask! Remember to follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/CODING_STANDARD.md">Coding Standard</a> while writing your code. If you need to create a new header, you can follow this template:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#ifndef THEORETICA_FILENAME_H</span></div>
 <div class="line"><span class="preprocessor">#define THEORETICA_FILENAME_H</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacetheoretica.html">theoretica</a> {</div>
@@ -120,57 +125,65 @@ Writing new code</h1>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
-Writing test cases</h1>
-<p>Test cases are just as important as new code, because they ensure that the library works correctly! You can help writing test cases by adding new cases to existing test programs, in the folder <code>test</code>, or by writing entirely new test programs for different parts of the library. The standard way is to create a different program for each module of the library (a "module" being symbolized by a different folder in the <code>src</code> directory, e.g. <code>src/complex</code> is the <code>complex</code> module). You can follow this template to start writing test cases:</p>
+</div><!-- fragment --><p> You can also consult the <a href="https://chaotic-society.github.io/theoretica">Documentation</a> to know more about the code structure and specific functionalities.</p>
+<h1><a class="anchor" id="autotoc_md21"></a>
+Contributing with research</h1>
+<p>The library needs continuous research of algorithms, concepts and theories. You may contribute greatly by researching topics listed in the <a href="https://github.com/chaotic-society/theoretica/issues">Issues</a> page. This generally includes understanding and sharing how to implement a certain algorithm or concept, how it would benefit the project and how it works under the hood. Your expertise may prove fundamental in implementing a certain method. Note that contributing with research requires prior knowledge in the fields of numerical analysis, scientific computing, algorithms and data structures. The <a href="https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md">Bibliography</a> page is a good starting point to look for research materials. You can also write in the <a href="https://github.com/chaotic-society/theoretica/discussions">Discussion</a> page if you want to open a discussion about a certain topic and confront your ideas with others. Also remember to add consulted literature to the bibliography.</p>
+<h1><a class="anchor" id="autotoc_md22"></a>
+Contributing with tests</h1>
+<p>Tests are just as important as new code, because they ensure that the library works correctly and highlight bugs right when they pop up. Tests are written using <a href="https://github.com/chaotic-society/chebyshev">Chebyshev</a>, a unit testing framework designed for scientific applications, and are stored in the <code>test</code> folder. Tests are organized in different implementation files for each module of the library. For example, the <code>core</code> module is tested in <code><a class="el" href="test__core_8cpp.html" title="Test cases for real functions and core functionalities.">test/test_core.cpp</a></code>. When creating a new test program, you can follow this simple template:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;chebyshev/prec.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="chebyshev_8h.html">chebyshev.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacechebyshev.html">chebyshev</a>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacetheoretica.html">theoretica</a>;</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">prec::estimate_result test_custom(interval k, Real tol, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
-<div class="line">    <span class="comment">// Custom test</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> <span class="keyword">const</span> *argv[]) {</div>
-<div class="line"> </div>
-<div class="line">    prec::state.outputFolder = <span class="stringliteral">&quot;test/&quot;</span>;</div>
 <div class="line">    </div>
-<div class="line">    <a class="code" href="namespacechebyshev_1_1prec.html#a93dae03c1cc5b925253341bc93fd25b6">prec::setup</a>(<span class="stringliteral">&quot;module name&quot;</span>);</div>
+<div class="line">    <a class="code" href="namespacechebyshev_1_1prec.html#a93dae03c1cc5b925253341bc93fd25b6">prec::setup</a>(<span class="stringliteral">&quot;example&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">        <a class="code" href="namespacechebyshev_1_1prec.html#a25a8e641e0b16ffd6e252a1f5b42095b">prec::estimate</a>(...);</div>
+<div class="line">        output::state.outputFiles = { <span class="stringliteral">&quot;test/prec_example.csv&quot;</span> };</div>
 <div class="line"> </div>
-<div class="line">        <a class="code" href="namespacechebyshev_1_1prec.html#ae779ee5402a566f4c45a70e5d2f14b2f">prec::equals</a>(...);</div>
+<div class="line">        <span class="comment">// prec::estimate(...);</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// prec::equals(...);</span></div>
 <div class="line"> </div>
 <div class="line">    <a class="code" href="namespacechebyshev_1_1prec.html#af0a3b6b7902cffd132175810ce8756ad">prec::terminate</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacechebyshev_1_1prec_html_a25a8e641e0b16ffd6e252a1f5b42095b"><div class="ttname"><a href="namespacechebyshev_1_1prec.html#a25a8e641e0b16ffd6e252a1f5b42095b">chebyshev::prec::estimate</a></div><div class="ttdeci">void estimate(const std::string &amp;name, Function1 funcApprox, Function2 funcExpected, estimate_options&lt; R, Args... &gt; opt)</div><div class="ttdoc">Estimate error integrals over a function with respect to an exact function, with the given options.</div><div class="ttdef"><b>Definition:</b> prec.h:184</div></div>
+<div class="ttc" id="achebyshev_8h_html"><div class="ttname"><a href="chebyshev_8h.html">chebyshev.h</a></div><div class="ttdoc">Main include header of the test framework.</div></div>
 <div class="ttc" id="anamespacechebyshev_1_1prec_html_a93dae03c1cc5b925253341bc93fd25b6"><div class="ttname"><a href="namespacechebyshev_1_1prec.html#a93dae03c1cc5b925253341bc93fd25b6">chebyshev::prec::setup</a></div><div class="ttdeci">void setup(std::string moduleName, int argc=0, const char **argv=nullptr)</div><div class="ttdoc">Setup the precision testing environment.</div><div class="ttdef"><b>Definition:</b> prec.h:102</div></div>
-<div class="ttc" id="anamespacechebyshev_1_1prec_html_ae779ee5402a566f4c45a70e5d2f14b2f"><div class="ttname"><a href="namespacechebyshev_1_1prec.html#ae779ee5402a566f4c45a70e5d2f14b2f">chebyshev::prec::equals</a></div><div class="ttdeci">void equals(const std::string &amp;name, const T &amp;evaluated, const T &amp;expected, equation_options&lt; T &gt; opt=equation_options&lt; T &gt;())</div><div class="ttdoc">Test an equivalence up to a tolerance, with the given options (e.g.</div><div class="ttdef"><b>Definition:</b> prec.h:422</div></div>
 <div class="ttc" id="anamespacechebyshev_1_1prec_html_af0a3b6b7902cffd132175810ce8756ad"><div class="ttname"><a href="namespacechebyshev_1_1prec.html#af0a3b6b7902cffd132175810ce8756ad">chebyshev::prec::terminate</a></div><div class="ttdeci">void terminate(bool exit=true)</div><div class="ttdoc">Terminate the precision testing environment, printing the results to standard output and output files...</div><div class="ttdef"><b>Definition:</b> prec.h:129</div></div>
 <div class="ttc" id="anamespacechebyshev_html"><div class="ttname"><a href="namespacechebyshev.html">chebyshev</a></div><div class="ttdoc">General namespace of the framework.</div><div class="ttdef"><b>Definition:</b> benchmark_structures.h:15</div></div>
 <div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
-Guidelines for code</h2>
+</div><!-- fragment --><p>Chebyshev has three different modules <code>prec</code>, <code>benchmark</code> and <code>err</code>, but you will generally only need the first one, to estimate the error on numerical approximations. To know more about writing tests, please have a look at <a href="https://github.com/chaotic-society/theoretica/blob/master/TESTING.md">TESTING.md</a>.</p>
+<h1><a class="anchor" id="autotoc_md23"></a>
+Contributing with documentation</h1>
+<p>Another way to contribute to the project is by writing documentation. The library is documented by writing Doxygen documentation right alongside the code. This makes it easy to continuously update it and store it. The generated HTML documentation is available online at <a href="https://chaotic-society.github.io/theoretica">Documentation</a> or for download in the <code>gh-pages</code> branch. There is no need to manually build the documentation as on each commit it is automatically generated and uploaded by a Github Actions workflow. You may follow these steps to contribute with documentation:</p>
 <ul>
-<li>Follow the <a href="https://github.com/chaotic-society/theoretica/blob/master/docs/txt/CODING_STANDARD.md">Coding Standard</a>.</li>
-<li>Make sure to run <code>make all</code> before making a pull request, to ensure that your commit does not break other code.</li>
-<li>Write test cases for your code or at least leave information on how it could be tested and its expected behaviour.</li>
-<li>Comment your code to make clear what it does, eventually adding links to resources.</li>
+<li>Find undocumented/not fully documented code or ask on Github for indications</li>
+<li>Read the code thoroughly and understand what it does and how</li>
+<li>Write or improve the documentation using Doxygen notation</li>
+<li>Make a pull request for your changes</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md24"></a>
-Pull request</h1>
-<p>When you are sure about your contribution, make a pull request preferably following the <a href="https://github.com/chaotic-society/theoretica/blob/master/.github/PULL_REQUEST_TEMPLATE.md">Pull Request Template</a> so that it may be reviewed. <b>Thank you for your contribution!</b> </p>
+<p>Doxygen is really easy to use and boils down to writing comments like this, right before the construct (in the case of functions):</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> myFunction() { ... }</div>
+</div><!-- fragment --><p>Classes may be likewise documented using </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyClass { ... }</div>
+</div><!-- fragment --><p>and namespaces with:</p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>GlobalNamespace {</div>
+<div class="line">    <span class="keyword">namespace </span>Namespace {</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>To know more about writing documentation, please have a look at <a href="https://github.com/chaotic-society/theoretica/blob/master/DOCUMENTING.md">DOCUMENTING.md</a>.</p>
+<h2><a class="anchor" id="autotoc_md24"></a>
+Thank you for your contribution!</h2>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Aug 13 2024 14:15:09 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 15:27:09 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

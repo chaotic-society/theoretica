@@ -42,15 +42,16 @@ var NAVTREE =
       [ "Pseudorandom and quasirandom generators", "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md15", null ]
     ] ],
     [ "Contributing Guide", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Code of Conduct", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
-      [ "What is to be done?", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
-      [ "Suggesting new features", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ],
-      [ "Contributing with research", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", null ],
-      [ "Writing new code", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
-      [ "Writing test cases", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", [
-        [ "Guidelines for code", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", null ]
+      [ "What is to be done?", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", [
+        [ "Code of Conduct", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
+        [ "Suggesting new features", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ]
       ] ],
-      [ "Pull request", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ]
+      [ "Contributing with code", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", null ],
+      [ "Contributing with research", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
+      [ "Contributing with tests", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ],
+      [ "Contributing with documentation", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", [
+        [ "Thank you for your contribution!", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ]
+      ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
