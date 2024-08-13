@@ -14,6 +14,7 @@
 namespace chebyshev {
 namespace benchmark {
 
+	/// @namespace chebyshev::benchmark::generator Input generators for benchmarks
 	namespace generator {
 
 		/// Uniform generator over a domain

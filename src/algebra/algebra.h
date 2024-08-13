@@ -1726,10 +1726,10 @@ namespace theoretica {
 		/// This routine is particularly efficient for
 		/// 
 		/// @param A The matrix of the linear system, after in-place LU decomposition
-		/// @param b The known vector
-		/// @return x The unknown vector
+		/// @param b The known vector, to be overwritten with the solution
+		/// @return A reference to the overwritten vector solution
 		template<typename Matrix, typename Vector>
-		inline Vector solve_lu_inplace(Matrix A, Vector b) {
+		inline Vector& solve_lu_inplace(const Matrix& A, Vector& b) {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);

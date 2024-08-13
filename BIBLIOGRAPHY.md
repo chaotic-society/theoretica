@@ -1,4 +1,5 @@
 # Bibliography
+The following resources have been consulted during the development of the library:
 
 ## General
 - Klein, O. (2021). Modern C++ Programming Techniques for Scientific Computing. Interdisciplinary Center for Scientific Computing (IWR). Heidelberg University.

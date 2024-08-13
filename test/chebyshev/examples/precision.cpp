@@ -33,6 +33,9 @@ int main(int argc, char const *argv[]) {
 	// Setup the precision testing environment
 	prec::setup("example", argc, argv);
 
+		// Set the output file for the prec module
+		prec::state.outputFiles = { "example_prec.csv" };
+
 		// Estimate errors on g(x) on [0, 100]
 		prec::estimate("g(x)", g, f, prec::interval(0, 100));
 

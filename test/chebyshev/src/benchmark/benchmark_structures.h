@@ -40,7 +40,7 @@ namespace chebyshev {
 			long double runsPerSecond = 0;
 
 			/// Whether the benchmark failed because
-			// an exception was thrown.
+			/// an exception was thrown.
 			bool failed = true;
 
 			/// Additional fields in floating point representation.

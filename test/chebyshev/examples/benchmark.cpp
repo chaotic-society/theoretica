@@ -30,13 +30,17 @@ int main(int argc, char const *argv[]) {
 	// Setup benchmarking
 	benchmark::setup("example", argc, argv);
 
+		// Set the output file for the benchmark module
+		benchmark::state.outputFiles = { "example_benchmark.csv" };
+
 		// Set options for multiple benchmarks
 		// with a benchmark_options structure,
 		// specialized for functions taking in doubles
-		benchmark::benchmark_options<double> opt {};
-		opt.inputGenerator = benchmark::generator::uniform1D(0, 1000);
-		opt.iterations = 1E+06;
-		opt.runs = 10;
+		auto opt = benchmark::benchmark_options<double>(
+			10, 	// runs
+			1E+06,	// iterations
+			benchmark::generator::uniform1D(0, 1000) // input generator
+		);
 
 		// Benchmark the given functions
 		benchmark::benchmark("f(x)", f, opt);
@@ -44,9 +48,12 @@ int main(int argc, char const *argv[]) {
 
 		// Specify parameters directly
 		benchmark::benchmark<unsigned int>(
-			"h(n)", h, 10, 1000, [](unsigned int i) {
+			"h(n)",
+			h, 10, 1000,
+			[](unsigned int i) {
 				return random::natural() % 1000;
-			});
+			}
+		);
 
 		// You may need to specify the input type
 		// of your function if it isn't deduced.

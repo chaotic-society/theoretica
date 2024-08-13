@@ -12,7 +12,12 @@
 namespace chebyshev {
 namespace prec {
 
-
+	/// @namespace chebyshev::prec::fail Fail functions for use in prec::estimate
+	///
+	/// Fail functions are used to evaluate whether a certain test
+	/// case has failed error estimation. If the fail function returns
+	/// true, the test has failed. For example, a test case may fail
+	/// if the maximum error is over a certain threshold.
 	namespace fail {
 
 

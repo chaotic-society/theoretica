@@ -14,12 +14,11 @@ int main(int argc, char const *argv[]) {
 	const real MAX = 1E+6;
 	PRNG g = PRNG(time(nullptr));
 	pdf_sampler gauss = pdf_sampler::gaussian(0, MAX, g);
-
-
-	output::state.outputFolder = "test/";
 	
-	prec::setup("complex");
+	output::state.outputFiles = { "test/prec_complex.csv" };
+	
 
+	prec::setup("complex");
 
 		// Re() and Im()
 		{

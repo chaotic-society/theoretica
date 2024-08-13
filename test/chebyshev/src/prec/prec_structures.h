@@ -48,8 +48,7 @@ namespace chebyshev {
 			/// Estimated absolute error on interval.
 			long double absErr = get_nan<long double>();
 
-			/// Additional fields by name,
-			/// as a floating point value.
+			/// Additional fields by name, as a floating point value.
 			std::map<std::string, long double> additionalFields {};
 
 			/// Whether the test failed.

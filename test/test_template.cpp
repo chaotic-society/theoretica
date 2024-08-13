@@ -1,5 +1,4 @@
 
-#include <cmath>
 #include "theoretica.h"
 #include "chebyshev.h"
 
@@ -11,9 +10,9 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("example");
 
-		// output::state.outputFolder = "test/";
+		// output::state.outputFiles = { "test/prec_example.csv" };
 
-		// output::estimate(...);
+		// prec::estimate(...);
 
 		// prec::equals(...);
 

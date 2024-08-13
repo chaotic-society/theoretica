@@ -6,3 +6,6 @@
 #include "prec.h"
 #include "benchmark.h"
 #include "err.h"
+
+/// @namespace chebyshev General namespace of the framework
+namespace chebyshev {}

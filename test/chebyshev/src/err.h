@@ -22,6 +22,12 @@ namespace chebyshev {
 
 
 	/// @namespace chebyshev::err Error checking module
+	///
+	/// This module provides functions to test error reporting
+	/// with different methods. Assertions are checked with
+	/// err::assert, while the value of errno after a function
+	/// call can be checked using err::check_errno and the
+	/// throwing of exceptions can be checked using check_exception.
 	namespace err {
 
 
@@ -41,12 +47,15 @@ namespace chebyshev {
 			/// Whether to print to an output file.
 			bool outputToFile = true;
 
+			/// The files to write all error checking results to.
+			std::vector<std::string> outputFiles {};
+
 			/// Results of checking assertions
 			std::map<std::string, std::vector<assert_result>> assertResults {};
 
 			/// The files to write assertion results results to
 			/// (if empty, all results are output to a generic file).
-			std::vector<std::string> assertFiles {};
+			std::vector<std::string> assertOutputFiles {};
 
 			/// Default columns to print for assertions.
 			std::vector<std::string> assertColumns = {
@@ -56,9 +65,9 @@ namespace chebyshev {
 			/// Results of checking errno
 			std::map<std::string, std::vector<errno_result>> errnoResults {};
 
-			/// The files to write errno results results to
+			/// The files to write errno checking results to
 			/// (if empty, all results are output to a generic file).
-			std::vector<std::string> errnoFiles {};
+			std::vector<std::string> errnoOutputFiles {};
 
 			/// Default columns to print for errno checks.
 			std::vector<std::string> errnoColumns = {
@@ -70,7 +79,7 @@ namespace chebyshev {
 
 			/// The files to write exception results results to
 			/// (if empty, all results are output to a generic file).
-			std::vector<std::string> exceptionFiles {};
+			std::vector<std::string> exceptionOutputFiles {};
 
 			/// Default columns to print for exception checks.
 			std::vector<std::string> exceptionColumns = {
@@ -89,7 +98,12 @@ namespace chebyshev {
 
 
 		/// Setup error checking module.
-		void setup(
+		///
+		/// @param moduleName Name of the module under test.
+		/// @param argc The number of command line arguments
+		/// @param argv A list of C-style strings containing
+		/// the command line arguments.
+		inline void setup(
 			const std::string& moduleName, int argc = 0, const char** argv = nullptr) {
 
 			if(argc && argv)
@@ -109,24 +123,45 @@ namespace chebyshev {
 
 
 		/// Terminate the error testing environment.
+		/// If test cases have been run, their results will be printed.
 		///
 		/// @param exit Whether to exit after terminating the module.
-		void terminate(bool exit = true) {
+		inline void terminate(bool exit = true) {
 
 			output::state.quiet = state.quiet;
 
-			// Output to file is true but no specific files are specified,
-			// add default output file.
-			if(state.outputToFile && !state.assertFiles.size()
-				&& !state.errnoFiles.size() && !state.exceptionFiles.size()) {
-				std::string filename;
-				filename = output::state.outputFolder + state.moduleName + "_results";
-				output::state.outputFiles[filename] = std::ofstream(filename);
+			// Output to file is true but no specific files are specified, add default output file.
+			if(	 state.outputToFile &&
+				!state.assertOutputFiles.size() &&
+				!state.errnoOutputFiles.size() &&
+				!state.exceptionOutputFiles.size() &&
+				!state.outputFiles.size()) {
+				
+				state.outputFiles = { state.moduleName + "_results" };
 			}
 
-			output::print_results(state.assertResults, state.assertColumns, state.assertFiles);
-			output::print_results(state.errnoResults, state.errnoColumns, state.errnoFiles);
-			output::print_results(state.exceptionResults, state.exceptionColumns, state.exceptionFiles);
+			std::vector<std::string> outputFiles;
+
+			// Print assert results
+			outputFiles  = state.outputFiles;
+			outputFiles.insert(outputFiles.end(), state.assertOutputFiles.begin(), state.assertOutputFiles.end());
+
+
+			output::print_results(state.assertResults, state.assertColumns, outputFiles);
+
+			// Print errno checking results
+			outputFiles  = state.outputFiles;
+			outputFiles.insert(outputFiles.end(), state.errnoOutputFiles.begin(), state.errnoOutputFiles.end());
+
+
+			output::print_results(state.errnoResults, state.errnoColumns, outputFiles);
+
+			// Print exception checking results
+			outputFiles  = state.outputFiles;
+			outputFiles.insert(outputFiles.end(), state.exceptionOutputFiles.begin(), state.exceptionOutputFiles.end());
+
+
+			output::print_results(state.exceptionResults, state.exceptionColumns, outputFiles);
 
 			std::cout << "Finished error checking " << state.moduleName << " ...\n";
 			std::cout << state.totalChecks
@@ -135,6 +170,7 @@ namespace chebyshev {
 				<< (state.failedChecks / (double) state.totalChecks * 100.0)
 				<< "%)" << std::endl;
 
+			// Reset module information
 			state = err_state();
 
 			if(exit) {
@@ -144,12 +180,12 @@ namespace chebyshev {
 		}
 
 
-		/// Assert that an expression is true
+		/// Assert that an expression is true.
 		///
 		/// @param name Name of the check (function name or test case name).
 		/// @param exp Expression to test for truth.
 		/// @param description Description of the assertion.
-		void assert(const std::string& name, bool exp, std::string description = "") {
+		inline void assert(const std::string& name, bool exp, std::string description = "") {
 
 			assert_result res {};
 
@@ -168,8 +204,13 @@ namespace chebyshev {
 
 
 		/// Check errno value after function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param x The input value to evaluate the function at
+		/// @param expected_errno The expected value of errno
 		template<typename Function, typename InputType>
-		void check_errno(
+		inline void check_errno(
 			const std::string& name, Function f,
 			InputType x, int expected_errno) {
 
@@ -197,8 +238,14 @@ namespace chebyshev {
 
 
 		/// Check errno value after function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param generator A function which takes in an index
+		/// and returns a (potentially random) input value
+		/// @param expected_errno The expected value of errno
 		template<typename Function, typename InputType>
-		void check_errno(
+		inline void check_errno(
 			const std::string& name, Function f,
 			std::function<InputType(unsigned int)> generator,
 			int expected_errno) {
@@ -208,8 +255,13 @@ namespace chebyshev {
 
 
 		/// Check errno value after function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param x The input value to evaluate the function at
+		/// @param expected_flags A list of the expected errno flags
 		template<typename Function, typename InputType>
-		void check_errno(
+		inline void check_errno(
 			const std::string& name, Function f,
 			InputType x, std::vector<int>& expected_flags) {
 
@@ -241,6 +293,12 @@ namespace chebyshev {
 
 
 		/// Check errno value after function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param generator A function which takes in an index
+		/// and returns a (potentially random) input value
+		/// @param expected_flags A list of the expected errno flags
 		template<typename Function, typename InputType>
 		void check_errno(
 			const std::string& name, Function f,
@@ -252,8 +310,12 @@ namespace chebyshev {
 
 
 		/// Check that an exception is thrown during a function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param x The input value to use
 		template<typename Function, typename InputType>
-		void check_exception(const std::string& name, Function f, InputType x) {
+		inline void check_exception(const std::string& name, Function f, InputType x) {
 
 			exception_result res {};
 			bool thrown = false;
@@ -279,8 +341,13 @@ namespace chebyshev {
 
 
 		/// Check that an exception is thrown during a function call
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param generator A function which takes in an index
+		/// and returns a (potentially random) input value
 		template<typename Function, typename InputType>
-		void check_exception(
+		inline void check_exception(
 			const std::string& name, Function f,
 			std::function<InputType(unsigned int)> generator) {
 
@@ -288,8 +355,14 @@ namespace chebyshev {
 		}
 
 
+		/// Check that an exception is thrown during a function call
+		/// and that the type of the exception is correct.
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param x The input value to use
 		template<typename ExceptionType, typename Function, typename InputType>
-		void check_exception(const std::string& name, Function f, InputType x) {
+		inline void check_exception(const std::string& name, Function f, InputType x) {
 
 			exception_result res {};
 			bool thrown = false;
@@ -320,8 +393,15 @@ namespace chebyshev {
 		}
 
 
+		/// Check that an exception is thrown during a function call
+		/// and that the type of the exception is correct.
+		///
+		/// @param name The name of the function or test case
+		/// @param f The function to test
+		/// @param generator A function which takes in an index
+		/// and returns a (potentially random) input value
 		template<typename ExceptionType, typename Function, typename InputType>
-		void check_exception(
+		inline void check_exception(
 			const std::string& name, Function f,
 			std::function<InputType(unsigned int)> generator) {
 

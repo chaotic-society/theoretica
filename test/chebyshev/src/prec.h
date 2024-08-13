@@ -23,11 +23,15 @@
 namespace chebyshev {
 
 	/// @namespace chebyshev::prec Precision testing module.
+	///
+	/// This module provides functions to estimate the precision
+	/// and accuracy of mathematical approximations, over an entire
+	/// domain using prec::estimate or at single points using prec:equals.
+	/// For estimates over a domain, precision estimators are used.
 	namespace prec {
 
 
-		/// @class prec_state
-		/// Global state of the precision testing module.
+		/// @class prec_state Global state of the precision testing module.
 		struct prec_state {
 			
 			/// Name of the module being tested
@@ -54,6 +58,9 @@ namespace chebyshev {
 			/// Default tolerance on max absolute error
 			long double defaultTolerance = CHEBYSHEV_PREC_TOLERANCE;
 
+			/// The files to write all precision testing results to
+			std::vector<std::string> outputFiles {};
+
 			/// Results of precision testing
 			std::map<std::string, std::vector<estimate_result>> estimateResults {};
 
@@ -64,7 +71,7 @@ namespace chebyshev {
 
 			/// The files to write estimate results to
 			/// (if empty, all results are output to a generic file).
-			std::vector<std::string> estimateFiles {};
+			std::vector<std::string> estimateOutputFiles {};
 			
 			/// Results of equations
 			std::map<std::string, std::vector<equation_result>> equationResults {};
@@ -76,7 +83,7 @@ namespace chebyshev {
 
 			/// The files to write equation results to
 			/// (if empty, all results are output to a generic file).
-			std::vector<std::string> equationFiles {};
+			std::vector<std::string> equationOutputFiles {};
 
 			/// Target tests marked for execution,
 			/// can be picked by passing test case names
@@ -115,23 +122,37 @@ namespace chebyshev {
 		}
 
 
-		/// Terminate the precision testing environment.
+		/// Terminate the precision testing environment,
+		/// printing the results to standard output and output files.
 		///
 		/// @param exit Whether to exit after terminating the module.
 		inline void terminate(bool exit = true) {
 
 			output::state.quiet = state.quiet;
 
-			// Output to file is true but no specific files are specified,
-			// add default output file.
-			if(state.outputToFile && !state.estimateFiles.size() && !state.equationFiles.size()) {
-				std::string filename;
-				filename = output::state.outputFolder + state.moduleName + "_results";
-				output::state.outputFiles[filename] = std::ofstream(filename);
+			// Output to file is true but no specific files are specified, add default output file.
+			if(	 state.outputToFile &&
+				!output::state.outputFiles.size() &&
+				!state.estimateOutputFiles.size() &&
+				!state.equationOutputFiles.size() &&
+				!state.outputFiles.size()) {
+
+				state.outputFiles = { state.moduleName + "_results" };
 			}
 
-			output::print_results(state.estimateResults, state.estimateColumns, state.estimateFiles);
-			output::print_results(state.equationResults, state.equationColumns, state.equationFiles);
+			std::vector<std::string> outputFiles;
+
+			// Print estimate results
+			outputFiles  = state.outputFiles;
+			outputFiles.insert(outputFiles.end(), state.estimateOutputFiles.begin(), state.estimateOutputFiles.end());
+
+			output::print_results(state.estimateResults, state.estimateColumns, outputFiles);
+
+			// Print equation results
+			outputFiles  = state.outputFiles;
+			outputFiles.insert(outputFiles.end(), state.equationOutputFiles.begin(), state.equationOutputFiles.end());
+
+			output::print_results(state.equationResults, state.equationColumns, outputFiles);
 
 			std::cout << "Finished testing " << state.moduleName << '\n';
 			std::cout << state.totalTests << " total tests, "
@@ -139,6 +160,7 @@ namespace chebyshev {
 				(state.failedTests / (double) state.totalTests) * 100 << "%)"
 				<< '\n';
 
+			// Reset module information
 			state = prec_state();
 
 			if(exit) {
@@ -248,7 +270,7 @@ namespace chebyshev {
 			EndoFunction<double> funcApprox,
 			EndoFunction<double> funcExpected,
 			interval domain,
-			long double tolerance = CHEBYSHEV_PREC_TOLERANCE,
+			long double tolerance = state.defaultTolerance,
 			unsigned int iterations = state.defaultIterations,
 			FailFunction fail = fail::fail_on_max_err(),
 			Estimator<double, double> estimator = estimator::quadrature1D<double>(),
@@ -265,13 +287,20 @@ namespace chebyshev {
 			estimate(name, funcApprox, funcExpected, opt);
 		}
 
+		/// @namespace chebyshev::prec::property Property testing of functions
+		///
+		/// When estimating error integrals, it is usually necessary to have
+		/// a function to compare the result to, considered exact. Using
+		/// property testing, it is possible to test a specific property
+		/// of a function (such as involution or homogeneity) doing away
+		/// with the additional "exact" function.
 		namespace property {
 
 			/// Precision testing of an endofunction which is
 			/// equivalent to the identity.
 			///
 			/// @param name The name of the test case.
-			/// @param id The identity to test.
+			/// @param id The identity function to test.
 			/// @param opt The options for estimation.
 			template<typename Type, typename Identity = EndoFunction<Type>>
 			inline void identity(
@@ -498,7 +527,12 @@ namespace chebyshev {
 
 		/// Evaluate multiple pairs of values for equivalence
 		/// up to the given tolerance (e.g. for residual testing).
-		template<typename T = double>
+		///
+		/// @param name The name of the function or test case
+		/// @param values A list of values to equate
+		/// @param tolerance The tolerance for the evaluation
+		/// @param quiet Whether to output the result
+		template<typename T>
 		inline void equals(
 			const std::string& name,
 			std::vector<std::array<T, 2>> values,

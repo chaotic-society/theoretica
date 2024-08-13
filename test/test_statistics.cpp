@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]) {
 
 	prec::setup("statistics");
 
-		output::state.outputFolder = "test/";
+		output::state.outputFiles = { "test/prec_statistics.csv" };
 		output::state.fieldOptions["funcName"].columnWidth = 22;
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
