@@ -1,67 +1,47 @@
 # Theoretica
-
 <!-- Home -->
 <!-- ======== -->
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/chaotic-society/theoretica/test-windows.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://app.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade)  ![License](https://img.shields.io/github/license/chaotic-society/theoretica)
 
-> A numerical and automatic math library for scientific research and graphical applications
+> A C++ math library for scientific computing with a simple and elegant interface.
 
-Theoretica is a header-only mathematical library which provides algorithms for **systems simulation**, **statistical analysis** of experimental data and **numerical approximation**, using a **functional** oriented paradigm to mimic **mathematical notation** and formulas. The aim of the library is to provide _simple_ access to powerful algorithms while keeping an _elegant_ and _transparent_ interface, enabling the user to focus on the problem at hand.
-
-### A short example
-Given a Hamiltonian function H(q, p) and a function f(q,  p) defined on its phase space, you can compute its _exact_ time derivative at a position eta = (q, p) like this:
-$$\frac{df}{dt} = \nabla f(\vec \eta) \cdot J \cdot \nabla H(\vec \eta)$$
-
-Where J is the symplectic matrix. The equation can be translated into code as:
-```java
-mat<N, N> J = mat<N, N>::symplectic();
-real df_dt = gradient(f, eta) * J * gradient(H, eta);
-```
-
-The library includes real and complex analysis functions optimized for the x86 architecture, linear algebra, quaternions, roots and extrema search, numerical approximation of derivatives, integrals and differential equations, as well as more advanced features like dual numbers for automatic differentiation, statistical functions including distribution sampling, pseudorandom and quasirandom number generation for Monte Carlo methods and simulations.
+Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximations. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software and graphical applications. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
 ## Table of Contents
-- [Key Features](#key-features)
-- [Dependencies](#dependencies)
+- [Features](#features)
 - [Setup](#setup)
+- [Examples](#examples)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
-- [Testing](#testing)
-- [Branches](#branches)
-- [Other information](#other-information)
+- [Workflow](#workflow)
+- [License](#license)
 
 ---
 
-## Key Features
-This is an overview of the library's functionalities. For a more detailed list see [FEATURES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/FEATURES.md)
-- **Real and complex analysis**
-- **Linear algebra** with common vector and matrix operations
-- Complex numbers in algebraic and exponential form
-- **Quaternions**
-- Dual numbers, **Multivariable Automatic Differentiation** and Differential Operators
-- Pseudorandom and Quasirandom number generation (LCG, Xoshiro256++, Splitmix64, Wyrand, Weyl)
-- Statistical functions, including **Least Squares Linearization**
-- Random distribution sampling and Monte Carlo
-- Approximation of roots, extrema, derivatives and integrals of real functions
-- Numerical integration of **Ordinary Differential Equations** (Euler, Heun, RK4, K38, multistep)
-- Polynomial interpolation with Chebyshev nodes, Bezier curves and spline interpolation
+## Features
 
-## Dependencies
-The library has no dependencies. Only the C++ Standard Library and STL with C++14 capabilities is needed to use it. **You can include it in your project straight away!**
+Some features of the library include:
+
+- Cross-platform with x86 and OpenMP enhancements
+- Common real and complex functions
+- Numerical Linear Algebra algorithms
+- Complex numbers (algebraic & exponential form) and **quaternions**
+- Numerical calculus, from integrals to ODEs
+- Multivariate **automatic differentiation** with differential operators
+- Descriptive and inferential statistics and **Monte Carlo** methods
+- Bezier curves and spline interpolation
+
+Theoretica is constantly developed and improved with new ideas!
 
 ## Setup
-You don't need anything other than your compiler to use the library. You can run `make all` in the root directory of the library to make sure it works.
-Define **THEORETICA_INCLUDE_BASE** if you intend to use only basic functionalities (linear algebra, real functions, complex numbers), as by default `theoretica.h` includes all headers.
-All library functions and objects are implemented in the `theoretica` namespace (`th` is a shorter namespace alias).
 
-## Documentation
-The documentation for the library is available [here](https://chaotic-society.github.io/theoretica/).
-Introductory examples can be found in [EXAMPLES.md](https://github.com/chaotic-society/theoretica/blob/master/docs/txt/EXAMPLES.md) and more advanced examples can be found inside the `examples/` folder.
-The bibliography used for researching the algorithms used in the library is available [here](https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md).
+Theoretica is a header-only library and has **no dependencies**, so you can include it in your projects straight-away! You can build all tests and example programs by running `make all` in the main folder, ensuring that it works on your machine. When using the library, you can include single headers or use `theoretica.h` which includes all library headers (you can define `THEORETICA_INCLUDE_BASE` to make it include only fundamental headers).
 
 ### Quickstart
-You can try to compile this simple code to check if you set up the library correctly:
+
+You can compile this simple code to check your setup:
+
 ```cpp
 #include "theoretica.h"
 using namespace th;
@@ -79,7 +59,10 @@ int main() {
 }
 ```
 
-### Other examples
+## Examples
+
+The `examples` folder contains simple programs that showcase usage of the library:
+
 - [Statistics](https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp)
 - [Chaotic Attractors](https://github.com/chaotic-society/theoretica/blob/master/examples/attractor.cpp)
 - [Automatic differentiation](https://github.com/chaotic-society/theoretica/blob/master/examples/autodiff.cpp)
@@ -89,32 +72,18 @@ int main() {
 - [Automatic error propagation](https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp)
 - [Histogram usage](https://github.com/chaotic-society/theoretica/blob/master/examples/histogram.cpp)
 
+
+## Documentation
+
+The documentation for the project is available at this [link](https://chaotic-society.github.io/theoretica). The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the `gh-pages` branch.
+
 ## Contributing
-Contributions are welcome and very appreciated! Make sure to read the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to know more about how you can help. If you participate, you are expected to follow the [Code of Conduct](https://github.com/chaotic-society/theoretica/blob/master/CODE_OF_CONDUCT.md).
 
-## Testing
-[![Test on Linux](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml) [![Test on Windows](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml) [![Test on MacOS](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg)](https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml)
+Contributions are welcome and appreciated! Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.
 
-The library uses the custom built [Chebyshev testing framework](https://github.com/chaotic-society/chebyshev) to **estimate the precision** of functions and test their **performance**. Tests are automatically run on Windows, Linux and MacOS on every commit to ensure stability. Test units are placed inside the `test` folder while benchmarks are placed inside the `benchmark` folder.
+## Workflow
 
-## Other information
+Theoretica uses automated workflows for recurring tasks. On each commit to `master`, tests are run on Linux, Windows and MacOS, benchmarks are launched and documentation is built and deployed to the online website. This ensures that the library works correctly and the documentation is always up-to-date.
+## License
 
-### License
-This project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE).
-
-### Macros
-These are common macros that can be defined to change the library's behaviour:
-| Macro | Description |
-| ----- | ----------- |
-|**THEORETICA_INCLUDE_BASE**|Including `theoretica.h` will only include base headers|
-|**THEORETICA_THROW_EXCEPTIONS**|Exceptions will be thrown and errno set on error (by default errno is set and NaN is returned)|
-|**THEORETICA_ONLY_EXCEPTIONS**|Exceptions will be thrown on error (without modifying errno)|
-|**THEORETICA_X86**|**Assembly x86** implementations will be used whenever possible (automatically defined on most compilers by the library)|
-|**THEORETICA_FLOAT_PREC**|Floating point precision (`float`) will be used for the `real` type (by default `double` is used)|
-|**THEORETICA_LONG_DOUBLE_PREC**|Long double precision (`long double`) will be used|
-|**THEORETICA_ROW_FIRST**|The `mat<N, K>` class will use row-first storage of matrix data instead of column-first.|
-
-See `src/core/constants.h` for more specific macros.
-
-### Error handling
-The library uses `errno` and `th::math_exception` (if enabled) to report errors. The behaviour of the library may be modified using the `THEORETICA_THROW_EXCEPTIONS` and `THEORETICA_ONLY_EXCEPTIONS`. See [Macros](#Macros) to learn more.
+The project is currently under the [GNU Lesser General Public License 3.0](https://github.com/chaotic-society/theoretica/blob/master/LICENSE). You may learn more about it [here](https://choosealicense.com/licenses/lgpl-3.0/).
