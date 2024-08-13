@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classtheoretica_1_1phasor.html#a4ec24351bcca7cc48d63811bf1af8a98":[11,0,1,14,19],
+"classtheoretica_1_1phasor.html#a4ef5597e39a0a4abacf8d7e3abb5277d":[11,0,1,14,34],
 "classtheoretica_1_1phasor.html#a5421730681230d8d4466e9a081c4b993":[11,0,1,14,20],
 "classtheoretica_1_1phasor.html#a55b063614276ac9b40b26c2e92c967d3":[11,0,1,14,10],
 "classtheoretica_1_1phasor.html#a61ce510b437a9d81d107d680e26d2b3c":[11,0,1,14,13],
@@ -238,10 +240,8 @@ var NAVTREEINDEX2 =
 "common_8h.html#a3b5334414e528c1283f0beb5cf1afc89":[12,0,11,0,1,1,0,3],
 "common_8h.html#a576ec61e254323459fe7f7e6ef22e5fc":[12,0,11,0,1,1,0,5],
 "common_8h.html#a62181021524138fb26d708e15a8feb06":[12,0,11,0,1,1,0,7],
-"common_8h.html#a62181021524138fb26d708e15a8feb06":[10,0,0,6],
 "common_8h.html#a7eb19df08db299b8016adc888768a41b":[12,0,11,0,1,1,0,1],
 "common_8h.html#a94d6aae363e21a096f05814053ec8462":[12,0,11,0,1,1,0,6],
-"common_8h.html#a94d6aae363e21a096f05814053ec8462":[10,0,0,5],
 "common_8h.html#acfbfcbde585622ab8d5f0e0bdcbedb36":[12,0,11,0,1,1,0,2],
 "common_8h.html#ad25ecae70ca92964c90b50b175bc345c":[12,0,11,0,1,1,0,0],
 "common_8h_source.html":[12,0,11,0,1,1,0],

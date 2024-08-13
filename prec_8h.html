@@ -119,13 +119,19 @@ $(document).ready(function(){initNavTree('prec_8h.html',''); initResizable(); })
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">chebyshev::prec::prec_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global state of the precision testing module.  <a href="structchebyshev_1_1prec_1_1prec__state.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of the precision testing module.  <a href="structchebyshev_1_1prec_1_1prec__state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespacechebyshev"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev.html">chebyshev</a></td></tr>
+<tr class="memdesc:namespacechebyshev"><td class="mdescLeft">&#160;</td><td class="mdescRight">General namespace of the framework. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacechebyshev_1_1prec"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html">chebyshev::prec</a></td></tr>
 <tr class="memdesc:namespacechebyshev_1_1prec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing module. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacechebyshev_1_1prec_1_1property"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec_1_1property.html">chebyshev::prec::property</a></td></tr>
+<tr class="memdesc:namespacechebyshev_1_1prec_1_1property"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property testing of functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -134,7 +140,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a93dae03c1cc5b925253341bc93fd25b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the precision testing environment.  <a href="namespacechebyshev_1_1prec.html#a93dae03c1cc5b925253341bc93fd25b6">More...</a><br /></td></tr>
 <tr class="separator:a93dae03c1cc5b925253341bc93fd25b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a3b6b7902cffd132175810ce8756ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#af0a3b6b7902cffd132175810ce8756ad">chebyshev::prec::terminate</a> (bool exit=true)</td></tr>
-<tr class="memdesc:af0a3b6b7902cffd132175810ce8756ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the precision testing environment.  <a href="namespacechebyshev_1_1prec.html#af0a3b6b7902cffd132175810ce8756ad">More...</a><br /></td></tr>
+<tr class="memdesc:af0a3b6b7902cffd132175810ce8756ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the precision testing environment, printing the results to standard output and output files.  <a href="namespacechebyshev_1_1prec.html#af0a3b6b7902cffd132175810ce8756ad">More...</a><br /></td></tr>
 <tr class="separator:af0a3b6b7902cffd132175810ce8756ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a8e641e0b16ffd6e252a1f5b42095b"><td class="memTemplParams" colspan="2">template&lt;typename R , typename ... Args, typename Function1  = std::function&lt;R(Args...)&gt;, typename Function2  = Function1&gt; </td></tr>
 <tr class="memitem:a25a8e641e0b16ffd6e252a1f5b42095b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a25a8e641e0b16ffd6e252a1f5b42095b">chebyshev::prec::estimate</a> (const std::string &amp;name, Function1 funcApprox, Function2 funcExpected, estimate_options&lt; R, Args... &gt; opt)</td></tr>
@@ -144,24 +150,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a1bfb375300fa5e9a8774f8fdac3c3c80">chebyshev::prec::estimate</a> (const std::string &amp;name, Function1 funcApprox, Function2 funcExpected, std::vector&lt; interval &gt; domain, long double tolerance, unsigned int iterations, FailFunction fail, Estimator&lt; R, Args... &gt; estimator, bool quiet=false)</td></tr>
 <tr class="memdesc:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a function with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#a1bfb375300fa5e9a8774f8fdac3c3c80">More...</a><br /></td></tr>
 <tr class="separator:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7d18d448457947afb2761d17d7b80b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#aa7d18d448457947afb2761d17d7b80b3">chebyshev::prec::estimate</a> (const std::string &amp;name, EndoFunction&lt; double &gt; funcApprox, EndoFunction&lt; double &gt; funcExpected, interval domain, long double tolerance=<a class="el" href="common_8h.html#a576ec61e254323459fe7f7e6ef22e5fc">CHEBYSHEV_PREC_TOLERANCE</a>, unsigned int iterations=state.defaultIterations, FailFunction fail=fail::fail_on_max_err(), Estimator&lt; double, double &gt; estimator=estimator::quadrature1D&lt; double &gt;(), bool quiet=false)</td></tr>
-<tr class="memdesc:aa7d18d448457947afb2761d17d7b80b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a real function of real variable, with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#aa7d18d448457947afb2761d17d7b80b3">More...</a><br /></td></tr>
-<tr class="separator:aa7d18d448457947afb2761d17d7b80b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8238593669076070edbee8473b050c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#ab8238593669076070edbee8473b050c8">chebyshev::prec::estimate</a> (const std::string &amp;name, EndoFunction&lt; double &gt; funcApprox, EndoFunction&lt; double &gt; funcExpected, interval domain, long double tolerance=state.defaultTolerance, unsigned int iterations=state.defaultIterations, FailFunction fail=fail::fail_on_max_err(), Estimator&lt; double, double &gt; estimator=estimator::quadrature1D&lt; double &gt;(), bool quiet=false)</td></tr>
+<tr class="memdesc:ab8238593669076070edbee8473b050c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a real function of real variable, with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#ab8238593669076070edbee8473b050c8">More...</a><br /></td></tr>
+<tr class="separator:ab8238593669076070edbee8473b050c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66ed624af87c98f69e1b3558fdc907cd"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename Identity  = EndoFunction&lt;Type&gt;&gt; </td></tr>
-<tr class="memitem:a66ed624af87c98f69e1b3558fdc907cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="prec_8h.html#a66ed624af87c98f69e1b3558fdc907cd">chebyshev::prec::property::identity</a> (const std::string &amp;name, Identity id, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
-<tr class="memdesc:a66ed624af87c98f69e1b3558fdc907cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is equivalent to the identity.  <a href="prec_8h.html#a66ed624af87c98f69e1b3558fdc907cd">More...</a><br /></td></tr>
+<tr class="memitem:a66ed624af87c98f69e1b3558fdc907cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec_1_1property.html#a66ed624af87c98f69e1b3558fdc907cd">chebyshev::prec::property::identity</a> (const std::string &amp;name, Identity id, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
+<tr class="memdesc:a66ed624af87c98f69e1b3558fdc907cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is equivalent to the identity.  <a href="namespacechebyshev_1_1prec_1_1property.html#a66ed624af87c98f69e1b3558fdc907cd">More...</a><br /></td></tr>
 <tr class="separator:a66ed624af87c98f69e1b3558fdc907cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24043759246501daaf25cf9c4405d526"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename Involution  = EndoFunction&lt;Type&gt;&gt; </td></tr>
-<tr class="memitem:a24043759246501daaf25cf9c4405d526"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="prec_8h.html#a24043759246501daaf25cf9c4405d526">chebyshev::prec::property::involution</a> (const std::string &amp;name, Involution invol, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
-<tr class="memdesc:a24043759246501daaf25cf9c4405d526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is an involution.  <a href="prec_8h.html#a24043759246501daaf25cf9c4405d526">More...</a><br /></td></tr>
+<tr class="memitem:a24043759246501daaf25cf9c4405d526"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec_1_1property.html#a24043759246501daaf25cf9c4405d526">chebyshev::prec::property::involution</a> (const std::string &amp;name, Involution invol, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
+<tr class="memdesc:a24043759246501daaf25cf9c4405d526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is an involution.  <a href="namespacechebyshev_1_1prec_1_1property.html#a24043759246501daaf25cf9c4405d526">More...</a><br /></td></tr>
 <tr class="separator:a24043759246501daaf25cf9c4405d526"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc06ee87099065c70925c284b747b484"><td class="memTemplParams" colspan="2">template&lt;typename Type , typename Involution  = EndoFunction&lt;Type&gt;&gt; </td></tr>
-<tr class="memitem:abc06ee87099065c70925c284b747b484"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="prec_8h.html#abc06ee87099065c70925c284b747b484">chebyshev::prec::property::idempotence</a> (const std::string &amp;name, Involution idem, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
-<tr class="memdesc:abc06ee87099065c70925c284b747b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is idempotent.  <a href="prec_8h.html#abc06ee87099065c70925c284b747b484">More...</a><br /></td></tr>
+<tr class="memitem:abc06ee87099065c70925c284b747b484"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec_1_1property.html#abc06ee87099065c70925c284b747b484">chebyshev::prec::property::idempotence</a> (const std::string &amp;name, Involution idem, const estimate_options&lt; Type, Type &gt; &amp;opt)</td></tr>
+<tr class="memdesc:abc06ee87099065c70925c284b747b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an endofunction which is idempotent.  <a href="namespacechebyshev_1_1prec_1_1property.html#abc06ee87099065c70925c284b747b484">More...</a><br /></td></tr>
 <tr class="separator:abc06ee87099065c70925c284b747b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="memTemplParams" colspan="2">template&lt;typename InputType , typename OutputType  = InputType, typename Homogeneous  = std::function&lt;OutputType(InputType)&gt;&gt; </td></tr>
-<tr class="memitem:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="prec_8h.html#a812c8c29ec496e7d7dbb5e3f5751f8eb">chebyshev::prec::property::homogeneous</a> (const std::string &amp;name, Homogeneous hom, const estimate_options&lt; InputType, OutputType &gt; &amp;opt, OutputType zero_element=OutputType(0.0))</td></tr>
-<tr class="memdesc:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an function which is homogeneous over the domain.  <a href="prec_8h.html#a812c8c29ec496e7d7dbb5e3f5751f8eb">More...</a><br /></td></tr>
+<tr class="memitem:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec_1_1property.html#a812c8c29ec496e7d7dbb5e3f5751f8eb">chebyshev::prec::property::homogeneous</a> (const std::string &amp;name, Homogeneous hom, const estimate_options&lt; InputType, OutputType &gt; &amp;opt, OutputType zero_element=OutputType(0.0))</td></tr>
+<tr class="memdesc:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precision testing of an function which is homogeneous over the domain.  <a href="namespacechebyshev_1_1prec_1_1property.html#a812c8c29ec496e7d7dbb5e3f5751f8eb">More...</a><br /></td></tr>
 <tr class="separator:a812c8c29ec496e7d7dbb5e3f5751f8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae779ee5402a566f4c45a70e5d2f14b2f"><td class="memTemplParams" colspan="2">template&lt;typename T  = double&gt; </td></tr>
 <tr class="memitem:ae779ee5402a566f4c45a70e5d2f14b2f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#ae779ee5402a566f4c45a70e5d2f14b2f">chebyshev::prec::equals</a> (const std::string &amp;name, const T &amp;evaluated, const T &amp;expected, equation_options&lt; T &gt; opt=equation_options&lt; T &gt;())</td></tr>
@@ -174,7 +180,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a3e6e50c6cb0224b8c7e851946b8db72c">chebyshev::prec::equals</a> (const std::string &amp;name, long double evaluated, long double expected, long double tolerance=state.defaultTolerance, bool quiet=false)</td></tr>
 <tr class="memdesc:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test an equivalence up to a tolerance, with the given options (e.g.  <a href="namespacechebyshev_1_1prec.html#a3e6e50c6cb0224b8c7e851946b8db72c">More...</a><br /></td></tr>
 <tr class="separator:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ea522ff8ad697c5819be70a44e2014b"><td class="memTemplParams" colspan="2">template&lt;typename T  = double&gt; </td></tr>
+<tr class="memitem:a4ea522ff8ad697c5819be70a44e2014b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4ea522ff8ad697c5819be70a44e2014b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a4ea522ff8ad697c5819be70a44e2014b">chebyshev::prec::equals</a> (const std::string &amp;name, std::vector&lt; std::array&lt; T, 2 &gt;&gt; values, long double tolerance=state.defaultTolerance, bool quiet=false)</td></tr>
 <tr class="memdesc:a4ea522ff8ad697c5819be70a44e2014b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate multiple pairs of values for equivalence up to the given tolerance (e.g.  <a href="namespacechebyshev_1_1prec.html#a4ea522ff8ad697c5819be70a44e2014b">More...</a><br /></td></tr>
 <tr class="separator:a4ea522ff8ad697c5819be70a44e2014b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,240 +193,13 @@ struct <a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">chebyshe
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Precision testing module. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a812c8c29ec496e7d7dbb5e3f5751f8eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a812c8c29ec496e7d7dbb5e3f5751f8eb">&#9670;&nbsp;</a></span>homogeneous()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename InputType , typename OutputType  = InputType, typename Homogeneous  = std::function&lt;OutputType(InputType)&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void chebyshev::prec::property::homogeneous </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Homogeneous&#160;</td>
-          <td class="paramname"><em>hom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a>&lt; InputType, OutputType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>opt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">OutputType&#160;</td>
-          <td class="paramname"><em>zero_element</em> = <code>OutputType(0.0)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Precision testing of an function which is homogeneous over the domain. </p>
-<p>The function is applied to input values and it is checked against zero. The zero value is constructed as OutputType(0.0), but may be specified as an additional argument.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the test case. </td></tr>
-    <tr><td class="paramname">hom</td><td>The homogeneous function to test. </td></tr>
-    <tr><td class="paramname">opt</td><td>The options for estimation. </td></tr>
-    <tr><td class="paramname">zero_element</td><td>The zero element of type OutputType (defaults to OutputType(0.0)). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="abc06ee87099065c70925c284b747b484"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc06ee87099065c70925c284b747b484">&#9670;&nbsp;</a></span>idempotence()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type , typename Involution  = EndoFunction&lt;Type&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void chebyshev::prec::property::idempotence </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Involution&#160;</td>
-          <td class="paramname"><em>idem</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a>&lt; Type, Type &gt; &amp;&#160;</td>
-          <td class="paramname"><em>opt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Precision testing of an endofunction which is idempotent. </p>
-<p>The function is applied two times to input values and it is checked against itself.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the test case. </td></tr>
-    <tr><td class="paramname">idem</td><td>The idempotent function to test. </td></tr>
-    <tr><td class="paramname">opt</td><td>The options for estimation. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a66ed624af87c98f69e1b3558fdc907cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ed624af87c98f69e1b3558fdc907cd">&#9670;&nbsp;</a></span>identity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type , typename Identity  = EndoFunction&lt;Type&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void chebyshev::prec::property::identity </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Identity&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a>&lt; Type, Type &gt; &amp;&#160;</td>
-          <td class="paramname"><em>opt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Precision testing of an endofunction which is equivalent to the identity. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the test case. </td></tr>
-    <tr><td class="paramname">id</td><td>The identity to test. </td></tr>
-    <tr><td class="paramname">opt</td><td>The options for estimation. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a24043759246501daaf25cf9c4405d526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24043759246501daaf25cf9c4405d526">&#9670;&nbsp;</a></span>involution()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type , typename Involution  = EndoFunction&lt;Type&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void chebyshev::prec::property::involution </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Involution&#160;</td>
-          <td class="paramname"><em>invol</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a>&lt; Type, Type &gt; &amp;&#160;</td>
-          <td class="paramname"><em>opt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Precision testing of an endofunction which is an involution. </p>
-<p>The function is applied two times to input values and it is checked against the identity.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the test case. </td></tr>
-    <tr><td class="paramname">involution</td><td>The involution to test. </td></tr>
-    <tr><td class="paramname">opt</td><td>The options for estimation. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="prec_8h.html">prec.h</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

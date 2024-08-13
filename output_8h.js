@@ -9,6 +9,7 @@ var output_8h =
     [ "generate_table", "output_8h.html#adf98f8796da07d646c1e126f7368223a", null ],
     [ "latex", "output_8h.html#a9a467f594c673e961c98a0cd64b340ac", null ],
     [ "markdown", "output_8h.html#a153152fc39967d8c8b29a9af2e93481c", null ],
+    [ "open_file", "output_8h.html#abd28a75f8a9f542876d8b2490f6a605b", null ],
     [ "print_results", "output_8h.html#a1ac4dd4024287898404604750be5b564", null ],
     [ "resolve_field", "output_8h.html#a0e269d244b2c5726ead83f24ebf27f35", null ],
     [ "resolve_field", "output_8h.html#af3ab970b2de30bbfdaf2f64928120d24", null ],

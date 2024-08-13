@@ -112,10 +112,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>OutputFormat_t</b> =
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3776639dd5087f4e9fec9cedb2367709"><td class="memItemLeft" align="right" valign="top"><a id="a3776639dd5087f4e9fec9cedb2367709"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#a3776639dd5087f4e9fec9cedb2367709">outputFolder</a> = &quot;&quot;</td></tr>
-<tr class="memdesc:a3776639dd5087f4e9fec9cedb2367709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relative or absolute path to output folder. <br /></td></tr>
-<tr class="separator:a3776639dd5087f4e9fec9cedb2367709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6fda8009b71871f44b5b65e8f0bc016"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#ab6fda8009b71871f44b5b65e8f0bc016">fieldNames</a> {}</td></tr>
 <tr class="memdesc:ab6fda8009b71871f44b5b65e8f0bc016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of field name to output string (e.g.  <a href="structchebyshev_1_1output_1_1output__state.html#ab6fda8009b71871f44b5b65e8f0bc016">More...</a><br /></td></tr>
 <tr class="separator:ab6fda8009b71871f44b5b65e8f0bc016"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,10 +119,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 std::map&lt; std::string, <a class="el" href="structchebyshev_1_1output_1_1field__options.html">field_options</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#a94cc08f847a1ce63099e35856e95c57c">fieldOptions</a> {}</td></tr>
 <tr class="memdesc:a94cc08f847a1ce63099e35856e95c57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for the different fields. <br /></td></tr>
 <tr class="separator:a94cc08f847a1ce63099e35856e95c57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c740eb8c0b41648c902cc8ef98a379c"><td class="memItemLeft" align="right" valign="top"><a id="a1c740eb8c0b41648c902cc8ef98a379c"></a>
-std::map&lt; std::string, std::ofstream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#a1c740eb8c0b41648c902cc8ef98a379c">outputFiles</a> {}</td></tr>
-<tr class="memdesc:a1c740eb8c0b41648c902cc8ef98a379c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The output files, indexed by filename. <br /></td></tr>
-<tr class="separator:a1c740eb8c0b41648c902cc8ef98a379c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e439be7c702a2d38f02528a59dd13ba"><td class="memItemLeft" align="right" valign="top"><a id="a6e439be7c702a2d38f02528a59dd13ba"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#a6e439be7c702a2d38f02528a59dd13ba">outputFiles</a> {}</td></tr>
+<tr class="memdesc:a6e439be7c702a2d38f02528a59dd13ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of output files. <br /></td></tr>
+<tr class="separator:a6e439be7c702a2d38f02528a59dd13ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab32f0eb6a10c73b8002a1b1dce731242"><td class="memItemLeft" align="right" valign="top"><a id="ab32f0eb6a10c73b8002a1b1dce731242"></a>
+std::map&lt; std::string, std::ofstream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#ab32f0eb6a10c73b8002a1b1dce731242">openFiles</a> {}</td></tr>
+<tr class="memdesc:ab32f0eb6a10c73b8002a1b1dce731242"><td class="mdescLeft">&#160;</td><td class="mdescRight">A map of open output files, by filename. <br /></td></tr>
+<tr class="separator:ab32f0eb6a10c73b8002a1b1dce731242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9892d6e5249beb4819be59d8b72e68f5"><td class="memItemLeft" align="right" valign="top"><a id="a9892d6e5249beb4819be59d8b72e68f5"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html#a9892d6e5249beb4819be59d8b72e68f5">defaultColumnWidth</a> = <a class="el" href="common_8h.html#a3b5334414e528c1283f0beb5cf1afc89">CHEBYSHEV_OUTPUT_WIDTH</a></td></tr>
 <tr class="memdesc:a9892d6e5249beb4819be59d8b72e68f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default width for a field. <br /></td></tr>
@@ -184,8 +184,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>chebyshev</b></li><li class="navelem"><b>output</b></li><li class="navelem"><a class="el" href="structchebyshev_1_1output_1_1output__state.html">output_state</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1output.html">output</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1output_1_1output__state.html">output_state</a></li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

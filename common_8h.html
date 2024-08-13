@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('common_8h.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -107,6 +108,12 @@ $(document).ready(function(){initNavTree('common_8h.html',''); initResizable(); 
 </div>
 <p><a href="common_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacechebyshev"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev.html">chebyshev</a></td></tr>
+<tr class="memdesc:namespacechebyshev"><td class="mdescLeft">&#160;</td><td class="mdescRight">General namespace of the framework. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a2a491d0f6b10fde5a05b94541e77ff69"><td class="memItemLeft" align="right" valign="top"><a id="a2a491d0f6b10fde5a05b94541e77ff69"></a>
@@ -136,47 +143,27 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a94d6aae363e21a096f05814053ec8462"><td class="memTemplParams" colspan="2">template&lt;typename Type  = double&gt; </td></tr>
-<tr class="memitem:a94d6aae363e21a096f05814053ec8462"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="common_8h.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a> = std::function&lt; Type(Type)&gt;</td></tr>
-<tr class="memdesc:a94d6aae363e21a096f05814053ec8462"><td class="mdescLeft">&#160;</td><td class="mdescRight">An endofunction is a function which has the same type of input and output (e.g.  <a href="common_8h.html#a94d6aae363e21a096f05814053ec8462">More...</a><br /></td></tr>
+<tr class="memitem:a94d6aae363e21a096f05814053ec8462"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a> = std::function&lt; Type(Type)&gt;</td></tr>
+<tr class="memdesc:a94d6aae363e21a096f05814053ec8462"><td class="mdescLeft">&#160;</td><td class="mdescRight">An endofunction is a function which has the same type of input and output (e.g.  <a href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">More...</a><br /></td></tr>
 <tr class="separator:a94d6aae363e21a096f05814053ec8462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a62181021524138fb26d708e15a8feb06"><td class="memTemplParams" colspan="2"><a id="a62181021524138fb26d708e15a8feb06"></a>
 template&lt;typename FloatType  = long double&gt; </td></tr>
-<tr class="memitem:a62181021524138fb26d708e15a8feb06"><td class="memTemplItemLeft" align="right" valign="top">constexpr FloatType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="common_8h.html#a62181021524138fb26d708e15a8feb06">chebyshev::get_nan</a> ()</td></tr>
+<tr class="memitem:a62181021524138fb26d708e15a8feb06"><td class="memTemplItemLeft" align="right" valign="top">constexpr FloatType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">chebyshev::get_nan</a> ()</td></tr>
 <tr class="memdesc:a62181021524138fb26d708e15a8feb06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a quiet NaN of the specified floating point type. <br /></td></tr>
 <tr class="separator:a62181021524138fb26d708e15a8feb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common definitions for the framework. </p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a94d6aae363e21a096f05814053ec8462"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94d6aae363e21a096f05814053ec8462">&#9670;&nbsp;</a></span>EndoFunction</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type  = double&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="common_8h.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a> = typedef std::function&lt;Type(Type)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>An endofunction is a function which has the same type of input and output (e.g. </p>
-<p>a real function of real variable). </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_f34e67786cf6786decd18dae57af4e06.html">core</a></li><li class="navelem"><a class="el" href="common_8h.html">common.h</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

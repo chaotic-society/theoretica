@@ -120,14 +120,18 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a10f4d9afbb98fec0ed2ebcda02f20102">outputToFile</a> = true</td></tr>
 <tr class="memdesc:a10f4d9afbb98fec0ed2ebcda02f20102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to print to an output file. <br /></td></tr>
 <tr class="separator:a10f4d9afbb98fec0ed2ebcda02f20102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f15102c0aa3fe929555415361bdffdd"><td class="memItemLeft" align="right" valign="top"><a id="a0f15102c0aa3fe929555415361bdffdd"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a0f15102c0aa3fe929555415361bdffdd">outputFiles</a> {}</td></tr>
+<tr class="memdesc:a0f15102c0aa3fe929555415361bdffdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write all error checking results to. <br /></td></tr>
+<tr class="separator:a0f15102c0aa3fe929555415361bdffdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b8289e83857acd56ba6bcf665f818ac"><td class="memItemLeft" align="right" valign="top"><a id="a4b8289e83857acd56ba6bcf665f818ac"></a>
 std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_1err_1_1assert__result.html">assert_result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a4b8289e83857acd56ba6bcf665f818ac">assertResults</a> {}</td></tr>
 <tr class="memdesc:a4b8289e83857acd56ba6bcf665f818ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of checking assertions. <br /></td></tr>
 <tr class="separator:a4b8289e83857acd56ba6bcf665f818ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26683ef93ab40c0eadc0eba5d35f9a36"><td class="memItemLeft" align="right" valign="top"><a id="a26683ef93ab40c0eadc0eba5d35f9a36"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a26683ef93ab40c0eadc0eba5d35f9a36">assertFiles</a> {}</td></tr>
-<tr class="memdesc:a26683ef93ab40c0eadc0eba5d35f9a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write assertion results results to (if empty, all results are output to a generic file). <br /></td></tr>
-<tr class="separator:a26683ef93ab40c0eadc0eba5d35f9a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e841bef478dba437e0485c98f75780"><td class="memItemLeft" align="right" valign="top"><a id="aa5e841bef478dba437e0485c98f75780"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#aa5e841bef478dba437e0485c98f75780">assertOutputFiles</a> {}</td></tr>
+<tr class="memdesc:aa5e841bef478dba437e0485c98f75780"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write assertion results results to (if empty, all results are output to a generic file). <br /></td></tr>
+<tr class="separator:aa5e841bef478dba437e0485c98f75780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa20c7a916ab6b1f04e606ab99def7ef1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#aa20c7a916ab6b1f04e606ab99def7ef1">assertColumns</a></td></tr>
 <tr class="memdesc:aa20c7a916ab6b1f04e606ab99def7ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default columns to print for assertions.  <a href="structchebyshev_1_1err_1_1err__state.html#aa20c7a916ab6b1f04e606ab99def7ef1">More...</a><br /></td></tr>
 <tr class="separator:aa20c7a916ab6b1f04e606ab99def7ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,10 +139,10 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_1err_1_1errno__result.html">errno_result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a7925b1f5408a6cf16421de8e8793226b">errnoResults</a> {}</td></tr>
 <tr class="memdesc:a7925b1f5408a6cf16421de8e8793226b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of checking errno. <br /></td></tr>
 <tr class="separator:a7925b1f5408a6cf16421de8e8793226b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f15ac35b2dd3bedf139f7da4a9e19b2"><td class="memItemLeft" align="right" valign="top"><a id="a9f15ac35b2dd3bedf139f7da4a9e19b2"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a9f15ac35b2dd3bedf139f7da4a9e19b2">errnoFiles</a> {}</td></tr>
-<tr class="memdesc:a9f15ac35b2dd3bedf139f7da4a9e19b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write errno results results to (if empty, all results are output to a generic file). <br /></td></tr>
-<tr class="separator:a9f15ac35b2dd3bedf139f7da4a9e19b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832bef8fa572e98d312b13a259bc4100"><td class="memItemLeft" align="right" valign="top"><a id="a832bef8fa572e98d312b13a259bc4100"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a832bef8fa572e98d312b13a259bc4100">errnoOutputFiles</a> {}</td></tr>
+<tr class="memdesc:a832bef8fa572e98d312b13a259bc4100"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write errno checking results to (if empty, all results are output to a generic file). <br /></td></tr>
+<tr class="separator:a832bef8fa572e98d312b13a259bc4100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae187e3ef37c981902f6a0614d117fbc6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#ae187e3ef37c981902f6a0614d117fbc6">errnoColumns</a></td></tr>
 <tr class="memdesc:ae187e3ef37c981902f6a0614d117fbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default columns to print for errno checks.  <a href="structchebyshev_1_1err_1_1err__state.html#ae187e3ef37c981902f6a0614d117fbc6">More...</a><br /></td></tr>
 <tr class="separator:ae187e3ef37c981902f6a0614d117fbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,10 +150,10 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_1err_1_1exception__result.html">exception_result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a39eda022970dfd58f972958d922ba60b">exceptionResults</a> {}</td></tr>
 <tr class="memdesc:a39eda022970dfd58f972958d922ba60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of exception testing. <br /></td></tr>
 <tr class="separator:a39eda022970dfd58f972958d922ba60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38801d0c622ed927a2d00eb583ee28a2"><td class="memItemLeft" align="right" valign="top"><a id="a38801d0c622ed927a2d00eb583ee28a2"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a38801d0c622ed927a2d00eb583ee28a2">exceptionFiles</a> {}</td></tr>
-<tr class="memdesc:a38801d0c622ed927a2d00eb583ee28a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write exception results results to (if empty, all results are output to a generic file). <br /></td></tr>
-<tr class="separator:a38801d0c622ed927a2d00eb583ee28a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e91fe71556f99b09f957c96ff9d3723"><td class="memItemLeft" align="right" valign="top"><a id="a0e91fe71556f99b09f957c96ff9d3723"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#a0e91fe71556f99b09f957c96ff9d3723">exceptionOutputFiles</a> {}</td></tr>
+<tr class="memdesc:a0e91fe71556f99b09f957c96ff9d3723"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write exception results results to (if empty, all results are output to a generic file). <br /></td></tr>
+<tr class="separator:a0e91fe71556f99b09f957c96ff9d3723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa7e65f95b74beabe508bdd61378d19c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html#afa7e65f95b74beabe508bdd61378d19c">exceptionColumns</a></td></tr>
 <tr class="memdesc:afa7e65f95b74beabe508bdd61378d19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default columns to print for exception checks.  <a href="structchebyshev_1_1err_1_1err__state.html#afa7e65f95b74beabe508bdd61378d19c">More...</a><br /></td></tr>
 <tr class="separator:afa7e65f95b74beabe508bdd61378d19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,8 +250,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>chebyshev</b></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1err.html">err</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1err_1_1err__state.html">err_state</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1err.html">err</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1err_1_1err__state.html">err_state</a></li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

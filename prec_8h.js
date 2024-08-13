@@ -5,7 +5,7 @@ var prec_8h =
     [ "equals", "prec_8h.html#aed935e247c0117ed70ca7d4cf9894bf7", null ],
     [ "equals", "prec_8h.html#a3e6e50c6cb0224b8c7e851946b8db72c", null ],
     [ "equals", "prec_8h.html#a4ea522ff8ad697c5819be70a44e2014b", null ],
-    [ "estimate", "prec_8h.html#aa7d18d448457947afb2761d17d7b80b3", null ],
+    [ "estimate", "prec_8h.html#ab8238593669076070edbee8473b050c8", null ],
     [ "estimate", "prec_8h.html#a25a8e641e0b16ffd6e252a1f5b42095b", null ],
     [ "estimate", "prec_8h.html#a1bfb375300fa5e9a8774f8fdac3c3c80", null ],
     [ "homogeneous", "prec_8h.html#a812c8c29ec496e7d7dbb5e3f5751f8eb", null ],

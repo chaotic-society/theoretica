@@ -80,7 +80,7 @@ var namespacetheoretica =
       [ "rotation_3d_zaxis", "namespacetheoretica_1_1algebra.html#acfb980ed1301d1e78fc2232181d93b9a", null ],
       [ "solve", "namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4", null ],
       [ "solve_lu", "namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089", null ],
-      [ "solve_lu_inplace", "namespacetheoretica_1_1algebra.html#ab23728e00cdfe5b65b8242db4970b017", null ],
+      [ "solve_lu_inplace", "namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62", null ],
       [ "solve_triangular", "namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15", null ],
       [ "solve_triangular_lower", "namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229", null ],
       [ "solve_triangular_upper", "namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd", null ],

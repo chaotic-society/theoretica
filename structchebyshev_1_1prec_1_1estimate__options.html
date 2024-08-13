@@ -151,7 +151,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a45258e5beaae2eebf48020253f71246a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of function evaluations to use. <br /></td></tr>
 <tr class="separator:a45258e5beaae2eebf48020253f71246a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d09f0696ee66a7248ab0aa42c2c6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html#a13d09f0696ee66a7248ab0aa42c2c6fd">fail</a></td></tr>
-<tr class="memdesc:a13d09f0696ee66a7248ab0aa42c2c6fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function to determine whether the test failed (defaults to fail::fail_on_max_err).  <a href="structchebyshev_1_1prec_1_1estimate__options.html#a13d09f0696ee66a7248ab0aa42c2c6fd">More...</a><br /></td></tr>
+<tr class="memdesc:a13d09f0696ee66a7248ab0aa42c2c6fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function to determine whether the test failed (defaults to <a class="el" href="namespacechebyshev_1_1prec_1_1fail.html#aaaea6993b992fb83fb1eb92834639c19" title="Default fail function which marks the test as failed if the maximum error on the domain is bigger tha...">fail::fail_on_max_err</a>).  <a href="structchebyshev_1_1prec_1_1estimate__options.html#a13d09f0696ee66a7248ab0aa42c2c6fd">More...</a><br /></td></tr>
 <tr class="separator:a13d09f0696ee66a7248ab0aa42c2c6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd55101b5bf23c0910e8ce8ba713bad8"><td class="memItemLeft" align="right" valign="top"><a id="afd55101b5bf23c0910e8ce8ba713bad8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html#afd55101b5bf23c0910e8ce8ba713bad8">quiet</a> = false</td></tr>
@@ -214,7 +214,7 @@ template&lt;typename R , typename ... Args&gt; </div>
 <div class="line">                <a class="code" href="structchebyshev_1_1prec_1_1estimate__options.html#afe056c349d004fe8acb60aacae7d4f55">estimate_options</a> opt) {</div>
 <div class="line">                <span class="keywordflow">return</span> estimate_result();</div>
 <div class="line">            }</div>
-<div class="ttc" id="astructchebyshev_1_1prec_1_1estimate__options_html_afe056c349d004fe8acb60aacae7d4f55"><div class="ttname"><a href="structchebyshev_1_1prec_1_1estimate__options.html#afe056c349d004fe8acb60aacae7d4f55">chebyshev::prec::estimate_options::estimate_options</a></div><div class="ttdeci">estimate_options()</div><div class="ttdoc">Construct estimate options with all default values.</div><div class="ttdef"><b>Definition:</b> prec_structures.h:117</div></div>
+<div class="ttc" id="astructchebyshev_1_1prec_1_1estimate__options_html_afe056c349d004fe8acb60aacae7d4f55"><div class="ttname"><a href="structchebyshev_1_1prec_1_1estimate__options.html#afe056c349d004fe8acb60aacae7d4f55">chebyshev::prec::estimate_options::estimate_options</a></div><div class="ttdeci">estimate_options()</div><div class="ttdoc">Construct estimate options with all default values.</div><div class="ttdef"><b>Definition:</b> prec_structures.h:116</div></div>
 </div><!-- fragment -->
 <p>The precision estimator to use (defaults to a dummy estimator) </p>
 
@@ -237,7 +237,7 @@ template&lt;typename R , typename ... Args&gt; </div>
 <div class="line">                <span class="keywordflow">return</span> (r.maxErr &gt; r.tolerance) || (r.maxErr != r.maxErr);</div>
 <div class="line">            }</div>
 </div><!-- fragment -->
-<p>The function to determine whether the test failed (defaults to fail::fail_on_max_err). </p>
+<p>The function to determine whether the test failed (defaults to <a class="el" href="namespacechebyshev_1_1prec_1_1fail.html#aaaea6993b992fb83fb1eb92834639c19" title="Default fail function which marks the test as failed if the maximum error on the domain is bigger tha...">fail::fail_on_max_err</a>). </p>
 
 </div>
 </div>
@@ -249,8 +249,8 @@ template&lt;typename R , typename ... Args&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>chebyshev</b></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1prec.html">prec</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1prec.html">prec</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1prec_1_1estimate__options.html">estimate_options</a></li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

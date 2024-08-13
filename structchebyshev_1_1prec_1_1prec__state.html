@@ -98,10 +98,8 @@ $(document).ready(function(){initNavTree('structchebyshev_1_1prec_1_1prec__state
 </div><!--header-->
 <div class="contents">
 
-<p>Global state of the precision testing module.  
+<p>of the precision testing module.  
  <a href="structchebyshev_1_1prec_1_1prec__state.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="prec_8h_source.html">prec.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -130,13 +128,17 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:aa406b87da07120932dcfd108ea1624b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of iterations for integral quadrature. <br /></td></tr>
 <tr class="separator:aa406b87da07120932dcfd108ea1624b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e1b99c0d216e7cff2494b939041670a"><td class="memItemLeft" align="right" valign="top"><a id="a6e1b99c0d216e7cff2494b939041670a"></a>
-<a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a6e1b99c0d216e7cff2494b939041670a">defaultFailFunction</a> = fail::fail_on_max_err()</td></tr>
+<a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a6e1b99c0d216e7cff2494b939041670a">defaultFailFunction</a> = <a class="el" href="namespacechebyshev_1_1prec_1_1fail.html#aaaea6993b992fb83fb1eb92834639c19">fail::fail_on_max_err</a>()</td></tr>
 <tr class="memdesc:a6e1b99c0d216e7cff2494b939041670a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default fail function. <br /></td></tr>
 <tr class="separator:a6e1b99c0d216e7cff2494b939041670a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14cd46018d86417f6f414c63a15a3ac2"><td class="memItemLeft" align="right" valign="top"><a id="a14cd46018d86417f6f414c63a15a3ac2"></a>
 long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a14cd46018d86417f6f414c63a15a3ac2">defaultTolerance</a> = <a class="el" href="common_8h.html#a576ec61e254323459fe7f7e6ef22e5fc">CHEBYSHEV_PREC_TOLERANCE</a></td></tr>
 <tr class="memdesc:a14cd46018d86417f6f414c63a15a3ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tolerance on max absolute error. <br /></td></tr>
 <tr class="separator:a14cd46018d86417f6f414c63a15a3ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264406013f4a09dc4873b5adba03cd6c"><td class="memItemLeft" align="right" valign="top"><a id="a264406013f4a09dc4873b5adba03cd6c"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a264406013f4a09dc4873b5adba03cd6c">outputFiles</a> {}</td></tr>
+<tr class="memdesc:a264406013f4a09dc4873b5adba03cd6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write all precision testing results to. <br /></td></tr>
+<tr class="separator:a264406013f4a09dc4873b5adba03cd6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e45119405a3a5a988b31392a6a2c19b"><td class="memItemLeft" align="right" valign="top"><a id="a5e45119405a3a5a988b31392a6a2c19b"></a>
 std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">estimate_result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a5e45119405a3a5a988b31392a6a2c19b">estimateResults</a> {}</td></tr>
 <tr class="memdesc:a5e45119405a3a5a988b31392a6a2c19b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of precision testing. <br /></td></tr>
@@ -144,10 +146,10 @@ std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_
 <tr class="memitem:a79696cacd08f6ab8394b81ab6eef1e0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a79696cacd08f6ab8394b81ab6eef1e0b">estimateColumns</a></td></tr>
 <tr class="memdesc:a79696cacd08f6ab8394b81ab6eef1e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default columns to print for precision estimates.  <a href="structchebyshev_1_1prec_1_1prec__state.html#a79696cacd08f6ab8394b81ab6eef1e0b">More...</a><br /></td></tr>
 <tr class="separator:a79696cacd08f6ab8394b81ab6eef1e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad17f950203baca778417b99ad2bfd3b6"><td class="memItemLeft" align="right" valign="top"><a id="ad17f950203baca778417b99ad2bfd3b6"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#ad17f950203baca778417b99ad2bfd3b6">estimateFiles</a> {}</td></tr>
-<tr class="memdesc:ad17f950203baca778417b99ad2bfd3b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write estimate results to (if empty, all results are output to a generic file). <br /></td></tr>
-<tr class="separator:ad17f950203baca778417b99ad2bfd3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24e2e37dd76c5527b9e6a648b057bbdc"><td class="memItemLeft" align="right" valign="top"><a id="a24e2e37dd76c5527b9e6a648b057bbdc"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a24e2e37dd76c5527b9e6a648b057bbdc">estimateOutputFiles</a> {}</td></tr>
+<tr class="memdesc:a24e2e37dd76c5527b9e6a648b057bbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write estimate results to (if empty, all results are output to a generic file). <br /></td></tr>
+<tr class="separator:a24e2e37dd76c5527b9e6a648b057bbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefde15c16941e17d8dce36c4ee7c5343"><td class="memItemLeft" align="right" valign="top"><a id="aefde15c16941e17d8dce36c4ee7c5343"></a>
 std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_1prec_1_1equation__result.html">equation_result</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#aefde15c16941e17d8dce36c4ee7c5343">equationResults</a> {}</td></tr>
 <tr class="memdesc:aefde15c16941e17d8dce36c4ee7c5343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of equations. <br /></td></tr>
@@ -155,16 +157,16 @@ std::map&lt; std::string, std::vector&lt; <a class="el" href="structchebyshev_1_
 <tr class="memitem:a4b25616199c93329eecbd8bb08415998"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a4b25616199c93329eecbd8bb08415998">equationColumns</a></td></tr>
 <tr class="memdesc:a4b25616199c93329eecbd8bb08415998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default columns to print for equations.  <a href="structchebyshev_1_1prec_1_1prec__state.html#a4b25616199c93329eecbd8bb08415998">More...</a><br /></td></tr>
 <tr class="separator:a4b25616199c93329eecbd8bb08415998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34e4ea2e070eb08447e0d3a2ba479f5d"><td class="memItemLeft" align="right" valign="top"><a id="a34e4ea2e070eb08447e0d3a2ba479f5d"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a34e4ea2e070eb08447e0d3a2ba479f5d">equationFiles</a> {}</td></tr>
-<tr class="memdesc:a34e4ea2e070eb08447e0d3a2ba479f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write equation results to (if empty, all results are output to a generic file). <br /></td></tr>
-<tr class="separator:a34e4ea2e070eb08447e0d3a2ba479f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b5ad33edd7d858efbd9273365a56da9"><td class="memItemLeft" align="right" valign="top"><a id="a5b5ad33edd7d858efbd9273365a56da9"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a5b5ad33edd7d858efbd9273365a56da9">equationOutputFiles</a> {}</td></tr>
+<tr class="memdesc:a5b5ad33edd7d858efbd9273365a56da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files to write equation results to (if empty, all results are output to a generic file). <br /></td></tr>
+<tr class="separator:a5b5ad33edd7d858efbd9273365a56da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d525bc31e80243016269047860b855a"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html#a7d525bc31e80243016269047860b855a">pickedTests</a> {}</td></tr>
 <tr class="memdesc:a7d525bc31e80243016269047860b855a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target tests marked for execution, can be picked by passing test case names by command line.  <a href="structchebyshev_1_1prec_1_1prec__state.html#a7d525bc31e80243016269047860b855a">More...</a><br /></td></tr>
 <tr class="separator:a7d525bc31e80243016269047860b855a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Global state of the precision testing module. </p>
+<div class="textblock"><p>of the precision testing module. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a4b25616199c93329eecbd8bb08415998"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b25616199c93329eecbd8bb08415998">&#9670;&nbsp;</a></span>equationColumns</h2>
@@ -229,8 +231,8 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>chebyshev</b></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1prec.html">prec</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">prec_state</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1prec.html">prec</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">prec_state</a></li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

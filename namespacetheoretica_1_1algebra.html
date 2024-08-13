@@ -342,10 +342,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">solve_triangular</a> (const Matrix &amp;T, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a6fc85f89aafd490490d0a7b36bed8e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(T \vec x = b\) for triangular \(T\).  <a href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">More...</a><br /></td></tr>
 <tr class="separator:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab23728e00cdfe5b65b8242db4970b017"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
-<tr class="memitem:ab23728e00cdfe5b65b8242db4970b017"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ab23728e00cdfe5b65b8242db4970b017">solve_lu_inplace</a> (Matrix A, Vector b)</td></tr>
-<tr class="memdesc:ab23728e00cdfe5b65b8242db4970b017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has already undergone in-place LU decomposition.  <a href="namespacetheoretica_1_1algebra.html#ab23728e00cdfe5b65b8242db4970b017">More...</a><br /></td></tr>
-<tr class="separator:ab23728e00cdfe5b65b8242db4970b017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a> (const Matrix &amp;A, Vector &amp;b)</td></tr>
+<tr class="memdesc:ac243a7509ce421dc7af9f1e690c4ac62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has already undergone in-place LU decomposition.  <a href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">More...</a><br /></td></tr>
+<tr class="separator:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a> (Matrix A, Vector b)</td></tr>
 <tr class="memdesc:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\).  <a href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">More...</a><br /></td></tr>
@@ -3804,8 +3804,8 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 
 </div>
 </div>
-<a id="ab23728e00cdfe5b65b8242db4970b017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab23728e00cdfe5b65b8242db4970b017">&#9670;&nbsp;</a></span>solve_lu_inplace()</h2>
+<a id="ac243a7509ce421dc7af9f1e690c4ac62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac243a7509ce421dc7af9f1e690c4ac62">&#9670;&nbsp;</a></span>solve_lu_inplace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3816,15 +3816,15 @@ template&lt;typename Matrix , typename Vector &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Vector theoretica::algebra::solve_lu_inplace </td>
+          <td class="memname">Vector&amp; theoretica::algebra::solve_lu_inplace </td>
           <td>(</td>
-          <td class="paramtype">Matrix&#160;</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Vector&#160;</td>
+          <td class="paramtype">Vector &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -3845,11 +3845,11 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>The matrix of the linear system, after in-place LU decomposition </td></tr>
-    <tr><td class="paramname">b</td><td>The known vector </td></tr>
+    <tr><td class="paramname">b</td><td>The known vector, to be overwritten with the solution </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>x The unknown vector </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the overwritten vector solution </dd></dl>
 
 </div>
 </div>
@@ -4801,7 +4801,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

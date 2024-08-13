@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "chebyshev", null, [
+    [ "chebyshev", "namespacechebyshev.html", [
       [ "benchmark", "namespacechebyshev_1_1benchmark.html", [
         [ "benchmark_result", "structchebyshev_1_1benchmark_1_1benchmark__result.html", "structchebyshev_1_1benchmark_1_1benchmark__result" ],
         [ "benchmark_options", "structchebyshev_1_1benchmark_1_1benchmark__options.html", "structchebyshev_1_1benchmark_1_1benchmark__options" ],
@@ -13,7 +13,7 @@ var annotated_dup =
         [ "exception_result", "structchebyshev_1_1err_1_1exception__result.html", "structchebyshev_1_1err_1_1exception__result" ],
         [ "err_state", "structchebyshev_1_1err_1_1err__state.html", "structchebyshev_1_1err_1_1err__state" ]
       ] ],
-      [ "output", null, [
+      [ "output", "namespacechebyshev_1_1output.html", [
         [ "field_options", "structchebyshev_1_1output_1_1field__options.html", "structchebyshev_1_1output_1_1field__options" ],
         [ "output_state", "structchebyshev_1_1output_1_1output__state.html", "structchebyshev_1_1output_1_1output__state" ]
       ] ],

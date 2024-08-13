@@ -114,11 +114,14 @@ $(document).ready(function(){initNavTree('benchmark_8h.html',''); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__state.html">chebyshev::benchmark::benchmark_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global state of the benchmark module.  <a href="structchebyshev_1_1benchmark_1_1benchmark__state.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of the benchmark module  <a href="structchebyshev_1_1benchmark_1_1benchmark__state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespacechebyshev"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev.html">chebyshev</a></td></tr>
+<tr class="memdesc:namespacechebyshev"><td class="mdescLeft">&#160;</td><td class="mdescRight">General namespace of the framework. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacechebyshev_1_1benchmark"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html">chebyshev::benchmark</a></td></tr>
 <tr class="memdesc:namespacechebyshev_1_1benchmark"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark module. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,16 +134,22 @@ Functions</h2></td></tr>
 <tr class="memitem:aca318e15ba67ce17fe08dd60be67c46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#aca318e15ba67ce17fe08dd60be67c46d">chebyshev::benchmark::terminate</a> (bool exit=true)</td></tr>
 <tr class="memdesc:aca318e15ba67ce17fe08dd60be67c46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the benchmarking environment.  <a href="namespacechebyshev_1_1benchmark.html#aca318e15ba67ce17fe08dd60be67c46d">More...</a><br /></td></tr>
 <tr class="separator:aca318e15ba67ce17fe08dd60be67c46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7854d684d427269328e86677fe34890"><td class="memTemplParams" colspan="2"><a id="ad7854d684d427269328e86677fe34890"></a>
-template&lt;typename InputType  = double, typename Function &gt; </td></tr>
-<tr class="memitem:ad7854d684d427269328e86677fe34890"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#ad7854d684d427269328e86677fe34890">chebyshev::benchmark::benchmark</a> (const std::string &amp;funcName, Function func, benchmark_options&lt; InputType &gt; opt)</td></tr>
-<tr class="memdesc:ad7854d684d427269328e86677fe34890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a benchmark on a generic function, with the given options. <br /></td></tr>
-<tr class="separator:ad7854d684d427269328e86677fe34890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426b2a34ff6ee087bd980c54c4ba84a4"><td class="memTemplParams" colspan="2"><a id="a426b2a34ff6ee087bd980c54c4ba84a4"></a>
-template&lt;typename InputType  = double, typename Function &gt; </td></tr>
-<tr class="memitem:a426b2a34ff6ee087bd980c54c4ba84a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#a426b2a34ff6ee087bd980c54c4ba84a4">chebyshev::benchmark::benchmark</a> (const std::string &amp;funcName, Function func, unsigned int runs=<a class="el" href="common_8h.html#acfbfcbde585622ab8d5f0e0bdcbedb36">CHEBYSHEV_BENCHMARK_RUNS</a>, unsigned int iterations=<a class="el" href="common_8h.html#a7eb19df08db299b8016adc888768a41b">CHEBYSHEV_BENCHMARK_ITER</a>, InputGenerator&lt; InputType &gt; inputGenerator=generator::uniform1D(0, 1))</td></tr>
-<tr class="memdesc:a426b2a34ff6ee087bd980c54c4ba84a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a benchmark on a generic function, with the given options. <br /></td></tr>
-<tr class="separator:a426b2a34ff6ee087bd980c54c4ba84a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff1796fa33343540eb11b456074f3ac"><td class="memTemplParams" colspan="2">template&lt;typename InputType , typename Function &gt; </td></tr>
+<tr class="memitem:acff1796fa33343540eb11b456074f3ac"><td class="memTemplItemLeft" align="right" valign="top">long double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#acff1796fa33343540eb11b456074f3ac">chebyshev::benchmark::runtime</a> (Function func, const std::vector&lt; InputType &gt; &amp;input, unsigned int runs=state.defaultRuns)</td></tr>
+<tr class="memdesc:acff1796fa33343540eb11b456074f3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the total runtime of a function over the given input for many runs.  <a href="namespacechebyshev_1_1benchmark.html#acff1796fa33343540eb11b456074f3ac">More...</a><br /></td></tr>
+<tr class="separator:acff1796fa33343540eb11b456074f3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a33005afb38d97172426e07a21b5933"><td class="memTemplParams" colspan="2">template&lt;typename InputType  = double, typename Function &gt; </td></tr>
+<tr class="memitem:a8a33005afb38d97172426e07a21b5933"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#a8a33005afb38d97172426e07a21b5933">chebyshev::benchmark::benchmark</a> (const std::string &amp;funcName, Function func, const std::vector&lt; InputType &gt; &amp;input, unsigned int runs=state.defaultRuns)</td></tr>
+<tr class="memdesc:a8a33005afb38d97172426e07a21b5933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a benchmark on a generic function, with the given input vector.  <a href="namespacechebyshev_1_1benchmark.html#a8a33005afb38d97172426e07a21b5933">More...</a><br /></td></tr>
+<tr class="separator:a8a33005afb38d97172426e07a21b5933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b1bba88022a80309757b85787f5c056"><td class="memTemplParams" colspan="2">template&lt;typename InputType  = double, typename Function &gt; </td></tr>
+<tr class="memitem:a8b1bba88022a80309757b85787f5c056"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#a8b1bba88022a80309757b85787f5c056">chebyshev::benchmark::benchmark</a> (const std::string &amp;funcName, Function func, const benchmark_options&lt; InputType &gt; &amp;opt)</td></tr>
+<tr class="memdesc:a8b1bba88022a80309757b85787f5c056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a benchmark on a generic function, with the given options.  <a href="namespacechebyshev_1_1benchmark.html#a8b1bba88022a80309757b85787f5c056">More...</a><br /></td></tr>
+<tr class="separator:a8b1bba88022a80309757b85787f5c056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad359108cbd05b12a795120dc336555a1"><td class="memTemplParams" colspan="2">template&lt;typename InputType  = double, typename Function &gt; </td></tr>
+<tr class="memitem:ad359108cbd05b12a795120dc336555a1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1benchmark.html#ad359108cbd05b12a795120dc336555a1">chebyshev::benchmark::benchmark</a> (const std::string &amp;funcName, Function func, unsigned int runs=state.defaultRuns, unsigned int iterations=state.defaultIterations, InputGenerator&lt; InputType &gt; inputGenerator=generator::uniform1D(0, 1))</td></tr>
+<tr class="memdesc:ad359108cbd05b12a795120dc336555a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a benchmark on a generic function, with the given argument options.  <a href="namespacechebyshev_1_1benchmark.html#ad359108cbd05b12a795120dc336555a1">More...</a><br /></td></tr>
+<tr class="separator:ad359108cbd05b12a795120dc336555a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -156,7 +165,7 @@ struct <a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__state.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="benchmark_8h.html">benchmark.h</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

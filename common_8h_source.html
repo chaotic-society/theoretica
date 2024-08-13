@@ -128,15 +128,15 @@ $(document).ready(function(){initNavTree('common_8h_source.html',''); initResiza
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define CAST_LAMBDA(func, type) [=](type x){ return func(static_cast&lt;type&gt;(x)); }</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span>chebyshev {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacechebyshev.html">chebyshev</a> {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type = <span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="common_8h.html#a94d6aae363e21a096f05814053ec8462">   50</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="common_8h.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a> = std::function&lt;Type(Type)&gt;;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">   50</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a> = std::function&lt;Type(Type)&gt;;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> FloatType = <span class="keywordtype">long</span> <span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="common_8h.html#a62181021524138fb26d708e15a8feb06">   55</a></span>&#160;    <span class="keyword">inline</span> constexpr FloatType <a class="code" href="common_8h.html#a62181021524138fb26d708e15a8feb06">get_nan</a>() {</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">   55</a></span>&#160;    <span class="keyword">inline</span> constexpr FloatType <a class="code" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">get_nan</a>() {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> std::numeric_limits&lt;FloatType&gt;::quiet_NaN();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
@@ -144,19 +144,20 @@ $(document).ready(function(){initNavTree('common_8h_source.html',''); initResiza
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#ifndef CHEBYSHEV_NO_ALIAS</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">namespace </span>ch = chebyshev;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacechebyshev.html">ch</a> = <a class="code" href="namespacechebyshev.html">chebyshev</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="acommon_8h_html_a62181021524138fb26d708e15a8feb06"><div class="ttname"><a href="common_8h.html#a62181021524138fb26d708e15a8feb06">chebyshev::get_nan</a></div><div class="ttdeci">constexpr FloatType get_nan()</div><div class="ttdoc">Get a quiet NaN of the specified floating point type.</div><div class="ttdef"><b>Definition:</b> common.h:55</div></div>
-<div class="ttc" id="acommon_8h_html_a94d6aae363e21a096f05814053ec8462"><div class="ttname"><a href="common_8h.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a></div><div class="ttdeci">std::function&lt; Type(Type)&gt; EndoFunction</div><div class="ttdoc">An endofunction is a function which has the same type of input and output (e.g.</div><div class="ttdef"><b>Definition:</b> common.h:50</div></div>
+<div class="ttc" id="anamespacechebyshev_html"><div class="ttname"><a href="namespacechebyshev.html">chebyshev</a></div><div class="ttdoc">General namespace of the framework.</div><div class="ttdef"><b>Definition:</b> benchmark_structures.h:15</div></div>
+<div class="ttc" id="anamespacechebyshev_html_a62181021524138fb26d708e15a8feb06"><div class="ttname"><a href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">chebyshev::get_nan</a></div><div class="ttdeci">constexpr FloatType get_nan()</div><div class="ttdoc">Get a quiet NaN of the specified floating point type.</div><div class="ttdef"><b>Definition:</b> common.h:55</div></div>
+<div class="ttc" id="anamespacechebyshev_html_a94d6aae363e21a096f05814053ec8462"><div class="ttname"><a href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a></div><div class="ttdeci">std::function&lt; Type(Type)&gt; EndoFunction</div><div class="ttdoc">An endofunction is a function which has the same type of input and output (e.g.</div><div class="ttdef"><b>Definition:</b> common.h:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_f34e67786cf6786decd18dae57af4e06.html">core</a></li><li class="navelem"><a class="el" href="common_8h.html">common.h</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 11:02:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 13 2024 13:44:49 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
