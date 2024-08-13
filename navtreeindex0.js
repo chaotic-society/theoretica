@@ -1,13 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"":[10,0,0],
-"":[10,0,0,0,0],
-"":[10,0,0,3,0],
-"":[10,0,0,3,2],
-"":[10,0,0,3,3],
-"":[10,0,0,2],
-"":[10,0,0,2,0],
-"":[10,0,4,0],
 "algebra_8h.html":[12,0,0,0],
 "algebra_8h.html#a0054d7da3d235f12c325512776b386a8":[12,0,0,0,29],
 "algebra_8h.html#a01ac4d9844e1bb4c7ef409277bed451f":[12,0,0,0,39],
@@ -249,5 +241,13 @@ var NAVTREEINDEX0 =
 "classtheoretica_1_1dual.html#aa559f3c8798a06c038fc3344cdb81ed8":[11,0,1,6,21],
 "classtheoretica_1_1dual.html#aab215e9feefaf03495cdfd3ea3fcbecf":[11,0,1,6,31],
 "classtheoretica_1_1dual.html#ab30868c1e6b53ffe727e685386da473f":[11,0,1,6,1],
-"classtheoretica_1_1dual.html#ab30d8611de1642f4f103eb0daf37870c":[11,0,1,6,2]
+"classtheoretica_1_1dual.html#ab30d8611de1642f4f103eb0daf37870c":[11,0,1,6,2],
+"classtheoretica_1_1dual.html#abe3269208f612434606a536f76bce052":[11,0,1,6,11],
+"classtheoretica_1_1dual.html#abf468e3e11f24fe3c93102b11ff07616":[11,0,1,6,47],
+"classtheoretica_1_1dual.html#abfef7a93dd1cc2329245979b6ffffccf":[11,0,1,6,15],
+"classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45":[11,0,1,6,17],
+"classtheoretica_1_1dual.html#ac21bd18eb8a854f698813581d42d8f44":[11,0,1,6,28],
+"classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce":[11,0,1,6,0],
+"classtheoretica_1_1dual.html#ad8152ebab33e0586e5b0a64b16adbf5a":[11,0,1,6,40],
+"classtheoretica_1_1dual.html#ad919d17ef0fed02e6a910633119ead2e":[11,0,1,6,37]
 };

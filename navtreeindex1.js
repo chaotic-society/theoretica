@@ -1,13 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"classtheoretica_1_1dual.html#abe3269208f612434606a536f76bce052":[11,0,1,6,11],
-"classtheoretica_1_1dual.html#abf468e3e11f24fe3c93102b11ff07616":[11,0,1,6,47],
-"classtheoretica_1_1dual.html#abfef7a93dd1cc2329245979b6ffffccf":[11,0,1,6,15],
-"classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45":[11,0,1,6,17],
-"classtheoretica_1_1dual.html#ac21bd18eb8a854f698813581d42d8f44":[11,0,1,6,28],
-"classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce":[11,0,1,6,0],
-"classtheoretica_1_1dual.html#ad8152ebab33e0586e5b0a64b16adbf5a":[11,0,1,6,40],
-"classtheoretica_1_1dual.html#ad919d17ef0fed02e6a910633119ead2e":[11,0,1,6,37],
 "classtheoretica_1_1dual.html#adb19e22e7aed1dd299de5af05f7ceb7a":[11,0,1,6,18],
 "classtheoretica_1_1dual.html#adc3a2a51b545e6908f83bf6db1f42cc4":[11,0,1,6,7],
 "classtheoretica_1_1dual.html#aeaa760ccf7b132d3e63114c7005401b4":[11,0,1,6,29],
@@ -249,5 +241,13 @@ var NAVTREEINDEX1 =
 "classtheoretica_1_1phasor.html#a1952a0d36522df5d695b8624f80a4ab0":[11,0,1,14,9],
 "classtheoretica_1_1phasor.html#a1d3468b50980c5ff753163190c1b8e28":[11,0,1,14,7],
 "classtheoretica_1_1phasor.html#a1d71473f7ed63d88ca7cf3ed5c9ee337":[11,0,1,14,33],
-"classtheoretica_1_1phasor.html#a1fc7c9815193ece2593c40df2b18e4a7":[11,0,1,14,28]
+"classtheoretica_1_1phasor.html#a1fc7c9815193ece2593c40df2b18e4a7":[11,0,1,14,28],
+"classtheoretica_1_1phasor.html#a21297ee02226e4721d0846686a00ecd8":[11,0,1,14,17],
+"classtheoretica_1_1phasor.html#a29b995e51c318ec2bb4c843e57ca4935":[11,0,1,14,38],
+"classtheoretica_1_1phasor.html#a2b1c9c0c330b71f00f4dcbd1e33f814b":[11,0,1,14,5],
+"classtheoretica_1_1phasor.html#a32445b82591f1d84231f81bfac91c981":[11,0,1,14,36],
+"classtheoretica_1_1phasor.html#a3ef41ea67cd7073d1a48727cf40ef355":[11,0,1,14,8],
+"classtheoretica_1_1phasor.html#a43f751446d44aa414878c0aa77350f1a":[11,0,1,14,22],
+"classtheoretica_1_1phasor.html#a4ec24351bcca7cc48d63811bf1af8a98":[11,0,1,14,19],
+"classtheoretica_1_1phasor.html#a4ef5597e39a0a4abacf8d7e3abb5277d":[11,0,1,14,34]
 };
