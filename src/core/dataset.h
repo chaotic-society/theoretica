@@ -226,8 +226,13 @@ namespace theoretica {
 	}
 
 
-	/// Apply a function to a set of values element-wise
-	/// (vectorized evaluation).
+	/// Apply a function to a set of values element-wise.
+	/// @note Unlike functions in the vectorized namespace,
+	/// this routine is not parallelized.
+	///
+	/// @param f The function to apply
+	/// @param X The vector to modify the elements of
+	/// @return A reference to the modified vector
 	template<typename Vector, typename Function>
 	inline Vector& apply(Function f, Vector& X) {
 
@@ -238,8 +243,12 @@ namespace theoretica {
 	}
 
 
-	/// Get a new vector obtained by applying
-	/// the function element-wise (vectorized evaluation).
+	/// Get a new vector obtained by applying the function element-wise.
+	///
+	/// @param f The function to apply
+	/// @param src The input vector
+	/// @param dest The output vector
+	/// @return A reference to the modified output vector
 	template<typename Vector1, typename Vector2 = Vector1, typename Function>
 	inline Vector2& map(Function f, const Vector1& src, Vector2& dest) {
 
@@ -256,8 +265,11 @@ namespace theoretica {
 	}
 
 
-	/// Get a new vector obtained by applying
-	/// the function element-wise (vectorized evaluation).
+	/// Get a new vector obtained by applying the function element-wise.
+	///
+	/// @param f The function to apply
+	/// @param X The input vector
+	/// @return The modified output vector
 	template<typename Vector1, typename Vector2 = Vector1, typename Function>
 	inline Vector1 map(Function f, const Vector1& X) {
 
@@ -293,9 +305,11 @@ namespace theoretica {
 	template<typename Vector>
 	inline auto max(const Vector& X) {
 
+		using Type = indexable_element_t<Vector>;
+
 		if(!X.size()) {
 			TH_MATH_ERROR("max", X.size(), INVALID_ARGUMENT);
-			return nan();
+			return Type(nan());
 		}
 
 		auto curr = X[0];
@@ -312,9 +326,11 @@ namespace theoretica {
 	template<typename Vector>
 	inline auto min(const Vector& X) {
 
+		using Type = indexable_element_t<Vector>;
+
 		if(!X.size()) {
 			TH_MATH_ERROR("min", X.size(), INVALID_ARGUMENT);
-			return nan();
+			return Type(nan());
 		}
 
 		auto curr = X[0];

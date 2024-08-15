@@ -91,6 +91,7 @@ void myFunction() { ... }
 ```
 
 Classes may be likewise documented using
+
 ```cpp
 /// @class MyClass
 /// Class description
@@ -108,6 +109,6 @@ namespace GlobalNamespace {
 }
 ```
 
-To know more about writing documentation, please have a look at [DOCUMENTING.md](https://github.com/chaotic-society/theoretica/blob/master/DOCUMENTING.md).
+To know more about writing Doxygen documentation, please have a look at this [Doxygen guide](https://www.doxygen.nl/manual/docblocks.html).
 
 ### Thank you for your contribution!
