@@ -179,6 +179,7 @@ var menudata={children:[
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"w",url:"functions_vars.html#index_w"},
 {text:"x",url:"functions_vars.html#index_x"}]},
+{text:"Typedefs",url:"functions_type.html"},
 {text:"Related Functions",url:"functions_rela.html",children:[
 {text:"d",url:"functions_rela.html#index_d"},
 {text:"i",url:"functions_rela.html#index_i"},

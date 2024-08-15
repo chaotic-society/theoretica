@@ -293,100 +293,104 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, <span class="keyword">typename</span> Function&gt;</div>
-<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">  232</a></span>&#160;    <span class="keyword">inline</span> Vector&amp; <a class="code" href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">apply</a>(Function f, Vector&amp; X) {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            X[i] = f(X[i]);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> X;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">  244</a></span>&#160;    <span class="keyword">inline</span> Vector2&amp; <a class="code" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; src, Vector2&amp; dest) {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, <span class="keyword">typename</span> Function&gt;</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">  237</a></span>&#160;    <span class="keyword">inline</span> Vector&amp; <a class="code" href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">apply</a>(Function f, Vector&amp; X) {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            X[i] = f(X[i]);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">return</span> X;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">if</span>(src.size() != dest.size()) {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;th::map&quot;</span>, dest.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            dest = Vector2(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            <span class="keywordflow">return</span> dest;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; src.size(); i++)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            dest[i] = f(src[i]);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">  253</a></span>&#160;    <span class="keyword">inline</span> Vector2&amp; <a class="code" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; src, Vector2&amp; dest) {</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> dest;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ab5113ceec31eaa10956e860523f7a18a">  262</a></span>&#160;    <span class="keyword">inline</span> Vector1 <a class="code" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; X) {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">if</span>(src.size() != dest.size()) {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;th::map&quot;</span>, dest.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            dest = Vector2(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">return</span> dest;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; src.size(); i++)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            dest[i] = f(src[i]);</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        Vector2 res;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        res.resize(X.size());</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> dest;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            res[i] = f(X[i]);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector3 = Vector1&gt;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">  276</a></span>&#160;    <span class="keyword">inline</span> Vector3 <a class="code" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">concatenate</a>(<span class="keyword">const</span> Vector1&amp; v1, <span class="keyword">const</span> Vector2&amp; v2) {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        Vector3 res;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        res.resize(v1.size() + v2.size());</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = v1.size();</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ab5113ceec31eaa10956e860523f7a18a">  274</a></span>&#160;    <span class="keyword">inline</span> Vector1 <a class="code" href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; X) {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        Vector2 res;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        res.resize(X.size());</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            res[i] = f(X[i]);</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; offset; ++i)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            res[i] = v1[i];</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v2.size(); ++i)</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            res[i + offset] = v2[i];</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">  294</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        }</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keyword">auto</span> curr = X[0];</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector3 = Vector1&gt;</div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">  288</a></span>&#160;    <span class="keyword">inline</span> Vector3 <a class="code" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">concatenate</a>(<span class="keyword">const</span> Vector1&amp; v1, <span class="keyword">const</span> Vector2&amp; v2) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        Vector3 res;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        res.resize(v1.size() + v2.size());</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = v1.size();</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; offset; ++i)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            res[i] = v1[i];</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v2.size(); ++i)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            res[i + offset] = v2[i];</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                curr = X[i];</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">  306</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">indexable_element_t&lt;Vector&gt;</a>;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">  313</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">min</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        }</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>();</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        }</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keyword">auto</span> curr = X[0];</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                curr = X[i];</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keyword">auto</span> curr = X[0];</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                curr = X[i];</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">  327</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">min</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">indexable_element_t&lt;Vector&gt;</a>;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keyword">auto</span> curr = X[0];</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                curr = X[i];</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1vec_html"><div class="ttname"><a href="classtheoretica_1_1vec.html">theoretica::vec</a></div><div class="ttdoc">A statically allocated N-dimensional vector with elements of the given type.</div><div class="ttdef"><b>Definition:</b> vec.h:28</div></div>
 <div class="ttc" id="aconstants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div><div class="ttdoc">Mathematical constants and default algorithm parameters.</div></div>
 <div class="ttc" id="aconstants_8h_html_a98714486a3e652c5b04dbd34146d069d"><div class="ttname"><a href="constants_8h.html#a98714486a3e652c5b04dbd34146d069d">TH_CONSTIF</a></div><div class="ttdeci">#define TH_CONSTIF</div><div class="ttdoc">Enable constexpr in if statements if C++17 is supported.</div><div class="ttdef"><b>Definition:</b> constants.h:177</div></div>
@@ -395,18 +399,18 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:220</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:206</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:313</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:327</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a173a64c4f73cb7abd476b739005d94e7"><div class="ttname"><a href="namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7">theoretica::sum_compensated</a></div><div class="ttdeci">real sum_compensated(const Vector &amp;X)</div><div class="ttdoc">Compute the sum of a set of values using the compensated Neumaier-Kahan-Babushka summation algorithm ...</div><div class="ttdef"><b>Definition:</b> dataset.h:138</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a1a85d4034e2edc73c0175f1d3b6d1382"><div class="ttname"><a href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">theoretica::concatenate</a></div><div class="ttdeci">Vector3 concatenate(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Concatenate two datasets to form a single one.</div><div class="ttdef"><b>Definition:</b> dataset.h:276</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1a85d4034e2edc73c0175f1d3b6d1382"><div class="ttname"><a href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">theoretica::concatenate</a></div><div class="ttdeci">Vector3 concatenate(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Concatenate two datasets to form a single one.</div><div class="ttdef"><b>Definition:</b> dataset.h:288</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a20960b2923a0c3c41b4db5452fa1dbf3"><div class="ttname"><a href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">theoretica::sum</a></div><div class="ttdeci">auto sum(const vec&lt; real, N &gt; &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:206</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a29720d3e71b280bb3ea048aa71bc3655"><div class="ttname"><a href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a></div><div class="ttdeci">dual2 abs(dual2 x)</div><div class="ttdoc">Compute the absolute value of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:183</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a2a97cfad96b9bb73d76b8f5cc20f2896"><div class="ttname"><a href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">theoretica::sum_pairwise</a></div><div class="ttdeci">real sum_pairwise(const Vector &amp;X, size_t begin=0, size_t end=0, size_t base_size=128)</div><div class="ttdoc">Compute the sum of a set of values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:172</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a577718046a061b09c2c571d84b4cf47b"><div class="ttname"><a href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">theoretica::apply</a></div><div class="ttdeci">Vector &amp; apply(Function f, Vector &amp;X)</div><div class="ttdoc">Apply a function to a set of values element-wise (vectorized evaluation).</div><div class="ttdef"><b>Definition:</b> dataset.h:232</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:294</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a577718046a061b09c2c571d84b4cf47b"><div class="ttname"><a href="namespacetheoretica.html#a577718046a061b09c2c571d84b4cf47b">theoretica::apply</a></div><div class="ttdeci">Vector &amp; apply(Function f, Vector &amp;X)</div><div class="ttdoc">Apply a function to a set of values element-wise.</div><div class="ttdef"><b>Definition:</b> dataset.h:237</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:306</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a8298cbf34bf300bc2c84d14264484ffd"><div class="ttname"><a href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">theoretica::product_sum</a></div><div class="ttdeci">auto product_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of two sets of values.</div><div class="ttdef"><b>Definition:</b> dataset.h:47</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a8799cd7d7645f496d0d2c9683688050b"><div class="ttname"><a href="namespacetheoretica.html#a8799cd7d7645f496d0d2c9683688050b">theoretica::product_sum_squares</a></div><div class="ttdeci">auto product_sum_squares(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of the squares of two sets of data.</div><div class="ttdef"><b>Definition:</b> dataset.h:64</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa14178d5680aaca3da91f2f0dc8a86d4"><div class="ttname"><a href="namespacetheoretica.html#aa14178d5680aaca3da91f2f0dc8a86d4">theoretica::quotient_sum</a></div><div class="ttdeci">auto quotient_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the quotients of two sets of values.</div><div class="ttdef"><b>Definition:</b> dataset.h:98</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ad8f39fdf206c30999a973d03e49cdd5b"><div class="ttname"><a href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">theoretica::map</a></div><div class="ttdeci">Vector2 &amp; map(Function f, const Vector1 &amp;src, Vector2 &amp;dest)</div><div class="ttdoc">Get a new vector obtained by applying the function element-wise (vectorized evaluation).</div><div class="ttdef"><b>Definition:</b> dataset.h:244</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ad8f39fdf206c30999a973d03e49cdd5b"><div class="ttname"><a href="namespacetheoretica.html#ad8f39fdf206c30999a973d03e49cdd5b">theoretica::map</a></div><div class="ttdeci">Vector2 &amp; map(Function f, const Vector1 &amp;src, Vector2 &amp;dest)</div><div class="ttdoc">Get a new vector obtained by applying the function element-wise.</div><div class="ttdef"><b>Definition:</b> dataset.h:253</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae146d427672a9dd09777fb0dda3ab03c"><div class="ttname"><a href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">theoretica::indexable_element_t</a></div><div class="ttdeci">std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()[0])&gt; indexable_element_t</div><div class="ttdoc">Extract the type of an indexable container from its operator[].</div><div class="ttdef"><b>Definition:</b> core_traits.h:40</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ae95680d1669eee1549fe112b9a846519"><div class="ttname"><a href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">theoretica::nan</a></div><div class="ttdeci">real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition:</b> error.h:54</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aec4e70500501fc48d6ad18f8abfc1896"><div class="ttname"><a href="namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896">theoretica::sum_squares</a></div><div class="ttdeci">auto sum_squares(const Vector &amp;X)</div><div class="ttdoc">Sum the squares of a set of values.</div><div class="ttdef"><b>Definition:</b> dataset.h:122</div></div>
@@ -418,7 +422,7 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="dataset_8h.html">dataset.h</a></li>
-    <li class="footer">Generated on Tue Aug 13 2024 15:27:09 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 15 2024 21:55:57 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

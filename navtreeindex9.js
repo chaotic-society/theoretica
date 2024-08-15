@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"regression_8h_source.html":[12,0,10,3],
+"roots_8h.html":[12,0,7,3],
+"roots_8h.html#a04969926a4834b77f3efd544ae91f8a4":[12,0,7,3,1],
 "roots_8h.html#a09ec9b2753a108bba753d27e179b641a":[12,0,7,3,7],
 "roots_8h.html#a25a58d326161c54d3e6421546c4aaede":[12,0,7,3,15],
 "roots_8h.html#a2e8e291425bac0401f3d102f2fea8593":[12,0,7,3,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1prec_1_1estimate__options.html#aaa64fa0be09ec33b8a2536e417c8aecf":[11,0,0,3,2,7],
 "structchebyshev_1_1prec_1_1estimate__options.html#ab9f0297638f921b01b384522d22e7bca":[11,0,0,3,2,0],
 "structchebyshev_1_1prec_1_1estimate__options.html#ae9a9c55246716209940c9c1798511188":[11,0,0,3,2,11],
-"structchebyshev_1_1prec_1_1estimate__options.html#aed642ec2da8e6b17a9da75321de5226a":[11,0,0,3,2,3],
-"structchebyshev_1_1prec_1_1estimate__options.html#afd55101b5bf23c0910e8ce8ba713bad8":[11,0,0,3,2,10],
-"structchebyshev_1_1prec_1_1estimate__options.html#afe056c349d004fe8acb60aacae7d4f55":[11,0,0,3,2,1],
-"structchebyshev_1_1prec_1_1estimate__result.html":[11,0,0,3,1]
+"structchebyshev_1_1prec_1_1estimate__options.html#aed642ec2da8e6b17a9da75321de5226a":[11,0,0,3,2,3]
 };

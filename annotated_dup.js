@@ -36,6 +36,7 @@ var annotated_dup =
       [ "regression", "namespacetheoretica_1_1regression.html", [
         [ "linear_model", "structtheoretica_1_1regression_1_1linear__model.html", "structtheoretica_1_1regression_1_1linear__model" ]
       ] ],
+      [ "mat_iterator", "classtheoretica_1_1mat__iterator.html", "classtheoretica_1_1mat__iterator" ],
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ],
       [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],

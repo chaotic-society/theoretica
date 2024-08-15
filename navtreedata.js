@@ -71,6 +71,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -88,15 +89,15 @@ var NAVTREEINDEX =
 [
 "algebra_8h.html",
 "classtheoretica_1_1dual.html#ad8152ebab33e0586e5b0a64b16adbf5a",
-"classtheoretica_1_1phasor.html#a4ec24351bcca7cc48d63811bf1af8a98",
-"complex__analysis_8h.html#a1aa0b0ea1bbf028e0aca26f15c751b33",
-"error_8h.html#a47d8f770edb576685f4b8752f2eb9760a51f6a269aa3a6f92215230ceb2212758",
-"namespacechebyshev_1_1err.html#aaf2431222acc5a373a1d29ef098ece59",
-"namespacetheoretica.html#a3d13f9f59d386770a41ca68f16820aac",
-"namespacetheoretica.html#ac8021d136cee11920c79c49560eb33b7",
-"namespacetheoretica_1_1special.html#a3bcb684396c3ebe33ec5c922fb143a5c",
-"roots_8h.html#a09ec9b2753a108bba753d27e179b641a",
-"structchebyshev_1_1prec_1_1estimate__result.html#a1038aca34e6efaeb503cc445dab52790"
+"classtheoretica_1_1phasor.html#a3ef41ea67cd7073d1a48727cf40ef355",
+"complex__analysis_8h.html#a0347aca2b094329df5c4593d8fe7e39d",
+"error_8h.html#a47d8f770edb576685f4b8752f2eb9760",
+"namespacechebyshev_1_1err.html#a7624d059ef5082ba28ab83e7b85f5483",
+"namespacetheoretica.html#a39df0b112f893ca611b133774bcc76b8",
+"namespacetheoretica.html#ac71451b0e74e1fe8a28d1c41bc954804",
+"namespacetheoretica_1_1regression.html#ac756ea4900f4fef409de1887578b85cb",
+"regression_8h_source.html",
+"structchebyshev_1_1prec_1_1estimate__options.html#afd55101b5bf23c0910e8ce8ba713bad8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

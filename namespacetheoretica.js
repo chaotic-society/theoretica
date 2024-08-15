@@ -179,6 +179,7 @@ var namespacetheoretica =
       [ "tan", "namespacetheoretica_1_1vectorized.html#af722ddd531c4f92c1497804597bc0fdc", null ],
       [ "tanh", "namespacetheoretica_1_1vectorized.html#af073ccb5e1d1155b5a8e497112556fc1", null ]
     ] ],
+    [ "mat_iterator", "classtheoretica_1_1mat__iterator.html", "classtheoretica_1_1mat__iterator" ],
     [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
     [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ],
     [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],

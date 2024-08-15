@@ -1,7 +1,7 @@
 var classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4 =
 [
-    [ "iterator", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4_1_1iterator.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4_1_1iterator" ],
     [ "Container", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a8ba508e08fac09ab84596504881c6009", null ],
+    [ "iterator", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aa2f4ecc172e67844bd4523076b1963ad", null ],
     [ "mat", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ac526a7f72b6f126c70834902718c3a00", null ],
     [ "mat", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a2ae0a0c986694de52fdd3e6d04d14965", null ],
     [ "mat", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a330e92ef6829acb945c074613f15f580", null ],

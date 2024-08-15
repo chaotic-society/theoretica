@@ -1,6 +1,6 @@
 var classtheoretica_1_1mat =
 [
-    [ "iterator", "classtheoretica_1_1mat_1_1iterator.html", "classtheoretica_1_1mat_1_1iterator" ],
+    [ "iterator", "classtheoretica_1_1mat.html#afd2c07a531e30663e6694871656aa553", null ],
     [ "mat", "classtheoretica_1_1mat.html#a8976dc8d13dd72b150c36696c8bb307a", null ],
     [ "mat", "classtheoretica_1_1mat.html#aa9bc97314c3d876f284f6756fb218b41", null ],
     [ "mat", "classtheoretica_1_1mat.html#a65547ea8f4d77fca19a380b332011ef5", null ],
