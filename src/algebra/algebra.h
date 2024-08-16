@@ -1801,6 +1801,63 @@ namespace theoretica {
 			// Use LU decomposition to solve the linear system
 			return solve_lu(A, b);
 		}
+
+		// Eigensystem methods
+
+
+		/// Find the biggest eigenvalue in module of a
+		/// square matrix using the power method (Von Mises iteration).
+		///
+		/// @param A The matrix to find the biggest eigenvalue of
+		/// @param x The starting vector (a random vector is a good choice)
+		/// @return The biggest eigenvalue of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector>
+		inline auto eigenvalue_power(
+			const Matrix& A, const Vector& x,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvalue_power", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (x.size() != A.rows()) {
+				TH_MATH_ERROR("eigenvalue_power", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Apply a first iteration to initialize
+			// the current and previous vectors
+			Vector x_curr = A * x;
+			Vector x_prev = x;
+
+			// Iteration counter
+			unsigned int i;
+
+			// Iteratively apply the matrix to the vector
+			for (i = 0; i <= max_iter; ++i) {
+				
+				x_prev = x_curr;
+				x_curr = normalize(A * x_prev);
+
+				// Stop the algorithm when |x_k+1| - |x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance)
+					break;
+			}
+
+			// The algorithm did not converge
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvalue_power", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			return dot(x_curr, A * x_curr);
+		}
+
 	}
 }
 
