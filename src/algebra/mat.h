@@ -422,7 +422,7 @@ namespace theoretica {
 
 
 		/// Iterator for statically allocated matrices.
-		using iterator = mat_iterator<mat<Type, N, K>>;
+		using iterator = mat_iterator<mat<Type, N, K>, Type&>;
 
 
 		/// Const iterator for statically allocated matrices.
@@ -1038,7 +1038,7 @@ namespace theoretica {
 
 
 		/// Iterator for dynamically allocated matrices.
-		using iterator = mat_iterator<mat<Type, 0, 0>>;
+		using iterator = mat_iterator<mat<Type, 0, 0>, Type&>;
 
 
 		/// Const iterator for dynamically allocated matrices.

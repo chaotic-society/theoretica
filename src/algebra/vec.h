@@ -322,7 +322,7 @@ namespace theoretica {
 
 
 		/// Sequential iterator for statically allocated vectors.
-		using iterator = vec_iterator<vec<Type, N>>;
+		using iterator = vec_iterator<vec<Type, N>, Type&>;
 
 		/// Const sequential iterator for statically allocated vectors.
 		using const_iterator = vec_iterator<const vec<Type, N>, const Type&>;
