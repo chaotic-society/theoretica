@@ -1,5 +1,14 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1regression.html#a78275eef04237b944d31cd21bc9a2e6e":[10,0,2,3,2],
+"namespacetheoretica_1_1regression.html#a83abb2c03a092fb7b1123c200c092ebd":[10,0,2,3,11],
+"namespacetheoretica_1_1regression.html#a8bd8c2804e6d0decea07c321eac58322":[10,0,2,3,8],
+"namespacetheoretica_1_1regression.html#a952d4cfbb4dad57560f4a123562caf8d":[10,0,2,3,13],
+"namespacetheoretica_1_1regression.html#aa9b4df37d74ed77d0d8f2fc38856c893":[10,0,2,3,4],
+"namespacetheoretica_1_1regression.html#aab8ee8f293b128475be644825803d52b":[10,0,2,3,5],
+"namespacetheoretica_1_1regression.html#ab3310b8c7b4730cfed2089fc3e4f76d0":[10,0,2,3,1],
+"namespacetheoretica_1_1regression.html#ab9707abb3b58a1a782dfc3f67ce8ddf1":[10,0,2,3,14],
+"namespacetheoretica_1_1regression.html#ac1638be4efe1daaffac9a797a44f0ec9":[10,0,2,3,7],
 "namespacetheoretica_1_1regression.html#ac756ea4900f4fef409de1887578b85cb":[10,0,2,3,3],
 "namespacetheoretica_1_1regression.html#afab09c1ccefa58066ae939e178b3f7cd":[10,0,2,3,12],
 "namespacetheoretica_1_1special.html":[10,0,2,4],
@@ -240,14 +249,5 @@ var NAVTREEINDEX8 =
 "regression_8h.html#a42740205ba00a0e35364c7d486cc835f":[12,0,10,3,6],
 "regression_8h.html#a43911fac741333de75b825268f9f7cf5":[12,0,10,3,9],
 "regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e":[12,0,10,3,2],
-"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd":[12,0,10,3,11],
-"regression_8h.html#a8bd8c2804e6d0decea07c321eac58322":[12,0,10,3,8],
-"regression_8h.html#a952d4cfbb4dad57560f4a123562caf8d":[12,0,10,3,13],
-"regression_8h.html#aa9b4df37d74ed77d0d8f2fc38856c893":[12,0,10,3,4],
-"regression_8h.html#aab8ee8f293b128475be644825803d52b":[12,0,10,3,5],
-"regression_8h.html#ab3310b8c7b4730cfed2089fc3e4f76d0":[12,0,10,3,1],
-"regression_8h.html#ab9707abb3b58a1a782dfc3f67ce8ddf1":[12,0,10,3,14],
-"regression_8h.html#ac1638be4efe1daaffac9a797a44f0ec9":[12,0,10,3,7],
-"regression_8h.html#ac756ea4900f4fef409de1887578b85cb":[12,0,10,3,3],
-"regression_8h.html#afab09c1ccefa58066ae939e178b3f7cd":[12,0,10,3,12]
+"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd":[12,0,10,3,11]
 };

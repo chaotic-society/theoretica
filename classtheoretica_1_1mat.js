@@ -1,5 +1,6 @@
 var classtheoretica_1_1mat =
 [
+    [ "const_iterator", "classtheoretica_1_1mat.html#a7d369527e9d573eda1e4eb8c3f17425e", null ],
     [ "iterator", "classtheoretica_1_1mat.html#afd2c07a531e30663e6694871656aa553", null ],
     [ "mat", "classtheoretica_1_1mat.html#a8976dc8d13dd72b150c36696c8bb307a", null ],
     [ "mat", "classtheoretica_1_1mat.html#aa9bc97314c3d876f284f6756fb218b41", null ],
@@ -8,10 +9,12 @@ var classtheoretica_1_1mat =
     [ "at", "classtheoretica_1_1mat.html#acc9ec00e88f58c292416286cd9ca0107", null ],
     [ "at", "classtheoretica_1_1mat.html#a7cfe99cd432ce44ed5ad9df2b7f96c2e", null ],
     [ "begin", "classtheoretica_1_1mat.html#afe41380064ddcea033d2dd7fb406929a", null ],
+    [ "begin", "classtheoretica_1_1mat.html#aa2b7a2b00b4226518cade43de83edf01", null ],
     [ "cols", "classtheoretica_1_1mat.html#a836529281da2a5c33f01c1ef79744d3a", null ],
     [ "det", "classtheoretica_1_1mat.html#ad8aea59aefdd2b62fd2ad30835540ea5", null ],
     [ "diagonal_product", "classtheoretica_1_1mat.html#a71622b1f9e1a4b623509e8680885f7c4", null ],
     [ "end", "classtheoretica_1_1mat.html#a8dff8a26d592e20b4c5de77258659794", null ],
+    [ "end", "classtheoretica_1_1mat.html#a2a5a77b462dc6d513c7c725e33b4df3e", null ],
     [ "get", "classtheoretica_1_1mat.html#a35c717d5bd87070d9b0813c431e83bef", null ],
     [ "inverse", "classtheoretica_1_1mat.html#a2b4fd3a629fd3edc2eab054c383e358c", null ],
     [ "invert", "classtheoretica_1_1mat.html#a1c8ac3cca96179e1829775cdb18e25a4", null ],

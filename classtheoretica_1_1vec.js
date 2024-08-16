@@ -1,6 +1,7 @@
 var classtheoretica_1_1vec =
 [
-    [ "iterator", "classtheoretica_1_1vec_1_1iterator.html", "classtheoretica_1_1vec_1_1iterator" ],
+    [ "const_iterator", "classtheoretica_1_1vec.html#a4ab7a7d113332b685d8a1a3bff5f64bc", null ],
+    [ "iterator", "classtheoretica_1_1vec.html#ac7ba6c8267721b757d3ebd954ee6f1b0", null ],
     [ "vec", "classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec", null ],
     [ "vec", "classtheoretica_1_1vec.html#ae22ed79cba4956cfe1a2be5ad0e82555", null ],
     [ "vec", "classtheoretica_1_1vec.html#a4c4500ce6f106043422b3d41b59d1edd", null ],
@@ -9,10 +10,12 @@ var classtheoretica_1_1vec =
     [ "~vec", "classtheoretica_1_1vec.html#aae3028bc587731ed6ebf8a228b449087", null ],
     [ "at", "classtheoretica_1_1vec.html#ac65f6c1cbfd5657a3bfc50f11a96916c", null ],
     [ "begin", "classtheoretica_1_1vec.html#abe60e5adc4cb9a62f2e5db9e9744f3f8", null ],
+    [ "begin", "classtheoretica_1_1vec.html#a1b84d9d179ba5d0591917dacffd63f26", null ],
     [ "cross", "classtheoretica_1_1vec.html#a39f730bf97a75936d33817ced3c1b06a", null ],
     [ "cross", "classtheoretica_1_1vec.html#abf2acf182f1cd28d3adf1d62706d01fb", null ],
     [ "dot", "classtheoretica_1_1vec.html#ab8231b80c7506360999d9777d9d4a9c3", null ],
     [ "end", "classtheoretica_1_1vec.html#a3388c945319742764ae7da59b659b701", null ],
+    [ "end", "classtheoretica_1_1vec.html#ad58291ce29bbe29925a4f6c9e3259807", null ],
     [ "get", "classtheoretica_1_1vec.html#a2f104fe54007bef111b686e2722e472b", null ],
     [ "norm", "classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562", null ],
     [ "normalize", "classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830", null ],

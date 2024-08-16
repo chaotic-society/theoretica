@@ -39,6 +39,7 @@ var annotated_dup =
       [ "mat_iterator", "classtheoretica_1_1mat__iterator.html", "classtheoretica_1_1mat__iterator" ],
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ],
+      [ "vec_iterator", "classtheoretica_1_1vec__iterator.html", "classtheoretica_1_1vec__iterator" ],
       [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],
       [ "vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", "classtheoretica_1_1vec_3_01_type_00_010_01_4" ],
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],

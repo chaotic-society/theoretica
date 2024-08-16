@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: theoretica::mat_iterator&lt; Matrix &gt; Class Template Reference</title>
+<title>Theoretica: theoretica::mat_iterator&lt; Matrix, ReturnType &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1mat__iterator.html'
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtheoretica_1_1mat__iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">theoretica::mat_iterator&lt; Matrix &gt; Class Template Reference</div>  </div>
+<div class="title">theoretica::mat_iterator&lt; Matrix, ReturnType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -106,54 +106,55 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1mat__iterator.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a05fca400dee35910c5af319537990459"><td class="memItemLeft" align="right" valign="top"><a id="a05fca400dee35910c5af319537990459"></a>
+<tr class="memitem:ae7687e1e55ebc7ef268af21205f0e4d4"><td class="memItemLeft" align="right" valign="top"><a id="ae7687e1e55ebc7ef268af21205f0e4d4"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>iterator_category</b> = std::forward_iterator_tag</td></tr>
-<tr class="separator:a05fca400dee35910c5af319537990459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5ecb6b1b3f7e4ae4484f024b061deb"><td class="memItemLeft" align="right" valign="top"><a id="a4b5ecb6b1b3f7e4ae4484f024b061deb"></a>
+<tr class="separator:ae7687e1e55ebc7ef268af21205f0e4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fbc645fc8d519f127b54a4725271587"><td class="memItemLeft" align="right" valign="top"><a id="a7fbc645fc8d519f127b54a4725271587"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = <a class="el" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t</a>&lt; Matrix &gt;</td></tr>
-<tr class="separator:a4b5ecb6b1b3f7e4ae4484f024b061deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f3b054965ceb00df445acdbaec61894"><td class="memItemLeft" align="right" valign="top"><a id="a6f3b054965ceb00df445acdbaec61894"></a>
+<tr class="separator:a7fbc645fc8d519f127b54a4725271587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847fc0a74ec67bc49be1c3fcc07595e4"><td class="memItemLeft" align="right" valign="top"><a id="a847fc0a74ec67bc49be1c3fcc07595e4"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = value_type *</td></tr>
-<tr class="separator:a6f3b054965ceb00df445acdbaec61894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a761c4fccbb3d9bcdc42b16a8ca322df7"><td class="memItemLeft" align="right" valign="top"><a id="a761c4fccbb3d9bcdc42b16a8ca322df7"></a>
+<tr class="separator:a847fc0a74ec67bc49be1c3fcc07595e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade545163fb9abff99e7a00622c4159e0"><td class="memItemLeft" align="right" valign="top"><a id="ade545163fb9abff99e7a00622c4159e0"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = value_type &amp;</td></tr>
-<tr class="separator:a761c4fccbb3d9bcdc42b16a8ca322df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ade545163fb9abff99e7a00622c4159e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a6a09bc68b1b548bf8b04f86e187d21"><td class="memItemLeft" align="right" valign="top"><a id="a3a6a09bc68b1b548bf8b04f86e187d21"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#a3a6a09bc68b1b548bf8b04f86e187d21">mat_iterator</a> (Matrix &amp;matrix, size_t row=0, size_t col=0)</td></tr>
-<tr class="memdesc:a3a6a09bc68b1b548bf8b04f86e187d21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct iterator from a matrix. <br /></td></tr>
-<tr class="separator:a3a6a09bc68b1b548bf8b04f86e187d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22f9a566a5ea05b962f06af1a8983921"><td class="memItemLeft" align="right" valign="top"><a id="a22f9a566a5ea05b962f06af1a8983921"></a>
-value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#a22f9a566a5ea05b962f06af1a8983921">operator*</a> ()</td></tr>
-<tr class="memdesc:a22f9a566a5ea05b962f06af1a8983921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereference the iterator to get the current element by reference. <br /></td></tr>
-<tr class="separator:a22f9a566a5ea05b962f06af1a8983921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dfd4cb2dd8941bfe8caffa7296e23fa"><td class="memItemLeft" align="right" valign="top"><a id="a6dfd4cb2dd8941bfe8caffa7296e23fa"></a>
-<a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#a6dfd4cb2dd8941bfe8caffa7296e23fa">operator++</a> ()</td></tr>
-<tr class="memdesc:a6dfd4cb2dd8941bfe8caffa7296e23fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move to the next element in the matrix. <br /></td></tr>
-<tr class="separator:a6dfd4cb2dd8941bfe8caffa7296e23fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad98c41da6eb99c27057486ed01ca3b7f"><td class="memItemLeft" align="right" valign="top"><a id="ad98c41da6eb99c27057486ed01ca3b7f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ad98c41da6eb99c27057486ed01ca3b7f">row_index</a> ()</td></tr>
-<tr class="memdesc:ad98c41da6eb99c27057486ed01ca3b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the current row. <br /></td></tr>
-<tr class="separator:ad98c41da6eb99c27057486ed01ca3b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81d6fdd2e16c0826d60f208ee347d4c5"><td class="memItemLeft" align="right" valign="top"><a id="a81d6fdd2e16c0826d60f208ee347d4c5"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#a81d6fdd2e16c0826d60f208ee347d4c5">col_index</a> ()</td></tr>
-<tr class="memdesc:a81d6fdd2e16c0826d60f208ee347d4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the current column. <br /></td></tr>
-<tr class="separator:a81d6fdd2e16c0826d60f208ee347d4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02be92efbdfe473f6afa9fce5f4ec833"><td class="memItemLeft" align="right" valign="top"><a id="a02be92efbdfe473f6afa9fce5f4ec833"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#a02be92efbdfe473f6afa9fce5f4ec833">operator==</a> (const <a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;other) const</td></tr>
-<tr class="memdesc:a02be92efbdfe473f6afa9fce5f4ec833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move to the previous element in the matrix. <br /></td></tr>
-<tr class="separator:a02be92efbdfe473f6afa9fce5f4ec833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7f09582a9d65f35da5dfdc8e44fe42"><td class="memItemLeft" align="right" valign="top"><a id="a4c7f09582a9d65f35da5dfdc8e44fe42"></a>
+<tr class="memitem:ac0479ca89e5910e1b73a6ea6b76490f9"><td class="memItemLeft" align="right" valign="top"><a id="ac0479ca89e5910e1b73a6ea6b76490f9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ac0479ca89e5910e1b73a6ea6b76490f9">mat_iterator</a> (Matrix &amp;matrix, size_t row=0, size_t col=0)</td></tr>
+<tr class="memdesc:ac0479ca89e5910e1b73a6ea6b76490f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct iterator from a matrix. <br /></td></tr>
+<tr class="separator:ac0479ca89e5910e1b73a6ea6b76490f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae271c7f8120f53c6c8c92ff41d1d9f6a"><td class="memItemLeft" align="right" valign="top"><a id="ae271c7f8120f53c6c8c92ff41d1d9f6a"></a>
+ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ae271c7f8120f53c6c8c92ff41d1d9f6a">operator*</a> ()</td></tr>
+<tr class="memdesc:ae271c7f8120f53c6c8c92ff41d1d9f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereference the iterator to get the current element by reference. <br /></td></tr>
+<tr class="separator:ae271c7f8120f53c6c8c92ff41d1d9f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea14ab4a54640eab7e43d3a683ca51e3"><td class="memItemLeft" align="right" valign="top"><a id="aea14ab4a54640eab7e43d3a683ca51e3"></a>
+<a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#aea14ab4a54640eab7e43d3a683ca51e3">operator++</a> ()</td></tr>
+<tr class="memdesc:aea14ab4a54640eab7e43d3a683ca51e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move to the next element in the matrix. <br /></td></tr>
+<tr class="separator:aea14ab4a54640eab7e43d3a683ca51e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1069e9fd7832e067b4ac209736a4a11"><td class="memItemLeft" align="right" valign="top"><a id="af1069e9fd7832e067b4ac209736a4a11"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#af1069e9fd7832e067b4ac209736a4a11">row_index</a> ()</td></tr>
+<tr class="memdesc:af1069e9fd7832e067b4ac209736a4a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the current row. <br /></td></tr>
+<tr class="separator:af1069e9fd7832e067b4ac209736a4a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f17a31ed0db86bcaa30dec8e004bc4"><td class="memItemLeft" align="right" valign="top"><a id="ad3f17a31ed0db86bcaa30dec8e004bc4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ad3f17a31ed0db86bcaa30dec8e004bc4">col_index</a> ()</td></tr>
+<tr class="memdesc:ad3f17a31ed0db86bcaa30dec8e004bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the current column. <br /></td></tr>
+<tr class="separator:ad3f17a31ed0db86bcaa30dec8e004bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae918bd646ce0f86a5bcc710bb65ea060"><td class="memItemLeft" align="right" valign="top"><a id="ae918bd646ce0f86a5bcc710bb65ea060"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ae918bd646ce0f86a5bcc710bb65ea060">operator==</a> (const <a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;other) const</td></tr>
+<tr class="memdesc:ae918bd646ce0f86a5bcc710bb65ea060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move to the previous element in the matrix. <br /></td></tr>
+<tr class="separator:ae918bd646ce0f86a5bcc710bb65ea060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad445febe954867cb87c606c80b489429"><td class="memItemLeft" align="right" valign="top"><a id="ad445febe954867cb87c606c80b489429"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;other) const</td></tr>
-<tr class="separator:a4c7f09582a9d65f35da5dfdc8e44fe42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ad445febe954867cb87c606c80b489429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Matrix&gt;<br />
-class theoretica::mat_iterator&lt; Matrix &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Matrix, typename ReturnType = matrix_element_t&lt;Matrix&gt;&amp;&gt;<br />
+class theoretica::mat_iterator&lt; Matrix, ReturnType &gt;</h3>
 
 <p>A sequential iterator for matrices. </p>
+<p>A const iterator may be constructed by specifying both typenames Matrix and ReturnType as const. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>algebra/<a class="el" href="mat_8h_source.html">mat.h</a></li>
 </ul>
@@ -163,7 +164,7 @@ class theoretica::mat_iterator&lt; Matrix &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a></li>
-    <li class="footer">Generated on Thu Aug 15 2024 21:55:57 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 16 2024 08:48:31 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

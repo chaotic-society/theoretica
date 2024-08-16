@@ -1,5 +1,14 @@
 var NAVTREEINDEX9 =
 {
+"regression_8h.html#a8bd8c2804e6d0decea07c321eac58322":[12,0,10,3,8],
+"regression_8h.html#a952d4cfbb4dad57560f4a123562caf8d":[12,0,10,3,13],
+"regression_8h.html#aa9b4df37d74ed77d0d8f2fc38856c893":[12,0,10,3,4],
+"regression_8h.html#aab8ee8f293b128475be644825803d52b":[12,0,10,3,5],
+"regression_8h.html#ab3310b8c7b4730cfed2089fc3e4f76d0":[12,0,10,3,1],
+"regression_8h.html#ab9707abb3b58a1a782dfc3f67ce8ddf1":[12,0,10,3,14],
+"regression_8h.html#ac1638be4efe1daaffac9a797a44f0ec9":[12,0,10,3,7],
+"regression_8h.html#ac756ea4900f4fef409de1887578b85cb":[12,0,10,3,3],
+"regression_8h.html#afab09c1ccefa58066ae939e178b3f7cd":[12,0,10,3,12],
 "regression_8h_source.html":[12,0,10,3],
 "roots_8h.html":[12,0,7,3],
 "roots_8h.html#a04969926a4834b77f3efd544ae91f8a4":[12,0,7,3,1],
@@ -240,14 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1prec_1_1equation__result.html#ad85945fcabb36308138a76657faa1ede":[11,0,0,3,3,2],
 "structchebyshev_1_1prec_1_1equation__result.html#adb48df43eb13ea436816b50e29adedb6":[11,0,0,3,3,3],
 "structchebyshev_1_1prec_1_1estimate__options.html":[11,0,0,3,2],
-"structchebyshev_1_1prec_1_1estimate__options.html#a019ad1390b1b600446b674eed2b13736":[11,0,0,3,2,5],
-"structchebyshev_1_1prec_1_1estimate__options.html#a13d09f0696ee66a7248ab0aa42c2c6fd":[11,0,0,3,2,8],
-"structchebyshev_1_1prec_1_1estimate__options.html#a45258e5beaae2eebf48020253f71246a":[11,0,0,3,2,9],
-"structchebyshev_1_1prec_1_1estimate__options.html#a489e411ea06f43b4877bd1b25283e70a":[11,0,0,3,2,2],
-"structchebyshev_1_1prec_1_1estimate__options.html#a9db168e496f225eba1f92ba4285c6820":[11,0,0,3,2,4],
-"structchebyshev_1_1prec_1_1estimate__options.html#a9e98d758740c329812879bdc339e2035":[11,0,0,3,2,6],
-"structchebyshev_1_1prec_1_1estimate__options.html#aaa64fa0be09ec33b8a2536e417c8aecf":[11,0,0,3,2,7],
-"structchebyshev_1_1prec_1_1estimate__options.html#ab9f0297638f921b01b384522d22e7bca":[11,0,0,3,2,0],
-"structchebyshev_1_1prec_1_1estimate__options.html#ae9a9c55246716209940c9c1798511188":[11,0,0,3,2,11],
-"structchebyshev_1_1prec_1_1estimate__options.html#aed642ec2da8e6b17a9da75321de5226a":[11,0,0,3,2,3]
+"structchebyshev_1_1prec_1_1estimate__options.html#a019ad1390b1b600446b674eed2b13736":[11,0,0,3,2,5]
 };

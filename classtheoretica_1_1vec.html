@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1vec.html',''); init
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
@@ -106,10 +106,16 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1vec.html',''); init
 
 <p><code>#include &lt;<a class="el" href="vec_8h_source.html">vec.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec_1_1iterator.html">iterator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac7ba6c8267721b757d3ebd954ee6f1b0"><td class="memItemLeft" align="right" valign="top"><a id="ac7ba6c8267721b757d3ebd954ee6f1b0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#ac7ba6c8267721b757d3ebd954ee6f1b0">iterator</a> = <a class="el" href="classtheoretica_1_1vec__iterator.html">vec_iterator</a>&lt; <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Type, N &gt; &gt;</td></tr>
+<tr class="memdesc:ac7ba6c8267721b757d3ebd954ee6f1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequential iterator for statically allocated vectors. <br /></td></tr>
+<tr class="separator:ac7ba6c8267721b757d3ebd954ee6f1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ab7a7d113332b685d8a1a3bff5f64bc"><td class="memItemLeft" align="right" valign="top"><a id="a4ab7a7d113332b685d8a1a3bff5f64bc"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a4ab7a7d113332b685d8a1a3bff5f64bc">const_iterator</a> = <a class="el" href="classtheoretica_1_1vec__iterator.html">vec_iterator</a>&lt; const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Type, N &gt;, const Type &amp; &gt;</td></tr>
+<tr class="memdesc:a4ab7a7d113332b685d8a1a3bff5f64bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const sequential iterator for statically allocated vectors. <br /></td></tr>
+<tr class="separator:a4ab7a7d113332b685d8a1a3bff5f64bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -236,6 +242,14 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a3388c945319742764ae7da59b659b701">end</a> ()</td></tr>
 <tr class="memdesc:a3388c945319742764ae7da59b659b701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an iterator to one plus the last element of the vector. <br /></td></tr>
 <tr class="separator:a3388c945319742764ae7da59b659b701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b84d9d179ba5d0591917dacffd63f26"><td class="memItemLeft" align="right" valign="top"><a id="a1b84d9d179ba5d0591917dacffd63f26"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a1b84d9d179ba5d0591917dacffd63f26">begin</a> () const</td></tr>
+<tr class="memdesc:a1b84d9d179ba5d0591917dacffd63f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator to the first element of the vector. <br /></td></tr>
+<tr class="separator:a1b84d9d179ba5d0591917dacffd63f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58291ce29bbe29925a4f6c9e3259807"><td class="memItemLeft" align="right" valign="top"><a id="ad58291ce29bbe29925a4f6c9e3259807"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#ad58291ce29bbe29925a4f6c9e3259807">end</a> () const</td></tr>
+<tr class="memdesc:ad58291ce29bbe29925a4f6c9e3259807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator to one plus the last element of the vector. <br /></td></tr>
+<tr class="separator:ad58291ce29bbe29925a4f6c9e3259807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e6e85694fd8cbe05fd8269940de1830"><td class="memItemLeft" align="right" valign="top"><a id="a9e6e85694fd8cbe05fd8269940de1830"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830">normalize</a> ()</td></tr>
 <tr class="memdesc:a9e6e85694fd8cbe05fd8269940de1830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector normalization (v / |v|) <br /></td></tr>
@@ -335,7 +349,7 @@ template&lt;typename Type  = real, unsigned int N = 0&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1vec.html">vec</a></li>
-    <li class="footer">Generated on Thu Aug 15 2024 21:55:57 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 16 2024 08:48:31 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

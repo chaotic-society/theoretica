@@ -29,13 +29,12 @@ var hierarchy =
     [ "std::is_same", null, [
       [ "theoretica::has_type_elements< Structure, Type >", "structtheoretica_1_1has__type__elements.html", null ]
     ] ],
-    [ "theoretica::vec< Type, N >::iterator", "classtheoretica_1_1vec_1_1iterator.html", null ],
     [ "theoretica::regression::linear_model", "structtheoretica_1_1regression_1_1linear__model.html", null ],
     [ "theoretica::_internal::make_void< Args >", "structtheoretica_1_1__internal_1_1make__void.html", null ],
     [ "theoretica::mat< Type, N, K >", "classtheoretica_1_1mat.html", null ],
     [ "theoretica::mat< real, 2, 2 >", "classtheoretica_1_1mat.html", null ],
     [ "theoretica::mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", null ],
-    [ "theoretica::mat_iterator< Matrix >", "classtheoretica_1_1mat__iterator.html", null ],
+    [ "theoretica::mat_iterator< Matrix, ReturnType >", "classtheoretica_1_1mat__iterator.html", null ],
     [ "theoretica::multidual< N >", "classtheoretica_1_1multidual.html", null ],
     [ "theoretica::ode_state< N >", "structtheoretica_1_1ode__state.html", null ],
     [ "theoretica::ode_state< 1 >", "structtheoretica_1_1ode__state_3_011_01_4.html", null ],
@@ -60,5 +59,6 @@ var hierarchy =
     ] ],
     [ "theoretica::vec< Type, N >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec< real, 0 >", "classtheoretica_1_1vec.html", null ],
-    [ "theoretica::vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", null ]
+    [ "theoretica::vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", null ],
+    [ "theoretica::vec_iterator< Vector, ReturnType >", "classtheoretica_1_1vec__iterator.html", null ]
 ];

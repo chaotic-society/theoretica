@@ -1,5 +1,6 @@
 var classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4 =
 [
+    [ "const_iterator", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a4ee848d0761bb0b1eae0d4e611d66cd8", null ],
     [ "Container", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a8ba508e08fac09ab84596504881c6009", null ],
     [ "iterator", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aa2f4ecc172e67844bd4523076b1963ad", null ],
     [ "mat", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ac526a7f72b6f126c70834902718c3a00", null ],
@@ -11,10 +12,12 @@ var classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4 =
     [ "at", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aa97251ae42aff48675dc5e8d618f3cb6", null ],
     [ "at", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ab7642ec2f9e8e10e19a0b34efa9f3e67", null ],
     [ "begin", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#abf35396fca69e70ed83f90a7d558982b", null ],
+    [ "begin", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aea8d8c21ae8de20eae3bcddf8e923c15", null ],
     [ "cols", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a820ddbd1c9f0c1661ae8b3452e162b56", null ],
     [ "det", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#af55989336bc6368f68abb4f91510bf29", null ],
     [ "diagonal_product", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a0ad2c3034d5b05c5f466932da96b57e8", null ],
     [ "end", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aa7936fe333e5678e096bec3b95f959ee", null ],
+    [ "end", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a820d0fe0ba54a301c49b5288ce0260d6", null ],
     [ "get", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#af987d7e4c4d354a06dcbec70c4429fa9", null ],
     [ "inverse", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ad6b9d354b6e91eb71fb27716d6418a7e", null ],
     [ "invert", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#aa1378ea0aad1958d3b72d5128359f9b1", null ],
