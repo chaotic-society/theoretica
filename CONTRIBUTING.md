@@ -7,15 +7,15 @@ Feel free to suggest modifications to it. By participating you also accept the l
 
 ## What is to be done?
 The best place to look for new features to implement or research is the [Issues](https://github.com/chaotic-society/theoretica/issues) page.
-There, you can find a list of features which need to be implemented or improved, and bugs to be fixed. The description of an issue gives information about the feature and how it may be implemented. Pinned issues contain the most important tasks that need addressing and are more urgent. 
+There, you can find a list of features which need to be implemented or improved, and bugs to be fixed. The description of an issue gives information about the feature and how it may be implemented. Pinned issues contain the most important tasks that need addressing and are a priority. 
 
 ### Suggesting new features
-You can freely suggest new features, doing so by opening a new issue describing your idea and how it may be implemented, how it will improve the project in your opinion and any useful resources. Please make sure to check that your new issue is not a duplicate before opening a new one.
+You can freely [suggest new features](https://github.com/chaotic-society/theoretica/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=), doing so by opening a new issue describing your idea and how it may be implemented, how it could improve the project and any useful resources. Please make sure to check that your new issue is not a duplicate before opening a new one.
 
 ## Contributing with code
 
 Writing new code or improving the existing one is a great way to push the project forward! To contribute by programming, please follow these steps:
-- Decide which issue to implement (or open a new one)
+- Decide which issue to fix (or open a new one)
 - Write your new implementation or changes to existing code
 - Whenever possible, write test cases and documentation for your code
 - Make sure your code works by running `make all`
