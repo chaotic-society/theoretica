@@ -19,6 +19,66 @@
 
 namespace theoretica {
 
+
+	/// @class vec_iterator Sequential iterator for vectors.
+	template<typename Vector, typename ReturnType = indexable_element_t<Vector>&>
+	class vec_iterator {
+
+		private:
+
+			/// A reference to the vector being iterated over
+			Vector& vector;
+
+			/// The current index
+			size_t i;
+		
+		public:
+
+			using iterator_category = std::forward_iterator_tag;
+			using value_type = indexable_element_t<Vector>;
+			using pointer = value_type*;
+			using reference = value_type&;
+
+			/// Construct the iterator from a pointer to the
+			/// elements and a starting index.
+			vec_iterator(Vector& vector, size_t index) : vector(vector), i(index) {}
+
+			/// Dereference the iterator
+			/// to get the current element.
+			ReturnType operator*() {
+				return vector[i];
+			}
+
+			/// Move to the next element in the vector.
+			vec_iterator& operator++() {
+				++i;
+				return *this;
+			}
+
+			/// Move to the previous element in the vector.
+			// vec_iterator& operator--() {
+			// 	--i;
+			// 	return *this;
+			// }
+
+
+			/// Get the current index
+			size_t index() {
+				return i;
+			}
+
+
+			/// Comparison operators.
+			bool operator==(const vec_iterator& other) const {
+				return i == other.i;
+			}
+
+			bool operator!=(const vec_iterator& other) const {
+				return !(*this == other);
+			}
+	};
+
+
 	/// 
 	/// @class vec
 	/// A statically allocated N-dimensional vector
@@ -261,66 +321,37 @@ namespace theoretica {
 		}
 
 
-		class iterator {
+		/// Sequential iterator for statically allocated vectors.
+		using iterator = vec_iterator<vec<Type, N>>;
 
-			private:
-				Type* data;
-				size_t index;
-			
-			public:
-
-				using iterator_category = std::forward_iterator_tag;
-				using difference_type = std::ptrdiff_t;
-				using value_type = Type;
-				using pointer = Type*;
-				using reference = Type&;
-
-				/// Construct the iterator from a pointer to the
-				/// elements and a starting index.
-				iterator(Type* data, size_t index) : data(data), index(index) {}
-
-				/// Dereference the iterator
-				/// to get the current element.
-				Type& operator*() {
-					return data[index];
-				}
-
-				/// Move to the next element
-				/// in the vector.
-				iterator& operator++() {
-					++index;
-					return *this;
-				}
-
-				/// Move to the previous element
-				/// in the vector.
-				iterator& operator--() {
-					--index;
-					return *this;
-				}
-
-				/// Comparison operators.
-				bool operator==(const iterator& other) const {
-					return index == other.index;
-				}
-
-				bool operator!=(const iterator& other) const {
-					return !(*this == other);
-				}
-		};
+		/// Const sequential iterator for statically allocated vectors.
+		using const_iterator = vec_iterator<const vec<Type, N>, const Type&>;
 
 
 		/// Get an iterator to the first element
 		/// of the vector.
 		inline auto begin() {
-			return vec<Type, N>::iterator(data, 0);
+			return iterator(*this, 0);
 		}
 
 
 		/// Get an iterator to one plus the last element
 		/// of the vector.
 		inline auto end() {
-			return vec<Type, N>::iterator(data, N);
+			return iterator(*this, size());
+		}
+
+
+		/// Get a const iterator to the first element of the vector.
+		inline auto begin() const {
+			return const_iterator(*this, 0);
+		}
+
+
+		/// Get a const iterator to one plus the
+		/// last element of the vector.
+		inline auto end() const {
+			return const_iterator(*this, size());
 		}
 
 

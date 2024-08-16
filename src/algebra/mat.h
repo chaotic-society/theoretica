@@ -27,7 +27,10 @@ namespace theoretica {
 
 	/// @class mat_iterator
 	/// A sequential iterator for matrices.
-	template<typename Matrix>
+	///
+	/// A const iterator may be constructed by specifying
+	/// both typenames Matrix and ReturnType as const.
+	template<typename Matrix, typename ReturnType = matrix_element_t<Matrix>&>
 	class mat_iterator {
 
 		private:
@@ -58,7 +61,7 @@ namespace theoretica {
 
 			/// Dereference the iterator to get
 			/// the current element by reference.
-			value_type& operator*() {
+			ReturnType operator*() {
 				return matrix(row, col);
 			}
 
@@ -422,17 +425,33 @@ namespace theoretica {
 		using iterator = mat_iterator<mat<Type, N, K>>;
 
 
-		/// Get an iterator to the first element
-		/// of the matrix.
+		/// Const iterator for statically allocated matrices.
+		using const_iterator = mat_iterator<const mat<Type, N, K>, const Type&>;
+
+
+		/// Get an iterator to the first element of the matrix.
 		inline auto begin() {
 			return iterator(*this, 0, 0);
 		}
 
 
-		/// Get an iterator to one plus the last element
-		/// of the matrix.
+		/// Get an iterator to one plus the last element of the matrix.
 		inline auto end() {
 			return iterator(*this, rows(), 0);
+		}
+
+
+		/// Get a const iterator to the first element
+		/// of the matrix.
+		inline auto begin() const {
+			return const_iterator(*this, 0, 0);
+		}
+
+
+		/// Get a const iterator to one plus the last element
+		/// of the matrix.
+		inline auto end() const {
+			return const_iterator(*this, rows(), 0);
 		}
 
 
@@ -1022,6 +1041,10 @@ namespace theoretica {
 		using iterator = mat_iterator<mat<Type, 0, 0>>;
 
 
+		/// Const iterator for dynamically allocated matrices.
+		using const_iterator = mat_iterator<const mat<Type, 0, 0>, const Type&>;
+
+
 		/// Get an iterator to the first element of the matrix.
 		inline auto begin() {
 			return iterator(*this, 0, 0);
@@ -1031,6 +1054,18 @@ namespace theoretica {
 		/// Get an iterator to one plus the last element of the matrix.
 		inline auto end() {
 			return iterator(*this, rows(), 0);
+		}
+
+
+		/// Get a const iterator to the first element of the matrix.
+		inline auto begin() const {
+			return const_iterator(*this, 0, 0);
+		}
+
+
+		/// Get a const iterator to one plus the last element of the matrix.
+		inline auto end() const {
+			return const_iterator(*this, rows(), 0);
 		}
 
 
