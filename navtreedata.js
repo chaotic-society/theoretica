@@ -41,16 +41,22 @@ var NAVTREE =
       [ "Statistics", "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md14", null ],
       [ "Pseudorandom and quasirandom generators", "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md15", null ]
     ] ],
+    [ "Coding standard", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html", [
+      [ "Scopes", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md17", null ],
+      [ "Naming conventions", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18", null ],
+      [ "Indentation", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md19", null ],
+      [ "Documentation", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20", null ]
+    ] ],
     [ "Contributing Guide", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "What is to be done?", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", [
-        [ "Code of Conduct", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
-        [ "Suggesting new features", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ]
+      [ "What is to be done?", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", [
+        [ "Code of Conduct", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ],
+        [ "Suggesting new features", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ]
       ] ],
-      [ "Contributing with code", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", null ],
-      [ "Contributing with research", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
-      [ "Contributing with tests", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ],
-      [ "Contributing with documentation", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", [
-        [ "Thank you for your contribution!", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ]
+      [ "Contributing with code", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md25", null ],
+      [ "Contributing with research", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md26", null ],
+      [ "Contributing with tests", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md27", null ],
+      [ "Contributing with documentation", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md28", [
+        [ "Thank you for your contribution!", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29", null ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
@@ -87,17 +93,17 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"algebra_8h.html",
-"classtheoretica_1_1dual.html#ad8152ebab33e0586e5b0a64b16adbf5a",
-"classtheoretica_1_1phasor.html#a1d71473f7ed63d88ca7cf3ed5c9ee337",
-"common_8h.html#a62181021524138fb26d708e15a8feb06",
-"err_8h.html#ad7f0779be4739d3c6221f15fdb8e8852",
-"namespacechebyshev_1_1benchmark.html#acff1796fa33343540eb11b456074f3ac",
-"namespacetheoretica.html#a3628a79e4bb98a5b26d673cb914534cf",
-"namespacetheoretica.html#ac380be159592259cb223e6190e504197",
-"namespacetheoretica_1_1regression.html#a78275eef04237b944d31cd21bc9a2e6e",
-"regression_8h.html#a8bd8c2804e6d0decea07c321eac58322",
-"structchebyshev_1_1prec_1_1estimate__options.html#a13d09f0696ee66a7248ab0aa42c2c6fd"
+"",
+"classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce",
+"classtheoretica_1_1phasor.html#a1d3468b50980c5ff753163190c1b8e28",
+"common_8h.html#a576ec61e254323459fe7f7e6ef22e5fc",
+"err_8h.html#aca5875c03bf5c2c5199f9c8f4f1509d5",
+"namespacechebyshev_1_1benchmark.html#a084f3811d9c540900fefc8a1958e8413",
+"namespacetheoretica.html#a30d6466e16b24bd1dfac49fd0c50ed79",
+"namespacetheoretica.html#abe9d9a32dc2c9f00de35c1b1a49b218e",
+"namespacetheoretica_1_1distribution.html#afd9b5a4d3ac635bf87af916a1aeefb23",
+"regression_8h.html",
+"structchebyshev_1_1prec_1_1equation__result.html#abf6e566e5ade4b647068718e3f997841"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
