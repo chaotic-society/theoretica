@@ -354,6 +354,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a> (const Matrix &amp;A, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a47d7736bbdcc4b5c721923592f6a65e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\) using the best available algorithm.  <a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">More...</a><br /></td></tr>
 <tr class="separator:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15adaa5164d52482d2a926f659c963a"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:aa15adaa5164d52482d2a926f659c963a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">eigenvalue_power</a> (const Matrix &amp;A, const Vector &amp;x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, unsigned int max_iter=100)</td></tr>
+<tr class="memdesc:aa15adaa5164d52482d2a926f659c963a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the biggest eigenvalue in module of a square matrix using the power method (Von Mises iteration).  <a href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">More...</a><br /></td></tr>
+<tr class="separator:aa15adaa5164d52482d2a926f659c963a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add67a433fe0cbfca717f7556afaabdbf"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:add67a433fe0cbfca717f7556afaabdbf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#add67a433fe0cbfca717f7556afaabdbf">lp_norm</a> (const Vector &amp;v, unsigned int p)</td></tr>
 <tr class="memdesc:add67a433fe0cbfca717f7556afaabdbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Norms.  <a href="namespacetheoretica_1_1algebra.html#add67a433fe0cbfca717f7556afaabdbf">More...</a><br /></td></tr>
@@ -1395,6 +1399,66 @@ template&lt;typename Vector1 , typename Vector2 &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The dot product of the two vectors </dd></dl>
+
+</div>
+</div>
+<a id="aa15adaa5164d52482d2a926f659c963a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15adaa5164d52482d2a926f659c963a">&#9670;&nbsp;</a></span>eigenvalue_power()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::eigenvalue_power </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the biggest eigenvalue in module of a square matrix using the power method (Von Mises iteration). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to find the biggest eigenvalue of </td></tr>
+    <tr><td class="paramname">x</td><td>The starting vector (a random vector is a good choice) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The biggest eigenvalue of the matrix, or NaN if the algorithm did not converge. </dd></dl>
 
 </div>
 </div>
@@ -4801,7 +4865,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Fri Aug 16 2024 10:22:32 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 16 2024 20:32:16 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

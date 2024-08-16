@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"real__analysis_8h_source.html":[13,0,4,7],
 "regression_8h.html":[13,0,10,3],
 "regression_8h.html#a256f8d4fa5431e922a7f872b00689a96":[13,0,10,3,10],
 "regression_8h.html#a42740205ba00a0e35364c7d486cc835f":[13,0,10,3,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1prec_1_1equation__result.html":[12,0,0,3,3],
 "structchebyshev_1_1prec_1_1equation__result.html#a1a2a1dfd1dad519646296a13baa4188b":[12,0,0,3,3,7],
 "structchebyshev_1_1prec_1_1equation__result.html#a4b3d1031d612460e6749b47fdd9468a7":[12,0,0,3,3,4],
-"structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa":[12,0,0,3,3,5],
-"structchebyshev_1_1prec_1_1equation__result.html#a6e892e9dc9c0f3fd0c16f4d11f682447":[12,0,0,3,3,6]
+"structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa":[12,0,0,3,3,5]
 };

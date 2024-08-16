@@ -25,6 +25,7 @@ var namespacetheoretica =
       [ "distance", "namespacetheoretica_1_1algebra.html#afda806b49346e3d5ea5653f084c3394d", null ],
       [ "distance", "namespacetheoretica_1_1algebra.html#ae58e3f5a6b4d0db51bbeec5bfc789da1", null ],
       [ "dot", "namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321", null ],
+      [ "eigenvalue_power", "namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a", null ],
       [ "euclidean_distance", "namespacetheoretica_1_1algebra.html#a6e09c1648a8787bc459402860380dad4", null ],
       [ "euclidean_distance", "namespacetheoretica_1_1algebra.html#a326d624702e7b8c7645f917e6e8df946", null ],
       [ "hamming_distance", "namespacetheoretica_1_1algebra.html#af63fa32f52f7801f0a2ab570d9ea5cd4", null ],

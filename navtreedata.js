@@ -93,7 +93,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
+"algebra_8h.html",
 "classtheoretica_1_1dual.html#ad3a8b67d674d935db540e6c1707fffce",
 "classtheoretica_1_1phasor.html#a1d3468b50980c5ff753163190c1b8e28",
 "common_8h.html#a576ec61e254323459fe7f7e6ef22e5fc",
@@ -101,9 +101,9 @@ var NAVTREEINDEX =
 "namespacechebyshev_1_1benchmark.html#a084f3811d9c540900fefc8a1958e8413",
 "namespacetheoretica.html#a30d6466e16b24bd1dfac49fd0c50ed79",
 "namespacetheoretica.html#abe9d9a32dc2c9f00de35c1b1a49b218e",
-"namespacetheoretica_1_1distribution.html#afd9b5a4d3ac635bf87af916a1aeefb23",
-"regression_8h.html",
-"structchebyshev_1_1prec_1_1equation__result.html#abf6e566e5ade4b647068718e3f997841"
+"namespacetheoretica_1_1distribution.html#afa890702a9f45e4926284bd4e26cda15",
+"real__analysis_8h_source.html",
+"structchebyshev_1_1prec_1_1equation__result.html#a6e892e9dc9c0f3fd0c16f4d11f682447"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -10,6 +10,7 @@ var algebra_8h =
     [ "det_3x3", "algebra_8h.html#a42e51c761ec3171bb9af10e521029851", null ],
     [ "diagonal_product", "algebra_8h.html#a84cf5d732779f650d7a6807177d71ffa", null ],
     [ "dot", "algebra_8h.html#ae32a78d562349a3e94592e8ef8d7b321", null ],
+    [ "eigenvalue_power", "algebra_8h.html#aa15adaa5164d52482d2a926f659c963a", null ],
     [ "hermitian", "algebra_8h.html#ab27e1f7cb91803bcaa589262d38e32e5", null ],
     [ "hermitian", "algebra_8h.html#ad4f36cb3ef370d7a919feb6ec0ae389f", null ],
     [ "inverse", "algebra_8h.html#aa5adc77960e5924940603eb503c12828", null ],
