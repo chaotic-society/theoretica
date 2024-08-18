@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"real__analysis_8h.html#aec6f43e74456bea35fb757f17db47da8":[13,0,4,7,16],
+"real__analysis_8h.html#af1a4ad4c5446986fe2d255a03be337a1":[13,0,4,7,11],
+"real__analysis_8h.html#af684d7159e22012dc5229c31eb66fceb":[13,0,4,7,14],
+"real__analysis_8h.html#afad5c92586d6a0f841bfcd3759eff317":[13,0,4,7,25],
 "real__analysis_8h_source.html":[13,0,4,7],
 "regression_8h.html":[13,0,10,3],
 "regression_8h.html#a256f8d4fa5431e922a7f872b00689a96":[13,0,10,3,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1prec_1_1equation__options.html#ac2bda82b5311990441664bf67d541860":[12,0,0,3,4,5],
 "structchebyshev_1_1prec_1_1equation__options.html#ad3feaa691b3a8e7b0b0cd182e03e5816":[12,0,0,3,4,0],
 "structchebyshev_1_1prec_1_1equation__options.html#aed953669f7714b838466008725054a5c":[12,0,0,3,4,3],
-"structchebyshev_1_1prec_1_1equation__options.html#af3b54a0db0e51051387a63bdb05997a1":[12,0,0,3,4,1],
-"structchebyshev_1_1prec_1_1equation__result.html":[12,0,0,3,3],
-"structchebyshev_1_1prec_1_1equation__result.html#a1a2a1dfd1dad519646296a13baa4188b":[12,0,0,3,3,7],
-"structchebyshev_1_1prec_1_1equation__result.html#a4b3d1031d612460e6749b47fdd9468a7":[12,0,0,3,3,4],
-"structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa":[12,0,0,3,3,5]
+"structchebyshev_1_1prec_1_1equation__options.html#af3b54a0db0e51051387a63bdb05997a1":[12,0,0,3,4,1]
 };

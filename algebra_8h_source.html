@@ -1506,120 +1506,233 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160;        }</div>
 <div class="line"><a name="l01721"></a><span class="lineno"> 1721</span>&#160; </div>
 <div class="line"><a name="l01722"></a><span class="lineno"> 1722</span>&#160; </div>
-<div class="line"><a name="l01731"></a><span class="lineno"> 1731</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l01732"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62"> 1732</a></span>&#160;        <span class="keyword">inline</span> Vector&amp; <a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(<span class="keyword">const</span> Matrix&amp; A, Vector&amp; b) {</div>
-<div class="line"><a name="l01733"></a><span class="lineno"> 1733</span>&#160; </div>
-<div class="line"><a name="l01734"></a><span class="lineno"> 1734</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
-<div class="line"><a name="l01735"></a><span class="lineno"> 1735</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::solve_lu_inplace&quot;</span>, A.rows(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l01736"></a><span class="lineno"> 1736</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(b);</div>
-<div class="line"><a name="l01737"></a><span class="lineno"> 1737</span>&#160;                <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l01738"></a><span class="lineno"> 1738</span>&#160;            }</div>
-<div class="line"><a name="l01739"></a><span class="lineno"> 1739</span>&#160; </div>
-<div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;            <span class="keywordflow">if</span> (A.rows() != b.size()) {</div>
-<div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::solve_lu_inplace&quot;</span>, A.rows(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(b);</div>
-<div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;                <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;            }</div>
-<div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160; </div>
-<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
+<div class="line"><a name="l01733"></a><span class="lineno"> 1733</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l01734"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62"> 1734</a></span>&#160;        <span class="keyword">inline</span> Vector&amp; <a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(<span class="keyword">const</span> Matrix&amp; A, Vector&amp; b) {</div>
+<div class="line"><a name="l01735"></a><span class="lineno"> 1735</span>&#160; </div>
+<div class="line"><a name="l01736"></a><span class="lineno"> 1736</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
+<div class="line"><a name="l01737"></a><span class="lineno"> 1737</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::solve_lu_inplace&quot;</span>, A.rows(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01738"></a><span class="lineno"> 1738</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(b);</div>
+<div class="line"><a name="l01739"></a><span class="lineno"> 1739</span>&#160;                <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;            }</div>
+<div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160; </div>
+<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;            <span class="keywordflow">if</span> (A.rows() != b.size()) {</div>
+<div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::solve_lu_inplace&quot;</span>, A.rows(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(b);</div>
+<div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160;                <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;            }</div>
 <div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160; </div>
-<div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;            <span class="comment">// Forward elimination: solves the lower system (L matrix).</span></div>
-<div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; A.rows(); ++i) {</div>
-<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;                </div>
-<div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, 0) * b[0];</div>
-<div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160; </div>
-<div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; i; ++j)</div>
-<div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
-<div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160; </div>
-<div class="line"><a name="l01756"></a><span class="lineno"> 1756</span>&#160;                b[i] -= <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
-<div class="line"><a name="l01757"></a><span class="lineno"> 1757</span>&#160;            }</div>
-<div class="line"><a name="l01758"></a><span class="lineno"> 1758</span>&#160; </div>
-<div class="line"><a name="l01759"></a><span class="lineno"> 1759</span>&#160;            <span class="comment">// Backward elimination: solves the upper system (U matrix).</span></div>
-<div class="line"><a name="l01760"></a><span class="lineno"> 1760</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = A.rows() - 1; i &gt;= 0; --i) {</div>
-<div class="line"><a name="l01761"></a><span class="lineno"> 1761</span>&#160;                </div>
-<div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, i + 1) * b[i + 1];</div>
-<div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160; </div>
-<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = i + 2; j &lt; A.rows(); ++j)</div>
-<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
-<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160; </div>
-<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;                b[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / A(i, i);</div>
-<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;            }</div>
-<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;        </div>
-<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;        }</div>
-<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160; </div>
-<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160; </div>
-<div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l01782"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089"> 1782</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a>(Matrix A, Vector b) {</div>
-<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160; </div>
-<div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;            <span class="comment">// Apply in-place LU decomposition</span></div>
-<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#a177fae373c752ef050bf0c7e7039f5be">decompose_lu_inplace</a>(A);</div>
-<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160; </div>
-<div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160;            <span class="comment">// Apply forward and backward substitution</span></div>
-<div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(A, b);</div>
-<div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;        }</div>
-<div class="line"><a name="l01790"></a><span class="lineno"> 1790</span>&#160; </div>
-<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160; </div>
-<div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l01799"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4"> 1799</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a>(<span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> Vector&amp; b) {</div>
-<div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160; </div>
-<div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160;            <span class="comment">// Use LU decomposition to solve the linear system</span></div>
-<div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a>(A, b);</div>
-<div class="line"><a name="l01803"></a><span class="lineno"> 1803</span>&#160;        }</div>
-<div class="line"><a name="l01804"></a><span class="lineno"> 1804</span>&#160; </div>
-<div class="line"><a name="l01805"></a><span class="lineno"> 1805</span>&#160;        <span class="comment">// Eigensystem methods</span></div>
+<div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
+<div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160; </div>
+<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;            <span class="comment">// Forward elimination: solves the lower system (L matrix).</span></div>
+<div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; A.rows(); ++i) {</div>
+<div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160;                </div>
+<div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, 0) * b[0];</div>
+<div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160; </div>
+<div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; i; ++j)</div>
+<div class="line"><a name="l01756"></a><span class="lineno"> 1756</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
+<div class="line"><a name="l01757"></a><span class="lineno"> 1757</span>&#160; </div>
+<div class="line"><a name="l01758"></a><span class="lineno"> 1758</span>&#160;                b[i] -= <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l01759"></a><span class="lineno"> 1759</span>&#160;            }</div>
+<div class="line"><a name="l01760"></a><span class="lineno"> 1760</span>&#160; </div>
+<div class="line"><a name="l01761"></a><span class="lineno"> 1761</span>&#160;            <span class="comment">// Backward elimination: solves the upper system (U matrix).</span></div>
+<div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = A.rows() - 1; i &gt;= 0; --i) {</div>
+<div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160;                </div>
+<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, i + 1) * b[i + 1];</div>
+<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160; </div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = i + 2; j &lt; A.rows(); ++j)</div>
+<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
+<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160; </div>
+<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;                b[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / A(i, i);</div>
+<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;            }</div>
+<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;        </div>
+<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;        }</div>
+<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160; </div>
+<div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160; </div>
+<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l01784"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089"> 1784</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a>(Matrix A, Vector b) {</div>
+<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160; </div>
+<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;            <span class="comment">// Apply in-place LU decomposition</span></div>
+<div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#a177fae373c752ef050bf0c7e7039f5be">decompose_lu_inplace</a>(A);</div>
+<div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160; </div>
+<div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;            <span class="comment">// Apply forward and backward substitution</span></div>
+<div class="line"><a name="l01790"></a><span class="lineno"> 1790</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(A, b);</div>
+<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;        }</div>
+<div class="line"><a name="l01792"></a><span class="lineno"> 1792</span>&#160; </div>
+<div class="line"><a name="l01793"></a><span class="lineno"> 1793</span>&#160; </div>
+<div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l01801"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4"> 1801</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a>(<span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> Vector&amp; b) {</div>
+<div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160; </div>
+<div class="line"><a name="l01803"></a><span class="lineno"> 1803</span>&#160;            <span class="comment">// Use LU decomposition to solve the linear system</span></div>
+<div class="line"><a name="l01804"></a><span class="lineno"> 1804</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a>(A, b);</div>
+<div class="line"><a name="l01805"></a><span class="lineno"> 1805</span>&#160;        }</div>
 <div class="line"><a name="l01806"></a><span class="lineno"> 1806</span>&#160; </div>
 <div class="line"><a name="l01807"></a><span class="lineno"> 1807</span>&#160; </div>
-<div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
-<div class="line"><a name="l01816"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a"> 1816</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">eigenvalue_power</a>(</div>
-<div class="line"><a name="l01817"></a><span class="lineno"> 1817</span>&#160;            <span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> Vector&amp; x,</div>
-<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;            <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance = 1<a class="code" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = 100) {</div>
-<div class="line"><a name="l01819"></a><span class="lineno"> 1819</span>&#160; </div>
-<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
-<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160; </div>
-<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
-<div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, <a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
-<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;            }</div>
-<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160; </div>
-<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;            <span class="keywordflow">if</span> (x.size() != A.rows()) {</div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, x.size(), INVALID_ARGUMENT);</div>
-<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
-<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;            }</div>
-<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160; </div>
-<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;            <span class="comment">// Apply a first iteration to initialize</span></div>
-<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;            <span class="comment">// the current and previous vectors</span></div>
-<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;            Vector x_curr = A * x;</div>
-<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;            Vector x_prev = x;</div>
-<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160; </div>
-<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;            <span class="comment">// Iteration counter</span></div>
-<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;        <span class="comment">// Eigensystem methods</span></div>
+<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160; </div>
+<div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160; </div>
+<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector&gt;</div>
+<div class="line"><a name="l01819"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a"> 1819</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">eigenvalue_power</a>(</div>
+<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;            <span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> Vector&amp; x,</div>
+<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160;            <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance = 1<a class="code" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = 100) {</div>
+<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160; </div>
+<div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
+<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160; </div>
+<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
+<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, <a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;            }</div>
+<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160; </div>
+<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;            <span class="keywordflow">if</span> (x.size() != A.rows()) {</div>
+<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, x.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;            }</div>
+<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160; </div>
+<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;            <span class="comment">// Apply a first iteration to initialize</span></div>
+<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;            <span class="comment">// the current and previous vectors</span></div>
+<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;            Vector x_prev = x;</div>
+<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;            Vector x_curr = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(A * x_prev);</div>
 <div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160; </div>
-<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;            <span class="comment">// Iteratively apply the matrix to the vector</span></div>
-<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;            <span class="keywordflow">for</span> (i = 0; i &lt;= max_iter; ++i) {</div>
-<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;                </div>
-<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;                x_prev = x_curr;</div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;                x_curr = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(A * x_prev);</div>
-<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160; </div>
-<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;                <span class="comment">// Stop the algorithm when |x_k+1| - |x_k| is</span></div>
-<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;                <span class="comment">// less then the tolerance in module</span></div>
-<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">norm</a>(x_curr - x_prev) &lt;= tolerance)</div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;            }</div>
-<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160; </div>
-<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;            <span class="comment">// The algorithm did not converge</span></div>
-<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;            <span class="keywordflow">if</span> (i &gt; max_iter) {</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, i, NO_ALGO_CONVERGENCE);</div>
-<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
-<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;            }</div>
-<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160; </div>
-<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">dot</a>(x_curr, A * x_curr);</div>
-<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;        }</div>
+<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;            <span class="comment">// Iteration counter</span></div>
+<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160; </div>
+<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;            <span class="comment">// Iteratively apply the matrix to the vector</span></div>
+<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;            <span class="keywordflow">for</span> (i = 1; i &lt;= max_iter; ++i) {</div>
+<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;                </div>
+<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;                x_prev = x_curr;</div>
+<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;                x_curr = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(A * x_prev);</div>
+<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160; </div>
+<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;                <span class="comment">// Stop the algorithm when |x_k+1| - |x_k| is</span></div>
+<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;                <span class="comment">// less then the tolerance in module</span></div>
+<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">norm</a>(x_curr - x_prev) &lt;= tolerance)</div>
+<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;            }</div>
+<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160; </div>
+<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;            <span class="comment">// The algorithm did not converge</span></div>
+<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;            <span class="keywordflow">if</span> (i &gt; max_iter) {</div>
+<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, i, NO_ALGO_CONVERGENCE);</div>
+<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;            }</div>
 <div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160; </div>
-<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;    }</div>
-<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;}</div>
+<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">dot</a>(x_curr, A * x_curr);</div>
+<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;        }</div>
 <div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160; </div>
-<div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160; </div>
+<div class="line"><a name="l01874"></a><span class="lineno"> 1874</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1&gt;</div>
+<div class="line"><a name="l01875"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a7a918f04582e909dd1da6f3d0dea169c"> 1875</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">eigenvalue_power</a>(</div>
+<div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;            <span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> Vector1&amp; x, Vector2&amp; v,</div>
+<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;            <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance = 1<a class="code" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = 100) {</div>
+<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160; </div>
+<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
+<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160; </div>
+<div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
+<div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, <a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;            }</div>
+<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160; </div>
+<div class="line"><a name="l01886"></a><span class="lineno"> 1886</span>&#160;            <span class="keywordflow">if</span> (x.size() != A.rows()) {</div>
+<div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, x.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01888"></a><span class="lineno"> 1888</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01889"></a><span class="lineno"> 1889</span>&#160;            }</div>
+<div class="line"><a name="l01890"></a><span class="lineno"> 1890</span>&#160; </div>
+<div class="line"><a name="l01891"></a><span class="lineno"> 1891</span>&#160;            <span class="keywordflow">if</span> (v.size() != x.size()) {</div>
+<div class="line"><a name="l01892"></a><span class="lineno"> 1892</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, v.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01893"></a><span class="lineno"> 1893</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01894"></a><span class="lineno"> 1894</span>&#160;            }</div>
+<div class="line"><a name="l01895"></a><span class="lineno"> 1895</span>&#160; </div>
+<div class="line"><a name="l01896"></a><span class="lineno"> 1896</span>&#160;            <span class="comment">// Apply a first iteration to initialize</span></div>
+<div class="line"><a name="l01897"></a><span class="lineno"> 1897</span>&#160;            <span class="comment">// the current and previous vectors</span></div>
+<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160;            Vector1 x_prev = x;</div>
+<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;            Vector1 x_curr = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(A * x_prev);</div>
+<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160; </div>
+<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160;            <span class="comment">// Iteration counter</span></div>
+<div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160; </div>
+<div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160;            <span class="comment">// Iteratively apply the matrix to the vector</span></div>
+<div class="line"><a name="l01905"></a><span class="lineno"> 1905</span>&#160;            <span class="keywordflow">for</span> (i = 1; i &lt;= max_iter; ++i) {</div>
+<div class="line"><a name="l01906"></a><span class="lineno"> 1906</span>&#160;                </div>
+<div class="line"><a name="l01907"></a><span class="lineno"> 1907</span>&#160;                x_prev = x_curr;</div>
+<div class="line"><a name="l01908"></a><span class="lineno"> 1908</span>&#160;                x_curr = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(A * x_prev);</div>
+<div class="line"><a name="l01909"></a><span class="lineno"> 1909</span>&#160; </div>
+<div class="line"><a name="l01910"></a><span class="lineno"> 1910</span>&#160;                <span class="comment">// Stop the algorithm when |x_k+1| - |x_k| is</span></div>
+<div class="line"><a name="l01911"></a><span class="lineno"> 1911</span>&#160;                <span class="comment">// less then the tolerance in module</span></div>
+<div class="line"><a name="l01912"></a><span class="lineno"> 1912</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">norm</a>(x_curr - x_prev) &lt;= tolerance)</div>
+<div class="line"><a name="l01913"></a><span class="lineno"> 1913</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01914"></a><span class="lineno"> 1914</span>&#160;            }</div>
+<div class="line"><a name="l01915"></a><span class="lineno"> 1915</span>&#160; </div>
+<div class="line"><a name="l01916"></a><span class="lineno"> 1916</span>&#160;            <span class="comment">// The algorithm did not converge</span></div>
+<div class="line"><a name="l01917"></a><span class="lineno"> 1917</span>&#160;            <span class="keywordflow">if</span> (i &gt; max_iter) {</div>
+<div class="line"><a name="l01918"></a><span class="lineno"> 1918</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvalue_power&quot;</span>, i, NO_ALGO_CONVERGENCE);</div>
+<div class="line"><a name="l01919"></a><span class="lineno"> 1919</span>&#160;                <span class="keywordflow">return</span> Type(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
+<div class="line"><a name="l01920"></a><span class="lineno"> 1920</span>&#160;            }</div>
+<div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160; </div>
+<div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;            <span class="comment">// Overwrite with the eigenvector</span></div>
+<div class="line"><a name="l01923"></a><span class="lineno"> 1923</span>&#160;            v = x_curr;</div>
+<div class="line"><a name="l01924"></a><span class="lineno"> 1924</span>&#160; </div>
+<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">dot</a>(x_curr, A * x_curr);</div>
+<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;        }</div>
+<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160; </div>
+<div class="line"><a name="l01928"></a><span class="lineno"> 1928</span>&#160; </div>
+<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix, <span class="keyword">typename</span> Vector, <span class="keyword">typename</span> T = matrix_element_t&lt;Matrix&gt;&gt;</div>
+<div class="line"><a name="l01937"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#ae2c50bc524b8e76644430a3c1af6d7a5"> 1937</a></span>&#160;        <span class="keyword">inline</span> Vector <a class="code" href="namespacetheoretica_1_1algebra.html#ae2c50bc524b8e76644430a3c1af6d7a5">eigenvector_inverse</a>(</div>
+<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;            <span class="keyword">const</span> Matrix&amp; A, <span class="keyword">const</span> T&amp; lambda, <span class="keyword">const</span> Vector&amp; x,</div>
+<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;            <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance = 1<a class="code" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = 100) {</div>
+<div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160; </div>
+<div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A)) {</div>
+<div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvector_inverse&quot;</span>, <a class="code" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a>(A), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01943"></a><span class="lineno"> 1943</span>&#160;                Vector x;</div>
+<div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(x);</div>
+<div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160;            }</div>
+<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160; </div>
+<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;            <span class="keywordflow">if</span> (A.rows() != x.size()) {</div>
+<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvector_inverse&quot;</span>, x.size(), INVALID_ARGUMENT);</div>
+<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160;                Vector x;</div>
+<div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(x);</div>
+<div class="line"><a name="l01951"></a><span class="lineno"> 1951</span>&#160;            }</div>
+<div class="line"><a name="l01952"></a><span class="lineno"> 1952</span>&#160; </div>
+<div class="line"><a name="l01953"></a><span class="lineno"> 1953</span>&#160;            <span class="keyword">using</span> Type = <a class="code" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">matrix_element_t&lt;Matrix&gt;</a>;</div>
+<div class="line"><a name="l01954"></a><span class="lineno"> 1954</span>&#160;            Matrix LU = A;</div>
+<div class="line"><a name="l01955"></a><span class="lineno"> 1955</span>&#160; </div>
+<div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;            <span class="comment">// Subtract the eigenvalue from the diagonal</span></div>
+<div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; LU.rows(); ++i)</div>
+<div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;                LU(i, i) -= Type(lambda);</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160; </div>
+<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;            <span class="comment">// Compute the LU decomposition of A</span></div>
+<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;            <span class="comment">// to speed up system solution</span></div>
+<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#a177fae373c752ef050bf0c7e7039f5be">decompose_lu_inplace</a>(LU);</div>
+<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160; </div>
+<div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160;            <span class="comment">// Compute the first step to initialize the two vectors</span></div>
+<div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;            Vector v_prev = <a class="code" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">normalize</a>(x);</div>
+<div class="line"><a name="l01966"></a><span class="lineno"> 1966</span>&#160;            Vector v_curr = v_prev;</div>
+<div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(LU, v_curr);</div>
+<div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160; </div>
+<div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160;            <span class="comment">// Iteration counter</span></div>
+<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160; </div>
+<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;            <span class="keywordflow">for</span> (i = 1; i &lt;= max_iter; ++i) {</div>
+<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;                </div>
+<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;                <span class="comment">// Solve the linear system using the LU decomposition</span></div>
+<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;                v_prev = v_curr;</div>
+<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a1740381f968a6d4ca37079ae8abcd904">make_normalized</a>(<a class="code" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a>(LU, v_curr));</div>
+<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160; </div>
+<div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;                <span class="comment">// Stop the algorithm if the norm of the variation</span></div>
+<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;                <span class="comment">// between steps is under the tolerance</span></div>
+<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">norm</a>(v_curr - v_prev) &lt;= tolerance)</div>
+<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;            }</div>
+<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160; </div>
+<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;            <span class="comment">// The algorithm did not converge</span></div>
+<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;            <span class="keywordflow">if</span> (i &gt; max_iter) {</div>
+<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;eigenvector_inverse&quot;</span>, i, NO_ALGO_CONVERGENCE);</div>
+<div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(v_curr);</div>
+<div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160;            }</div>
+<div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160; </div>
+<div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;            <span class="keywordflow">return</span> v_curr;</div>
+<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;        }</div>
+<div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;    }</div>
+<div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;}</div>
+<div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160; </div>
+<div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html_a98714486a3e652c5b04dbd34146d069d"><div class="ttname"><a href="constants_8h.html#a98714486a3e652c5b04dbd34146d069d">TH_CONSTIF</a></div><div class="ttdeci">#define TH_CONSTIF</div><div class="ttdoc">Enable constexpr in if statements if C++17 is supported.</div><div class="ttdef"><b>Definition:</b> constants.h:177</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:220</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a0054d7da3d235f12c325512776b386a8"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a0054d7da3d235f12c325512776b386a8">theoretica::algebra::mat_lincomb</a></div><div class="ttdeci">Matrix2 &amp; mat_lincomb(Field1 alpha, Matrix1 &amp;A, Field2 beta, const Matrix2 &amp;B)</div><div class="ttdoc">Compute the linear combination of two matrices and store the result in the first matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:1098</div></div>
@@ -1636,7 +1749,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a372e7a10133fb722ea93182de018d166"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a372e7a10133fb722ea93182de018d166">theoretica::algebra::vec_sum</a></div><div class="ttdeci">Vector2 &amp; vec_sum(Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Sum two vectors and store the result in the first vector.</div><div class="ttdef"><b>Definition:</b> algebra.h:1268</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a42e51c761ec3171bb9af10e521029851"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a42e51c761ec3171bb9af10e521029851">theoretica::algebra::det_3x3</a></div><div class="ttdeci">real det_3x3(const Matrix &amp;m)</div><div class="ttdoc">Return the determinant if the matrix is 3x3.</div><div class="ttdef"><b>Definition:</b> algebra.h:775</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a46718f17c861582ef775a9f577ac9710"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a46718f17c861582ef775a9f577ac9710">theoretica::algebra::det</a></div><div class="ttdeci">auto det(const Matrix &amp;m)</div><div class="ttdoc">Compute the determinant of a square matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:694</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a47d7736bbdcc4b5c721923592f6a65e4"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">theoretica::algebra::solve</a></div><div class="ttdeci">Vector solve(const Matrix &amp;A, const Vector &amp;b)</div><div class="ttdoc">Solve the linear system , finding  using the best available algorithm.</div><div class="ttdef"><b>Definition:</b> algebra.h:1799</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a47d7736bbdcc4b5c721923592f6a65e4"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">theoretica::algebra::solve</a></div><div class="ttdeci">Vector solve(const Matrix &amp;A, const Vector &amp;b)</div><div class="ttdoc">Solve the linear system , finding  using the best available algorithm.</div><div class="ttdef"><b>Definition:</b> algebra.h:1801</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a48ae546299bfa1f1e9c01af80ba48f43"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a48ae546299bfa1f1e9c01af80ba48f43">theoretica::algebra::mat_equals</a></div><div class="ttdeci">bool mat_equals(const Matrix1 &amp;A, const Matrix2 &amp;B, real tolerance=10 *MACH_EPSILON)</div><div class="ttdoc">Checks whether two matrices are equal.</div><div class="ttdef"><b>Definition:</b> algebra.h:1247</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a49d62aec691ca8921e5a2f2fdacf095f"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">theoretica::algebra::vec_error</a></div><div class="ttdeci">Vector &amp; vec_error(Vector &amp;v)</div><div class="ttdoc">Overwrite the given vector with the error vector with NaN values.</div><div class="ttdef"><b>Definition:</b> algebra.h:62</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a4bbe94e31d08c5cf913c1f05cb5b4374"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a4bbe94e31d08c5cf913c1f05cb5b4374">theoretica::algebra::mat_scalmul</a></div><div class="ttdeci">Matrix &amp; mat_scalmul(Field a, Matrix &amp;m)</div><div class="ttdoc">Multiply a matrix by a scalar of any compatible type.</div><div class="ttdef"><b>Definition:</b> algebra.h:787</div></div>
@@ -1644,7 +1757,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a58f3fc72c395411ca964ef50dc6c8303"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a58f3fc72c395411ca964ef50dc6c8303">theoretica::algebra::is_diagonal</a></div><div class="ttdeci">bool is_diagonal(const Matrix &amp;m, real tolerance=10 *MACH_EPSILON)</div><div class="ttdoc">Returns whether the matrix is diagonal.</div><div class="ttdef"><b>Definition:</b> algebra.h:1376</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a66aafc0be7602bcdbf7b09dd130ebc38"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a66aafc0be7602bcdbf7b09dd130ebc38">theoretica::algebra::decompose_lu</a></div><div class="ttdeci">void decompose_lu(const Matrix1 &amp;A, Matrix2 &amp;L, Matrix3 &amp;U)</div><div class="ttdoc">Decompose a square matrix to two triangular matrices, L and U where L is lower and U is upper,...</div><div class="ttdef"><b>Definition:</b> algebra.h:1457</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a6c4e4cd15c41d54c0fcc49f4a92069b5"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a6c4e4cd15c41d54c0fcc49f4a92069b5">theoretica::algebra::mat_sum</a></div><div class="ttdeci">Matrix2 &amp; mat_sum(Matrix1 &amp;A, const Matrix2 &amp;B)</div><div class="ttdoc">Sum two matrices and store the result in the first matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:961</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a6dc8b5c2fa93053f3370b22b5fad2089"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">theoretica::algebra::solve_lu</a></div><div class="ttdeci">Vector solve_lu(Matrix A, Vector b)</div><div class="ttdoc">Solve the linear system , finding .</div><div class="ttdef"><b>Definition:</b> algebra.h:1782</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a6dc8b5c2fa93053f3370b22b5fad2089"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">theoretica::algebra::solve_lu</a></div><div class="ttdeci">Vector solve_lu(Matrix A, Vector b)</div><div class="ttdoc">Solve the linear system , finding .</div><div class="ttdef"><b>Definition:</b> algebra.h:1784</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a6fc85f89aafd490490d0a7b36bed8e15"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15">theoretica::algebra::solve_triangular</a></div><div class="ttdeci">Vector solve_triangular(const Matrix &amp;T, const Vector &amp;b)</div><div class="ttdoc">Solve the linear system  for triangular .</div><div class="ttdef"><b>Definition:</b> algebra.h:1708</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a752dce461a75811726c0f2c63fa0411a"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a752dce461a75811726c0f2c63fa0411a">theoretica::algebra::decompose_cholesky</a></div><div class="ttdeci">Matrix decompose_cholesky(const Matrix &amp;A)</div><div class="ttdoc">Decompose a symmetric positive definite matrix into a triangular matrix so that  using Cholesky decom...</div><div class="ttdef"><b>Definition:</b> algebra.h:1558</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a7c0a2010a58df2449a46954a28b7975b"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a7c0a2010a58df2449a46954a28b7975b">theoretica::algebra::mat_copy</a></div><div class="ttdeci">Matrix1 &amp; mat_copy(Matrix1 &amp;dest, const Matrix2 &amp;src)</div><div class="ttdoc">Copy a matrix by overwriting another.</div><div class="ttdef"><b>Definition:</b> algebra.h:125</div></div>
@@ -1655,13 +1768,13 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a97063b884664da3b933db157fcc1899d"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a97063b884664da3b933db157fcc1899d">theoretica::algebra::det_2x2</a></div><div class="ttdeci">real det_2x2(const Matrix &amp;m)</div><div class="ttdoc">Return the determinant of a 2x2 matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:767</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a9b7074a581766dad1465f4ea1264c229"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">theoretica::algebra::solve_triangular_lower</a></div><div class="ttdeci">Vector solve_triangular_lower(const Matrix &amp;L, const Vector &amp;b)</div><div class="ttdoc">Solve the linear system  for lower triangular .</div><div class="ttdef"><b>Definition:</b> algebra.h:1617</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_aa07d864923839f2e5ced058527bdf104"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#aa07d864923839f2e5ced058527bdf104">theoretica::algebra::inverse</a></div><div class="ttdeci">Matrix1 &amp; inverse(Matrix1 &amp;dest, const Matrix2 &amp;src)</div><div class="ttdoc">Invert the given matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:522</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1algebra_html_aa15adaa5164d52482d2a926f659c963a"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">theoretica::algebra::eigenvalue_power</a></div><div class="ttdeci">auto eigenvalue_power(const Matrix &amp;A, const Vector &amp;x, real tolerance=1E-08, unsigned int max_iter=100)</div><div class="ttdoc">Find the biggest eigenvalue in module of a square matrix using the power method (Von Mises iteration)...</div><div class="ttdef"><b>Definition:</b> algebra.h:1816</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_aa15adaa5164d52482d2a926f659c963a"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">theoretica::algebra::eigenvalue_power</a></div><div class="ttdeci">auto eigenvalue_power(const Matrix &amp;A, const Vector &amp;x, real tolerance=1E-08, unsigned int max_iter=100)</div><div class="ttdoc">Find the biggest eigenvalue in module of a square matrix using the power method (Von Mises iteration)...</div><div class="ttdef"><b>Definition:</b> algebra.h:1819</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ab118e14a65434ec6cd5ffe717d7675a2"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ab118e14a65434ec6cd5ffe717d7675a2">theoretica::algebra::mat_diff</a></div><div class="ttdeci">Matrix2 &amp; mat_diff(Matrix1 &amp;A, const Matrix2 &amp;B)</div><div class="ttdoc">Subtract two matrices and store the result in the first matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:1029</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ab27e1f7cb91803bcaa589262d38e32e5"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ab27e1f7cb91803bcaa589262d38e32e5">theoretica::algebra::hermitian</a></div><div class="ttdeci">MatrixT hermitian(const Matrix &amp;m)</div><div class="ttdoc">Returns the hermitian of the given matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:443</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ab30369e3152faa3bf50fb1518b0af669"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ab30369e3152faa3bf50fb1518b0af669">theoretica::algebra::vec_scalmul</a></div><div class="ttdeci">Vector &amp; vec_scalmul(Field a, Vector &amp;v)</div><div class="ttdoc">Multiply a vector by a scalar of any compatible type.</div><div class="ttdef"><b>Definition:</b> algebra.h:831</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ab64a6205ec3c0bbddcdd3aee26aec6dd"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd">theoretica::algebra::solve_triangular_upper</a></div><div class="ttdeci">Vector solve_triangular_upper(const Matrix &amp;U, const Vector &amp;b)</div><div class="ttdoc">Solve the linear system  for upper triangular .</div><div class="ttdef"><b>Definition:</b> algebra.h:1659</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ab8c9f739421b9bf5f3e13dc85908844d"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ab8c9f739421b9bf5f3e13dc85908844d">theoretica::algebra::apply_transform</a></div><div class="ttdeci">Vector &amp; apply_transform(const Matrix &amp;A, Vector &amp;v)</div><div class="ttdoc">Apply a matrix transformation to a vector and store the result in the vector.</div><div class="ttdef"><b>Definition:</b> algebra.h:872</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1algebra_html_ac243a7509ce421dc7af9f1e690c4ac62"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">theoretica::algebra::solve_lu_inplace</a></div><div class="ttdeci">Vector &amp; solve_lu_inplace(const Matrix &amp;A, Vector &amp;b)</div><div class="ttdoc">Solve the linear system , finding , where the matrix A has already undergone in-place LU decompositio...</div><div class="ttdef"><b>Definition:</b> algebra.h:1732</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_ac243a7509ce421dc7af9f1e690c4ac62"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">theoretica::algebra::solve_lu_inplace</a></div><div class="ttdeci">Vector &amp; solve_lu_inplace(const Matrix &amp;A, Vector &amp;b)</div><div class="ttdoc">Solve the linear system , finding , where the matrix A has already undergone in-place LU decompositio...</div><div class="ttdef"><b>Definition:</b> algebra.h:1734</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ac67d0c47a4affc760af23fe656b41881"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ac67d0c47a4affc760af23fe656b41881">theoretica::algebra::vec_copy</a></div><div class="ttdeci">Vector1 &amp; vec_copy(Vector1 &amp;dest, const Vector2 &amp;src)</div><div class="ttdoc">Copy a vector by overwriting another.</div><div class="ttdef"><b>Definition:</b> algebra.h:143</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ac787d51e34331a81ae902aacd83797fc"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ac787d51e34331a81ae902aacd83797fc">theoretica::algebra::vec_diff</a></div><div class="ttdeci">Vector2 &amp; vec_diff(Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Subtract two vectors and store the result in the first vector.</div><div class="ttdef"><b>Definition:</b> algebra.h:1316</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_acc2d2bbecd7ca6245551cb28bc785744"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#acc2d2bbecd7ca6245551cb28bc785744">theoretica::algebra::vec_zeroes</a></div><div class="ttdeci">Vector &amp; vec_zeroes(Vector &amp;v)</div><div class="ttdoc">Overwrite a vector with all zeroes.</div><div class="ttdef"><b>Definition:</b> algebra.h:109</div></div>
@@ -1669,6 +1782,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ae059cebcb4daca6ff6087c729422dcc3"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ae059cebcb4daca6ff6087c729422dcc3">theoretica::algebra::mat_swap_cols</a></div><div class="ttdeci">Matrix &amp; mat_swap_cols(Matrix &amp;A, unsigned int col1, unsigned int col2)</div><div class="ttdoc">Swap two columns of a matrix, given the matrix and the two indices of the columns.</div><div class="ttdef"><b>Definition:</b> algebra.h:197</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ae1521a586075b668b4a8765dadcdd1a3"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">theoretica::algebra::norm</a></div><div class="ttdeci">auto norm(const Vector &amp;v)</div><div class="ttdoc">Returns the Euclidean/Hermitian norm of the given vector.</div><div class="ttdef"><b>Definition:</b> algebra.h:253</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ae29fdebb267dec9755e1ac0e1980a452"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ae29fdebb267dec9755e1ac0e1980a452">theoretica::algebra::is_symmetric</a></div><div class="ttdeci">bool is_symmetric(const Matrix &amp;m, real tolerance=MATRIX_ELEMENT_TOL)</div><div class="ttdoc">Returns whether the matrix is symmetric.</div><div class="ttdef"><b>Definition:</b> algebra.h:1392</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_ae2c50bc524b8e76644430a3c1af6d7a5"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ae2c50bc524b8e76644430a3c1af6d7a5">theoretica::algebra::eigenvector_inverse</a></div><div class="ttdeci">Vector eigenvector_inverse(const Matrix &amp;A, const T &amp;lambda, const Vector &amp;x, real tolerance=1E-08, unsigned int max_iter=100)</div><div class="ttdoc">Find the eigenvector associated with a given eigenvalue using the inverse power method.</div><div class="ttdef"><b>Definition:</b> algebra.h:1937</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_ae32a78d562349a3e94592e8ef8d7b321"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">theoretica::algebra::dot</a></div><div class="ttdeci">auto dot(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Computes the dot product between two vectors.</div><div class="ttdef"><b>Definition:</b> algebra.h:310</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_aeca906836538db83c3bd6e14e33871d7"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#aeca906836538db83c3bd6e14e33871d7">theoretica::algebra::mat_swap_rows</a></div><div class="ttdeci">Matrix &amp; mat_swap_rows(Matrix &amp;A, unsigned int row1, unsigned int row2)</div><div class="ttdoc">Swap two rows of a matrix, given the matrix and the two indices of the rows.</div><div class="ttdef"><b>Definition:</b> algebra.h:161</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_af20d45028f1600afc9aaf8ce5b1678e1"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#af20d45028f1600afc9aaf8ce5b1678e1">theoretica::algebra::mat_mul</a></div><div class="ttdeci">Matrix1 &amp; mat_mul(Matrix1 &amp;A, const Matrix2 &amp;B)</div><div class="ttdoc">Multiply two matrices and store the result in the first matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:1173</div></div>
@@ -1695,7 +1809,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="algebra_8h.html">algebra.h</a></li>
-    <li class="footer">Generated on Fri Aug 16 2024 20:32:16 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 18 2024 15:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
