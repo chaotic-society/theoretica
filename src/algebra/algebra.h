@@ -1724,6 +1724,8 @@ namespace theoretica {
 		/// where the matrix A has already undergone in-place LU decomposition.
 		/// Forward and backward elimination is used to solve the system in place.
 		/// This routine is particularly efficient for
+		/// This routine is particularly efficient for solving linear systems
+		/// multiple times with the same matrix but different vectors.
 		/// 
 		/// @param A The matrix of the linear system, after in-place LU decomposition
 		/// @param b The known vector, to be overwritten with the solution
@@ -1777,7 +1779,7 @@ namespace theoretica {
 		/// 
 		/// @param A The matrix of the linear system
 		/// @param b The known vector
-		/// @return x The unknown vector
+		/// @return The unknown vector
 		template<typename Matrix, typename Vector>
 		inline Vector solve_lu(Matrix A, Vector b) {
 
@@ -1794,13 +1796,14 @@ namespace theoretica {
 		/// 
 		/// @param A The matrix of the linear system
 		/// @param b The known vector
-		/// @return x The unknown vector
+		/// @return The unknown vector
 		template<typename Matrix, typename Vector>
 		inline Vector solve(const Matrix& A, const Vector& b) {
 
 			// Use LU decomposition to solve the linear system
 			return solve_lu(A, b);
 		}
+
 
 		// Eigensystem methods
 
@@ -1831,14 +1834,14 @@ namespace theoretica {
 
 			// Apply a first iteration to initialize
 			// the current and previous vectors
-			Vector x_curr = A * x;
 			Vector x_prev = x;
+			Vector x_curr = normalize(A * x_prev);
 
 			// Iteration counter
 			unsigned int i;
 
 			// Iteratively apply the matrix to the vector
-			for (i = 0; i <= max_iter; ++i) {
+			for (i = 1; i <= max_iter; ++i) {
 				
 				x_prev = x_curr;
 				x_curr = normalize(A * x_prev);
@@ -1858,6 +1861,134 @@ namespace theoretica {
 			return dot(x_curr, A * x_curr);
 		}
 
+
+		/// Find the biggest eigenvalue in module of a
+		/// square matrix and its corresponding eigenvector,
+		/// using the power method (Von Mises iteration).
+		///
+		/// @param A The matrix to find the biggest eigenvalue of
+		/// @param x The starting vector (a random vector is a good choice)
+		/// @param v The vector to overwrite with the eigenvector
+		/// @return The biggest eigenvalue of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector1, typename Vector2 = Vector1>
+		inline auto eigenvalue_power(
+			const Matrix& A, const Vector1& x, Vector2& v,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvalue_power", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (x.size() != A.rows()) {
+				TH_MATH_ERROR("eigenvalue_power", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (v.size() != x.size()) {
+				TH_MATH_ERROR("eigenvalue_power", v.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Apply a first iteration to initialize
+			// the current and previous vectors
+			Vector1 x_prev = x;
+			Vector1 x_curr = normalize(A * x_prev);
+
+			// Iteration counter
+			unsigned int i;
+
+			// Iteratively apply the matrix to the vector
+			for (i = 1; i <= max_iter; ++i) {
+				
+				x_prev = x_curr;
+				x_curr = normalize(A * x_prev);
+
+				// Stop the algorithm when |x_k+1| - |x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance)
+					break;
+			}
+
+			// The algorithm did not converge
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvalue_power", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			// Overwrite with the eigenvector
+			v = x_curr;
+
+			return dot(x_curr, A * x_curr);
+		}
+
+
+		/// Find the eigenvector associated with a given
+		/// eigenvalue using the inverse power method.
+		///
+		/// @param A The matrix to find the eigenvector of
+		/// @param lambda The eigenvalue
+		/// @param x The starting vector (a random vector is a good choice)
+		/// @return The eigenvector 
+		template<typename Matrix, typename Vector, typename T = matrix_element_t<Matrix>>
+		inline Vector eigenvector_inverse(
+			const Matrix& A, const T& lambda, const Vector& x,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvector_inverse", is_square(A), INVALID_ARGUMENT);
+				Vector x;
+				return vec_error(x);
+			}
+
+			if (A.rows() != x.size()) {
+				TH_MATH_ERROR("eigenvector_inverse", x.size(), INVALID_ARGUMENT);
+				Vector x;
+				return vec_error(x);
+			}
+
+			using Type = matrix_element_t<Matrix>;
+			Matrix LU = A;
+
+			// Subtract the eigenvalue from the diagonal
+			for (unsigned int i = 0; i < LU.rows(); ++i)
+				LU(i, i) -= Type(lambda);
+
+			// Compute the LU decomposition of A
+			// to speed up system solution
+			decompose_lu_inplace(LU);
+
+			// Compute the first step to initialize the two vectors
+			Vector v_prev = normalize(x);
+			Vector v_curr = v_prev;
+			solve_lu_inplace(LU, v_curr);
+
+			// Iteration counter
+			unsigned int i;
+
+			for (i = 1; i <= max_iter; ++i) {
+				
+				// Solve the linear system using the LU decomposition
+				v_prev = v_curr;
+				make_normalized(solve_lu_inplace(LU, v_curr));
+
+				// Stop the algorithm if the norm of the variation
+				// between steps is under the tolerance
+				if (norm(v_curr - v_prev) <= tolerance)
+					break;
+			}
+
+			// The algorithm did not converge
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvector_inverse", i, NO_ALGO_CONVERGENCE);
+				return vec_error(v_curr);
+			}
+
+			return v_curr;
+		}
 	}
 }
 
