@@ -14,6 +14,7 @@ namespace theoretica {
 
 
 	// Implement a simple void_t trait in C++14.
+	/// @internal
 	namespace _internal {
 		template<typename ...Args>
 		struct make_void { typedef void type; };
@@ -66,6 +67,8 @@ namespace theoretica {
 	struct is_orderable : std::false_type{};
 
 
+	// The @internal directive is used to avoid documenting this overload
+	/// @internal
 	template<typename Structure>
 	struct is_orderable
 	<Structure, _internal::void_t<
@@ -79,6 +82,7 @@ namespace theoretica {
 	struct is_indexable : std::false_type{};
 
 
+	/// @internal
 	template<typename Structure>
 	struct is_indexable
 	<Structure, _internal::void_t<
@@ -92,11 +96,57 @@ namespace theoretica {
 	struct is_iterable : std::false_type{};
 
 
+	/// @internal
 	template<typename Structure>
 	struct is_iterable
 	<Structure, _internal::void_t<
 		decltype(std::declval<Structure>().begin())>
 	> : std::true_type{};
+
+
+	/// Check whether a structure is considerable a vector,
+	/// by checking that it has an operator[] and a size() method.
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_vector : std::false_type{};
+
+
+	template<typename Structure>
+	struct is_vector
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()[0]),
+		decltype(std::declval<Structure>().size())>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is considerable a matrix,
+	/// by checking that it has an operator(), a rows() method
+	/// and a cols() method.
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_matrix : std::false_type{};
+
+
+	/// @internal
+	template<typename Structure>
+	struct is_matrix
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()(0, 0)),
+		decltype(std::declval<Structure>().rows()),
+		decltype(std::declval<Structure>().cols())>
+	> : std::true_type{};
+
+
+	/// Enable a function overload if the template typename
+	/// is considerable a matrix. The std::enable_if structure
+	/// is used, with type T which defaults to bool.
+	template<typename Structure, typename T = bool>
+	using enable_matrix = std::enable_if_t<is_matrix<Structure>::value, T>;
+
+
+	/// Enable a function overload if the template typename
+	/// is considerable a vector. The std::enable_if structure
+	/// is used, with type T which defaults to bool.
+	template<typename Structure, typename T = bool>
+	using enable_vector = std::enable_if_t<is_vector<Structure>::value, T>;
 
 }
 
