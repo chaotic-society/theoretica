@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['complex_859',['complex',['../classtheoretica_1_1complex.html',1,'theoretica']]]
+  ['complex_870',['complex',['../classtheoretica_1_1complex.html',1,'theoretica']]]
 ];

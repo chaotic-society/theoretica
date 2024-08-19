@@ -201,6 +201,16 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__iterable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_134cacadc4237e7975e93632d0bd7c70.html">is_iterable&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;().begin())&gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__vector.html">is_vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a structure is considerable a vector, by checking that it has an operator[] and a size() method.  <a href="structtheoretica_1_1is__vector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html">is_vector&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()[0]), decltype(std::declval&lt; Structure &gt;().size())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__matrix.html">is_matrix</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a structure is considerable a matrix, by checking that it has an operator(), a rows() method and a cols() method.  <a href="structtheoretica_1_1is__matrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html">is_matrix&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()(0, 0)), decltype(std::declval&lt; Structure &gt;().rows()), decltype(std::declval&lt; Structure &gt;().cols())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1ratio.html">ratio</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representing a ratio between two objects, like a fraction or a rational polynomial.  <a href="classtheoretica_1_1ratio.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -319,6 +329,14 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:abe7f7bdc36ade4868722b357241c9bc9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abe7f7bdc36ade4868722b357241c9bc9">has_real_elements</a> = <a class="el" href="structtheoretica_1_1is__real__type.html">is_real_type</a>&lt; <a class="el" href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">indexable_element_t</a>&lt; Structure &gt; &gt;</td></tr>
 <tr class="memdesc:abe7f7bdc36ade4868722b357241c9bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether an indexable container has real elements. <br /></td></tr>
 <tr class="separator:abe7f7bdc36ade4868722b357241c9bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">enable_matrix</a> = std::enable_if_t&lt; <a class="el" href="structtheoretica_1_1is__matrix.html">is_matrix</a>&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a matrix.  <a href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">More...</a><br /></td></tr>
+<tr class="separator:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a> = std::enable_if_t&lt; <a class="el" href="structtheoretica_1_1is__vector.html">is_vector</a>&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a746b3f92213a0d6340e98b850cacdeb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a vector.  <a href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">More...</a><br /></td></tr>
+<tr class="separator:a746b3f92213a0d6340e98b850cacdeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad60d62492ac4137c837c50b1fdc8a904"><td class="memItemLeft" align="right" valign="top"><a id="ad60d62492ac4137c837c50b1fdc8a904"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> = std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)&gt;</td></tr>
 <tr class="memdesc:ad60d62492ac4137c837c50b1fdc8a904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a real function of real variable. <br /></td></tr>
@@ -378,13 +396,13 @@ template&lt;typename Type , typename ... Args&gt; </td></tr>
 <tr class="memdesc:ad6db1f5b17bb340a18e6ed3b9b650ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivative of a function at the given point using univariate automatic differentiation.  <a href="namespacetheoretica.html#ad6db1f5b17bb340a18e6ed3b9b650ea8">More...</a><br /></td></tr>
 <tr class="separator:ad6db1f5b17bb340a18e6ed3b9b650ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23af4ea6c300254c4335335f6466cb22"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a23af4ea6c300254c4335335f6466cb22">deriv</a> (<a class="el" href="classtheoretica_1_1dual.html">dual</a>(*f)(<a class="el" href="classtheoretica_1_1dual.html">dual</a>))</td></tr>
-<tr class="memdesc:a23af4ea6c300254c4335335f6466cb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivative of a function using univariate automatic differentiation.  <a href="namespacetheoretica.html#a23af4ea6c300254c4335335f6466cb22">More...</a><br /></td></tr>
+<tr class="memdesc:a23af4ea6c300254c4335335f6466cb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the derivative of the given function at the given point, using automatic differentiation.  <a href="namespacetheoretica.html#a23af4ea6c300254c4335335f6466cb22">More...</a><br /></td></tr>
 <tr class="separator:a23af4ea6c300254c4335335f6466cb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e176fcb2aad15baae5b1521a24b839"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a65e176fcb2aad15baae5b1521a24b839">deriv2</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:a65e176fcb2aad15baae5b1521a24b839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of a function at the given point using univariate automatic differentiation.  <a href="namespacetheoretica.html#a65e176fcb2aad15baae5b1521a24b839">More...</a><br /></td></tr>
 <tr class="separator:a65e176fcb2aad15baae5b1521a24b839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe73f1e7bd7df9f2c23047a2982e9b7a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abe73f1e7bd7df9f2c23047a2982e9b7a">deriv2</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>))</td></tr>
-<tr class="memdesc:abe73f1e7bd7df9f2c23047a2982e9b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of a function using univariate automatic differentiation.  <a href="namespacetheoretica.html#abe73f1e7bd7df9f2c23047a2982e9b7a">More...</a><br /></td></tr>
+<tr class="memdesc:abe73f1e7bd7df9f2c23047a2982e9b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the second derivative of the given function at the given point, using automatic differentiation.  <a href="namespacetheoretica.html#abe73f1e7bd7df9f2c23047a2982e9b7a">More...</a><br /></td></tr>
 <tr class="separator:abe73f1e7bd7df9f2c23047a2982e9b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64486a0369f288f20131ae79364c9bc3"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
 <tr class="memitem:a64486a0369f288f20131ae79364c9bc3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a64486a0369f288f20131ae79364c9bc3">gradient</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
@@ -844,8 +862,9 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a138b3f379881e6be94ce123ff10ecba5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a138b3f379881e6be94ce123ff10ecba5">ode_k38</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;(*f)(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;), <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; N &gt; s, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h)</td></tr>
 <tr class="memdesc:a138b3f379881e6be94ce123ff10ecba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate numerically a differential equation in N unknowns using Kutta's 3/8 rule method.  <a href="namespacetheoretica.html#a138b3f379881e6be94ce123ff10ecba5">More...</a><br /></td></tr>
 <tr class="separator:a138b3f379881e6be94ce123ff10ecba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e8bf7fa623fb003d8f9e1389d1ec140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0e8bf7fa623fb003d8f9e1389d1ec140">ode_adams</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*f)(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>), <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt; s0, <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt; s1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h)</td></tr>
-<tr class="memdesc:a0e8bf7fa623fb003d8f9e1389d1ec140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate numerically a differential equation in N unknowns using the Dormand-Prince method of sixth order.  <a href="namespacetheoretica.html#a0e8bf7fa623fb003d8f9e1389d1ec140">More...</a><br /></td></tr>
+<tr class="memitem:a0e8bf7fa623fb003d8f9e1389d1ec140"><td class="memItemLeft" align="right" valign="top"><a id="a0e8bf7fa623fb003d8f9e1389d1ec140"></a>
+<a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0e8bf7fa623fb003d8f9e1389d1ec140">ode_adams</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*f)(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>), <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt; s0, <a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt; s1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h)</td></tr>
+<tr class="memdesc:a0e8bf7fa623fb003d8f9e1389d1ec140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate numerically a differential equation in 1 unknown using the Adams-Bashforth linear multistep method of the second order. <br /></td></tr>
 <tr class="separator:a0e8bf7fa623fb003d8f9e1389d1ec140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0740f9ae13173fb08091e6db7a81a3da"><td class="memTemplParams" colspan="2"><a id="a0740f9ae13173fb08091e6db7a81a3da"></a>
 template&lt;unsigned int N&gt; </td></tr>
@@ -2104,6 +2123,44 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main namespace of the library which contains all functions and objects. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="aee807e1a55c73e90e1f852b4d1cf67fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee807e1a55c73e90e1f852b4d1cf67fc">&#9670;&nbsp;</a></span>enable_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Structure , typename T  = bool&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">theoretica::enable_matrix</a> = typedef std::enable_if_t&lt;<a class="el" href="structtheoretica_1_1is__matrix.html">is_matrix</a>&lt;Structure&gt;::value, T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable a function overload if the template typename is considerable a matrix. </p>
+<p>The std::enable_if structure is used, with type T which defaults to bool. </p>
+
+</div>
+</div>
+<a id="a746b3f92213a0d6340e98b850cacdeb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a746b3f92213a0d6340e98b850cacdeb9">&#9670;&nbsp;</a></span>enable_vector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Structure , typename T  = bool&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">theoretica::enable_vector</a> = typedef std::enable_if_t&lt;<a class="el" href="structtheoretica_1_1is__vector.html">is_vector</a>&lt;Structure&gt;::value, T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable a function overload if the template typename is considerable a vector. </p>
+<p>The std::enable_if structure is used, with type T which defaults to bool. </p>
+
+</div>
+</div>
 <a id="a049966946220f1f7e5eae57293703066"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a049966946220f1f7e5eae57293703066">&#9670;&nbsp;</a></span>real</h2>
 
@@ -3592,7 +3649,7 @@ template&lt;typename Field  = real&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the derivative of a function using univariate automatic differentiation. </p>
+<p>Get a lambda function which computes the derivative of the given function at the given point, using automatic differentiation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to differentiate, with dual argument and return value. </td></tr>
@@ -3728,7 +3785,7 @@ template&lt;typename RealFunction &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the second derivative of a function using univariate automatic differentiation. </p>
+<p>Get a lambda function which computes the second derivative of the given function at the given point, using automatic differentiation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to differentiate, with <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> argument and return value. </td></tr>
@@ -9500,64 +9557,6 @@ template&lt;typename Dataset &gt; </div>
 
 </div>
 </div>
-<a id="a0e8bf7fa623fb003d8f9e1389d1ec140"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e8bf7fa623fb003d8f9e1389d1ec140">&#9670;&nbsp;</a></span>ode_adams()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt;1&gt; theoretica::ode_adams </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*)(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt;&#160;</td>
-          <td class="paramname"><em>s0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structtheoretica_1_1ode__state.html">ode_state</a>&lt; 1 &gt;&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
-          <td class="paramname"><em>h</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Integrate numerically a differential equation in N unknowns using the Dormand-Prince method of sixth order. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>A function which computes the derivative of the state </td></tr>
-    <tr><td class="paramname">s</td><td>The current state of the ODE </td></tr>
-    <tr><td class="paramname">h</td><td>Step size Integrate numerically a differential equation in 1 unknown using the Adams-Bashforth linear multistep method of the second order </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a1e48746bab2eeecfe039a0755cb33f8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e48746bab2eeecfe039a0755cb33f8f">&#9670;&nbsp;</a></span>ode_euler() <span class="overload">[1/2]</span></h2>
 
@@ -13654,7 +13653,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Sun Aug 18 2024 15:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 19 2024 20:25:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

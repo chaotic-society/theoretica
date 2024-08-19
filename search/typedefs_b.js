@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stat_5ffunction_1697',['stat_function',['../namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1',1,'theoretica']]]
+  ['stat_5ffunction_1719',['stat_function',['../namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1',1,'theoretica']]]
 ];

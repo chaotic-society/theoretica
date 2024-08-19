@@ -134,6 +134,16 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__iterable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_134cacadc4237e7975e93632d0bd7c70.html">theoretica::is_iterable&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;().begin())&gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__vector.html">theoretica::is_vector&lt; Structure, typename &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a structure is considerable a vector, by checking that it has an operator[] and a size() method.  <a href="structtheoretica_1_1is__vector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html">theoretica::is_vector&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()[0]), decltype(std::declval&lt; Structure &gt;().size())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__matrix.html">theoretica::is_matrix&lt; Structure, typename &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a structure is considerable a matrix, by checking that it has an operator(), a rows() method and a cols() method.  <a href="structtheoretica_1_1is__matrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html">theoretica::is_matrix&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()(0, 0)), decltype(std::declval&lt; Structure &gt;().rows()), decltype(std::declval&lt; Structure &gt;().cols())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -162,6 +172,14 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:abe7f7bdc36ade4868722b357241c9bc9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abe7f7bdc36ade4868722b357241c9bc9">theoretica::has_real_elements</a> = is_real_type&lt; indexable_element_t&lt; Structure &gt; &gt;</td></tr>
 <tr class="memdesc:abe7f7bdc36ade4868722b357241c9bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether an indexable container has real elements. <br /></td></tr>
 <tr class="separator:abe7f7bdc36ade4868722b357241c9bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">theoretica::enable_matrix</a> = std::enable_if_t&lt; is_matrix&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a matrix.  <a href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">More...</a><br /></td></tr>
+<tr class="separator:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">theoretica::enable_vector</a> = std::enable_if_t&lt; is_vector&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a746b3f92213a0d6340e98b850cacdeb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a vector.  <a href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">More...</a><br /></td></tr>
+<tr class="separator:a746b3f92213a0d6340e98b850cacdeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fundamental type traits. </p>
@@ -171,7 +189,7 @@ template&lt;typename Structure &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="core__traits_8h.html">core_traits.h</a></li>
-    <li class="footer">Generated on Sun Aug 18 2024 15:34:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 19 2024 20:25:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
