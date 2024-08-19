@@ -1443,6 +1443,45 @@ namespace theoretica {
 		}
 
 
+		/// Compute the density of a matrix, counting the proportion
+		/// of non-zero (bigger in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param A The matrix to compute the density of
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of non-zero elements of the matrix.
+		template<typename Matrix, enable_matrix<Matrix> = true>
+		inline real density(const Matrix& A, real tolerance = 1E-12) {
+
+			long unsigned int n = 0;
+
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = 0; j < A.cols(); ++j)
+					if (abs(A(i, j)) > tolerance)
+						n++;
+
+			return (real(n) / A.rows()) / A.cols();
+		}
+
+
+		/// Compute the sparsity of a matrix, counting the proportion
+		/// of zero (smaller in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param A The matrix to compute the sparsity of
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of zero elements of the matrix.
+		template<typename Matrix, enable_matrix<Matrix> = true>
+		inline real sparsity(const Matrix& A, real tolerance = 1E-12) {
+
+			return 1.0 - density(A, tolerance);
+		}
+
+
 		// Matrix decompositions
 
 
@@ -1723,9 +1762,9 @@ namespace theoretica {
 		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$,
 		/// where the matrix A has already undergone in-place LU decomposition.
 		/// Forward and backward elimination is used to solve the system in place.
-		/// This routine is particularly efficient for
 		/// This routine is particularly efficient for solving linear systems
 		/// multiple times with the same matrix but different vectors.
+		/// The input vector is overwritten, as to not use any additional memory.
 		/// 
 		/// @param A The matrix of the linear system, after in-place LU decomposition
 		/// @param b The known vector, to be overwritten with the solution
@@ -1808,11 +1847,14 @@ namespace theoretica {
 		// Eigensystem methods
 
 
-		/// Find the biggest eigenvalue in module of a
+		/// Find the biggest eigenvalue in module \f$|\lambda_i|\f$ of a
 		/// square matrix using the power method (Von Mises iteration).
 		///
 		/// @param A The matrix to find the biggest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
 		/// @return The biggest eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector>
@@ -1846,9 +1888,10 @@ namespace theoretica {
 				x_prev = x_curr;
 				x_curr = normalize(A * x_prev);
 
-				// Stop the algorithm when |x_k+1| - |x_k| is
+				// Stop the algorithm when |x_k+1 +- x_k| is
 				// less then the tolerance in module
-				if (norm(x_curr - x_prev) <= tolerance)
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
 					break;
 			}
 
@@ -1862,34 +1905,37 @@ namespace theoretica {
 		}
 
 
-		/// Find the biggest eigenvalue in module of a
-		/// square matrix and its corresponding eigenvector,
+		/// Find the biggest eigenvalue in module \f$|\lambda_i|\f$ of a
+		/// square matrix and its corresponding eigenvector (eigenpair),
 		/// using the power method (Von Mises iteration).
 		///
 		/// @param A The matrix to find the biggest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param v The vector to overwrite with the eigenvector
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
 		/// @return The biggest eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector1, typename Vector2 = Vector1>
-		inline auto eigenvalue_power(
+		inline auto eigenpair_power(
 			const Matrix& A, const Vector1& x, Vector2& v,
 			real tolerance = 1E-08, unsigned int max_iter = 100) {
 
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvalue_power", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", is_square(A), INVALID_ARGUMENT);
 				return Type(nan());
 			}
 
 			if (x.size() != A.rows()) {
-				TH_MATH_ERROR("eigenvalue_power", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", x.size(), INVALID_ARGUMENT);
 				return Type(nan());
 			}
 
 			if (v.size() != x.size()) {
-				TH_MATH_ERROR("eigenvalue_power", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", v.size(), INVALID_ARGUMENT);
 				return Type(nan());
 			}
 
@@ -1907,15 +1953,16 @@ namespace theoretica {
 				x_prev = x_curr;
 				x_curr = normalize(A * x_prev);
 
-				// Stop the algorithm when |x_k+1| - |x_k| is
+				// Stop the algorithm when |x_k+1 +- x_k| is
 				// less then the tolerance in module
-				if (norm(x_curr - x_prev) <= tolerance)
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
 					break;
 			}
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvalue_power", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenpair_power", i, NO_ALGO_CONVERGENCE);
 				return Type(nan());
 			}
 
@@ -1926,13 +1973,152 @@ namespace theoretica {
 		}
 
 
+		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$ of a square matrix,
+		/// using the inverse power method with parameter equal to 0.
+		///
+		/// @param A The matrix to find the smallest eigenvalue of
+		/// @param x The starting vector (a random vector is a good choice)
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
+		/// @return The eigenvalue with the smallest inverse of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector>
+		inline auto eigenvalue_inverse(
+			const Matrix& A, const Vector& x,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvalue_inverse", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (A.rows() != x.size()) {
+				TH_MATH_ERROR("eigenvalue_inverse", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Compute the LU decomposition of A to speed up system solution
+			Matrix LU = A;
+			decompose_lu_inplace(LU);
+
+			// Compute the first step to initialize the two vectors
+			Vector x_prev = normalize(x);
+			Vector x_curr = x_prev;
+			solve_lu_inplace(LU, x_curr);
+
+			// Iteration counter
+			unsigned int i;
+
+			for (i = 1; i <= max_iter; ++i) {
+				
+				// Solve the linear system using the LU decomposition
+				x_prev = x_curr;
+				make_normalized(solve_lu_inplace(LU, x_curr));
+
+				// Stop the algorithm when |x_k+1 +- x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
+					break;
+			}
+
+			// The algorithm did not converge
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvalue_inverse", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			// A and inverse(A) have the same eigenvectors
+			return dot(x_curr, A * x_curr);
+		}
+
+
+		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$ of a square matrix
+		/// and its corresponding eigenvector, using the inverse power method
+		/// with parameter equal to 0.
+		///
+		/// @param A The matrix to find the smallest eigenvalue of
+		/// @param x The starting vector (a random vector is a good choice)
+		/// @param v The vector to overwrite with the eigenvector
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
+		/// @return The eigenvalue with the smallest inverse of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector1, typename Vector2>
+		inline auto eigenpair_inverse(
+			const Matrix& A, const Vector1& x, Vector2& v,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenpair_inverse", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (A.rows() != x.size()) {
+				TH_MATH_ERROR("eigenpair_inverse", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Compute the LU decomposition of A to speed up system solution
+			Matrix LU = A;
+			decompose_lu_inplace(LU);
+
+			// Compute the first step to initialize the two vectors
+			Vector1 x_prev = normalize(x);
+			Vector1 x_curr = x_prev;
+			solve_lu_inplace(LU, x_curr);
+
+			// Iteration counter
+			unsigned int i;
+
+			for (i = 1; i <= max_iter; ++i) {
+				
+				// Solve the linear system using the LU decomposition
+				x_prev = x_curr;
+				make_normalized(solve_lu_inplace(LU, x_curr));
+
+				// Stop the algorithm when |x_k+1 +- x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
+					break;
+			}
+
+			// The algorithm did not converge
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenpair_inverse", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			// Overwrite with the eigenvector
+			v = x_curr;
+
+			// A and inverse(A) have the same eigenvectors
+			return dot(x_curr, A * x_curr);
+		}
+
+
 		/// Find the eigenvector associated with a given
-		/// eigenvalue using the inverse power method.
+		/// approximated eigenvalue using the inverse power method.
+		///
+		/// @note The algorithm is unstable when the approximation
+		/// of the eigenvalue is too close to the true value. A value
+		/// not too close to the actual eigenvalue and far away from
+		/// the other eigenvalues should be used.
 		///
 		/// @param A The matrix to find the eigenvector of
 		/// @param lambda The eigenvalue
 		/// @param x The starting vector (a random vector is a good choice)
-		/// @return The eigenvector 
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
+		/// @return The approximate eigenvector associated with the eigenvalue
 		template<typename Matrix, typename Vector, typename T = matrix_element_t<Matrix>>
 		inline Vector eigenvector_inverse(
 			const Matrix& A, const T& lambda, const Vector& x,
@@ -1975,9 +2161,10 @@ namespace theoretica {
 				v_prev = v_curr;
 				make_normalized(solve_lu_inplace(LU, v_curr));
 
-				// Stop the algorithm if the norm of the variation
-				// between steps is under the tolerance
-				if (norm(v_curr - v_prev) <= tolerance)
+				// Stop the algorithm when |x_k+1 +- x_k| is
+				// less then the tolerance in module
+				if (norm(v_curr - v_prev) <= tolerance ||
+					norm(v_curr + v_prev) <= tolerance)
 					break;
 			}
 

@@ -44,12 +44,13 @@ namespace theoretica {
 	/// @param x The coordinate to compute the derivative at.
 	/// @return The derivative of f at x.
 	inline real deriv(dual(*f)(dual), real x) {
-		return f(dual(x, 1)).Dual();
+		return f(dual(x, 1.0)).Dual();
 	}
 
 
-	/// Compute the derivative of a function
-	/// using univariate automatic differentiation.
+	/// Get a lambda function which computes the derivative
+	/// of the given function at the given point,
+	/// using automatic differentiation.
 	///
 	/// @param f The function to differentiate,
 	/// with dual argument and return value.
@@ -57,7 +58,7 @@ namespace theoretica {
 	/// derivative of f using automatic differentiation.
 	inline auto deriv(dual(*f)(dual)) {
 
-		return [f](real x) {
+		return [f](real x) -> real {
 			return deriv(f, x);
 		};
 	}
@@ -71,12 +72,13 @@ namespace theoretica {
 	/// @param x The coordinate to compute the derivative at.
 	/// @return The derivative of f at x.
 	inline real deriv2(dual2(*f)(dual2), real x) {
-		return f(dual2(x, 1, 0)).Dual2();
+		return f(dual2(x, 1.0, 0.0)).Dual2();
 	}
 
 
-	/// Compute the second derivative of a function
-	/// using univariate automatic differentiation.
+	/// Get a lambda function which computes the second
+	/// derivative of the given function at the given point,
+	/// using automatic differentiation.
 	///
 	/// @param f The function to differentiate,
 	/// with dual2 argument and return value.
@@ -84,7 +86,7 @@ namespace theoretica {
 	/// derivative of f using automatic differentiation.
 	inline auto deriv2(dual2(*f)(dual2)) {
 
-		return [f](real x) {
+		return [f](real x) -> real {
 			return deriv2(f, x);
 		};
 	}

@@ -129,6 +129,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using Euler's method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -140,6 +141,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using Euler's method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -152,6 +154,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using the midpoint method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -165,6 +168,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using the midpoint method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -179,6 +183,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using Heun's method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -193,6 +198,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using Heun's method.
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -208,6 +214,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using Runge-Kutta's method of second order
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -222,6 +229,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using Runge-Kutta's method of second order
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -237,6 +245,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using Runge-Kutta's method of fourth order
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -253,6 +262,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using Runge-Kutta's method of fourth order
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -270,6 +280,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in one unknown
 	/// using Kutta's 3/8 rule method
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -286,6 +297,7 @@ namespace theoretica {
 
 	/// Integrate numerically a differential equation in N unknowns
 	/// using Kutta's 3/8 rule method
+	///
 	/// @param f A function which computes the derivative of the state
 	/// @param s The current state of the ODE
 	/// @param h Step size
@@ -301,11 +313,12 @@ namespace theoretica {
 	}
 
 
-	/// Integrate numerically a differential equation in N unknowns
-	/// using the Dormand-Prince method of sixth order
-	/// @param f A function which computes the derivative of the state
-	/// @param s The current state of the ODE
-	/// @param h Step size
+	// Integrate numerically a differential equation in N unknowns
+	// using the Dormand-Prince method of sixth order
+	//
+	// @param f A function which computes the derivative of the state
+	// @param s The current state of the ODE
+	// @param h Step size
 	// template<unsigned int N>
 	// inline ode_state<N> ode_rkdp(vec<real, N>(*f)(real, vec<real, N>), ode_state<N> s, real h) {
 

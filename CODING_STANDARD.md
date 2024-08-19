@@ -20,6 +20,7 @@ If you contribute to the project, please follow this coding standard to help imp
 ## Documentation
 Functions and classes should be documented using Doxygen documentation format, using `@param` and `@return` to explain what the arguments are and what the function returns.
 For example:
+
 ```cpp
 /// Do absolutely nothing
 ///
@@ -31,10 +32,12 @@ inline int nothing(int x) {
   return 0;
 }
 ```
-Descriptions should explain how the function behaves, the underlying algorithm and error states or exceptions. Latex formulas may be written using opening and closing `\f$`, for example `\f$x = \pi\f$`
+Descriptions should explain how the function behaves, the underlying algorithm and error states or exceptions. Latex formulas may be written using opening and closing `\f$`, for example `\f$x = \pi\f$`.
+
 
 ## Test cases
 Write test cases for the code you write or at least leave information on how it could be tested. Tests are written in `test/test_<module>.cpp` for each module, please make sure to include your tests in the right file.
+
 
 ## Other considerations
 - All functions except class constructors should be declared `inline` if implemented inside headers
