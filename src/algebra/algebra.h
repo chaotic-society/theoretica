@@ -1844,7 +1844,29 @@ namespace theoretica {
 		}
 
 
-		// Eigensystem methods
+		// Eigensolvers
+
+
+		/// Compute the Rayleigh quotient \f$\frac{x^T A x}{x^T x}\f$ of a vector
+		/// with respect to a matrix. This value is particularly
+		/// useful in the context of eigensolvers.
+		///
+		/// @param A The matrix
+		/// @param x The vector
+		/// @return The Rayleigh quotient of x with respect to A
+		template<typename Matrix, typename Vector>
+		inline auto rayleigh_quotient(const Matrix& A, const Vector& x) {
+
+			const auto p = dot(x, x);
+
+			// Check for division by zero
+			if (abs(p) < MACH_EPSILON) {
+				TH_MATH_ERROR("rayleigh_quotient", abs(p), DIV_BY_ZERO);
+				return indexable_element_t<Vector>(nan());
+			}
+
+			return dot(x, transform(A, x)) / p;
+		}
 
 
 		/// Find the biggest eigenvalue in module \f$|\lambda_i|\f$ of a
@@ -2036,9 +2058,9 @@ namespace theoretica {
 		}
 
 
-		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$ of a square matrix
-		/// and its corresponding eigenvector, using the inverse power method
-		/// with parameter equal to 0.
+		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$
+		/// of a square matrix and its corresponding eigenvector, using the
+		/// inverse power method with parameter equal to 0.
 		///
 		/// @param A The matrix to find the smallest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)

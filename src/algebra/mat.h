@@ -506,6 +506,32 @@ namespace theoretica {
 		}
 
 
+		/// Compute the density of the matrix, counting the proportion
+		/// of non-zero (bigger in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of non-zero elements of the matrix.
+		inline real density(real tolerance = 1E-12) {
+			return algebra::density(*this, tolerance);
+		}
+
+
+		/// Compute the sparsity of the matrix, counting the proportion
+		/// of zero (smaller in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of zero elements of the matrix.
+		inline real sparsity(real tolerance = 1E-12) {
+			return algebra::sparsity(*this, tolerance);
+		}
+
+
 		/// Compute the trace (sum of elements on the diagonal) of a square matrix
 		inline Type trace() {
 			return algebra::trace(*this);
@@ -1117,6 +1143,32 @@ namespace theoretica {
 		/// Return whether the matrix is symmetric
 		inline bool is_symmetric() const {
 			return algebra::is_symmetric(*this);
+		}
+
+
+		/// Compute the density of the matrix, counting the proportion
+		/// of non-zero (bigger in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of non-zero elements of the matrix.
+		inline real density(real tolerance = 1E-12) {
+			return algebra::density(*this, tolerance);
+		}
+
+
+		/// Compute the sparsity of the matrix, counting the proportion
+		/// of zero (smaller in module than the given tolerance) elements
+		/// with respect to the total number of elements.
+		///
+		/// @param tolerance The minimum tolerance in absolute value
+		/// to consider an element non-zero.
+		/// @return A real number between 0 and 1 representing the
+		/// proportion of zero elements of the matrix.
+		inline real sparsity(real tolerance = 1E-12) {
+			return algebra::sparsity(*this, tolerance);
 		}
 
 
