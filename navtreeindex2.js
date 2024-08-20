@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"classtheoretica_1_1multidual.html#af9e0465d651001b25de2872d5e6d8e3a":[12,0,1,10,0],
+"classtheoretica_1_1multidual.html#afec2c7db75503dea1b286a115a828085":[12,0,1,10,18],
+"classtheoretica_1_1phasor.html":[12,0,1,16],
+"classtheoretica_1_1phasor.html#a0050a34aad1452bce49f55421f3683ae":[12,0,1,16,18],
+"classtheoretica_1_1phasor.html#a069ca7a3186574e4e4ca484ca624ee97":[12,0,1,16,21],
 "classtheoretica_1_1phasor.html#a0d4254d619edb4e6cd560f44bdd7aa85":[12,0,1,16,39],
 "classtheoretica_1_1phasor.html#a0d46cb8ae039dbaa60ed0b3bf3c6d3cb":[12,0,1,16,25],
 "classtheoretica_1_1phasor.html#a0d488748b5020759477ddbab2672b94a":[12,0,1,16,29],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#afe0cade448a4c30b90accab2c440232f":[12,0,1,7,23],
 "classtheoretica_1_1vec__iterator.html":[12,0,1,5],
 "classtheoretica_1_1vec__iterator.html#a010afd06ca34e579e4aba8d8744e3600":[12,0,1,5,3],
-"classtheoretica_1_1vec__iterator.html#a39a924acbb692e96da7b6ce515679a06":[12,0,1,5,7],
-"classtheoretica_1_1vec__iterator.html#a40bc29e3c087bb8fb1b5e12d0b62aeb5":[12,0,1,5,6],
-"classtheoretica_1_1vec__iterator.html#a4fd581ff18b51375d8b48ca1e8fecd00":[12,0,1,5,1],
-"classtheoretica_1_1vec__iterator.html#a93edce3a56490a2abc8c1bcf09415e3f":[12,0,1,5,0],
-"classtheoretica_1_1vec__iterator.html#a9810c3c9be9e80f795d14347841fcd5b":[12,0,1,5,4],
-"classtheoretica_1_1vec__iterator.html#abbc8d4e38590cf3c831ba4db9ab35943":[12,0,1,5,5]
+"classtheoretica_1_1vec__iterator.html#a39a924acbb692e96da7b6ce515679a06":[12,0,1,5,7]
 };

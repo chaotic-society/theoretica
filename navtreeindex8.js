@@ -1,5 +1,11 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1distribution.html#a42e5e398dee6f6ba80e176a262a99fd6":[11,0,2,2,7],
+"namespacetheoretica_1_1distribution.html#a44af917c88f4738b2b3ef1385bf2c8a3":[11,0,2,2,12],
+"namespacetheoretica_1_1distribution.html#a467f2fa339b4321afc01d0da1d3c2d9c":[11,0,2,2,11],
+"namespacetheoretica_1_1distribution.html#a4cf38559e21277391f97c36688413f68":[11,0,2,2,13],
+"namespacetheoretica_1_1distribution.html#a5d08267b0686b3c00215645f40d3db47":[11,0,2,2,21],
+"namespacetheoretica_1_1distribution.html#a6e0d46f232d29ed5e4e2a056766c2252":[11,0,2,2,31],
 "namespacetheoretica_1_1distribution.html#a74f14cd55837ef9b18f5f8602a4bf9c5":[11,0,2,2,18],
 "namespacetheoretica_1_1distribution.html#a7e4cfceccf2f9ea7113ab121320a76bc":[11,0,2,2,34],
 "namespacetheoretica_1_1distribution.html#aa283c0a58642f4489afa208423dc2838":[11,0,2,2,23],
@@ -243,11 +249,5 @@ var NAVTREEINDEX8 =
 "real__analysis_8h.html#a7f2d69e3a3387958a27d4a03ed478a99":[13,0,4,7,1],
 "real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d":[13,0,4,7,19],
 "real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a":[13,0,4,7,26],
-"real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2":[13,0,4,7,23],
-"real__analysis_8h.html#a96f957ad9b2354268f56ab1ca3843080":[13,0,4,7,17],
-"real__analysis_8h.html#aa2e4cf02f9bcb4caf5371ee05d67df8d":[13,0,4,7,52],
-"real__analysis_8h.html#aa5177ff64d981840e149d1e282f1b27e":[13,0,4,7,0],
-"real__analysis_8h.html#aa9628d333f307cc0dfe8578f29146615":[13,0,4,7,41],
-"real__analysis_8h.html#aaf6b8fc4bb2609507cd1fae0f7d6c8a7":[13,0,4,7,55],
-"real__analysis_8h.html#ab85064afd88800f3129e97d2e2955be4":[13,0,4,7,7]
+"real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2":[13,0,4,7,23]
 };

@@ -306,6 +306,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a443b161570a449a4ad52f27a427c1d71">is_symmetric</a> () const</td></tr>
 <tr class="memdesc:a443b161570a449a4ad52f27a427c1d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether the matrix is symmetric. <br /></td></tr>
 <tr class="separator:a443b161570a449a4ad52f27a427c1d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd62489208eca18c5d44d4da9fc62f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#afcd62489208eca18c5d44d4da9fc62f2">density</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12)</td></tr>
+<tr class="memdesc:afcd62489208eca18c5d44d4da9fc62f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the density of the matrix, counting the proportion of non-zero (bigger in module than the given tolerance) elements with respect to the total number of elements.  <a href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#afcd62489208eca18c5d44d4da9fc62f2">More...</a><br /></td></tr>
+<tr class="separator:afcd62489208eca18c5d44d4da9fc62f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cd4754e5fb4890e7776ff6c96bd2c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ad8cd4754e5fb4890e7776ff6c96bd2c6">sparsity</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12)</td></tr>
+<tr class="memdesc:ad8cd4754e5fb4890e7776ff6c96bd2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sparsity of the matrix, counting the proportion of zero (smaller in module than the given tolerance) elements with respect to the total number of elements.  <a href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ad8cd4754e5fb4890e7776ff6c96bd2c6">More...</a><br /></td></tr>
+<tr class="separator:ad8cd4754e5fb4890e7776ff6c96bd2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4faaf673540f17592c1cc2b1c1a55c28"><td class="memItemLeft" align="right" valign="top"><a id="a4faaf673540f17592c1cc2b1c1a55c28"></a>
 Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a4faaf673540f17592c1cc2b1c1a55c28">trace</a> ()</td></tr>
 <tr class="memdesc:a4faaf673540f17592c1cc2b1c1a55c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the trace (sum of elements on the diagonal) of a square matrix. <br /></td></tr>
@@ -440,6 +446,43 @@ class theoretica::mat&lt; Type, 0, 0 &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afcd62489208eca18c5d44d4da9fc62f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcd62489208eca18c5d44d4da9fc62f2">&#9670;&nbsp;</a></span>density()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, 0, 0 &gt;::density </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the density of the matrix, counting the proportion of non-zero (bigger in module than the given tolerance) elements with respect to the total number of elements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tolerance</td><td>The minimum tolerance in absolute value to consider an element non-zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A real number between 0 and 1 representing the proportion of non-zero elements of the matrix. </dd></dl>
+
+</div>
+</div>
 <a id="a8a4baea85ab72e5dd7d9292279a6fd26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a4baea85ab72e5dd7d9292279a6fd26">&#9670;&nbsp;</a></span>mul()</h2>
 
@@ -518,6 +561,43 @@ template&lt;typename Type &gt; </div>
 
 </div>
 </div>
+<a id="ad8cd4754e5fb4890e7776ff6c96bd2c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8cd4754e5fb4890e7776ff6c96bd2c6">&#9670;&nbsp;</a></span>sparsity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, 0, 0 &gt;::sparsity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the sparsity of the matrix, counting the proportion of zero (smaller in module than the given tolerance) elements with respect to the total number of elements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tolerance</td><td>The minimum tolerance in absolute value to consider an element non-zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A real number between 0 and 1 representing the proportion of zero elements of the matrix. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>algebra/<a class="el" href="mat_8h_source.html">mat.h</a></li>
 </ul>
@@ -527,7 +607,7 @@ template&lt;typename Type &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html">mat&lt; Type, 0, 0 &gt;</a></li>
-    <li class="footer">Generated on Mon Aug 19 2024 20:25:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 20 2024 20:52:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

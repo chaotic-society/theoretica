@@ -362,6 +362,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a> (const Matrix &amp;A, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a47d7736bbdcc4b5c721923592f6a65e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\) using the best available algorithm.  <a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">More...</a><br /></td></tr>
 <tr class="separator:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90657bcb7de860059ab5c52087c5d37b"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:a90657bcb7de860059ab5c52087c5d37b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a90657bcb7de860059ab5c52087c5d37b">rayleigh_quotient</a> (const Matrix &amp;A, const Vector &amp;x)</td></tr>
+<tr class="memdesc:a90657bcb7de860059ab5c52087c5d37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Rayleigh quotient \(\frac{x^T A x}{x^T x}\) of a vector with respect to a matrix.  <a href="namespacetheoretica_1_1algebra.html#a90657bcb7de860059ab5c52087c5d37b">More...</a><br /></td></tr>
+<tr class="separator:a90657bcb7de860059ab5c52087c5d37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa15adaa5164d52482d2a926f659c963a"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:aa15adaa5164d52482d2a926f659c963a"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">eigenvalue_power</a> (const Matrix &amp;A, const Vector &amp;x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, unsigned int max_iter=100)</td></tr>
 <tr class="memdesc:aa15adaa5164d52482d2a926f659c963a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the biggest eigenvalue in module \(|\lambda_i|\) of a square matrix using the power method (Von Mises iteration).  <a href="namespacetheoretica_1_1algebra.html#aa15adaa5164d52482d2a926f659c963a">More...</a><br /></td></tr>
@@ -3843,6 +3847,55 @@ template&lt;typename Vector &gt; </div>
 
 </div>
 </div>
+<a id="a90657bcb7de860059ab5c52087c5d37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90657bcb7de860059ab5c52087c5d37b">&#9670;&nbsp;</a></span>rayleigh_quotient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::rayleigh_quotient </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the Rayleigh quotient \(\frac{x^T A x}{x^T x}\) of a vector with respect to a matrix. </p>
+<p>This value is particularly useful in the context of eigensolvers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix </td></tr>
+    <tr><td class="paramname">x</td><td>The vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The Rayleigh quotient of x with respect to A </dd></dl>
+
+</div>
+</div>
 <a id="a38f892f84cf60902500fc4a4f114f8fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38f892f84cf60902500fc4a4f114f8fe">&#9670;&nbsp;</a></span>rotation_2d()</h2>
 
@@ -5257,7 +5310,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Mon Aug 19 2024 20:25:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 20 2024 20:52:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

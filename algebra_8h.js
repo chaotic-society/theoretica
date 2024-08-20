@@ -48,6 +48,7 @@ var algebra_8h =
     [ "mat_zeroes", "algebra_8h.html#a01ac4d9844e1bb4c7ef409277bed451f", null ],
     [ "norm", "algebra_8h.html#ae1521a586075b668b4a8765dadcdd1a3", null ],
     [ "normalize", "algebra_8h.html#af3f76287e1f911f7223ebf865ee16eea", null ],
+    [ "rayleigh_quotient", "algebra_8h.html#a90657bcb7de860059ab5c52087c5d37b", null ],
     [ "solve", "algebra_8h.html#a47d7736bbdcc4b5c721923592f6a65e4", null ],
     [ "solve_lu", "algebra_8h.html#a6dc8b5c2fa93053f3370b22b5fad2089", null ],
     [ "solve_lu_inplace", "algebra_8h.html#ac243a7509ce421dc7af9f1e690c4ac62", null ],

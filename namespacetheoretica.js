@@ -79,6 +79,7 @@ var namespacetheoretica =
       [ "ortho", "namespacetheoretica_1_1algebra.html#aca924f650d8b397b61d252dc01c71826", null ],
       [ "perspective", "namespacetheoretica_1_1algebra.html#ae7ff5243f09e983bb1e391a80abfa2b1", null ],
       [ "perspective_fov", "namespacetheoretica_1_1algebra.html#ab46e373f6bb911ece83eb74a9d2cbeb7", null ],
+      [ "rayleigh_quotient", "namespacetheoretica_1_1algebra.html#a90657bcb7de860059ab5c52087c5d37b", null ],
       [ "rotation_2d", "namespacetheoretica_1_1algebra.html#a38f892f84cf60902500fc4a4f114f8fe", null ],
       [ "rotation_3d", "namespacetheoretica_1_1algebra.html#abc19e58fd39649b8e9d2c48a2d7fa90e", null ],
       [ "rotation_3d_xaxis", "namespacetheoretica_1_1algebra.html#a7e41df03a4e0f1273b41aea2fc1dee3a", null ],
