@@ -135,6 +135,10 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:a3d820bf5c386383914de23c4cbf07b57"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3d820bf5c386383914de23c4cbf07b57">theoretica::has_complex_elements</a> = is_complex_type&lt; indexable_element_t&lt; Structure &gt; &gt;</td></tr>
 <tr class="memdesc:a3d820bf5c386383914de23c4cbf07b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether a container has complex elements. <br /></td></tr>
 <tr class="separator:a3d820bf5c386383914de23c4cbf07b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7129e96accc1046d394848364ba77bdc"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a7129e96accc1046d394848364ba77bdc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">theoretica::enable_complex</a> = std::enable_if_t&lt; is_complex_type&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a7129e96accc1046d394848364ba77bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a complex number.  <a href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">More...</a><br /></td></tr>
+<tr class="separator:a7129e96accc1046d394848364ba77bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Complex data types definitions. </p>
@@ -144,7 +148,7 @@ template&lt;typename Structure &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_29641e2b57f535eff702a8afdf10c5ec.html">complex</a></li><li class="navelem"><a class="el" href="complex__types_8h.html">complex_types.h</a></li>
-    <li class="footer">Generated on Tue Aug 20 2024 20:52:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 23 2024 21:42:13 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,17 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1algebra.html#afe362b810eac7593d63e67afaaf66836":[11,0,2,1,99],
+"namespacetheoretica_1_1distribution.html":[11,0,2,2],
+"namespacetheoretica_1_1distribution.html#a02b341a54737fbbc4201362784bf63ec":[11,0,2,2,25],
+"namespacetheoretica_1_1distribution.html#a05a9c35d2cc3431dc4441029cb3c2cea":[11,0,2,2,5],
+"namespacetheoretica_1_1distribution.html#a08a806f46c9f29aa7c9fea59e5327511":[11,0,2,2,15],
+"namespacetheoretica_1_1distribution.html#a1787fdadca79a1cf48d4935567ac4fb4":[11,0,2,2,0],
+"namespacetheoretica_1_1distribution.html#a20776312ced3087ce0c20d2e5019e658":[11,0,2,2,3],
+"namespacetheoretica_1_1distribution.html#a207d9c3c111231ffa5ff27efb5a0be13":[11,0,2,2,30],
+"namespacetheoretica_1_1distribution.html#a23208b6184144c832d689295442599de":[11,0,2,2,10],
+"namespacetheoretica_1_1distribution.html#a29239d9f6fa2ece48c655c977ec77561":[11,0,2,2,28],
+"namespacetheoretica_1_1distribution.html#a29639993aeb2b247b8bd37d041211940":[11,0,2,2,6],
+"namespacetheoretica_1_1distribution.html#a2e1d320249b8efb3dfb78d7ae3a08aa9":[11,0,2,2,1],
 "namespacetheoretica_1_1distribution.html#a42e5e398dee6f6ba80e176a262a99fd6":[11,0,2,2,7],
 "namespacetheoretica_1_1distribution.html#a44af917c88f4738b2b3ef1385bf2c8a3":[11,0,2,2,12],
 "namespacetheoretica_1_1distribution.html#a467f2fa339b4321afc01d0da1d3c2d9c":[11,0,2,2,11],
@@ -237,17 +249,5 @@ var NAVTREEINDEX8 =
 "real__analysis_8h.html#a5e295404d1712fb17851fe105715766e":[13,0,4,7,38],
 "real__analysis_8h.html#a61c3b797f94ec5bc22b4c22f85417c93":[13,0,4,7,10],
 "real__analysis_8h.html#a63a5d3a6d550b1c227342e5f6ed8d194":[13,0,4,7,13],
-"real__analysis_8h.html#a68914a563241494dfe7ac42f0462920c":[13,0,4,7,32],
-"real__analysis_8h.html#a6ae6ab14a39d6132b6858934dadaaf3e":[13,0,4,7,6],
-"real__analysis_8h.html#a6bfa8d12242c241b6f56cebc9cdc60ed":[13,0,4,7,18],
-"real__analysis_8h.html#a6f12dd8e0fc650fa75c9961e51d1406c":[13,0,4,7,43],
-"real__analysis_8h.html#a70f4122359c1f32ba0741d098a5fbe69":[13,0,4,7,40],
-"real__analysis_8h.html#a726a5e18c863dc41040f5df134553fa9":[13,0,4,7,53],
-"real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91":[13,0,4,7,34],
-"real__analysis_8h.html#a79b06e5bf997c4447c10f2fa96649347":[13,0,4,7,3],
-"real__analysis_8h.html#a7a76685197faa15403e24b836830cf5d":[13,0,4,7,48],
-"real__analysis_8h.html#a7f2d69e3a3387958a27d4a03ed478a99":[13,0,4,7,1],
-"real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d":[13,0,4,7,19],
-"real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a":[13,0,4,7,26],
-"real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2":[13,0,4,7,23]
+"real__analysis_8h.html#a68914a563241494dfe7ac42f0462920c":[13,0,4,7,32]
 };

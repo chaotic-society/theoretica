@@ -1,5 +1,17 @@
 var NAVTREEINDEX9 =
 {
+"real__analysis_8h.html#a6ae6ab14a39d6132b6858934dadaaf3e":[13,0,4,7,6],
+"real__analysis_8h.html#a6bfa8d12242c241b6f56cebc9cdc60ed":[13,0,4,7,18],
+"real__analysis_8h.html#a6f12dd8e0fc650fa75c9961e51d1406c":[13,0,4,7,43],
+"real__analysis_8h.html#a70f4122359c1f32ba0741d098a5fbe69":[13,0,4,7,40],
+"real__analysis_8h.html#a726a5e18c863dc41040f5df134553fa9":[13,0,4,7,53],
+"real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91":[13,0,4,7,34],
+"real__analysis_8h.html#a79b06e5bf997c4447c10f2fa96649347":[13,0,4,7,3],
+"real__analysis_8h.html#a7a76685197faa15403e24b836830cf5d":[13,0,4,7,48],
+"real__analysis_8h.html#a7f2d69e3a3387958a27d4a03ed478a99":[13,0,4,7,1],
+"real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d":[13,0,4,7,19],
+"real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a":[13,0,4,7,26],
+"real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2":[13,0,4,7,23],
 "real__analysis_8h.html#a96f957ad9b2354268f56ab1ca3843080":[13,0,4,7,17],
 "real__analysis_8h.html#aa2e4cf02f9bcb4caf5371ee05d67df8d":[13,0,4,7,52],
 "real__analysis_8h.html#aa5177ff64d981840e149d1e282f1b27e":[13,0,4,7,0],
@@ -237,17 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1err_1_1errno__result.html#ab0d951381767858527fb7ceb15a7c99c":[12,0,0,1,1,1],
 "structchebyshev_1_1err_1_1errno__result.html#aec29a9cb40bff55397ce6988417db619":[12,0,0,1,1,2],
 "structchebyshev_1_1err_1_1exception__result.html":[12,0,0,1,2],
-"structchebyshev_1_1err_1_1exception__result.html#a02dde6a5f72c47f7b7223fe67a2f5745":[12,0,0,1,2,3],
-"structchebyshev_1_1err_1_1exception__result.html#a31e71e069c79ef29722d88d973721c0c":[12,0,0,1,2,0],
-"structchebyshev_1_1err_1_1exception__result.html#a367f38ef68c00896e9de2251649e8bbe":[12,0,0,1,2,2],
-"structchebyshev_1_1err_1_1exception__result.html#ae4cbe15826baac7b2b9a93460344878f":[12,0,0,1,2,1],
-"structchebyshev_1_1output_1_1field__options.html":[12,0,0,2,0],
-"structchebyshev_1_1output_1_1field__options.html#a0888d8bca0d4c77a267895ab5c0a3eb8":[12,0,0,2,0,2],
-"structchebyshev_1_1output_1_1field__options.html#a2448131f826229e1cc2573d6473ed4a7":[12,0,0,2,0,4],
-"structchebyshev_1_1output_1_1field__options.html#a4fed73bb5149287dd4628a864f37aea5":[12,0,0,2,0,1],
-"structchebyshev_1_1output_1_1field__options.html#a5e35ed682443170bc2d65bda9b5b4e1f":[12,0,0,2,0,0],
-"structchebyshev_1_1output_1_1field__options.html#a634cd71d7d8c4aab9c172cc1b209e299":[12,0,0,2,0,5],
-"structchebyshev_1_1output_1_1field__options.html#a781af2207c0eb5546e8834baac66f8e0":[12,0,0,2,0,3],
-"structchebyshev_1_1output_1_1output__state.html":[12,0,0,2,1],
-"structchebyshev_1_1output_1_1output__state.html#a4d2cc4d9d6c48dfd37b0605206f45ab9":[12,0,0,2,1,11]
+"structchebyshev_1_1err_1_1exception__result.html#a02dde6a5f72c47f7b7223fe67a2f5745":[12,0,0,1,2,3]
 };

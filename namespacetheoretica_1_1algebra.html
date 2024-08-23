@@ -138,6 +138,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ae059cebcb4daca6ff6087c729422dcc3"><td class="memTemplItemLeft" align="right" valign="top">Matrix &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ae059cebcb4daca6ff6087c729422dcc3">mat_swap_cols</a> (Matrix &amp;A, unsigned int col1, unsigned int col2)</td></tr>
 <tr class="memdesc:ae059cebcb4daca6ff6087c729422dcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap two columns of a matrix, given the matrix and the two indices of the columns.  <a href="namespacetheoretica_1_1algebra.html#ae059cebcb4daca6ff6087c729422dcc3">More...</a><br /></td></tr>
 <tr class="separator:ae059cebcb4daca6ff6087c729422dcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210359ca3788d24fce2114056aae577a"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Type  = matrix_element_t&lt;Matrix&gt;&gt; </td></tr>
+<tr class="memitem:a210359ca3788d24fce2114056aae577a"><td class="memTemplItemLeft" align="right" valign="top">Matrix &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a210359ca3788d24fce2114056aae577a">mat_shift_diagonal</a> (Matrix &amp;A, const Type &amp;sigma)</td></tr>
+<tr class="memdesc:a210359ca3788d24fce2114056aae577a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the diagonal of a matrix by the given amount, overwriting the matrix itself, as \((A + \sigma I)\).  <a href="namespacetheoretica_1_1algebra.html#a210359ca3788d24fce2114056aae577a">More...</a><br /></td></tr>
+<tr class="separator:a210359ca3788d24fce2114056aae577a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a838277b2f0e59831f5f0b3f5d388c925"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a838277b2f0e59831f5f0b3f5d388c925"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a> (const Type &amp;v_i, const Type &amp;w_i)</td></tr>
+<tr class="memdesc:a838277b2f0e59831f5f0b3f5d388c925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the contribution of the inner product between a pair of elements of two vectors, automatically selecting whether to compute the conjugate or not.  <a href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">More...</a><br /></td></tr>
+<tr class="separator:a838277b2f0e59831f5f0b3f5d388c925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7925dcde9e30aaf83965f094c79199ac"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a7925dcde9e30aaf83965f094c79199ac"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a7925dcde9e30aaf83965f094c79199ac">pair_inner_product</a> (const <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; &amp;v_i, const <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; &amp;w_i)</td></tr>
+<tr class="memdesc:a7925dcde9e30aaf83965f094c79199ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the contribution of the inner product between a pair of elements of two vectors, automatically selecting whether to compute the conjugate or not.  <a href="namespacetheoretica_1_1algebra.html#a7925dcde9e30aaf83965f094c79199ac">More...</a><br /></td></tr>
+<tr class="separator:a7925dcde9e30aaf83965f094c79199ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90bea2f231e34937ede290fd070f7f21"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a90bea2f231e34937ede290fd070f7f21"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a90bea2f231e34937ede290fd070f7f21">sqr_norm</a> (const Vector &amp;v)</td></tr>
 <tr class="memdesc:a90bea2f231e34937ede290fd070f7f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the square of the Euclidean/Hermitian norm of the given vector.  <a href="namespacetheoretica_1_1algebra.html#a90bea2f231e34937ede290fd070f7f21">More...</a><br /></td></tr>
@@ -154,13 +166,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a1740381f968a6d4ca37079ae8abcd904"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a1740381f968a6d4ca37079ae8abcd904">make_normalized</a> (Vector &amp;v)</td></tr>
 <tr class="memdesc:a1740381f968a6d4ca37079ae8abcd904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize a given vector overwriting it.  <a href="namespacetheoretica_1_1algebra.html#a1740381f968a6d4ca37079ae8abcd904">More...</a><br /></td></tr>
 <tr class="separator:a1740381f968a6d4ca37079ae8abcd904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae32a78d562349a3e94592e8ef8d7b321"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2 &gt; </td></tr>
-<tr class="memitem:ae32a78d562349a3e94592e8ef8d7b321"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">dot</a> (const Vector1 &amp;v1, const Vector2 &amp;v2)</td></tr>
-<tr class="memdesc:ae32a78d562349a3e94592e8ef8d7b321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot product between two vectors.  <a href="namespacetheoretica_1_1algebra.html#ae32a78d562349a3e94592e8ef8d7b321">More...</a><br /></td></tr>
-<tr class="separator:ae32a78d562349a3e94592e8ef8d7b321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78eaf414de804da51ccf4ee4dc20d31c"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2 &gt; </td></tr>
+<tr class="memitem:a78eaf414de804da51ccf4ee4dc20d31c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c">dot</a> (const Vector1 &amp;v, const Vector2 &amp;w)</td></tr>
+<tr class="memdesc:a78eaf414de804da51ccf4ee4dc20d31c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot product between two vectors, using the Hermitian form if needed.  <a href="namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c">More...</a><br /></td></tr>
+<tr class="separator:a78eaf414de804da51ccf4ee4dc20d31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a038ef7f20afa9fbbdd052c020c90f581"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2 &gt; </td></tr>
 <tr class="memitem:a038ef7f20afa9fbbdd052c020c90f581"><td class="memTemplItemLeft" align="right" valign="top">Vector1&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581">cross</a> (const Vector1 &amp;v1, const Vector2 &amp;v2)</td></tr>
-<tr class="memdesc:a038ef7f20afa9fbbdd052c020c90f581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product between two 3D vectors.  <a href="namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581">More...</a><br /></td></tr>
+<tr class="memdesc:a038ef7f20afa9fbbdd052c020c90f581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product between two tridimensional vectors.  <a href="namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581">More...</a><br /></td></tr>
 <tr class="separator:a038ef7f20afa9fbbdd052c020c90f581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe362b810eac7593d63e67afaaf66836"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename MatrixT  = Matrix&gt; </td></tr>
 <tr class="memitem:afe362b810eac7593d63e67afaaf66836"><td class="memTemplItemLeft" align="right" valign="top">MatrixT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#afe362b810eac7593d63e67afaaf66836">transpose</a> (const Matrix &amp;m)</td></tr>
@@ -386,6 +398,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ae2c50bc524b8e76644430a3c1af6d7a5"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ae2c50bc524b8e76644430a3c1af6d7a5">eigenvector_inverse</a> (const Matrix &amp;A, const T &amp;lambda, const Vector &amp;x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, unsigned int max_iter=100)</td></tr>
 <tr class="memdesc:ae2c50bc524b8e76644430a3c1af6d7a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the eigenvector associated with a given approximated eigenvalue using the inverse power method.  <a href="namespacetheoretica_1_1algebra.html#ae2c50bc524b8e76644430a3c1af6d7a5">More...</a><br /></td></tr>
 <tr class="separator:ae2c50bc524b8e76644430a3c1af6d7a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe08de626b82d431bad14e80940ea975"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector , typename T  = matrix_element_t&lt;Matrix&gt;&gt; </td></tr>
+<tr class="memitem:abe08de626b82d431bad14e80940ea975"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#abe08de626b82d431bad14e80940ea975">eigenvalue_rayleigh</a> (const Matrix &amp;A, const T &amp;lambda, const Vector &amp;x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, unsigned int max_iter=100)</td></tr>
+<tr class="memdesc:abe08de626b82d431bad14e80940ea975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute an eigenvalue of a square matrix using the Rayleigh quotient iteration method.  <a href="namespacetheoretica_1_1algebra.html#abe08de626b82d431bad14e80940ea975">More...</a><br /></td></tr>
+<tr class="separator:abe08de626b82d431bad14e80940ea975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80d6b32a692bea1cf36fb21ed0a00251"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector1 , typename Vector2 , typename T  = matrix_element_t&lt;Matrix&gt;&gt; </td></tr>
+<tr class="memitem:a80d6b32a692bea1cf36fb21ed0a00251"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a80d6b32a692bea1cf36fb21ed0a00251">eigenpair_rayleigh</a> (const Matrix &amp;A, const T &amp;lambda, const Vector1 &amp;x, Vector2 &amp;v, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08, unsigned int max_iter=100)</td></tr>
+<tr class="memdesc:a80d6b32a692bea1cf36fb21ed0a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute an eigenvalue of a square matrix and its corresponding eigenvector (eigenpair) using the Rayleigh quotient iteration method.  <a href="namespacetheoretica_1_1algebra.html#a80d6b32a692bea1cf36fb21ed0a00251">More...</a><br /></td></tr>
+<tr class="separator:a80d6b32a692bea1cf36fb21ed0a00251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add67a433fe0cbfca717f7556afaabdbf"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:add67a433fe0cbfca717f7556afaabdbf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#add67a433fe0cbfca717f7556afaabdbf">lp_norm</a> (const Vector &amp;v, unsigned int p)</td></tr>
 <tr class="memdesc:add67a433fe0cbfca717f7556afaabdbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Norms.  <a href="namespacetheoretica_1_1algebra.html#add67a433fe0cbfca717f7556afaabdbf">More...</a><br /></td></tr>
@@ -755,11 +775,11 @@ template&lt;typename Vector1 , typename Vector2 &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the cross product between two 3D vectors. </p>
+<p>Compute the cross product between two tridimensional vectors. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v1</td><td>The first 3D vector </td></tr>
-    <tr><td class="paramname">v2</td><td>The second 3D vector </td></tr>
+    <tr><td class="paramname">v1</td><td>The first tridimensional vector </td></tr>
+    <tr><td class="paramname">w</td><td>The second tridimensional vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1430,8 +1450,8 @@ template&lt;unsigned int N&gt; </div>
 
 </div>
 </div>
-<a id="ae32a78d562349a3e94592e8ef8d7b321"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae32a78d562349a3e94592e8ef8d7b321">&#9670;&nbsp;</a></span>dot()</h2>
+<a id="a78eaf414de804da51ccf4ee4dc20d31c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78eaf414de804da51ccf4ee4dc20d31c">&#9670;&nbsp;</a></span>dot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1445,13 +1465,13 @@ template&lt;typename Vector1 , typename Vector2 &gt; </div>
           <td class="memname">auto theoretica::algebra::dot </td>
           <td>(</td>
           <td class="paramtype">const Vector1 &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
+          <td class="paramname"><em>v</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Vector2 &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1466,11 +1486,11 @@ template&lt;typename Vector1 , typename Vector2 &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the dot product between two vectors. </p>
+<p>Computes the dot product between two vectors, using the Hermitian form if needed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v1</td><td>The first vector </td></tr>
-    <tr><td class="paramname">v2</td><td>The second vector </td></tr>
+    <tr><td class="paramname">v</td><td>The first vector </td></tr>
+    <tr><td class="paramname">w</td><td>The second vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1616,6 +1636,82 @@ template&lt;typename Matrix , typename Vector1 , typename Vector2  = Vector1&gt;
 
 </div>
 </div>
+<a id="a80d6b32a692bea1cf36fb21ed0a00251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80d6b32a692bea1cf36fb21ed0a00251">&#9670;&nbsp;</a></span>eigenpair_rayleigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Vector1 , typename Vector2 , typename T  = matrix_element_t&lt;Matrix&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::eigenpair_rayleigh </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>lambda</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector1 &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute an eigenvalue of a square matrix and its corresponding eigenvector (eigenpair) using the Rayleigh quotient iteration method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to compute the eigenvalue of </td></tr>
+    <tr><td class="paramname">lambda</td><td>The starting value for the Rayleigh quotient </td></tr>
+    <tr><td class="paramname">x</td><td>The starting approximation for the eigenvector (a random vector is a good choice). </td></tr>
+    <tr><td class="paramname">v</td><td>The vector to overwrite with the eigenvector </td></tr>
+    <tr><td class="paramname">tolerance</td><td>The minimum difference in norm between subsequent steps to stop the algorithm at. </td></tr>
+    <tr><td class="paramname">max_iter</td><td>The maximum number of iterations to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An approximate eigenvalue of the matrix, or NaN if the algorithm did not converge. </dd></dl>
+
+</div>
+</div>
 <a id="a09967593c4eb6813c682c1600dbacd30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09967593c4eb6813c682c1600dbacd30">&#9670;&nbsp;</a></span>eigenvalue_inverse()</h2>
 
@@ -1737,6 +1833,75 @@ template&lt;typename Matrix , typename Vector &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The biggest eigenvalue of the matrix, or NaN if the algorithm did not converge. </dd></dl>
+
+</div>
+</div>
+<a id="abe08de626b82d431bad14e80940ea975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe08de626b82d431bad14e80940ea975">&#9670;&nbsp;</a></span>eigenvalue_rayleigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Vector , typename T  = matrix_element_t&lt;Matrix&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::eigenvalue_rayleigh </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>lambda</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-08</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute an eigenvalue of a square matrix using the Rayleigh quotient iteration method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to compute the eigenvalue of </td></tr>
+    <tr><td class="paramname">lambda</td><td>The starting value for the Rayleigh quotient </td></tr>
+    <tr><td class="paramname">x</td><td>The starting approximation for the eigenvector (a random vector is a good choice). </td></tr>
+    <tr><td class="paramname">tolerance</td><td>The minimum difference in norm between subsequent steps to stop the algorithm at. </td></tr>
+    <tr><td class="paramname">max_iter</td><td>The maximum number of iterations to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An approximate eigenvalue of the matrix, or NaN if the algorithm did not converge. </dd></dl>
 
 </div>
 </div>
@@ -3418,6 +3583,54 @@ template&lt;typename Field , typename Matrix1 , typename Matrix2 &gt; </div>
 
 </div>
 </div>
+<a id="a210359ca3788d24fce2114056aae577a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210359ca3788d24fce2114056aae577a">&#9670;&nbsp;</a></span>mat_shift_diagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Type  = matrix_element_t&lt;Matrix&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix&amp; theoretica::algebra::mat_shift_diagonal </td>
+          <td>(</td>
+          <td class="paramtype">Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>sigma</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shift the diagonal of a matrix by the given amount, overwriting the matrix itself, as \((A + \sigma I)\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to shift the diagonal of </td></tr>
+    <tr><td class="paramname">sigma</td><td>The amount to shift </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the modified matrix </dd></dl>
+
+</div>
+</div>
 <a id="a6c4e4cd15c41d54c0fcc49f4a92069b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c4e4cd15c41d54c0fcc49f4a92069b5">&#9670;&nbsp;</a></span>mat_sum() <span class="overload">[1/2]</span></h2>
 
@@ -3844,6 +4057,102 @@ template&lt;typename Vector &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The normalized vector </dd></dl>
+
+</div>
+</div>
+<a id="a7925dcde9e30aaf83965f094c79199ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7925dcde9e30aaf83965f094c79199ac">&#9670;&nbsp;</a></span>pair_inner_product() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::pair_inner_product </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v_i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>w_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the contribution of the inner product between a pair of elements of two vectors, automatically selecting whether to compute the conjugate or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v_i</td><td>The first element of the pair </td></tr>
+    <tr><td class="paramname">w_i</td><td>The second element of the pair, which will be conjugated if needed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The contribution of the element pair </dd></dl>
+
+</div>
+</div>
+<a id="a838277b2f0e59831f5f0b3f5d388c925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838277b2f0e59831f5f0b3f5d388c925">&#9670;&nbsp;</a></span>pair_inner_product() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto theoretica::algebra::pair_inner_product </td>
+          <td>(</td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>v_i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>w_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the contribution of the inner product between a pair of elements of two vectors, automatically selecting whether to compute the conjugate or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v_i</td><td>The first element of the pair </td></tr>
+    <tr><td class="paramname">w_i</td><td>The second element of the pair, which will be conjugated if needed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The contribution of the element pair </dd></dl>
 
 </div>
 </div>
@@ -5310,7 +5619,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Tue Aug 20 2024 20:52:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 23 2024 21:42:13 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

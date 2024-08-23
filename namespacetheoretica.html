@@ -311,6 +311,10 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:a3d820bf5c386383914de23c4cbf07b57"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3d820bf5c386383914de23c4cbf07b57">has_complex_elements</a> = <a class="el" href="structtheoretica_1_1is__complex__type.html">is_complex_type</a>&lt; <a class="el" href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">indexable_element_t</a>&lt; Structure &gt; &gt;</td></tr>
 <tr class="memdesc:a3d820bf5c386383914de23c4cbf07b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether a container has complex elements. <br /></td></tr>
 <tr class="separator:a3d820bf5c386383914de23c4cbf07b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7129e96accc1046d394848364ba77bdc"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a7129e96accc1046d394848364ba77bdc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">enable_complex</a> = std::enable_if_t&lt; <a class="el" href="structtheoretica_1_1is__complex__type.html">is_complex_type</a>&lt; Structure &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a7129e96accc1046d394848364ba77bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a complex number.  <a href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">More...</a><br /></td></tr>
+<tr class="separator:a7129e96accc1046d394848364ba77bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a049966946220f1f7e5eae57293703066"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> = double</td></tr>
 <tr class="memdesc:a049966946220f1f7e5eae57293703066"><td class="mdescLeft">&#160;</td><td class="mdescRight">A real number, defined as a floating point type.  <a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">More...</a><br /></td></tr>
 <tr class="separator:a049966946220f1f7e5eae57293703066"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2123,6 +2127,25 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main namespace of the library which contains all functions and objects. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a7129e96accc1046d394848364ba77bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7129e96accc1046d394848364ba77bdc">&#9670;&nbsp;</a></span>enable_complex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Structure , typename T  = bool&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">theoretica::enable_complex</a> = typedef std::enable_if_t&lt;<a class="el" href="structtheoretica_1_1is__complex__type.html">is_complex_type</a>&lt;Structure&gt;::value, T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable a function overload if the template typename is considerable a complex number. </p>
+<p>The std::enable_if structure is used, with type T which defaults to bool. </p>
+
+</div>
+</div>
 <a id="aee807e1a55c73e90e1f852b4d1cf67fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee807e1a55c73e90e1f852b4d1cf67fc">&#9670;&nbsp;</a></span>enable_matrix</h2>
 
@@ -13653,7 +13676,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Tue Aug 20 2024 20:52:40 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 23 2024 21:42:13 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

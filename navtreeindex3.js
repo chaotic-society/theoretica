@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#afc30c47aea9edc16c00b75c839c84210":[12,0,1,7,31],
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#afe0cade448a4c30b90accab2c440232f":[12,0,1,7,23],
+"classtheoretica_1_1vec__iterator.html":[12,0,1,5],
+"classtheoretica_1_1vec__iterator.html#a010afd06ca34e579e4aba8d8744e3600":[12,0,1,5,3],
+"classtheoretica_1_1vec__iterator.html#a39a924acbb692e96da7b6ce515679a06":[12,0,1,5,7],
 "classtheoretica_1_1vec__iterator.html#a40bc29e3c087bb8fb1b5e12d0b62aeb5":[12,0,1,5,6],
 "classtheoretica_1_1vec__iterator.html#a4fd581ff18b51375d8b48ca1e8fecd00":[12,0,1,5,1],
 "classtheoretica_1_1vec__iterator.html#a93edce3a56490a2abc8c1bcf09415e3f":[12,0,1,5,0],
@@ -39,7 +44,8 @@ var NAVTREEINDEX3 =
 "complex__analysis_8h_source.html":[13,0,3,1],
 "complex__types_8h.html":[13,0,3,2],
 "complex__types_8h.html#a23f1da297b159938c8b3fb2dc9121e0d":[13,0,3,2,2],
-"complex__types_8h.html#a3d820bf5c386383914de23c4cbf07b57":[13,0,3,2,3],
+"complex__types_8h.html#a3d820bf5c386383914de23c4cbf07b57":[13,0,3,2,4],
+"complex__types_8h.html#a7129e96accc1046d394848364ba77bdc":[13,0,3,2,3],
 "complex__types_8h_source.html":[13,0,3,2],
 "constants_8h.html":[13,0,4,1],
 "constants_8h.html#a021c58c225740fa33459a6378975e759":[13,0,4,1,24],
@@ -243,11 +249,5 @@ var NAVTREEINDEX3 =
 "dual__functions_8h.html#a6b9ae8cb187999582be3db40cf149f43":[13,0,1,4,3],
 "dual__functions_8h.html#a6e64e0c5a3452708528e6fb46f97b84e":[13,0,1,4,16],
 "dual__functions_8h.html#a8369c63cfe1b787c3916865de1ac534b":[13,0,1,4,14],
-"dual__functions_8h.html#a892e7542b82c516e65023555a0e30f6b":[13,0,1,4,2],
-"dual__functions_8h.html#a8acf40b0d2b7e4f62d95dd4bec0b169d":[13,0,1,4,10],
-"dual__functions_8h.html#aab28b5c479cfd017f81b9806aa27838e":[13,0,1,4,8],
-"dual__functions_8h.html#aacdf17b1485bdfb0f967caee134136b6":[13,0,1,4,7],
-"dual__functions_8h.html#abd7f07a4d7a0abca49824b5926f259f1":[13,0,1,4,1],
-"dual__functions_8h.html#ad5f05865ec8d49e6abf889d81e1cd428":[13,0,1,4,17],
-"dual__functions_8h.html#aec7b08c40c17a7b35ba2b1e3c6c3357b":[13,0,1,4,4]
+"dual__functions_8h.html#a892e7542b82c516e65023555a0e30f6b":[13,0,1,4,2]
 };

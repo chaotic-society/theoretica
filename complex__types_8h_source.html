@@ -122,13 +122,18 @@ $(document).ready(function(){initNavTree('complex__types_8h_source.html',''); in
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Structure&gt;</div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a3d820bf5c386383914de23c4cbf07b57">   38</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="structtheoretica_1_1is__complex__type.html">has_complex_elements</a> = <a class="code" href="structtheoretica_1_1is__complex__type.html">is_complex_type&lt;indexable_element_t&lt;Structure&gt;</a>&gt;;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Structure, <span class="keyword">typename</span> T = <span class="keywordtype">bool</span>&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">   45</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">enable_complex</a> = std::enable_if_t&lt;is_complex_type&lt;Structure&gt;::value, T&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1complex_html"><div class="ttname"><a href="classtheoretica_1_1complex.html">theoretica::complex</a></div><div class="ttdoc">Complex number in algebraic form .</div><div class="ttdef"><b>Definition:</b> complex.h:26</div></div>
 <div class="ttc" id="acomplex_8h_html"><div class="ttname"><a href="complex_8h.html">complex.h</a></div><div class="ttdoc">Complex number class.</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a7129e96accc1046d394848364ba77bdc"><div class="ttname"><a href="namespacetheoretica.html#a7129e96accc1046d394848364ba77bdc">theoretica::enable_complex</a></div><div class="ttdeci">std::enable_if_t&lt; is_complex_type&lt; Structure &gt;::value, T &gt; enable_complex</div><div class="ttdoc">Enable a function overload if the template typename is considerable a complex number.</div><div class="ttdef"><b>Definition:</b> complex_types.h:45</div></div>
 <div class="ttc" id="astructtheoretica_1_1is__complex__type_html"><div class="ttname"><a href="structtheoretica_1_1is__complex__type.html">theoretica::is_complex_type</a></div><div class="ttdoc">Type trait to check whether the given type is a specialization of the complex number class or not,...</div><div class="ttdef"><b>Definition:</b> complex_types.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -136,7 +141,7 @@ $(document).ready(function(){initNavTree('complex__types_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_29641e2b57f535eff702a8afdf10c5ec.html">complex</a></li><li class="navelem"><a class="el" href="complex__types_8h.html">complex_types.h</a></li>
-    <li class="footer">Generated on Tue Aug 20 2024 20:52:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 23 2024 21:42:13 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
