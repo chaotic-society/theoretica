@@ -25,7 +25,8 @@ namespace theoretica {
 	/// separated by a space.
 	template<typename Type, typename ...Args>
 	inline void print(const Type& curr, Args... args) {
-		print(std::cout, curr, args...);
+		std::cout << curr << " ";
+		print(args...);
 	}
 
 	/// Print the given argument to a stream.

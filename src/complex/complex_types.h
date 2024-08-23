@@ -37,6 +37,13 @@ namespace theoretica {
 	template<typename Structure>
 	using has_complex_elements = is_complex_type<indexable_element_t<Structure>>;
 
+
+	/// Enable a function overload if the template typename
+	/// is considerable a complex number. The std::enable_if structure
+	/// is used, with type T which defaults to bool.
+	template<typename Structure, typename T = bool>
+	using enable_complex = std::enable_if_t<is_complex_type<Structure>::value, T>;
+
 }
 
 

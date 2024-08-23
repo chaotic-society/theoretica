@@ -223,30 +223,69 @@ namespace theoretica {
 		}
 
 
+		/// Shift the diagonal of a matrix by the given amount, overwriting
+		/// the matrix itself, as \f$(A + \sigma I)\f$.
+		///
+		/// @param A The matrix to shift the diagonal of
+		/// @param sigma The amount to shift
+		/// @return A reference to the modified matrix
+		template<typename Matrix, typename Type = matrix_element_t<Matrix>>
+		inline Matrix& mat_shift_diagonal(Matrix& A, const Type& sigma) {
+
+			const unsigned int count = min(A.rows(), A.cols());
+
+			for (unsigned int i = 0; i < count; ++i)
+				A(i, i) += sigma;
+
+			return A;
+		}
+
+
+		/// Compute the contribution of the inner product between
+		/// a pair of elements of two vectors, automatically
+		/// selecting whether to compute the conjugate or not.
+		///
+		/// @param v_i The first element of the pair
+		/// @param w_i The second element of the pair, which will be conjugated if needed
+		/// @return The contribution of the element pair
+		template<typename Type>
+		inline auto pair_inner_product(const Type& v_i, const Type& w_i) {
+			return v_i * w_i;
+		}
+
+		/// Compute the contribution of the inner product between
+		/// a pair of elements of two vectors, automatically
+		/// selecting whether to compute the conjugate or not.
+		///
+		/// @param v_i The first element of the pair
+		/// @param w_i The second element of the pair, which will be conjugated if needed
+		/// @return The contribution of the element pair
+		template<typename Type>
+		inline auto pair_inner_product(const complex<Type>& v_i, const complex<Type>& w_i) {
+			return v_i * conjugate(w_i);
+		}
+
+
 		/// Returns the square of the Euclidean/Hermitian norm
 		/// of the given vector
+		///
 		/// @param v The vector to compute the norm of
 		/// @return The norm of the given vector
 		template<typename Vector>
 		inline auto sqr_norm(const Vector& v) {
 
-			using Type = indexable_element_t<Vector>;
-			Type sum = (Type) 0;
+			auto sum = pair_inner_product(v[0], v[0]);
 
 			// Use conjugation for complex numbers
-			if(is_complex_type<Type>())
-				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += v[i] * conjugate(v[i]);
-			else
-				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += v[i] * v[i];
+			for (unsigned int i = 1; i < v.size(); ++i)
+				sum += pair_inner_product(v[i], v[i]);
 
 			return sum;
 		}
 
 
-		/// Returns the Euclidean/Hermitian norm
-		/// of the given vector
+		/// Returns the Euclidean/Hermitian norm of the given vector
+		///
 		/// @param v The vector to compute the norm of
 		/// @return The norm of the given vector
 		template<typename Vector>
@@ -302,37 +341,33 @@ namespace theoretica {
 		}
 
 
-		/// Computes the dot product between two vectors
-		/// @param v1 The first vector
-		/// @param v2 The second vector
+		/// Computes the dot product between two vectors,
+		/// using the Hermitian form if needed.
+		///
+		/// @param v The first vector
+		/// @param w The second vector
 		/// @return The dot product of the two vectors
 		template<typename Vector1, typename Vector2>
-		inline auto dot(const Vector1& v1, const Vector2& v2) {
+		inline auto dot(const Vector1& v, const Vector2& w) {
 
-			using Type = indexable_element_t<Vector1>;
-
-			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("algebra::dot", v1.size(), INVALID_ARGUMENT);
-				return (Type) nan();
+			if(v.size() != w.size()) {
+				TH_MATH_ERROR("algebra::dot", v.size(), INVALID_ARGUMENT);
+				return indexable_element_t<Vector1>(nan());
 			}
 
-			Type sum = 0;
+			auto sum = pair_inner_product(v[0], w[0]);
 
 			// Use conjugation for complex numbers
-			if TH_CONSTIF (is_complex_type<Type>())
-				for (unsigned int i = 0; i < v1.size(); ++i)
-					sum += v1[i] * conjugate(v2[i]);
-			else
-				for (unsigned int i = 0; i < v1.size(); ++i)
-					sum += v1[i] * v2[i];
+			for (unsigned int i = 1; i < v.size(); ++i)
+				sum += pair_inner_product(v[i], w[i]);
 
 			return sum;
 		}
 
 
-		/// Compute the cross product between two 3D vectors
-		/// @param v1 The first 3D vector
-		/// @param v2 The second 3D vector
+		/// Compute the cross product between two tridimensional vectors
+		/// @param v1 The first tridimensional vector
+		/// @param w The second tridimensional vector
 		/// @return The cross product of the two vectors
 		template<typename Vector1, typename Vector2>
 		inline Vector1 cross(const Vector1& v1, const Vector2& v2) {
@@ -346,7 +381,7 @@ namespace theoretica {
 				return v3;
 			}
 
-			if(v1.size() != 3) {
+			if(v2.size() != 3) {
 				TH_MATH_ERROR("algebra::cross", v2.size(), INVALID_ARGUMENT);
 				vec_error(v3);
 				return v3;
@@ -1539,7 +1574,7 @@ namespace theoretica {
 					U(i, j) = A(i, j);
 				
 					for(unsigned int k = 0; k < i; ++k)
-						U(i, j) -= L(i, k) * U(k, j);
+						U(i, j) -= pair_inner_product(L(i, k), U(k, j));
 				}
 
 				for(unsigned int j = i + 1; j < A.rows(); ++j) {
@@ -1547,7 +1582,7 @@ namespace theoretica {
 					L(j, i) = A(j, i);
 
 					for(unsigned int k = 0; k < i; ++k)
-						L(j, i) -= L(j, k) * U(k, i);
+						L(j, i) -= pair_inner_product(L(j, k), U(k, i));
 
 					L(j, i) /= U(i, i);
 				}
@@ -1579,7 +1614,7 @@ namespace theoretica {
 					A(i, j) /= A(j, j);
 
 					for(unsigned int k = j + 1; k < A.rows(); ++k)
-						A(i, k) -= A(i, j) * A(j, k);
+						A(i, k) -= pair_inner_product(A(i, j), A(j, k));
 				}
 			}
 		
@@ -1908,7 +1943,7 @@ namespace theoretica {
 			for (i = 1; i <= max_iter; ++i) {
 				
 				x_prev = x_curr;
-				x_curr = normalize(A * x_prev);
+				x_curr = normalize(transform(A, x_prev));
 
 				// Stop the algorithm when |x_k+1 +- x_k| is
 				// less then the tolerance in module
@@ -1973,7 +2008,7 @@ namespace theoretica {
 			for (i = 1; i <= max_iter; ++i) {
 				
 				x_prev = x_curr;
-				x_curr = normalize(A * x_prev);
+				x_curr = normalize(transform(A, x_prev));
 
 				// Stop the algorithm when |x_k+1 +- x_k| is
 				// less then the tolerance in module
@@ -1989,7 +2024,7 @@ namespace theoretica {
 			}
 
 			// Overwrite with the eigenvector
-			v = x_curr;
+			vec_copy(v, x_curr);
 
 			return dot(x_curr, A * x_curr);
 		}
@@ -2119,7 +2154,7 @@ namespace theoretica {
 			}
 
 			// Overwrite with the eigenvector
-			v = x_curr;
+			vec_copy(v, x_curr);
 
 			// A and inverse(A) have the same eigenvectors
 			return dot(x_curr, A * x_curr);
@@ -2158,12 +2193,8 @@ namespace theoretica {
 				return vec_error(x);
 			}
 
-			using Type = matrix_element_t<Matrix>;
 			Matrix LU = A;
-
-			// Subtract the eigenvalue from the diagonal
-			for (unsigned int i = 0; i < LU.rows(); ++i)
-				LU(i, i) -= Type(lambda);
+			mat_shift_diagonal(LU, -lambda);
 
 			// Compute the LU decomposition of A
 			// to speed up system solution
@@ -2197,6 +2228,157 @@ namespace theoretica {
 			}
 
 			return v_curr;
+		}
+
+
+		/// Compute an eigenvalue of a square matrix using
+		/// the Rayleigh quotient iteration method.
+		///
+		/// @param A The matrix to compute the eigenvalue of
+		/// @param lambda The starting value for the Rayleigh quotient
+		/// @param x The starting approximation for the eigenvector
+		/// (a random vector is a good choice).
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
+		/// @return An approximate eigenvalue of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector, typename T = matrix_element_t<Matrix>>
+		inline auto eigenvalue_rayleigh(
+			const Matrix& A, const T& lambda, const Vector& x,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (A.rows() != x.size()) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Keep track of the shifted matrix
+			Matrix A_shift = A;
+			mat_shift_diagonal(A_shift, -lambda);
+
+			Type lambda_prev = lambda;
+			Type lambda_curr = lambda;
+
+			Vector x_prev = normalize(x);
+			Vector x_curr = normalize(solve(A_shift, x));
+
+			unsigned int i;
+
+			for (i = 1; i <= max_iter; ++i) {
+					
+				// Update the eigenvalue approximation
+				// using Rayleigh quotient (avoiding normalization)
+				lambda_prev = lambda_curr;
+				lambda_curr = dot(x_curr, transform(A, x_curr));
+
+				// Shift the diagonal by the difference between
+				// subsequent eigenvalues steps, to avoid copying matrix A
+				mat_shift_diagonal(A_shift, lambda_prev - lambda_curr);
+
+				// Solve the linear system each time, as the shifted
+				// matrix is continuously updated
+				x_prev = x_curr;
+				x_curr = normalize(solve(A_shift, x_curr));
+
+				// Stop the algorithm when |x_k+1 +- x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
+					break;
+			}
+
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			return dot(x_curr, transform(A, x_curr));
+		}
+
+
+		/// Compute an eigenvalue of a square matrix and its
+		/// corresponding eigenvector (eigenpair) using
+		/// the Rayleigh quotient iteration method.
+		///
+		/// @param A The matrix to compute the eigenvalue of
+		/// @param lambda The starting value for the Rayleigh quotient
+		/// @param x The starting approximation for the eigenvector
+		/// (a random vector is a good choice).
+		/// @param v The vector to overwrite with the eigenvector
+		/// @param tolerance The minimum difference in norm between subsequent
+		/// steps to stop the algorithm at.
+		/// @param max_iter The maximum number of iterations to use
+		/// @return An approximate eigenvalue of the matrix, or NaN if the
+		/// algorithm did not converge.
+		template<typename Matrix, typename Vector1, typename Vector2,
+		typename T = matrix_element_t<Matrix>>
+		inline auto eigenpair_rayleigh(
+			const Matrix& A, const T& lambda, const Vector1& x, Vector2& v,
+			real tolerance = 1E-08, unsigned int max_iter = 100) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			if (A.rows() != x.size()) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), INVALID_ARGUMENT);
+				return Type(nan());
+			}
+
+			// Keep track of the shifted matrix
+			Matrix A_shift = A;
+			mat_shift_diagonal(A_shift, -lambda);
+
+			Type lambda_prev = lambda;
+			Type lambda_curr = lambda;
+
+			Vector1 x_prev = normalize(x);
+			Vector1 x_curr = normalize(solve(A_shift, x));
+
+			unsigned int i;
+
+			for (i = 1; i <= max_iter; ++i) {
+					
+				// Update the eigenvalue approximation
+				// using Rayleigh quotient (avoiding normalization)
+				lambda_prev = lambda_curr;
+				lambda_curr = dot(x_curr, transform(A, x_curr));
+
+				// Shift the diagonal by the difference between
+				// subsequent eigenvalues steps, to avoid copying matrix A
+				mat_shift_diagonal(A_shift, lambda_prev - lambda_curr);
+
+				// Solve the linear system each time, as the shifted
+				// matrix is continuously updated
+				x_prev = x_curr;
+				x_curr = normalize(solve(A_shift, x_curr));
+
+				// Stop the algorithm when |x_k+1 +- x_k| is
+				// less then the tolerance in module
+				if (norm(x_curr - x_prev) <= tolerance ||
+					norm(x_curr + x_prev) <= tolerance)
+					break;
+			}
+
+			if (i > max_iter) {
+				TH_MATH_ERROR("eigenvalue_rayleigh", i, NO_ALGO_CONVERGENCE);
+				return Type(nan());
+			}
+
+			vec_copy(v, x_curr);
+
+			return dot(x_curr, transform(A, x_curr));
 		}
 	}
 }

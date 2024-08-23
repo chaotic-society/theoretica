@@ -342,4 +342,11 @@ namespace theoretica {
 
 }
 
+// Define THEORETICA_NO_NAMESPACE to prevent
+// defining the alias "th" for "theoretica"
+#ifndef THEORETICA_NO_NAMESPACE
+/// @namespace th Alias for the theoretica namespace
+namespace th = theoretica;
+#endif
+
 #endif

@@ -98,9 +98,4 @@
 
 #endif
 
-#ifndef THEORETICA_NO_NAMESPACE
-/// @namespace th Alias for the theoretica namespace
-namespace th = theoretica;
-#endif
-
 #endif
