@@ -24,7 +24,7 @@ namespace theoretica {
 	/// @result The computed vector at which f is approximately zero
 	template<unsigned int N>
 	inline vec<real, N> multiroot_newton(
-		autodiff::d_vec<N>(*f)(autodiff::d_vec<N>),
+		autodiff::dvec_t<N>(*f)(autodiff::dvec_t<N>),
 		vec<real, N> guess = vec<real, N>(0),
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {

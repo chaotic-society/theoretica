@@ -30,24 +30,24 @@ dual2 h2(vec<dual2> v) {
 }
 
 
-d_real<> p(d_vec<> v) {
+dreal_t<> p(dvec_t<> v) {
     return v * v;
 }
 
 
-d_real<> H(d_vec<> v) {
+dreal_t<> H(dvec_t<> v) {
     return v * v + 1000;
 }
 
 
-d_vec<> V(d_vec<> v) {
+dvec_t<> V(dvec_t<> v) {
 	return {
 		1 / (v * v), 1 / (v * v), 1 / (v * v)
 	};
 }
 
 
-d_real<> d1(d_vec<> v) {
+dreal_t<> d1(dvec_t<> v) {
     return v[0] - 2 * v[1] + v[2];
 }
 

@@ -12,54 +12,16 @@
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
 #include "../core/error.h"
+#include "../core/core_traits.h"
+#include "./autodiff_types.h"
 
 #include <functional>
-
 
 
 namespace theoretica {
 
 	/// @namespace theoretica::autodiff Differential operators with automatic differentiation.
 	namespace autodiff {
-
-	// Types for multivariate automatic differentiation
-
-	/// Real type for multivariate automatic differentiation
-	/// (read "differential real").
-	template<unsigned int N = 0>
-	using d_real = multidual<N>;
-
-	/// Vector type for multivariate automatic differentiation
-	/// (read "differential vector").
-	template<unsigned int N = 0>
-	using d_vec = vec<d_real<N>, N>;
-
-
-	// Univariate automatic differentiation
-
-
-	/// Compute the derivative of a function at the
-	/// given point using univariate automatic differentiation.
-	///
-	/// @param f The function to differentiate,
-	/// with dual argument and return value.
-	/// @param x The coordinate to compute the derivative at.
-	/// @return The derivative of f at x.
-	inline real deriv(dual(*f)(dual), real x) {
-		return f(dual(x, 1.0)).Dual();
-	}
-
-		// Alias type for multivariate automatic differentiation
-
-		/// Real type for multivariate automatic differentiation
-		/// (read "differential real").
-		template<unsigned int N = 0>
-		using d_real = multidual<N>;
-
-		/// Vector type for multivariate automatic differentiation
-		/// (read "differential vector").
-		template<unsigned int N = 0>
-		using d_vec = vec<d_real<N>, N>;
 
 
 		// Univariate automatic differentiation

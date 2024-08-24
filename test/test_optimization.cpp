@@ -22,10 +22,10 @@ Number g_1D(Number x) {
 
 // Multivariate root search
 // {1, e} is a root
-d_vec<2> f_2D(d_vec<2> v) {
+dvec_t<2> f_2D(dvec_t<2> v) {
 
-	const d_real<2> x = v[0];
-	const d_real<2> y = v[1];
+	const dreal_t<2> x = v[0];
+	const dreal_t<2> y = v[1];
 
 	return {
 		exp(x) - y,
