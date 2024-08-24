@@ -92,7 +92,6 @@ $(document).ready(function(){initNavTree('autodiff_8h.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">autodiff.h File Reference</div>  </div>
@@ -107,6 +106,8 @@ $(document).ready(function(){initNavTree('autodiff_8h.html',''); initResizable()
 <code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mat_8h_source.html">../algebra/mat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="error_8h_source.html">../core/error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="core__traits_8h_source.html">../core/core_traits.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="autodiff__types_8h_source.html">./autodiff_types.h</a>&quot;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 </div>
 <p><a href="autodiff_8h_source.html">Go to the source code of this file.</a></p>
@@ -119,19 +120,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica_1_1autodiff"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html">theoretica::autodiff</a></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1autodiff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differential operators with automatic differentiation. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ab7a7f9efb99290e59f463674b430082e"><td class="memTemplParams" colspan="2"><a id="ab7a7f9efb99290e59f463674b430082e"></a>
-template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:ab7a7f9efb99290e59f463674b430082e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ab7a7f9efb99290e59f463674b430082e">theoretica::autodiff::d_real</a> = multidual&lt; N &gt;</td></tr>
-<tr class="memdesc:ab7a7f9efb99290e59f463674b430082e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation (read "differential real"). <br /></td></tr>
-<tr class="separator:ab7a7f9efb99290e59f463674b430082e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a051334abc45fdac5ff02fd061aad5976"><td class="memTemplParams" colspan="2"><a id="a051334abc45fdac5ff02fd061aad5976"></a>
-template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a051334abc45fdac5ff02fd061aad5976"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a051334abc45fdac5ff02fd061aad5976">theoretica::autodiff::d_vec</a> = vec&lt; d_real&lt; N &gt;, N &gt;</td></tr>
-<tr class="memdesc:a051334abc45fdac5ff02fd061aad5976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation (read "differential vector"). <br /></td></tr>
-<tr class="separator:a051334abc45fdac5ff02fd061aad5976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -208,7 +196,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff_8h.html">autodiff.h</a></li>
-    <li class="footer">Generated on Sat Aug 24 2024 14:30:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 24 2024 15:34:47 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

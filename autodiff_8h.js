@@ -1,7 +1,5 @@
 var autodiff_8h =
 [
-    [ "d_real", "autodiff_8h.html#ab7a7f9efb99290e59f463674b430082e", null ],
-    [ "d_vec", "autodiff_8h.html#a051334abc45fdac5ff02fd061aad5976", null ],
     [ "curl", "autodiff_8h.html#ab9683ba266b85535eebe0fd3319c7da1", null ],
     [ "curl", "autodiff_8h.html#a2acb0eff30a1386ae87bd0b3c75edd9b", null ],
     [ "deriv", "autodiff_8h.html#a14ca162a028ea16333e2b37fb11e61c1", null ],

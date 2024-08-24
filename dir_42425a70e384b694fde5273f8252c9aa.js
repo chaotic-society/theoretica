@@ -1,6 +1,7 @@
 var dir_42425a70e384b694fde5273f8252c9aa =
 [
     [ "autodiff.h", "autodiff_8h.html", "autodiff_8h" ],
+    [ "autodiff_types.h", "autodiff__types_8h.html", "autodiff__types_8h" ],
     [ "dual.h", "dual_8h.html", [
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ]
     ] ],
