@@ -48,7 +48,7 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<
 		unsigned int N = 0,
-		typename MultiDualFunction = d_real<N>(*)(d_vec<N>)>
+		typename MultiDualFunction = autodiff::d_real<N>(*)(autodiff::d_vec<N>)>
 	inline real error_propagation(
 		MultiDualFunction f,
 		const vec<real, N>& x_best, const vec<real, N>& delta_x) {
@@ -78,7 +78,7 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template <
 		unsigned int N = 0, unsigned int M = 0,
-		typename MultiDualFunction = d_real<N>(*)(d_vec<N>)>
+		typename MultiDualFunction = autodiff::d_real<N>(*)(autodiff::d_vec<N>)>
 	inline real error_propagation(
 		MultiDualFunction f,
 		const vec<real, N>& x_best, const mat<real, M, M>& cm) {
@@ -119,7 +119,7 @@ namespace theoretica {
 	/// @return The propagated error on the function
 	template<
 		unsigned int N = 0,
-		typename MultiDualFunction = multidual<N>(*)(vec<multidual<N>, N>),
+		typename MultiDualFunction = multidual<N>(*)(autodiff::d_vec<N>),
 		typename Dataset = vec<real, N>>
 	inline real error_propagation(
 		MultiDualFunction f,
