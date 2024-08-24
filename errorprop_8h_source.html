@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('errorprop_8h_source.html',''); initRes
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">template</span>&lt;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 0,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = d_real&lt;N&gt;(*)(d_vec&lt;N&gt;)&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = autodiff::d_real&lt;N&gt;(*)(autodiff::d_vec&lt;N&gt;)&gt;</div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">   52</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">error_propagation</a>(</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        MultiDualFunction f,</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1vec.html">vec&lt;real, N&gt;</a>&amp; x_best, <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1vec.html">vec&lt;real, N&gt;</a>&amp; delta_x) {</div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('errorprop_8h_source.html',''); initRes
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">template</span> &lt;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> M = 0,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = d_real&lt;N&gt;(*)(d_vec&lt;N&gt;)&gt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = autodiff::d_real&lt;N&gt;(*)(autodiff::d_vec&lt;N&gt;)&gt;</div>
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a78365ecc6d0b73192e64e501895a0f85">   82</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">error_propagation</a>(</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        MultiDualFunction f,</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1vec.html">vec&lt;real, N&gt;</a>&amp; x_best, <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1mat.html">mat&lt;real, M, M&gt;</a>&amp; cm) {</div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('errorprop_8h_source.html',''); initRes
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">template</span>&lt;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 0,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = multidual&lt;N&gt;(*)(vec&lt;multidual&lt;N&gt;, N&gt;),</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">typename</span> MultiDualFunction = multidual&lt;N&gt;(*)(autodiff::d_vec&lt;N&gt;),</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keyword">typename</span> Dataset = vec&lt;real, N&gt;&gt;</div>
 <div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a2d84edd693f12451e609e365239533cc">  124</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">error_propagation</a>(</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        MultiDualFunction f,</div>
@@ -228,7 +228,7 @@ $(document).ready(function(){initNavTree('errorprop_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="errorprop_8h.html">errorprop.h</a></li>
-    <li class="footer">Generated on Sat Aug 24 2024 14:09:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 24 2024 14:30:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
