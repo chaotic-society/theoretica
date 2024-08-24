@@ -121,10 +121,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aaf07fc7c4481d53efce255d851fed8ea"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; vec2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aaf07fc7c4481d53efce255d851fed8ea">theoretica::find_root_intervals</a> (RealFunction f, real a, real b, unsigned int steps=10)</td></tr>
 <tr class="memdesc:aaf07fc7c4481d53efce255d851fed8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find candidate intervals for root finding.  <a href="namespacetheoretica.html#aaf07fc7c4481d53efce255d851fed8ea">More...</a><br /></td></tr>
 <tr class="separator:aaf07fc7c4481d53efce255d851fed8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04969926a4834b77f3efd544ae91f8a4"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:a04969926a4834b77f3efd544ae91f8a4"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a04969926a4834b77f3efd544ae91f8a4">theoretica::root_bisection</a> (RealFunction f, real a, real b, real tolerance=BISECTION_APPROX_TOL)</td></tr>
-<tr class="memdesc:a04969926a4834b77f3efd544ae91f8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0.  <a href="namespacetheoretica.html#a04969926a4834b77f3efd544ae91f8a4">More...</a><br /></td></tr>
-<tr class="separator:a04969926a4834b77f3efd544ae91f8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afecb3a70b56c4e8ab730a63d1c3f4619"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:afecb3a70b56c4e8ab730a63d1c3f4619"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afecb3a70b56c4e8ab730a63d1c3f4619">theoretica::root_bisection</a> (RealFunction f, real a, real b, real tolerance=OPTIMIZATION_TOL)</td></tr>
+<tr class="memdesc:afecb3a70b56c4e8ab730a63d1c3f4619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using bisection inside a compact interval [a, b] where f(a) * f(b) &lt; 0.  <a href="namespacetheoretica.html#afecb3a70b56c4e8ab730a63d1c3f4619">More...</a><br /></td></tr>
+<tr class="separator:afecb3a70b56c4e8ab730a63d1c3f4619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0fb37bfbf8861bc1ec621200e4d8d09"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:aa0fb37bfbf8861bc1ec621200e4d8d09"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa0fb37bfbf8861bc1ec621200e4d8d09">theoretica::root_newton</a> (RealFunction f, RealFunction Df, real guess=0)</td></tr>
 <tr class="memdesc:aa0fb37bfbf8861bc1ec621200e4d8d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Newton's method.  <a href="namespacetheoretica.html#aa0fb37bfbf8861bc1ec621200e4d8d09">More...</a><br /></td></tr>
@@ -135,9 +135,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab24a099265552757fa9d2b9d046bf131"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab24a099265552757fa9d2b9d046bf131">theoretica::root_newton</a> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:ab24a099265552757fa9d2b9d046bf131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Newton's method.  <a href="namespacetheoretica.html#ab24a099265552757fa9d2b9d046bf131">More...</a><br /></td></tr>
 <tr class="separator:ab24a099265552757fa9d2b9d046bf131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa801269604efdfd3b558948555da3d51"><td class="memItemLeft" align="right" valign="top">complex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa801269604efdfd3b558948555da3d51">theoretica::root_newton</a> (complex&lt;&gt;(*f)(complex&lt;&gt;), complex&lt;&gt;(*df)(complex&lt;&gt;), complex&lt;&gt; guess=complex&lt;&gt;(0, 0), real tolerance=NEWTON_RAPHSON_TOL, unsigned int max_iter=MAX_NEWTON_ITER)</td></tr>
-<tr class="memdesc:aa801269604efdfd3b558948555da3d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary complex function using Newton's method,.  <a href="namespacetheoretica.html#aa801269604efdfd3b558948555da3d51">More...</a><br /></td></tr>
-<tr class="separator:aa801269604efdfd3b558948555da3d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95c058c118427bfc2beccb7b035030e"><td class="memItemLeft" align="right" valign="top">complex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa95c058c118427bfc2beccb7b035030e">theoretica::root_newton</a> (complex&lt;&gt;(*f)(complex&lt;&gt;), complex&lt;&gt;(*df)(complex&lt;&gt;), complex&lt;&gt; guess=complex&lt;&gt;(0, 0), real tolerance=OPTIMIZATION_TOL, unsigned int max_iter=OPTIMIZATION_TOL)</td></tr>
+<tr class="memdesc:aa95c058c118427bfc2beccb7b035030e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary complex function using Newton's method,.  <a href="namespacetheoretica.html#aa95c058c118427bfc2beccb7b035030e">More...</a><br /></td></tr>
+<tr class="separator:aa95c058c118427bfc2beccb7b035030e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09ec9b2753a108bba753d27e179b641a"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:a09ec9b2753a108bba753d27e179b641a"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a09ec9b2753a108bba753d27e179b641a">theoretica::root_halley</a> (RealFunction f, RealFunction Df, RealFunction D2f, real guess=0)</td></tr>
 <tr class="memdesc:a09ec9b2753a108bba753d27e179b641a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of an arbitrary function using Halley's method.  <a href="namespacetheoretica.html#a09ec9b2753a108bba753d27e179b641a">More...</a><br /></td></tr>
@@ -165,14 +165,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a85e37c4a2a4dfef0c2e05d746879dd35"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a85e37c4a2a4dfef0c2e05d746879dd35">theoretica::root_chebyshev</a> (polynomial&lt; real &gt; p, real guess=0)</td></tr>
 <tr class="memdesc:a85e37c4a2a4dfef0c2e05d746879dd35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate a root of a polynomial using Chebyshev's method.  <a href="namespacetheoretica.html#a85e37c4a2a4dfef0c2e05d746879dd35">More...</a><br /></td></tr>
 <tr class="separator:a85e37c4a2a4dfef0c2e05d746879dd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25a58d326161c54d3e6421546c4aaede"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:a25a58d326161c54d3e6421546c4aaede"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a25a58d326161c54d3e6421546c4aaede">theoretica::roots</a> (RealFunction f, real a, real b, real tolerance=BISECTION_APPROX_TOL, real steps=10)</td></tr>
-<tr class="memdesc:a25a58d326161c54d3e6421546c4aaede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the roots of a function inside a given interval.  <a href="namespacetheoretica.html#a25a58d326161c54d3e6421546c4aaede">More...</a><br /></td></tr>
-<tr class="separator:a25a58d326161c54d3e6421546c4aaede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46eeccaf43246af30b385255000a0d40"><td class="memTemplParams" colspan="2">template&lt;typename Field &gt; </td></tr>
-<tr class="memitem:a46eeccaf43246af30b385255000a0d40"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Field &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a46eeccaf43246af30b385255000a0d40">theoretica::roots</a> (polynomial&lt; Field &gt; p, real tolerance=BISECTION_APPROX_TOL, unsigned int steps=0)</td></tr>
-<tr class="memdesc:a46eeccaf43246af30b385255000a0d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all the roots of a polynomial.  <a href="namespacetheoretica.html#a46eeccaf43246af30b385255000a0d40">More...</a><br /></td></tr>
-<tr class="separator:a46eeccaf43246af30b385255000a0d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fba7edf2374e168482bd9a98885c626"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:a9fba7edf2374e168482bd9a98885c626"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9fba7edf2374e168482bd9a98885c626">theoretica::roots</a> (RealFunction f, real a, real b, real tolerance=OPTIMIZATION_TOL, real steps=10)</td></tr>
+<tr class="memdesc:a9fba7edf2374e168482bd9a98885c626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the roots of a function inside a given interval.  <a href="namespacetheoretica.html#a9fba7edf2374e168482bd9a98885c626">More...</a><br /></td></tr>
+<tr class="separator:a9fba7edf2374e168482bd9a98885c626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb37caf0b6a33abe32f795a651e5afe"><td class="memTemplParams" colspan="2">template&lt;typename Field &gt; </td></tr>
+<tr class="memitem:a5fb37caf0b6a33abe32f795a651e5afe"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Field &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a5fb37caf0b6a33abe32f795a651e5afe">theoretica::roots</a> (polynomial&lt; Field &gt; p, real tolerance=OPTIMIZATION_TOL, unsigned int steps=0)</td></tr>
+<tr class="memdesc:a5fb37caf0b6a33abe32f795a651e5afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all the roots of a polynomial.  <a href="namespacetheoretica.html#a5fb37caf0b6a33abe32f795a651e5afe">More...</a><br /></td></tr>
+<tr class="separator:a5fb37caf0b6a33abe32f795a651e5afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Root approximation of real functions. </p>
@@ -182,7 +182,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a57e94efe769f9ed34acbb385fd2b2a4.html">optimization</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Fri Aug 23 2024 21:44:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 24 2024 14:09:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

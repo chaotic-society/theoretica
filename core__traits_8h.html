@@ -157,21 +157,21 @@ Typedefs</h2></td></tr>
 template&lt;typename ... Args&gt; </td></tr>
 <tr class="memitem:af063d009aa1b98475593755d44ca3f4c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::_internal::void_t</b> = typename make_void&lt; Args... &gt;::type</td></tr>
 <tr class="separator:af063d009aa1b98475593755d44ca3f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae146d427672a9dd09777fb0dda3ab03c"><td class="memTemplParams" colspan="2"><a id="ae146d427672a9dd09777fb0dda3ab03c"></a>
+<tr class="memitem:a337913497bb9febc8e931920c4da3dd9"><td class="memTemplParams" colspan="2"><a id="a337913497bb9febc8e931920c4da3dd9"></a>
 template&lt;typename Structure &gt; </td></tr>
-<tr class="memitem:ae146d427672a9dd09777fb0dda3ab03c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae146d427672a9dd09777fb0dda3ab03c">theoretica::indexable_element_t</a> = std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()[0])&gt;</td></tr>
-<tr class="memdesc:ae146d427672a9dd09777fb0dda3ab03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the type of an indexable container from its operator[]. <br /></td></tr>
-<tr class="separator:ae146d427672a9dd09777fb0dda3ab03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337913497bb9febc8e931920c4da3dd9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">theoretica::vector_element_t</a> = std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()[0])&gt;</td></tr>
+<tr class="memdesc:a337913497bb9febc8e931920c4da3dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the type of an indexable container from its operator[]. <br /></td></tr>
+<tr class="separator:a337913497bb9febc8e931920c4da3dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a329b5b07df2933958087db965a444c10"><td class="memTemplParams" colspan="2"><a id="a329b5b07df2933958087db965a444c10"></a>
 template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:a329b5b07df2933958087db965a444c10"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">theoretica::matrix_element_t</a> = std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()(0, 0))&gt;</td></tr>
 <tr class="memdesc:a329b5b07df2933958087db965a444c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the type of a matrix (or any doubly indexable container) from its operator(). <br /></td></tr>
 <tr class="separator:a329b5b07df2933958087db965a444c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe7f7bdc36ade4868722b357241c9bc9"><td class="memTemplParams" colspan="2"><a id="abe7f7bdc36ade4868722b357241c9bc9"></a>
+<tr class="memitem:a7c9335370d9b3d0aa90ba8d2dde12edd"><td class="memTemplParams" colspan="2"><a id="a7c9335370d9b3d0aa90ba8d2dde12edd"></a>
 template&lt;typename Structure &gt; </td></tr>
-<tr class="memitem:abe7f7bdc36ade4868722b357241c9bc9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abe7f7bdc36ade4868722b357241c9bc9">theoretica::has_real_elements</a> = is_real_type&lt; indexable_element_t&lt; Structure &gt; &gt;</td></tr>
-<tr class="memdesc:abe7f7bdc36ade4868722b357241c9bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether an indexable container has real elements. <br /></td></tr>
-<tr class="separator:abe7f7bdc36ade4868722b357241c9bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9335370d9b3d0aa90ba8d2dde12edd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7c9335370d9b3d0aa90ba8d2dde12edd">theoretica::has_real_elements</a> = is_real_type&lt; vector_element_t&lt; Structure &gt; &gt;</td></tr>
+<tr class="memdesc:a7c9335370d9b3d0aa90ba8d2dde12edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether an indexable container has real elements. <br /></td></tr>
+<tr class="separator:a7c9335370d9b3d0aa90ba8d2dde12edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplParams" colspan="2">template&lt;typename Structure , typename T  = bool&gt; </td></tr>
 <tr class="memitem:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">theoretica::enable_matrix</a> = std::enable_if_t&lt; is_matrix&lt; Structure &gt;::value, T &gt;</td></tr>
 <tr class="memdesc:aee807e1a55c73e90e1f852b4d1cf67fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a matrix.  <a href="namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc">More...</a><br /></td></tr>
@@ -189,7 +189,7 @@ template&lt;typename Structure &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="core__traits_8h.html">core_traits.h</a></li>
-    <li class="footer">Generated on Fri Aug 23 2024 21:44:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 24 2024 14:09:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

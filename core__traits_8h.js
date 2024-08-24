@@ -16,8 +16,8 @@ var core__traits_8h =
     [ "is_matrix< Structure, _internal::void_t< decltype(std::declval< Structure >()(0, 0)), decltype(std::declval< Structure >().rows()), decltype(std::declval< Structure >().cols())> >", "structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html", null ],
     [ "enable_matrix", "core__traits_8h.html#aee807e1a55c73e90e1f852b4d1cf67fc", null ],
     [ "enable_vector", "core__traits_8h.html#a746b3f92213a0d6340e98b850cacdeb9", null ],
-    [ "has_real_elements", "core__traits_8h.html#abe7f7bdc36ade4868722b357241c9bc9", null ],
-    [ "indexable_element_t", "core__traits_8h.html#ae146d427672a9dd09777fb0dda3ab03c", null ],
+    [ "has_real_elements", "core__traits_8h.html#a7c9335370d9b3d0aa90ba8d2dde12edd", null ],
     [ "matrix_element_t", "core__traits_8h.html#a329b5b07df2933958087db965a444c10", null ],
+    [ "vector_element_t", "core__traits_8h.html#a337913497bb9febc8e931920c4da3dd9", null ],
     [ "void_t", "core__traits_8h.html#af063d009aa1b98475593755d44ca3f4c", null ]
 ];

@@ -11,6 +11,7 @@ var classtheoretica_1_1complex =
     [ "inverse", "classtheoretica_1_1complex.html#a9bebee3354f84649c4d67f27d5c23784", null ],
     [ "invert", "classtheoretica_1_1complex.html#ae86033695484cf0ff21a95ca87ac612d", null ],
     [ "norm", "classtheoretica_1_1complex.html#abd70d70d166d68ed94f84a3f7458feae", null ],
+    [ "operator real", "classtheoretica_1_1complex.html#a8f4fd1626b80209937c918546f4fcef2", null ],
     [ "operator std::string", "classtheoretica_1_1complex.html#a90097e2a1da483f7f12dc211d6261366", null ],
     [ "operator!=", "classtheoretica_1_1complex.html#a04049837bc4c77cf42709744705e2bbc", null ],
     [ "operator*", "classtheoretica_1_1complex.html#a01ed441ac8303c55cc90dc66d4ee5d33", null ],

@@ -2,8 +2,8 @@ var sampling_8h =
 [
     [ "pdf_sampler", "structtheoretica_1_1pdf__sampler.html", "structtheoretica_1_1pdf__sampler" ],
     [ "pdf_sampling_function", "sampling_8h.html#a17352cbe273b80ae0f08eac818eba84e", null ],
-    [ "metropolis", "sampling_8h.html#aa4b235e6e95449fbb28f562c110f6aa3", null ],
-    [ "metropolis", "sampling_8h.html#a171a1939d723ba99bf4e4905728df701", null ],
+    [ "metropolis", "sampling_8h.html#a66a8fc915915b6eff35dbf94c74b13bd", null ],
+    [ "metropolis", "sampling_8h.html#ac91dfc5efe4fa412bd7ef46f142f7045", null ],
     [ "rand_cauchy", "sampling_8h.html#a473df88a9edd9ccc8dcf03665591575b", null ],
     [ "rand_cauchy", "sampling_8h.html#ac34a4b6660c0287dc6dfa979a2f83002", null ],
     [ "rand_cointoss", "sampling_8h.html#ada12d3bc9842b85e97e14f0eb975e132", null ],
@@ -25,7 +25,7 @@ var sampling_8h =
     [ "rand_rayleigh", "sampling_8h.html#a012d14c9ef85d6f3028bf8ceb1008787", null ],
     [ "rand_rayleigh", "sampling_8h.html#a55c93a1f60698d75caa21a305e2ba107", null ],
     [ "rand_rejectsamp", "sampling_8h.html#a7e708ed0859828011f0d262c93274ec3", null ],
-    [ "rand_trycatch", "sampling_8h.html#a39df0b112f893ca611b133774bcc76b8", null ],
+    [ "rand_trycatch", "sampling_8h.html#accbe6df09ae3883660614f02f70a2ade", null ],
     [ "rand_uniform", "sampling_8h.html#ad7e77a1836e1b966cdbb0934d5ebbbf2", null ],
-    [ "rand_uniform", "sampling_8h.html#a6a35e29644875a5421b3ac4d7203c28a", null ]
+    [ "rand_uniform", "sampling_8h.html#a579b4ccc4078b67b7ec795b744e436d5", null ]
 ];

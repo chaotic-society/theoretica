@@ -253,6 +253,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1complex.html#a04049837bc4c77cf42709744705e2bbc">operator!=</a> (const <a class="el" href="classtheoretica_1_1complex.html">complex</a> &amp;z) const</td></tr>
 <tr class="memdesc:a04049837bc4c77cf42709744705e2bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether two complex numbers are not the same. <br /></td></tr>
 <tr class="separator:a04049837bc4c77cf42709744705e2bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f4fd1626b80209937c918546f4fcef2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1complex.html#a8f4fd1626b80209937c918546f4fcef2">operator real</a> ()</td></tr>
+<tr class="memdesc:a8f4fd1626b80209937c918546f4fcef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Narrowing cast to a real number.  <a href="classtheoretica_1_1complex.html#a8f4fd1626b80209937c918546f4fcef2">More...</a><br /></td></tr>
+<tr class="separator:a8f4fd1626b80209937c918546f4fcef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa1e92409cfae42c69725409b7b1792"><td class="memItemLeft" align="right" valign="top"><a id="a1aa1e92409cfae42c69725409b7b1792"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1complex.html#a1aa1e92409cfae42c69725409b7b1792">to_string</a> () const</td></tr>
 <tr class="memdesc:a1aa1e92409cfae42c69725409b7b1792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the complex number to string representation. <br /></td></tr>
@@ -324,7 +327,38 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 class theoretica::complex&lt; Type &gt;</h3>
 
 <p>Complex number in algebraic form \(a + ib\). </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8f4fd1626b80209937c918546f4fcef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f4fd1626b80209937c918546f4fcef2">&#9670;&nbsp;</a></span>operator real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1complex.html">theoretica::complex</a>&lt; Type &gt;::operator <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Narrowing cast to a real number. </p>
+<p>If the imaginary part is greater in module than the machine epsilon, NaN is returned. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>complex/<a class="el" href="complex_8h_source.html">complex.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -333,7 +367,7 @@ class theoretica::complex&lt; Type &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1complex.html">complex</a></li>
-    <li class="footer">Generated on Fri Aug 23 2024 21:44:51 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 24 2024 14:09:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
