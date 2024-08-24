@@ -49,9 +49,9 @@ int main() {
 	std::cout << "f(v) = " << f(v) << std::endl;
 
 	// And also automatically compute differential operators
-	std::cout << "grad(f) = " << gradient(f, v) << std::endl;
-	std::cout << "div(f) = " << divergence(f, v) << "\n" << std::endl;
-	std::cout << "laplacian(f) = " << laplacian(f, v) << "\n" << std::endl;
+	std::cout << "grad(f) = " << autodiff::gradient(f, v) << std::endl;
+	std::cout << "div(f) = " << autodiff::divergence(f, v) << "\n" << std::endl;
+	std::cout << "laplacian(f) = " << autodiff::laplacian(f, v) << "\n" << std::endl;
 
 	// When you apply differential operators, the function is cast to
 	// accept dual, multidual or dual2 arguments and is then evaluated
@@ -64,7 +64,7 @@ int main() {
 	// Compute the Jacobian matrix of g(x, y)
 	// Note that you may need to specify the input and output size
 	// for template deduction, when using fixed size containers.
-	std::cout << "jacobian(g):\n" << jacobian<2, 2>(g, v) << std::endl;
+	std::cout << "jacobian(g):\n" << autodiff::jacobian<2, 2>(g, v) << std::endl;
 
 	return 0;
 }

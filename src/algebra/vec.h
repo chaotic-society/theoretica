@@ -21,7 +21,7 @@ namespace theoretica {
 
 
 	/// @class vec_iterator Sequential iterator for vectors.
-	template<typename Vector, typename ReturnType = indexable_element_t<Vector>&>
+	template<typename Vector, typename ReturnType = vector_element_t<Vector>&>
 	class vec_iterator {
 
 		private:
@@ -35,7 +35,7 @@ namespace theoretica {
 		public:
 
 			using iterator_category = std::forward_iterator_tag;
-			using value_type = indexable_element_t<Vector>;
+			using value_type = vector_element_t<Vector>;
 			using pointer = value_type*;
 			using reference = value_type&;
 

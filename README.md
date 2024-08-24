@@ -25,10 +25,10 @@ Some features of the library include:
 
 - Cross-platform with x86 and OpenMP enhancements
 - Common real and complex functions
-- Numerical Linear Algebra algorithms
+- Numerical Linear Algebra
 - Complex numbers (algebraic & exponential form) and **quaternions**
 - Numerical calculus, from integrals to ODEs
-- Multivariate **automatic differentiation** with differential operators
+- Multivariate **Automatic Differentiation** with differential operators
 - Descriptive and inferential statistics and **Monte Carlo** methods
 - Bezier curves and spline interpolation
 

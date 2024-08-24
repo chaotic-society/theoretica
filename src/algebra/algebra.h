@@ -61,7 +61,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_error(Vector& v) {
 
-			using Type = indexable_element_t<Vector>;
+			using Type = vector_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
 				v[i] = Type(nan());
@@ -108,7 +108,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline Vector& vec_zeroes(Vector& v) {
 
-			using Type = indexable_element_t<Vector>;
+			using Type = vector_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
 				v[i] = Type(0.0);
@@ -291,7 +291,7 @@ namespace theoretica {
 		template<typename Vector>
 		inline auto norm(const Vector& v) {
 
-			return indexable_element_t<Vector>(sqrt(sqr_norm(v)));
+			return vector_element_t<Vector>(sqrt(sqr_norm(v)));
 		}
 
 
@@ -352,7 +352,7 @@ namespace theoretica {
 
 			if(v.size() != w.size()) {
 				TH_MATH_ERROR("algebra::dot", v.size(), INVALID_ARGUMENT);
-				return indexable_element_t<Vector1>(nan());
+				return vector_element_t<Vector1>(nan());
 			}
 
 			auto sum = pair_inner_product(v[0], w[0]);
@@ -548,144 +548,6 @@ namespace theoretica {
 		}
 
 
-		/// Invert the given matrix.
-		/// Equivalent to the operation dest = src^-1
-		/// @param dest The matrix to overwrite
-		/// @param src The matrix to invert
-		/// @return A reference to the inverted matrix
-		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& inverse(Matrix1& dest, const Matrix2& src) {
-
-			if(src.rows() != src.cols()) {
-				TH_MATH_ERROR("algebra::inverse", src.rows(), INVALID_ARGUMENT);
-				mat_error(dest);
-				return dest;
-			}
-
-			if(dest.rows() != src.rows()) {
-				TH_MATH_ERROR("algebra::inverse", dest.rows(), INVALID_ARGUMENT);
-				mat_error(dest);
-				return dest;
-			}
-
-			if(dest.cols() != src.cols()) {
-				TH_MATH_ERROR("algebra::inverse", dest.cols(), INVALID_ARGUMENT);
-				mat_error(dest);
-				return dest;
-			}
-
-			using Type = matrix_element_t<Matrix2>;
-
-			// Prepare extended matrix (A|B)
-			Matrix1 A;
-			A.resize(src.rows(), src.cols());
-			dest.resize(src.rows(), src.cols());
-			mat_copy(A, src);
-			make_identity(dest);
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < src.rows(); ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A(i, i) == (Type) 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < src.rows(); ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero
-						if(A(j, i) != (Type) 0) {
-
-							for (unsigned int k = 0; k < src.rows(); ++k) {
-								A(i, k) += A(j, k);
-								dest(i, k) += dest(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						TH_MATH_ERROR("algebra::inverse", flag, IMPOSSIBLE_OPERATION);
-						mat_error(dest);
-						return dest;
-					}
-				}
-
-				auto inv_pivot = ((Type) 1.0) / A(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = 0; j < src.rows(); ++j) {
-
-					// Skip the current row
-					if(j == i)
-						continue;
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					const auto coeff = A(j, i) * inv_pivot;
-					
-					for (unsigned int k = 0; k < src.rows(); ++k) {
-						A(j, k) -= coeff * A(i, k);
-						dest(j, k) -= coeff * dest(i, k);
-					}
-				}
-
-				// Divide the current row by the pivot
-				for (unsigned int j = 0; j < src.rows(); ++j) {
-					A(i, j) *= inv_pivot;
-					dest(i, j) *= inv_pivot;
-				}
-				
-			}
-
-			return dest;
-		}
-
-
-		/// Returns the inverse of the given matrix.
-		/// Equivalent to the operation m^-1
-		/// @param m The matrix to invert
-		/// @return The inverted matrix
-		template<typename Matrix, typename MatrixInv = Matrix>
-		inline MatrixInv inverse(const Matrix& m) {
-			MatrixInv res;
-			res.resize(m.rows(), m.cols());
-			inverse(res, m);
-			return res;
-		}
-
-
-		/// Invert the given matrix and overwrite it.
-		/// Equivalent to the operation m = m^-1
-		/// @param m The matrix to invert
-		/// @return A reference to the inverted matrix
-		template<typename Matrix>
-		inline Matrix& invert(Matrix& m) {
-
-			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::invert", m.rows(), INVALID_ARGUMENT);
-				mat_error(m);
-				return m;
-			}
-
-			// Prepare extended matrix (A|B)
-			Matrix tmp;
-			tmp.resize(m.rows(), m.cols());
-			inverse(tmp, m);
-
-			// Modify the matrix only when the inversion
-			// has succeeded
-			mat_copy(m, tmp);
-			return m;
-		}
-
-
 		/// Compute the trace of the given matrix
 		/// @param m A matrix of any type
 		/// @return The trace of the matrix
@@ -717,100 +579,6 @@ namespace theoretica {
 				mul *= m(i, i);
 
 			return mul;
-		}
-
-
-		/// Compute the determinant of a square matrix.
-		/// Gauss Jordan elimination is used to reduce the
-		/// matrix to a triangular matrix.
-		/// @param m The matrix to compute the determinant of
-		/// @return The determinant of the matrix
-		template<typename Matrix>
-		inline auto det(const Matrix& m) {
-
-			using Type = matrix_element_t<Matrix>;
-			
-			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::det", m.rows(), INVALID_ARGUMENT);
-				return (Type) nan();
-			}
-
-			Matrix A;
-			A.resize(m.rows(), m.cols());
-			mat_copy(A, m);
-
-			// Iterate on all columns
-			for (unsigned int i = 0; i < A.rows(); ++i) {
-				
-				// Make sure the element on the diagonal
-				// is non-zero by adding the first non-zero row
-				if(A(i, i) == 0) {
-
-					bool flag = false;
-
-					// Iterate on all rows
-					for (unsigned int j = i + 1; j < A.rows(); ++j) {
-
-						// Add the j-th row to the i-th row
-						// if Aji is non-zero.
-						// The determinant does not change
-						// when adding a row to another one
-						if(A(j, i) != (Type) 0) {
-
-							for (unsigned int k = 0; k < A.rows(); ++k) {
-								A(i, k) += (Type) A(j, k);
-							}
-
-							flag = true;
-							break;
-						}
-					}
-
-					if(!flag) {
-						return (Type) 0;
-					}
-				}
-
-				const auto inv_pivot = ((Type) 1.0) / A(i, i);
-
-				// Use the current row to make all other
-				// elements of the column equal to zero
-				for (unsigned int j = i + 1; j < A.rows(); ++j) {
-
-					// Multiplication coefficient for
-					// the elision of Ajk
-					const auto coeff = (Type) A(j, i) * inv_pivot;
-
-					// The coefficient does not change
-					// when adding a linear combination
-					// of a row to another
-					for (unsigned int k = 0; k < A.rows(); ++k) {
-						A(j, k) -= (Type) A(i, k) * coeff;
-					}
-				}
-			}
-
-			// The determinant of a (lower) triangular matrix
-			// is the product of the elements on its diagonal
-			return (Type) diagonal_product(A);
-		}
-
-
-		/// Return the determinant of a 2x2 matrix.
-		/// @note No error checking is performed on the matrix size
-		template<typename Matrix>
-		inline real det_2x2(const Matrix& m) {
-			return m(0, 0) * m(1, 1) - m(1, 0) * m(0, 1);
-		}
-
-
-		/// Return the determinant if the matrix is 3x3.
-		/// @note No error checking is performed on the matrix size
-		template<typename Matrix>
-		inline real det_3x3(const Matrix& m) {
-			return	m(0, 0) * (m(1, 1) * m(2, 2) - m(2, 1) * m(1, 2)) -
-					m(0, 1) * (m(1, 0) * m(2, 2) - m(2, 0) * m(1, 2)) +
-					m(0, 2) * (m(1, 0) * m(2, 1) - m(2, 0) * m(1, 1));
 		}
 
 
@@ -1421,10 +1189,10 @@ namespace theoretica {
 		/// Returns whether the matrix is symmetric
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// in the comparison, defaults to ALGEBRA_ELEMENT_TOL
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_symmetric(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+		inline bool is_symmetric(const Matrix& m, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			if(!is_square(m))
 				return false;
@@ -1441,10 +1209,10 @@ namespace theoretica {
 		/// Returns whether the matrix is lower triangular
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// in the comparison, defaults to ALGEBRA_ELEMENT_TOL
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_lower_triangular(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+		inline bool is_lower_triangular(const Matrix& m, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			if(!is_square(m))
 				return false;
@@ -1461,10 +1229,10 @@ namespace theoretica {
 		/// Returns whether the matrix is upper triangular
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to MATRIX_ELEMENT_TOL
+		/// in the comparison, defaults to ALGEBRA_ELEMENT_TOL
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_upper_triangular(const Matrix& m, real tolerance = MATRIX_ELEMENT_TOL) {
+		inline bool is_upper_triangular(const Matrix& m, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			if(!is_square(m))
 				return false;
@@ -1530,32 +1298,26 @@ namespace theoretica {
 		template<typename Matrix1, typename Matrix2, typename Matrix3>
 		inline void decompose_lu(const Matrix1& A, Matrix2& L, Matrix3& U) {
 
-			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::decompose_lu", A.rows(), INVALID_ARGUMENT);
-				mat_error(L); mat_error(U);
-				return;
-			}
+			// Check the shapes of A, L and U
+			unsigned int err = 0;
 
-			if (A.rows() != L.rows()) {
-				TH_MATH_ERROR("algebra::decompose_lu", L.rows(), INVALID_ARGUMENT);
-				mat_error(L); mat_error(U);
-				return;
-			}
+			if (!is_square(A))
+				err = A.rows();
 
-			if (A.cols() != L.cols()) {
-				TH_MATH_ERROR("algebra::decompose_lu", L.cols(), INVALID_ARGUMENT);
-				mat_error(L); mat_error(U);
-				return;
-			}
+			if (A.rows() != L.rows())
+				err = L.rows();
 
-			if (A.rows() != U.rows()) {
-				TH_MATH_ERROR("algebra::decompose_lu", U.rows(), INVALID_ARGUMENT);
-				mat_error(L); mat_error(U);
-				return;
-			}
+			if (A.cols() != L.cols())
+				err = L.cols();
 
-			if (A.cols() != U.cols()) {
-				TH_MATH_ERROR("algebra::decompose_lu", U.cols(), INVALID_ARGUMENT);
+			if (A.rows() != U.rows())
+				err = U.rows();
+
+			if (A.cols() != U.cols())
+				err = U.cols();
+
+			if (err) {
+				TH_MATH_ERROR("algebra::decompose_lu", err, INVALID_ARGUMENT);
 				mat_error(L); mat_error(U);
 				return;
 			}
@@ -1879,6 +1641,167 @@ namespace theoretica {
 		}
 
 
+		// Other composite operations
+
+
+		/// Invert the given matrix.
+		/// Equivalent to the operation dest = src^-1
+		/// @param dest The matrix to overwrite
+		/// @param src The matrix to invert
+		/// @return A reference to the inverted matrix
+		template<typename Matrix1, typename Matrix2>
+		inline Matrix1& inverse(Matrix1& dest, const Matrix2& src) {
+
+			if(src.rows() != src.cols()) {
+				TH_MATH_ERROR("algebra::inverse", src.rows(), INVALID_ARGUMENT);
+				mat_error(dest);
+				return dest;
+			}
+
+			if(dest.rows() != src.rows()) {
+				TH_MATH_ERROR("algebra::inverse", dest.rows(), INVALID_ARGUMENT);
+				mat_error(dest);
+				return dest;
+			}
+
+			if(dest.cols() != src.cols()) {
+				TH_MATH_ERROR("algebra::inverse", dest.cols(), INVALID_ARGUMENT);
+				mat_error(dest);
+				return dest;
+			}
+
+			using Type = matrix_element_t<Matrix2>;
+
+			// Prepare extended matrix (A|B)
+			Matrix1 A;
+			A.resize(src.rows(), src.cols());
+			dest.resize(src.rows(), src.cols());
+			mat_copy(A, src);
+			make_identity(dest);
+
+			// Iterate on all columns
+			for (unsigned int i = 0; i < src.rows(); ++i) {
+				
+				// Make sure the element on the diagonal
+				// is non-zero by adding the first non-zero row
+				if(A(i, i) == (Type) 0) {
+
+					bool flag = false;
+
+					// Iterate on all rows
+					for (unsigned int j = i + 1; j < src.rows(); ++j) {
+
+						// Add the j-th row to the i-th row
+						// if Aji is non-zero
+						if(A(j, i) != (Type) 0) {
+
+							for (unsigned int k = 0; k < src.rows(); ++k) {
+								A(i, k) += A(j, k);
+								dest(i, k) += dest(j, k);
+							}
+
+							flag = true;
+							break;
+						}
+					}
+
+					if(!flag) {
+						TH_MATH_ERROR("algebra::inverse", flag, IMPOSSIBLE_OPERATION);
+						mat_error(dest);
+						return dest;
+					}
+				}
+
+				auto inv_pivot = ((Type) 1.0) / A(i, i);
+
+				// Use the current row to make all other
+				// elements of the column equal to zero
+				for (unsigned int j = 0; j < src.rows(); ++j) {
+
+					// Skip the current row
+					if(j == i)
+						continue;
+
+					// Multiplication coefficient for
+					// the elision of Ajk
+					const auto coeff = A(j, i) * inv_pivot;
+					
+					for (unsigned int k = 0; k < src.rows(); ++k) {
+						A(j, k) -= coeff * A(i, k);
+						dest(j, k) -= coeff * dest(i, k);
+					}
+				}
+
+				// Divide the current row by the pivot
+				for (unsigned int j = 0; j < src.rows(); ++j) {
+					A(i, j) *= inv_pivot;
+					dest(i, j) *= inv_pivot;
+				}
+				
+			}
+
+			return dest;
+		}
+
+
+		/// Returns the inverse of the given matrix.
+		/// Equivalent to the operation \f$m^-1\f$
+		///
+		/// @param m The matrix to invert
+		/// @return The inverted matrix
+		template<typename Matrix, typename MatrixInv = Matrix>
+		inline MatrixInv inverse(const Matrix& m) {
+			MatrixInv res;
+			res.resize(m.rows(), m.cols());
+			inverse(res, m);
+			return res;
+		}
+
+
+		/// Invert the given matrix and overwrite it.
+		/// Equivalent to the operation m = m^-1
+		///
+		/// @param m The matrix to invert
+		/// @return A reference to the inverted matrix
+		template<typename Matrix>
+		inline Matrix& invert(Matrix& m) {
+
+			if(m.rows() != m.cols()) {
+				TH_MATH_ERROR("algebra::invert", m.rows(), INVALID_ARGUMENT);
+				mat_error(m);
+				return m;
+			}
+
+			// Prepare extended matrix (A|B)
+			Matrix tmp;
+			tmp.resize(m.rows(), m.cols());
+			inverse(tmp, m);
+
+			// Modify the matrix only when the inversion
+			// has succeeded
+			mat_copy(m, tmp);
+			return m;
+		}
+
+
+		/// Compute the determinant of a square matrix.
+		/// In-place LU decomposition is used to reduce the
+		/// matrix to triangular form.
+		///
+		/// @param A The matrix to compute the determinant of
+		/// @return The determinant of the matrix
+		template<typename Matrix>
+		inline auto det(const Matrix& A) {
+
+			Matrix LU = A;
+			decompose_lu_inplace(LU);
+
+			// The determinant of a triangular matrix
+			// is the product of the elements on its diagonal
+			return diagonal_product(LU);
+		}
+
+
 		// Eigensolvers
 
 
@@ -1897,7 +1820,7 @@ namespace theoretica {
 			// Check for division by zero
 			if (abs(p) < MACH_EPSILON) {
 				TH_MATH_ERROR("rayleigh_quotient", abs(p), DIV_BY_ZERO);
-				return indexable_element_t<Vector>(nan());
+				return vector_element_t<Vector>(nan());
 			}
 
 			return dot(x, transform(A, x)) / p;
@@ -1910,14 +1833,15 @@ namespace theoretica {
 		/// @param A The matrix to find the biggest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return The biggest eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector>
 		inline auto eigenvalue_power(
 			const Matrix& A, const Vector& x,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
@@ -1970,14 +1894,15 @@ namespace theoretica {
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param v The vector to overwrite with the eigenvector
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return The biggest eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector1, typename Vector2 = Vector1>
 		inline auto eigenpair_power(
 			const Matrix& A, const Vector1& x, Vector2& v,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
@@ -2036,14 +1961,15 @@ namespace theoretica {
 		/// @param A The matrix to find the smallest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return The eigenvalue with the smallest inverse of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector>
 		inline auto eigenvalue_inverse(
 			const Matrix& A, const Vector& x,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
@@ -2101,14 +2027,15 @@ namespace theoretica {
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param v The vector to overwrite with the eigenvector
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return The eigenvalue with the smallest inverse of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector1, typename Vector2>
 		inline auto eigenpair_inverse(
 			const Matrix& A, const Vector1& x, Vector2& v,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
@@ -2173,13 +2100,14 @@ namespace theoretica {
 		/// @param lambda The eigenvalue
 		/// @param x The starting vector (a random vector is a good choice)
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return The approximate eigenvector associated with the eigenvalue
 		template<typename Matrix, typename Vector, typename T = matrix_element_t<Matrix>>
 		inline Vector eigenvector_inverse(
 			const Matrix& A, const T& lambda, const Vector& x,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenvector_inverse", is_square(A), INVALID_ARGUMENT);
@@ -2239,14 +2167,15 @@ namespace theoretica {
 		/// @param x The starting approximation for the eigenvector
 		/// (a random vector is a good choice).
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return An approximate eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector, typename T = matrix_element_t<Matrix>>
 		inline auto eigenvalue_rayleigh(
 			const Matrix& A, const T& lambda, const Vector& x,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
@@ -2314,25 +2243,26 @@ namespace theoretica {
 		/// (a random vector is a good choice).
 		/// @param v The vector to overwrite with the eigenvector
 		/// @param tolerance The minimum difference in norm between subsequent
-		/// steps to stop the algorithm at.
+		/// steps to stop the algorithm at (defaults to ALGEBRA_EIGEN_TOL).
 		/// @param max_iter The maximum number of iterations to use
+		/// (defaults to ALGEBRA_EIGEN_ITER).
 		/// @return An approximate eigenvalue of the matrix, or NaN if the
 		/// algorithm did not converge.
 		template<typename Matrix, typename Vector1, typename Vector2,
 		typename T = matrix_element_t<Matrix>>
 		inline auto eigenpair_rayleigh(
 			const Matrix& A, const T& lambda, const Vector1& x, Vector2& v,
-			real tolerance = 1E-08, unsigned int max_iter = 100) {
+			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_rayleigh", is_square(A), INVALID_ARGUMENT);
 				return Type(nan());
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_rayleigh", x.size(), INVALID_ARGUMENT);
 				return Type(nan());
 			}
 
@@ -2372,10 +2302,11 @@ namespace theoretica {
 			}
 
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenpair_rayleigh", i, NO_ALGO_CONVERGENCE);
 				return Type(nan());
 			}
 
+			// Overwrite with the eigenvector
 			vec_copy(v, x_curr);
 
 			return dot(x_curr, transform(A, x_curr));

@@ -37,7 +37,7 @@ namespace theoretica {
 
 	/// Extract the type of an indexable container from its operator[].
 	template<typename Structure>
-	using indexable_element_t =
+	using vector_element_t =
 		std::remove_reference_t<decltype(std::declval<Structure>()[0])>;
 
 
@@ -52,13 +52,13 @@ namespace theoretica {
 	/// has elements of the given type.
 	template<typename Structure, typename Type>
 	struct has_type_elements
-	: std::is_same<indexable_element_t<Structure>, Type> {};
+	: std::is_same<vector_element_t<Structure>, Type> {};
 
 
 	/// Type trait to check whether an indexable container
 	/// has real elements.
 	template<typename Structure>
-	using has_real_elements = is_real_type<indexable_element_t<Structure>>;
+	using has_real_elements = is_real_type<vector_element_t<Structure>>;
 
 
 	/// Check whether a structure is orderable,

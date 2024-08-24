@@ -24,13 +24,13 @@ namespace theoretica {
 	/// @param b The higher extreme of the interval
 	/// @param g An already initialized pseudorandom number generator
 	/// @param prec Precision parameters for the normalization, defaults
-	/// to RAND_REAL_PREC.
+	/// to STATISTICS_RAND_PREC.
 	///
 	/// The algorithm generates a random integer number, computes
 	/// its modulus and divides it by prec:
 	/// \f$x = \frac{(n mod p)}{2^p}\f$, where n is the random integer
 	/// and p is the prec parameter
-	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = RAND_REAL_PREC) {
+	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = STATISTICS_RAND_PREC) {
 
 		// Generate a uniform random real number in [0, 1]
 		real x = (g() % prec) / static_cast<real>(prec);
@@ -124,7 +124,7 @@ namespace theoretica {
 	/// for number generation
 	/// @param max_iter The maximum number of failed
 	/// generations before stopping execution (defaults to
-	/// MAX_TRYANDCATCH_ITER)
+	/// STATISTICS_TRYANDCATCH_ITER)
 	/// @return A real number following the given pdf
 	///
 	/// Random real numbers are generated inside a rectangle
@@ -134,7 +134,7 @@ namespace theoretica {
 		const vec<real>& theta,
 		real x1, real x2,
 		real y1, real y2, PRNG& g,
-		unsigned int max_iter = MAX_TRYANDCATCH_ITER) {
+		unsigned int max_iter = STATISTICS_TRYANDCATCH_ITER) {
 
 		real x;
 		real y;
@@ -570,10 +570,10 @@ namespace theoretica {
 	/// from the proposal distribution
 	/// @param rnd An already initialized PRNG
 	/// @param depth The number of iterations of the algorithm
-	/// (defaults to METROPOLIS_DEPTH)
+	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
 	inline real metropolis(
 		real_function pdf, pdf_sampler& g,
-		real x0, PRNG& rnd, unsigned int depth = METROPOLIS_DEPTH) {
+		real x0, PRNG& rnd, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
 
 		real current = x0, next;
 
@@ -600,9 +600,9 @@ namespace theoretica {
 	/// @param g A pdf_sampler already initialized to sample
 	/// from the proposal distribution
 	/// @param depth The number of iterations of the algorithm
-	/// (defaults to METROPOLIS_DEPTH)
+	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
 	inline real metropolis(real_function pdf, pdf_sampler& g,
-		real x0, unsigned int depth = METROPOLIS_DEPTH) {
+		real x0, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
 		return metropolis(pdf, g, x0, g.generator, depth);
 	}
 

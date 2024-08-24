@@ -17,7 +17,7 @@
 #include "../core/real_analysis.h"
 
 
-namespace  theoretica {
+namespace theoretica {
 
 
 	/// @class complex
@@ -355,6 +355,18 @@ namespace  theoretica {
 
 			inline friend complex operator/(Type r, const complex& z) {
 				return complex(r, 0) / z;
+			}
+
+
+			/// Narrowing cast to a real number. If the imaginary part
+			/// is greater in module than the machine epsilon, NaN is returned.
+			inline operator real () {
+
+				if (abs(b) >= MACH_EPSILON) {
+					return nan();
+				}
+
+				return a;
 			}
 
 

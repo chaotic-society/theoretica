@@ -39,7 +39,7 @@ NumType pendulum(vec<NumType, 2> eta) {
 // Differential vector field
 vec<real, M> f(real t, vec<real, M> eta) {
 
-	return M_symplectic * gradient<M>(harmonic_oscillator, eta);
+	return M_symplectic * autodiff::gradient<M>(harmonic_oscillator, eta);
 }
 
 

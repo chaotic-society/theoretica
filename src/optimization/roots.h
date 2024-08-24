@@ -54,7 +54,7 @@ namespace theoretica {
 	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
 	inline real root_bisection(
-		RealFunction f, real a, real b, real tolerance = BISECTION_APPROX_TOL) {
+		RealFunction f, real a, real b, real tolerance = OPTIMIZATION_TOL) {
 
 		if(f(a) * f(b) >= 0) {
 			TH_MATH_ERROR("root_bisection", f(a) * f(b), INVALID_ARGUMENT);
@@ -68,7 +68,7 @@ namespace theoretica {
 
 		unsigned int iter = 0;
 
-		while((x_max - x_min) > tolerance && iter <= MAX_BISECTION_ITER) {
+		while((x_max - x_min) > tolerance && iter <= OPTIMIZATION_BISECTION_ITER) {
 
 			x_avg = (x_max + x_min) / 2.0;
 
@@ -80,7 +80,7 @@ namespace theoretica {
 			++iter;
 		}
 
-		if(iter > MAX_BISECTION_ITER) {
+		if(iter > OPTIMIZATION_BISECTION_ITER) {
 			TH_MATH_ERROR("root_bisection", x_avg, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -103,12 +103,12 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(f(x)) > NEWTON_RAPHSON_TOL && iter <= MAX_NEWTON_ITER) {
+		while(abs(f(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_NEWTON_ITER) {
 			x = x - (f(x) / Df(x));
 			iter++;
 		}
 
-		if(iter > MAX_NEWTON_ITER) {
+		if(iter > OPTIMIZATION_NEWTON_ITER) {
 			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -132,7 +132,7 @@ namespace theoretica {
 
 		dual s = f(dual(x, 1));
 
-		while(abs(s.Re()) > NEWTON_RAPHSON_TOL && iter <= MAX_NEWTON_ITER) {
+		while(abs(s.Re()) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_NEWTON_ITER) {
 
 			s = f(dual(x, 1));
 
@@ -140,7 +140,7 @@ namespace theoretica {
 			iter++;
 		}
 
-		if(iter > MAX_NEWTON_ITER) {
+		if(iter > OPTIMIZATION_NEWTON_ITER) {
 			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -161,12 +161,12 @@ namespace theoretica {
 		polynomial<> Dp = deriv(p);
 		unsigned int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_NEWTON_ITER) {
+		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_NEWTON_ITER) {
 			x = x - (p(x) / Dp(x));
 			iter++;
 		}
 
-		if(iter > MAX_NEWTON_ITER) {
+		if(iter > OPTIMIZATION_NEWTON_ITER) {
 			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -184,15 +184,15 @@ namespace theoretica {
 	/// @param tolerance The minimum tolerance to stop the algorithm
 	/// when reached.
 	/// @param max_iter The maximum number of iterations before stopping
-	/// the algorithm (defaults to MAX_NEWTON_ITER).
+	/// the algorithm (defaults to OPTIMIZATION_TOL).
 	/// @return The coordinate of the root of the function,
 	/// or a complex NaN if the algorithm did not converge.
 	inline complex<> root_newton(
 		complex<>(*f)(complex<>),
 		complex<>(*df)(complex<>),
 		complex<> guess = complex<>(0, 0),
-		real tolerance = NEWTON_RAPHSON_TOL,
-		unsigned int max_iter = MAX_NEWTON_ITER) {
+		real tolerance = OPTIMIZATION_TOL,
+		unsigned int max_iter = OPTIMIZATION_TOL) {
 
 		complex<> z = guess;
 		unsigned int iter = 0;
@@ -226,12 +226,12 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+		while(abs(f(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_HALLEY_ITER) {
 			x = x - (2 * f(x) * Df(x)) / (2 * Df(x) - f(x) * D2f(x));
 			iter++;
 		}
 
-		if(iter > MAX_HALLEY_ITER) {
+		if(iter > OPTIMIZATION_HALLEY_ITER) {
 			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -254,9 +254,9 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		dual2 s = f(dual2(x, 1, 0));
+		dual2 s = f(dual2(x, 1.0, 0.0));
 
-		while(abs(s.Re()) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+		while(abs(s.Re()) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_HALLEY_ITER) {
 
 			s = f(dual2(x, 1, 0));
 
@@ -265,7 +265,7 @@ namespace theoretica {
 			iter++;
 		}
 
-		if(iter > MAX_HALLEY_ITER) {
+		if(iter > OPTIMIZATION_HALLEY_ITER) {
 			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -284,15 +284,16 @@ namespace theoretica {
 
 		polynomial<> Dp = deriv(p);
 		polynomial<> D2p = deriv(Dp);
+
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_HALLEY_ITER) {
+		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_HALLEY_ITER) {
 			x = x - (2 * p(x) * Dp(x)) / (2 * Dp(x) - p(x) * D2p(x));
 			iter++;
 		}
 
-		if(iter > MAX_HALLEY_ITER) {
+		if(iter > OPTIMIZATION_HALLEY_ITER) {
 			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -313,14 +314,14 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
+		while(abs(f(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_STEFFENSEN_ITER) {
 
 			const real f_x = f(x);
 			x = x - (f_x / ((f(x + f_x) / f_x) - 1));
 			iter++;
 		}
 
-		if(iter > MAX_STEFFENSEN_ITER) {
+		if(iter > OPTIMIZATION_STEFFENSEN_ITER) {
 			TH_MATH_ERROR("root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -340,12 +341,12 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_STEFFENSEN_ITER) {
+		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_STEFFENSEN_ITER) {
 			x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));
 			iter++;
 		}
 
-		if(iter > MAX_STEFFENSEN_ITER) {
+		if(iter > OPTIMIZATION_STEFFENSEN_ITER) {
 			TH_MATH_ERROR("root_steffensen", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -369,12 +370,12 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(f(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
+		while(abs(f(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_CHEBYSHEV_ITER) {
 			x = x - (f(x) / Df(x)) - square((f(x) / Df(x))) * (Df(x) / (D2f(x) * 2));
 			iter++;
 		}
 
-		if(iter > MAX_CHEBYSHEV_ITER) {
+		if(iter > OPTIMIZATION_CHEBYSHEV_ITER) {
 			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -396,9 +397,9 @@ namespace theoretica {
 		real x = guess;
 		unsigned int iter = 0;
 
-		dual2 s = f(dual2(x, 1, 0));
+		dual2 s = f(dual2(x, 1.0, 0.0));
 
-		while(abs(s.Re()) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
+		while(abs(s.Re()) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_CHEBYSHEV_ITER) {
 
 			s = f(dual2(x, 1, 0));
 
@@ -408,7 +409,7 @@ namespace theoretica {
 			iter++;
 		}
 
-		if(iter > MAX_CHEBYSHEV_ITER) {
+		if(iter > OPTIMIZATION_CHEBYSHEV_ITER) {
 			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -425,17 +426,18 @@ namespace theoretica {
 	/// or NaN if the algorithm did not converge.
 	inline real root_chebyshev(polynomial<real> p, real guess = 0) {
 
-		real x = guess;
 		polynomial<> Dp = deriv(p);
 		polynomial<> D2p = deriv(p);
+
+		real x = guess;
 		unsigned int iter = 0;
 
-		while(abs(p(x)) > ROOT_APPROX_TOL && iter <= MAX_CHEBYSHEV_ITER) {
+		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_CHEBYSHEV_ITER) {
 			x = x - (p(x) / Dp(x)) - square((p(x) / Dp(x))) * (Dp(x) / (D2p(x) * 2));
 			iter++;
 		}
 
-		if(iter > MAX_CHEBYSHEV_ITER) {
+		if(iter > OPTIMIZATION_CHEBYSHEV_ITER) {
 			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -458,7 +460,7 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline std::vector<real> roots(
 		RealFunction f, real a, real b,
-		real tolerance = BISECTION_APPROX_TOL, real steps = 10) {
+		real tolerance = OPTIMIZATION_TOL, real steps = 10) {
 
 		if(steps == 0) {
 			TH_MATH_ERROR("roots", steps, DIV_BY_ZERO);
@@ -504,7 +506,7 @@ namespace theoretica {
 	/// @return A vector of the roots of the polynomial that were found.
 	template<typename Field>
 	inline std::vector<Field> roots(
-		polynomial<Field> p, real tolerance = BISECTION_APPROX_TOL,
+		polynomial<Field> p, real tolerance = OPTIMIZATION_TOL,
 		unsigned int steps = 0) {
 
 		// Effective order of the polynomial

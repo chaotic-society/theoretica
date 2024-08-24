@@ -35,7 +35,7 @@ namespace theoretica {
 
 		unsigned int iter = 0;
 
-		while(abs(x2 - x1) > ROOT_APPROX_TOL && iter <= MAX_GOLDENSECTION_ITER) {
+		while(abs(x2 - x1) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_GOLDENSECTION_ITER) {
 
 			if(f(x3) > f(x4)) {
 				x2 = x4;
@@ -49,7 +49,7 @@ namespace theoretica {
 			iter++;
 		}
 
-		if(iter > MAX_GOLDENSECTION_ITER) {
+		if(iter > OPTIMIZATION_GOLDENSECTION_ITER) {
 			TH_MATH_ERROR("maximize_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
@@ -80,7 +80,7 @@ namespace theoretica {
 
 		unsigned int iter = 0;
 
-		while(abs(x2 - x1) > ROOT_APPROX_TOL && iter <= MAX_GOLDENSECTION_ITER) {
+		while(abs(x2 - x1) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_GOLDENSECTION_ITER) {
 
 			if(f(x3) < f(x4)) {
 				x2 = x4;
@@ -94,7 +94,7 @@ namespace theoretica {
 			iter++;
 		}
 
-		if(iter > MAX_GOLDENSECTION_ITER) {
+		if(iter > OPTIMIZATION_GOLDENSECTION_ITER) {
 			TH_MATH_ERROR("minimize_goldensection", iter, NO_ALGO_CONVERGENCE);
 			return nan();
 		}

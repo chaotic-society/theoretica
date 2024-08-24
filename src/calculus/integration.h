@@ -44,7 +44,7 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral_midpoint(RealFunction f, real a, real b,
-		unsigned int steps = INTEGRATION_STEPS) {
+		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
 			TH_MATH_ERROR("integral_midpoint", steps, DIV_BY_ZERO);
@@ -71,7 +71,7 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral_trapezoid(RealFunction f, real a, real b,
-		unsigned int steps = INTEGRATION_STEPS) {
+		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
 			TH_MATH_ERROR("integral_trapezoid", steps, DIV_BY_ZERO);
@@ -100,7 +100,7 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral_simpson(RealFunction f, real a, real b,
-		unsigned int steps = INTEGRATION_STEPS) {
+		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
 			TH_MATH_ERROR("integral_simpson", steps, DIV_BY_ZERO);
@@ -173,7 +173,7 @@ namespace theoretica {
 	inline real integral_romberg_tol(
 		RealFunction f,
 		real a, real b,
-		real tolerance = INTEGRATION_TOL) {
+		real tolerance = CALCULUS_INTEGRAL_TOL) {
 
 		const unsigned int MAX_ROMBERG_ITER = 16;
 		real T[MAX_ROMBERG_ITER][MAX_ROMBERG_ITER];
@@ -476,7 +476,7 @@ namespace theoretica {
 	/// the number of steps reaches a maximum value.
 	inline real integral_inf_riemann(
 		real_function f, real a, real step_sz = 1,
-		real tol = INTEGRATION_TOL, unsigned int max_iter = 100) {
+		real tol = CALCULUS_INTEGRAL_TOL, unsigned int max_iter = 100) {
 
 		// Current lower extreme of the interval
 		real x_n = a + step_sz;

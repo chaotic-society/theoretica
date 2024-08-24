@@ -134,7 +134,7 @@ namespace theoretica {
 	/// Domain: [0, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
 	/// the square root and limited by the
-	/// `THEORETICA_MAX_NEWTON_ITER` macro constant, is used.
+	/// `THEORETICA_OPTIMIZATION_NEWTON_ITER` macro constant, is used.
 	/// Domain reduction to [0, 1] is applied
 	/// to ensure convergence of the algorithm.
 	/// On x86 architectures, if `THEORETICA_X86` is defined,
@@ -175,7 +175,7 @@ namespace theoretica {
 		real y = x;
 		unsigned int i = 0;
 
-		while((square(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+		while((square(y) - x) > OPTIMIZATION_TOL && i < OPTIMIZATION_NEWTON_ITER) {
 			y = (y + x / y) / 2.0;
 			i++;
 		}
@@ -193,7 +193,7 @@ namespace theoretica {
 	/// Domain: [-inf, +inf] \n
 	/// The Newton-Raphson algorithm, optimized for
 	/// the cubic root and limited by the
-	/// `THEORETICA_MAX_NEWTON_ITER` macro constant, is used.
+	/// `THEORETICA_OPTIMIZATION_NEWTON_ITER` macro constant, is used.
 	/// Domain reduction to [0, 1] is applied
 	/// to ensure convergence of the algorithm.
 	inline real cbrt(real x) {
@@ -217,7 +217,7 @@ namespace theoretica {
 		real y = x;
 		unsigned int i = 0;
 
-		while((cube(y) - x) > ROOT_APPROX_TOL && i < MAX_NEWTON_ITER) {
+		while((cube(y) - x) > OPTIMIZATION_TOL && i < OPTIMIZATION_NEWTON_ITER) {
 			y = (y * 2.0 + x / (y * y)) / 3.0;
 			i++;
 		}
@@ -748,7 +748,7 @@ namespace theoretica {
 		real res = 1;
 		real s_n = 1;
 
-		for (int i = 1; i <= TAYLOR_ORDER; ++i) {
+		for (int i = 1; i <= CORE_TAYLOR_ORDER; ++i) {
 
 			// Recurrence formula to improve
 			// numerical stability and performance
@@ -806,7 +806,7 @@ namespace theoretica {
 	/// @return The n-th real root of x
 	///
 	/// The Newton-Raphson method is used, limited by the
-	/// `THEORETICA_MAX_NEWTON_ITER` macro constant.
+	/// `THEORETICA_OPTIMIZATION_NEWTON_ITER` macro constant.
 	inline real root(real x, int n) {
 
 		if(((n % 2 == 0) && (x < 0)) || (n == 0)) {
@@ -849,18 +849,18 @@ namespace theoretica {
 
 		unsigned int i = 0;
 
-		while(i < MAX_NEWTON_ITER) {
+		while(i < OPTIMIZATION_NEWTON_ITER) {
 
 			const real y_pow = pow(y, n - 1);
 
-			if((y_pow * y - x) < ROOT_APPROX_TOL)
+			if((y_pow * y - x) < OPTIMIZATION_TOL)
 				break;
 
 			y = (y * (n - 1) + x / y_pow) / (real) n;
 			i++;
 		}
 
-		if(i >= MAX_NEWTON_ITER) {
+		if(i >= OPTIMIZATION_NEWTON_ITER) {
 			TH_MATH_ERROR("root", i, NO_ALGO_CONVERGENCE);
 			return nan();
 		}

@@ -1,23 +1,28 @@
 
 ///
-/// @file distance.h Distances and norms of vectors.
+/// @file distance.h Distances and norms of generic vectors,
+/// with real or complex elements. The element type of the
+/// vectors needs to have a function abs() which returns a real number.
 ///
 
 #ifndef THEORETICA_DISTANCE_H
 #define THEORETICA_DISTANCE_H
 
+#include "./vec.h"
+#include "./algebra.h"
 #include "../core/constants.h"
 #include "../core/core_traits.h"
 #include "../core/real_analysis.h"
 #include "../complex/complex_analysis.h"
-#include "./vec.h"
 
 
 namespace theoretica {
 
 	namespace algebra {
 
+
 		/// Norms
+
 
 		/// Compute the Lp norm of a vector:
 		/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
@@ -61,17 +66,12 @@ namespace theoretica {
 		template<typename Vector>
 		inline real l2_norm(const Vector& v) {
 
-			using Type = indexable_element_t<Vector>;
-			Type sum = 0;
+			auto sum = pair_inner_product(v[0], v[0]);
 
-			if TH_CONSTIF (!is_complex_type<Type>())
-				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += v[i] * conjugate(v[i]);
-			else
-				for (unsigned int i = 0; i < v.size(); ++i)
-					sum += square(v[i]);
+			for (unsigned int i = 1; i < v.size(); ++i)
+				sum += pair_inner_product(v[i], v[i]);
 
-			return sqrt(sum);
+			return real(sqrt(sum));
 		}
 
 
@@ -91,7 +91,9 @@ namespace theoretica {
 			return res;
 		}
 
+
 		/// Distances
+
 
 		/// Compute the Euclidean distance between two vectors:
 		/// \f$d(\vec v_1, \vec v_2) = L_2(\vec v_1 - \vec v_2)\f$

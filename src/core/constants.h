@@ -33,132 +33,114 @@
 
 /// Tolerance for checking the elements of a
 /// matrix (such as algebra::is_square)
-#ifndef THEORETICA_MATRIX_ELEMENT_TOL
-#define THEORETICA_MATRIX_ELEMENT_TOL (10*MACH_EPSILON)
+#ifndef THEORETICA_ALGEBRA_ELEMENT_TOL
+#define THEORETICA_ALGEBRA_ELEMENT_TOL (10*MACH_EPSILON)
+#endif
+
+
+/// Tolerance for eigensolvers
+#ifndef THEORETICA_ALGEBRA_EIGEN_TOL
+#define THEORETICA_ALGEBRA_EIGEN_TOL 1E-08
+#endif
+
+
+/// Maximum number of iterations for eigensolvers
+#ifndef THEORETICA_ALGEBRA_EIGEN_ITER
+#define THEORETICA_ALGEBRA_EIGEN_ITER 100
 #endif
 
 
 /// Order of Taylor series approximations
-#ifndef THEORETICA_TAYLOR_ORDER
-#define THEORETICA_TAYLOR_ORDER 12
-#endif
-
-/// Relative precision for derivative approximation
-#ifndef THEORETICA_DERIV_PREC
-#define THEORETICA_DERIV_PREC 10E+5
+#ifndef THEORETICA_CORE_TAYLOR_ORDER
+#define THEORETICA_CORE_TAYLOR_ORDER 12
 #endif
 
 /// Default number of steps for integral approximation
-#ifndef THEORETICA_INTEGRATION_STEPS
-#define THEORETICA_INTEGRATION_STEPS 100
-#endif
-
-#ifndef THEORETICA_RKDP_TOL
-#define THEORETICA_RKDP_TOL 1E-8
+#ifndef THEORETICA_CALCULUS_INTEGRAL_STEPS
+#define THEORETICA_CALCULUS_INTEGRAL_STEPS 100
 #endif
 
 // Default tolerance for integral approximation
-#ifndef THEORETICA_INTEGRATION_TOL
-#define THEORETICA_INTEGRATION_TOL 1E-08
-#endif
-
-/// Biggest fractional part to ignore in powf computation
-#ifndef THEORETICA_POWF_APPROX_TOL
-#define THEORETICA_POWF_APPROX_TOL 1E-08
+#ifndef THEORETICA_CALCULUS_INTEGRAL_TOL
+#define THEORETICA_CALCULUS_INTEGRAL_TOL 1E-08
 #endif
 	
 /// Approximation tolerance for root finding
-#ifndef THEORETICA_ROOT_APPROX_TOL
-#define THEORETICA_ROOT_APPROX_TOL 1E-08
-#endif
-
-/// Approximation tolerance for Newton's method root finding
-#ifndef THEORETICA_NEWTON_RAPHSON_TOL
-#define THEORETICA_NEWTON_RAPHSON_TOL 1E-08
-#endif
-
-/// Approximation tolerance for bisection root finding
-#ifndef THEORETICA_BISECTION_APPROX_TOL
-#define THEORETICA_BISECTION_APPROX_TOL 1E-08
+#ifndef THEORETICA_OPTIMIZATION_TOL
+#define THEORETICA_OPTIMIZATION_TOL 1E-08
 #endif
 
 /// Maximum number of iterations for bisection
-#ifndef THEORETICA_MAX_BISECTION_ITER
-#define THEORETICA_MAX_BISECTION_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_BISECTION_ITER
+#define THEORETICA_OPTIMIZATION_BISECTION_ITER 100
 #endif
 
 /// Maximum number of iterations for golden section search
-#ifndef THEORETICA_MAX_GOLDENSECTION_ITER
-#define THEORETICA_MAX_GOLDENSECTION_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_GOLDENSECTION_ITER
+#define THEORETICA_OPTIMIZATION_GOLDENSECTION_ITER 100
 #endif
 
 /// Maximum number of iterations for Halley's method
-#ifndef THEORETICA_MAX_HALLEY_ITER
-#define THEORETICA_MAX_HALLEY_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_HALLEY_ITER
+#define THEORETICA_OPTIMIZATION_HALLEY_ITER 100
 #endif
 
 /// Maximum number of iterations for Newton-Raphson root finding
-#ifndef THEORETICA_MAX_NEWTON_ITER
-#define THEORETICA_MAX_NEWTON_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_NEWTON_ITER
+#define THEORETICA_OPTIMIZATION_NEWTON_ITER 100
 #endif
 
 /// Maximum number of iterations for Steffensen root finding
-#ifndef THEORETICA_MAX_STEFFENSEN_ITER
-#define THEORETICA_MAX_STEFFENSEN_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_STEFFENSEN_ITER
+#define THEORETICA_OPTIMIZATION_STEFFENSEN_ITER 100
 #endif
 
 /// Maximum number of iterations for Chebyshev root finding
-#ifndef THEORETICA_MAX_CHEBYSHEV_ITER
-#define THEORETICA_MAX_CHEBYSHEV_ITER 100
+#ifndef THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER
+#define THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER 100
 #endif
 
 /// Maximum number of failed iterations for the Try-and-Catch algorithm
-#ifndef THEORETICA_MAX_TRYANDCATCH_ITER
-#define THEORETICA_MAX_TRYANDCATCH_ITER 100
+#ifndef THEORETICA_STATISTICS_TRYANDCATCH_ITER
+#define THEORETICA_STATISTICS_TRYANDCATCH_ITER 100
 #endif
 
 /// Default variation for derivative approximation
-#ifndef THEORETICA_DERIV_STEPSIZE
-#define THEORETICA_DERIV_STEPSIZE 1E-3
+#ifndef THEORETICA_CALCULUS_DERIV_STEP
+#define THEORETICA_CALCULUS_DERIV_STEP 1E-3
 #endif
 
 /// Default step size for gradient descent minimization
-#ifndef THEORETICA_MINGRAD_GAMMA
-#define THEORETICA_MINGRAD_GAMMA -0.005
+#ifndef THEORETICA_OPTIMIZATION_MINGRAD_GAMMA
+#define THEORETICA_OPTIMIZATION_MINGRAD_GAMMA -0.005
 #endif
 
 /// Default tolerance for gradient descent minimization
-#ifndef THEORETICA_MINGRAD_TOLERANCE
-#define THEORETICA_MINGRAD_TOLERANCE 1E-3
+#ifndef THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE
+#define THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE 1E-3
 #endif
 
 /// Maximum number of iterations for gradient descent minimization
-#ifndef THEORETICA_MINGRAD_MAX_ITER
-#define THEORETICA_MINGRAD_MAX_ITER 50000
+#ifndef THEORETICA_OPTIMIZATION_MINGRAD_ITER
+#define THEORETICA_OPTIMIZATION_MINGRAD_ITER 50000
 #endif
 
 
-/// Maximum number of polynomial division iterations
-#ifndef THEORETICA_MAX_POLYNDIV_ITER
-#define THEORETICA_MAX_POLYNDIV_ITER 100
-#endif
-
-
-#ifndef THEORETICA_RAND_REAL_PREC
+#ifndef THEORETICA_STATISTICS_RAND_PREC
 
 /// Default precision for random number generation using rand_uniform()
 #ifdef THEORETICA_FLOAT_PREC
-#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 23)
+#define THEORETICA_STATISTICS_RAND_PREC (uint64_t(1) << 23)
 #else
-#define THEORETICA_RAND_REAL_PREC (uint64_t(1) << 31)
+#define THEORETICA_STATISTICS_RAND_PREC (uint64_t(1) << 31)
 #endif
 
 #endif
 
 
 /// Default depth of the Metropolis algorithm
-#ifndef THEORETICA_METROPOLIS_DEPTH
-#define THEORETICA_METROPOLIS_DEPTH 16
+#ifndef THEORETICA_STATISTICS_METROPOLIS_DEPTH
+#define THEORETICA_STATISTICS_METROPOLIS_DEPTH 16
 #endif
 
 
@@ -275,76 +257,70 @@ namespace theoretica {
 	constexpr real SQRT3 = 1.732050807568877;
 
 	/// Tolerance for the elements of matrices
-	constexpr real MATRIX_ELEMENT_TOL = THEORETICA_MATRIX_ELEMENT_TOL;
+	constexpr real ALGEBRA_ELEMENT_TOL = THEORETICA_ALGEBRA_ELEMENT_TOL;
+
+	/// Tolerance for eigensolvers
+	constexpr real ALGEBRA_EIGEN_TOL = THEORETICA_ALGEBRA_EIGEN_TOL;
+
+	/// Maximum number of iterations for eigensolvers
+	constexpr real ALGEBRA_EIGEN_ITER = THEORETICA_ALGEBRA_EIGEN_ITER;
 
 	/// Order of Taylor series approximations
-	constexpr int TAYLOR_ORDER = THEORETICA_TAYLOR_ORDER;
+	constexpr int CORE_TAYLOR_ORDER = THEORETICA_CORE_TAYLOR_ORDER;
 
 	/// Default number of steps for integral approximation
-	constexpr int INTEGRATION_STEPS = THEORETICA_INTEGRATION_STEPS;
+	constexpr int CALCULUS_INTEGRAL_STEPS = THEORETICA_CALCULUS_INTEGRAL_STEPS;
 
 	// Default tolerance for integral approximation
-	constexpr real INTEGRATION_TOL = THEORETICA_INTEGRATION_TOL;
-
-	/// Relative precision for derivative approximation
-	constexpr real DERIV_PREC = THEORETICA_DERIV_PREC;
-
-	/// Biggest fractional part to ignore in powf computation
-	constexpr real POWF_POWER_TOLERANCE = THEORETICA_POWF_APPROX_TOL;
+	constexpr real CALCULUS_INTEGRAL_TOL = THEORETICA_CALCULUS_INTEGRAL_TOL;
 
 	/// Approximation tolerance for root finding
-	constexpr real ROOT_APPROX_TOL = THEORETICA_ROOT_APPROX_TOL;
-
-	/// Approximation tolerance for the bisection algorithm
-	constexpr real BISECTION_APPROX_TOL = THEORETICA_BISECTION_APPROX_TOL;
-
-	/// Approximation tolerance for the Newton-Raphson algorithm
-	constexpr real NEWTON_RAPHSON_TOL = THEORETICA_NEWTON_RAPHSON_TOL;
+	constexpr real OPTIMIZATION_TOL = THEORETICA_OPTIMIZATION_TOL;
 
 	/// Maximum number of iterations for the bisection algorithm
-	constexpr unsigned int MAX_BISECTION_ITER = THEORETICA_MAX_BISECTION_ITER;
+	constexpr unsigned int OPTIMIZATION_BISECTION_ITER = THEORETICA_OPTIMIZATION_BISECTION_ITER;
 
 	/// Maximum number of iterations for the golden section search algorithm
-	constexpr unsigned int MAX_GOLDENSECTION_ITER = THEORETICA_MAX_GOLDENSECTION_ITER;
+	constexpr unsigned int OPTIMIZATION_GOLDENSECTION_ITER = THEORETICA_OPTIMIZATION_GOLDENSECTION_ITER;
 
 	/// Maximum number of iterations for Halley's method
-	constexpr unsigned int MAX_HALLEY_ITER = THEORETICA_MAX_HALLEY_ITER;
+	constexpr unsigned int OPTIMIZATION_HALLEY_ITER = THEORETICA_OPTIMIZATION_HALLEY_ITER;
 
 	/// Maximum number of iterations for the Newton-Raphson algorithm
-	constexpr unsigned int MAX_NEWTON_ITER = THEORETICA_MAX_NEWTON_ITER;
+	constexpr unsigned int OPTIMIZATION_NEWTON_ITER = THEORETICA_OPTIMIZATION_NEWTON_ITER;
 
 	/// Maximum number of iterations for the Steffensen algorithm
-	constexpr unsigned int MAX_STEFFENSEN_ITER = THEORETICA_MAX_STEFFENSEN_ITER;
+	constexpr unsigned int OPTIMIZATION_STEFFENSEN_ITER = THEORETICA_OPTIMIZATION_STEFFENSEN_ITER;
 
 	/// Maximum number of iterations for the Chebyshev algorithm
-	constexpr unsigned int MAX_CHEBYSHEV_ITER = THEORETICA_MAX_CHEBYSHEV_ITER;
+	constexpr unsigned int OPTIMIZATION_CHEBYSHEV_ITER = THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER;
 
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
-	constexpr unsigned int MAX_TRYANDCATCH_ITER = THEORETICA_MAX_TRYANDCATCH_ITER;
+	constexpr unsigned int STATISTICS_TRYANDCATCH_ITER = THEORETICA_STATISTICS_TRYANDCATCH_ITER;
 
 	/// Default variation for derivative approximation
-	constexpr real DERIV_STEPSIZE = THEORETICA_DERIV_STEPSIZE;
+	constexpr real CALCULUS_DERIV_STEP = THEORETICA_CALCULUS_DERIV_STEP;
 
 	/// Default step size for gradient descent minimization
-	constexpr real MINGRAD_GAMMA = THEORETICA_MINGRAD_GAMMA;
+	constexpr real OPTIMIZATION_MINGRAD_GAMMA = THEORETICA_OPTIMIZATION_MINGRAD_GAMMA;
 
 	/// Default tolerance for gradient descent minimization
-	constexpr real MINGRAD_TOLERANCE = THEORETICA_MINGRAD_TOLERANCE;
+	constexpr real OPTIMIZATION_MINGRAD_TOLERANCE = THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE;
 
 	/// Maximum number of iterations for gradient descent minimization
-	constexpr unsigned int MINGRAD_MAX_ITER = THEORETICA_MINGRAD_MAX_ITER;
+	constexpr unsigned int OPTIMIZATION_MINGRAD_ITER = THEORETICA_OPTIMIZATION_MINGRAD_ITER;
 
 	/// Default precision for random number generation using rand_uniform()
-	constexpr uint64_t RAND_REAL_PREC = THEORETICA_RAND_REAL_PREC;
+	constexpr uint64_t STATISTICS_RAND_PREC = THEORETICA_STATISTICS_RAND_PREC;
 
 	/// Default depth of the Metropolis algorithm
-	constexpr unsigned int METROPOLIS_DEPTH = THEORETICA_METROPOLIS_DEPTH;
+	constexpr unsigned int STATISTICS_METROPOLIS_DEPTH = THEORETICA_STATISTICS_METROPOLIS_DEPTH;
 
 }
 
-// Define THEORETICA_NO_NAMESPACE to prevent
+// Define THEORETICA_NO_NAMESPACE_ALIAS to prevent
 // defining the alias "th" for "theoretica"
-#ifndef THEORETICA_NO_NAMESPACE
+#ifndef THEORETICA_NO_NAMESPACE_ALIAS
 /// @namespace th Alias for the theoretica namespace
 namespace th = theoretica;
 #endif

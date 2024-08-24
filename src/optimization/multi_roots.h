@@ -18,16 +18,16 @@ namespace theoretica {
 	/// @param f The function to find the root of
 	/// @param guess The first guess (defaults to the origin)
 	/// @param tolerance The tolerance over the final result
-	/// (defaults to MINGRAD_TOLERANCE)
+	/// (defaults to OPTIMIZATION_MINGRAD_TOLERANCE)
 	/// @param max_iter The maximum number of iterations before
 	/// stopping the algorithm
 	/// @result The computed vector at which f is approximately zero
 	template<unsigned int N>
 	inline vec<real, N> multiroot_newton(
-		d_vec<N>(*f)(d_vec<N>),
+		autodiff::d_vec<N>(*f)(autodiff::d_vec<N>),
 		vec<real, N> guess = vec<real, N>(0),
-		real tolerance = MINGRAD_TOLERANCE,
-		unsigned int max_iter = MINGRAD_MAX_ITER) {
+		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
+		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
 
 		// Current position
 		vec<real, N> x = guess;

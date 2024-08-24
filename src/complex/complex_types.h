@@ -35,7 +35,7 @@ namespace theoretica {
 
 	/// Type trait to check whether a container has complex elements.
 	template<typename Structure>
-	using has_complex_elements = is_complex_type<indexable_element_t<Structure>>;
+	using has_complex_elements = is_complex_type<vector_element_t<Structure>>;
 
 
 	/// Enable a function overload if the template typename
