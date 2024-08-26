@@ -7,6 +7,7 @@
 #define THEORETICA_CORE_TRAITS_H
 
 #include <type_traits>
+#include <tuple>
 #include "constants.h"
 
 
@@ -28,21 +29,113 @@ namespace theoretica {
 	template<typename Type>
 	struct is_real_type : std::is_floating_point<Type> {};
 
-
 	/// Type trait to check whether a type represents
 	/// a real number.
 	template<>
 	struct is_real_type<real> : std::true_type {};
 
 
-	/// Extract the type of an indexable container from its operator[].
+	/// Check whether a structure is orderable,
+	/// by checking that it has a comparison operator<().
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_orderable : std::false_type{};
+
+	// The @internal directive is used to avoid documenting this overload
+	/// @internal
+	template<typename Structure>
+	struct is_orderable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>() < std::declval<Structure>())>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is indexable by a single integer index,
+	/// by checking that it has the operator[](0).
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_indexable : std::false_type{};
+
+	/// @internal
+	template<typename Structure>
+	struct is_indexable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()[0])>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is iterable,
+	/// by checking that it has a method begin().
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_iterable : std::false_type{};
+
+	/// @internal
+	template<typename Structure>
+	struct is_iterable
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>().begin())>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is considerable a vector,
+	/// by checking that it has an operator[] and a size() method.
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_vector : std::false_type{};
+
+	template<typename Structure>
+	struct is_vector
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()[0]),
+		decltype(std::declval<Structure>().size())>
+	> : std::true_type{};
+
+
+	/// Check whether a structure is considerable a matrix,
+	/// by checking that it has an operator(), a rows() method
+	/// and a cols() method.
+	template<typename Structure, typename = _internal::void_t<>>
+	struct is_matrix : std::false_type{};
+
+	/// @internal
+	template<typename Structure>
+	struct is_matrix
+	<Structure, _internal::void_t<
+		decltype(std::declval<Structure>()(0, 0)),
+		decltype(std::declval<Structure>().rows()),
+		decltype(std::declval<Structure>().cols())>
+	> : std::true_type{};
+
+
+	/// @internal
+	namespace _internal {
+
+		/// Helper structure for vector_element_t
+		template<typename Structure, typename = void>
+		struct vector_element_or_void {
+			using type = void;
+		};
+
+
+		/// Helper structure for vector_element_t
+		template<typename Structure>
+		struct vector_element_or_void
+			<Structure, _internal::void_t<decltype(std::declval<Structure&>()[0])>> {
+			using type = std::remove_reference_t<decltype(std::declval<Structure>()[0])>;
+		};
+	}
+
+	/// Extract the type of a vector (or any indexable container) from its operator[],
+	/// returning void if the type has no operator[].
+	template<typename Structure>
+	using vector_element_or_void_t =
+		typename _internal::vector_element_or_void<Structure>::type;
+
+
+	/// Extract the type of a vector (or any indexable container) from its operator[].
 	template<typename Structure>
 	using vector_element_t =
 		std::remove_reference_t<decltype(std::declval<Structure>()[0])>;
 
 
-	/// Extract the type of a matrix (or any doubly indexable container)
-	/// from its operator().
+	/// Extract the type of a matrix (or any doubly indexable container) from its operator().
 	template<typename Structure>
 	using matrix_element_t =
 		std::remove_reference_t<decltype(std::declval<Structure>()(0, 0))>;
@@ -61,80 +154,6 @@ namespace theoretica {
 	using has_real_elements = is_real_type<vector_element_t<Structure>>;
 
 
-	/// Check whether a structure is orderable,
-	/// by checking that it has a comparison operator<().
-	template<typename Structure, typename = _internal::void_t<>>
-	struct is_orderable : std::false_type{};
-
-
-	// The @internal directive is used to avoid documenting this overload
-	/// @internal
-	template<typename Structure>
-	struct is_orderable
-	<Structure, _internal::void_t<
-		decltype(std::declval<Structure>() < std::declval<Structure>())>
-	> : std::true_type{};
-
-
-	/// Check whether a structure is indexable by a single integer index,
-	/// by checking that it has the operator[](0).
-	template<typename Structure, typename = _internal::void_t<>>
-	struct is_indexable : std::false_type{};
-
-
-	/// @internal
-	template<typename Structure>
-	struct is_indexable
-	<Structure, _internal::void_t<
-		decltype(std::declval<Structure>()[0])>
-	> : std::true_type{};
-
-
-	/// Check whether a structure is iterable,
-	/// by checking that it has a method begin().
-	template<typename Structure, typename = _internal::void_t<>>
-	struct is_iterable : std::false_type{};
-
-
-	/// @internal
-	template<typename Structure>
-	struct is_iterable
-	<Structure, _internal::void_t<
-		decltype(std::declval<Structure>().begin())>
-	> : std::true_type{};
-
-
-	/// Check whether a structure is considerable a vector,
-	/// by checking that it has an operator[] and a size() method.
-	template<typename Structure, typename = _internal::void_t<>>
-	struct is_vector : std::false_type{};
-
-
-	template<typename Structure>
-	struct is_vector
-	<Structure, _internal::void_t<
-		decltype(std::declval<Structure>()[0]),
-		decltype(std::declval<Structure>().size())>
-	> : std::true_type{};
-
-
-	/// Check whether a structure is considerable a matrix,
-	/// by checking that it has an operator(), a rows() method
-	/// and a cols() method.
-	template<typename Structure, typename = _internal::void_t<>>
-	struct is_matrix : std::false_type{};
-
-
-	/// @internal
-	template<typename Structure>
-	struct is_matrix
-	<Structure, _internal::void_t<
-		decltype(std::declval<Structure>()(0, 0)),
-		decltype(std::declval<Structure>().rows()),
-		decltype(std::declval<Structure>().cols())>
-	> : std::true_type{};
-
-
 	/// Enable a function overload if the template typename
 	/// is considerable a matrix. The std::enable_if structure
 	/// is used, with type T which defaults to bool.
@@ -147,6 +166,17 @@ namespace theoretica {
 	/// is used, with type T which defaults to bool.
 	template<typename Structure, typename T = bool>
 	using enable_vector = std::enable_if_t<is_vector<Structure>::value, T>;
+
+
+	/// Extract the type of the arguments of a function.
+	template<typename Function>
+	struct extract_func_args;
+
+	/// @internal
+	template<typename Function, typename... Args>
+	struct extract_func_args<Function(Args...)> {
+		using type = std::tuple<Args...>;
+	};
 
 }
 

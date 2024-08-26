@@ -15,15 +15,6 @@ namespace theoretica {
 
 	/// Type trait to check whether the given type is a multidual number
 	template<typename Type>
-	struct is_multidual_type : std::false_type {};
-
-	/// Type trait to check whether the given type is a multidual number
-	template<unsigned int N>
-	struct is_multidual_type<multidual<N>> : std::true_type {};
-
-
-	/// Type trait to check whether the given type is a multidual number
-	template<typename Type>
 	struct is_dual_type : std::false_type {};
 
 	/// Type trait to check whether the given type is a multidual number
@@ -38,6 +29,28 @@ namespace theoretica {
 	/// Type trait to check whether the given type is a multidual number
 	template<>
 	struct is_dual2_type<dual2> : std::true_type {};
+
+
+	/// Type trait to check whether the given type is a multidual number
+	template<typename Type>
+	struct is_multidual_type : std::false_type {};
+
+	/// Type trait to check whether the given type is a multidual number
+	template<unsigned int N>
+	struct is_multidual_type<multidual<N>> : std::true_type {};
+
+	/// Type trait to check whether the given function takes a
+	/// multidual vector as first argument.
+	template<typename Function>
+	using is_multidual_func =
+		std::conditional_t<
+			is_multidual_type<
+				vector_element_or_void_t<
+					std::tuple_element_t<
+						0, typename extract_func_args<Function>::type
+					>
+				>
+			>::value, std::true_type, std::false_type>;
 
 
 	namespace autodiff {
