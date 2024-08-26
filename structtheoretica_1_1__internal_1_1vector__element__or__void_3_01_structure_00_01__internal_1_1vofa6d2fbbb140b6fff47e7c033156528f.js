@@ -1,0 +1,4 @@
+var structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f =
+[
+    [ "type", "structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f.html#a15d0d6b323dd084ffd6b8658e8bf6c2e", null ]
+];

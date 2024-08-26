@@ -106,12 +106,6 @@ $(document).ready(function(){initNavTree('autodiff__types_8h.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__multidual__type.html">theoretica::is_multidual_type&lt; Type &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__multidual__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html">theoretica::is_multidual_type&lt; multidual&lt; N &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__dual__type.html">theoretica::is_dual_type&lt; Type &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__dual__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +117,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__dual2__type_3_01dual2_01_4.html">theoretica::is_dual2_type&lt; dual2 &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__dual2__type_3_01dual2_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__multidual__type.html">theoretica::is_multidual_type&lt; Type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__multidual__type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html">theoretica::is_multidual_type&lt; multidual&lt; N &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given type is a multidual number.  <a href="structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -136,6 +136,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplParams" colspan="2"><a id="a6138838fb58413e4ed71a8d477a98356"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356">theoretica::is_multidual_func</a> = std::conditional_t&lt; is_multidual_type&lt; vector_element_or_void_t&lt; std::tuple_element_t&lt; 0, typename extract_func_args&lt; Function &gt;::type &gt; &gt; &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:a6138838fb58413e4ed71a8d477a98356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a multidual vector as first argument. <br /></td></tr>
+<tr class="separator:a6138838fb58413e4ed71a8d477a98356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplParams" colspan="2"><a id="a04de34623e5bf22418b595f14c2bc9b7"></a>
 template&lt;unsigned int N = 0&gt; </td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">theoretica::autodiff::dreal_t</a> = multidual&lt; N &gt;</td></tr>
@@ -187,7 +192,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff__types_8h.html">autodiff_types.h</a></li>
-    <li class="footer">Generated on Sat Aug 24 2024 15:34:47 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 26 2024 20:22:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

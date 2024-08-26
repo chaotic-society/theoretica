@@ -14,6 +14,8 @@ var hierarchy =
     [ "chebyshev::prec::estimate_options< R, Args >", "structchebyshev_1_1prec_1_1estimate__options.html", null ],
     [ "chebyshev::prec::estimate_result", "structchebyshev_1_1prec_1_1estimate__result.html", null ],
     [ "chebyshev::err::exception_result", "structchebyshev_1_1err_1_1exception__result.html", null ],
+    [ "theoretica::extract_func_args< Function >", "structtheoretica_1_1extract__func__args.html", null ],
+    [ "theoretica::extract_func_args< Function(Args...)>", "structtheoretica_1_1extract__func__args_3_01_function_07_args_8_8_8_08_4.html", null ],
     [ "std::false_type", null, [
       [ "theoretica::is_complex_type< T >", "structtheoretica_1_1is__complex__type.html", null ],
       [ "theoretica::is_dual2_type< Type >", "structtheoretica_1_1is__dual2__type.html", null ],
@@ -70,5 +72,7 @@ var hierarchy =
     [ "theoretica::vec< Type, N >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec< real, 0 >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", null ],
-    [ "theoretica::vec_iterator< Vector, ReturnType >", "classtheoretica_1_1vec__iterator.html", null ]
+    [ "theoretica::vec_iterator< Vector, ReturnType >", "classtheoretica_1_1vec__iterator.html", null ],
+    [ "theoretica::_internal::vector_element_or_void< Structure, typename >", "structtheoretica_1_1__internal_1_1vector__element__or__void.html", null ],
+    [ "theoretica::_internal::vector_element_or_void< Structure, _internal::void_t< decltype(std::declval< Structure & >()[0])> >", "structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f.html", null ]
 ];

@@ -2,6 +2,8 @@ var namespacetheoretica =
 [
     [ "_internal", null, [
       [ "make_void", "structtheoretica_1_1__internal_1_1make__void.html", "structtheoretica_1_1__internal_1_1make__void" ],
+      [ "vector_element_or_void", "structtheoretica_1_1__internal_1_1vector__element__or__void.html", "structtheoretica_1_1__internal_1_1vector__element__or__void" ],
+      [ "vector_element_or_void< Structure, _internal::void_t< decltype(std::declval< Structure & >()[0])> >", "structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f.html", "structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f" ],
       [ "void_t", "core__traits_8h.html#af063d009aa1b98475593755d44ca3f4c", null ]
     ] ],
     [ "algebra", "namespacetheoretica_1_1algebra.html", [
@@ -225,12 +227,12 @@ var namespacetheoretica =
     [ "vec_iterator", "classtheoretica_1_1vec__iterator.html", "classtheoretica_1_1vec__iterator" ],
     [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],
     [ "vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", "classtheoretica_1_1vec_3_01_type_00_010_01_4" ],
-    [ "is_multidual_type", "structtheoretica_1_1is__multidual__type.html", null ],
-    [ "is_multidual_type< multidual< N > >", "structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ],
     [ "is_dual_type", "structtheoretica_1_1is__dual__type.html", null ],
     [ "is_dual_type< dual >", "structtheoretica_1_1is__dual__type_3_01dual_01_4.html", null ],
     [ "is_dual2_type", "structtheoretica_1_1is__dual2__type.html", null ],
     [ "is_dual2_type< dual2 >", "structtheoretica_1_1is__dual2__type_3_01dual2_01_4.html", null ],
+    [ "is_multidual_type", "structtheoretica_1_1is__multidual__type.html", null ],
+    [ "is_multidual_type< multidual< N > >", "structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ],
     [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
     [ "dual2", "classtheoretica_1_1dual2.html", "classtheoretica_1_1dual2" ],
     [ "multidual", "classtheoretica_1_1multidual.html", "classtheoretica_1_1multidual" ],
@@ -243,7 +245,6 @@ var namespacetheoretica =
     [ "quat", "classtheoretica_1_1quat.html", "classtheoretica_1_1quat" ],
     [ "is_real_type", "structtheoretica_1_1is__real__type.html", null ],
     [ "is_real_type< real >", "structtheoretica_1_1is__real__type_3_01real_01_4.html", null ],
-    [ "has_type_elements", "structtheoretica_1_1has__type__elements.html", null ],
     [ "is_orderable", "structtheoretica_1_1is__orderable.html", null ],
     [ "is_orderable< Structure, _internal::void_t< decltype(std::declval< Structure >()< std::declval< Structure >())> >", "structtheoretica_1_1is__orderable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_12e209b403793e9b560712d8d8a4def95.html", null ],
     [ "is_indexable", "structtheoretica_1_1is__indexable.html", null ],
@@ -254,6 +255,9 @@ var namespacetheoretica =
     [ "is_vector< Structure, _internal::void_t< decltype(std::declval< Structure >()[0]), decltype(std::declval< Structure >().size())> >", "structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html", null ],
     [ "is_matrix", "structtheoretica_1_1is__matrix.html", null ],
     [ "is_matrix< Structure, _internal::void_t< decltype(std::declval< Structure >()(0, 0)), decltype(std::declval< Structure >().rows()), decltype(std::declval< Structure >().cols())> >", "structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html", null ],
+    [ "has_type_elements", "structtheoretica_1_1has__type__elements.html", null ],
+    [ "extract_func_args", "structtheoretica_1_1extract__func__args.html", null ],
+    [ "extract_func_args< Function(Args...)>", "structtheoretica_1_1extract__func__args_3_01_function_07_args_8_8_8_08_4.html", "structtheoretica_1_1extract__func__args_3_01_function_07_args_8_8_8_08_4" ],
     [ "ratio", "classtheoretica_1_1ratio.html", "classtheoretica_1_1ratio" ],
     [ "spline_node", "structtheoretica_1_1spline__node.html", "structtheoretica_1_1spline__node" ],
     [ "spline", "classtheoretica_1_1spline.html", "classtheoretica_1_1spline" ],
@@ -276,6 +280,7 @@ var namespacetheoretica =
     [ "enable_vector", "namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9", null ],
     [ "has_complex_elements", "namespacetheoretica.html#a035affe561fa3ea16bf1313d66f10d84", null ],
     [ "has_real_elements", "namespacetheoretica.html#a7c9335370d9b3d0aa90ba8d2dde12edd", null ],
+    [ "is_multidual_func", "namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356", null ],
     [ "mat2", "namespacetheoretica.html#a721dc79a0eca4b349c67a746c26b26a4", null ],
     [ "mat3", "namespacetheoretica.html#afb7eff567887e9025d2edd9870a31311", null ],
     [ "mat4", "namespacetheoretica.html#ac380be159592259cb223e6190e504197", null ],
@@ -289,6 +294,7 @@ var namespacetheoretica =
     [ "vec2", "namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d", null ],
     [ "vec3", "namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910", null ],
     [ "vec4", "namespacetheoretica.html#a4c9f34d374aba86cc459926c45825030", null ],
+    [ "vector_element_or_void_t", "namespacetheoretica.html#aafa052f077a96a5e383143fb79d4e237", null ],
     [ "vector_element_t", "namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9", null ],
     [ "MATH_ERRCODE", "namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760", [
       [ "NO_ERROR", "namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760af8b1ea5551e4f94a00bc423850412b8d", null ],
