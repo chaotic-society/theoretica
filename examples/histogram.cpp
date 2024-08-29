@@ -22,7 +22,7 @@ int main() {
     const unsigned int N = 1000000;
 
     // Create a PRNG with a seed
-    PRNG g = PRNG::xoshiro(time(NULL));
+    PRNG g = PRNG::xoshiro(time(nullptr));
             
     // Initialize a p.d.f. sampler with a Gaussian distribution
     pdf_sampler p = pdf_sampler::gaussian(0, 1, g);

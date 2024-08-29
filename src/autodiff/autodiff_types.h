@@ -22,6 +22,25 @@ namespace theoretica {
 	struct is_dual_type<dual> : std::true_type {};
 
 
+	/// Type trait to check whether the given function takes
+	/// a dual number as its first argument.
+	template<typename Function>
+	using is_dual_func =
+	std::conditional_t <
+		is_dual_type <
+			typename _internal::return_type_or_void<Function, dual>::type
+		>::value,
+		std::true_type, std::false_type
+	>;
+
+
+	/// Enable a certain function overload if the given type
+	/// is a function taking as first argument a dual number
+	template<typename Function, typename T = bool>
+	using enable_dual_func =
+		typename std::enable_if<is_dual_func<Function>::value, T>::type;
+
+
 	/// Type trait to check whether the given type is a multidual number
 	template<typename Type>
 	struct is_dual2_type : std::false_type {};
@@ -29,6 +48,25 @@ namespace theoretica {
 	/// Type trait to check whether the given type is a multidual number
 	template<>
 	struct is_dual2_type<dual2> : std::true_type {};
+
+
+	/// Type trait to check whether the given function takes
+	/// a dual2 number as its first argument.
+	template<typename Function>
+	using is_dual2_func =
+	std::conditional_t <
+		is_dual2_type <
+			typename _internal::return_type_or_void<Function, dual2>::type
+		>::value,
+		std::true_type, std::false_type
+	>;
+
+
+	/// Enable a certain function overload if the given type
+	/// is a function taking as first argument a dual2 number
+	template<typename Function, typename T = bool>
+	using enable_dual2_func =
+		typename std::enable_if<is_dual2_func<Function>::value, T>::type;
 
 
 	/// Type trait to check whether the given type is a multidual number
@@ -53,10 +91,17 @@ namespace theoretica {
 			>::value, std::true_type, std::false_type>;
 
 
+	/// Enable a certain function overload if the given type
+	/// is a function taking as first argument a multidual number
+	template<typename Function, typename T = bool>
+	using enable_multidual_func =
+		typename std::enable_if<is_multidual_func<Function>::value, T>::type;
+
+
 	namespace autodiff {
 
 
-		// Alias type for multivariate automatic differentiation
+		// Alias types for multivariate automatic differentiation
 
 
 		/// Real type for multivariate automatic differentiation

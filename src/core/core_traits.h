@@ -113,7 +113,6 @@ namespace theoretica {
 			using type = void;
 		};
 
-
 		/// Helper structure for vector_element_t
 		template<typename Structure>
 		struct vector_element_or_void
@@ -177,6 +176,42 @@ namespace theoretica {
 	struct extract_func_args<Function(Args...)> {
 		using type = std::tuple<Args...>;
 	};
+
+
+	namespace _internal {
+
+		// Helper structure for is_real_func and related traits
+		template<typename Function, typename T, typename = void>
+		struct return_type_or_void {
+			using type = void;
+		};
+
+		// Helper structure for is_real_func and related traits
+		template<typename Function, typename T>
+		struct return_type_or_void
+			<Function, T, _internal::void_t<decltype(std::declval<Function>()(T(0.0)))>> {
+			using type = decltype(std::declval<Function>()(T(0.0)));
+		};
+	}
+
+
+	/// Type trait to check whether the given function takes
+	/// a real number as its first argument.
+	template<typename Function>
+	using is_real_func =
+	std::conditional_t<
+		is_real_type <
+			typename _internal::return_type_or_void<Function, real>::type
+		>::value,
+		std::true_type, std::false_type
+	>;
+
+
+	/// Enable a certain function overload if the given type
+	/// is a function taking as first argument a real number
+	template<typename Function, typename T = bool>
+	using enable_real_func =
+		typename std::enable_if_t<is_real_func<Function>::value, T>;
 
 }
 

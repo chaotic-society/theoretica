@@ -66,7 +66,7 @@ namespace theoretica {
 
 
 			/// Construct from data
-			template<typename Dataset>
+			template<typename Dataset, enable_vector<Dataset> = true>
 			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
 				range_max = max(data);

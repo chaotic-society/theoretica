@@ -34,7 +34,11 @@ namespace theoretica {
 		/// with dual argument and return value.
 		/// @param x The coordinate to compute the derivative at.
 		/// @return The derivative of f at x.
-		inline real deriv(dual(*f)(dual), real x) {
+		template <
+			typename DualFunction = std::function<dual(dual)>,
+			enable_dual_func<DualFunction> = true
+		>
+		inline real deriv(DualFunction f, real x) {
 			return f(dual(x, 1.0)).Dual();
 		}
 
@@ -47,10 +51,14 @@ namespace theoretica {
 		/// with dual argument and return value.
 		/// @return A lambda function which computes the
 		/// derivative of f using automatic differentiation.
-		inline auto deriv(dual(*f)(dual)) {
+		template <
+			typename DualFunction = std::function<dual(dual)>,
+			enable_dual_func<DualFunction> = true
+		>
+		inline auto deriv(DualFunction f) {
 
 			return [f](real x) -> real {
-				return deriv(f, x);
+				return autodiff::deriv(f, x);
 			};
 		}
 
@@ -62,7 +70,11 @@ namespace theoretica {
 		/// with dual2 argument and return value.
 		/// @param x The coordinate to compute the derivative at.
 		/// @return The derivative of f at x.
-		inline real deriv2(dual2(*f)(dual2), real x) {
+		template <
+			typename Dual2Function = std::function<dual2(dual2)>,
+			enable_dual2_func<Dual2Function> = true
+		>
+		inline real deriv2(Dual2Function f, real x) {
 			return f(dual2(x, 1.0, 0.0)).Dual2();
 		}
 
@@ -75,10 +87,14 @@ namespace theoretica {
 		/// with dual2 argument and return value.
 		/// @return A lambda function which computes the
 		/// derivative of f using automatic differentiation.
-		inline auto deriv2(dual2(*f)(dual2)) {
+		template <
+			typename Dual2Function = std::function<dual2(dual2)>,
+			enable_dual2_func<Dual2Function> = true
+		>
+		inline auto deriv2(Dual2Function f) {
 
 			return [f](real x) -> real {
-				return deriv2(f, x);
+				return autodiff::deriv2(f, x);
 			};
 		}
 
