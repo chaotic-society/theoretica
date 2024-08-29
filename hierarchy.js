@@ -54,6 +54,8 @@ var hierarchy =
     [ "theoretica::quat< Type >", "classtheoretica_1_1quat.html", null ],
     [ "chebyshev::random::random_state", "structchebyshev_1_1random_1_1random__state.html", null ],
     [ "theoretica::ratio< T1, T2 >", "classtheoretica_1_1ratio.html", null ],
+    [ "theoretica::_internal::return_type_or_void< Function, T, typename >", "structtheoretica_1_1__internal_1_1return__type__or__void.html", null ],
+    [ "theoretica::_internal::return_type_or_void< Function, T, _internal::void_t< decltype(std::declval< Function >()(T(0.0)))> >", "structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html", null ],
     [ "theoretica::spline", "classtheoretica_1_1spline.html", null ],
     [ "theoretica::spline_node", "structtheoretica_1_1spline__node.html", null ],
     [ "chebyshev::benchmark::timer", "classchebyshev_1_1benchmark_1_1timer.html", null ],

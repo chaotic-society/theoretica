@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"classtheoretica_1_1dual.html#a44c2c6e805939b43b5d8c3d8fba0a477":[12,0,1,14,20],
+"classtheoretica_1_1dual.html#a46e7bda86ccd91c62dadb7add3e24233":[12,0,1,14,35],
+"classtheoretica_1_1dual.html#a4c23740cb71d35bdf9237b43cb893a9b":[12,0,1,14,39],
+"classtheoretica_1_1dual.html#a650b1bff5175c60d0699c5fb15762367":[12,0,1,14,6],
+"classtheoretica_1_1dual.html#a6998d2b449df122d6dac20a8bebe7dc5":[12,0,1,14,34],
 "classtheoretica_1_1dual.html#a6f72779daeaef1b959535423705d4819":[12,0,1,14,38],
 "classtheoretica_1_1dual.html#a75613aa8416abe0487cc40412d6a5e54":[12,0,1,14,16],
 "classtheoretica_1_1dual.html#a786dd7312ace5b8e454d1553da7d100a":[12,0,1,14,13],
@@ -81,7 +86,6 @@ var NAVTREEINDEX1 =
 "classtheoretica_1_1histogram.html#a24ce8f3305c7986b42f4edc27814c48f":[12,0,1,45,1],
 "classtheoretica_1_1histogram.html#a2970d5e096329e83ae7cd6e19aaef49a":[12,0,1,45,8],
 "classtheoretica_1_1histogram.html#a4c6e96deec4f677ac8cdec9f63149910":[12,0,1,45,3],
-"classtheoretica_1_1histogram.html#a69ff48503cdcd11abcc357644cb9f969":[12,0,1,45,2],
 "classtheoretica_1_1histogram.html#a6fd0164740ef2274ef1a8150535531d3":[12,0,1,45,13],
 "classtheoretica_1_1histogram.html#a70075f40f39985dc10974c063c8212d1":[12,0,1,45,0],
 "classtheoretica_1_1histogram.html#a8b9971be33cd11dd69ed8fe59313e15a":[12,0,1,45,10],
@@ -92,6 +96,7 @@ var NAVTREEINDEX1 =
 "classtheoretica_1_1histogram.html#abb58bff89b025d58c3997334209bf3e9":[12,0,1,45,17],
 "classtheoretica_1_1histogram.html#abe79188d28747c74b27feaf63e0fc511":[12,0,1,45,12],
 "classtheoretica_1_1histogram.html#ac9dde74301ab9f2bb8ccd1560e2dad2b":[12,0,1,45,18],
+"classtheoretica_1_1histogram.html#acc5edfcda71029bf5185cbb12188705b":[12,0,1,45,2],
 "classtheoretica_1_1histogram.html#acfeeea8ad894735b918789128c64a074":[12,0,1,45,4],
 "classtheoretica_1_1histogram.html#ad5bd716d6734f1246d8a549f667101ff":[12,0,1,45,5],
 "classtheoretica_1_1histogram.html#ad9704b5beb2eb07e03d7a4ec32a439cc":[12,0,1,45,11],
@@ -244,10 +249,5 @@ var NAVTREEINDEX1 =
 "classtheoretica_1_1multidual.html#a5e77f80b799dc1e0bafd2d855dd4e7c3":[12,0,1,16,9],
 "classtheoretica_1_1multidual.html#a63db080707f6a78ec7c9c663454c5f42":[12,0,1,16,34],
 "classtheoretica_1_1multidual.html#a6a9fd6e046ccc0225207d53219e3ab17":[12,0,1,16,1],
-"classtheoretica_1_1multidual.html#a6cacc0b48b77b3273a9c63f76ad7928b":[12,0,1,16,11],
-"classtheoretica_1_1multidual.html#a6da4f77bb81fb5c2e6d3a1f9a976786e":[12,0,1,16,37],
-"classtheoretica_1_1multidual.html#a70a062622c9ef74294fab8e0da7944a3":[12,0,1,16,23],
-"classtheoretica_1_1multidual.html#a7c017ec56d5d64f061146627540490d8":[12,0,1,16,16],
-"classtheoretica_1_1multidual.html#a857559b53b9715ac6ede722fee70f9ce":[12,0,1,16,5],
-"classtheoretica_1_1multidual.html#a87acbbe4cdd77f45947caa308e384096":[12,0,1,16,7]
+"classtheoretica_1_1multidual.html#a6cacc0b48b77b3273a9c63f76ad7928b":[12,0,1,16,11]
 };

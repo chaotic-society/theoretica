@@ -153,6 +153,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1extract__func__args_3_01_function_07_args_8_8_8_08_4.html">theoretica::extract_func_args&lt; Function(Args...)&gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">theoretica::_internal::return_type_or_void&lt; Function, T, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html">theoretica::_internal::return_type_or_void&lt; Function, T, _internal::void_t&lt; decltype(std::declval&lt; Function &gt;()(T(0.0)))&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -194,6 +198,16 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">theoretica::enable_vector</a> = std::enable_if_t&lt; is_vector&lt; Structure &gt;::value, T &gt;</td></tr>
 <tr class="memdesc:a746b3f92213a0d6340e98b850cacdeb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a vector.  <a href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">More...</a><br /></td></tr>
 <tr class="separator:a746b3f92213a0d6340e98b850cacdeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae562824808d98ae987dd07e3258c2772"><td class="memTemplParams" colspan="2"><a id="ae562824808d98ae987dd07e3258c2772"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:ae562824808d98ae987dd07e3258c2772"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae562824808d98ae987dd07e3258c2772">theoretica::is_real_func</a> = std::conditional_t&lt; is_real_type&lt; typename _internal::return_type_or_void&lt; Function, real &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:ae562824808d98ae987dd07e3258c2772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a real number as its first argument. <br /></td></tr>
+<tr class="separator:ae562824808d98ae987dd07e3258c2772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d395991c6d895a327dff7affa37f23"><td class="memTemplParams" colspan="2"><a id="a08d395991c6d895a327dff7affa37f23"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a08d395991c6d895a327dff7affa37f23"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a08d395991c6d895a327dff7affa37f23">theoretica::enable_real_func</a> = typename std::enable_if_t&lt; is_real_func&lt; Function &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a08d395991c6d895a327dff7affa37f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a real number. <br /></td></tr>
+<tr class="separator:a08d395991c6d895a327dff7affa37f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fundamental type traits. </p>
@@ -203,7 +217,7 @@ template&lt;typename Structure &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="core__traits_8h.html">core_traits.h</a></li>
-    <li class="footer">Generated on Mon Aug 26 2024 20:22:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 29 2024 20:36:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

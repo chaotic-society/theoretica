@@ -317,11 +317,36 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0a30c2b68e61ebe0ede42b20f3354145">cvec4</a> = <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt;&gt;, 4 &gt;</td></tr>
 <tr class="memdesc:a0a30c2b68e61ebe0ede42b20f3354145"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 4-dimensional vector with complex elements. <br /></td></tr>
 <tr class="separator:a0a30c2b68e61ebe0ede42b20f3354145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memTemplParams" colspan="2"><a id="a6cbcef7d8baf8e06a89081c08756fd03"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6cbcef7d8baf8e06a89081c08756fd03">is_dual_func</a> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1is__dual__type.html">is_dual_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual.html">dual</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:a6cbcef7d8baf8e06a89081c08756fd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a dual number as its first argument. <br /></td></tr>
+<tr class="separator:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8d2a6e965f30360de60fc3751ec767"><td class="memTemplParams" colspan="2"><a id="a3c8d2a6e965f30360de60fc3751ec767"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a3c8d2a6e965f30360de60fc3751ec767"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3c8d2a6e965f30360de60fc3751ec767">enable_dual_func</a> = typename std::enable_if&lt; <a class="el" href="namespacetheoretica.html#a6cbcef7d8baf8e06a89081c08756fd03">is_dual_func</a>&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a3c8d2a6e965f30360de60fc3751ec767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a dual number. <br /></td></tr>
+<tr class="separator:a3c8d2a6e965f30360de60fc3751ec767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06683c5deaa35485dcf977ae919f0b2a"><td class="memTemplParams" colspan="2"><a id="a06683c5deaa35485dcf977ae919f0b2a"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a06683c5deaa35485dcf977ae919f0b2a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a06683c5deaa35485dcf977ae919f0b2a">is_dual2_func</a> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1is__dual2__type.html">is_dual2_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual2.html">dual2</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:a06683c5deaa35485dcf977ae919f0b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number as its first argument. <br /></td></tr>
+<tr class="separator:a06683c5deaa35485dcf977ae919f0b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12db13de79ac8da6fd854bc274ba0990"><td class="memTemplParams" colspan="2"><a id="a12db13de79ac8da6fd854bc274ba0990"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a12db13de79ac8da6fd854bc274ba0990"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12db13de79ac8da6fd854bc274ba0990">enable_dual2_func</a> = typename std::enable_if&lt; <a class="el" href="namespacetheoretica.html#a06683c5deaa35485dcf977ae919f0b2a">is_dual2_func</a>&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a12db13de79ac8da6fd854bc274ba0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number. <br /></td></tr>
+<tr class="separator:a12db13de79ac8da6fd854bc274ba0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplParams" colspan="2"><a id="a6138838fb58413e4ed71a8d477a98356"></a>
 template&lt;typename Function &gt; </td></tr>
 <tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356">is_multidual_func</a> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1is__multidual__type.html">is_multidual_type</a>&lt; <a class="el" href="namespacetheoretica.html#aafa052f077a96a5e383143fb79d4e237">vector_element_or_void_t</a>&lt; std::tuple_element_t&lt; 0, typename <a class="el" href="structtheoretica_1_1extract__func__args.html">extract_func_args</a>&lt; Function &gt;::type &gt; &gt; &gt;::value, std::true_type, std::false_type &gt;</td></tr>
 <tr class="memdesc:a6138838fb58413e4ed71a8d477a98356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a multidual vector as first argument. <br /></td></tr>
 <tr class="separator:a6138838fb58413e4ed71a8d477a98356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplParams" colspan="2"><a id="a6e9bf27530bab7668c06527f49396151"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6e9bf27530bab7668c06527f49396151">enable_multidual_func</a> = typename std::enable_if&lt; <a class="el" href="namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356">is_multidual_func</a>&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a6e9bf27530bab7668c06527f49396151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a multidual number. <br /></td></tr>
+<tr class="separator:a6e9bf27530bab7668c06527f49396151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f1da297b159938c8b3fb2dc9121e0d"><td class="memTemplParams" colspan="2"><a id="a23f1da297b159938c8b3fb2dc9121e0d"></a>
 template&lt;typename Type  = real&gt; </td></tr>
 <tr class="memitem:a23f1da297b159938c8b3fb2dc9121e0d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a23f1da297b159938c8b3fb2dc9121e0d">bicomplex</a> = <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; &gt;</td></tr>
@@ -367,6 +392,16 @@ template&lt;typename Structure &gt; </td></tr>
 <tr class="memitem:a746b3f92213a0d6340e98b850cacdeb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a> = std::enable_if_t&lt; <a class="el" href="structtheoretica_1_1is__vector.html">is_vector</a>&lt; Structure &gt;::value, T &gt;</td></tr>
 <tr class="memdesc:a746b3f92213a0d6340e98b850cacdeb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a function overload if the template typename is considerable a vector.  <a href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">More...</a><br /></td></tr>
 <tr class="separator:a746b3f92213a0d6340e98b850cacdeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae562824808d98ae987dd07e3258c2772"><td class="memTemplParams" colspan="2"><a id="ae562824808d98ae987dd07e3258c2772"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:ae562824808d98ae987dd07e3258c2772"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae562824808d98ae987dd07e3258c2772">is_real_func</a> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1is__real__type.html">is_real_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:ae562824808d98ae987dd07e3258c2772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a real number as its first argument. <br /></td></tr>
+<tr class="separator:ae562824808d98ae987dd07e3258c2772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d395991c6d895a327dff7affa37f23"><td class="memTemplParams" colspan="2"><a id="a08d395991c6d895a327dff7affa37f23"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a08d395991c6d895a327dff7affa37f23"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a08d395991c6d895a327dff7affa37f23">enable_real_func</a> = typename std::enable_if_t&lt; <a class="el" href="namespacetheoretica.html#ae562824808d98ae987dd07e3258c2772">is_real_func</a>&lt; Function &gt;::value, T &gt;</td></tr>
+<tr class="memdesc:a08d395991c6d895a327dff7affa37f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a real number. <br /></td></tr>
+<tr class="separator:a08d395991c6d895a327dff7affa37f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad60d62492ac4137c837c50b1fdc8a904"><td class="memItemLeft" align="right" valign="top"><a id="ad60d62492ac4137c837c50b1fdc8a904"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> = std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)&gt;</td></tr>
 <tr class="memdesc:ad60d62492ac4137c837c50b1fdc8a904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer to a real function of real variable. <br /></td></tr>
@@ -674,34 +709,34 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad7a9ad3afd4578cfdf1a242c215d837a">deriv</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt; &amp;p)</td></tr>
 <tr class="memdesc:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivative of a polynomial.  <a href="namespacetheoretica.html#ad7a9ad3afd4578cfdf1a242c215d837a">More...</a><br /></td></tr>
 <tr class="separator:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99df22c00a240bf03f68acb98fc749fc"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:a99df22c00a240bf03f68acb98fc749fc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a99df22c00a240bf03f68acb98fc749fc">deriv_central</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:a99df22c00a240bf03f68acb98fc749fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the central method.  <a href="namespacetheoretica.html#a99df22c00a240bf03f68acb98fc749fc">More...</a><br /></td></tr>
-<tr class="separator:a99df22c00a240bf03f68acb98fc749fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5346b178bcfa505353406eaa91cbf2d"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:ac5346b178bcfa505353406eaa91cbf2d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac5346b178bcfa505353406eaa91cbf2d">deriv_forward</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:ac5346b178bcfa505353406eaa91cbf2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the forward method.  <a href="namespacetheoretica.html#ac5346b178bcfa505353406eaa91cbf2d">More...</a><br /></td></tr>
-<tr class="separator:ac5346b178bcfa505353406eaa91cbf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d45f41ff8c9821e3eba45e10770df36"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:a5d45f41ff8c9821e3eba45e10770df36"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a5d45f41ff8c9821e3eba45e10770df36">deriv_backward</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:a5d45f41ff8c9821e3eba45e10770df36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the backward method.  <a href="namespacetheoretica.html#a5d45f41ff8c9821e3eba45e10770df36">More...</a><br /></td></tr>
-<tr class="separator:a5d45f41ff8c9821e3eba45e10770df36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e1240049b08fded7316e72272a3d6f"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:ac1e1240049b08fded7316e72272a3d6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac1e1240049b08fded7316e72272a3d6f">deriv_ridders2</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:ac1e1240049b08fded7316e72272a3d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of second degree.  <a href="namespacetheoretica.html#ac1e1240049b08fded7316e72272a3d6f">More...</a><br /></td></tr>
-<tr class="separator:ac1e1240049b08fded7316e72272a3d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08c5277448360f087fa63323020675c6"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:a08c5277448360f087fa63323020675c6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a08c5277448360f087fa63323020675c6">deriv_ridders</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=0.01, unsigned int degree=3)</td></tr>
-<tr class="memdesc:a08c5277448360f087fa63323020675c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of arbitrary degree.  <a href="namespacetheoretica.html#a08c5277448360f087fa63323020675c6">More...</a><br /></td></tr>
-<tr class="separator:a08c5277448360f087fa63323020675c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0b81cd11a012f4aab7b7d8494c6b32"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:aee0b81cd11a012f4aab7b7d8494c6b32"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aee0b81cd11a012f4aab7b7d8494c6b32">deriv</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:aee0b81cd11a012f4aab7b7d8494c6b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the derivative of a real function.  <a href="namespacetheoretica.html#aee0b81cd11a012f4aab7b7d8494c6b32">More...</a><br /></td></tr>
-<tr class="separator:aee0b81cd11a012f4aab7b7d8494c6b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc344ee63601cc9447843d0e6c4b803"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:afbc344ee63601cc9447843d0e6c4b803"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afbc344ee63601cc9447843d0e6c4b803">deriv2</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
-<tr class="memdesc:afbc344ee63601cc9447843d0e6c4b803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the second derivative of a real function.  <a href="namespacetheoretica.html#afbc344ee63601cc9447843d0e6c4b803">More...</a><br /></td></tr>
-<tr class="separator:afbc344ee63601cc9447843d0e6c4b803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa6f7dff89fe2dd3e8124c10ff19bd0ed">deriv_central</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the central method.  <a href="namespacetheoretica.html#aa6f7dff89fe2dd3e8124c10ff19bd0ed">More...</a><br /></td></tr>
+<tr class="separator:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383ecbb074d735f5b5e8a2f45e5eb291"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a383ecbb074d735f5b5e8a2f45e5eb291"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a383ecbb074d735f5b5e8a2f45e5eb291">deriv_forward</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:a383ecbb074d735f5b5e8a2f45e5eb291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the forward method.  <a href="namespacetheoretica.html#a383ecbb074d735f5b5e8a2f45e5eb291">More...</a><br /></td></tr>
+<tr class="separator:a383ecbb074d735f5b5e8a2f45e5eb291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef217e4310f467330d0a18986f70d84"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:acef217e4310f467330d0a18986f70d84"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#acef217e4310f467330d0a18986f70d84">deriv_backward</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:acef217e4310f467330d0a18986f70d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derivative approximation using the backward method.  <a href="namespacetheoretica.html#acef217e4310f467330d0a18986f70d84">More...</a><br /></td></tr>
+<tr class="separator:acef217e4310f467330d0a18986f70d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c49b5e16e7366e0299972a87e3eb641"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a9c49b5e16e7366e0299972a87e3eb641"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9c49b5e16e7366e0299972a87e3eb641">deriv_ridders2</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:a9c49b5e16e7366e0299972a87e3eb641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of second degree.  <a href="namespacetheoretica.html#a9c49b5e16e7366e0299972a87e3eb641">More...</a><br /></td></tr>
+<tr class="separator:a9c49b5e16e7366e0299972a87e3eb641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989e6f0a6fd6fe05664b6d5de8aaaaf5"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a989e6f0a6fd6fe05664b6d5de8aaaaf5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a989e6f0a6fd6fe05664b6d5de8aaaaf5">deriv_ridders</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=0.01, unsigned int degree=3)</td></tr>
+<tr class="memdesc:a989e6f0a6fd6fe05664b6d5de8aaaaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ridder's derivative approximation of arbitrary degree.  <a href="namespacetheoretica.html#a989e6f0a6fd6fe05664b6d5de8aaaaf5">More...</a><br /></td></tr>
+<tr class="separator:a989e6f0a6fd6fe05664b6d5de8aaaaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69edeaa0ec50e54eeaf1473f83582a68"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a69edeaa0ec50e54eeaf1473f83582a68"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a69edeaa0ec50e54eeaf1473f83582a68">deriv</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:a69edeaa0ec50e54eeaf1473f83582a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the derivative of a real function.  <a href="namespacetheoretica.html#a69edeaa0ec50e54eeaf1473f83582a68">More...</a><br /></td></tr>
+<tr class="separator:a69edeaa0ec50e54eeaf1473f83582a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac470f622545e9f044b6099d96222532f"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:ac470f622545e9f044b6099d96222532f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac470f622545e9f044b6099d96222532f">deriv2</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
+<tr class="memdesc:ac470f622545e9f044b6099d96222532f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the best available algorithm to approximate the second derivative of a real function.  <a href="namespacetheoretica.html#ac470f622545e9f044b6099d96222532f">More...</a><br /></td></tr>
+<tr class="separator:ac470f622545e9f044b6099d96222532f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3ef1f840419cad00471912201b3e10b"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
 <tr class="memitem:ae3ef1f840419cad00471912201b3e10b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae3ef1f840419cad00471912201b3e10b">integrate_polynomial</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt; &amp;p)</td></tr>
 <tr class="memdesc:ae3ef1f840419cad00471912201b3e10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the indefinite integral of a polynomial.  <a href="namespacetheoretica.html#ae3ef1f840419cad00471912201b3e10b">More...</a><br /></td></tr>
@@ -3517,13 +3552,13 @@ template&lt;typename Field  = real&gt; </div>
 
 </div>
 </div>
-<a id="aee0b81cd11a012f4aab7b7d8494c6b32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee0b81cd11a012f4aab7b7d8494c6b32">&#9670;&nbsp;</a></span>deriv() <span class="overload">[2/2]</span></h2>
+<a id="a69edeaa0ec50e54eeaf1473f83582a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69edeaa0ec50e54eeaf1473f83582a68">&#9670;&nbsp;</a></span>deriv() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3572,13 +3607,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="afbc344ee63601cc9447843d0e6c4b803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc344ee63601cc9447843d0e6c4b803">&#9670;&nbsp;</a></span>deriv2()</h2>
+<a id="ac470f622545e9f044b6099d96222532f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac470f622545e9f044b6099d96222532f">&#9670;&nbsp;</a></span>deriv2()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3627,13 +3662,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="a5d45f41ff8c9821e3eba45e10770df36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d45f41ff8c9821e3eba45e10770df36">&#9670;&nbsp;</a></span>deriv_backward()</h2>
+<a id="acef217e4310f467330d0a18986f70d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef217e4310f467330d0a18986f70d84">&#9670;&nbsp;</a></span>deriv_backward()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3682,13 +3717,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="a99df22c00a240bf03f68acb98fc749fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99df22c00a240bf03f68acb98fc749fc">&#9670;&nbsp;</a></span>deriv_central()</h2>
+<a id="aa6f7dff89fe2dd3e8124c10ff19bd0ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f7dff89fe2dd3e8124c10ff19bd0ed">&#9670;&nbsp;</a></span>deriv_central()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3737,13 +3772,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="ac5346b178bcfa505353406eaa91cbf2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5346b178bcfa505353406eaa91cbf2d">&#9670;&nbsp;</a></span>deriv_forward()</h2>
+<a id="a383ecbb074d735f5b5e8a2f45e5eb291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a383ecbb074d735f5b5e8a2f45e5eb291">&#9670;&nbsp;</a></span>deriv_forward()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3792,13 +3827,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="a08c5277448360f087fa63323020675c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08c5277448360f087fa63323020675c6">&#9670;&nbsp;</a></span>deriv_ridders()</h2>
+<a id="a989e6f0a6fd6fe05664b6d5de8aaaaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a989e6f0a6fd6fe05664b6d5de8aaaaf5">&#9670;&nbsp;</a></span>deriv_ridders()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -3854,13 +3889,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="ac1e1240049b08fded7316e72272a3d6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e1240049b08fded7316e72272a3d6f">&#9670;&nbsp;</a></span>deriv_ridders2()</h2>
+<a id="a9c49b5e16e7366e0299972a87e3eb641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c49b5e16e7366e0299972a87e3eb641">&#9670;&nbsp;</a></span>deriv_ridders2()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RealFunction &gt; </div>
+template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -12868,7 +12903,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Mon Aug 26 2024 20:22:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 29 2024 20:36:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

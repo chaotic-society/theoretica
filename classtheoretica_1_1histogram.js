@@ -2,7 +2,7 @@ var classtheoretica_1_1histogram =
 [
     [ "histogram", "classtheoretica_1_1histogram.html#a70075f40f39985dc10974c063c8212d1", null ],
     [ "histogram", "classtheoretica_1_1histogram.html#a24ce8f3305c7986b42f4edc27814c48f", null ],
-    [ "histogram", "classtheoretica_1_1histogram.html#a69ff48503cdcd11abcc357644cb9f969", null ],
+    [ "histogram", "classtheoretica_1_1histogram.html#acc5edfcda71029bf5185cbb12188705b", null ],
     [ "index", "classtheoretica_1_1histogram.html#a4c6e96deec4f677ac8cdec9f63149910", null ],
     [ "insert", "classtheoretica_1_1histogram.html#acfeeea8ad894735b918789128c64a074", null ],
     [ "mean", "classtheoretica_1_1histogram.html#ad5bd716d6734f1246d8a549f667101ff", null ],

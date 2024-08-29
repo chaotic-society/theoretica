@@ -136,11 +136,36 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memTemplParams" colspan="2"><a id="a6cbcef7d8baf8e06a89081c08756fd03"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6cbcef7d8baf8e06a89081c08756fd03">theoretica::is_dual_func</a> = std::conditional_t&lt; is_dual_type&lt; typename _internal::return_type_or_void&lt; Function, dual &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:a6cbcef7d8baf8e06a89081c08756fd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a dual number as its first argument. <br /></td></tr>
+<tr class="separator:a6cbcef7d8baf8e06a89081c08756fd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8d2a6e965f30360de60fc3751ec767"><td class="memTemplParams" colspan="2"><a id="a3c8d2a6e965f30360de60fc3751ec767"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a3c8d2a6e965f30360de60fc3751ec767"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3c8d2a6e965f30360de60fc3751ec767">theoretica::enable_dual_func</a> = typename std::enable_if&lt; is_dual_func&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a3c8d2a6e965f30360de60fc3751ec767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a dual number. <br /></td></tr>
+<tr class="separator:a3c8d2a6e965f30360de60fc3751ec767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06683c5deaa35485dcf977ae919f0b2a"><td class="memTemplParams" colspan="2"><a id="a06683c5deaa35485dcf977ae919f0b2a"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a06683c5deaa35485dcf977ae919f0b2a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a06683c5deaa35485dcf977ae919f0b2a">theoretica::is_dual2_func</a> = std::conditional_t&lt; is_dual2_type&lt; typename _internal::return_type_or_void&lt; Function, dual2 &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
+<tr class="memdesc:a06683c5deaa35485dcf977ae919f0b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number as its first argument. <br /></td></tr>
+<tr class="separator:a06683c5deaa35485dcf977ae919f0b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12db13de79ac8da6fd854bc274ba0990"><td class="memTemplParams" colspan="2"><a id="a12db13de79ac8da6fd854bc274ba0990"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a12db13de79ac8da6fd854bc274ba0990"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12db13de79ac8da6fd854bc274ba0990">theoretica::enable_dual2_func</a> = typename std::enable_if&lt; is_dual2_func&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a12db13de79ac8da6fd854bc274ba0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number. <br /></td></tr>
+<tr class="separator:a12db13de79ac8da6fd854bc274ba0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplParams" colspan="2"><a id="a6138838fb58413e4ed71a8d477a98356"></a>
 template&lt;typename Function &gt; </td></tr>
 <tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356">theoretica::is_multidual_func</a> = std::conditional_t&lt; is_multidual_type&lt; vector_element_or_void_t&lt; std::tuple_element_t&lt; 0, typename extract_func_args&lt; Function &gt;::type &gt; &gt; &gt;::value, std::true_type, std::false_type &gt;</td></tr>
 <tr class="memdesc:a6138838fb58413e4ed71a8d477a98356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a multidual vector as first argument. <br /></td></tr>
 <tr class="separator:a6138838fb58413e4ed71a8d477a98356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplParams" colspan="2"><a id="a6e9bf27530bab7668c06527f49396151"></a>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6e9bf27530bab7668c06527f49396151">theoretica::enable_multidual_func</a> = typename std::enable_if&lt; is_multidual_func&lt; Function &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a6e9bf27530bab7668c06527f49396151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a multidual number. <br /></td></tr>
+<tr class="separator:a6e9bf27530bab7668c06527f49396151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplParams" colspan="2"><a id="a04de34623e5bf22418b595f14c2bc9b7"></a>
 template&lt;unsigned int N = 0&gt; </td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">theoretica::autodiff::dreal_t</a> = multidual&lt; N &gt;</td></tr>
@@ -192,7 +217,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff__types_8h.html">autodiff_types.h</a></li>
-    <li class="footer">Generated on Mon Aug 26 2024 20:22:35 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 29 2024 20:36:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

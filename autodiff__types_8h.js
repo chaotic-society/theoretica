@@ -16,5 +16,10 @@ var autodiff__types_8h =
     [ "dvec3", "autodiff__types_8h.html#adf1827a9b056881521d9e6cb4699a270", null ],
     [ "dvec4", "autodiff__types_8h.html#afc232ba1fc81e203db1c935cf73773df", null ],
     [ "dvec_t", "autodiff__types_8h.html#abdc7bdd230700601e24de68a05d7ec08", null ],
+    [ "enable_dual2_func", "autodiff__types_8h.html#a12db13de79ac8da6fd854bc274ba0990", null ],
+    [ "enable_dual_func", "autodiff__types_8h.html#a3c8d2a6e965f30360de60fc3751ec767", null ],
+    [ "enable_multidual_func", "autodiff__types_8h.html#a6e9bf27530bab7668c06527f49396151", null ],
+    [ "is_dual2_func", "autodiff__types_8h.html#a06683c5deaa35485dcf977ae919f0b2a", null ],
+    [ "is_dual_func", "autodiff__types_8h.html#a6cbcef7d8baf8e06a89081c08756fd03", null ],
     [ "is_multidual_func", "autodiff__types_8h.html#a6138838fb58413e4ed71a8d477a98356", null ]
 ];
