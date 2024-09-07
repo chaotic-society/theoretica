@@ -17,7 +17,7 @@
 
 namespace theoretica {
 
-	/// 
+	///
 	/// @class multidual
 	/// Multidual number algebra for functions
 	/// of the form \f$f: \mathbb{R}^n \rightarrow \mathbb{R}\f$
@@ -26,13 +26,21 @@ namespace theoretica {
 	class multidual {
 		
 		public:
+
+			/// Real part
 			real a;
+
+			/// Dual part
 			vec<real, N> v;
+
+			/// The template parameter of the vector size
+			/// (0 for dynamically allocated vectors).
+			static constexpr unsigned int size_argument = N;
 
 
 			/// Construct a multidual number
 			/// as \f$(0 + \vec 0)\f$
-			multidual() : a(0) {}
+			multidual() : a(0.0) {}
 
 
 			/// Construct a multidual number from

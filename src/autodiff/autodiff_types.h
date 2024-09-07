@@ -77,25 +77,18 @@ namespace theoretica {
 	template<unsigned int N>
 	struct is_multidual_type<multidual<N>> : std::true_type {};
 
+
 	/// Type trait to check whether the given function takes a
 	/// multidual vector as first argument.
 	template<typename Function>
-	using is_multidual_func =
-		std::conditional_t<
-			is_multidual_type<
-				vector_element_or_void_t<
-					std::tuple_element_t<
-						0, typename extract_func_args<Function>::type
-					>
-				>
-			>::value, std::true_type, std::false_type>;
+	struct has_multidual_return : is_multidual_type<extract_return_t<Function>> {};
 
 
 	/// Enable a certain function overload if the given type
 	/// is a function taking as first argument a multidual number
 	template<typename Function, typename T = bool>
 	using enable_multidual_func =
-		typename std::enable_if<is_multidual_func<Function>::value, T>::type;
+		typename std::enable_if<has_multidual_return<Function>::value, T>::type;
 
 
 	namespace autodiff {

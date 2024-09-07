@@ -8,6 +8,7 @@
 
 #include <type_traits>
 #include <tuple>
+#include <functional>
 #include "constants.h"
 
 
@@ -176,6 +177,22 @@ namespace theoretica {
 	struct extract_func_args<Function(Args...)> {
 		using type = std::tuple<Args...>;
 	};
+
+
+	/// Extract the type of the first argument of a function.
+	template <typename Function>
+	struct extract_first_arg;
+
+	/// @internal
+	template <typename Return, typename Arg, typename... Args>
+	struct extract_first_arg<Return(Arg, Args...)> {
+		using type = Arg;
+	};
+
+
+	/// Extract the return type of a function from its signature.
+	template<typename Function>
+	using extract_return_t = typename std::function<Function>::result_type;
 
 
 	namespace _internal {
