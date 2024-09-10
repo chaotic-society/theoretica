@@ -173,18 +173,17 @@ namespace theoretica {
 		}
 
 		// Running average
-		real m = X[0];
+		real avg = X[0];
 
 		// Total sum
-		real s = 0;
+		real s = 0.0;
 		
 		for (size_t i = 1; i < X.size(); ++i) {
 			
-			// m_{i - 1}
-			const real m_tmp = m;
+			const real tmp = avg;
 
-			m = m_tmp + (X[i] - m_tmp) / (i + 1);
-			s += (X[i] - m_tmp) * (X[i] - m);
+			avg = tmp + (X[i] - tmp) / (i + 1);
+			s += (X[i] - tmp) * (X[i] - avg);
 		}
 
 		return s;

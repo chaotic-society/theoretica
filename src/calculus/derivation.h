@@ -13,7 +13,7 @@
 namespace theoretica {
 
 
-	/// Compute the derivative of a polynomial
+	/// Compute the exact derivative of a polynomial function.
 	///
 	/// @param p The polynomial to differentiate
 	/// @return The derivative polynomial
@@ -35,11 +35,12 @@ namespace theoretica {
 	}
 
 
-	/// Derivative approximation using the central method
+	/// Approximate the first derivative of a real function
+	/// using the central method.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -50,11 +51,12 @@ namespace theoretica {
 	}
 
 
-	/// Derivative approximation using the forward method
+	/// Approximate the first derivative of a real function
+	/// using the forward method.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -65,11 +67,12 @@ namespace theoretica {
 	}
 
 
-	/// Derivative approximation using the backward method
+	/// Approximate the first derivative of a real function
+	/// using the backward method.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -80,11 +83,12 @@ namespace theoretica {
 	}
 
 
-	/// Ridder's derivative approximation of second degree
+	/// Approximate the first derivative of a real function
+	/// using Ridder's method of second degree.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -95,12 +99,13 @@ namespace theoretica {
 	}
 
 
-	/// Ridder's derivative approximation of arbitrary degree
+	/// Approximate the first derivative of a real function 
+	/// using Ridder's method of arbitrary degree.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
 	/// @param degree The degree of the algorithm
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -130,12 +135,12 @@ namespace theoretica {
 	}
 
 
-	/// Use the best available algorithm to approximate
-	/// the derivative of a real function
+	/// Approximate the first derivative of a real function
+	/// using the best available algorithm.
 	///
 	/// @param f The function to approximate the derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
@@ -146,12 +151,12 @@ namespace theoretica {
 	}
 
 
-	/// Use the best available algorithm to approximate the second
-	/// derivative of a real function
+	/// Approximate the second derivative of a real function
+	/// using the best available algorithm.
 	///
 	/// @param f The function to approximate the second derivative of
 	/// @param x The real value to approximate at
-	/// @param h The stepsize to use in the finite differences method
+	/// @param h The step size to use in the finite differences method
 	/// @return The approximated value of the second derivative
 	template <
 		typename RealFunction = std::function<real(real)>,
