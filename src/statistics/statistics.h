@@ -160,10 +160,8 @@ namespace theoretica {
 	}
 
 
-	/// Total sum of squares (TSS) equal to
-	/// \f$sum(square(x_i - x_{mean}))\f$,
-	/// computed using Welford's one-pass method to
-	/// improve numerical stability.
+	/// Total sum of squares (TSS) equal to \f$sum(square(x_i - x_{mean}))\f$,
+	/// computed using Welford's one-pass method to improve numerical stability.
 	template<typename Dataset>
 	inline real total_sum_squares(const Dataset& X) {
 

@@ -44,7 +44,7 @@ int main() {
 
     // Print fundamental statistics of the sample
     std::cout << "N = " << h.number() << std::endl; 
-    std::cout << "Mean: " << h.mean() << std::endl; 
-    std::cout << "Variance: " << h.variance() << std::endl; 
-    std::cout << "Standard Deviation: " << h.stdev() << std::endl;
+    std::cout << "Mean: " << mean(h) << std::endl; 
+    std::cout << "Variance: " << variance(h) << std::endl; 
+    std::cout << "Standard Deviation: " << stdev(h) << std::endl;
 }

@@ -14,6 +14,7 @@
 #include <vector>
 #include "../core/real_analysis.h"
 #include "../core/dataset.h"
+#include "./statistics.h"
 
 
 namespace theoretica {
@@ -22,13 +23,13 @@ namespace theoretica {
 	/// @class histogram
 	/// Histogram class with running statistics
 	class histogram {
-		public:
+		private:
 
 			/// Number of total data points
-			size_t N;
+			size_t N {0};
 
 			/// Bins
-			std::vector<unsigned int> bins;
+			std::vector<unsigned int> bin_counts;
 
 			/// Upper extreme of the interval to consider
 			real range_max;
@@ -37,136 +38,188 @@ namespace theoretica {
 			real range_min;
 			
 			/// Maximum value of the data
-			real max_val;
+			real value_max;
 
 			/// Minimum value of the data
-			real min_val;
+			real value_min;
 
-			/// Sum of the data points
-			real sum;
+			/// Running average
+			real run_average;
 
-			/// Square sum of the data points
-			real sqr_sum;
+			/// Running total sum of squares
+			real run_tss;
 
+		public:
 
-			/// Default constructor
-			histogram() :
-			N(0), range_max(0), range_min(0),
-			max_val(0), min_val(0), sum(0), sqr_sum(0) {}
+			/// Construct the histogram from the number of bins and the range.
+			///
+			/// The histogram is initialized from the arguments, without specifying
+			/// any data points, which need to be added with insert().
+			///
+			/// @param bin_count The number of bins
+			/// @param range_min The lower bound of the range
+			/// @param range_max The upper bound of the range
+			histogram(unsigned int bin_count, real range_min, real range_max)
+				: N(0), value_max(-inf()), value_min(-inf()), run_average(0), run_tss(0) {
 
-
-			/// Construct from parameters
-			histogram(unsigned int bin_count, real max, real min)
-				: N(0), max_val(0), min_val(0), sum(0), sqr_sum(0) {
-
-				bins.resize(bin_count);
-				this->range_max = max;
-				this->range_min = min;
+				bin_counts.resize(bin_count);
+				this->range_max = range_max;
+				this->range_min = range_min;
 			}
 
 
-			/// Construct from data
+			/// Construct the histogram from a set of data points, with the given
+			/// number of bins. If the number of bins is not specified,
+			/// it defaults to \f$[\sqrt{N}]\f$.
+			///
+			/// @param data The set of data points
+			/// @bin_count The number of bins
 			template<typename Dataset, enable_vector<Dataset> = true>
 			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
-				range_max = max(data);
-				range_min = min(data);
-				max_val = range_max;
-				min_val = range_min;
-				sum = theoretica::sum(data);
-				sqr_sum = sum_squares(data);
+				range_max = theoretica::max(data);
+				range_min = theoretica::min(data);
+				value_max = range_max;
+				value_min = range_min;
 				N = data.size();
 
+				// Compute mean and TSS
+				run_average = theoretica::mean(data);
+				run_tss = total_sum_squares(data);
+
 				// Default bin count is sqrt(N)
-				bins.resize(
+				bin_counts.resize(
 					bin_count ? bin_count : floor(sqrt(N))
 				);
 
-				// The histogram contains the data point
-				// by construction
+				// The histogram contains the data point by construction
 				for (size_t i = 0; i < N; ++i)
-					bins[index(data[i])]++;
+					bin_counts[index(data[i])]++;
 			}
-		
 
-			/// Insert a new data point inside the histogram.
-			/// 
+
+			/// Insert a new data point inside the histogram, updating
+			/// the running statistics and the corresponding bin.
+			///
 			/// @param x The value to insert
 			inline void insert(real x) {
 
 				if(x < range_min || x > range_max)
 					return;
 
-				bins[index(x)]++;
+				// Update average and TSS using Welford's method
+				const real tmp = run_average;
+				run_average = tmp + (x - tmp) / (N + 1);
+				run_tss += (x - tmp) * (x - run_average);
+
+				value_max = value_max < x ? x : value_max;
+				value_min = value_min > x ? x : value_min;
+
+				bin_counts[index(x)]++;
 				N++;
-
-				sum += x;
-				sqr_sum += square(x);
-
-				this->max_val = max(this->max_val, x);
-				this->min_val = min(this->min_val, x);
 			}
 
 
-			/// Find the index corresponding to a given data point.
+			/// Find the bin index corresponding to a given data point.
 			///
 			/// @param x The value to find the bin index of
 			/// (must be between range_min and range_max)
 			///
 			/// @note This function does not check whether the
-			/// value is between range_min and range_max.
+			/// value is between range_min and range_max,
+			/// so care should be taken to use only valid inputs.
 			inline unsigned int index(real x) const {
 
 				if(abs(x - range_max) < MACH_EPSILON)
-					return bins.size() - 1;
+					return bin_counts.size() - 1;
 
 				return floor(
 					(x - range_min) / (range_max - range_min)
-					* bins.size()
+					* bin_counts.size()
 				);
 			}
 
 
-			// Statistics
+			// Statistical functions
 
-			/// Get the number of points
-			inline unsigned int number() {
+
+			/// Get the number of data points inside the histogram
+			///
+			/// @return The number of data points which have been
+			/// added to the histogram.
+			inline unsigned int number() const {
 				return N;
 			}
 
 
-			/// Get the mean value of the histogram data
+			/// Get a vector containing the bin counts of each bin.
+			///
+			/// @note The bins cannot be directly modified,
+			/// new elements must be added using insert().
+			///
+			/// @return A vector containing the number of elements in each bin.
+			inline std::vector<unsigned int> bins() const {
+				return bin_counts;
+			}
+
+
+			/// Get the biggest data point of the histogram.
+			///
+			/// @return The maximum value of all elements.
+			inline real max() const {
+				return value_max;
+			}
+
+
+			/// Get the smallest data point of the histogram.
+			///
+			/// @return The minimum value of all elements.
+			inline real min() const {
+				return value_min;
+			}
+
+
+			/// Get the mean value of the histogram data.
+			///
+			/// @return The running mean of all elements of the histogram.
 			inline real mean() const {
-
-				if(N == 0) {
-					TH_MATH_ERROR("histogram::mean", N, DIV_BY_ZERO);
-					return nan();
-				}
-
-				return sum / N;
+				return run_average;
 			}
 
 
-			/// Get the variance of the histogram data
-			/// (with Bessel's correction)
-			inline real variance() const {
-
-				if(N == 0 || N == 1) {
-					TH_MATH_ERROR("histogram::variance", N, DIV_BY_ZERO);
-					return nan();
-				}
-
-				// TO-DO Implement Welford's method
-				// to avoid catastrophic cancellation
-
-				return (sqr_sum / N - square(sum / N)) * N / (real) (N - 1);
+			/// Get the total sum of squares (TSS) computed
+			/// using Welford's one-pass method.
+			///
+			/// @return The total sum of squares of all elements of the histogram.
+			inline real tss() const {
+				return run_tss;
 			}
 
 
-			/// Get the standard deviation of the histogram data
-			inline real stdev() const {
-				return sqrt(variance());
+			/// Evaluate the histogram like a step function
+			/// which is zero outside the range of the histogram.
+			///
+			/// @param x The point to evaluate the histogram function at
+			/// @return The value of the histogram function at x
+			inline real operator()(real x) {
+
+				if (x < range_min || x > range_max)
+					return 0.0;
+
+				return bin_counts[index(x)];
 			}
+
+
+			/// Get the number of elements in the i-th bin.
+			///
+			/// @param i The index of the bin
+			/// @return The number of elements in the i-th bin
+			inline unsigned int operator[](unsigned int i) const {
+				return bin_counts[i];
+			}
+
+
+			/// TO-DO Cumulative Distribution Function
 
 
 #ifndef THEORETICA_NO_PRINT
@@ -180,12 +233,12 @@ namespace theoretica {
 
 				std::stringstream res;
 
-				for (size_t i = 0; i < bins.size(); ++i) {
+				for (size_t i = 0; i < bin_counts.size(); ++i) {
 
-					res << (range_min + ((i + 1) / (real) bins.size())
+					res << (range_min + ((i + 1) / (real) bin_counts.size())
 							* (range_max - range_min))
 						<< separator
-						<< (bins[i] / (real) N)
+						<< (bin_counts[i] / (real) N)
 						<< std::endl;
 				}
 
@@ -209,6 +262,42 @@ namespace theoretica {
 #endif
 
 	};
+
+
+	/// Compute the mean of the values of a histogram.
+	inline real mean(const histogram& h) {
+		return h.mean();
+	}
+
+
+	/// Compute the variance of the values of a histogram.
+	inline real variance(const histogram& h) {
+
+		if (h.number() <= 1) {
+			TH_MATH_ERROR("variance", h.number(), DIV_BY_ZERO);
+			return nan();
+		}
+
+		return h.tss() / (h.number() - 1);
+	}
+
+
+	/// Compute the standard deviation of the values of a histogram.
+	inline real stdev(const histogram& h) {
+		return sqrt(variance(h));
+	}
+
+
+	/// Compute the maximum value of the elements of a histogram.
+	inline real max(const histogram& h) {
+		return h.max();
+	}
+
+
+	/// Compute the minimum value of the elements of a histogram.
+	inline real min(const histogram& h) {
+		return h.min();
+	}
 
 }
 
