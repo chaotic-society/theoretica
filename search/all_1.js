@@ -21,7 +21,7 @@ var searchData=
   ['bicomplex_55',['bicomplex',['../namespacetheoretica.html#a23f1da297b159938c8b3fb2dc9121e0d',1,'theoretica']]],
   ['binomial_56',['binomial',['../namespacetheoretica_1_1distribution.html#a05a9c35d2cc3431dc4441029cb3c2cea',1,'theoretica::distribution::binomial(unsigned int nu, unsigned int n, real p)'],['../namespacetheoretica_1_1distribution.html#ac5a8334d4be32e117c370e1464915ccc',1,'theoretica::distribution::binomial(real nu, const vec&lt; real &gt; &amp;theta)']]],
   ['binomial_5fcoeff_57',['binomial_coeff',['../namespacetheoretica.html#a129bf1f1085a76b92999e0faeb30e831',1,'theoretica']]],
-  ['bins_58',['bins',['../classtheoretica_1_1histogram.html#abe79188d28747c74b27feaf63e0fc511',1,'theoretica::histogram']]],
+  ['bins_58',['bins',['../classtheoretica_1_1histogram.html#aa4004f20bb3cfc016b484a23a5dc01fb',1,'theoretica::histogram']]],
   ['bit_5fop_2eh_59',['bit_op.h',['../bit__op_8h.html',1,'']]],
   ['bit_5frotate_60',['bit_rotate',['../namespacetheoretica.html#a4024f1ecd6e937492928965a417c2bc9',1,'theoretica']]],
   ['breit_5fwigner_61',['breit_wigner',['../namespacetheoretica_1_1distribution.html#a42e5e398dee6f6ba80e176a262a99fd6',1,'theoretica::distribution::breit_wigner(real x, real M, real Gamma)'],['../namespacetheoretica_1_1distribution.html#a29639993aeb2b247b8bd37d041211940',1,'theoretica::distribution::breit_wigner(real x, const vec&lt; real &gt; &amp;theta)']]]

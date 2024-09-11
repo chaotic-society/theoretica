@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('histogram_8h.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">histogram.h File Reference</div>  </div>
 </div><!--header-->
@@ -105,6 +106,7 @@ $(document).ready(function(){initNavTree('histogram_8h.html',''); initResizable(
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="real__analysis_8h_source.html">../core/real_analysis.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dataset_8h_source.html">../core/dataset.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="statistics_8h_source.html">./statistics.h</a>&quot;</code><br />
 </div>
 <p><a href="histogram_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -119,6 +121,29 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a12450df3fb890c36800cd56c41cf913b"><td class="memItemLeft" align="right" valign="top"><a id="a12450df3fb890c36800cd56c41cf913b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12450df3fb890c36800cd56c41cf913b">theoretica::mean</a> (const histogram &amp;h)</td></tr>
+<tr class="memdesc:a12450df3fb890c36800cd56c41cf913b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean of the values of a histogram. <br /></td></tr>
+<tr class="separator:a12450df3fb890c36800cd56c41cf913b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f2eced1859ecde7fe8cc5131ebe5832"><td class="memItemLeft" align="right" valign="top"><a id="a6f2eced1859ecde7fe8cc5131ebe5832"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6f2eced1859ecde7fe8cc5131ebe5832">theoretica::variance</a> (const histogram &amp;h)</td></tr>
+<tr class="memdesc:a6f2eced1859ecde7fe8cc5131ebe5832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of the values of a histogram. <br /></td></tr>
+<tr class="separator:a6f2eced1859ecde7fe8cc5131ebe5832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f5fce3e4cc521d56e346daa05fe60ca"><td class="memItemLeft" align="right" valign="top"><a id="a0f5fce3e4cc521d56e346daa05fe60ca"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0f5fce3e4cc521d56e346daa05fe60ca">theoretica::stdev</a> (const histogram &amp;h)</td></tr>
+<tr class="memdesc:a0f5fce3e4cc521d56e346daa05fe60ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of the values of a histogram. <br /></td></tr>
+<tr class="separator:a0f5fce3e4cc521d56e346daa05fe60ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f27a1f05cae98a0a9a55cce43c1e1b"><td class="memItemLeft" align="right" valign="top"><a id="a33f27a1f05cae98a0a9a55cce43c1e1b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a33f27a1f05cae98a0a9a55cce43c1e1b">theoretica::max</a> (const histogram &amp;h)</td></tr>
+<tr class="memdesc:a33f27a1f05cae98a0a9a55cce43c1e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the maximum value of the elements of a histogram. <br /></td></tr>
+<tr class="separator:a33f27a1f05cae98a0a9a55cce43c1e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98aafc63fe4127e81acdfd9c69ace2ae"><td class="memItemLeft" align="right" valign="top"><a id="a98aafc63fe4127e81acdfd9c69ace2ae"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a98aafc63fe4127e81acdfd9c69ace2ae">theoretica::min</a> (const histogram &amp;h)</td></tr>
+<tr class="memdesc:a98aafc63fe4127e81acdfd9c69ace2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the minimum value of the elements of a histogram. <br /></td></tr>
+<tr class="separator:a98aafc63fe4127e81acdfd9c69ace2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Histogram class. </p>
@@ -128,7 +153,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="histogram_8h.html">histogram.h</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 18:11:59 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
