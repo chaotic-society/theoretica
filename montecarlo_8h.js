@@ -12,5 +12,5 @@ var montecarlo_8h =
     [ "integral_quasi_hom", "montecarlo_8h.html#a2655b89d203adc197979dafd29fe518b", null ],
     [ "integral_quasi_hom", "montecarlo_8h.html#a22f21b203e4325f357c2c84558239269", null ],
     [ "integral_quasi_impsamp", "montecarlo_8h.html#a0edff8be282482211b0cbc6cd022222e", null ],
-    [ "mc_sample", "montecarlo_8h.html#a4f05663c1a2c0ae0e9fdf9784db4036d", null ]
+    [ "mc_sample", "montecarlo_8h.html#a771d1aee045c8d3c2a7193d4aaa368bf", null ]
 ];

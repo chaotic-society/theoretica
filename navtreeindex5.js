@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"multi__extrema_8h_source.html":[13,0,7,1],
 "multi__roots_8h.html":[13,0,7,2],
 "multi__roots_8h.html#aa33d75230bab0d4def2c9aeec6e05b1d":[13,0,7,2,0],
 "multi__roots_8h_source.html":[13,0,7,2],
@@ -238,7 +239,6 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a1efe3bd7ff87719aab92b67cec535096":[11,0,2,430],
 "namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d":[11,0,2,86],
 "namespacetheoretica.html#a1f8c95ef4ed4e4da6af87e9eee675f82":[11,0,2,431],
-"namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3":[11,0,2,455],
 "namespacetheoretica.html#a20c5f447fa36291f39b8e23874b8a261":[11,0,2,95],
 "namespacetheoretica.html#a21974bc022495f59a7702ce937f4544c":[11,0,2,180],
 "namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d":[11,0,2,249],

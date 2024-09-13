@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"namespacetheoretica.html#aacaf80c0c0f6ef333e3a09ee19fbee94":[11,0,2,265],
+"namespacetheoretica.html#aaccd3a2b293f4d080b5fa2655ed89d7a":[11,0,2,469],
+"namespacetheoretica.html#aacdf17b1485bdfb0f967caee134136b6":[11,0,2,151],
 "namespacetheoretica.html#aad2c1865b7a5639ed82643a069554e3d":[11,0,2,366],
 "namespacetheoretica.html#aaf07fc7c4481d53efce255d851fed8ea":[11,0,2,187],
 "namespacetheoretica.html#aaf6b8fc4bb2609507cd1fae0f7d6c8a7":[11,0,2,467],
@@ -50,7 +53,6 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#ac8c5c8826f494eeff734a2980defb72c":[11,0,2,403],
 "namespacetheoretica.html#ac8e3b9080dde2e7542682cf79f0bbf50":[11,0,2,207],
 "namespacetheoretica.html#ac91dfc5efe4fa412bd7ef46f142f7045":[11,0,2,294],
-"namespacetheoretica.html#ac97fe53c636243acf273bfb04ebc91ec":[11,0,2,156],
 "namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed":[11,0,2,303],
 "namespacetheoretica.html#aca937d779d223cab3a43b4236876491a":[11,0,2,257],
 "namespacetheoretica.html#acb7002b34046d5ca42715a875c6b089f":[11,0,2,454],
@@ -89,7 +91,7 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#adcb53498374f76292a3da8bb8c785341":[11,0,2,81],
 "namespacetheoretica.html#adcecb5d20e275f7fe2d606306a3af1a9":[11,0,2,206],
 "namespacetheoretica.html#adefc7e5553fca6b62313bb2a3037e49b":[11,0,2,92],
-"namespacetheoretica.html#adf6e93b355b93426144ceb0f7b435ac3":[11,0,2,288],
+"namespacetheoretica.html#adf08c69e546c822b60b2185156b04360":[11,0,2,341],
 "namespacetheoretica.html#ae095e7eee4b03eddc3b035b2bde14a7e":[11,0,2,210],
 "namespacetheoretica.html#ae0afb9f871b425c7454c388eb41a3c19":[11,0,2,485],
 "namespacetheoretica.html#ae1ec29d91ae6c6a21a09cdaf95a85045":[11,0,2,57],
@@ -141,7 +143,6 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#afce493c565b387c0496eff49e137edb6":[11,0,2,332],
 "namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988":[11,0,2,160],
 "namespacetheoretica.html#afd8b0a1c223e7bc79b04046d4e8502da":[11,0,2,220],
-"namespacetheoretica.html#afe8fa10e568fa3bfb88cd0f5449b94f0":[11,0,2,341],
 "namespacetheoretica.html#afec5b6f456b010a5af7f3bce105cdea4":[11,0,2,264],
 "namespacetheoretica.html#afecb3a70b56c4e8ab730a63d1c3f4619":[11,0,2,400],
 "namespacetheoretica.html#afef33e5920ccf4cfe7f79c70ebc9dfbb":[11,0,2,461],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "namespacetheoretica_1_1algebra.html#aeca906836538db83c3bd6e14e33871d7":[11,0,2,1,66],
 "namespacetheoretica_1_1algebra.html#aeea5d17fa90dc48629d2028208e4b8d1":[11,0,2,1,96],
 "namespacetheoretica_1_1algebra.html#af20d45028f1600afc9aaf8ce5b1678e1":[11,0,2,1,58],
-"namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea":[11,0,2,1,71],
-"namespacetheoretica_1_1algebra.html#af4fa83f097e3a9a5fa2abe41e90aa23c":[11,0,2,1,22]
+"namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea":[11,0,2,1,71]
 };

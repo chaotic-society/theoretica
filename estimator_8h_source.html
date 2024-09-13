@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <a class="code" href="structchebyshev_1_1prec_1_1interval.html">interval</a> domain = options.domain[0];</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = 0;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                FloatType sumSqr = 0;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                FloatType sumAbs = 0;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = 0;</div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                FloatType diff = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcApprox(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#a81049c16ac8d162cffdf3f298e9e16e8">a</a>) - funcExpected(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#a81049c16ac8d162cffdf3f298e9e16e8">a</a>));</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += diff;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += diff;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                sumSqr += diff * diff;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                sumAbs += <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcExpected(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#a81049c16ac8d162cffdf3f298e9e16e8">a</a>));</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = diff;</div>
@@ -159,14 +159,14 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        coeff = 4;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += coeff * diff;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += coeff * diff;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    sumSqr += coeff * diff * diff;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    sumAbs += coeff * funcExpected(x);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                diff = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcApprox(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#af4e482073a425487335374ea22aab045">b</a>) - funcExpected(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#af4e482073a425487335374ea22aab045">b</a>));</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += diff;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += diff;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                sumSqr += diff * diff;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                sumAbs += <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcExpected(domain.<a class="code" href="structchebyshev_1_1prec_1_1interval.html#af4e482073a425487335374ea22aab045">b</a>));</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                </div>
@@ -174,11 +174,11 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = diff;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html">estimate_result</a> res {};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                res.<a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html#aecabd228acf68c395f1d7c36d6ff90ec">absErr</a> = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                res.<a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html#aecabd228acf68c395f1d7c36d6ff90ec">absErr</a> = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                res.maxErr = <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                res.meanErr = (<a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> * dx / 3.0) / length;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                res.meanErr = (<a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> * dx / 3.0) / length;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                res.rmsErr = <a class="code" href="namespacetheoretica_1_1vectorized.html#a3ca8a11fffa03aa06135607061b4826c">std::sqrt</a>((sumSqr * dx / 3.0) / length);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>((<a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> * dx / 3.0) / (sumAbs * dx / 3.0));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>((<a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> * dx / 3.0) / (sumAbs * dx / 3.0));</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            };</div>
@@ -251,7 +251,7 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    <span class="keywordflow">throw</span> std::runtime_error(</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                        <span class="stringliteral">&quot;estimator::montecarlo1D only works on mono-dimensional domains&quot;</span>);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = 0;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = 0;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                FloatType sumSqr = 0;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                FloatType sumAbs = 0;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = 0;</div>
@@ -263,17 +263,17 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    <span class="keyword">const</span> FloatType diff = <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcApprox(x) - funcExpected(x));</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">std::max</a>(<a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>, diff);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += diff;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += diff;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    sumSqr += diff * diff;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                    sumAbs += <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcExpected(x));</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                }</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                <a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html">estimate_result</a> res {};</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                res.<a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html#a5f8a53e0d8853159c37d19231a64f73e">maxErr</a> = <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                res.meanErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> / options.iterations;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                res.absErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> * (length / options.iterations);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                res.meanErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> / options.iterations;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                res.absErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> * (length / options.iterations);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                res.rmsErr = sumSqr * (length / options.iterations);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> / sumAbs;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> / sumAbs;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            };</div>
@@ -296,7 +296,7 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                        <span class="stringliteral">&quot;the instantiated number of dimensions &quot;</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                        <span class="stringliteral">&quot;in estimator::montecarlo&quot;</span>);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = 0;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = 0;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                FloatType sumSqr = 0;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                FloatType sumAbs = 0;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                FloatType <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = 0;</div>
@@ -317,17 +317,17 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                    <span class="keywordflow">if</span>(<a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> &lt; diff)</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                        <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a> = diff;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += diff;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += diff;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                    sumSqr += diff * diff;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    sumAbs += <a class="code" href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">std::abs</a>(funcExpected(x));</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                }</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                <a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html">estimate_result</a> res {};</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                res.<a class="code" href="structchebyshev_1_1prec_1_1estimate__result.html#a5f8a53e0d8853159c37d19231a64f73e">maxErr</a> = <a class="code" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                res.meanErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> / options.iterations;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                res.absErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> * (volume / options.iterations);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                res.meanErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> / options.iterations;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                res.absErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> * (volume / options.iterations);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                res.rmsErr = sumSqr * (volume / options.iterations);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> / sumAbs;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                res.relErr = <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> / sumAbs;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            };</div>
@@ -350,8 +350,8 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div class="ttc" id="anamespacechebyshev_html_a94d6aae363e21a096f05814053ec8462"><div class="ttname"><a href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">chebyshev::EndoFunction</a></div><div class="ttdeci">std::function&lt; Type(Type)&gt; EndoFunction</div><div class="ttdoc">An endofunction is a function which has the same type of input and output (e.g.</div><div class="ttdef"><b>Definition:</b> common.h:50</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1vectorized_html_a3ca8a11fffa03aa06135607061b4826c"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#a3ca8a11fffa03aa06135607061b4826c">theoretica::vectorized::sqrt</a></div><div class="ttdeci">Vector sqrt(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the sqrt function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:138</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1vectorized_html_ac9d9f574964b1f9819613969f26329e6"><div class="ttname"><a href="namespacetheoretica_1_1vectorized.html#ac9d9f574964b1f9819613969f26329e6">theoretica::vectorized::abs</a></div><div class="ttdeci">Vector abs(const Vector &amp;v)</div><div class="ttdoc">Vectorized form (element-wise evaluation) of the abs function.</div><div class="ttdef"><b>Definition:</b> vectorized.h:84</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a20960b2923a0c3c41b4db5452fa1dbf3"><div class="ttname"><a href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">theoretica::sum</a></div><div class="ttdeci">auto sum(const vec&lt; real, N &gt; &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:206</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:306</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a551e6c640e2580e8756526e015f2ad04"><div class="ttname"><a href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">theoretica::sum</a></div><div class="ttdeci">auto sum(const Vector &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:219</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:319</div></div>
 <div class="ttc" id="anamespacetheoretica_html_afad5c92586d6a0f841bfcd3759eff317"><div class="ttname"><a href="namespacetheoretica.html#afad5c92586d6a0f841bfcd3759eff317">theoretica::floor</a></div><div class="ttdeci">TH_CONSTEXPR int floor(real x)</div><div class="ttdoc">Compute the floor of x Computes the maximum integer number that is smaller than x.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:271</div></div>
 <div class="ttc" id="aprec__structures_8h_html"><div class="ttname"><a href="prec__structures_8h.html">prec_structures.h</a></div><div class="ttdoc">Structures for precision testing.</div></div>
 <div class="ttc" id="astructchebyshev_1_1prec_1_1estimate__options_html"><div class="ttname"><a href="structchebyshev_1_1prec_1_1estimate__options.html">chebyshev::prec::estimate_options</a></div><div class="ttdoc">A structure holding the options for precision estimation.</div><div class="ttdef"><b>Definition:</b> prec_structures.h:77</div></div>
@@ -368,7 +368,7 @@ $(document).ready(function(){initNavTree('estimator_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_5ba5131da434ce13b3270e94b5b27522.html">prec</a></li><li class="navelem"><a class="el" href="estimator_8h.html">estimator.h</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

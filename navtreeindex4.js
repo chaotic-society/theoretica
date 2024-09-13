@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"dual__functions_8h.html#a30d6466e16b24bd1dfac49fd0c50ed79":[13,0,1,5,12],
 "dual__functions_8h.html#a3796818092440b5f1745c67b1162ddcf":[13,0,1,5,0],
 "dual__functions_8h.html#a39630b09f7294762464b1eb5301b508f":[13,0,1,5,5],
 "dual__functions_8h.html#a4ad063ce053e951e9183799584090c0e":[13,0,1,5,13],
@@ -54,9 +55,9 @@ var NAVTREEINDEX4 =
 "errorprop_8h.html":[13,0,10,1],
 "errorprop_8h.html#a13c65d8d1f18eeaed2e6cb96b8138ec7":[13,0,10,1,3],
 "errorprop_8h.html#a2d84edd693f12451e609e365239533cc":[13,0,10,1,1],
+"errorprop_8h.html#a4e9f585532132c422fef24bfd4b8b14d":[13,0,10,1,4],
 "errorprop_8h.html#a78365ecc6d0b73192e64e501895a0f85":[13,0,10,1,2],
-"errorprop_8h.html#ac97fe53c636243acf273bfb04ebc91ec":[13,0,10,1,0],
-"errorprop_8h.html#adf6e93b355b93426144ceb0f7b435ac3":[13,0,10,1,4],
+"errorprop_8h.html#a7a3a2baa8605d6bc685d6d959082b4d5":[13,0,10,1,0],
 "errorprop_8h_source.html":[13,0,10,1],
 "estimator_8h.html":[13,0,11,0,1,3,1],
 "estimator_8h.html#a196bb68ba898ec12a56e6115d18eea84":[13,0,11,0,1,3,1,3],
@@ -236,7 +237,7 @@ var NAVTREEINDEX4 =
 "montecarlo_8h.html#a369a64e60df5e45af0bb4581a9f213da":[13,0,9,0,2],
 "montecarlo_8h.html#a3d1d65e5dba67ccf5199e5d5544e2484":[13,0,9,0,5],
 "montecarlo_8h.html#a4ed022df42e2b7152fc916433acbfbcc":[13,0,9,0,7],
-"montecarlo_8h.html#a4f05663c1a2c0ae0e9fdf9784db4036d":[13,0,9,0,12],
+"montecarlo_8h.html#a771d1aee045c8d3c2a7193d4aaa368bf":[13,0,9,0,12],
 "montecarlo_8h.html#abad6a42bf9fd0176e622e01e0f7446a9":[13,0,9,0,6],
 "montecarlo_8h.html#afd8b0a1c223e7bc79b04046d4e8502da":[13,0,9,0,3],
 "montecarlo_8h_source.html":[13,0,9,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "multi__extrema_8h.html#a7e1d408ff567cd7f573f25d4abffc6a4":[13,0,7,1,1],
 "multi__extrema_8h.html#ae6d20b0179fb59c4f36839cb14d25b1b":[13,0,7,1,3],
 "multi__extrema_8h.html#ae8cc40a310d2e224a415ef9cc4d08826":[13,0,7,1,5],
-"multi__extrema_8h.html#af2072cd5c511827de6cd4f5f0f7539ed":[13,0,7,1,0],
-"multi__extrema_8h_source.html":[13,0,7,1]
+"multi__extrema_8h.html#af2072cd5c511827de6cd4f5f0f7539ed":[13,0,7,1,0]
 };

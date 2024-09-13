@@ -287,13 +287,13 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
 <div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a90bea2f231e34937ede290fd070f7f21">  275</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a90bea2f231e34937ede290fd070f7f21">sqr_norm</a>(<span class="keyword">const</span> Vector&amp; v) {</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[0], v[0]);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[0], v[0]);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <span class="comment">// Use conjugation for complex numbers</span></div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; v.size(); ++i)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[i], v[i]);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[i], v[i]);</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        }</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
@@ -352,13 +352,13 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">vector_element_t&lt;Vector1&gt;</a>(<a class="code" href="namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519">nan</a>());</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            }</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[0], w[0]);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[0], w[0]);</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            <span class="comment">// Use conjugation for complex numbers</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; v.size(); ++i)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[i], w[i]);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += <a class="code" href="namespacetheoretica_1_1algebra.html#a838277b2f0e59831f5f0b3f5d388c925">pair_inner_product</a>(v[i], w[i]);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        }</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
@@ -515,13 +515,13 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix&gt;</div>
 <div class="line"><a name="l00555"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a2dc18f1cdbcf6eef1e543a54eec0b004">  555</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a2dc18f1cdbcf6eef1e543a54eec0b004">trace</a>(<span class="keyword">const</span> Matrix&amp; m) {</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = m(0, 0);</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;            <span class="keyword">auto</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = m(0, 0);</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> n = <a class="code" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">min</a>(m.rows(), m.cols());</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += m(i, i);</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += m(i, i);</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        }</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160; </div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
@@ -1197,14 +1197,14 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;                </div>
 <div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt;= i; ++j) {</div>
 <div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;                    </div>
-<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;                    Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = L(i, 0) * L(j, 0);</div>
+<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;                    Type <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = L(i, 0) * L(j, 0);</div>
 <div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160; </div>
 <div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k = 1; k &lt; j; ++k)</div>
-<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;                        <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += L(i, k) * L(j, k);</div>
+<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;                        <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += L(i, k) * L(j, k);</div>
 <div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160; </div>
 <div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;                    <span class="keywordflow">if</span> (i == j) {</div>
 <div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160; </div>
-<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;                        <span class="keyword">const</span> Type sqr_diag = A(j, j) - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;                        <span class="keyword">const</span> Type sqr_diag = A(j, j) - <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160; </div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;                        <span class="comment">// Additional check to ensure that the matrix is positive definite</span></div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;                        <span class="keywordflow">if</span> (sqr_diag &lt; <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
@@ -1216,7 +1216,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160; </div>
 <div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;                    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160; </div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;                        L(i, j) = (A(i, j) - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / L(j, j);</div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;                        L(i, j) = (A(i, j) - <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>) / L(j, j);</div>
 <div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;                    }</div>
 <div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;                }</div>
 <div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;            }</div>
@@ -1248,17 +1248,17 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;            <span class="comment">// Solve using forward substitution</span></div>
 <div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; L.cols(); ++i) {</div>
 <div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;                </div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = L(i, 0) * x[0];</div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = L(i, 0) * x[0];</div>
 <div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160; </div>
 <div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; i; ++j)</div>
-<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += L(i, j) * x[j];</div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += L(i, j) * x[j];</div>
 <div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160; </div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(L(i, i)) &lt; <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;                    <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;solve_triangular_lower&quot;</span>, L(i, i), DIV_BY_ZERO);</div>
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(x);</div>
 <div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;                }</div>
 <div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160; </div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;                x[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / L(i, i);</div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;                x[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>) / L(i, i);</div>
 <div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;            }</div>
 <div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160; </div>
 <div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;            <span class="keywordflow">return</span> x;</div>
@@ -1290,17 +1290,17 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;            <span class="comment">// Solve using backward substitution</span></div>
 <div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = U.rows() - 1; i &gt;= 0; --i) {</div>
 <div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;                </div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = U(i, i + 1) * x[i + 1];</div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = U(i, i + 1) * x[i + 1];</div>
 <div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160; </div>
 <div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = i + 2; j &lt; U.cols(); ++j)</div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += U(i, j) * x[j];</div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += U(i, j) * x[j];</div>
 <div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160; </div>
 <div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(U(i, i)) &lt; <a class="code" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;                    <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;solve_triangular_upper&quot;</span>, U(i, i), DIV_BY_ZERO);</div>
 <div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">vec_error</a>(x);</div>
 <div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;                }</div>
 <div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160; </div>
-<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;                x[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / U(i, i);</div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;                x[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>) / U(i, i);</div>
 <div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;            }</div>
 <div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160; </div>
 <div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;            <span class="keywordflow">return</span> x;</div>
@@ -1343,23 +1343,23 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;            <span class="comment">// Forward elimination: solves the lower system (L matrix).</span></div>
 <div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; A.rows(); ++i) {</div>
 <div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                </div>
-<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, 0) * b[0];</div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = A(i, 0) * b[0];</div>
 <div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160; </div>
 <div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 1; j &lt; i; ++j)</div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += A(i, j) * b[j];</div>
 <div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160; </div>
-<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;                b[i] -= <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>;</div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;                b[i] -= <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>;</div>
 <div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;            }</div>
 <div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160; </div>
 <div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;            <span class="comment">// Backward elimination: solves the upper system (U matrix).</span></div>
 <div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = A.rows() - 1; i &gt;= 0; --i) {</div>
 <div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;                </div>
-<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> = A(i, i + 1) * b[i + 1];</div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;                Type <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> = A(i, i + 1) * b[i + 1];</div>
 <div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160; </div>
 <div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = i + 2; j &lt; A.rows(); ++j)</div>
-<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;                    <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> += A(i, j) * b[j];</div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;                    <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> += A(i, j) * b[j];</div>
 <div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160; </div>
-<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;                b[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a>) / A(i, i);</div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;                b[i] = (b[i] - <a class="code" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>) / A(i, i);</div>
 <div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;            }</div>
 <div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;        </div>
 <div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;            <span class="keywordflow">return</span> b;</div>
@@ -2005,13 +2005,13 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_1_1special_html_a3bcb684396c3ebe33ec5c922fb143a5c"><div class="ttname"><a href="namespacetheoretica_1_1special.html#a3bcb684396c3ebe33ec5c922fb143a5c">theoretica::special::beta</a></div><div class="ttdeci">real beta(real x1, real x2)</div><div class="ttdoc">Beta special function of real argument.</div><div class="ttdef"><b>Definition:</b> special.h:141</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:188</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:327</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition:</b> dataset.h:340</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a19dd33456cffdbba3f29d85061779e7c"><div class="ttname"><a href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a></div><div class="ttdeci">dual2 sqrt(dual2 x)</div><div class="ttdoc">Compute the square root of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:54</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a20960b2923a0c3c41b4db5452fa1dbf3"><div class="ttname"><a href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">theoretica::sum</a></div><div class="ttdeci">auto sum(const vec&lt; real, N &gt; &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:206</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a29720d3e71b280bb3ea048aa71bc3655"><div class="ttname"><a href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a></div><div class="ttdeci">dual2 abs(dual2 x)</div><div class="ttdoc">Compute the absolute value of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:183</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a329b5b07df2933958087db965a444c10"><div class="ttname"><a href="namespacetheoretica.html#a329b5b07df2933958087db965a444c10">theoretica::matrix_element_t</a></div><div class="ttdeci">std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()(0, 0))&gt; matrix_element_t</div><div class="ttdoc">Extract the type of a matrix (or any doubly indexable container) from its operator().</div><div class="ttdef"><b>Definition:</b> core_traits.h:140</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a337913497bb9febc8e931920c4da3dd9"><div class="ttname"><a href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">theoretica::vector_element_t</a></div><div class="ttdeci">std::remove_reference_t&lt; decltype(std::declval&lt; Structure &gt;()[0])&gt; vector_element_t</div><div class="ttdoc">Extract the type of a vector (or any indexable container) from its operator[].</div><div class="ttdef"><b>Definition:</b> core_traits.h:134</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a431f69ddc5ada0242f703284a54726f9"><div class="ttname"><a href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">theoretica::ALGEBRA_ELEMENT_TOL</a></div><div class="ttdeci">constexpr real ALGEBRA_ELEMENT_TOL</div><div class="ttdoc">Tolerance for the elements of matrices.</div><div class="ttdef"><b>Definition:</b> constants.h:260</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a551e6c640e2580e8756526e015f2ad04"><div class="ttname"><a href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">theoretica::sum</a></div><div class="ttdeci">auto sum(const Vector &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition:</b> dataset.h:219</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a60d712fc2f7470e40f65fd470cbb6982"><div class="ttname"><a href="namespacetheoretica.html#a60d712fc2f7470e40f65fd470cbb6982">theoretica::conjugate</a></div><div class="ttdeci">dual2 conjugate(dual2 x)</div><div class="ttdoc">Return the conjugate of a second order dual number.</div><div class="ttdef"><b>Definition:</b> dual2_functions.h:35</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa34d8798921a9b3b78e885a455ff4211"><div class="ttname"><a href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">theoretica::MACH_EPSILON</a></div><div class="ttdeci">constexpr real MACH_EPSILON</div><div class="ttdoc">Machine epsilon for the real type.</div><div class="ttdef"><b>Definition:</b> constants.h:197</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa3c0a5082e6b4428b15b7b02d16eafc7"><div class="ttname"><a href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">theoretica::E</a></div><div class="ttdeci">constexpr real E</div><div class="ttdoc">The Euler mathematical constant (e)</div><div class="ttdef"><b>Definition:</b> constants.h:227</div></div>
@@ -2024,7 +2024,7 @@ $(document).ready(function(){initNavTree('algebra_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="algebra_8h.html">algebra.h</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

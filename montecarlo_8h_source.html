@@ -363,30 +363,36 @@ $(document).ready(function(){initNavTree('montecarlo_8h_source.html',''); initRe
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span> VectorType = std::vector&lt;real&gt;&gt;</div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a4f05663c1a2c0ae0e9fdf9784db4036d">  373</a></span>&#160;    VectorType <a class="code" href="namespacetheoretica.html#a4f05663c1a2c0ae0e9fdf9784db4036d">mc_sample</a>(Function f, std::vector&lt;pdf_sampler&gt; rv, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N) {</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        VectorType sample;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        sample.resize(N);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <a class="code" href="classtheoretica_1_1vec.html">vec&lt;real&gt;</a> v(rv.size());</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keyword">typename</span> Vector = std::vector&lt;real&gt;,</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">typename</span> Function = std::function&lt;<a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(vec&lt;real&gt;)&gt;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    &gt;</div>
+<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a771d1aee045c8d3c2a7193d4aaa368bf">  376</a></span>&#160;    Vector <a class="code" href="namespacetheoretica.html#a771d1aee045c8d3c2a7193d4aaa368bf">mc_sample</a>(Function f, std::vector&lt;pdf_sampler&gt;&amp; rv, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N) {</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        Vector sample;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        sample.resize(N);</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; rv.size(); ++j)</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                v[j] = rv[j]();</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <a class="code" href="classtheoretica_1_1vec.html">vec&lt;real&gt;</a> v;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        v.<a class="code" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a>(rv.size());</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            sample[i] = f(v);</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        }</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordflow">return</span> sample;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    }</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; rv.size(); ++j)</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                v[j] = rv[j]();</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            sample[i] = f(v);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        }</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">return</span> sample;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    }</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1_p_r_n_g_html"><div class="ttname"><a href="classtheoretica_1_1_p_r_n_g.html">theoretica::PRNG</a></div><div class="ttdoc">A pseudorandom number generator.</div><div class="ttdef"><b>Definition:</b> prng.h:18</div></div>
 <div class="ttc" id="aclasstheoretica_1_1vec_html"><div class="ttname"><a href="classtheoretica_1_1vec.html">theoretica::vec</a></div><div class="ttdoc">A statically allocated N-dimensional vector with elements of the given type.</div><div class="ttdef"><b>Definition:</b> vec.h:88</div></div>
+<div class="ttc" id="aclasstheoretica_1_1vec_html_a264d21a42c6b5187327b691e49917f80"><div class="ttname"><a href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">theoretica::vec::resize</a></div><div class="ttdeci">void resize(size_t n) const</div><div class="ttdoc">Compatibility function to allow for allocation or resizing of dynamic vectors.</div><div class="ttdef"><b>Definition:</b> vec.h:403</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:188</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a07652c066aaca0e41b16a21554bc5a28"><div class="ttname"><a href="namespacetheoretica.html#a07652c066aaca0e41b16a21554bc5a28">theoretica::integral_crude</a></div><div class="ttdeci">real integral_crude(real_function f, real a, real b, PRNG &amp;g, unsigned int N=1000)</div><div class="ttdoc">Approximate an integral by using Crude Monte Carlo integration.</div><div class="ttdef"><b>Definition:</b> montecarlo.h:24</div></div>
@@ -396,8 +402,8 @@ $(document).ready(function(){initNavTree('montecarlo_8h_source.html',''); initRe
 <div class="ttc" id="anamespacetheoretica_html_a2655b89d203adc197979dafd29fe518b"><div class="ttname"><a href="namespacetheoretica.html#a2655b89d203adc197979dafd29fe518b">theoretica::integral_quasi_hom</a></div><div class="ttdeci">real integral_quasi_hom(real_function f, real a, real b, real c, real d, unsigned int N=1000)</div><div class="ttdoc">Approximate an integral by using Hit-or-miss Quasi-Monte Carlo integration, sampling points from the ...</div><div class="ttdef"><b>Definition:</b> montecarlo.h:228</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a369a64e60df5e45af0bb4581a9f213da"><div class="ttname"><a href="namespacetheoretica.html#a369a64e60df5e45af0bb4581a9f213da">theoretica::integral_hom</a></div><div class="ttdeci">real integral_hom(real_function f, real a, real b, real c, real d, PRNG &amp;g, unsigned int N=1000)</div><div class="ttdoc">Approximate an integral by using Hit-or-miss Monte Carlo integration.</div><div class="ttdef"><b>Definition:</b> montecarlo.h:162</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a3d1d65e5dba67ccf5199e5d5544e2484"><div class="ttname"><a href="namespacetheoretica.html#a3d1d65e5dba67ccf5199e5d5544e2484">theoretica::integral_impsamp</a></div><div class="ttdeci">real integral_impsamp(real_function f, real_function g, real_function Ginv, PRNG &amp;gen, unsigned int N=1000)</div><div class="ttdoc">Approximate an integral by using Crude Monte Carlo integration with importance sampling.</div><div class="ttdef"><b>Definition:</b> montecarlo.h:327</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a4f05663c1a2c0ae0e9fdf9784db4036d"><div class="ttname"><a href="namespacetheoretica.html#a4f05663c1a2c0ae0e9fdf9784db4036d">theoretica::mc_sample</a></div><div class="ttdeci">VectorType mc_sample(Function f, std::vector&lt; pdf_sampler &gt; rv, unsigned int N)</div><div class="ttdoc">Generate a Monte Carlo sample of values of a given function of arbitrary variables following the give...</div><div class="ttdef"><b>Definition:</b> montecarlo.h:373</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a579b4ccc4078b67b7ec795b744e436d5"><div class="ttname"><a href="namespacetheoretica.html#a579b4ccc4078b67b7ec795b744e436d5">theoretica::rand_uniform</a></div><div class="ttdeci">real rand_uniform(real a, real b, PRNG &amp;g, uint64_t prec=STATISTICS_RAND_PREC)</div><div class="ttdoc">Generate a pseudorandom real number in [a, b] using a preexisting generator.</div><div class="ttdef"><b>Definition:</b> sampling.h:33</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a771d1aee045c8d3c2a7193d4aaa368bf"><div class="ttname"><a href="namespacetheoretica.html#a771d1aee045c8d3c2a7193d4aaa368bf">theoretica::mc_sample</a></div><div class="ttdeci">Vector mc_sample(Function f, std::vector&lt; pdf_sampler &gt; &amp;rv, unsigned int N)</div><div class="ttdoc">Generate a Monte Carlo sample of values of a given function of arbitrary variables following the give...</div><div class="ttdef"><b>Definition:</b> montecarlo.h:376</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa7e523c1cc3621e7cbc1ac0df01913c3"><div class="ttname"><a href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">theoretica::qrand_weyl</a></div><div class="ttdeci">real qrand_weyl(unsigned int n, real alpha=INVPHI)</div><div class="ttdoc">Weyl quasi-random sequence.</div><div class="ttdef"><b>Definition:</b> quasirandom.h:24</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ac1d4be50bf77c6b368c94bb627305224"><div class="ttname"><a href="namespacetheoretica.html#ac1d4be50bf77c6b368c94bb627305224">theoretica::qrand_weyl2</a></div><div class="ttdeci">vec2 qrand_weyl2(unsigned int n, real alpha=0.7548776662466927)</div><div class="ttdoc">Weyl quasi-random sequence in 2 dimensions.</div><div class="ttdef"><b>Definition:</b> quasirandom.h:70</div></div>
 <div class="ttc" id="anamespacetheoretica_html_ad60d62492ac4137c837c50b1fdc8a904"><div class="ttname"><a href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">theoretica::real_function</a></div><div class="ttdeci">std::function&lt; real(real)&gt; real_function</div><div class="ttdoc">Function pointer to a real function of real variable.</div><div class="ttdef"><b>Definition:</b> function.h:20</div></div>
@@ -412,7 +418,7 @@ $(document).ready(function(){initNavTree('montecarlo_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="montecarlo_8h.html">montecarlo.h</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

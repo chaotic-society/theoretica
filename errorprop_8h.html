@@ -100,7 +100,8 @@ $(document).ready(function(){initNavTree('errorprop_8h.html',''); initResizable(
 
 <p>Automatic propagation of uncertainties on arbitrary functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="core__traits_8h_source.html">../core/core_traits.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="autodiff_8h_source.html">../autodiff/autodiff.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="statistics_8h_source.html">../statistics/statistics.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="montecarlo_8h_source.html">../pseudorandom/montecarlo.h</a>&quot;</code><br />
@@ -116,10 +117,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac97fe53c636243acf273bfb04ebc91ec"><td class="memTemplParams" colspan="2">template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;&gt; </td></tr>
-<tr class="memitem:ac97fe53c636243acf273bfb04ebc91ec"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac97fe53c636243acf273bfb04ebc91ec">theoretica::covar_mat</a> (const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
-<tr class="memdesc:ac97fe53c636243acf273bfb04ebc91ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the covariance matrix given a vector of datasets by computing the covariance between all couples of sets.  <a href="namespacetheoretica.html#ac97fe53c636243acf273bfb04ebc91ec">More...</a><br /></td></tr>
-<tr class="separator:ac97fe53c636243acf273bfb04ebc91ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memTemplParams" colspan="2">template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;, enable_vector&lt; Dataset &gt;  = true&gt; </td></tr>
+<tr class="memitem:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7a3a2baa8605d6bc685d6d959082b4d5">theoretica::covar_mat</a> (const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
+<tr class="memdesc:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the covariance matrix given a vector of datasets by computing the covariance between all couples of sets.  <a href="namespacetheoretica.html#a7a3a2baa8605d6bc685d6d959082b4d5">More...</a><br /></td></tr>
+<tr class="separator:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
 <tr class="memitem:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">theoretica::error_propagation</a> (MultiDualFunction f, const vec&lt; real, N &gt; &amp;x_best, const vec&lt; real, N &gt; &amp;delta_x)</td></tr>
 <tr class="memdesc:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <a href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">More...</a><br /></td></tr>
@@ -132,10 +133,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a2d84edd693f12451e609e365239533cc"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2d84edd693f12451e609e365239533cc">theoretica::error_propagation</a> (MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
 <tr class="memdesc:a2d84edd693f12451e609e365239533cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data.  <a href="namespacetheoretica.html#a2d84edd693f12451e609e365239533cc">More...</a><br /></td></tr>
 <tr class="separator:a2d84edd693f12451e609e365239533cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6e93b355b93426144ceb0f7b435ac3"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:adf6e93b355b93426144ceb0f7b435ac3"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#adf6e93b355b93426144ceb0f7b435ac3">theoretica::mc_error_propagation</a> (Function f, std::vector&lt; pdf_sampler &gt; rv, unsigned int N=1E+6)</td></tr>
-<tr class="memdesc:adf6e93b355b93426144ceb0f7b435ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <a href="namespacetheoretica.html#adf6e93b355b93426144ceb0f7b435ac3">More...</a><br /></td></tr>
-<tr class="separator:adf6e93b355b93426144ceb0f7b435ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9f585532132c422fef24bfd4b8b14d"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a4e9f585532132c422fef24bfd4b8b14d"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4e9f585532132c422fef24bfd4b8b14d">theoretica::mc_error_propagation</a> (Function f, std::vector&lt; pdf_sampler &gt; &amp;rv, unsigned int N=1E+6)</td></tr>
+<tr class="memdesc:a4e9f585532132c422fef24bfd4b8b14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <a href="namespacetheoretica.html#a4e9f585532132c422fef24bfd4b8b14d">More...</a><br /></td></tr>
+<tr class="separator:a4e9f585532132c422fef24bfd4b8b14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Automatic propagation of uncertainties on arbitrary functions. </p>
@@ -145,7 +146,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="errorprop_8h.html">errorprop.h</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

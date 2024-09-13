@@ -418,9 +418,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#adcb53498374f76292a3da8bb8c785341">polyn_recurr_formula</a> = std::function&lt; <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;(<a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;, <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;, unsigned int)&gt;</td></tr>
 <tr class="memdesc:adcb53498374f76292a3da8bb8c785341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial sequence recurrence formula type Used for computing orthogonal polynomial basis elements. <br /></td></tr>
 <tr class="separator:adcb53498374f76292a3da8bb8c785341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99f8bd44356f8184466e4cc0d6986fe5"><td class="memItemLeft" align="right" valign="top"><a id="a99f8bd44356f8184466e4cc0d6986fe5"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">pseudorandom_function</a> = uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;)</td></tr>
-<tr class="memdesc:a99f8bd44356f8184466e4cc0d6986fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pseudorandom function pointer. <br /></td></tr>
+<tr class="memitem:a99f8bd44356f8184466e4cc0d6986fe5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">pseudorandom_function</a> = uint64_t(*)(uint64_t, std::vector&lt; uint64_t &gt; &amp;)</td></tr>
+<tr class="memdesc:a99f8bd44356f8184466e4cc0d6986fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function pointer which wraps a pseudorandom generator, taking as input the previous generated value (or seed) and the current state of the algorithm.  <a href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">More...</a><br /></td></tr>
 <tr class="separator:a99f8bd44356f8184466e4cc0d6986fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17352cbe273b80ae0f08eac818eba84e"><td class="memItemLeft" align="right" valign="top"><a id="a17352cbe273b80ae0f08eac818eba84e"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e">pdf_sampling_function</a> = <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*)(const std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;)</td></tr>
@@ -951,11 +950,11 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a4024f1ecd6e937492928965a417c2bc9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> UnsignedIntType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4024f1ecd6e937492928965a417c2bc9">bit_rotate</a> (UnsignedIntType x, unsigned int i)</td></tr>
 <tr class="memdesc:a4024f1ecd6e937492928965a417c2bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit rotation of unsigned integer types using shifts.  <a href="namespacetheoretica.html#a4024f1ecd6e937492928965a417c2bc9">More...</a><br /></td></tr>
 <tr class="separator:a4024f1ecd6e937492928965a417c2bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memTemplParams" colspan="2"><a id="afe8fa10e568fa3bfb88cd0f5449b94f0"></a>
-template&lt;typename Vector &gt; </td></tr>
-<tr class="memitem:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afe8fa10e568fa3bfb88cd0f5449b94f0">product</a> (const Vector &amp;X)</td></tr>
-<tr class="memdesc:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
-<tr class="separator:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf08c69e546c822b60b2185156b04360"><td class="memTemplParams" colspan="2"><a id="adf08c69e546c822b60b2185156b04360"></a>
+template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:adf08c69e546c822b60b2185156b04360"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#adf08c69e546c822b60b2185156b04360">product</a> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:adf08c69e546c822b60b2185156b04360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
+<tr class="separator:adf08c69e546c822b60b2185156b04360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8298cbf34bf300bc2c84d14264484ffd"><td class="memTemplParams" colspan="2"><a id="a8298cbf34bf300bc2c84d14264484ffd"></a>
 template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a8298cbf34bf300bc2c84d14264484ffd"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">product_sum</a> (const Vector &amp;X, const Vector &amp;Y)</td></tr>
@@ -989,10 +988,10 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">sum_pairwise</a> (const Vector &amp;X, size_t begin=0, size_t end=0, size_t base_size=128)</td></tr>
 <tr class="memdesc:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a set of values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">More...</a><br /></td></tr>
 <tr class="separator:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">sum</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;X)</td></tr>
-<tr class="memdesc:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">More...</a><br /></td></tr>
-<tr class="separator:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551e6c640e2580e8756526e015f2ad04"><td class="memTemplParams" colspan="2">template&lt;typename Vector , std::enable_if_t&lt; has_real_elements&lt; Vector &gt;::value &gt;  = true&gt; </td></tr>
+<tr class="memitem:a551e6c640e2580e8756526e015f2ad04"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a551e6c640e2580e8756526e015f2ad04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">More...</a><br /></td></tr>
+<tr class="separator:a551e6c640e2580e8756526e015f2ad04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0">sum</a> (const Vector &amp;X)</td></tr>
 <tr class="memdesc:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a set of values.  <a href="namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0">More...</a><br /></td></tr>
@@ -1532,43 +1531,43 @@ std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7
 <tr class="memitem:a0edff8be282482211b0cbc6cd022222e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0edff8be282482211b0cbc6cd022222e">integral_quasi_impsamp</a> (<a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> f, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> g, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> Ginv, unsigned int N=1000)</td></tr>
 <tr class="memdesc:a0edff8be282482211b0cbc6cd022222e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate an integral by using Crude Quasi-Monte Carlo integration with importance sampling, using the Weyl sequence.  <a href="namespacetheoretica.html#a0edff8be282482211b0cbc6cd022222e">More...</a><br /></td></tr>
 <tr class="separator:a0edff8be282482211b0cbc6cd022222e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f05663c1a2c0ae0e9fdf9784db4036d"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename VectorType  = std::vector&lt;real&gt;&gt; </td></tr>
-<tr class="memitem:a4f05663c1a2c0ae0e9fdf9784db4036d"><td class="memTemplItemLeft" align="right" valign="top">VectorType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4f05663c1a2c0ae0e9fdf9784db4036d">mc_sample</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; rv, unsigned int N)</td></tr>
-<tr class="memdesc:a4f05663c1a2c0ae0e9fdf9784db4036d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Monte Carlo sample of values of a given function of arbitrary variables following the given distributions.  <a href="namespacetheoretica.html#a4f05663c1a2c0ae0e9fdf9784db4036d">More...</a><br /></td></tr>
-<tr class="separator:a4f05663c1a2c0ae0e9fdf9784db4036d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771d1aee045c8d3c2a7193d4aaa368bf"><td class="memTemplParams" colspan="2">template&lt;typename Vector  = std::vector&lt;real&gt;, typename Function  = std::function&lt;real(vec&lt;real&gt;)&gt;&gt; </td></tr>
+<tr class="memitem:a771d1aee045c8d3c2a7193d4aaa368bf"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a771d1aee045c8d3c2a7193d4aaa368bf">mc_sample</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;rv, unsigned int N)</td></tr>
+<tr class="memdesc:a771d1aee045c8d3c2a7193d4aaa368bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Monte Carlo sample of values of a given function of arbitrary variables following the given distributions.  <a href="namespacetheoretica.html#a771d1aee045c8d3c2a7193d4aaa368bf">More...</a><br /></td></tr>
+<tr class="separator:a771d1aee045c8d3c2a7193d4aaa368bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8679d2642c8820e78e33f7aa3294f7eb"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a8679d2642c8820e78e33f7aa3294f7eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8679d2642c8820e78e33f7aa3294f7eb">shuffle</a> (Vector &amp;v, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g, unsigned int rounds=0)</td></tr>
 <tr class="memdesc:a8679d2642c8820e78e33f7aa3294f7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffle a set by exchanging random couples of elements.  <a href="namespacetheoretica.html#a8679d2642c8820e78e33f7aa3294f7eb">More...</a><br /></td></tr>
 <tr class="separator:a8679d2642c8820e78e33f7aa3294f7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1025a8b933cfe7077936c4be27971c1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">rand_congruential</a> (uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</td></tr>
-<tr class="memdesc:ab1025a8b933cfe7077936c4be27971c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">More...</a><br /></td></tr>
+<tr class="memdesc:ab1025a8b933cfe7077936c4be27971c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the congruential pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1">More...</a><br /></td></tr>
 <tr class="separator:ab1025a8b933cfe7077936c4be27971c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a41f7dda7d0ad8cc8a4559afcf2ad7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a36a41f7dda7d0ad8cc8a4559afcf2ad7">rand_congruential</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;state)</td></tr>
-<tr class="memdesc:a36a41f7dda7d0ad8cc8a4559afcf2ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Congruential pseudorandom number generation algorithm (wrapper)  <a href="namespacetheoretica.html#a36a41f7dda7d0ad8cc8a4559afcf2ad7">More...</a><br /></td></tr>
+<tr class="memdesc:a36a41f7dda7d0ad8cc8a4559afcf2ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the congruential pseudorandom number generation algorithm (wrapper)  <a href="namespacetheoretica.html#a36a41f7dda7d0ad8cc8a4559afcf2ad7">More...</a><br /></td></tr>
 <tr class="separator:a36a41f7dda7d0ad8cc8a4559afcf2ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed6faedb3d913a589365b108f5ec304e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">rand_xoshiro</a> (uint64_t &amp;a, uint64_t &amp;b, uint64_t &amp;c, uint64_t &amp;d)</td></tr>
-<tr class="memdesc:aed6faedb3d913a589365b108f5ec304e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xoshiro256++ pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">More...</a><br /></td></tr>
+<tr class="memdesc:aed6faedb3d913a589365b108f5ec304e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the xoshiro256++ pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#aed6faedb3d913a589365b108f5ec304e">More...</a><br /></td></tr>
 <tr class="separator:aed6faedb3d913a589365b108f5ec304e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13b30362a1d08c8522c5297efd6f4a47"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47">rand_xoshiro</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;state)</td></tr>
-<tr class="memdesc:a13b30362a1d08c8522c5297efd6f4a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xoshiro256++ pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47">More...</a><br /></td></tr>
+<tr class="memdesc:a13b30362a1d08c8522c5297efd6f4a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the xoshiro256++ pseudorandom number generation algorithm (wrapper)  <a href="namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47">More...</a><br /></td></tr>
 <tr class="separator:a13b30362a1d08c8522c5297efd6f4a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058181f973ba2744704e6c6211477a35"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">rand_splitmix64</a> (uint64_t x)</td></tr>
-<tr class="memdesc:a058181f973ba2744704e6c6211477a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">SplitMix64 pseudorandom number generation.  <a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">More...</a><br /></td></tr>
+<tr class="memdesc:a058181f973ba2744704e6c6211477a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the SplitMix64 pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#a058181f973ba2744704e6c6211477a35">More...</a><br /></td></tr>
 <tr class="separator:a058181f973ba2744704e6c6211477a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad198dee1300488d1b3e51767d62beedf"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad198dee1300488d1b3e51767d62beedf">rand_splitmix64</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;p)</td></tr>
-<tr class="memdesc:ad198dee1300488d1b3e51767d62beedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">SplitMix64 pseudorandom number generation.  <a href="namespacetheoretica.html#ad198dee1300488d1b3e51767d62beedf">More...</a><br /></td></tr>
+<tr class="memdesc:ad198dee1300488d1b3e51767d62beedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the SplitMix64 pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#ad198dee1300488d1b3e51767d62beedf">More...</a><br /></td></tr>
 <tr class="separator:ad198dee1300488d1b3e51767d62beedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a470e255aed45a7dba74af4af68b31d0d"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">rand_wyrand</a> (uint64_t &amp;seed, uint64_t p1, uint64_t p2)</td></tr>
-<tr class="memdesc:a470e255aed45a7dba74af4af68b31d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyrand pseudorandom number generation.  <a href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">More...</a><br /></td></tr>
+<tr class="memdesc:a470e255aed45a7dba74af4af68b31d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the Wyrand pseudorandom number generation, as invented by Yi Wang.  <a href="namespacetheoretica.html#a470e255aed45a7dba74af4af68b31d0d">More...</a><br /></td></tr>
 <tr class="separator:a470e255aed45a7dba74af4af68b31d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5deb3df62eb53ec187a4660d42d8d5f1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a5deb3df62eb53ec187a4660d42d8d5f1">rand_wyrand</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;p)</td></tr>
-<tr class="memdesc:a5deb3df62eb53ec187a4660d42d8d5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyrand pseudorandom number generation.  <a href="namespacetheoretica.html#a5deb3df62eb53ec187a4660d42d8d5f1">More...</a><br /></td></tr>
+<tr class="memdesc:a5deb3df62eb53ec187a4660d42d8d5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the Wyrand pseudorandom number generation, as invented by Yi Wang (wrapper)  <a href="namespacetheoretica.html#a5deb3df62eb53ec187a4660d42d8d5f1">More...</a><br /></td></tr>
 <tr class="separator:a5deb3df62eb53ec187a4660d42d8d5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c6bc4e4c3bc2e859b5ff1e4b344df4"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">rand_middlesquare</a> (uint64_t seed, uint64_t offset=765872292751861)</td></tr>
-<tr class="memdesc:ab7c6bc4e4c3bc2e859b5ff1e4b344df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Middle-square pseudorandom number generation.  <a href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">More...</a><br /></td></tr>
+<tr class="memdesc:ab7c6bc4e4c3bc2e859b5ff1e4b344df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the middle-square pseudorandom number generation algorithm.  <a href="namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4">More...</a><br /></td></tr>
 <tr class="separator:ab7c6bc4e4c3bc2e859b5ff1e4b344df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc42228ba03a0f01c33d192ba87766a9"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9">rand_middlesquare</a> (uint64_t x, std::vector&lt; uint64_t &gt; &amp;p)</td></tr>
-<tr class="memdesc:abc42228ba03a0f01c33d192ba87766a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Middle-square pseudorandom number generation.  <a href="namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9">More...</a><br /></td></tr>
+<tr class="memdesc:abc42228ba03a0f01c33d192ba87766a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom number using the middle-square pseudorandom number generation algorithm (wrapper)  <a href="namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9">More...</a><br /></td></tr>
 <tr class="separator:abc42228ba03a0f01c33d192ba87766a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7e523c1cc3621e7cbc1ac0df01913c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">qrand_weyl</a> (unsigned int n, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> alpha=<a class="el" href="namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde">INVPHI</a>)</td></tr>
 <tr class="memdesc:aa7e523c1cc3621e7cbc1ac0df01913c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weyl quasi-random sequence.  <a href="namespacetheoretica.html#aa7e523c1cc3621e7cbc1ac0df01913c3">More...</a><br /></td></tr>
@@ -1674,10 +1673,10 @@ std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7
 <tr class="memitem:a7e07a8227cf85be04e9554ea103854e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7e07a8227cf85be04e9554ea103854e7">log_likelihood</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;X, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> f)</td></tr>
 <tr class="memdesc:a7e07a8227cf85be04e9554ea103854e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the log likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt;  <a href="namespacetheoretica.html#a7e07a8227cf85be04e9554ea103854e7">More...</a><br /></td></tr>
 <tr class="separator:a7e07a8227cf85be04e9554ea103854e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac97fe53c636243acf273bfb04ebc91ec"><td class="memTemplParams" colspan="2">template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;&gt; </td></tr>
-<tr class="memitem:ac97fe53c636243acf273bfb04ebc91ec"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac97fe53c636243acf273bfb04ebc91ec">covar_mat</a> (const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
-<tr class="memdesc:ac97fe53c636243acf273bfb04ebc91ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the covariance matrix given a vector of datasets by computing the covariance between all couples of sets.  <a href="namespacetheoretica.html#ac97fe53c636243acf273bfb04ebc91ec">More...</a><br /></td></tr>
-<tr class="separator:ac97fe53c636243acf273bfb04ebc91ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memTemplParams" colspan="2">template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;, enable_vector&lt; Dataset &gt;  = true&gt; </td></tr>
+<tr class="memitem:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7a3a2baa8605d6bc685d6d959082b4d5">covar_mat</a> (const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
+<tr class="memdesc:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the covariance matrix given a vector of datasets by computing the covariance between all couples of sets.  <a href="namespacetheoretica.html#a7a3a2baa8605d6bc685d6d959082b4d5">More...</a><br /></td></tr>
+<tr class="separator:a7a3a2baa8605d6bc685d6d959082b4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
 <tr class="memitem:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;delta_x)</td></tr>
 <tr class="memdesc:a13c65d8d1f18eeaed2e6cb96b8138ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <a href="namespacetheoretica.html#a13c65d8d1f18eeaed2e6cb96b8138ec7">More...</a><br /></td></tr>
@@ -1690,10 +1689,10 @@ std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7
 <tr class="memitem:a2d84edd693f12451e609e365239533cc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2d84edd693f12451e609e365239533cc">error_propagation</a> (MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
 <tr class="memdesc:a2d84edd693f12451e609e365239533cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data.  <a href="namespacetheoretica.html#a2d84edd693f12451e609e365239533cc">More...</a><br /></td></tr>
 <tr class="separator:a2d84edd693f12451e609e365239533cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6e93b355b93426144ceb0f7b435ac3"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:adf6e93b355b93426144ceb0f7b435ac3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#adf6e93b355b93426144ceb0f7b435ac3">mc_error_propagation</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; rv, unsigned int N=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6)</td></tr>
-<tr class="memdesc:adf6e93b355b93426144ceb0f7b435ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <a href="namespacetheoretica.html#adf6e93b355b93426144ceb0f7b435ac3">More...</a><br /></td></tr>
-<tr class="separator:adf6e93b355b93426144ceb0f7b435ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9f585532132c422fef24bfd4b8b14d"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a4e9f585532132c422fef24bfd4b8b14d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a4e9f585532132c422fef24bfd4b8b14d">mc_error_propagation</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;rv, unsigned int N=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6)</td></tr>
+<tr class="memdesc:a4e9f585532132c422fef24bfd4b8b14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <a href="namespacetheoretica.html#a4e9f585532132c422fef24bfd4b8b14d">More...</a><br /></td></tr>
+<tr class="separator:a4e9f585532132c422fef24bfd4b8b14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12450df3fb890c36800cd56c41cf913b"><td class="memItemLeft" align="right" valign="top"><a id="a12450df3fb890c36800cd56c41cf913b"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12450df3fb890c36800cd56c41cf913b">mean</a> (const <a class="el" href="classtheoretica_1_1histogram.html">histogram</a> &amp;h)</td></tr>
 <tr class="memdesc:a12450df3fb890c36800cd56c41cf913b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean of the values of a histogram. <br /></td></tr>
@@ -1883,7 +1882,7 @@ template&lt;typename Dataset &gt; </td></tr>
 <tr class="separator:a41346f193f61b7e83364457e152237b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26d700698899f2a3c313a13a65025a61"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:a26d700698899f2a3c313a13a65025a61"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61">gaussian_expectation</a> (RealFunction g, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a12450df3fb890c36800cd56c41cf913b">mean</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma)</td></tr>
-<tr class="memdesc:a26d700698899f2a3c313a13a65025a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the expectation of a given function with respect to a Gaussian distribution with the given parameters.  <a href="namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61">More...</a><br /></td></tr>
+<tr class="memdesc:a26d700698899f2a3c313a13a65025a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the expectation value of a given function with respect to a Gaussian distribution with the given parameters.  <a href="namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61">More...</a><br /></td></tr>
 <tr class="separator:a26d700698899f2a3c313a13a65025a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c17656f2680b638683e38d85c503dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a04c17656f2680b638683e38d85c503dd">z_score</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a12450df3fb890c36800cd56c41cf913b">mean</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sigma)</td></tr>
 <tr class="memdesc:a04c17656f2680b638683e38d85c503dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Z-score of an observed value with respect to a Gaussian distribution with the given parameters.  <a href="namespacetheoretica.html#a04c17656f2680b638683e38d85c503dd">More...</a><br /></td></tr>
@@ -2190,6 +2189,23 @@ template&lt;typename Structure , typename T  = bool&gt; </div>
 
 <p>Enable a function overload if the template typename is considerable a vector. </p>
 <p>The std::enable_if structure is used, with type T which defaults to bool. </p>
+
+</div>
+</div>
+<a id="a99f8bd44356f8184466e4cc0d6986fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99f8bd44356f8184466e4cc0d6986fe5">&#9670;&nbsp;</a></span>pseudorandom_function</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5">theoretica::pseudorandom_function</a> = typedef uint64_t (*)(uint64_t, std::vector&lt;uint64_t&gt;&amp;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function pointer which wraps a pseudorandom generator, taking as input the previous generated value (or seed) and the current state of the algorithm. </p>
+<p>Such functions may be passed to the <a class="el" href="classtheoretica_1_1_p_r_n_g.html" title="A pseudorandom number generator.">PRNG</a> class to simplify the usage of generators. </p>
 
 </div>
 </div>
@@ -3318,13 +3334,13 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ac97fe53c636243acf273bfb04ebc91ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac97fe53c636243acf273bfb04ebc91ec">&#9670;&nbsp;</a></span>covar_mat()</h2>
+<a id="a7a3a2baa8605d6bc685d6d959082b4d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3a2baa8605d6bc685d6d959082b4d5">&#9670;&nbsp;</a></span>covar_mat()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;&gt; </div>
+template&lt;typename Matrix  = mat&lt;real&gt;, typename Dataset  = vec&lt;real&gt;, enable_vector&lt; Dataset &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -4407,7 +4423,7 @@ template&lt;typename RealFunction &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the expectation of a given function with respect to a Gaussian distribution with the given parameters. </p>
+<p>Compute the expectation value of a given function with respect to a Gaussian distribution with the given parameters. </p>
 <p>This function uses Gauss-Hermite quadrature to compute the integral \(\int_{-\infty}^{+\infty} g(x) e^{-x^2} dx\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -7811,8 +7827,8 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="adf6e93b355b93426144ceb0f7b435ac3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf6e93b355b93426144ceb0f7b435ac3">&#9670;&nbsp;</a></span>mc_error_propagation()</h2>
+<a id="a4e9f585532132c422fef24bfd4b8b14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9f585532132c422fef24bfd4b8b14d">&#9670;&nbsp;</a></span>mc_error_propagation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7828,7 +7844,7 @@ template&lt;typename Function &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>rv</em>, </td>
         </tr>
         <tr>
@@ -7859,16 +7875,16 @@ template&lt;typename Function &gt; </div>
 
 </div>
 </div>
-<a id="a4f05663c1a2c0ae0e9fdf9784db4036d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f05663c1a2c0ae0e9fdf9784db4036d">&#9670;&nbsp;</a></span>mc_sample()</h2>
+<a id="a771d1aee045c8d3c2a7193d4aaa368bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771d1aee045c8d3c2a7193d4aaa368bf">&#9670;&nbsp;</a></span>mc_sample()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function , typename VectorType  = std::vector&lt;real&gt;&gt; </div>
+template&lt;typename Vector  = std::vector&lt;real&gt;, typename Function  = std::function&lt;real(vec&lt;real&gt;)&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">VectorType theoretica::mc_sample </td>
+          <td class="memname">Vector theoretica::mc_sample </td>
           <td>(</td>
           <td class="paramtype">Function&#160;</td>
           <td class="paramname"><em>f</em>, </td>
@@ -7876,7 +7892,7 @@ template&lt;typename Function , typename VectorType  = std::vector&lt;real&gt;&g
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>rv</em>, </td>
         </tr>
         <tr>
@@ -10077,16 +10093,16 @@ template&lt;unsigned int N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Congruential pseudorandom number generation algorithm (wrapper) </p>
+<p>Generate a pseudorandom number using the congruential pseudorandom number generation algorithm (wrapper) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>The current recurrence value of the algorithm (x_n) </td></tr>
+    <tr><td class="paramname">x</td><td>The current recurrence value of the algorithm ( \(x_n\)) </td></tr>
     <tr><td class="paramname">state</td><td>A vector containing the state of the algorithm (a, c, m in this order) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The next generated pseudorandom number</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1" title="Congruential pseudorandom number generation algorithm.">rand_congruential</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacetheoretica.html#ab1025a8b933cfe7077936c4be27971c1" title="Generate a pseudorandom number using the congruential pseudorandom number generation algorithm.">rand_congruential</a> </dd></dl>
 
 </div>
 </div>
@@ -10136,7 +10152,7 @@ template&lt;unsigned int N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Congruential pseudorandom number generation algorithm. </p>
+<p>Generate a pseudorandom number using the congruential pseudorandom number generation algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The current recurrence value of the algorithm (x_n) </td></tr>
@@ -10570,13 +10586,14 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Middle-square pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the middle-square pseudorandom number generation algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">seed</td><td>The (changing) seed of the algorithm</td></tr>
+    <tr><td class="paramname">seed</td><td>The (changing) seed of the algorithm </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number</dd></dl>
 <p>An offset is added to the 64-bit seed and the result is squared, taking the middle 64-bit of the 128-bit result. </p>
 
 </div>
@@ -10615,7 +10632,7 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Middle-square pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the middle-square pseudorandom number generation algorithm (wrapper) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The seed of the algorithm </td></tr>
@@ -10623,6 +10640,7 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number </dd></dl>
 
 </div>
 </div>
@@ -10813,14 +10831,15 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>SplitMix64 pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the SplitMix64 pseudorandom number generation algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>The 64-bit state of the algorithm</td></tr>
+    <tr><td class="paramname">x</td><td>The 64-bit state of the algorithm </td></tr>
   </table>
   </dd>
 </dl>
-<p>Adapted from the reference implementation by Sebastiano Vigna </p>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number</dd></dl>
+<p>Adapted from the reference implementation by Sebastiano Vigna. </p>
 
 </div>
 </div>
@@ -10858,7 +10877,7 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>SplitMix64 pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the SplitMix64 pseudorandom number generation algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The 64-bit state of the algorithm </td></tr>
@@ -10866,6 +10885,7 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number </dd></dl>
 
 </div>
 </div>
@@ -11103,16 +11123,16 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Wyrand pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the Wyrand pseudorandom number generation, as invented by Yi Wang. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">seed</td><td>The (changing) seed of the algorithm </td></tr>
     <tr><td class="paramname">p0</td><td>Additive constant (ideally a large prime number) </td></tr>
-    <tr><td class="paramname">p1</td><td>Mask for the algorithm</td></tr>
+    <tr><td class="paramname">p1</td><td>Mask for the algorithm </td></tr>
   </table>
   </dd>
 </dl>
-<p>Algorithm by Yi Wang </p>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number </dd></dl>
 
 </div>
 </div>
@@ -11150,14 +11170,15 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Wyrand pseudorandom number generation. </p>
+<p>Generate a pseudorandom number using the Wyrand pseudorandom number generation, as invented by Yi Wang (wrapper) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Dummy variable </td></tr>
-    <tr><td class="paramname">p</td><td>Algorithm parameters</td></tr>
+    <tr><td class="paramname">p</td><td>Algorithm parameters </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number</dd></dl>
 <p>p[0] is the initial seed, p[1] a large prime number and p[2] is the bit mask. </p>
 
 </div>
@@ -11208,15 +11229,16 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Xoshiro256++ pseudorandom number generation algorithm. </p>
+<p>Generate a pseudorandom number using the xoshiro256++ pseudorandom number generation algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Dummy parameter (needed for function signature) </td></tr>
-    <tr><td class="paramname">state</td><td>The four 64-bit integer state of the algorithm</td></tr>
+    <tr><td class="paramname">state</td><td>The four 64-bit integer state of the algorithm which will be updated during the iteration. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Adapted from the reference implementation by Sebastiano Vigna </p>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number</dd></dl>
+<p>Adapted from the reference implementation by Sebastiano Vigna. </p>
 
 </div>
 </div>
@@ -11254,14 +11276,15 @@ If no parameters are passed, the generator defaults to a = 48271, c = 0, m = (1 
 </table>
 </div><div class="memdoc">
 
-<p>Xoshiro256++ pseudorandom number generation algorithm. </p>
+<p>Generate a pseudorandom number using the xoshiro256++ pseudorandom number generation algorithm (wrapper) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Dummy parameter (needed for function signature) </td></tr>
-    <tr><td class="paramname">state</td><td>The four 64-bit integer state of the algorithm </td></tr>
+    <tr><td class="paramname">state</td><td>The four 64-bit integer state of the algorithm which will be updated during the iteration. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A 64-bit pseudorandom number </dd></dl>
 
 </div>
 </div>
@@ -12556,13 +12579,13 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a20960b2923a0c3c41b4db5452fa1dbf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20960b2923a0c3c41b4db5452fa1dbf3">&#9670;&nbsp;</a></span>sum() <span class="overload">[1/2]</span></h2>
+<a id="a551e6c640e2580e8756526e015f2ad04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a551e6c640e2580e8756526e015f2ad04">&#9670;&nbsp;</a></span>sum() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N&gt; </div>
+template&lt;typename Vector , std::enable_if_t&lt; has_real_elements&lt; Vector &gt;::value &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -12570,7 +12593,7 @@ template&lt;unsigned int N&gt; </div>
         <tr>
           <td class="memname">auto theoretica::sum </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>X</em></td><td>)</td>
           <td></td>
         </tr>
@@ -12923,7 +12946,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad334afa326d522c23634e97be1e39994":[12,0,1,7,4],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad570a4504440d6ca05e820cdc505abfd":[12,0,1,7,20],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad9302c325b2d31ca5e39e7c6d55b982b":[12,0,1,7,32],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#adb116d2a78e8c24c5b4d6118117e3ec3":[12,0,1,7,13],
@@ -139,8 +140,8 @@ var NAVTREEINDEX3 =
 "dataset_8h.html#a133ae02c952df7352cfb3830a1616bc1":[13,0,4,3,5],
 "dataset_8h.html#a173a64c4f73cb7abd476b739005d94e7":[13,0,4,3,13],
 "dataset_8h.html#a1a85d4034e2edc73c0175f1d3b6d1382":[13,0,4,3,1],
-"dataset_8h.html#a20960b2923a0c3c41b4db5452fa1dbf3":[13,0,4,3,11],
 "dataset_8h.html#a2a97cfad96b9bb73d76b8f5cc20f2896":[13,0,4,3,14],
+"dataset_8h.html#a551e6c640e2580e8756526e015f2ad04":[13,0,4,3,11],
 "dataset_8h.html#a577718046a061b09c2c571d84b4cf47b":[13,0,4,3,0],
 "dataset_8h.html#a79c3cffe1db6b2cb178d41bfc98b1c41":[13,0,4,3,4],
 "dataset_8h.html#a8298cbf34bf300bc2c84d14264484ffd":[13,0,4,3,7],
@@ -149,9 +150,9 @@ var NAVTREEINDEX3 =
 "dataset_8h.html#ab5113ceec31eaa10956e860523f7a18a":[13,0,4,3,3],
 "dataset_8h.html#abf60e1fdc60411ae615b952b7248b093":[13,0,4,3,8],
 "dataset_8h.html#ad8f39fdf206c30999a973d03e49cdd5b":[13,0,4,3,2],
+"dataset_8h.html#adf08c69e546c822b60b2185156b04360":[13,0,4,3,6],
 "dataset_8h.html#aec3305c4f7617c88a3e8ee4deb5b7ef0":[13,0,4,3,12],
 "dataset_8h.html#aec4e70500501fc48d6ad18f8abfc1896":[13,0,4,3,15],
-"dataset_8h.html#afe8fa10e568fa3bfb88cd0f5449b94f0":[13,0,4,3,6],
 "dataset_8h_source.html":[13,0,4,3],
 "derivation_8h.html":[13,0,2,0],
 "derivation_8h.html#a383ecbb074d735f5b5e8a2f45e5eb291":[13,0,2,0,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "dual__functions_8h.html#a1b8d81973a127a1e66c180cba58d08ee":[13,0,1,5,6],
 "dual__functions_8h.html#a1f8c95ef4ed4e4da6af87e9eee675f82":[13,0,1,5,15],
 "dual__functions_8h.html#a21974bc022495f59a7702ce937f4544c":[13,0,1,5,9],
-"dual__functions_8h.html#a254b955eacdab15792dcb9d871559499":[13,0,1,5,11],
-"dual__functions_8h.html#a30d6466e16b24bd1dfac49fd0c50ed79":[13,0,1,5,12]
+"dual__functions_8h.html#a254b955eacdab15792dcb9d871559499":[13,0,1,5,11]
 };

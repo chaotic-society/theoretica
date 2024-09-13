@@ -105,7 +105,6 @@ $(document).ready(function(){initNavTree('dataset_8h.html',''); initResizable();
 <code>#include &quot;<a class="el" href="core__traits_8h_source.html">./core_traits.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="constants_8h_source.html">./constants.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="error_8h_source.html">./error.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec_8h_source.html">../algebra/vec.h</a>&quot;</code><br />
 </div>
 <p><a href="dataset_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -117,11 +116,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memTemplParams" colspan="2"><a id="afe8fa10e568fa3bfb88cd0f5449b94f0"></a>
-template&lt;typename Vector &gt; </td></tr>
-<tr class="memitem:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afe8fa10e568fa3bfb88cd0f5449b94f0">theoretica::product</a> (const Vector &amp;X)</td></tr>
-<tr class="memdesc:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
-<tr class="separator:afe8fa10e568fa3bfb88cd0f5449b94f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf08c69e546c822b60b2185156b04360"><td class="memTemplParams" colspan="2"><a id="adf08c69e546c822b60b2185156b04360"></a>
+template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:adf08c69e546c822b60b2185156b04360"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#adf08c69e546c822b60b2185156b04360">theoretica::product</a> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:adf08c69e546c822b60b2185156b04360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the product of a set of values. <br /></td></tr>
+<tr class="separator:adf08c69e546c822b60b2185156b04360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8298cbf34bf300bc2c84d14264484ffd"><td class="memTemplParams" colspan="2"><a id="a8298cbf34bf300bc2c84d14264484ffd"></a>
 template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a8298cbf34bf300bc2c84d14264484ffd"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">theoretica::product_sum</a> (const Vector &amp;X, const Vector &amp;Y)</td></tr>
@@ -155,10 +154,10 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">theoretica::sum_pairwise</a> (const Vector &amp;X, size_t begin=0, size_t end=0, size_t base_size=128)</td></tr>
 <tr class="memdesc:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a set of values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">More...</a><br /></td></tr>
 <tr class="separator:a2a97cfad96b9bb73d76b8f5cc20f2896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">theoretica::sum</a> (const vec&lt; real, N &gt; &amp;X)</td></tr>
-<tr class="memdesc:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a20960b2923a0c3c41b4db5452fa1dbf3">More...</a><br /></td></tr>
-<tr class="separator:a20960b2923a0c3c41b4db5452fa1dbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551e6c640e2580e8756526e015f2ad04"><td class="memTemplParams" colspan="2">template&lt;typename Vector , std::enable_if_t&lt; has_real_elements&lt; Vector &gt;::value &gt;  = true&gt; </td></tr>
+<tr class="memitem:a551e6c640e2580e8756526e015f2ad04"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">theoretica::sum</a> (const Vector &amp;X)</td></tr>
+<tr class="memdesc:a551e6c640e2580e8756526e015f2ad04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.  <a href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">More...</a><br /></td></tr>
+<tr class="separator:a551e6c640e2580e8756526e015f2ad04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0">theoretica::sum</a> (const Vector &amp;X)</td></tr>
 <tr class="memdesc:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a set of values.  <a href="namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0">More...</a><br /></td></tr>
@@ -199,7 +198,7 @@ template&lt;typename Vector &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="dataset_8h.html">dataset.h</a></li>
-    <li class="footer">Generated on Wed Sep 11 2024 21:48:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
