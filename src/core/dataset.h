@@ -14,28 +14,27 @@
 #include "./core_traits.h"
 #include "./constants.h"
 #include "./error.h"
-#include "../algebra/vec.h"
 
 
 namespace theoretica {
 
 
 	// Operations on datasets and generic ordered sets of numbers
-	// The Vector type must have size() and operator[]() functions
+	// The Vector type must have size() and operator[]() methods
 	// (e.g. std::vector<real> and vec<real>)
 
 
 	/// Compute the product of a set of values
-	template<typename Vector>
+	template<typename Vector, enable_vector<Vector> = true>
 	inline auto product(const Vector& X) {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("product", X.size(), INVALID_ARGUMENT);
-			return nan();
+			return vector_element_t<Vector>(nan());
 		}
 
-		auto res = vector_element_t<Vector>(1);
-		for(unsigned int i = 0; i < X.size(); i++)
+		auto res = X[0];
+		for(unsigned int i = 1; i < X.size(); i++)
 			res *= X[i];
 
 		return res;
@@ -46,13 +45,13 @@ namespace theoretica {
 	template<typename Vector>
 	inline auto product_sum(const Vector& X, const Vector& Y) {
 
-		if(X.size() != Y.size()) {
+		if(X.size() != Y.size() || !X.size()) {
 			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
-		auto res = vector_element_t<Vector>(0);
-		for(unsigned int i = 0; i < X.size(); i++)
+		auto res = X[0] * Y[0];
+		for(unsigned int i = 1; i < X.size(); i++)
 			res += X[i] * Y[i];
 
 		return res;
@@ -63,13 +62,14 @@ namespace theoretica {
 	template<typename Vector>
 	inline auto product_sum_squares(const Vector& X, const Vector& Y) {
 
-		if(X.size() != Y.size()) {
+		if(X.size() != Y.size() || !X.size()) {
 			TH_MATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
-		auto res = vector_element_t<Vector>(0);
-		for(unsigned int i = 0; i < X.size(); i++)
+		auto res = (X[0] * X[0]) * (Y[0] * Y[0]);
+
+		for(unsigned int i = 1; i < X.size(); i++)
 			res += (X[i] * X[i]) * (Y[i] * Y[i]);
 
 		return res;
@@ -80,13 +80,13 @@ namespace theoretica {
     template<typename Vector>
 	inline auto product_sum(const Vector& X, const Vector& Y, const Vector& Z) {
 
-		if(X.size() != Y.size() || X.size() != Z.size()) {
+		if(X.size() != Y.size() || X.size() != Z.size() || !X.size()) {
 			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
 			return nan();
 		}
 
-		auto res = vector_element_t<Vector>(0);
-		for(unsigned int i = 0; i < X.size(); i++)
+		auto res = X[0] * Y[0] * Z[0];
+		for(unsigned int i = 1; i < X.size(); i++)
 			res += X[i] * Y[i] * Z[i];
 
 		return res;
@@ -102,10 +102,15 @@ namespace theoretica {
 			return nan();
 		}
 
-		auto res = vector_element_t<Vector>(0);
-		for(unsigned int i = 0; i < X.size(); i++) {
+		if(abs(Y[0]) < MACH_EPSILON) {
+			TH_MATH_ERROR("quotient_sum", Y[0], DIV_BY_ZERO);
+			return nan();
+		}
 
-			if(Y[i] == 0) {
+		auto res = X[0] / Y[0];
+		for(unsigned int i = 1; i < X.size(); i++) {
+
+			if(abs(Y[i]) < MACH_EPSILON) {
 				TH_MATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
 				return nan();
 			}
@@ -120,6 +125,11 @@ namespace theoretica {
     /// Sum the squares of a set of values
     template<typename Vector>
 	inline auto sum_squares(const Vector& X) {
+
+		if(!X.size()) {
+			TH_MATH_ERROR("sum_squares", X.size(), INVALID_ARGUMENT);
+			return nan();
+		}
 
 		auto res = X[0] * X[0];
 		for(unsigned int i = 1; i < X.size(); i++)
@@ -202,8 +212,11 @@ namespace theoretica {
 	/// using pairwise summation to reduce round-off error.
 	///
 	/// @param X The vector of values to sum
-	template<unsigned int N>
-	inline auto sum(const vec<real, N>& X) {
+	template <
+		typename Vector,
+		std::enable_if_t<has_real_elements<Vector>::value> = true
+	>
+	inline auto sum(const Vector& X) {
 		return sum_pairwise(X);
 	}
 

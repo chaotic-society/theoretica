@@ -452,7 +452,7 @@ namespace theoretica {
 	}
 
 
-	/// Compute the expectation of a given function with respect
+	/// Compute the expectation value of a given function with respect
 	/// to a Gaussian distribution with the given parameters.
 	/// This function uses Gauss-Hermite quadrature to compute
 	/// the integral \f$\int_{-\infty}^{+\infty} g(x) e^{-x^2} dx\f$

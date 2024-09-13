@@ -369,12 +369,17 @@ namespace theoretica {
 	/// distributions of the random variables
 	/// @param N The size of the sample
 	/// @return The sampled values
-	template<typename Function, typename VectorType = std::vector<real>>
-	VectorType mc_sample(Function f, std::vector<pdf_sampler> rv, unsigned int N) {
+	template <
+		typename Vector = std::vector<real>,
+		typename Function = std::function<real(vec<real>)>
+	>
+	Vector mc_sample(Function f, std::vector<pdf_sampler>& rv, unsigned int N) {
 
-		VectorType sample;
+		Vector sample;
 		sample.resize(N);
-		vec<real> v(rv.size());
+
+		vec<real> v;
+		v.resize(rv.size());
 
 		for (unsigned int i = 0; i < N; ++i) {
 

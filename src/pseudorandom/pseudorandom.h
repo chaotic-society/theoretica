@@ -16,11 +16,16 @@
 namespace theoretica {
 
 
-    /// A pseudorandom function pointer
+    /// A function pointer which wraps a pseudorandom generator,
+    /// taking as input the previous generated value (or seed) and
+    /// the current state of the algorithm. Such functions may be
+    /// passed to the PRNG class to simplify the usage of generators.
     using pseudorandom_function = uint64_t (*)(uint64_t, std::vector<uint64_t>&);
 
 
-	/// Congruential pseudorandom number generation algorithm
+    /// Generate a pseudorandom number using the
+	/// congruential pseudorandom number generation algorithm.
+	///
 	/// @param x The current recurrence value of the algorithm (x_n)
 	/// @param a The multiplier term
 	/// @param c The increment term
@@ -41,8 +46,10 @@ namespace theoretica {
 	}
 
 
-    /// Congruential pseudorandom number generation algorithm (wrapper)
-    /// @param x The current recurrence value of the algorithm (x_n)
+	/// Generate a pseudorandom number using the
+    /// congruential pseudorandom number generation algorithm (wrapper)
+    ///
+    /// @param x The current recurrence value of the algorithm (\f$x_n\f$)
     /// @param state A vector containing the state of the algorithm (a, c, m in this order)
     /// @return The next generated pseudorandom number
     /// 
@@ -67,11 +74,15 @@ namespace theoretica {
 	}
 
 
-	/// Xoshiro256++ pseudorandom number generation algorithm
+	/// Generate a pseudorandom number using the
+	/// xoshiro256++ pseudorandom number generation algorithm
+	///
 	/// @param x Dummy parameter (needed for function signature)
 	/// @param state The four 64-bit integer state of the algorithm
+	/// which will be updated during the iteration.
+	/// @return A 64-bit pseudorandom number
 	///
-	/// Adapted from the reference implementation by Sebastiano Vigna
+	/// Adapted from the reference implementation by Sebastiano Vigna.
 	inline uint64_t rand_xoshiro(uint64_t& a, uint64_t& b, uint64_t& c, uint64_t& d) {
 
 		// Add and rotate
@@ -91,9 +102,13 @@ namespace theoretica {
 	}
 
 
-	/// Xoshiro256++ pseudorandom number generation algorithm
+	/// Generate a pseudorandom number using the
+	/// xoshiro256++ pseudorandom number generation algorithm (wrapper)
+	///
 	/// @param x Dummy parameter (needed for function signature)
 	/// @param state The four 64-bit integer state of the algorithm
+	/// which will be updated during the iteration.
+	/// @return A 64-bit pseudorandom number
 	inline uint64_t rand_xoshiro(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
@@ -105,10 +120,13 @@ namespace theoretica {
 	}
 
 
-	/// SplitMix64 pseudorandom number generation
-	/// @param x The 64-bit state of the algorithm
+	/// Generate a pseudorandom number using the
+	/// SplitMix64 pseudorandom number generation algorithm
 	///
-	/// Adapted from the reference implementation by Sebastiano Vigna
+	/// @param x The 64-bit state of the algorithm
+	/// @return A 64-bit pseudorandom number
+	///
+	/// Adapted from the reference implementation by Sebastiano Vigna.
 	inline uint64_t rand_splitmix64(uint64_t x) {
 
 		x += 0x9e3779b97f4a7c15;
@@ -121,39 +139,55 @@ namespace theoretica {
 	}
 
 
-	/// SplitMix64 pseudorandom number generation
+	/// Generate a pseudorandom number using the
+	/// SplitMix64 pseudorandom number generation algorithm
+	///
 	/// @param x The 64-bit state of the algorithm
 	/// @param p Dummy variable (needed for function signature)
+	/// @return A 64-bit pseudorandom number
 	inline uint64_t rand_splitmix64(uint64_t x, std::vector<uint64_t>& p) {
 		return rand_splitmix64(x);
 	}
 
 
-	/// Wyrand pseudorandom number generation
+	/// Generate a pseudorandom number using the
+	/// Wyrand pseudorandom number generation, as invented by Yi Wang
+	///
 	/// @param seed The (changing) seed of the algorithm
 	/// @param p0 Additive constant (ideally a large prime number)
 	/// @param p1 Mask for the algorithm
-	///
-	/// Algorithm by Yi Wang
+	/// @return A 64-bit pseudorandom number
 	inline uint64_t rand_wyrand(uint64_t& seed, uint64_t p1, uint64_t p2) {
 		seed += p1;
 		return mix_mum(seed ^ p2, seed);
 	}
 
 
-	/// Wyrand pseudorandom number generation
+	/// Generate a pseudorandom number using the Wyrand pseudorandom
+	/// number generation, as invented by Yi Wang (wrapper)
+	///
 	/// @param x Dummy variable
 	/// @param p Algorithm parameters
+	/// @return A 64-bit pseudorandom number
 	///
 	/// p[0] is the initial seed, p[1] a large prime number and
 	/// p[2] is the bit mask.
 	inline uint64_t rand_wyrand(uint64_t x, std::vector<uint64_t>& p) {
+
+		if(p.size() != 3) {
+			TH_MATH_ERROR("rand_wyrand", p.size(), INVALID_ARGUMENT);
+			return 0;
+		}
+
 		return rand_wyrand(p[0], p[1], p[2]);
 	}
 
 
-	/// Middle-square pseudorandom number generation
+	/// Generate a pseudorandom number using the
+	/// middle-square pseudorandom number generation algorithm.
+	///
 	/// @param seed The (changing) seed of the algorithm
+	/// @return A 64-bit pseudorandom number
 	///
 	/// An offset is added to the 64-bit seed and the result is squared,
 	/// taking the middle 64-bit of the 128-bit result.
@@ -167,10 +201,19 @@ namespace theoretica {
 	}
 
 
-	/// Middle-square pseudorandom number generation
+	/// Generate a pseudorandom number using the
+	/// middle-square pseudorandom number generation algorithm (wrapper)
+	///
 	/// @param x The seed of the algorithm
 	/// @param p Algorithm parameters, p[0] is the offset
+	/// @return A 64-bit pseudorandom number
 	inline uint64_t rand_middlesquare(uint64_t x, std::vector<uint64_t>& p) {
+
+		if(p.size() != 1) {
+			TH_MATH_ERROR("rand_middlesquare", p.size(), INVALID_ARGUMENT);
+			return 0;
+		}
+
 		return rand_middlesquare(x, p[0]);
 	}
 

@@ -6,6 +6,7 @@
 #ifndef THEORETICA_ERRORPROP_H
 #define THEORETICA_ERRORPROP_H
 
+#include "../core/core_traits.h"
 #include "../algebra/vec.h"
 #include "../autodiff/autodiff.h"
 #include "../statistics/statistics.h"
@@ -21,7 +22,10 @@ namespace theoretica {
 	///
 	/// @param v A vector of datasets of measures
 	/// @return The covariance matrix of the datasets
-	template<typename Matrix = mat<real>, typename Dataset = vec<real>>
+	template <
+		typename Matrix = mat<real>, typename Dataset = vec<real>,
+		enable_vector<Dataset> = true
+	>
 	inline Matrix covar_mat(const std::vector<Dataset>& v) {
 
 		Matrix cm;
@@ -155,7 +159,7 @@ namespace theoretica {
 	/// @return The standard deviation of the Monte Carlo sample
 	template<typename Function>
 	real mc_error_propagation(
-		Function f, std::vector<pdf_sampler> rv, unsigned int N = 1E+6) {
+		Function f, std::vector<pdf_sampler>& rv, unsigned int N = 1E+6) {
 
 		return smpl_stdev(mc_sample(f, rv, N));
 	}
