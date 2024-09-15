@@ -21,7 +21,10 @@ namespace theoretica {
 
 
 	/// @class histogram
-	/// Histogram class with running statistics
+	/// Histogram class with running statistics, can be constructed
+	/// from the parameters of the bins or from a dataset. Elements
+	/// are inserted one by one, updating the running statistics
+	/// for the TSS, mean, maximum and minimum on each step.
 	class histogram {
 		private:
 
@@ -84,8 +87,8 @@ namespace theoretica {
 				N = data.size();
 
 				// Compute mean and TSS
-				run_average = theoretica::mean(data);
-				run_tss = total_sum_squares(data);
+				run_average = stats::mean(data);
+				run_tss = stats::total_sum_squares(data);
 
 				// Default bin count is sqrt(N)
 				bin_counts.resize(
@@ -196,6 +199,9 @@ namespace theoretica {
 			}
 
 
+			// Operators
+
+
 			/// Evaluate the histogram like a step function
 			/// which is zero outside the range of the histogram.
 			///
@@ -264,27 +270,40 @@ namespace theoretica {
 	};
 
 
-	/// Compute the mean of the values of a histogram.
-	inline real mean(const histogram& h) {
-		return h.mean();
-	}
+	// Statistical functions over elements of a histogram
 
 
-	/// Compute the variance of the values of a histogram.
-	inline real variance(const histogram& h) {
+	namespace stats {
 
-		if (h.number() <= 1) {
-			TH_MATH_ERROR("variance", h.number(), DIV_BY_ZERO);
-			return nan();
+
+		/// Compute the mean of the values of a histogram.
+		inline real mean(const histogram& h) {
+			return h.mean();
 		}
 
-		return h.tss() / (h.number() - 1);
-	}
+
+		/// Compute the total sum of squares of the values of the histogram.
+		inline real tss(const histogram& h) {
+			return h.tss();
+		}
 
 
-	/// Compute the standard deviation of the values of a histogram.
-	inline real stdev(const histogram& h) {
-		return sqrt(variance(h));
+		/// Compute the variance of the values of a histogram.
+		inline real variance(const histogram& h) {
+
+			if (h.number() <= 1) {
+				TH_MATH_ERROR("variance", h.number(), DIV_BY_ZERO);
+				return nan();
+			}
+
+			return h.tss() / (h.number() - 1);
+		}
+
+
+		/// Compute the standard deviation of the values of a histogram.
+		inline real stdev(const histogram& h) {
+			return sqrt(variance(h));
+		}
 	}
 
 

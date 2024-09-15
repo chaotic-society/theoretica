@@ -51,7 +51,7 @@ int main(int argc, char const *argv[]) {
 			str << "pvalue(" << chi << "," << ndf << ") < 1";
 
 			prec::equals(str.str(),
-				(pvalue_chi_squared(chi, ndf) - 1) < 1E-6, 1);
+				(stats::pvalue_chi_squared(chi, ndf) - 1) < 1E-6, 1);
 		}
 
 		for (int i = 0; i < 10; ++i) {
@@ -62,7 +62,7 @@ int main(int argc, char const *argv[]) {
 			str << "pvalue(0," << ndf << ")";
 
 			prec::equals(str.str(),
-				pvalue_chi_squared(0, ndf), 1, 1E-6);
+				stats::pvalue_chi_squared(0, ndf), 1, 1E-6);
 		}
 
 	prec::terminate();

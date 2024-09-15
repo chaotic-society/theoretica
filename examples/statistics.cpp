@@ -26,16 +26,16 @@ int main() {
 	// by using functionalities defined in "statistics.h"
 	println();
 	println("N =", X.size());
-	println("Mean:", mean(X));
-	println("Variance:", sample_variance(X));
+	println("Mean:", stats::mean(X));
+	println("Variance:", stats::variance(X));
 
 	// Many functions with long names have short-hands:
 	// sample_standard_deviation = smpl_stdev
 	// sample_mean_standard_deviation = smpl_stdom
-	println("Standard Deviation:", smpl_stdev(X));
-	println("Mean Standard Deviation:", smpl_stdom(X));
+	println("Standard Deviation:", stats::stdev(X));
+	println("Mean Standard Deviation:", stats::stdom(X));
 	
-	println("Relative Error:", sample_standard_relative_error(X) * 100, "%");
+	println("Relative Error:", stats::standard_relative_error(X) * 100, "%");
 
 	return 0;
 }

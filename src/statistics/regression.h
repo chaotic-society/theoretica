@@ -188,8 +188,8 @@ namespace theoretica {
 			}
 
 			// Pre-compute values
-			const real mean_x = mean(X);
-			const real mean_y = mean(Y);
+			const real mean_x = stats::mean(X);
+			const real mean_y = stats::mean(Y);
 			const real delta_x = (sum_squares(X) / X.size()) - square(mean_x);
 			const real delta_y = (sum_squares(Y) / Y.size()) - square(mean_y);
 			const real delta_xy = (product_sum(X, Y) / X.size()) - mean_x * mean_y;
@@ -429,7 +429,7 @@ namespace theoretica {
 				err = ols_linear_error(X, Y, A, B);
 				chi_squared = err / sigma_Y;
 				ndf = Y.size() - 2;
-				p_value = pvalue_chi_squared(chi_squared, ndf);
+				p_value = stats::pvalue_chi_squared(chi_squared, ndf);
 			}
 
 
@@ -470,9 +470,9 @@ namespace theoretica {
 				sigma_B = sqrt(this->covar_mat(1, 1));
 
 				err = ols_linear_error(X, Y, A, B);
-				chi_squared = chi_square_linearization(X, Y, sigma, A, B);
+				chi_squared = stats::chi_square_linearization(X, Y, sigma, A, B);
 				ndf = Y.size() - 2;
-				p_value = pvalue_chi_squared(chi_squared, ndf);
+				p_value = stats::pvalue_chi_squared(chi_squared, ndf);
 			}
 
 
@@ -509,7 +509,7 @@ namespace theoretica {
 				err = ols_linear_error(X, Y, A, B);
 				chi_squared = err / (square(sigma_Y) + square(B * sigma_X));
 				ndf = Y.size() - 2;
-				p_value = pvalue_chi_squared(chi_squared, ndf);
+				p_value = stats::pvalue_chi_squared(chi_squared, ndf);
 			}
 
 

@@ -373,7 +373,7 @@ namespace theoretica {
 		typename Vector = std::vector<real>,
 		typename Function = std::function<real(vec<real>)>
 	>
-	Vector mc_sample(Function f, std::vector<pdf_sampler>& rv, unsigned int N) {
+	Vector sample_mc(Function f, std::vector<pdf_sampler>& rv, unsigned int N) {
 
 		Vector sample;
 		sample.resize(N);

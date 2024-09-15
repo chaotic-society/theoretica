@@ -51,17 +51,25 @@ int main() {
 
 
 	// Compute the covariance matrix
-	std::cout << covar_mat(datasets) << std::endl;
+	std::cout << stats::covar_mat(datasets) << std::endl;
 
 
 	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << error_propagation(f, datasets) << std::endl;
+	std::cout << stats::error_propagation(f, datasets) << std::endl;
 
 	// Propagate using only the standard deviation
-	std::cout << error_propagation(f,
-		vec<>({ mean(datasets[0]), mean(datasets[1]), mean(datasets[2]) }),
-		vec<>({ smpl_stdev(datasets[0]), smpl_stdev(datasets[1]), smpl_stdev(datasets[2]) })
+	std::cout << stats::error_propagation(f,
+		vec<>({
+			stats::mean(datasets[0]),
+			stats::mean(datasets[1]),
+			stats::mean(datasets[2])}
+		),
+		vec<>({
+			stats::stdev(datasets[0]),
+			stats::stdev(datasets[1]),
+			stats::stdev(datasets[2])}
+		)
 	) << std::endl;
 }

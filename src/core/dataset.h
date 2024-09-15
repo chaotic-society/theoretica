@@ -355,6 +355,79 @@ namespace theoretica {
 		return curr;
 	}
 
+
+	// Different types of means
+
+
+	/// Compute the arithmetic mean of a set of values
+	template<typename Dataset>
+	inline real arithmetic_mean(const Dataset& data) {
+
+		if(!data.size()) {
+			TH_MATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
+			return nan();
+		}
+
+		// Sum of x_i / N
+		return sum(data) / (real) data.size();
+	}
+
+
+	/// Compute the harmonic mean of a set of values
+	template<typename Dataset>
+	inline real harmonic_mean(const Dataset& data) {
+
+		if(!data.size()) {
+			TH_MATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
+			return nan();
+		}
+
+		real res = 0;
+
+		for (unsigned int i = 0; i < data.size(); ++i) {
+
+			if(data[i] == 0) {
+				TH_MATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
+				return nan();
+			}
+
+			res += 1.0 / data[i];
+		}
+
+		return static_cast<real>(data.size()) / res;
+	}
+
+
+	/// Compute the geometric mean of a set of values
+	/// as \f$\sqrt[n]{\Pi_i x_i}\f$
+	template<typename Dataset>
+	inline real geometric_mean(const Dataset& data) {
+		return root(product(data), data.size());
+	}
+
+
+	/// Compute the weighted mean of a set of values
+	/// <data> and <weights> must have the same size
+	template<typename Dataset1, typename Dataset2>
+	inline real weighted_mean(const Dataset1& data, const Dataset2& weights) {
+
+		// Sum of x_i * w_i / Sum of w_i
+		return product_sum(data, weights) / sum(weights);
+	}
+
+
+	/// Compute the quadratic mean (Root Mean Square) of a set of values
+	/// \f$m_q = \sqrt{x1^2 + x2^2 + ...}\f$
+	template<typename Dataset>
+	inline real quadratic_mean(const Dataset& data) {
+
+		if(!data.size()) {
+			TH_MATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
+			return nan();
+		}
+
+		return sqrt(sum_squares(data) / data.size());
+	}
 }
 
 #endif
