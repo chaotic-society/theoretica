@@ -189,6 +189,31 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a133ae02c952df7352cfb3830a1616bc1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a> (const Vector &amp;X)</td></tr>
 <tr class="memdesc:a133ae02c952df7352cfb3830a1616bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum value inside a dataset. <br /></td></tr>
 <tr class="separator:a133ae02c952df7352cfb3830a1616bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1191a32286f176c367f648431b1444ac"><td class="memTemplParams" colspan="2"><a id="a1191a32286f176c367f648431b1444ac"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a1191a32286f176c367f648431b1444ac"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">theoretica::arithmetic_mean</a> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a1191a32286f176c367f648431b1444ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the arithmetic mean of a set of values. <br /></td></tr>
+<tr class="separator:a1191a32286f176c367f648431b1444ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memTemplParams" colspan="2"><a id="a1638fb86d8cb03965ff398d41f7b00fb"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">theoretica::harmonic_mean</a> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a1638fb86d8cb03965ff398d41f7b00fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the harmonic mean of a set of values. <br /></td></tr>
+<tr class="separator:a1638fb86d8cb03965ff398d41f7b00fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c73eaa2f2276a66b309426cc308d1b"><td class="memTemplParams" colspan="2"><a id="a73c73eaa2f2276a66b309426cc308d1b"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a73c73eaa2f2276a66b309426cc308d1b"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">theoretica::geometric_mean</a> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a73c73eaa2f2276a66b309426cc308d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the geometric mean of a set of values as \(\sqrt[n]{\Pi_i x_i}\). <br /></td></tr>
+<tr class="separator:a73c73eaa2f2276a66b309426cc308d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memTemplParams" colspan="2"><a id="a0e8a4b7178a8558fc4ba3ab3b9b3f926"></a>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">theoretica::weighted_mean</a> (const Dataset1 &amp;data, const Dataset2 &amp;weights)</td></tr>
+<tr class="memdesc:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size. <br /></td></tr>
+<tr class="separator:a0e8a4b7178a8558fc4ba3ab3b9b3f926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9473c3dfdbe71e408fb3241d458254c0"><td class="memTemplParams" colspan="2"><a id="a9473c3dfdbe71e408fb3241d458254c0"></a>
+template&lt;typename Dataset &gt; </td></tr>
+<tr class="memitem:a9473c3dfdbe71e408fb3241d458254c0"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">theoretica::quadratic_mean</a> (const Dataset &amp;data)</td></tr>
+<tr class="memdesc:a9473c3dfdbe71e408fb3241d458254c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values \(m_q = \sqrt{x1^2 + x2^2 + ...}\). <br /></td></tr>
+<tr class="separator:a9473c3dfdbe71e408fb3241d458254c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Operations on datasets. </p>
@@ -198,7 +223,7 @@ template&lt;typename Vector &gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="dataset_8h.html">dataset.h</a></li>
-    <li class="footer">Generated on Fri Sep 13 2024 20:30:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 15 2024 14:34:54 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

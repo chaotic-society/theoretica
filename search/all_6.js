@@ -4,7 +4,7 @@ var searchData=
   ['gamma_5fdist_300',['gamma_dist',['../namespacetheoretica_1_1distribution.html#acd70d0e5e0459caa93fbf5e00f511f9d',1,'theoretica::distribution::gamma_dist(real x, const vec&lt; real &gt; &amp;theta)'],['../namespacetheoretica_1_1distribution.html#ac322a912a4c0a5b4b9203c11b2d230d1',1,'theoretica::distribution::gamma_dist(real x, real alpha, real beta)']]],
   ['gauss_2eh_301',['gauss.h',['../gauss_8h.html',1,'']]],
   ['gaussian_302',['gaussian',['../namespacetheoretica_1_1distribution.html#a74f14cd55837ef9b18f5f8602a4bf9c5',1,'theoretica::distribution::gaussian()'],['../structtheoretica_1_1pdf__sampler.html#acc1c046c3b0cd057774855314abe831d',1,'theoretica::pdf_sampler::gaussian()'],['../namespacetheoretica_1_1distribution.html#ae2af3da7ff28656b64d06b16c8063b00',1,'theoretica::distribution::gaussian()']]],
-  ['gaussian_5fexpectation_303',['gaussian_expectation',['../namespacetheoretica.html#a26d700698899f2a3c313a13a65025a61',1,'theoretica']]],
+  ['gaussian_5fexpectation_303',['gaussian_expectation',['../namespacetheoretica_1_1stats.html#a9afb6b4c7a3ad56b4b93ff58b2bd2de6',1,'theoretica::stats']]],
   ['gen_5fpolyn_5frecurr_304',['gen_polyn_recurr',['../namespacetheoretica.html#a6becc0f9a59c2e48241b396293b34012',1,'theoretica']]],
   ['general_5flaguerre_5fpolyn_5frecurr_305',['general_laguerre_polyn_recurr',['../namespacetheoretica.html#a8b65dc09b5c73201a634891226718549',1,'theoretica']]],
   ['general_5flaguerre_5fpolynomial_306',['general_laguerre_polynomial',['../namespacetheoretica.html#a57c599fb3077786dd1b02053442ddb00',1,'theoretica']]],
