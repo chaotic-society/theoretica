@@ -4,6 +4,8 @@
 ///
 
 #include <fstream>
+#include <iostream>
+
 #include "theoretica.h"
 using namespace th;
 
@@ -16,34 +18,31 @@ using namespace th;
 const std::string filename = "examples/attractor.dat";
 
 // Initial conditions of the system
-const vec3 initial_conditions = {0.1, 0, 0};
+const vec3 x0 = {0.1, 0, 0};
+
+// Starting time
+const real t0 = 0.0;
+
+// Final time
+const real tf = 50.0;
 
 // Timestep
 const real timestep = 0.001;
 
-// Number of iterations
-const int iterations = 100000;
-
 // System parameters
 const real a = 13;
 const real b = 20;
-const real c = 8 / 3.0;
-
-// Unused constants
-// const real d = 0;
-// const real e = 0;
-// const real g = 0;
+const real c = 8./3.;
 
 
 // System of differential equations
 vec3 f(real t, vec3 v) {
 
-    // x, y, z
     const real x = v[0];
     const real y = v[1];
     const real z = v[2];
 
-    // dx/dt, dy/dy, dz/dt
+    // Vector of time derivatives
     return {
         a * y - a * x,
         x * b - x * z,
@@ -53,19 +52,19 @@ vec3 f(real t, vec3 v) {
 
 
 int main() {
+
+    // Solve the system of differential equations using Runge-Kutta's method
+    ode::ode_solution3d solution = ode::solve_euler(
+        f, x0, t0, tf, timestep
+    );
+
+    std::ofstream file (filename);
     
-    // Initialize the state of the system
-    ode_state<3> state(initial_conditions);
-
-    // Output file
-    std::ofstream file(filename);
-
-    for (int i = 0; i < iterations; ++i) {
-        
-        // Update the state of the system
-        state = ode_rk4(f, state, timestep);
-
-        // Print the state to file
-        file << state << std::endl;
+    if (!file.is_open()) {
+        std::cout << "Unable to open file: " << filename << std::endl;
+        return 1;
     }
+
+    // Write the solution to file
+    file << solution;
 }

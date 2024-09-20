@@ -391,7 +391,6 @@ namespace theoretica {
 
 
 
-
 #ifndef THEORETICA_NO_PRINT
 
 			/// Convert the quaternion to string representation

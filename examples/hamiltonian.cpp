@@ -46,25 +46,20 @@ vec<real, M> f(real t, vec<real, M> eta) {
 int main() {
 
 	// Initial conditions
-	vec<real, M> s0 = {0, 1, 2, 1, 0.5, 0};
-
-	// State of the system
-	ode_state<M> state(s0);
+	vec<real, M> s0 = {
+		0.0, 1.0, 2.0,
+		1.0, 0.5, 0.0
+	};
 
 	// Time step
 	const real dt = 0.001;
-	
-	// Number of iterations
-	const unsigned int iterations = 50000;
+
+	// Final time
+	const real tf = 50.0;
 
 	// Output file
 	std::ofstream file("hamiltonian.dat");
 
 	// Compute the trajectory using Runge-Kutta's method.
-	for (unsigned int i = 0; i < iterations; ++i) {
-
-		state = ode_rk4(f, state, dt);
-		file << state << std::endl;
-	}
-	
+	auto solution = ode::solve_rk4(f, s0, 0.0, tf, dt);
 }

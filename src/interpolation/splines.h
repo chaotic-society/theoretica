@@ -165,12 +165,12 @@ namespace theoretica {
 		const vec<real, N>& P0, const vec<real, N>& P1,
 		const vec<real, N>& P2, vec<real, N> P3, real t) {
 
-		vec<real, N> A = lerp(P0, P1, t);
-		vec<real, N> B = lerp(P1, P2, t);
-		vec<real, N> C = lerp(P2, P3, t);
+		const vec<real, N> A = lerp(P0, P1, t);
+		const vec<real, N> B = lerp(P1, P2, t);
+		const vec<real, N> C = lerp(P2, P3, t);
 
-		vec<real, N> D = lerp(A, B, t);
-		vec<real, N> E = lerp(B, C, t);
+		const vec<real, N> D = lerp(A, B, t);
+		const vec<real, N> E = lerp(B, C, t);
 
 		return lerp(D, E, t);
 	}
@@ -397,7 +397,7 @@ namespace theoretica {
 
 
 		/// Construct the natural cubic spline interpolation
-		/// from a set of X and y data points.
+		/// from a vector of coordinate pairs.
 		template<typename DataPoints = std::vector<vec2>>
 		spline(const DataPoints& p) {
 			nodes = cubic_splines(p);

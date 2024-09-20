@@ -14,7 +14,6 @@ using namespace th;
 
 int main() {
 
-
 	vec<real> X;
 
 	// Get the data from standard input
@@ -23,19 +22,12 @@ int main() {
 
 
 	// You can easily compute statistical functions on the data set
-	// by using functionalities defined in "statistics.h"
+	// by using functions defined in "statistics.h"
 	println();
 	println("N =", X.size());
 	println("Mean:", stats::mean(X));
 	println("Variance:", stats::variance(X));
-
-	// Many functions with long names have short-hands:
-	// sample_standard_deviation = smpl_stdev
-	// sample_mean_standard_deviation = smpl_stdom
 	println("Standard Deviation:", stats::stdev(X));
 	println("Mean Standard Deviation:", stats::stdom(X));
-	
 	println("Relative Error:", stats::standard_relative_error(X) * 100, "%");
-
-	return 0;
 }

@@ -72,7 +72,7 @@
 // Derivative and integral approximation
 #include "calculus/derivation.h"
 #include "calculus/integration.h"
-#include "calculus/odes.h"
+#include "calculus/ode.h"
 #include "calculus/taylor.h"
 
 // Polynomial class
