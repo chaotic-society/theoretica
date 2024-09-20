@@ -43,8 +43,7 @@ var hierarchy =
     [ "theoretica::mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", null ],
     [ "theoretica::mat_iterator< Matrix, ReturnType >", "classtheoretica_1_1mat__iterator.html", null ],
     [ "theoretica::multidual< N >", "classtheoretica_1_1multidual.html", null ],
-    [ "theoretica::ode_state< N >", "structtheoretica_1_1ode__state.html", null ],
-    [ "theoretica::ode_state< 1 >", "structtheoretica_1_1ode__state_3_011_01_4.html", null ],
+    [ "theoretica::ode::ode_solution_t< Vector >", "structtheoretica_1_1ode_1_1ode__solution__t.html", null ],
     [ "chebyshev::output::output_state", "structchebyshev_1_1output_1_1output__state.html", null ],
     [ "theoretica::pdf_sampler", "structtheoretica_1_1pdf__sampler.html", null ],
     [ "theoretica::phasor< Type >", "classtheoretica_1_1phasor.html", null ],
@@ -72,8 +71,10 @@ var hierarchy =
       [ "theoretica::is_vector< Structure, _internal::void_t< decltype(std::declval< Structure >()[0]), decltype(std::declval< Structure >().size())> >", "structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html", null ]
     ] ],
     [ "theoretica::vec< Type, N >", "classtheoretica_1_1vec.html", null ],
+    [ "theoretica::vec< real >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec< real, 0 >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", null ],
+    [ "theoretica::vec< vec< real > >", "classtheoretica_1_1vec.html", null ],
     [ "theoretica::vec_iterator< Vector, ReturnType >", "classtheoretica_1_1vec__iterator.html", null ],
     [ "theoretica::_internal::vector_element_or_void< Structure, typename >", "structtheoretica_1_1__internal_1_1vector__element__or__void.html", null ],
     [ "theoretica::_internal::vector_element_or_void< Structure, _internal::void_t< decltype(std::declval< Structure & >()[0])> >", "structtheoretica_1_1__internal_1_1vector__element__or__void_3_01_structure_00_01__internal_1_1vofa6d2fbbb140b6fff47e7c033156528f.html", null ]

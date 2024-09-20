@@ -37,6 +37,9 @@ var annotated_dup =
         [ "return_type_or_void", "structtheoretica_1_1__internal_1_1return__type__or__void.html", "structtheoretica_1_1__internal_1_1return__type__or__void" ],
         [ "return_type_or_void< Function, T, _internal::void_t< decltype(std::declval< Function >()(T(0.0)))> >", "structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html", "structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427" ]
       ] ],
+      [ "ode", "namespacetheoretica_1_1ode.html", [
+        [ "ode_solution_t", "structtheoretica_1_1ode_1_1ode__solution__t.html", "structtheoretica_1_1ode_1_1ode__solution__t" ]
+      ] ],
       [ "regression", "namespacetheoretica_1_1regression.html", [
         [ "linear_model", "structtheoretica_1_1regression_1_1linear__model.html", "structtheoretica_1_1regression_1_1linear__model" ]
       ] ],
@@ -55,8 +58,6 @@ var annotated_dup =
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
       [ "dual2", "classtheoretica_1_1dual2.html", "classtheoretica_1_1dual2" ],
       [ "multidual", "classtheoretica_1_1multidual.html", "classtheoretica_1_1multidual" ],
-      [ "ode_state", "structtheoretica_1_1ode__state.html", "structtheoretica_1_1ode__state" ],
-      [ "ode_state< 1 >", "structtheoretica_1_1ode__state_3_011_01_4.html", "structtheoretica_1_1ode__state_3_011_01_4" ],
       [ "complex", "classtheoretica_1_1complex.html", "classtheoretica_1_1complex" ],
       [ "is_complex_type", "structtheoretica_1_1is__complex__type.html", null ],
       [ "is_complex_type< complex< T > >", "structtheoretica_1_1is__complex__type_3_01complex_3_01_t_01_4_01_4.html", null ],

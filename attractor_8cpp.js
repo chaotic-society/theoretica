@@ -6,7 +6,8 @@ var attractor_8cpp =
     [ "b", "attractor_8cpp.html#abcb7076518f2605e8e2e1f84823dd599", null ],
     [ "c", "attractor_8cpp.html#a9beca8606cc317769958c4658d98554c", null ],
     [ "filename", "attractor_8cpp.html#a42a21beb8018ac623f4d09db1343b9cf", null ],
-    [ "initial_conditions", "attractor_8cpp.html#ac0c3474e8cac4e3eae63ffa3f5866fe6", null ],
-    [ "iterations", "attractor_8cpp.html#aab83ac6564fd72e82c62b21733ca0e1b", null ],
-    [ "timestep", "attractor_8cpp.html#a8e53571f7bca3dd58e507350ee397200", null ]
+    [ "t0", "attractor_8cpp.html#a46141ae18e4a0fc43eb25ffaabe63328", null ],
+    [ "tf", "attractor_8cpp.html#a6b806bf6306be864bfdd5f5cadab150d", null ],
+    [ "timestep", "attractor_8cpp.html#a8e53571f7bca3dd58e507350ee397200", null ],
+    [ "x0", "attractor_8cpp.html#a75f0348aaab869c5ff09a622ffd22212", null ]
 ];

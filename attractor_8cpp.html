@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('attractor_8cpp.html',''); initResizabl
 <p>Compute the orbit of a chaotic attractor.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="theoretica_8h_source.html">theoretica.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -117,15 +118,18 @@ Variables</h2></td></tr>
 <tr class="memitem:a42a21beb8018ac623f4d09db1343b9cf"><td class="memItemLeft" align="right" valign="top"><a id="a42a21beb8018ac623f4d09db1343b9cf"></a>
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>filename</b> = &quot;examples/attractor.dat&quot;</td></tr>
 <tr class="separator:a42a21beb8018ac623f4d09db1343b9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c3474e8cac4e3eae63ffa3f5866fe6"><td class="memItemLeft" align="right" valign="top"><a id="ac0c3474e8cac4e3eae63ffa3f5866fe6"></a>
-const <a class="el" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>initial_conditions</b> = {0.1, 0, 0}</td></tr>
-<tr class="separator:ac0c3474e8cac4e3eae63ffa3f5866fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f0348aaab869c5ff09a622ffd22212"><td class="memItemLeft" align="right" valign="top"><a id="a75f0348aaab869c5ff09a622ffd22212"></a>
+const <a class="el" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>x0</b> = {0.1, 0, 0}</td></tr>
+<tr class="separator:a75f0348aaab869c5ff09a622ffd22212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46141ae18e4a0fc43eb25ffaabe63328"><td class="memItemLeft" align="right" valign="top"><a id="a46141ae18e4a0fc43eb25ffaabe63328"></a>
+const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t0</b> = 0.0</td></tr>
+<tr class="separator:a46141ae18e4a0fc43eb25ffaabe63328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b806bf6306be864bfdd5f5cadab150d"><td class="memItemLeft" align="right" valign="top"><a id="a6b806bf6306be864bfdd5f5cadab150d"></a>
+const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tf</b> = 50.0</td></tr>
+<tr class="separator:a6b806bf6306be864bfdd5f5cadab150d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e53571f7bca3dd58e507350ee397200"><td class="memItemLeft" align="right" valign="top"><a id="a8e53571f7bca3dd58e507350ee397200"></a>
 const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>timestep</b> = 0.001</td></tr>
 <tr class="separator:a8e53571f7bca3dd58e507350ee397200"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab83ac6564fd72e82c62b21733ca0e1b"><td class="memItemLeft" align="right" valign="top"><a id="aab83ac6564fd72e82c62b21733ca0e1b"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>iterations</b> = 100000</td></tr>
-<tr class="separator:aab83ac6564fd72e82c62b21733ca0e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff9572141d205849e3f86c099dcd0fde"><td class="memItemLeft" align="right" valign="top"><a id="aff9572141d205849e3f86c099dcd0fde"></a>
 const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>a</b> = 13</td></tr>
 <tr class="separator:aff9572141d205849e3f86c099dcd0fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +137,7 @@ const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae5729370
 const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>b</b> = 20</td></tr>
 <tr class="separator:abcb7076518f2605e8e2e1f84823dd599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9beca8606cc317769958c4658d98554c"><td class="memItemLeft" align="right" valign="top"><a id="a9beca8606cc317769958c4658d98554c"></a>
-const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>c</b> = 8 / 3.0</td></tr>
+const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>c</b> = 8./3.</td></tr>
 <tr class="separator:a9beca8606cc317769958c4658d98554c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -144,7 +148,7 @@ const <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae5729370
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="attractor_8cpp.html">attractor.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 14:34:54 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 20 2024 16:12:04 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
