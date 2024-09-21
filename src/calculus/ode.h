@@ -136,7 +136,7 @@ namespace theoretica {
 		/// @param h The step size
 		/// @return The resulting vector of variables
 		template<typename Vector, typename OdeFunction = ode_function<Vector>>
-		inline Vector step_euler(OdeFunction f, const Vector& x, real t, real h = 0.001) {
+		inline Vector step_euler(OdeFunction f, const Vector& x, real t, real h = 0.0001) {
 
 			return x + h * f(t, x);
 		}
@@ -152,7 +152,7 @@ namespace theoretica {
 		/// @param h The step size
 		/// @return The resulting vector of variables
 		template<typename Vector, typename OdeFunction = ode_function<Vector>>
-		inline Vector step_midpoint(OdeFunction f, const Vector& x, real t, real h = 0.001) {
+		inline Vector step_midpoint(OdeFunction f, const Vector& x, real t, real h = 0.0001) {
 			
 			return x + h * f(t + h / 2.0, x + f(t, x) * h / 2.0);
 		}
@@ -208,14 +208,16 @@ namespace theoretica {
 		/// @param h The step size
 		/// @return The resulting vector of variables
 		template<typename Vector, typename OdeFunction = ode_function<Vector>>
-		inline Vector step_rk4(OdeFunction f, const Vector& x, real t, real h = 0.001) {
+		inline Vector step_rk4(OdeFunction f, const Vector& x, real t, real h = 0.01) {
+
+			const real half = h / 2.0;
 			
 			const Vector k1 = f(t, x);
-			const Vector k2 = f(t + (h / 2.0), x + k1 * (h / 2.0));
-			const Vector k3 = f(t + (h / 2.0), x + k2 * (h / 2.0));
-			const Vector k4 = f(t + h, x + k3 * h / 2.0);
+			const Vector k2 = f(t + half, x + k1 * half);
+			const Vector k3 = f(t + half, x + k2 * half);
+			const Vector k4 = f(t + h, x + k3 * h);
 
-			return x + (k1 + 2.0 * k2 + 2.0 * k3 + k4) * h / 6.0;
+			return x + (k1 + k2 * 2.0 + k3 * 2.0 + k4) * (h / 6.0);
 		}
 
 
@@ -363,7 +365,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_euler(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.0001) {
 
 			return solve_fixstep(f, x0, t0, tf, step_euler<Vector, OdeFunction>, stepsize);
 		}
@@ -385,7 +387,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_midpoint(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.0001) {
 
 			return solve_fixstep(f, x0, t0, tf, step_midpoint<Vector, OdeFunction>, stepsize);
 		}
@@ -407,7 +409,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_heun(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.0001) {
 
 			return solve_fixstep(f, x0, t0, tf, step_heun<Vector, OdeFunction>, stepsize);
 		}
@@ -430,7 +432,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_rk2(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.0001) {
 
 			return solve_fixstep(f, x0, t0, tf, step_rk2<Vector, OdeFunction>, stepsize);
 		}
@@ -453,7 +455,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_rk4(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.01) {
 
 			return solve_fixstep(f, x0, t0, tf, step_rk4<Vector, OdeFunction>, stepsize);
 		}
@@ -475,7 +477,7 @@ namespace theoretica {
 		>
 		inline ode_solution_t<Vector> solve_k38(
 			OdeFunction f, const Vector& x0,
-			real t0, real tf, real stepsize = 0.001) {
+			real t0, real tf, real stepsize = 0.0001) {
 
 			return solve_fixstep(f, x0, t0, tf, step_k38<Vector, OdeFunction>, stepsize);
 		}
