@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"dual_8h_source.html":[13,0,1,2],
 "dual__functions_8h.html":[13,0,1,5],
 "dual__functions_8h.html#a1b8d81973a127a1e66c180cba58d08ee":[13,0,1,5,6],
 "dual__functions_8h.html#a1f8c95ef4ed4e4da6af87e9eee675f82":[13,0,1,5,15],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "montecarlo_8h.html#afd8b0a1c223e7bc79b04046d4e8502da":[13,0,9,0,3],
 "montecarlo_8h_source.html":[13,0,9,0],
 "montecarlo__integral_8cpp.html":[13,0,5,8],
-"montecarlo__integral_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,5,8,0]
+"montecarlo__integral_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,5,8,0],
+"multi__extrema_8h.html":[13,0,7,1]
 };
