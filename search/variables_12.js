@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_1725',['x',['../structtheoretica_1_1ode_1_1ode__solution__t.html#acedf6bb8143f4a24640e679845942a25',1,'theoretica::ode::ode_solution_t::x()'],['../structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206',1,'theoretica::spline_node::x()']]]
+  ['wassetup_1737',['wasSetup',['../structchebyshev_1_1output_1_1output__state.html#a4d2cc4d9d6c48dfd37b0605206f45ab9',1,'chebyshev::output::output_state']]]
 ];

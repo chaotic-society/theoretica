@@ -157,6 +157,14 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html">theoretica::_internal::return_type_or_void&lt; Function, T, _internal::void_t&lt; decltype(std::declval&lt; Function &gt;()(T(0.0)))&gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1func__helper.html">theoretica::_internal::func_helper&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_args_8_8_8_08_4.html">theoretica::_internal::func_helper&lt; ReturnType(Args...)&gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html">theoretica::_internal::func_helper&lt; ReturnType(*)(Args...)&gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html">theoretica::_internal::func_helper&lt; ReturnType(Class::*)(Args...) const &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -208,6 +216,11 @@ template&lt;typename Function , typename T  = bool&gt; </td></tr>
 <tr class="memitem:a08d395991c6d895a327dff7affa37f23"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a08d395991c6d895a327dff7affa37f23">theoretica::enable_real_func</a> = typename std::enable_if_t&lt; is_real_func&lt; Function &gt;::value, T &gt;</td></tr>
 <tr class="memdesc:a08d395991c6d895a327dff7affa37f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a real number. <br /></td></tr>
 <tr class="separator:a08d395991c6d895a327dff7affa37f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a147fe079cc499a72d5c73c0224cd28f7"><td class="memTemplParams" colspan="2"><a id="a147fe079cc499a72d5c73c0224cd28f7"></a>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a147fe079cc499a72d5c73c0224cd28f7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7">theoretica::return_type_t</a> = typename _internal::func_helper&lt; Function &gt;::return_type</td></tr>
+<tr class="memdesc:a147fe079cc499a72d5c73c0224cd28f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the return type of a Callable object, such as a function pointer or lambda function. <br /></td></tr>
+<tr class="separator:a147fe079cc499a72d5c73c0224cd28f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fundamental type traits. </p>
@@ -217,7 +230,7 @@ template&lt;typename Function , typename T  = bool&gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="core__traits_8h.html">core_traits.h</a></li>
-    <li class="footer">Generated on Sat Sep 21 2024 13:48:29 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 22 2024 17:23:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

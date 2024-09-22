@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wassetup_1724',['wasSetup',['../structchebyshev_1_1output_1_1output__state.html#a4d2cc4d9d6c48dfd37b0605206f45ab9',1,'chebyshev::output::output_state']]]
+  ['v_1736',['v',['../classtheoretica_1_1multidual.html#a3722bfcd6dd69d4c01d544cafc532bd4',1,'theoretica::multidual']]]
 ];

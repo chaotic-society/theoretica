@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('namespacetheoretica_1_1ode.html',''); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html">ode_solution_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base type for the solution of an ODE, holding a vector t of the values of the time (independent variable) and a vector x of the computed variables of the solution at each instant.  <a href="structtheoretica_1_1ode_1_1ode__solution__t.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base type for the solution of an ODE, holding a vector \(t\) of the values of the time (independent variable) and a vector \(\vec x\) of the computed variables of the solution at each instant.  <a href="structtheoretica_1_1ode_1_1ode__solution__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -172,7 +172,7 @@ Functions</h2></td></tr>
 <tr class="separator:a50d8ad34d325c3ac9dd2c7079b60f230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1128cac3cfffb6f5d235b3819108b30f"><td class="memTemplParams" colspan="2">template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;, typename StepFunction  = std::function&lt;Vector(OdeFunction, real, const Vector&amp;)&gt;&gt; </td></tr>
 <tr class="memitem:a1128cac3cfffb6f5d235b3819108b30f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html">ode_solution_t</a>&lt; Vector &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1ode.html#a1128cac3cfffb6f5d235b3819108b30f">solve_fixstep</a> (OdeFunction f, const Vector &amp;x0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tf, StepFunction step, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> stepsize=0.001)</td></tr>
-<tr class="memdesc:a1128cac3cfffb6f5d235b3819108b30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate an ordinary differential equation using a numerical algorithm with a constant step size, such as Runge-Kutta methods.  <a href="namespacetheoretica_1_1ode.html#a1128cac3cfffb6f5d235b3819108b30f">More...</a><br /></td></tr>
+<tr class="memdesc:a1128cac3cfffb6f5d235b3819108b30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate an ordinary differential equation using any numerical algorithm with a constant step size, such as Runge-Kutta methods.  <a href="namespacetheoretica_1_1ode.html#a1128cac3cfffb6f5d235b3819108b30f">More...</a><br /></td></tr>
 <tr class="separator:a1128cac3cfffb6f5d235b3819108b30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9303bd9d22e5a65d4f1cbda7d90009c4"><td class="memTemplParams" colspan="2">template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;&gt; </td></tr>
 <tr class="memitem:a9303bd9d22e5a65d4f1cbda7d90009c4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html">ode_solution_t</a>&lt; Vector &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1ode.html#a9303bd9d22e5a65d4f1cbda7d90009c4">solve_euler</a> (OdeFunction f, const Vector &amp;x0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tf, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> stepsize=0.0001)</td></tr>
@@ -267,7 +267,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
 </table>
 </div><div class="memdoc">
 
-<p>Integrate an ordinary differential equation using a numerical algorithm with a constant step size, such as Runge-Kutta methods. </p>
+<p>Integrate an ordinary differential equation using any numerical algorithm with a constant step size, such as Runge-Kutta methods. </p>
 <p>This function does not use a specific method but uses the step argument function to iterate each step of an arbitrary fixed step algorithm. If the step size does not exactly cover the interval of integration, the last step is shortened.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -339,12 +339,12 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
     <tr><td class="paramname">x0</td><td>The initial value of the variables </td></tr>
     <tr><td class="paramname">t0</td><td>The starting value of the time variable </td></tr>
     <tr><td class="paramname">tf</td><td>The final value of the time variable </td></tr>
-    <tr><td class="paramname">step</td><td>A function which integrates numerically the differential equation between \(x_0\) and \(x_0 + h\), such as the functions named ode::step_* </td></tr>
+    <tr><td class="paramname">step</td><td>A function which integrates numerically the differential equation between \(t\) and \(t + h\), such as the functions named ode::step_* </td></tr>
     <tr><td class="paramname">stepsize</td><td>The constant step size </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -413,7 +413,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -482,7 +482,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -551,7 +551,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -620,7 +620,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -689,7 +689,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector t of the values of the time (independent v...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical solution of the equation, as an <a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html" title="The base type for the solution of an ODE, holding a vector  of the values of the time (independent va...">ode_solution_t</a> structure, holding a vector t of time values and a vector x of the variables. </dd></dl>
 
 </div>
 </div>
@@ -1239,7 +1239,7 @@ template&lt;typename Vector , typename OdeFunction  = ode_function&lt;Vector&gt;
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1ode.html">ode</a></li>
-    <li class="footer">Generated on Sat Sep 21 2024 13:48:29 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 22 2024 17:23:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,11 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1distribution.html#a5d08267b0686b3c00215645f40d3db47":[11,0,2,3,21],
+"namespacetheoretica_1_1distribution.html#a6e0d46f232d29ed5e4e2a056766c2252":[11,0,2,3,31],
+"namespacetheoretica_1_1distribution.html#a74f14cd55837ef9b18f5f8602a4bf9c5":[11,0,2,3,18],
+"namespacetheoretica_1_1distribution.html#a7e4cfceccf2f9ea7113ab121320a76bc":[11,0,2,3,34],
+"namespacetheoretica_1_1distribution.html#aa283c0a58642f4489afa208423dc2838":[11,0,2,3,23],
+"namespacetheoretica_1_1distribution.html#ab9067fb31cfb790810ee224686a3f08c":[11,0,2,3,26],
 "namespacetheoretica_1_1distribution.html#abfa0c61c619e9cb359ede7c284685883":[11,0,2,3,24],
 "namespacetheoretica_1_1distribution.html#ac322a912a4c0a5b4b9203c11b2d230d1":[11,0,2,3,17],
 "namespacetheoretica_1_1distribution.html#ac40521947a14ce859e1cdf87a3dc50b4":[11,0,2,3,22],
@@ -243,11 +249,5 @@ var NAVTREEINDEX8 =
 "pseudorandom_8h.html#ad198dee1300488d1b3e51767d62beedf":[13,0,9,2,6],
 "pseudorandom_8h.html#aed6faedb3d913a589365b108f5ec304e":[13,0,9,2,9],
 "pseudorandom_8h_source.html":[13,0,9,2],
-"quasirandom_8h.html":[13,0,9,3],
-"quasirandom_8h.html#a3d13f9f59d386770a41ca68f16820aac":[13,0,9,3,2],
-"quasirandom_8h.html#a6c5001951408c716ce4e6414cc45f420":[13,0,9,3,3],
-"quasirandom_8h.html#aa7e523c1cc3621e7cbc1ac0df01913c3":[13,0,9,3,0],
-"quasirandom_8h.html#ac1d4be50bf77c6b368c94bb627305224":[13,0,9,3,1],
-"quasirandom_8h_source.html":[13,0,9,3],
-"quat_8h.html":[13,0,3,4]
+"quasirandom_8h.html":[13,0,9,3]
 };

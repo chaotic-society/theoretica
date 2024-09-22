@@ -156,16 +156,16 @@ template&lt;typename Function , typename T  = bool&gt; </td></tr>
 <tr class="memitem:a12db13de79ac8da6fd854bc274ba0990"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12db13de79ac8da6fd854bc274ba0990">theoretica::enable_dual2_func</a> = typename std::enable_if&lt; is_dual2_func&lt; Function &gt;::value, T &gt;::type</td></tr>
 <tr class="memdesc:a12db13de79ac8da6fd854bc274ba0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number. <br /></td></tr>
 <tr class="separator:a12db13de79ac8da6fd854bc274ba0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplParams" colspan="2"><a id="a6138838fb58413e4ed71a8d477a98356"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:a6138838fb58413e4ed71a8d477a98356"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6138838fb58413e4ed71a8d477a98356">theoretica::is_multidual_func</a> = std::conditional_t&lt; is_multidual_type&lt; vector_element_or_void_t&lt; std::tuple_element_t&lt; 0, typename extract_func_args&lt; Function &gt;::type &gt; &gt; &gt;::value, std::true_type, std::false_type &gt;</td></tr>
-<tr class="memdesc:a6138838fb58413e4ed71a8d477a98356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a multidual vector as first argument. <br /></td></tr>
-<tr class="separator:a6138838fb58413e4ed71a8d477a98356"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplParams" colspan="2"><a id="a6e9bf27530bab7668c06527f49396151"></a>
+<tr class="memitem:a361876a8e3871bb86eecccd1da5f265e"><td class="memTemplParams" colspan="2"><a id="a361876a8e3871bb86eecccd1da5f265e"></a>
+template&lt;typename Type , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a361876a8e3871bb86eecccd1da5f265e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a361876a8e3871bb86eecccd1da5f265e">theoretica::enable_multidual</a> = typename std::enable_if&lt; is_multidual_type&lt; Type &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a361876a8e3871bb86eecccd1da5f265e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is an instantiation of the multidual template class. <br /></td></tr>
+<tr class="separator:a361876a8e3871bb86eecccd1da5f265e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a69a104263197620acab7ea3ed61f7e"><td class="memTemplParams" colspan="2"><a id="a3a69a104263197620acab7ea3ed61f7e"></a>
 template&lt;typename Function , typename T  = bool&gt; </td></tr>
-<tr class="memitem:a6e9bf27530bab7668c06527f49396151"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6e9bf27530bab7668c06527f49396151">theoretica::enable_multidual_func</a> = typename std::enable_if&lt; is_multidual_func&lt; Function &gt;::value, T &gt;::type</td></tr>
-<tr class="memdesc:a6e9bf27530bab7668c06527f49396151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a multidual number. <br /></td></tr>
-<tr class="separator:a6e9bf27530bab7668c06527f49396151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a69a104263197620acab7ea3ed61f7e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3a69a104263197620acab7ea3ed61f7e">theoretica::enable_multidual_func</a> = typename std::enable_if&lt; is_multidual_type&lt; return_type_t&lt; Function &gt; &gt;::value, T &gt;::type</td></tr>
+<tr class="memdesc:a3a69a104263197620acab7ea3ed61f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a Callable object corresponding to a multidual function. <br /></td></tr>
+<tr class="separator:a3a69a104263197620acab7ea3ed61f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplParams" colspan="2"><a id="a04de34623e5bf22418b595f14c2bc9b7"></a>
 template&lt;unsigned int N = 0&gt; </td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">theoretica::autodiff::dreal_t</a> = multidual&lt; N &gt;</td></tr>
@@ -217,7 +217,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_42425a70e384b694fde5273f8252c9aa.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff__types_8h.html">autodiff_types.h</a></li>
-    <li class="footer">Generated on Sat Sep 21 2024 13:48:29 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 22 2024 17:23:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

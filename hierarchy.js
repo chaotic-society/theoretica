@@ -28,6 +28,10 @@ var hierarchy =
       [ "theoretica::is_vector< Structure, typename >", "structtheoretica_1_1is__vector.html", null ]
     ] ],
     [ "chebyshev::output::field_options", "structchebyshev_1_1output_1_1field__options.html", null ],
+    [ "theoretica::_internal::func_helper< T >", "structtheoretica_1_1__internal_1_1func__helper.html", null ],
+    [ "theoretica::_internal::func_helper< ReturnType(*)(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html", null ],
+    [ "theoretica::_internal::func_helper< ReturnType(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_args_8_8_8_08_4.html", null ],
+    [ "theoretica::_internal::func_helper< ReturnType(Class::*)(Args...) const >", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", null ],
     [ "theoretica::histogram", "classtheoretica_1_1histogram.html", null ],
     [ "chebyshev::prec::interval", "structchebyshev_1_1prec_1_1interval.html", null ],
     [ "std::is_floating_point", null, [
