@@ -192,6 +192,32 @@ namespace theoretica {
 			<Function, T, _internal::void_t<decltype(std::declval<Function>()(T(0.0)))>> {
 			using type = decltype(std::declval<Function>()(T(0.0)));
 		};
+
+
+		// Helper structure for extracting information from Callables
+		template<class T>
+		struct func_helper : public func_helper<decltype(&T::operator())> {};
+
+		template<class ReturnType, class... Args>
+		struct func_helper<ReturnType(Args...)> {
+
+			using return_type = ReturnType;
+			using args_type = std::tuple<Args...>;
+		};
+
+		template<class ReturnType, class... Args>
+		struct func_helper<ReturnType(*)(Args...)> {
+
+			using return_type = ReturnType;
+			using args_type = std::tuple<Args...>;
+		};
+
+		template<class Class, class ReturnType, class... Args>
+		struct func_helper<ReturnType(Class::*)(Args...) const> {
+
+			using return_type = ReturnType;
+			using args_type = std::tuple<Args...>;
+		};
 	}
 
 
@@ -212,6 +238,12 @@ namespace theoretica {
 	template<typename Function, typename T = bool>
 	using enable_real_func =
 		typename std::enable_if_t<is_real_func<Function>::value, T>;
+
+
+	/// Extract the return type of a Callable object, such as a function
+	/// pointer or lambda function.
+	template<typename Function>
+	using return_type_t = typename _internal::func_helper<Function>::return_type;
 
 }
 

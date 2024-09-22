@@ -26,8 +26,16 @@ namespace theoretica {
 	class multidual {
 		
 		public:
+			
+			/// The real part of the multidimensional dual number
 			real a;
+
+			/// The dual part of the multidimensional dual number
+			/// as a real vector.
 			vec<real, N> v;
+
+			// The template argument of the vector type used
+			static constexpr size_t vector_argument = N;
 
 
 			/// Construct a multidual number
@@ -55,14 +63,26 @@ namespace theoretica {
 			}
 
 
-			/// Return real part
+			/// Get the real part
 			inline real Re() const {
 				return a;
 			}
 
 
-			/// Return multidual part
+			/// Access the real part
+			inline real& Re() {
+				return a;
+			}
+
+
+			/// Get the multidual part
 			inline vec<real, N> Dual() const {
+				return v;
+			}
+
+
+			/// Access the multidual part
+			inline vec<real, N>& Dual() {
 				return v;
 			}
 

@@ -8,6 +8,7 @@
 #include <fstream>
 #include "theoretica.h"
 using namespace th;
+using namespace autodiff;
 
 
 // Dimension of configuration space
@@ -21,8 +22,7 @@ const auto M_symplectic = mat<real, M, M>::symplectic();
 
 
 // Hamiltonian for the N-dimensional harmonic oscillator (m = 1, omega = 1)
-template<typename NumType>
-NumType harmonic_oscillator(vec<NumType, M> eta) {
+dreal_t<M> harmonic_oscillator(dvec_t<M> eta) {
 
 	return (eta * eta) / 2.0;
 }
@@ -30,7 +30,7 @@ NumType harmonic_oscillator(vec<NumType, M> eta) {
 
 // Hamiltonian for the simple pendulum
 template<typename NumType>
-NumType pendulum(vec<NumType, 2> eta) {
+dreal2 pendulum(dvec2 eta) {
 
 	return square(eta[1]) / 2.0 - cos(eta[0]);
 }
@@ -39,7 +39,7 @@ NumType pendulum(vec<NumType, 2> eta) {
 // Differential vector field
 vec<real, M> f(real t, vec<real, M> eta) {
 
-	return M_symplectic * autodiff::gradient<M>(harmonic_oscillator, eta);
+	return M_symplectic * autodiff::gradient(harmonic_oscillator, eta);
 }
 
 

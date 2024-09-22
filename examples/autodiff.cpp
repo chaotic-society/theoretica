@@ -48,10 +48,12 @@ int main() {
 	// You can call the function as usual
 	std::cout << "f(v) = " << f(v) << std::endl;
 
+	auto df = f<autodiff::dreal2>;
+
 	// And also automatically compute differential operators
-	std::cout << "grad(f) = " << autodiff::gradient(f, v) << std::endl;
-	std::cout << "div(f) = " << autodiff::divergence(f, v) << "\n" << std::endl;
-	std::cout << "laplacian(f) = " << autodiff::laplacian(f, v) << "\n" << std::endl;
+	std::cout << "grad(f) = " << autodiff::gradient(df, v) << std::endl;
+	std::cout << "div(f) = " << autodiff::divergence(df, v) << "\n" << std::endl;
+	std::cout << "laplacian(f) = " << autodiff::laplacian<2>(f, v) << "\n" << std::endl;
 
 	// When you apply differential operators, the function is cast to
 	// accept dual, multidual or dual2 arguments and is then evaluated

@@ -116,12 +116,8 @@ namespace theoretica {
 			// using Golden Section extrema search
 			real gamma = minimize_goldensection(
 				[f, x, grad](real gamma){
-					return f(
-						multidual<N>::make_argument(x)
-						+ multidual<N>::make_argument(grad)
-						* multidual<N>(gamma)).Re();
-				},
-				-1, 0);
+					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
+				}, -1, 0);
 
 			// Fallback value
 			if(-gamma <= MACH_EPSILON)
@@ -171,11 +167,8 @@ namespace theoretica {
 			// using Golden Section extrema search
 			real gamma = maximize_goldensection(
 				[f, x, grad](real gamma){
-					return f(
-						multidual<N>::make_argument(x)
-						+ multidual<N>::make_argument(grad) * gamma).Re();
-				},
-				-1, 0);
+					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
+				}, -1, 0);
 
 			// Fallback value
 			if(-gamma <= MACH_EPSILON)

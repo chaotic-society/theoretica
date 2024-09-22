@@ -101,31 +101,76 @@ namespace theoretica {
 
 		// Differential operators
 
-		/// Compute the gradient for a given \f$\vec x\f$ of a function
-		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
-		/// using automatic differentiation.
+
+		/// Prepare a vector of multidual numbers in "canonical" form,
+		/// where the i-th element of the vector has a dual part which
+		/// is the i-th canonical vector. This form is used to evaluate
+		/// a multidual function for automatic differentiation.
+		template <
+			typename MultidualType,
+			typename Vector = vec<real>
+		>
+		inline auto make_autodiff_arg(const Vector& x) {
+
+			constexpr size_t N = MultidualType::vector_argument;
+			vec<MultidualType, N> arg;
+			arg.resize(x.size());
+
+			// Iterate over each element, setting the dual part to
+			// the i-th element of the canonical base
+			for (unsigned int i = 0; i < x.size(); ++i) {
+				arg[i] = MultidualType(
+					x[i], vec<real, N>::euclidean_base(i, x.size())
+				);
+			}
+
+			return arg;
+		}
+
+
+		/// Compute the gradient
+		/// \f$\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\f$
+		/// for a given \f$\vec x\f$ of a scalar field of the form
+		/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+		/// using automatic differentiation. The argument function may be
+		/// a function pointer or lambda function, with the type dvec_t
+		/// as first argument and dreal_t return type.
 		///
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a multidual number as output.
 		/// @param x The point to compute the gradient at.
 		/// @return The gradient of f computed at x.
-		template<unsigned int N = 0>
-		inline vec<real, N> gradient(
-			multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+		template <
+			typename MultidualFunction, typename Vector = vec<real>,
+			enable_multidual_func<MultidualFunction> = true,
+			enable_vector<Vector> = true
+		>
+		inline auto gradient(MultidualFunction f, const Vector& x) {
 
-			return f(multidual<N>::make_argument(x)).Dual();
+			// Extract the return type of the function
+			using R = return_type_t<MultidualFunction>;
+
+			return f(make_autodiff_arg<R>(x)).Dual();
 		}
 
 
-		/// Get a lambda function which computes the gradient of a given function
-		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
-		/// at a given \f$\vec x\f$ using automatic differentiation.
+		/// Get a lambda function which computes the gradient
+		/// \f$\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\f$
+		/// of a given scalar field of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+		/// at \f$\vec x\f$ using automatic differentiation.
+		/// The argument function may be a function pointer or lambda function,
+		/// with the type dvec_t as first argument and dreal_t return type.
 		///
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a multidual number as output.
 		/// @return A lambda function which computes the gradient of f.
-		template<unsigned int N = 0>
-		inline auto gradient(multidual<N>(*f)(vec<multidual<N>, N>)) {
+		template <
+			typename MultidualFunction,
+			enable_multidual_func<MultidualFunction> = true
+		>
+		inline auto gradient(MultidualFunction f) {
+
+			constexpr size_t N = return_type_t<MultidualFunction>::vector_argument;
 
 			return [f](vec<real, N> x) {
 				return gradient(f, x);
@@ -133,19 +178,26 @@ namespace theoretica {
 		}
 
 
-		/// Compute the divergence for a given \f$\vec x\f$ of a function
-		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
-		/// using automatic differentiation
+		/// Compute the divergence
+		/// \f$\sum_i^n \frac{\partial}{\partial x_i} f(\vec x)\f$
+		/// for a given \f$\vec x\f$ of a scalar field of the form
+		/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$ using automatic differentiation.
+		/// The argument function may be a function pointer or lambda function,
+		/// with the type dvec_t as first argument and dreal_t return type.
 		///
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @param x The point to compute the divergence at.
 		/// @return The divergence of f at x.
-		template<unsigned int N = 0>
-		inline real divergence(
-			multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+		template <
+			typename MultidualFunction, typename Vector = vec<real>,
+			enable_multidual_func<MultidualFunction> = true,
+			enable_vector<Vector> = true
+		>
+		inline real divergence(MultidualFunction f, const Vector& x) {
 
-			multidual<N> d = f(multidual<N>::make_argument(x));
+			using MultidualT = return_type_t<MultidualFunction>;
+			MultidualT d = f(MultidualT::make_argument(x));
 
 			real div = 0;
 			for (unsigned int i = 0; i < d.v.size(); ++i)
@@ -158,12 +210,19 @@ namespace theoretica {
 		/// Get a lambda function which computes the divergence of a given function
 		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
 		/// at a given \f$\vec x\f$ using automatic differentiation.
+		/// The argument function may be a function pointer or lambda function,
+		/// with the type dvec_t as first argument and dreal_t return type.
 		///
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the divergence of f at x.
-		template<unsigned int N = 0>
-		inline auto divergence(multidual<N>(*f)(vec<multidual<N>, N>)) {
+		template <
+			typename MultidualFunction,
+			enable_multidual_func<MultidualFunction> = true
+		>
+		inline auto divergence(MultidualFunction f) {
+
+			constexpr size_t N = return_type_t<MultidualFunction>::vector_argument;
 
 			return [f](vec<real, N> x) {
 				return divergence(f, x);

@@ -16,8 +16,8 @@ namespace theoretica {
 
 
 		/// @class ode_solution_t
-		/// The base type for the solution of an ODE, holding a vector t
-		/// of the values of the time (independent variable) and a vector x
+		/// The base type for the solution of an ODE, holding a vector \f$t\f$
+		/// of the values of the time (independent variable) and a vector \f$\vec x\f$
 		/// of the computed variables of the solution at each instant.
 		template<typename Vector = vec<real>>
 		struct ode_solution_t {
@@ -287,7 +287,7 @@ namespace theoretica {
 		// (functions which solve numerically an ODE over an interval)
 
 
-		/// Integrate an ordinary differential equation using a numerical algorithm
+		/// Integrate an ordinary differential equation using any numerical algorithm
 		/// with a constant step size, such as Runge-Kutta methods. This function
 		/// does not use a specific method but uses the step argument function
 		/// to iterate each step of an arbitrary fixed step algorithm. If the step size
@@ -299,7 +299,7 @@ namespace theoretica {
 		/// @param t0 The starting value of the time variable
 		/// @param tf The final value of the time variable
 		/// @param step A function which integrates numerically the differential equation
-		/// between \f$x_0\f$ and \f$x_0 + h\f$, such as the functions named ode::step_*
+		/// between \f$t\f$ and \f$t + h\f$, such as the functions named ode::step_*
 		/// @param stepsize The constant step size
 		/// @return The numerical solution of the equation, as an ode_solution_t
 		/// structure, holding a vector t of time values and a vector x of the variables.
@@ -310,8 +310,7 @@ namespace theoretica {
 		inline ode_solution_t<Vector>
 		solve_fixstep(
 			OdeFunction f, const Vector& x0, real t0, real tf,
-			StepFunction step,
-			real stepsize = 0.001) {
+			StepFunction step, real stepsize = 0.001) {
 
 			if (tf < t0) {
 				TH_MATH_ERROR("ode::solve_fixstep", tf, INVALID_ARGUMENT);
