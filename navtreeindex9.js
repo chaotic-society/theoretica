@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"pseudorandom_8h.html#aed6faedb3d913a589365b108f5ec304e":[13,0,9,2,9],
+"pseudorandom_8h_source.html":[13,0,9,2],
+"quasirandom_8h.html":[13,0,9,3],
 "quasirandom_8h.html#a3d13f9f59d386770a41ca68f16820aac":[13,0,9,3,2],
 "quasirandom_8h.html#a6c5001951408c716ce4e6414cc45f420":[13,0,9,3,3],
 "quasirandom_8h.html#aa7e523c1cc3621e7cbc1ac0df01913c3":[13,0,9,3,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1benchmark_1_1benchmark__state.html#a74abe88e02cbe31ae77cd8cab456052b":[12,0,0,0,3,7],
 "structchebyshev_1_1benchmark_1_1benchmark__state.html#a88045e875c66dd31946551bc4d1226a5":[12,0,0,0,3,8],
 "structchebyshev_1_1benchmark_1_1benchmark__state.html#a93661ee67e9240f885adaa93396add8c":[12,0,0,0,3,11],
-"structchebyshev_1_1benchmark_1_1benchmark__state.html#ae33fe2eb3994fe0cba4a25b95deeac67":[12,0,0,0,3,5],
-"structchebyshev_1_1benchmark_1_1benchmark__state.html#ae5f3a28d5b351e67f539766860fa7bd3":[12,0,0,0,3,6],
-"structchebyshev_1_1benchmark_1_1benchmark__state.html#ae7dfea300dfc69350a8464e9ddcd0e57":[12,0,0,0,3,3],
-"structchebyshev_1_1err_1_1assert__result.html":[12,0,0,1,0]
+"structchebyshev_1_1benchmark_1_1benchmark__state.html#ae33fe2eb3994fe0cba4a25b95deeac67":[12,0,0,0,3,5]
 };

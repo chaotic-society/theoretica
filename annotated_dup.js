@@ -41,6 +41,14 @@ var annotated_dup =
         [ "func_helper< ReturnType(*)(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4" ],
         [ "func_helper< ReturnType(Class::*)(Args...) const >", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4" ]
       ] ],
+      [ "autodiff", "namespacetheoretica_1_1autodiff.html", [
+        [ "is_dual_type", "structtheoretica_1_1autodiff_1_1is__dual__type.html", null ],
+        [ "is_dual_type< dual >", "structtheoretica_1_1autodiff_1_1is__dual__type_3_01dual_01_4.html", null ],
+        [ "is_dual2_type", "structtheoretica_1_1autodiff_1_1is__dual2__type.html", null ],
+        [ "is_dual2_type< dual2 >", "structtheoretica_1_1autodiff_1_1is__dual2__type_3_01dual2_01_4.html", null ],
+        [ "is_multidual_type", "structtheoretica_1_1autodiff_1_1is__multidual__type.html", null ],
+        [ "is_multidual_type< multidual< N > >", "structtheoretica_1_1autodiff_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ]
+      ] ],
       [ "ode", "namespacetheoretica_1_1ode.html", [
         [ "ode_solution_t", "structtheoretica_1_1ode_1_1ode__solution__t.html", "structtheoretica_1_1ode_1_1ode__solution__t" ]
       ] ],
@@ -53,12 +61,6 @@ var annotated_dup =
       [ "vec_iterator", "classtheoretica_1_1vec__iterator.html", "classtheoretica_1_1vec__iterator" ],
       [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],
       [ "vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", "classtheoretica_1_1vec_3_01_type_00_010_01_4" ],
-      [ "is_dual_type", "structtheoretica_1_1is__dual__type.html", null ],
-      [ "is_dual_type< dual >", "structtheoretica_1_1is__dual__type_3_01dual_01_4.html", null ],
-      [ "is_dual2_type", "structtheoretica_1_1is__dual2__type.html", null ],
-      [ "is_dual2_type< dual2 >", "structtheoretica_1_1is__dual2__type_3_01dual2_01_4.html", null ],
-      [ "is_multidual_type", "structtheoretica_1_1is__multidual__type.html", null ],
-      [ "is_multidual_type< multidual< N > >", "structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ],
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
       [ "dual2", "classtheoretica_1_1dual2.html", "classtheoretica_1_1dual2" ],
       [ "multidual", "classtheoretica_1_1multidual.html", "classtheoretica_1_1multidual" ],

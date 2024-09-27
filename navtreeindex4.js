@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"dual2__functions_8h.html#af0493013e208bb00505abbc4ca37f292":[13,0,1,4,3],
+"dual2__functions_8h.html#afce493c565b387c0496eff49e137edb6":[13,0,1,4,12],
 "dual2__functions_8h.html#afd6bc324bd8ae6bbd91b89c7491fe988":[13,0,1,4,7],
 "dual2__functions_8h_source.html":[13,0,1,4],
 "dual_8h.html":[13,0,1,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "montecarlo_8h.html#a369a64e60df5e45af0bb4581a9f213da":[13,0,9,0,2],
 "montecarlo_8h.html#a3d1d65e5dba67ccf5199e5d5544e2484":[13,0,9,0,5],
 "montecarlo_8h.html#a4ed022df42e2b7152fc916433acbfbcc":[13,0,9,0,7],
-"montecarlo_8h.html#a891845bdf03e80b72925c16db545606f":[13,0,9,0,12],
-"montecarlo_8h.html#abad6a42bf9fd0176e622e01e0f7446a9":[13,0,9,0,6],
-"montecarlo_8h.html#afd8b0a1c223e7bc79b04046d4e8502da":[13,0,9,0,3]
+"montecarlo_8h.html#a891845bdf03e80b72925c16db545606f":[13,0,9,0,12]
 };

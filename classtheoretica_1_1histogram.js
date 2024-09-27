@@ -12,7 +12,7 @@ var classtheoretica_1_1histogram =
     [ "operator std::string", "classtheoretica_1_1histogram.html#a9a77554b5796e7d2dfa915d62bb007b9", null ],
     [ "operator()", "classtheoretica_1_1histogram.html#a7dac1e0e08f2cf4c99b8c151ca5f6232", null ],
     [ "operator[]", "classtheoretica_1_1histogram.html#aae5eed807b9dbd3baed0e864b12ac38d", null ],
-    [ "to_string", "classtheoretica_1_1histogram.html#aa9c1aae7e0979827990f7b7914c8e0ef", null ],
+    [ "to_string", "classtheoretica_1_1histogram.html#ab5ffed309334094979bfc3aecb6f7424", null ],
     [ "tss", "classtheoretica_1_1histogram.html#a9e2e5e2761facadb13b41a7b753d57dd", null ],
     [ "operator<<", "classtheoretica_1_1histogram.html#ad9704b5beb2eb07e03d7a4ec32a439cc", null ]
 ];

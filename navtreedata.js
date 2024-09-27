@@ -93,18 +93,18 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"algebra_8h.html",
-"classtheoretica_1_1dual.html#a4189594863b5ad5b10ba106688a5de5a",
-"classtheoretica_1_1multidual.html#a857559b53b9715ac6ede722fee70f9ce",
-"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abc848cc22fa9da71056931e2f1c5bbcf",
-"dual2__functions_8h.html#afd6bc324bd8ae6bbd91b89c7491fe988",
-"montecarlo_8h_source.html",
+"",
+"classtheoretica_1_1dual.html#a30832e57115a210c129932922ab07c61",
+"classtheoretica_1_1multidual.html#a70a062622c9ef74294fab8e0da7944a3",
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa3ba8430199b6d8c19ea4805be6f685",
+"dual2__functions_8h.html#af0493013e208bb00505abbc4ca37f292",
+"montecarlo_8h.html#abad6a42bf9fd0176e622e01e0f7446a9",
 "namespacetheoretica.html#a291138051aa0c9ff217a16fb14e4d466",
-"namespacetheoretica.html#ac61f8810fcedeaa35f54c834e934828e",
-"namespacetheoretica_1_1distribution.html#a5d08267b0686b3c00215645f40d3db47",
-"quasirandom_8h.html#a3d13f9f59d386770a41ca68f16820aac",
-"structchebyshev_1_1err_1_1assert__result.html#a66cbee1bff25afa4697f5550768f1caa",
-"transform_8h.html#abc19e58fd39649b8e9d2c48a2d7fa90e"
+"namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2",
+"namespacetheoretica_1_1distribution.html#a44af917c88f4738b2b3ef1385bf2c8a3",
+"pseudorandom_8h.html#aed6faedb3d913a589365b108f5ec304e",
+"structchebyshev_1_1benchmark_1_1benchmark__state.html#ae5f3a28d5b351e67f539766860fa7bd3",
+"transform_8h.html#a8ac98f4149fbe0ee5aca456bd504a769"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

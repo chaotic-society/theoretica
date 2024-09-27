@@ -143,9 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae5eed807b9dbd3baed0e864b12ac38d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#aae5eed807b9dbd3baed0e864b12ac38d">operator[]</a> (unsigned int i) const</td></tr>
 <tr class="memdesc:aae5eed807b9dbd3baed0e864b12ac38d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of elements in the i-th bin.  <a href="classtheoretica_1_1histogram.html#aae5eed807b9dbd3baed0e864b12ac38d">More...</a><br /></td></tr>
 <tr class="separator:aae5eed807b9dbd3baed0e864b12ac38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c1aae7e0979827990f7b7914c8e0ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#aa9c1aae7e0979827990f7b7914c8e0ef">to_string</a> (const std::string &amp;separator=&quot; &quot;) const</td></tr>
-<tr class="memdesc:aa9c1aae7e0979827990f7b7914c8e0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">TO-DO Cumulative Distribution Function.  <a href="classtheoretica_1_1histogram.html#aa9c1aae7e0979827990f7b7914c8e0ef">More...</a><br /></td></tr>
-<tr class="separator:aa9c1aae7e0979827990f7b7914c8e0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ffed309334094979bfc3aecb6f7424"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#ab5ffed309334094979bfc3aecb6f7424">to_string</a> (const std::string &amp;separator=&quot; &quot;, bool normalized=true, bool lower_extreme=false) const</td></tr>
+<tr class="memdesc:ab5ffed309334094979bfc3aecb6f7424"><td class="mdescLeft">&#160;</td><td class="mdescRight">TO-DO Cumulative Distribution Function.  <a href="classtheoretica_1_1histogram.html#ab5ffed309334094979bfc3aecb6f7424">More...</a><br /></td></tr>
+<tr class="separator:ab5ffed309334094979bfc3aecb6f7424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a77554b5796e7d2dfa915d62bb007b9"><td class="memItemLeft" align="right" valign="top"><a id="a9a77554b5796e7d2dfa915d62bb007b9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a9a77554b5796e7d2dfa915d62bb007b9">operator std::string</a> ()</td></tr>
 <tr class="memdesc:a9a77554b5796e7d2dfa915d62bb007b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the histogram to string representation. <br /></td></tr>
@@ -255,7 +255,8 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 <p>If the number of bins is not specified, it defaults to \([\sqrt{N}]\).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The set of data points @bin_count The number of bins </td></tr>
+    <tr><td class="paramname">data</td><td>The set of data points </td></tr>
+    <tr><td class="paramname">bin_count</td><td>The number of bins (defaults to the square root of the number of points) </td></tr>
   </table>
   </dd>
 </dl>
@@ -543,8 +544,8 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 
 </div>
 </div>
-<a id="aa9c1aae7e0979827990f7b7914c8e0ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9c1aae7e0979827990f7b7914c8e0ef">&#9670;&nbsp;</a></span>to_string()</h2>
+<a id="ab5ffed309334094979bfc3aecb6f7424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ffed309334094979bfc3aecb6f7424">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,8 +557,24 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
           <td class="memname">std::string theoretica::histogram::to_string </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>separator</em> = <code>&quot;&#160;&quot;</code></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>separator</em> = <code>&quot;&#160;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalized</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>lower_extreme</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -568,7 +585,16 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 </div><div class="memdoc">
 
 <p>TO-DO Cumulative Distribution Function. </p>
-<p>Convert the histogram to string representation </p>
+<p>Convert the histogram to string representation</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">separator</td><td>The string to print between row elements </td></tr>
+    <tr><td class="paramname">normalized</td><td>Whether to normalize the bin counts as a frequency (defaults to true). </td></tr>
+    <tr><td class="paramname">lower_extreme</td><td>Whether to print the lower extreme of the bins or use the mid point (defaults to false, using mid points). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the histogram, ready to plot. </dd></dl>
 
 </div>
 </div>
@@ -609,7 +635,7 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1histogram.html">histogram</a></li>
-    <li class="footer">Generated on Sun Sep 22 2024 17:23:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 27 2024 20:11:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

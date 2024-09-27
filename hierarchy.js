@@ -17,13 +17,13 @@ var hierarchy =
     [ "theoretica::extract_func_args< Function >", "structtheoretica_1_1extract__func__args.html", null ],
     [ "theoretica::extract_func_args< Function(Args...)>", "structtheoretica_1_1extract__func__args_3_01_function_07_args_8_8_8_08_4.html", null ],
     [ "std::false_type", null, [
+      [ "theoretica::autodiff::is_dual2_type< Type >", "structtheoretica_1_1autodiff_1_1is__dual2__type.html", null ],
+      [ "theoretica::autodiff::is_dual_type< Type >", "structtheoretica_1_1autodiff_1_1is__dual__type.html", null ],
+      [ "theoretica::autodiff::is_multidual_type< Type >", "structtheoretica_1_1autodiff_1_1is__multidual__type.html", null ],
       [ "theoretica::is_complex_type< T >", "structtheoretica_1_1is__complex__type.html", null ],
-      [ "theoretica::is_dual2_type< Type >", "structtheoretica_1_1is__dual2__type.html", null ],
-      [ "theoretica::is_dual_type< Type >", "structtheoretica_1_1is__dual__type.html", null ],
       [ "theoretica::is_indexable< Structure, typename >", "structtheoretica_1_1is__indexable.html", null ],
       [ "theoretica::is_iterable< Structure, typename >", "structtheoretica_1_1is__iterable.html", null ],
       [ "theoretica::is_matrix< Structure, typename >", "structtheoretica_1_1is__matrix.html", null ],
-      [ "theoretica::is_multidual_type< Type >", "structtheoretica_1_1is__multidual__type.html", null ],
       [ "theoretica::is_orderable< Structure, typename >", "structtheoretica_1_1is__orderable.html", null ],
       [ "theoretica::is_vector< Structure, typename >", "structtheoretica_1_1is__vector.html", null ]
     ] ],
@@ -63,13 +63,13 @@ var hierarchy =
     [ "theoretica::spline_node", "structtheoretica_1_1spline__node.html", null ],
     [ "chebyshev::benchmark::timer", "classchebyshev_1_1benchmark_1_1timer.html", null ],
     [ "std::true_type", null, [
+      [ "theoretica::autodiff::is_dual2_type< dual2 >", "structtheoretica_1_1autodiff_1_1is__dual2__type_3_01dual2_01_4.html", null ],
+      [ "theoretica::autodiff::is_dual_type< dual >", "structtheoretica_1_1autodiff_1_1is__dual__type_3_01dual_01_4.html", null ],
+      [ "theoretica::autodiff::is_multidual_type< multidual< N > >", "structtheoretica_1_1autodiff_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ],
       [ "theoretica::is_complex_type< complex< T > >", "structtheoretica_1_1is__complex__type_3_01complex_3_01_t_01_4_01_4.html", null ],
-      [ "theoretica::is_dual2_type< dual2 >", "structtheoretica_1_1is__dual2__type_3_01dual2_01_4.html", null ],
-      [ "theoretica::is_dual_type< dual >", "structtheoretica_1_1is__dual__type_3_01dual_01_4.html", null ],
       [ "theoretica::is_indexable< Structure, _internal::void_t< decltype(std::declval< Structure >()[0])> >", "structtheoretica_1_1is__indexable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_19d7f4fd42f60d1d5bc87491fe492c2a4.html", null ],
       [ "theoretica::is_iterable< Structure, _internal::void_t< decltype(std::declval< Structure >().begin())> >", "structtheoretica_1_1is__iterable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_134cacadc4237e7975e93632d0bd7c70.html", null ],
       [ "theoretica::is_matrix< Structure, _internal::void_t< decltype(std::declval< Structure >()(0, 0)), decltype(std::declval< Structure >().rows()), decltype(std::declval< Structure >().cols())> >", "structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html", null ],
-      [ "theoretica::is_multidual_type< multidual< N > >", "structtheoretica_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html", null ],
       [ "theoretica::is_orderable< Structure, _internal::void_t< decltype(std::declval< Structure >()< std::declval< Structure >())> >", "structtheoretica_1_1is__orderable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_12e209b403793e9b560712d8d8a4def95.html", null ],
       [ "theoretica::is_real_type< real >", "structtheoretica_1_1is__real__type_3_01real_01_4.html", null ],
       [ "theoretica::is_vector< Structure, _internal::void_t< decltype(std::declval< Structure >()[0]), decltype(std::declval< Structure >().size())> >", "structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html", null ]
