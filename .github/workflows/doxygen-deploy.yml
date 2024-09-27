@@ -28,11 +28,8 @@ jobs:
         shell: bash
         run: doxygen ./build/Doxyfile
 
-      - run: sed -i 's/# Theoretica//g' README.md
-        shell: bash
-
       - name: Deploy Documentation
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
