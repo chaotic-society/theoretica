@@ -19,7 +19,7 @@ using namespace th;
 int main() {
 
     // Sample size
-    const unsigned int N = 1000000;
+    const unsigned int N = 1E+06;
 
     // Create a PRNG with a seed
     PRNG g = PRNG::xoshiro(time(nullptr));

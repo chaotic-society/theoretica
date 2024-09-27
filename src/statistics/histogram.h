@@ -76,7 +76,8 @@ namespace theoretica {
 			/// it defaults to \f$[\sqrt{N}]\f$.
 			///
 			/// @param data The set of data points
-			/// @bin_count The number of bins
+			/// @param bin_count The number of bins
+			/// (defaults to the square root of the number of points)
 			template<typename Dataset, enable_vector<Dataset> = true>
 			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
@@ -95,7 +96,7 @@ namespace theoretica {
 					bin_count ? bin_count : floor(sqrt(N))
 				);
 
-				// The histogram contains the data point by construction
+				// The histogram contains all the data points by construction
 				for (size_t i = 0; i < N; ++i)
 					bin_counts[index(data[i])]++;
 			}
@@ -231,21 +232,36 @@ namespace theoretica {
 #ifndef THEORETICA_NO_PRINT
 
 			/// Convert the histogram to string representation
+			///
+			/// @param separator The string to print between row elements
+			/// @param normalized Whether to normalize the bin counts as a frequency
+			/// (defaults to true).
+			/// @param lower_extreme Whether to print the lower extreme of the bins
+			/// or use the mid point (defaults to false, using mid points).
+			/// @return A string representing the histogram, ready to plot.
 			inline std::string to_string(
-				const std::string& separator = " ") const {
+				const std::string& separator = " ",
+				bool normalized = true,
+				bool lower_extreme = false) const {
 
 				if(N == 0)
 					return "";
 
 				std::stringstream res;
+				const real width = abs(range_max - range_min) / bin_counts.size();
+				real mult = 0.5;
+
+				if (lower_extreme)
+					mult = 0.0;
 
 				for (size_t i = 0; i < bin_counts.size(); ++i) {
 
-					res << (range_min + ((i + 1) / (real) bin_counts.size())
-							* (range_max - range_min))
-						<< separator
-						<< (bin_counts[i] / (real) N)
-						<< std::endl;
+					res << (range_min + (i + mult) * width) << separator;
+
+					if (normalized)
+						res << (bin_counts[i] / (real) N) << std::endl;
+					else
+						res << bin_counts[i] << std::endl;
 				}
 
 				return res.str();

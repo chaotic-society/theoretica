@@ -92,6 +92,9 @@ namespace theoretica {
 
 		public:
 
+		// Vector size template argument
+		static constexpr size_t size_argument = N;
+
 		/// Construct a vector with all
 		/// elements equal to zero.
 		vec() {
@@ -491,6 +494,9 @@ namespace theoretica {
 			Container<Type> data;
 
 	public:
+
+		// Vector size template argument
+		static constexpr size_t size_argument = 0;
 
 		/// Construct an empty vector.
 		vec() {}

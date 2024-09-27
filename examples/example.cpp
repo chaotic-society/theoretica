@@ -1,6 +1,6 @@
 
 ///
-/// @file example.cpp Example file.
+/// @file example.cpp Example program.
 /// This example may be compiled using 'make example'
 ///
 
