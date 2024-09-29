@@ -283,8 +283,8 @@ namespace theoretica {
 	/// @param f The function to apply
 	/// @param X The input vector
 	/// @return The modified output vector
-	template<typename Vector1, typename Vector2 = Vector1, typename Function>
-	inline Vector1 map(Function f, const Vector1& X) {
+	template<typename Vector2, typename Vector1, typename Function>
+	inline Vector2 map(Function f, const Vector1& X) {
 
 		Vector2 res;
 		res.resize(X.size());
@@ -293,6 +293,17 @@ namespace theoretica {
 			res[i] = f(X[i]);
 
 		return res;
+	}
+
+
+	/// Get a new vector obtained by applying the function element-wise.
+	///
+	/// @param f The function to apply
+	/// @param X The input vector
+	/// @return The modified output vector
+	template<typename Vector, typename Function>
+	inline Vector map(Function f, const Vector& X) {
+		return map<Vector, Vector, Function>(f, X);
 	}
 
 

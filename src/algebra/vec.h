@@ -275,6 +275,12 @@ namespace theoretica {
 		/// Divide the vector itself by a scalar
 		inline vec<Type, N>& operator/=(Type scalar) {
 
+			if(abs(scalar) < MACH_EPSILON) {
+				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
+				vec_error(*this);
+				return *this;
+			}
+
 			for (unsigned int i = 0; i < N; ++i)
 				data[i] /= scalar;
 		
@@ -681,7 +687,8 @@ namespace theoretica {
 
 			if(abs(scalar) < MACH_EPSILON) {
 				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
-				return vec<Type>(max(size(), 1), nan());
+				*this = vec<Type>(max(size(), 1), nan());
+				return *this;
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
@@ -890,26 +897,29 @@ namespace theoretica {
 	};
 
 
-	template<typename VecT, typename Type, typename ...Args>
-	void variadic_vec(vec<VecT>& v, size_t index, Type last) {
+	template<typename ElementType, typename Type, typename ...Args>
+	void make_vec(vec<ElementType>& v, size_t index, Type last) {
 		v[index] = last;
 	}
 
-	template<typename VecT, typename Type, typename ...Args>
-	void variadic_vec(vec<VecT>& v, size_t index, Type first, Args... elements) {
+	template<typename ElementType, typename Type, typename ...Args>
+	void make_vec(vec<ElementType>& v, size_t index, Type first, Args... elements) {
 
 		v[index] = first;
-		variadic_vec<VecT>(v, index + 1, elements...);
+		make_vec<ElementType>(v, index + 1, elements...);
 	}
 
+
+	/// Construct a dynamically allocated vector of type
+	/// vec<Type> using variadic templates.
 	template<typename Type, typename ...Args>
-	vec<Type> variadic_vec(Type first, Args... elements) {
+	vec<Type> make_vec(Type first, Args... elements) {
 
 		vec<Type> v;
 		v.resize(sizeof...(elements) + 1);
 
 		v[0] = first;
-		variadic_vec<Type>(v, 1, elements...);
+		make_vec<Type>(v, 1, elements...);
 
 		return v;
 	}

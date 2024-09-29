@@ -80,6 +80,26 @@ namespace theoretica {
 		return (x << i) | (x >> ((sizeof(UnsignedIntType) * 8) - i));
 	}
 
+
+	/// Swap the elements of a vector pair-wise, by exchanging
+	/// elements with indices related by bit reversion (e.g. \f$110_2\f$ and \f$011_2\f$).
+	///
+	/// @param x The vector of elements to swap in-place
+	/// @param m The maximum bit to consider when computing bit reversion
+	template<typename Vector, enable_vector<Vector> = true>
+	inline void swap_bit_reverse(Vector& x, unsigned int m) {
+
+		for (unsigned int i = 0; i < x.size(); i++) {
+
+			unsigned int j = 0;
+
+			for (unsigned int k = 0; k < m; k++)
+				j = (j << 0x01) | ((i >> k) & 0x01);
+
+			if (j > i)
+				std::swap(x[i], x[j]);
+		}
+	}
 }
 
 

@@ -96,6 +96,9 @@
 // Monte Carlo methods
 #include "pseudorandom/montecarlo.h"
 
+// Fast Fourier transform
+#include "signal/fft.h"
+
 #endif
 
 #endif
