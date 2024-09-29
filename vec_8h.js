@@ -3,7 +3,7 @@ var vec_8h =
     [ "vec_iterator", "classtheoretica_1_1vec__iterator.html", "classtheoretica_1_1vec__iterator" ],
     [ "vec", "classtheoretica_1_1vec.html", "classtheoretica_1_1vec" ],
     [ "vec< Type, 0 >", "classtheoretica_1_1vec_3_01_type_00_010_01_4.html", "classtheoretica_1_1vec_3_01_type_00_010_01_4" ],
-    [ "variadic_vec", "vec_8h.html#ad0bf214e898436e03a68f13107c35198", null ],
-    [ "variadic_vec", "vec_8h.html#a1d5e48b75f472377165f8baac8344b21", null ],
-    [ "variadic_vec", "vec_8h.html#a5b4a226ef767d95408e12ca66fe28744", null ]
+    [ "make_vec", "vec_8h.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c", null ],
+    [ "make_vec", "vec_8h.html#aaac93661f565556c9740402f262e9a80", null ],
+    [ "make_vec", "vec_8h.html#a8fe375758727a9f9a510a0898d69aaf4", null ]
 ];

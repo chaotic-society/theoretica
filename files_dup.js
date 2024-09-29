@@ -10,6 +10,7 @@ var files_dup =
     [ "optimization", "dir_a57e94efe769f9ed34acbb385fd2b2a4.html", "dir_a57e94efe769f9ed34acbb385fd2b2a4" ],
     [ "polynomial", "dir_80b12a04080342cac66dddc13ab3e1e7.html", "dir_80b12a04080342cac66dddc13ab3e1e7" ],
     [ "pseudorandom", "dir_7abfcc991e7b5ee9bf0b7bf536481a35.html", "dir_7abfcc991e7b5ee9bf0b7bf536481a35" ],
+    [ "signal", "dir_e681bd22f1a85a89d9c18b68cc50d922.html", "dir_e681bd22f1a85a89d9c18b68cc50d922" ],
     [ "statistics", "dir_65ad14ba617219a91653797a9020c4d5.html", "dir_65ad14ba617219a91653797a9020c4d5" ],
     [ "test", "dir_13e138d54eb8818da29c3992edef070a.html", "dir_13e138d54eb8818da29c3992edef070a" ],
     [ "theoretica.h", "theoretica_8h.html", null ],

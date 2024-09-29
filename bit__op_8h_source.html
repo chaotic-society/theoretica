@@ -151,22 +151,38 @@ $(document).ready(function(){initNavTree('bit__op_8h_source.html',''); initResiz
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> (x &lt;&lt; i) | (x &gt;&gt; ((<span class="keyword">sizeof</span>(UnsignedIntType) * 8) - i));</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, enable_vector&lt;Vector&gt; = true&gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">   90</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">swap_bit_reverse</a>(Vector&amp; x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; x.size(); i++) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k = 0; k &lt; m; k++)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                j = (j &lt;&lt; 0x01) | ((i &gt;&gt; k) &amp; 0x01);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">if</span> (j &gt; i)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                std::swap(x[i], x[j]);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html_aa0d72dcb7db38b3577234c144089a71a"><div class="ttname"><a href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a></div><div class="ttdeci">#define TH_CONSTEXPR</div><div class="ttdoc">Enable constexpr in function declarations if C++14 is supported.</div><div class="ttdef"><b>Definition:</b> constants.h:151</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a4024f1ecd6e937492928965a417c2bc9"><div class="ttname"><a href="namespacetheoretica.html#a4024f1ecd6e937492928965a417c2bc9">theoretica::bit_rotate</a></div><div class="ttdeci">TH_CONSTEXPR UnsignedIntType bit_rotate(UnsignedIntType x, unsigned int i)</div><div class="ttdoc">Bit rotation of unsigned integer types using shifts.</div><div class="ttdef"><b>Definition:</b> bit_op.h:78</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a672dbbc0ea824c71d7ca0dc26b346200"><div class="ttname"><a href="namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200">theoretica::mix_mum</a></div><div class="ttdeci">uint64_t mix_mum(uint64_t a, uint64_t b)</div><div class="ttdoc">MUM bit mixing function, computes the 128-bit product of a and b and the XOR of their high and low 64...</div><div class="ttdef"><b>Definition:</b> bit_op.h:62</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aca2b51694a7dd4ded3a140f92366aaed"><div class="ttname"><a href="namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed">theoretica::mul_uint128</a></div><div class="ttdeci">void mul_uint128(uint64_t a, uint64_t b, uint64_t &amp;c_low, uint64_t &amp;c_high)</div><div class="ttdoc">Multiply two 64-bit unsigned integers and store the result in two 64-bit variables,...</div><div class="ttdef"><b>Definition:</b> bit_op.h:24</div></div>
+<div class="ttc" id="anamespacetheoretica_html_afc3702e8779681c1323f7a98f7f6a3cb"><div class="ttname"><a href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">theoretica::swap_bit_reverse</a></div><div class="ttdeci">void swap_bit_reverse(Vector &amp;x, unsigned int m)</div><div class="ttdoc">Swap the elements of a vector pair-wise, by exchanging elements with indices related by bit reversion...</div><div class="ttdef"><b>Definition:</b> bit_op.h:90</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="bit__op_8h.html">bit_op.h</a></li>
-    <li class="footer">Generated on Fri Sep 27 2024 20:11:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 29 2024 09:40:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
