@@ -87,9 +87,15 @@ test_template:
 	@g++ test/test_template.cpp  ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_template
 
 
+test_signal:
+	@echo Compiling signal test cases...
+	@g++ test/test_signal.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/test_signal
+	@./test/test_signal
+
+
 # Compile all test programs and run them
 #test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
-test: test_core test_complex test_statistics test_calculus
+test: test_core test_complex test_statistics test_calculus test_signal
 
 # Example programs
 

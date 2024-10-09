@@ -16,6 +16,13 @@ using namespace th;
 #include <iostream>
 
 
+// Sample a certain probability distribution
+real sample_dist(PRNG& g) {
+
+    return rand_exponential(1, g);
+}
+
+
 int main() {
 
     // Sample size
@@ -29,7 +36,8 @@ int main() {
 
     // Fill a vector with N samples
     vec<real> data(N);
-    p.fill(data);
+    for (real& x : data)
+        x = sample_dist(g);
 
     // Initialize the histogram from data
     histogram h = histogram(data);

@@ -74,7 +74,7 @@ namespace theoretica {
 
 			// The normalization constant is 1/N
 			if (inverse)
-				k /= x.size();
+				k /= N;
 
 			return k;
 		}
@@ -85,8 +85,8 @@ namespace theoretica {
 		///
 		/// @param k The set of data points in the frequency domain
 		/// @return The data in the time domain
-		template<typename Vector1 = cvec, typename Vector2 = cvec>
-		inline Vector2 ifft(const Vector1& k) {
+		template<typename ReturnVector = cvec, typename InputVector = cvec>
+		inline ReturnVector ifft(const InputVector& k) {
 			return fft(k, true);
 		}
 	}
