@@ -967,76 +967,129 @@ namespace theoretica {
 		}
 
 
-		/// Multiply two matrices and store the result in the first matrix.
-		/// Equivalent to the operation A = A * B
+		/// Multiply two matrices and store the result in the first matrix,
+		/// equivalent to the operation \f$R = A B\f$.
+		///
 		/// @param A The first matrix to multiply and store the result
 		/// @param B The second matrix to multiply
-		/// @return A reference to the resulting matrix
-		template<typename Matrix1, typename Matrix2>
-		inline Matrix1& mat_mul(Matrix1& A, const Matrix2& B) {
+		/// @return The resulting matrix
+		template<typename Matrix1, typename Matrix2, typename Matrix3 = Matrix1>
+		inline Matrix3 mat_mul(const Matrix1& A, const Matrix2& B) {
+
+			Matrix3 R;
+			R.resize(A.rows(), B.cols());
 
 			if(A.cols() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_mul", A.cols(), INVALID_ARGUMENT);
-				mat_error(A);
-				return A;
+				mat_error(R);
+				return R;
 			}
 
-			if(B.cols() != A.cols()) {
-				TH_MATH_ERROR("algebra::mat_mul", B.cols(), INVALID_ARGUMENT);
-				mat_error(A);
-				return A;
-			}
-
-			Matrix1 res;
-			res.resize(A.rows(), B.cols());
-			mat_zeroes(res);
+			mat_zeroes(R);
 			
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < B.cols(); ++j)
 					for (unsigned int k = 0; k < A.cols(); ++k)
-						res(i, j) += A(i, k) * B(k, j);
+						R(i, j) += A(i, k) * B(k, j);
 
-			A.resize(A.rows(), B.cols());
-			mat_copy(A, res);
-			return A;
+			return R;
 		}
 
 
-		/// Multiply two matrices and store the result in another matrix.
-		/// Equivalent to the operation res = A * B
-		/// @param res The matrix to overwrite with the result
+		/// Multiply two matrices and store the result in another matrix,
+		/// equivalent to the operation \f$R = A B\f$.
+		///
+		/// @param R The matrix to overwrite with the result
 		/// @param A The first matrix to multiply
 		/// @param B The second matrix to multiply
-		/// @return A reference to the resulting matrix
+		/// @return A reference to the modified matrix
 		template<typename Matrix1, typename Matrix2, typename Matrix3>
-		inline Matrix1& mat_mul(Matrix1& res, const Matrix2& A, const Matrix3& B) {
+		inline Matrix1& mat_mul(Matrix1& R, const Matrix2& A, const Matrix3& B) {
 			
-			if(res.rows() != A.rows()) {
-				TH_MATH_ERROR("algebra::mat_mul", res.rows(), INVALID_ARGUMENT);
-				mat_error(res);
-				return res;
+			if(R.rows() != A.rows()) {
+				TH_MATH_ERROR("algebra::mat_mul", R.rows(), INVALID_ARGUMENT);
+				mat_error(R);
+				return R;
 			}
 
-			if(res.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_mul", res.cols(), INVALID_ARGUMENT);
-				mat_error(res);
-				return res;
+			if(R.cols() != B.cols()) {
+				TH_MATH_ERROR("algebra::mat_mul", R.cols(), INVALID_ARGUMENT);
+				mat_error(R);
+				return R;
 			}
 
 			if(A.cols() != B.rows()) {
 				TH_MATH_ERROR("algebra::mat_mul", A.cols(), INVALID_ARGUMENT);
-				mat_error(res);
-				return res;
+				mat_error(R);
+				return R;
 			}
 
-			mat_zeroes(res);
+			mat_zeroes(R);
 
 			for (unsigned int i = 0; i < A.rows(); ++i)
 				for (unsigned int j = 0; j < B.cols(); ++j)
 					for (unsigned int k = 0; k < A.cols(); ++k)
-						res(i, j) += A(i, k) * B(k, j);
+						R(i, j) += A(i, k) * B(k, j);
 
-			return res;
+			return R;
+		}
+
+
+		/// Multiply the transpose of a matrix by another matrix,
+		/// equivalent to the operation \f$R = A^T B\f$.
+		///
+		/// @param A The matrix to transpose and then multiply
+		/// @param B The second matrix to multiply by
+		/// @return The result of the multiplication by the transpose of the first
+		/// matrix and the second matrix.
+		template<typename Matrix1, typename Matrix2, typename Matrix3 = Matrix1>
+		inline Matrix3 mat_transpose_mul(const Matrix1& A, const Matrix2& B) {
+
+			Matrix3 R;
+			R.resize(A.cols(), B.cols());
+
+			if(A.rows() != B.rows()) {
+				TH_MATH_ERROR("algebra::mat_transpose_mul", A.rows(), INVALID_ARGUMENT);
+				return mat_error(R);
+			}
+
+			mat_zeroes(R);
+
+			for (unsigned int i = 0; i < R.rows(); ++i)
+				for (unsigned int j = 0; j < R.cols(); ++j)
+					for (unsigned int k = 0; k < A.rows(); ++k)
+						R(i, j) += A(k, i) * B(k, j);
+
+			return R;
+		}
+
+
+		/// Multiply a matrix by the transpose of another matrix,
+		/// equivalent to the operation \f$R = A B^T\f$.
+		///
+		/// @param A The first matrix to multiply
+		/// @param B The second matrix to transpose and multiply by
+		/// @return The result of the multiplication by the first
+		/// matrix and the transpose of second matrix.
+		template<typename Matrix1, typename Matrix2, typename Matrix3 = Matrix1>
+		inline Matrix3 mat_mul_transpose(const Matrix1& A, const Matrix2& B) {
+
+			Matrix3 R;
+			R.resize(A.rows(), B.rows());
+
+			if(A.cols() != B.cols()) {
+				TH_MATH_ERROR("algebra::mat_mul_transpose", A.rows(), INVALID_ARGUMENT);
+				return mat_error(R);
+			}
+
+			mat_zeroes(R);
+
+			for (unsigned int i = 0; i < R.rows(); ++i)
+				for (unsigned int j = 0; j < R.cols(); ++j)
+					for (unsigned int k = 0; k < A.cols(); ++k)
+						R(i, j) += A(i, k) * B(j, k);
+
+			return R;
 		}
 
 
