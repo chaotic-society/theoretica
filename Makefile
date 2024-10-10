@@ -181,7 +181,7 @@ benchmark_template:
 
 # Compile all benchmarks and run them
 #benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized
-benchmark: benchmark_real_analysis benchmark_dataset benchmark_vectorized
+benchmark: benchmark_real_analysis benchmark_dataset
 
 # Clean all directories from CSV and EXE files
 clean:
