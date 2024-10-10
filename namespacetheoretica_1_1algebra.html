@@ -258,14 +258,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a7e81680ca260be32e5ac0bca405bdb70"><td class="memTemplItemLeft" align="right" valign="top">Matrix1 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a7e81680ca260be32e5ac0bca405bdb70">mat_lincomb</a> (Matrix1 &amp;res, Field1 alpha, const Matrix2 &amp;A, Field2 beta, const Matrix3 &amp;B)</td></tr>
 <tr class="memdesc:a7e81680ca260be32e5ac0bca405bdb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the linear combination of two matrices and store the result in the first matrix.  <a href="namespacetheoretica_1_1algebra.html#a7e81680ca260be32e5ac0bca405bdb70">More...</a><br /></td></tr>
 <tr class="separator:a7e81680ca260be32e5ac0bca405bdb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20d45028f1600afc9aaf8ce5b1678e1"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 &gt; </td></tr>
-<tr class="memitem:af20d45028f1600afc9aaf8ce5b1678e1"><td class="memTemplItemLeft" align="right" valign="top">Matrix1 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#af20d45028f1600afc9aaf8ce5b1678e1">mat_mul</a> (Matrix1 &amp;A, const Matrix2 &amp;B)</td></tr>
-<tr class="memdesc:af20d45028f1600afc9aaf8ce5b1678e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two matrices and store the result in the first matrix.  <a href="namespacetheoretica_1_1algebra.html#af20d45028f1600afc9aaf8ce5b1678e1">More...</a><br /></td></tr>
-<tr class="separator:af20d45028f1600afc9aaf8ce5b1678e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e7ef4b5e9b0231fcc4e1dbbec94418"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </td></tr>
-<tr class="memitem:aa3e7ef4b5e9b0231fcc4e1dbbec94418"><td class="memTemplItemLeft" align="right" valign="top">Matrix1 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa3e7ef4b5e9b0231fcc4e1dbbec94418">mat_mul</a> (Matrix1 &amp;res, const Matrix2 &amp;A, const Matrix3 &amp;B)</td></tr>
-<tr class="memdesc:aa3e7ef4b5e9b0231fcc4e1dbbec94418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two matrices and store the result in another matrix.  <a href="namespacetheoretica_1_1algebra.html#aa3e7ef4b5e9b0231fcc4e1dbbec94418">More...</a><br /></td></tr>
-<tr class="separator:aa3e7ef4b5e9b0231fcc4e1dbbec94418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78fe225d79cff4f7b5b8edbdae04dd50"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </td></tr>
+<tr class="memitem:a78fe225d79cff4f7b5b8edbdae04dd50"><td class="memTemplItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a78fe225d79cff4f7b5b8edbdae04dd50">mat_mul</a> (const Matrix1 &amp;A, const Matrix2 &amp;B)</td></tr>
+<tr class="memdesc:a78fe225d79cff4f7b5b8edbdae04dd50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two matrices and store the result in the first matrix, equivalent to the operation \(R = A B\).  <a href="namespacetheoretica_1_1algebra.html#a78fe225d79cff4f7b5b8edbdae04dd50">More...</a><br /></td></tr>
+<tr class="separator:a78fe225d79cff4f7b5b8edbdae04dd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3348aee56e03443fd9f8a22e8a1eee5"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </td></tr>
+<tr class="memitem:ae3348aee56e03443fd9f8a22e8a1eee5"><td class="memTemplItemLeft" align="right" valign="top">Matrix1 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ae3348aee56e03443fd9f8a22e8a1eee5">mat_mul</a> (Matrix1 &amp;R, const Matrix2 &amp;A, const Matrix3 &amp;B)</td></tr>
+<tr class="memdesc:ae3348aee56e03443fd9f8a22e8a1eee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two matrices and store the result in another matrix, equivalent to the operation \(R = A B\).  <a href="namespacetheoretica_1_1algebra.html#ae3348aee56e03443fd9f8a22e8a1eee5">More...</a><br /></td></tr>
+<tr class="separator:ae3348aee56e03443fd9f8a22e8a1eee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e8c8a9cfcb525db569989486105e324"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </td></tr>
+<tr class="memitem:a0e8c8a9cfcb525db569989486105e324"><td class="memTemplItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324">mat_transpose_mul</a> (const Matrix1 &amp;A, const Matrix2 &amp;B)</td></tr>
+<tr class="memdesc:a0e8c8a9cfcb525db569989486105e324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply the transpose of a matrix by another matrix, equivalent to the operation \(R = A^T B\).  <a href="namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324">More...</a><br /></td></tr>
+<tr class="separator:a0e8c8a9cfcb525db569989486105e324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5409959842e07390e2834cc99139a5d"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </td></tr>
+<tr class="memitem:aa5409959842e07390e2834cc99139a5d"><td class="memTemplItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa5409959842e07390e2834cc99139a5d">mat_mul_transpose</a> (const Matrix1 &amp;A, const Matrix2 &amp;B)</td></tr>
+<tr class="memdesc:aa5409959842e07390e2834cc99139a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a matrix by the transpose of another matrix, equivalent to the operation \(R = A B^T\).  <a href="namespacetheoretica_1_1algebra.html#aa5409959842e07390e2834cc99139a5d">More...</a><br /></td></tr>
+<tr class="separator:aa5409959842e07390e2834cc99139a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48ae546299bfa1f1e9c01af80ba48f43"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 &gt; </td></tr>
 <tr class="memitem:a48ae546299bfa1f1e9c01af80ba48f43"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a48ae546299bfa1f1e9c01af80ba48f43">mat_equals</a> (const Matrix1 &amp;A, const Matrix2 &amp;B, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=10 *<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>)</td></tr>
 <tr class="memdesc:a48ae546299bfa1f1e9c01af80ba48f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether two matrices are equal.  <a href="namespacetheoretica_1_1algebra.html#a48ae546299bfa1f1e9c01af80ba48f43">More...</a><br /></td></tr>
@@ -3310,21 +3318,21 @@ template&lt;typename Matrix1 , typename Field1 , typename Matrix2 , typename Fie
 
 </div>
 </div>
-<a id="af20d45028f1600afc9aaf8ce5b1678e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af20d45028f1600afc9aaf8ce5b1678e1">&#9670;&nbsp;</a></span>mat_mul() <span class="overload">[1/2]</span></h2>
+<a id="a78fe225d79cff4f7b5b8edbdae04dd50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78fe225d79cff4f7b5b8edbdae04dd50">&#9670;&nbsp;</a></span>mat_mul() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Matrix1 , typename Matrix2 &gt; </div>
+template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Matrix1&amp; theoretica::algebra::mat_mul </td>
+          <td class="memname">Matrix3 theoretica::algebra::mat_mul </td>
           <td>(</td>
-          <td class="paramtype">Matrix1 &amp;&#160;</td>
+          <td class="paramtype">const Matrix1 &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
@@ -3346,20 +3354,20 @@ template&lt;typename Matrix1 , typename Matrix2 &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Multiply two matrices and store the result in the first matrix. </p>
-<p>Equivalent to the operation A = A * B </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiply two matrices and store the result in the first matrix, equivalent to the operation \(R = A B\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>The first matrix to multiply and store the result </td></tr>
     <tr><td class="paramname">B</td><td>The second matrix to multiply </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the resulting matrix </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting matrix </dd></dl>
 
 </div>
 </div>
-<a id="aa3e7ef4b5e9b0231fcc4e1dbbec94418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3e7ef4b5e9b0231fcc4e1dbbec94418">&#9670;&nbsp;</a></span>mat_mul() <span class="overload">[2/2]</span></h2>
+<a id="ae3348aee56e03443fd9f8a22e8a1eee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3348aee56e03443fd9f8a22e8a1eee5">&#9670;&nbsp;</a></span>mat_mul() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3373,7 +3381,7 @@ template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </div>
           <td class="memname">Matrix1&amp; theoretica::algebra::mat_mul </td>
           <td>(</td>
           <td class="paramtype">Matrix1 &amp;&#160;</td>
-          <td class="paramname"><em>res</em>, </td>
+          <td class="paramname"><em>R</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -3400,16 +3408,64 @@ template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Multiply two matrices and store the result in another matrix. </p>
-<p>Equivalent to the operation res = A * B </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiply two matrices and store the result in another matrix, equivalent to the operation \(R = A B\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">res</td><td>The matrix to overwrite with the result </td></tr>
+    <tr><td class="paramname">R</td><td>The matrix to overwrite with the result </td></tr>
     <tr><td class="paramname">A</td><td>The first matrix to multiply </td></tr>
     <tr><td class="paramname">B</td><td>The second matrix to multiply </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the resulting matrix </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the modified matrix </dd></dl>
+
+</div>
+</div>
+<a id="aa5409959842e07390e2834cc99139a5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5409959842e07390e2834cc99139a5d">&#9670;&nbsp;</a></span>mat_mul_transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix3 theoretica::algebra::mat_mul_transpose </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix1 &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Matrix2 &amp;&#160;</td>
+          <td class="paramname"><em>B</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multiply a matrix by the transpose of another matrix, equivalent to the operation \(R = A B^T\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The first matrix to multiply </td></tr>
+    <tr><td class="paramname">B</td><td>The second matrix to transpose and multiply by </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the multiplication by the first matrix and the transpose of second matrix. </dd></dl>
 
 </div>
 </div>
@@ -3771,6 +3827,54 @@ template&lt;typename Matrix &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a0e8c8a9cfcb525db569989486105e324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e8c8a9cfcb525db569989486105e324">&#9670;&nbsp;</a></span>mat_transpose_mul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3  = Matrix1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix3 theoretica::algebra::mat_transpose_mul </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix1 &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Matrix2 &amp;&#160;</td>
+          <td class="paramname"><em>B</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multiply the transpose of a matrix by another matrix, equivalent to the operation \(R = A^T B\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The matrix to transpose and then multiply </td></tr>
+    <tr><td class="paramname">B</td><td>The second matrix to multiply by </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the multiplication by the transpose of the first matrix and the second matrix. </dd></dl>
 
 </div>
 </div>
@@ -5552,7 +5656,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Sun Sep 29 2024 09:40:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 10 2024 07:46:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

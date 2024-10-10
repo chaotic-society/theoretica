@@ -106,10 +106,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a78e52487d0082e91ff0bf2be336980ec"><td class="memTemplItemLeft" align="right" valign="top">ReturnVector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec">fft</a> (const InputVector &amp;x, bool <a class="el" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a>=false)</td></tr>
 <tr class="memdesc:a78e52487d0082e91ff0bf2be336980ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Fast Fourier Transform of a set of data points.  <a href="namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec">More...</a><br /></td></tr>
 <tr class="separator:a78e52487d0082e91ff0bf2be336980ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9177de3f1b0127b7539c08d53e867bcb"><td class="memTemplParams" colspan="2">template&lt;typename Vector1  = cvec, typename Vector2  = cvec&gt; </td></tr>
-<tr class="memitem:a9177de3f1b0127b7539c08d53e867bcb"><td class="memTemplItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1signal.html#a9177de3f1b0127b7539c08d53e867bcb">ifft</a> (const Vector1 &amp;k)</td></tr>
-<tr class="memdesc:a9177de3f1b0127b7539c08d53e867bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Inverse Fast Fourier Transform of a set of data points.  <a href="namespacetheoretica_1_1signal.html#a9177de3f1b0127b7539c08d53e867bcb">More...</a><br /></td></tr>
-<tr class="separator:a9177de3f1b0127b7539c08d53e867bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7abda6f973288b2f973ed0997d43f46f"><td class="memTemplParams" colspan="2">template&lt;typename ReturnVector  = cvec, typename InputVector  = cvec&gt; </td></tr>
+<tr class="memitem:a7abda6f973288b2f973ed0997d43f46f"><td class="memTemplItemLeft" align="right" valign="top">ReturnVector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">ifft</a> (const InputVector &amp;k)</td></tr>
+<tr class="memdesc:a7abda6f973288b2f973ed0997d43f46f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Inverse Fast Fourier Transform of a set of data points.  <a href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">More...</a><br /></td></tr>
+<tr class="separator:a7abda6f973288b2f973ed0997d43f46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Signal processing module. </p>
@@ -163,21 +163,21 @@ template&lt;typename ReturnVector  = cvec, typename InputVector  = cvec&gt; </di
 
 </div>
 </div>
-<a id="a9177de3f1b0127b7539c08d53e867bcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9177de3f1b0127b7539c08d53e867bcb">&#9670;&nbsp;</a></span>ifft()</h2>
+<a id="a7abda6f973288b2f973ed0997d43f46f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7abda6f973288b2f973ed0997d43f46f">&#9670;&nbsp;</a></span>ifft()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Vector1  = cvec, typename Vector2  = cvec&gt; </div>
+template&lt;typename ReturnVector  = cvec, typename InputVector  = cvec&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Vector2 theoretica::signal::ifft </td>
+          <td class="memname">ReturnVector theoretica::signal::ifft </td>
           <td>(</td>
-          <td class="paramtype">const Vector1 &amp;&#160;</td>
+          <td class="paramtype">const InputVector &amp;&#160;</td>
           <td class="paramname"><em>k</em></td><td>)</td>
           <td></td>
         </tr>
@@ -207,7 +207,7 @@ template&lt;typename Vector1  = cvec, typename Vector2  = cvec&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1signal.html">signal</a></li>
-    <li class="footer">Generated on Sun Sep 29 2024 09:40:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 10 2024 07:46:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

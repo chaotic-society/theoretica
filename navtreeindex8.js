@@ -1,5 +1,10 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1autodiff.html#afc232ba1fc81e203db1c935cf73773df":[11,0,2,2,14],
+"namespacetheoretica_1_1autodiff.html#aff0a93ad2d7b70c8d514eecb24f0f099":[11,0,2,2,8],
+"namespacetheoretica_1_1distribution.html":[11,0,2,3],
+"namespacetheoretica_1_1distribution.html#a02b341a54737fbbc4201362784bf63ec":[11,0,2,3,25],
+"namespacetheoretica_1_1distribution.html#a05a9c35d2cc3431dc4441029cb3c2cea":[11,0,2,3,5],
 "namespacetheoretica_1_1distribution.html#a08a806f46c9f29aa7c9fea59e5327511":[11,0,2,3,15],
 "namespacetheoretica_1_1distribution.html#a1787fdadca79a1cf48d4935567ac4fb4":[11,0,2,3,0],
 "namespacetheoretica_1_1distribution.html#a20776312ced3087ce0c20d2e5019e658":[11,0,2,3,3],
@@ -72,7 +77,7 @@ var NAVTREEINDEX8 =
 "namespacetheoretica_1_1regression.html#afab09c1ccefa58066ae939e178b3f7cd":[11,0,2,5,12],
 "namespacetheoretica_1_1signal.html":[11,0,2,6],
 "namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec":[11,0,2,6,0],
-"namespacetheoretica_1_1signal.html#a9177de3f1b0127b7539c08d53e867bcb":[11,0,2,6,1],
+"namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f":[11,0,2,6,1],
 "namespacetheoretica_1_1special.html":[11,0,2,7],
 "namespacetheoretica_1_1special.html#a3bcb684396c3ebe33ec5c922fb143a5c":[11,0,2,7,0],
 "namespacetheoretica_1_1special.html#a5e595c39a65ea8556e1a3d8d741652da":[11,0,2,7,5],
@@ -244,10 +249,5 @@ var NAVTREEINDEX8 =
 "precision_8cpp.html":[13,0,12,0,0,0],
 "precision_8cpp.html#a2d35ae1367c850c6de9605ad1e8d32c3":[13,0,12,0,0,0,0],
 "precision_8cpp.html#a3de2b7b41a8e4b07da05298510d17ed2":[13,0,12,0,0,0,2],
-"precision_8cpp.html#a6d9d03af6a672808a901c491b524d8d6":[13,0,12,0,0,0,1],
-"precision_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,0,0,0,5],
-"precision_8cpp.html#ac84831571c8f3d0bca83c1747a32e8d6":[13,0,12,0,0,0,3],
-"precision_8cpp.html#aefbbf1cbdc9fd335d93a290d4993b041":[13,0,12,0,0,0,4],
-"prng_8h.html":[13,0,9,1],
-"prng_8h.html#a8679d2642c8820e78e33f7aa3294f7eb":[13,0,9,1,1]
+"precision_8cpp.html#a6d9d03af6a672808a901c491b524d8d6":[13,0,12,0,0,0,1]
 };

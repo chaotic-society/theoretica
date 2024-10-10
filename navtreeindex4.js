@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"dual2__functions_8h.html#a9d5fed4cfa9af5d148c59a6005422edc":[13,0,1,4,6],
+"dual2__functions_8h.html#ac81dcde719b69b4d63ecd3127cb289d9":[13,0,1,4,16],
 "dual2__functions_8h.html#acf13d7437b2dbea2212cbff3d519b9e5":[13,0,1,4,1],
 "dual2__functions_8h.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e":[13,0,1,4,13],
 "dual2__functions_8h.html#ae6629ddaf5a84d7a8f3159b749ef4db0":[13,0,1,4,15],
@@ -97,7 +99,7 @@ var NAVTREEINDEX4 =
 "fail_8h_source.html":[13,0,12,0,1,3,2],
 "fft_8h.html":[13,0,10,0],
 "fft_8h.html#a78e52487d0082e91ff0bf2be336980ec":[13,0,10,0,0],
-"fft_8h.html#a9177de3f1b0127b7539c08d53e867bcb":[13,0,10,0,1],
+"fft_8h.html#a7abda6f973288b2f973ed0997d43f46f":[13,0,10,0,1],
 "fft_8h_source.html":[13,0,10,0],
 "files.html":[13,0],
 "function_8h.html":[13,0,4,5],
@@ -178,6 +180,7 @@ var NAVTREEINDEX4 =
 "hamiltonian_8cpp.html#aefe9eaee22839278302365cb50761a30":[13,0,5,5,4],
 "hierarchy.html":[12,2],
 "histogram_8cpp.html":[13,0,5,6],
+"histogram_8cpp.html#aa4124c4389dcb9ff7738c1de69e624ad":[13,0,5,6,1],
 "histogram_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,5,6,0],
 "histogram_8h.html":[13,0,11,2],
 "histogram_8h.html#a205cd572d1aa0baecdcd77425dab5560":[13,0,11,2,4],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md28":[10,4],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29":[10,4,0],
 "montecarlo_8h.html":[13,0,9,0],
-"montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28":[13,0,9,0,1],
-"montecarlo_8h.html#a0edff8be282482211b0cbc6cd022222e":[13,0,9,0,11],
-"montecarlo_8h.html#a11c69bea27399e4d430e877b538ce777":[13,0,9,0,8],
-"montecarlo_8h.html#a1373c528867e33024d2975dfa7c41ca4":[13,0,9,0,4]
+"montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28":[13,0,9,0,1]
 };

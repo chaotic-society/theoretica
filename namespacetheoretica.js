@@ -71,8 +71,9 @@ var namespacetheoretica =
       [ "mat_error", "namespacetheoretica_1_1algebra.html#a8a27cf2ce776b56e7546021ecca7db53", null ],
       [ "mat_lincomb", "namespacetheoretica_1_1algebra.html#a0054d7da3d235f12c325512776b386a8", null ],
       [ "mat_lincomb", "namespacetheoretica_1_1algebra.html#a7e81680ca260be32e5ac0bca405bdb70", null ],
-      [ "mat_mul", "namespacetheoretica_1_1algebra.html#af20d45028f1600afc9aaf8ce5b1678e1", null ],
-      [ "mat_mul", "namespacetheoretica_1_1algebra.html#aa3e7ef4b5e9b0231fcc4e1dbbec94418", null ],
+      [ "mat_mul", "namespacetheoretica_1_1algebra.html#a78fe225d79cff4f7b5b8edbdae04dd50", null ],
+      [ "mat_mul", "namespacetheoretica_1_1algebra.html#ae3348aee56e03443fd9f8a22e8a1eee5", null ],
+      [ "mat_mul_transpose", "namespacetheoretica_1_1algebra.html#aa5409959842e07390e2834cc99139a5d", null ],
       [ "mat_scalmul", "namespacetheoretica_1_1algebra.html#a4bbe94e31d08c5cf913c1f05cb5b4374", null ],
       [ "mat_scalmul", "namespacetheoretica_1_1algebra.html#a843827ee44f900b54568e5e2ffed12fd", null ],
       [ "mat_shift_diagonal", "namespacetheoretica_1_1algebra.html#a210359ca3788d24fce2114056aae577a", null ],
@@ -80,6 +81,7 @@ var namespacetheoretica =
       [ "mat_sum", "namespacetheoretica_1_1algebra.html#ab502853513b01566a3157e180a82b51c", null ],
       [ "mat_swap_cols", "namespacetheoretica_1_1algebra.html#ae059cebcb4daca6ff6087c729422dcc3", null ],
       [ "mat_swap_rows", "namespacetheoretica_1_1algebra.html#aeca906836538db83c3bd6e14e33871d7", null ],
+      [ "mat_transpose_mul", "namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324", null ],
       [ "mat_zeroes", "namespacetheoretica_1_1algebra.html#a01ac4d9844e1bb4c7ef409277bed451f", null ],
       [ "minkowski_distance", "namespacetheoretica_1_1algebra.html#a520f67f6985860e7cf39b31141b7bc32", null ],
       [ "minkowski_distance", "namespacetheoretica_1_1algebra.html#ae22507b333d714ba60bd5045ea3c3adf", null ],
@@ -164,7 +166,7 @@ var namespacetheoretica =
     [ "regression", "namespacetheoretica_1_1regression.html", "namespacetheoretica_1_1regression" ],
     [ "signal", "namespacetheoretica_1_1signal.html", [
       [ "fft", "namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec", null ],
-      [ "ifft", "namespacetheoretica_1_1signal.html#a9177de3f1b0127b7539c08d53e867bcb", null ]
+      [ "ifft", "namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f", null ]
     ] ],
     [ "special", "namespacetheoretica_1_1special.html", [
       [ "beta", "namespacetheoretica_1_1special.html#a3bcb684396c3ebe33ec5c922fb143a5c", null ],

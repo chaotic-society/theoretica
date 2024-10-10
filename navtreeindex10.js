@@ -1,5 +1,10 @@
 var NAVTREEINDEX10 =
 {
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a5659e8581dda20f6ed5e855f8cbb2a2d":[12,0,0,0,0,4],
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a6ac314f2bab879010b2ab54db4c173c8":[12,0,0,0,0,6],
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a6b6d5c8579bc5f58a5c27c3a8a46d1f1":[12,0,0,0,0,3],
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a85426420ae536baa7b08505e0b0e6785":[12,0,0,0,0,7],
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#af186c31ba4cd39f2df32fc9c0b8d1553":[12,0,0,0,0,0],
 "structchebyshev_1_1benchmark_1_1benchmark__state.html":[12,0,0,0,3],
 "structchebyshev_1_1benchmark_1_1benchmark__state.html#a0e168e52d9d7decc18583c993ef6fa32":[12,0,0,0,3,2],
 "structchebyshev_1_1benchmark_1_1benchmark__state.html#a1c6d2392430e628232357059bb757ea4":[12,0,0,0,3,10],
@@ -244,10 +249,5 @@ var NAVTREEINDEX10 =
 "test__algebra_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,0],
 "test__algebra_8cpp.html#ad1cc3120e043e339670b89c86286b9e5":[13,0,12,1,5],
 "test__algebra_8cpp.html#af13b8e6c66efcbd9cc576fddbd548d1d":[13,0,12,1,1],
-"test__core_8cpp.html":[13,0,12,2],
-"test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,2,0],
-"test__polynomial_8cpp.html":[13,0,12,3],
-"test__polynomial_8cpp.html#a0f65aced7cc9199ddc679d87c955a12b":[13,0,12,3,1],
-"test__polynomial_8cpp.html#a3fd15abb9de1976b0185d35bf5babb30":[13,0,12,3,3],
-"test__polynomial_8cpp.html#a5118268382186c96fe87cfc6883d2514":[13,0,12,3,2]
+"test__core_8cpp.html":[13,0,12,2]
 };
