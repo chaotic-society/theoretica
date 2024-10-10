@@ -93,10 +93,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classtheoretica_1_1dual.html#a2230abb4fbfd72c2561b4632f75a026c",
-"classtheoretica_1_1multidual.html#a6a9fd6e046ccc0225207d53219e3ab17",
-"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1dd006cd9579cf0ee981186f0ca06e9",
+"algebra_8h.html",
+"classtheoretica_1_1dual.html#a23266df0d4d5d5ee24f3f5cf73dc5c68",
+"classtheoretica_1_1multidual.html#a6cacc0b48b77b3273a9c63f76ad7928b",
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895",
 "dual2__functions_8h.html#a9d5fed4cfa9af5d148c59a6005422edc",
 "montecarlo_8h.html#a0edff8be282482211b0cbc6cd022222e",
 "namespacetheoretica.html#a22f21b203e4325f357c2c84558239269",

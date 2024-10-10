@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1dd006cd9579cf0ee981186f0ca06e9":[12,0,1,9,19],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895":[12,0,1,9,2],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa064100b0916e49cda943cc128cfafe":[12,0,1,9,30],
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa3ba8430199b6d8c19ea4805be6f685":[12,0,1,9,1],
@@ -184,6 +183,7 @@ var NAVTREEINDEX3 =
 "dir_13e138d54eb8818da29c3992edef070a.html":[13,0,12],
 "dir_264890e5c091f8c8d7fe1f842870c25e.html":[13,0,6],
 "dir_29641e2b57f535eff702a8afdf10c5ec.html":[13,0,3],
+"dir_3b26dd7fc34dad5ad24f72f04fbee3ea.html":[13,0,12,1],
 "dir_42425a70e384b694fde5273f8252c9aa.html":[13,0,1],
 "dir_5ba5131da434ce13b3270e94b5b27522.html":[13,0,12,0,1,3],
 "dir_65ad14ba617219a91653797a9020c4d5.html":[13,0,11],
