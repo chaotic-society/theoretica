@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]) {
 	PRNG g = PRNG(time(nullptr));
 	pdf_sampler gauss = pdf_sampler::gaussian(0, MAX, g);
 	
-	output::state.outputFiles = { "test/prec_complex.csv" };
+	output::state.outputFiles = { "test/prec/prec_complex.csv" };
 	
 
 	prec::setup("complex");

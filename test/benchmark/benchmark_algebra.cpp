@@ -86,7 +86,7 @@ benchmark_result benchmark_mat_inverse(unsigned int iter, unsigned int runs) {
 
 int main(int argc, char const *argv[]) {
 
-	benchmark::state.outputFolder = "benchmark/";
+	benchmark::state.outputFolder = "test/benchmark/";
 	
 	benchmark::setup("algebra", argc, argv, 1000, 1000);
 

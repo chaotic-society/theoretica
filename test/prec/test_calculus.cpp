@@ -88,7 +88,7 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("calculus");
 
-		output::state.outputFiles = { "test/prec_calculus.csv" };
+		output::state.outputFiles = { "test/prec/prec_calculus.csv" };
 		prec::state.estimateColumns = {
 			"funcName", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
 		};

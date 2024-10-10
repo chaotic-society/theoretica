@@ -10,7 +10,7 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 
-	prec::state.outputFolder = "test/";
+	prec::state.outputFolder = "test/prec/";
 	
 	prec::setup("interpolation");
 

@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]) {
 	const uint64_t seed = time(nullptr);
 	auto dummy = [](unsigned int i) { return 0; };
 
-	benchmark::state.outputFolder = "benchmark/";
+	benchmark::state.outputFolder = "test/benchmark/";
 	benchmark::state.defaultIterations = 10;
 	benchmark::state.defaultRuns = 10;
 
