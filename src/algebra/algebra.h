@@ -1038,6 +1038,9 @@ namespace theoretica {
 		/// Multiply the transpose of a matrix by another matrix,
 		/// equivalent to the operation \f$R = A^T B\f$.
 		///
+		/// @note This function is faster then writing algebra::transpose(A) * B
+		/// and should be preferred.
+		///
 		/// @param A The matrix to transpose and then multiply
 		/// @param B The second matrix to multiply by
 		/// @return The result of the multiplication by the transpose of the first
@@ -1066,6 +1069,9 @@ namespace theoretica {
 
 		/// Multiply a matrix by the transpose of another matrix,
 		/// equivalent to the operation \f$R = A B^T\f$.
+		///
+		/// @note This function is faster then writing A * algebra::transpose(B)
+		/// and should be preferred.
 		///
 		/// @param A The first matrix to multiply
 		/// @param B The second matrix to transpose and multiply by
