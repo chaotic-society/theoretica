@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"test__core_8cpp.html":[13,0,12,1,1],
 "test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,1,0],
 "test__polynomial_8cpp.html":[13,0,12,1,2],
 "test__polynomial_8cpp.html#a0f65aced7cc9199ddc679d87c955a12b":[13,0,12,1,2,1],
@@ -70,6 +71,5 @@ var NAVTREEINDEX11 =
 "vectorized_8h.html#af073ccb5e1d1155b5a8e497112556fc1":[13,0,0,6,22],
 "vectorized_8h.html#af722ddd531c4f92c1497804597bc0fdc":[13,0,0,6,21],
 "vectorized_8h.html#afc0786c126e11c820e0eba712472fc98":[13,0,0,6,10],
-"vectorized_8h_source.html":[13,0,0,6],
-"":[11,0,2,0]
+"vectorized_8h_source.html":[13,0,0,6]
 };
