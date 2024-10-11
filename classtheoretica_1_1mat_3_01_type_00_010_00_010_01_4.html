@@ -132,16 +132,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a2ae0a0c986694de52fdd3e6d04d14965">mat</a> (unsigned int n, unsigned int k)</td></tr>
 <tr class="memdesc:a2ae0a0c986694de52fdd3e6d04d14965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a matrix with n rows and k columns. <br /></td></tr>
 <tr class="separator:a2ae0a0c986694de52fdd3e6d04d14965"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a330e92ef6829acb945c074613f15f580"><td class="memTemplParams" colspan="2"><a id="a330e92ef6829acb945c074613f15f580"></a>
-template&lt;typename Matrix &gt; </td></tr>
-<tr class="memitem:a330e92ef6829acb945c074613f15f580"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a330e92ef6829acb945c074613f15f580">mat</a> (const Matrix &amp;m)</td></tr>
-<tr class="memdesc:a330e92ef6829acb945c074613f15f580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
-<tr class="separator:a330e92ef6829acb945c074613f15f580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a487908c5b222ca1db98a0c29923ae144"><td class="memTemplParams" colspan="2"><a id="a487908c5b222ca1db98a0c29923ae144"></a>
-template&lt;unsigned int K&gt; </td></tr>
-<tr class="memitem:a487908c5b222ca1db98a0c29923ae144"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a487908c5b222ca1db98a0c29923ae144">mat</a> (const std::initializer_list&lt; std::array&lt; Type, K &gt;&gt; &amp;<a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a838a5b31649b77077f805f44dcee9670">rows</a>)</td></tr>
-<tr class="memdesc:a487908c5b222ca1db98a0c29923ae144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from a list of the rows. <br /></td></tr>
-<tr class="separator:a487908c5b222ca1db98a0c29923ae144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64279fe87c9a49c55f0860bb983fff89"><td class="memTemplParams" colspan="2"><a id="a64279fe87c9a49c55f0860bb983fff89"></a>
+template&lt;typename Matrix , enable_matrix&lt; Matrix &gt; &gt; </td></tr>
+<tr class="memitem:a64279fe87c9a49c55f0860bb983fff89"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a64279fe87c9a49c55f0860bb983fff89">mat</a> (const Matrix &amp;m)</td></tr>
+<tr class="memdesc:a64279fe87c9a49c55f0860bb983fff89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:a64279fe87c9a49c55f0860bb983fff89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76147ebdb4d4510fed2d830ac4eaabde"><td class="memTemplParams" colspan="2"><a id="a76147ebdb4d4510fed2d830ac4eaabde"></a>
+template&lt;typename T  = Type&gt; </td></tr>
+<tr class="memitem:a76147ebdb4d4510fed2d830ac4eaabde"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a76147ebdb4d4510fed2d830ac4eaabde">mat</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;<a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a838a5b31649b77077f805f44dcee9670">rows</a>)</td></tr>
+<tr class="memdesc:a76147ebdb4d4510fed2d830ac4eaabde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from a list of the rows. <br /></td></tr>
+<tr class="separator:a76147ebdb4d4510fed2d830ac4eaabde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0ac00eefd3731e41b5e97c2cfab49c"><td class="memTemplParams" colspan="2"><a id="a0f0ac00eefd3731e41b5e97c2cfab49c"></a>
 template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a0f0ac00eefd3731e41b5e97c2cfab49c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; Type &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a0f0ac00eefd3731e41b5e97c2cfab49c">operator=</a> (const Matrix &amp;other)</td></tr>
@@ -607,7 +607,7 @@ template&lt;typename Type &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html">mat&lt; Type, 0, 0 &gt;</a></li>
-    <li class="footer">Generated on Thu Oct 10 2024 19:12:00 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 11 2024 16:28:25 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

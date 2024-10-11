@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"test__core_8cpp.html":[13,0,12,1,1],
 "test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,1,0],
 "test__polynomial_8cpp.html":[13,0,12,1,2],
 "test__polynomial_8cpp.html#a0f65aced7cc9199ddc679d87c955a12b":[13,0,12,1,2,1],

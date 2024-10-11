@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"structchebyshev_1_1benchmark_1_1benchmark__result.html#a4bddd1ff28de82e4ef16a25400428601":[12,0,0,0,0,5],
 "structchebyshev_1_1benchmark_1_1benchmark__result.html#a5659e8581dda20f6ed5e855f8cbb2a2d":[12,0,0,0,0,4],
 "structchebyshev_1_1benchmark_1_1benchmark__result.html#a6ac314f2bab879010b2ab54db4c173c8":[12,0,0,0,0,6],
 "structchebyshev_1_1benchmark_1_1benchmark__result.html#a6b6d5c8579bc5f58a5c27c3a8a46d1f1":[12,0,0,0,0,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX10 =
 "test__algebra_8cpp.html#a8a1cbfc2e2de447a97b75327f7fdec1b":[13,0,12,1,0,2],
 "test__algebra_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,0,0],
 "test__algebra_8cpp.html#ad1cc3120e043e339670b89c86286b9e5":[13,0,12,1,0,5],
-"test__algebra_8cpp.html#af13b8e6c66efcbd9cc576fddbd548d1d":[13,0,12,1,0,1]
+"test__algebra_8cpp.html#af13b8e6c66efcbd9cc576fddbd548d1d":[13,0,12,1,0,1],
+"test__core_8cpp.html":[13,0,12,1,1]
 };

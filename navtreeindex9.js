@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"precision_8cpp.html#a6d9d03af6a672808a901c491b524d8d6":[13,0,12,0,0,0,1],
 "precision_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,0,0,0,5],
 "precision_8cpp.html#ac84831571c8f3d0bca83c1747a32e8d6":[13,0,12,0,0,0,3],
 "precision_8cpp.html#aefbbf1cbdc9fd335d93a290d4993b041":[13,0,12,0,0,0,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "structchebyshev_1_1benchmark_1_1benchmark__options.html#abb1086cbad099621b2291bddae7a411a":[12,0,0,0,1,3],
 "structchebyshev_1_1benchmark_1_1benchmark__result.html":[12,0,0,0,0],
 "structchebyshev_1_1benchmark_1_1benchmark__result.html#a330b166457e41239e06f192a409dc4f8":[12,0,0,0,0,1],
-"structchebyshev_1_1benchmark_1_1benchmark__result.html#a43ea920f1ef1d52ef78bf0115dbe6d4b":[12,0,0,0,0,2]
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a43ea920f1ef1d52ef78bf0115dbe6d4b":[12,0,0,0,0,2],
+"structchebyshev_1_1benchmark_1_1benchmark__result.html#a4bddd1ff28de82e4ef16a25400428601":[12,0,0,0,0,5]
 };

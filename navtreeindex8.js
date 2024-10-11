@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973":[11,0,2,2,33],
 "namespacetheoretica_1_1autodiff.html#afc232ba1fc81e203db1c935cf73773df":[11,0,2,2,14],
 "namespacetheoretica_1_1autodiff.html#aff0a93ad2d7b70c8d514eecb24f0f099":[11,0,2,2,8],
 "namespacetheoretica_1_1distribution.html":[11,0,2,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "prec__structures_8h_source.html":[13,0,12,0,1,3,4],
 "precision_8cpp.html":[13,0,12,0,0,0],
 "precision_8cpp.html#a2d35ae1367c850c6de9605ad1e8d32c3":[13,0,12,0,0,0,0],
-"precision_8cpp.html#a3de2b7b41a8e4b07da05298510d17ed2":[13,0,12,0,0,0,2]
+"precision_8cpp.html#a3de2b7b41a8e4b07da05298510d17ed2":[13,0,12,0,0,0,2],
+"precision_8cpp.html#a6d9d03af6a672808a901c491b524d8d6":[13,0,12,0,0,0,1]
 };
