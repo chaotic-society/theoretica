@@ -153,7 +153,8 @@ namespace theoretica {
 
 
 		/// Construct from a list of the rows
-		inline mat(const std::initializer_list<std::array<Type, K>>& rows) {
+		template<typename T = Type>
+		inline mat(const std::initializer_list<std::initializer_list<T>>& rows) {
 
 			if(rows.size() != N) {
 				TH_MATH_ERROR("mat::mat", rows.size(), INVALID_ARGUMENT);
@@ -161,10 +162,23 @@ namespace theoretica {
 				return;
 			}
 
-			int i = 0;
-			for (const auto& r : rows) {
-				for (unsigned int j = 0; j < K; ++j)
-					at(i, j) = r[j];
+			unsigned int i = 0;
+			unsigned int j = 0;
+
+			for (const auto& row : rows) {
+
+				if (row.size() != K) {
+					TH_MATH_ERROR("mat::mat", rows.size(), INVALID_ARGUMENT);
+					algebra::mat_error(*this);
+					return;
+				}
+
+				for (const auto& x : row) {
+					
+					at(i, j) = x;
+					j = (j + 1) % K;
+				}
+
 				i++;
 			}
 		}
@@ -174,14 +188,6 @@ namespace theoretica {
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator=(const Matrix& other) {
 			return algebra::mat_copy(*this, other);
-		}
-
-
-		/// Construct a diagonal matrix with all equal entries
-		mat(Type diagonal) {
-			algebra::mat_zeroes(*this);
-			for (unsigned int i = 0; i < min(N, K); ++i)
-				data[i][i] = diagonal;
 		}
 
 
@@ -768,7 +774,9 @@ namespace theoretica {
 
 
 		/// Copy constructor
-		template<typename Matrix>
+		template <
+			typename Matrix, enable_matrix<Matrix>
+		>
 		mat(const Matrix& m) {
 			resize(m.rows(), m.cols());
 			algebra::mat_copy(*this, m);
@@ -776,15 +784,29 @@ namespace theoretica {
 
 
 		/// Construct from a list of the rows
-		template<unsigned int K>
-		inline mat(const std::initializer_list<std::array<Type, K>>& rows) {
+		template<typename T = Type>
+		inline mat(const std::initializer_list<std::initializer_list<T>>& rows) {
 
-			resize(rows.size(), K);
+			unsigned int i = 0;
+			unsigned int j = 0;
 
-			int i = 0;
-			for (const auto& r : rows) {
-				for (unsigned int j = 0; j < K; ++j)
-					at(i, j) = r[j];
+			for (const auto& row : rows) {
+
+				for (const auto& x : row) {
+				
+					if (!i && !j) {
+						this->resize(rows.size(), row.size());
+					}
+					else if (row.size() != col_sz) {
+						TH_MATH_ERROR("mat::mat", row.size(), INVALID_ARGUMENT);
+						algebra::mat_error(*this);
+						return;
+					}
+
+					at(i, j) = x;
+					j = (j + 1) % col_sz;
+				}
+
 				i++;
 			}
 		}
