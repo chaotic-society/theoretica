@@ -1630,14 +1630,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
-				vec_error(b);
-				return b;
+				return vec_error(b);
 			}
 
 			if (A.rows() != b.size()) {
 				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
-				vec_error(b);
-				return b;
+				return vec_error(b);
 			}
 
 			using Type = matrix_element_t<Matrix>;
@@ -1645,9 +1643,9 @@ namespace theoretica {
 			// Forward elimination: solves the lower system (L matrix).
 			for (unsigned int i = 1; i < A.rows(); ++i) {
 				
-				Type sum = A(i, 0) * b[0];
+				Type sum = Type(0.0);
 
-				for (unsigned int j = 1; j < i; ++j)
+				for (unsigned int j = 0; j < i; ++j)
 					sum += A(i, j) * b[j];
 
 				b[i] -= sum;
@@ -1655,10 +1653,10 @@ namespace theoretica {
 
 			// Backward elimination: solves the upper system (U matrix).
 			for (int i = A.rows() - 1; i >= 0; --i) {
-				
-				Type sum = A(i, i + 1) * b[i + 1];
 
-				for (unsigned int j = i + 2; j < A.rows(); ++j)
+				Type sum = Type(0.0);
+				
+				for (unsigned int j = i + 1; j < A.rows(); ++j)
 					sum += A(i, j) * b[j];
 
 				b[i] = (b[i] - sum) / A(i, i);
@@ -2014,8 +2012,8 @@ namespace theoretica {
 		}
 
 
-		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$ of a square matrix,
-		/// using the inverse power method with parameter equal to 0.
+		/// Find the eigenvalue with the smallest inverse \f$\frac{1}{|\lambda_i|}\f$ of
+		/// a square matrix, using the inverse power method with parameter equal to 0.
 		///
 		/// @param A The matrix to find the smallest eigenvalue of
 		/// @param x The starting vector (a random vector is a good choice)
@@ -2028,7 +2026,8 @@ namespace theoretica {
 		template<typename Matrix, typename Vector>
 		inline auto eigenvalue_inverse(
 			const Matrix& A, const Vector& x,
-			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
+			real tolerance = ALGEBRA_EIGEN_TOL,
+			unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			using Type = matrix_element_t<Matrix>;
 
