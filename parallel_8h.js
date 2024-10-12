@@ -1,0 +1,26 @@
+var parallel_8h =
+[
+    [ "abs", "parallel_8h.html#ac87cdef53cbda8b3f34c52eefd277de2", null ],
+    [ "acos", "parallel_8h.html#aef1a21b94c3c0b26f2bc8de158d0e069", null ],
+    [ "apply_function", "parallel_8h.html#ab88c3aee2e540411f82a78cff2fbeb34", null ],
+    [ "asin", "parallel_8h.html#ae7ed2a788fecfe7588124b8a3fe51124", null ],
+    [ "atan", "parallel_8h.html#a552aac6d38bd3b42269c0d2e18407185", null ],
+    [ "cbrt", "parallel_8h.html#a03b2a9424ef9a0638f5c53175208b48f", null ],
+    [ "cos", "parallel_8h.html#a2a5926e5955512a57dc470b746313d3a", null ],
+    [ "cosh", "parallel_8h.html#ae1ddd26f8f60e457ee385b955e57e17f", null ],
+    [ "cot", "parallel_8h.html#a2fb63423ac4180dfc5de9743a864b6fc", null ],
+    [ "coth", "parallel_8h.html#ac202a788ca53981ec77a4edd9d53e16b", null ],
+    [ "cube", "parallel_8h.html#a9cc414c6ef029d11e75b017ce589c751", null ],
+    [ "exp", "parallel_8h.html#a036eb22e3d111a4b8a6b483a21811d30", null ],
+    [ "ln", "parallel_8h.html#ac378a527f94a51ae90f53fea5d849fa0", null ],
+    [ "log10", "parallel_8h.html#a7ffc9c8474883257f4d615b6e29fcf3f", null ],
+    [ "log2", "parallel_8h.html#ae0acb4e4bbedaf1839ae0a33be8fe20b", null ],
+    [ "pow", "parallel_8h.html#ad8cf02c897cd4d341ecd0225cd7c9a45", null ],
+    [ "powf", "parallel_8h.html#addb821cf3b79bb75b891aa201b437fe0", null ],
+    [ "sin", "parallel_8h.html#adcdf1a9035d33e10195327dee95cb530", null ],
+    [ "sinh", "parallel_8h.html#aaab2e6bac495c2ceb14f6d0af823fbb4", null ],
+    [ "sqrt", "parallel_8h.html#ad5ccd67e86d2b316218d9cdd245254c0", null ],
+    [ "square", "parallel_8h.html#a8416adb293a3d0f770d405ed236aa551", null ],
+    [ "tan", "parallel_8h.html#a169da83ac31d93fd6ec2598b1744b6d5", null ],
+    [ "tanh", "parallel_8h.html#a87ee75d0ac443c3c0b82d3c4995b9632", null ]
+];

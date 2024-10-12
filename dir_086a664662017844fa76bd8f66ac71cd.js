@@ -8,7 +8,7 @@ var dir_086a664662017844fa76bd8f66ac71cd =
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ]
     ] ],
+    [ "parallel.h", "parallel_8h.html", "parallel_8h" ],
     [ "transform.h", "transform_8h.html", "transform_8h" ],
-    [ "vec.h", "vec_8h.html", "vec_8h" ],
-    [ "vectorized.h", "vectorized_8h.html", "vectorized_8h" ]
+    [ "vec.h", "vec_8h.html", "vec_8h" ]
 ];

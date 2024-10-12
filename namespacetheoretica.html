@@ -119,6 +119,9 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica_1_1ode"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1ode.html">ode</a></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1ode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numerical methods for ordinary differential equations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetheoretica_1_1parallel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html">parallel</a></td></tr>
+<tr class="memdesc:namespacetheoretica_1_1parallel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise, parallelized evaluation of functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetheoretica_1_1regression"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1regression.html">regression</a></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1regression"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regression to a model. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,9 +139,6 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetheoretica_1_1taylor"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1taylor.html">taylor</a></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1taylor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taylor series expansions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetheoretica_1_1vectorized"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1vectorized.html">vectorized</a></td></tr>
-<tr class="memdesc:namespacetheoretica_1_1vectorized"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise, parallelized evaluation of functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -1602,12 +1602,6 @@ std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7
 <tr class="memitem:ac91dfc5efe4fa412bd7ef46f142f7045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac91dfc5efe4fa412bd7ef46f142f7045">metropolis</a> (<a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> pdf, <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &amp;g, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x0, unsigned int depth=<a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a>)</td></tr>
 <tr class="memdesc:ac91dfc5efe4fa412bd7ef46f142f7045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis algorithm for distribution sampling using a symmetric proposal distribution.  <a href="namespacetheoretica.html#ac91dfc5efe4fa412bd7ef46f142f7045">More...</a><br /></td></tr>
 <tr class="separator:ac91dfc5efe4fa412bd7ef46f142f7045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec5b6f456b010a5af7f3bce105cdea4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afec5b6f456b010a5af7f3bce105cdea4">likelihood</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;X, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> f)</td></tr>
-<tr class="memdesc:afec5b6f456b010a5af7f3bce105cdea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt;  <a href="namespacetheoretica.html#afec5b6f456b010a5af7f3bce105cdea4">More...</a><br /></td></tr>
-<tr class="separator:afec5b6f456b010a5af7f3bce105cdea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e07a8227cf85be04e9554ea103854e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7e07a8227cf85be04e9554ea103854e7">log_likelihood</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;X, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> f)</td></tr>
-<tr class="memdesc:a7e07a8227cf85be04e9554ea103854e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the log likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt;  <a href="namespacetheoretica.html#a7e07a8227cf85be04e9554ea103854e7">More...</a><br /></td></tr>
-<tr class="separator:a7e07a8227cf85be04e9554ea103854e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f27a1f05cae98a0a9a55cce43c1e1b"><td class="memItemLeft" align="right" valign="top"><a id="a33f27a1f05cae98a0a9a55cce43c1e1b"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a33f27a1f05cae98a0a9a55cce43c1e1b">max</a> (const <a class="el" href="classtheoretica_1_1histogram.html">histogram</a> &amp;h)</td></tr>
 <tr class="memdesc:a33f27a1f05cae98a0a9a55cce43c1e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the maximum value of the elements of a histogram. <br /></td></tr>
@@ -2116,7 +2110,7 @@ template&lt;typename Vector , typename Function &gt; </div>
 </div><div class="memdoc">
 
 <p>Apply a function to a set of values element-wise. </p>
-<dl class="section note"><dt>Note</dt><dd>Unlike functions in the vectorized namespace, this routine is not parallelized.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Unlike functions in the parallel namespace, this routine is not parallelized.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to apply </td></tr>
@@ -6547,59 +6541,6 @@ template&lt;typename T  = real&gt; </div>
 
 </div>
 </div>
-<a id="afec5b6f456b010a5af7f3bce105cdea4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec5b6f456b010a5af7f3bce105cdea4">&#9670;&nbsp;</a></span>likelihood()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::likelihood </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>X</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>theta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">X</td><td>The dataset of the sample </td></tr>
-    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
-    <tr><td class="paramname">f</td><td>The statistical distribution function </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The likelihood of the given sample </dd></dl>
-
-</div>
-</div>
 <a id="aacaf80c0c0f6ef333e3a09ee19fbee94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacaf80c0c0f6ef333e3a09ee19fbee94">&#9670;&nbsp;</a></span>ln() <span class="overload">[1/2]</span></h2>
 
@@ -6744,59 +6685,6 @@ On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fyl2x
 <dl class="section return"><dt>Returns</dt><dd>The binary logarithm of x</dd></dl>
 <p>Domain: (0, +inf] <br  />
 On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fyl2x</code> instruction will be used. </p>
-
-</div>
-</div>
-<a id="a7e07a8227cf85be04e9554ea103854e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e07a8227cf85be04e9554ea103854e7">&#9670;&nbsp;</a></span>log_likelihood()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::log_likelihood </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>X</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>theta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the log likelihood of a distribution &lt;f&gt; with the given parameters &lt;theta&gt; and measures &lt;X&gt; </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">X</td><td>The dataset of the sample </td></tr>
-    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
-    <tr><td class="paramname">f</td><td>The statistical distribution function </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The log-likelihood of the given sample </dd></dl>
 
 </div>
 </div>
@@ -11509,7 +11397,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Fri Oct 11 2024 16:28:25 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
