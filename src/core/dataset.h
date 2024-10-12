@@ -240,7 +240,7 @@ namespace theoretica {
 
 
 	/// Apply a function to a set of values element-wise.
-	/// @note Unlike functions in the vectorized namespace,
+	/// @note Unlike functions in the parallel namespace,
 	/// this routine is not parallelized.
 	///
 	/// @param f The function to apply

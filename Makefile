@@ -171,16 +171,16 @@ benchmark_pseudorandom:
 	@g++ test/benchmark/benchmark_pseudorandom.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o test/benchmark/benchmark_pseudorandom
 	@./test/benchmark/benchmark_pseudorandom
 
-benchmark_vectorized:
-	@echo Compiling vectorized benchmark...
-	@g++ test/benchmark/benchmark_vectorized.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o test/benchmark/benchmark_vectorized
-	@./test/benchmark/benchmark_vectorized
+benchmark_parallel:
+	@echo Compiling parallel benchmark...
+	@g++ test/benchmark/benchmark_parallel.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o test/benchmark/benchmark_parallel
+	@./test/benchmark/benchmark_parallel
 
 benchmark_template:
 	@g++ test/benchmark/benchmark_template.cpp ${CXXFLAGS} -I${CHEBYSHEV_SRC} -O0 -o test/benchmark/benchmark_template
 
 # Compile all benchmarks and run them
-#benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_vectorized
+#benchmark: benchmark_real_analysis benchmark_algebra benchmark_dataset benchmark_pseudorandom benchmark_parallel
 benchmark: benchmark_real_analysis benchmark_dataset
 
 # Clean all directories from CSV and EXE files

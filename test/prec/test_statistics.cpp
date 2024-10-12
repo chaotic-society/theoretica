@@ -26,10 +26,10 @@ int main(int argc, char const *argv[]) {
 
 			// Check mean of Gamma distribution
 			prec::equals(
-				"gamma_dist (1)",
+				"gamma (1)",
 				integral_gauss(
 					[alpha, beta](real x) {
-						return x * distribution::gamma_dist(x, alpha, beta);
+						return x * distribution::gamma(x, alpha, beta);
 					},
 					tables::laguerre_roots_16, tables::laguerre_weights_16,
 					16, [](real x) { return th::exp(x); }
@@ -40,7 +40,9 @@ int main(int argc, char const *argv[]) {
 
 
 		// P-value
+
 		// Error bounds are 10^-6
+		const real tol = 1E-06;
 
 		for (int i = 0; i < 10; ++i) {
 
@@ -51,7 +53,7 @@ int main(int argc, char const *argv[]) {
 			str << "pvalue(" << chi << "," << ndf << ") < 1";
 
 			prec::equals(str.str(),
-				(stats::pvalue_chi_squared(chi, ndf) - 1) < 1E-6, 1);
+				(stats::pvalue_chi_squared(chi, ndf) - 1) < tol, 1);
 		}
 
 		for (int i = 0; i < 10; ++i) {
@@ -62,7 +64,7 @@ int main(int argc, char const *argv[]) {
 			str << "pvalue(0," << ndf << ")";
 
 			prec::equals(str.str(),
-				stats::pvalue_chi_squared(0, ndf), 1, 1E-6);
+				stats::pvalue_chi_squared(0, ndf), 1, tol);
 		}
 
 	prec::terminate();

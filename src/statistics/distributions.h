@@ -13,41 +13,43 @@
 #include "../core/special.h"
 
 
-/// @namespace theoretica
 namespace theoretica {
 
 
-	/// Compute the likelihood of a distribution <f> with the given
-	/// parameters <theta> and measures <X>
-	/// @param X The dataset of the sample
-	/// @param theta The parameters of the distribution
-	/// @param f The statistical distribution function
-	/// @result The likelihood of the given sample
-	inline real likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
+	namespace stats {
 
-		real res = 1;
+		/// Compute the likelihood of a distribution <f> with the given
+		/// parameters <theta> and measures <X>
+		/// @param X The dataset of the sample
+		/// @param theta The parameters of the distribution
+		/// @param f The statistical distribution function
+		/// @result The likelihood of the given sample
+		inline real likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
 
-		for (unsigned int i = 0; i < X.size(); ++i)
-			res *= f(X[i], theta);
+			real res = 1;
 
-		return res;
-	}
+			for (unsigned int i = 0; i < X.size(); ++i)
+				res *= f(X[i], theta);
+
+			return res;
+		}
 
 
-	/// Compute the log likelihood of a distribution <f> with the given
-	/// parameters <theta> and measures <X>
-	/// @param X The dataset of the sample
-	/// @param theta The parameters of the distribution
-	/// @param f The statistical distribution function
-	/// @result The log-likelihood of the given sample
-	inline real log_likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
+		/// Compute the log likelihood of a distribution <f> with the given
+		/// parameters <theta> and measures <X>
+		/// @param X The dataset of the sample
+		/// @param theta The parameters of the distribution
+		/// @param f The statistical distribution function
+		/// @result The log-likelihood of the given sample
+		inline real log_likelihood(const vec<real>& X, const vec<real>& theta, stat_function f) {
 
-		real res = 0;
+			real res = 0;
 
-		for (unsigned int i = 0; i < X.size(); ++i)
-			res += ln(f(X[i], theta));
+			for (unsigned int i = 0; i < X.size(); ++i)
+				res += ln(f(X[i], theta));
 
-		return res;
+			return res;
+		}
 	}
 
 
@@ -187,43 +189,43 @@ namespace theoretica {
 
 		/// Gamma distribution density function with parameters
 		/// alpha (shape) and beta (rate)
-		inline real gamma_dist(real x, real alpha, real beta) {
+		inline real gamma(real x, real alpha, real beta) {
 
 			return powf(beta, alpha) * powf(x, alpha - 1)
 				* exp(-beta * x) / special::gamma(alpha);
 		}
 
 
-		/// Wrapper for distribution::gamma_dist(real, real, real)
-		inline real gamma_dist(real x, const vec<real>& theta) {
+		/// Wrapper for distribution::gamma(real, real, real)
+		inline real gamma(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
-				TH_MATH_ERROR("distribution::gamma_dist", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::gamma", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
-			return gamma_dist(x, theta[0], theta[1]);
+			return gamma(x, theta[0], theta[1]);
 		}
 
 
 		/// Beta distribution density function with parameters
 		/// alpha (shape) and beta (shape)
-		inline real beta_dist(real x, real alpha, real beta) {
+		inline real beta(real x, real alpha, real beta) {
 
 			return powf(x, alpha - 1) * powf(1 - x, beta - 1)
 				/ special::beta(alpha, beta);
 		}
 
 
-		/// Wrapper for distribution::beta_dist(real, real, real)
-		inline real beta_dist(real x, const vec<real>& theta) {
+		/// Wrapper for distribution::beta(real, real, real)
+		inline real beta(real x, const vec<real>& theta) {
 
 			if(theta.size() != 2) {
-				TH_MATH_ERROR("distribution::beta_dist", theta.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("distribution::beta", theta.size(), INVALID_ARGUMENT);
 				return nan();
 			}
 
-			return beta_dist(x, theta[0], theta[1]);
+			return beta(x, theta[0], theta[1]);
 		}
 
 

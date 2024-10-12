@@ -36,7 +36,7 @@
 #include "core/special.h"
 
 // Vectorized functions
-#include "algebra/vectorized.h"
+#include "algebra/parallel.h"
 
 // Ratio
 #include "core/ratio.h"

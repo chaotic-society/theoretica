@@ -117,7 +117,8 @@ namespace theoretica {
 		/// A function representing a system of differential equations,
 		/// taking as input the time (independent variable) and the current
 		/// value of the variables (dependent variables), returning
-		/// the time derivatives of each variable.
+		/// the time derivatives of each variable, such as \f$f\f$ in 
+		/// \f$\dot \vec x = f(t, \vec x)\f$.
 		template<typename Vector>
 		using ode_function = std::function<Vector(real, const Vector&)>;
 

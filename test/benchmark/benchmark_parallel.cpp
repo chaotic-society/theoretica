@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]) {
 	benchmark::state.defaultRuns = 1;
 
 
-	benchmark::setup("vectorized", argc, argv);
+	benchmark::setup("parallel", argc, argv);
 
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
@@ -32,20 +32,20 @@ int main(int argc, char const *argv[]) {
 		// For a function taking t = 1 x 1E-05 ms,
 		// N * t = 100 ms
 
-		benchmark::request("vectorized::square",
-			[v](real x) { return vectorized::square(v)[0]; }, dummy);
+		benchmark::request("parallel::square",
+			[v](real x) { return parallel::square(v)[0]; }, dummy);
 
-		benchmark::request("vectorized::sqrt",
-			[v](real x) { return vectorized::sqrt(v)[0]; }, dummy);
+		benchmark::request("parallel::sqrt",
+			[v](real x) { return parallel::sqrt(v)[0]; }, dummy);
 
-		benchmark::request("vectorized::exp",
-			[v](real x) { return vectorized::exp(v)[0]; }, dummy);
+		benchmark::request("parallel::exp",
+			[v](real x) { return parallel::exp(v)[0]; }, dummy);
 
-		benchmark::request("vectorized::pow(10)",
-			[v](real x) { return vectorized::pow(v, 10)[0]; }, dummy);
+		benchmark::request("parallel::pow(10)",
+			[v](real x) { return parallel::pow(v, 10)[0]; }, dummy);
 
-		benchmark::request("vectorized::atan",
-			[v](real x) { return vectorized::atan(v)[0]; }, dummy);
+		benchmark::request("parallel::atan",
+			[v](real x) { return parallel::atan(v)[0]; }, dummy);
 
 	benchmark::terminate();
 }

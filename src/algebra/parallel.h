@@ -1,10 +1,10 @@
 
 ///
-/// @file vectorized.h Vectorized functions to evaluate a function over a vector element-wise.
+/// @file parallel.h Parallelized methods to evaluate a function over a vector element-wise.
 ///
 
-#ifndef THEORETICA_VECTORIZED_H
-#define THEORETICA_VECTORIZED_H
+#ifndef THEORETICA_PARALLEL_H
+#define THEORETICA_PARALLEL_H
 
 #include "./vec.h"
 #include "../core/dataset.h"
@@ -17,8 +17,8 @@
 
 namespace theoretica {
 
-	/// @namespace theoretica::vectorized Element-wise, parallelized evaluation of functions.
-	namespace vectorized {
+	/// @namespace theoretica::parallel Element-wise, parallelized evaluation of functions.
+	namespace parallel {
 
 		/// Vectorized (element-wise) evaluation of a function,
 		/// using OpenMP to speed up execution over a vector.
