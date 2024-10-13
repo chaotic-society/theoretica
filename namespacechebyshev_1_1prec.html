@@ -136,8 +136,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1equation__options.html">equation_options</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure holding options for equivalence evaluation.  <a href="structchebyshev_1_1prec_1_1equation__options.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">prec_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of the precision testing module.  <a href="structchebyshev_1_1prec_1_1prec__state.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__settings.html">prec_settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of the precision testing module.  <a href="structchebyshev_1_1prec_1_1prec__settings.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1prec_1_1prec__results.html">prec_results</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">of the precision testing module.  <a href="structchebyshev_1_1prec_1_1prec__results.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -173,9 +176,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a1bfb375300fa5e9a8774f8fdac3c3c80">estimate</a> (const std::string &amp;name, Function1 funcApprox, Function2 funcExpected, std::vector&lt; <a class="el" href="structchebyshev_1_1prec_1_1interval.html">interval</a> &gt; domain, long double tolerance, unsigned int iterations, <a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a> fail, <a class="el" href="namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad">Estimator</a>&lt; R, Args... &gt; estimator, bool quiet=false)</td></tr>
 <tr class="memdesc:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a function with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#a1bfb375300fa5e9a8774f8fdac3c3c80">More...</a><br /></td></tr>
 <tr class="separator:a1bfb375300fa5e9a8774f8fdac3c3c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8238593669076070edbee8473b050c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#ab8238593669076070edbee8473b050c8">estimate</a> (const std::string &amp;name, <a class="el" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a>&lt; double &gt; funcApprox, <a class="el" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a>&lt; double &gt; funcExpected, <a class="el" href="structchebyshev_1_1prec_1_1interval.html">interval</a> domain, long double tolerance=state.defaultTolerance, unsigned int iterations=state.defaultIterations, <a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a> fail=<a class="el" href="namespacechebyshev_1_1prec_1_1fail.html#aaaea6993b992fb83fb1eb92834639c19">fail::fail_on_max_err</a>(), <a class="el" href="namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad">Estimator</a>&lt; double, double &gt; estimator=<a class="el" href="namespacechebyshev_1_1prec_1_1estimator.html#a196bb68ba898ec12a56e6115d18eea84">estimator::quadrature1D</a>&lt; double &gt;(), bool quiet=false)</td></tr>
-<tr class="memdesc:ab8238593669076070edbee8473b050c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a real function of real variable, with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#ab8238593669076070edbee8473b050c8">More...</a><br /></td></tr>
-<tr class="separator:ab8238593669076070edbee8473b050c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56564cd5720e7d75325ffc6468dcc499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a56564cd5720e7d75325ffc6468dcc499">estimate</a> (const std::string &amp;name, <a class="el" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a>&lt; double &gt; funcApprox, <a class="el" href="namespacechebyshev.html#a94d6aae363e21a096f05814053ec8462">EndoFunction</a>&lt; double &gt; funcExpected, <a class="el" href="structchebyshev_1_1prec_1_1interval.html">interval</a> domain, long double tolerance=settings.defaultTolerance, unsigned int iterations=settings.defaultIterations, <a class="el" href="namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f">FailFunction</a> fail=<a class="el" href="namespacechebyshev_1_1prec_1_1fail.html#aaaea6993b992fb83fb1eb92834639c19">fail::fail_on_max_err</a>(), <a class="el" href="namespacechebyshev_1_1prec.html#a55a645e7fb397ab1a3577999035afaad">Estimator</a>&lt; double, double &gt; estimator=<a class="el" href="namespacechebyshev_1_1prec_1_1estimator.html#a196bb68ba898ec12a56e6115d18eea84">estimator::quadrature1D</a>&lt; double &gt;(), bool quiet=false)</td></tr>
+<tr class="memdesc:a56564cd5720e7d75325ffc6468dcc499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate error integrals over a real function of real variable, with respect to an exact function.  <a href="namespacechebyshev_1_1prec.html#a56564cd5720e7d75325ffc6468dcc499">More...</a><br /></td></tr>
+<tr class="separator:a56564cd5720e7d75325ffc6468dcc499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae779ee5402a566f4c45a70e5d2f14b2f"><td class="memTemplParams" colspan="2">template&lt;typename T  = double&gt; </td></tr>
 <tr class="memitem:ae779ee5402a566f4c45a70e5d2f14b2f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#ae779ee5402a566f4c45a70e5d2f14b2f">equals</a> (const std::string &amp;name, const T &amp;evaluated, const T &amp;expected, <a class="el" href="structchebyshev_1_1prec_1_1equation__options.html">equation_options</a>&lt; T &gt; opt=<a class="el" href="structchebyshev_1_1prec_1_1equation__options.html">equation_options</a>&lt; T &gt;())</td></tr>
 <tr class="memdesc:ae779ee5402a566f4c45a70e5d2f14b2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test an equivalence up to a tolerance, with the given options (e.g.  <a href="namespacechebyshev_1_1prec.html#ae779ee5402a566f4c45a70e5d2f14b2f">More...</a><br /></td></tr>
@@ -184,19 +187,22 @@ Functions</h2></td></tr>
 <tr class="memitem:aed935e247c0117ed70ca7d4cf9894bf7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#aed935e247c0117ed70ca7d4cf9894bf7">equals</a> (const std::string &amp;name, const T &amp;evaluated, const T &amp;expected, long double tolerance, <a class="el" href="namespacechebyshev_1_1prec.html#a0de94c2a8800d7dc4e7bf94469706c07">DistanceFunction</a>&lt; T &gt; distance, bool quiet=false)</td></tr>
 <tr class="memdesc:aed935e247c0117ed70ca7d4cf9894bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test an equivalence up to a tolerance, with the given options (e.g.  <a href="namespacechebyshev_1_1prec.html#aed935e247c0117ed70ca7d4cf9894bf7">More...</a><br /></td></tr>
 <tr class="separator:aed935e247c0117ed70ca7d4cf9894bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a3e6e50c6cb0224b8c7e851946b8db72c">equals</a> (const std::string &amp;name, long double evaluated, long double expected, long double tolerance=state.defaultTolerance, bool quiet=false)</td></tr>
-<tr class="memdesc:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test an equivalence up to a tolerance, with the given options (e.g.  <a href="namespacechebyshev_1_1prec.html#a3e6e50c6cb0224b8c7e851946b8db72c">More...</a><br /></td></tr>
-<tr class="separator:a3e6e50c6cb0224b8c7e851946b8db72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ea522ff8ad697c5819be70a44e2014b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4ea522ff8ad697c5819be70a44e2014b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a4ea522ff8ad697c5819be70a44e2014b">equals</a> (const std::string &amp;name, std::vector&lt; std::array&lt; T, 2 &gt;&gt; values, long double tolerance=state.defaultTolerance, bool quiet=false)</td></tr>
-<tr class="memdesc:a4ea522ff8ad697c5819be70a44e2014b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate multiple pairs of values for equivalence up to the given tolerance (e.g.  <a href="namespacechebyshev_1_1prec.html#a4ea522ff8ad697c5819be70a44e2014b">More...</a><br /></td></tr>
-<tr class="separator:a4ea522ff8ad697c5819be70a44e2014b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4241165c6c4bf9a872206842aaa8aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a4d4241165c6c4bf9a872206842aaa8aa">equals</a> (const std::string &amp;name, long double evaluated, long double expected, long double tolerance=settings.defaultTolerance, bool quiet=false)</td></tr>
+<tr class="memdesc:a4d4241165c6c4bf9a872206842aaa8aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test an equivalence up to a tolerance, with the given options (e.g.  <a href="namespacechebyshev_1_1prec.html#a4d4241165c6c4bf9a872206842aaa8aa">More...</a><br /></td></tr>
+<tr class="separator:a4d4241165c6c4bf9a872206842aaa8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f5dec0afe327e1aa88fac2bd7b6331"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a34f5dec0afe327e1aa88fac2bd7b6331"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1prec.html#a34f5dec0afe327e1aa88fac2bd7b6331">equals</a> (const std::string &amp;name, std::vector&lt; std::array&lt; T, 2 &gt;&gt; values, long double tolerance=settings.defaultTolerance, bool quiet=false)</td></tr>
+<tr class="memdesc:a34f5dec0afe327e1aa88fac2bd7b6331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate multiple pairs of values for equivalence up to the given tolerance (e.g.  <a href="namespacechebyshev_1_1prec.html#a34f5dec0afe327e1aa88fac2bd7b6331">More...</a><br /></td></tr>
+<tr class="separator:a34f5dec0afe327e1aa88fac2bd7b6331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aba2ca2a3c861ca00532a20828684b714"><td class="memItemLeft" align="right" valign="top"><a id="aba2ca2a3c861ca00532a20828684b714"></a>
-struct <a class="el" href="structchebyshev_1_1prec_1_1prec__state.html">chebyshev::prec::prec_state</a>&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="separator:aba2ca2a3c861ca00532a20828684b714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65ed35d997226f24531e3a98508fb59"><td class="memItemLeft" align="right" valign="top"><a id="af65ed35d997226f24531e3a98508fb59"></a>
+struct <a class="el" href="structchebyshev_1_1prec_1_1prec__settings.html">chebyshev::prec::prec_settings</a>&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
+<tr class="separator:af65ed35d997226f24531e3a98508fb59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad68b13479615f9555beab8e986f4af4e"><td class="memItemLeft" align="right" valign="top"><a id="ad68b13479615f9555beab8e986f4af4e"></a>
+struct <a class="el" href="structchebyshev_1_1prec_1_1prec__results.html">chebyshev::prec::prec_results</a>&#160;</td><td class="memItemRight" valign="bottom"><b>results</b></td></tr>
+<tr class="separator:ad68b13479615f9555beab8e986f4af4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Precision testing module. </p>
@@ -340,8 +346,8 @@ template&lt;typename T  = double&gt; </div>
 
 </div>
 </div>
-<a id="a3e6e50c6cb0224b8c7e851946b8db72c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e6e50c6cb0224b8c7e851946b8db72c">&#9670;&nbsp;</a></span>equals() <span class="overload">[3/4]</span></h2>
+<a id="a4d4241165c6c4bf9a872206842aaa8aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4241165c6c4bf9a872206842aaa8aa">&#9670;&nbsp;</a></span>equals() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,7 +377,7 @@ template&lt;typename T  = double&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">long double&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>state.defaultTolerance</code>, </td>
+          <td class="paramname"><em>tolerance</em> = <code>settings.defaultTolerance</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -407,8 +413,8 @@ template&lt;typename T  = double&gt; </div>
 
 </div>
 </div>
-<a id="a4ea522ff8ad697c5819be70a44e2014b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ea522ff8ad697c5819be70a44e2014b">&#9670;&nbsp;</a></span>equals() <span class="overload">[4/4]</span></h2>
+<a id="a34f5dec0afe327e1aa88fac2bd7b6331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f5dec0afe327e1aa88fac2bd7b6331">&#9670;&nbsp;</a></span>equals() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +440,7 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">long double&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>state.defaultTolerance</code>, </td>
+          <td class="paramname"><em>tolerance</em> = <code>settings.defaultTolerance</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -469,8 +475,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab8238593669076070edbee8473b050c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8238593669076070edbee8473b050c8">&#9670;&nbsp;</a></span>estimate() <span class="overload">[1/3]</span></h2>
+<a id="a56564cd5720e7d75325ffc6468dcc499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56564cd5720e7d75325ffc6468dcc499">&#9670;&nbsp;</a></span>estimate() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -506,13 +512,13 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">long double&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>state.defaultTolerance</code>, </td>
+          <td class="paramname"><em>tolerance</em> = <code>settings.defaultTolerance</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>iterations</em> = <code>state.defaultIterations</code>, </td>
+          <td class="paramname"><em>iterations</em> = <code>settings.defaultIterations</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -810,7 +816,7 @@ template&lt;typename R , typename ... Args, typename Function1  = std::function&
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1prec.html">prec</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

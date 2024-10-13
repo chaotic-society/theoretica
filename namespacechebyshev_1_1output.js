@@ -9,8 +9,8 @@ var namespacechebyshev_1_1output =
       [ "simple", "namespacechebyshev_1_1output_1_1format.html#ab0344d2271f7ed288fe61dab13d6b063", null ]
     ] ],
     [ "field_options", "structchebyshev_1_1output_1_1field__options.html", "structchebyshev_1_1output_1_1field__options" ],
-    [ "output_state", "structchebyshev_1_1output_1_1output__state.html", "structchebyshev_1_1output_1_1output__state" ],
-    [ "OutputFormat", "namespacechebyshev_1_1output.html#aa79830f14a5ea8e84a255822a93c41a3", null ],
+    [ "output_settings", "structchebyshev_1_1output_1_1output__settings.html", "structchebyshev_1_1output_1_1output__settings" ],
+    [ "OutputFormat", "namespacechebyshev_1_1output.html#a36fa18e4a5f1851a0d5acfd70a50db50", null ],
     [ "generate_table", "namespacechebyshev_1_1output.html#adf98f8796da07d646c1e126f7368223a", null ],
     [ "open_file", "namespacechebyshev_1_1output.html#abd28a75f8a9f542876d8b2490f6a605b", null ],
     [ "print_results", "namespacechebyshev_1_1output.html#a1ac4dd4024287898404604750be5b564", null ],
@@ -22,5 +22,5 @@ var namespacechebyshev_1_1output =
     [ "resolve_field", "namespacechebyshev_1_1output.html#a3391f6a24134ef1b3199ececfd5121de", null ],
     [ "setup", "namespacechebyshev_1_1output.html#a5feeb87138e94b32f0c4bfcc1082ac5a", null ],
     [ "terminate", "namespacechebyshev_1_1output.html#aa1db4be876f47d39f9e82caef2b2f2ac", null ],
-    [ "state", "namespacechebyshev_1_1output.html#a63beecceb3aa61fb596f41249698e377", null ]
+    [ "settings", "namespacechebyshev_1_1output.html#ac61c6d83bd74077989d20fca2371bce7", null ]
 ];

@@ -1,8 +1,8 @@
 var output_8h =
 [
     [ "field_options", "structchebyshev_1_1output_1_1field__options.html", "structchebyshev_1_1output_1_1field__options" ],
-    [ "output_state", "structchebyshev_1_1output_1_1output__state.html", "structchebyshev_1_1output_1_1output__state" ],
-    [ "OutputFormat", "output_8h.html#aa79830f14a5ea8e84a255822a93c41a3", null ],
+    [ "output_settings", "structchebyshev_1_1output_1_1output__settings.html", "structchebyshev_1_1output_1_1output__settings" ],
+    [ "OutputFormat", "output_8h.html#a36fa18e4a5f1851a0d5acfd70a50db50", null ],
     [ "barebone", "output_8h.html#a4349cd54e726ac0ad2841afd221cff50", null ],
     [ "csv", "output_8h.html#affbebddca646be0120a09ca36e62f8fa", null ],
     [ "fancy", "output_8h.html#a5b02f4d40cd542dbd526c65cf5bbd2a0", null ],
@@ -20,5 +20,5 @@ var output_8h =
     [ "setup", "output_8h.html#a5feeb87138e94b32f0c4bfcc1082ac5a", null ],
     [ "simple", "output_8h.html#ab0344d2271f7ed288fe61dab13d6b063", null ],
     [ "terminate", "output_8h.html#aa1db4be876f47d39f9e82caef2b2f2ac", null ],
-    [ "state", "output_8h.html#a63beecceb3aa61fb596f41249698e377", null ]
+    [ "settings", "output_8h.html#ac61c6d83bd74077989d20fca2371bce7", null ]
 ];

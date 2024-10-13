@@ -108,11 +108,11 @@ $(document).ready(function(){initNavTree('random_8h_source.html',''); initResiza
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">namespace </span>random {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structchebyshev_1_1random_1_1random__state.html">   22</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structchebyshev_1_1random_1_1random__state.html">random_state</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structchebyshev_1_1random_1_1random__settings.html">   22</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structchebyshev_1_1random_1_1random__settings.html">random_settings</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structchebyshev_1_1random_1_1random__state.html#ad12f80eb19ed17722a42943923cff471">   25</a></span>&#160;            uint64_t <a class="code" href="structchebyshev_1_1random_1_1random__state.html#ad12f80eb19ed17722a42943923cff471">seed</a> = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structchebyshev_1_1random_1_1random__settings.html#a6b7a1292ce3bc99645e7b04296d9bb87">   25</a></span>&#160;            uint64_t <a class="code" href="structchebyshev_1_1random_1_1random__settings.html#a6b7a1292ce3bc99645e7b04296d9bb87">seed</a> = 0;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        } state;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        } settings;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacechebyshev_1_1random.html#a55c243009a6a0db0791b5a1473f3dab9">   31</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacechebyshev_1_1random.html#a55c243009a6a0db0791b5a1473f3dab9">setup</a>(uint64_t seed = 0) {</div>
@@ -120,8 +120,8 @@ $(document).ready(function(){initNavTree('random_8h_source.html',''); initResiza
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span>(seed == 0)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                seed = time(<span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            state.seed = seed;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            srand(state.seed);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            settings.seed = seed;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            srand(settings.seed);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -216,16 +216,16 @@ $(document).ready(function(){initNavTree('random_8h_source.html',''); initResiza
 <div class="ttc" id="anamespacechebyshev_1_1random_html_a55c243009a6a0db0791b5a1473f3dab9"><div class="ttname"><a href="namespacechebyshev_1_1random.html#a55c243009a6a0db0791b5a1473f3dab9">chebyshev::random::setup</a></div><div class="ttdeci">void setup(uint64_t seed=0)</div><div class="ttdoc">Initialize the random module.</div><div class="ttdef"><b>Definition:</b> random.h:31</div></div>
 <div class="ttc" id="anamespacechebyshev_1_1random_html_a7bd42d61be7fd8d4225b93c0a48e05c6"><div class="ttname"><a href="namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6">chebyshev::random::sample_uniform</a></div><div class="ttdeci">Vector &amp; sample_uniform(Vector &amp;x, const std::vector&lt; prec::interval &gt; intervals)</div><div class="ttdoc">Fill an already allocated vector with uniformly distributed numbers over different intervals.</div><div class="ttdef"><b>Definition:</b> random.h:65</div></div>
 <div class="ttc" id="anamespacechebyshev_1_1random_html_aacb43b37f8d8c05e6792d26c36d4024c"><div class="ttname"><a href="namespacechebyshev_1_1random.html#aacb43b37f8d8c05e6792d26c36d4024c">chebyshev::random::string</a></div><div class="ttdeci">std::vector&lt; T &gt; string(size_t length, std::vector&lt; T &gt; alphabet)</div><div class="ttdoc">Generate a random string made of the elements of the given alphabet, of arbitrary type.</div><div class="ttdef"><b>Definition:</b> random.h:147</div></div>
-<div class="ttc" id="anamespacechebyshev_html"><div class="ttname"><a href="namespacechebyshev.html">chebyshev</a></div><div class="ttdoc">General namespace of the framework.</div><div class="ttdef"><b>Definition:</b> benchmark_structures.h:15</div></div>
-<div class="ttc" id="astructchebyshev_1_1random_1_1random__state_html"><div class="ttname"><a href="structchebyshev_1_1random_1_1random__state.html">chebyshev::random::random_state</a></div><div class="ttdef"><b>Definition:</b> random.h:22</div></div>
-<div class="ttc" id="astructchebyshev_1_1random_1_1random__state_html_ad12f80eb19ed17722a42943923cff471"><div class="ttname"><a href="structchebyshev_1_1random_1_1random__state.html#ad12f80eb19ed17722a42943923cff471">chebyshev::random::random_state::seed</a></div><div class="ttdeci">uint64_t seed</div><div class="ttdoc">The seed for random number generation.</div><div class="ttdef"><b>Definition:</b> random.h:25</div></div>
+<div class="ttc" id="anamespacechebyshev_html"><div class="ttname"><a href="namespacechebyshev.html">chebyshev</a></div><div class="ttdoc">General namespace of the framework.</div><div class="ttdef"><b>Definition:</b> benchmark_structures.h:16</div></div>
+<div class="ttc" id="astructchebyshev_1_1random_1_1random__settings_html"><div class="ttname"><a href="structchebyshev_1_1random_1_1random__settings.html">chebyshev::random::random_settings</a></div><div class="ttdef"><b>Definition:</b> random.h:22</div></div>
+<div class="ttc" id="astructchebyshev_1_1random_1_1random__settings_html_a6b7a1292ce3bc99645e7b04296d9bb87"><div class="ttname"><a href="structchebyshev_1_1random_1_1random__settings.html#a6b7a1292ce3bc99645e7b04296d9bb87">chebyshev::random::random_settings::seed</a></div><div class="ttdeci">uint64_t seed</div><div class="ttdoc">The seed for random number generation.</div><div class="ttdef"><b>Definition:</b> random.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_f34e67786cf6786decd18dae57af4e06.html">core</a></li><li class="navelem"><a class="el" href="random_8h.html">random.h</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:18 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

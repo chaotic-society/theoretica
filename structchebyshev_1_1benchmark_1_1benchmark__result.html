@@ -105,10 +105,10 @@ $(document).ready(function(){initNavTree('structchebyshev_1_1benchmark_1_1benchm
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6b6d5c8579bc5f58a5c27c3a8a46d1f1"><td class="memItemLeft" align="right" valign="top"><a id="a6b6d5c8579bc5f58a5c27c3a8a46d1f1"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a6b6d5c8579bc5f58a5c27c3a8a46d1f1">funcName</a> = &quot;unknown&quot;</td></tr>
-<tr class="memdesc:a6b6d5c8579bc5f58a5c27c3a8a46d1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the function under benchmark. <br /></td></tr>
-<tr class="separator:a6b6d5c8579bc5f58a5c27c3a8a46d1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2711386a676762b69777a981a824a18"><td class="memItemLeft" align="right" valign="top"><a id="ab2711386a676762b69777a981a824a18"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#ab2711386a676762b69777a981a824a18">name</a> = &quot;unknown&quot;</td></tr>
+<tr class="memdesc:ab2711386a676762b69777a981a824a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifying name of the function or test case. <br /></td></tr>
+<tr class="separator:ab2711386a676762b69777a981a824a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bddd1ff28de82e4ef16a25400428601"><td class="memItemLeft" align="right" valign="top"><a id="a4bddd1ff28de82e4ef16a25400428601"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a4bddd1ff28de82e4ef16a25400428601">runs</a> = 0</td></tr>
 <tr class="memdesc:a4bddd1ff28de82e4ef16a25400428601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of runs. <br /></td></tr>
@@ -118,21 +118,29 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a5659e8581dda20f6ed5e855f8cbb2a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of iterations. <br /></td></tr>
 <tr class="separator:a5659e8581dda20f6ed5e855f8cbb2a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85426420ae536baa7b08505e0b0e6785"><td class="memItemLeft" align="right" valign="top"><a id="a85426420ae536baa7b08505e0b0e6785"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a85426420ae536baa7b08505e0b0e6785">totalRuntime</a> = 0</td></tr>
+long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a85426420ae536baa7b08505e0b0e6785">totalRuntime</a> = <a class="el" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">get_nan</a>&lt;long double&gt;()</td></tr>
 <tr class="memdesc:a85426420ae536baa7b08505e0b0e6785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total runtime over all runs and iterations. <br /></td></tr>
 <tr class="separator:a85426420ae536baa7b08505e0b0e6785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a330b166457e41239e06f192a409dc4f8"><td class="memItemLeft" align="right" valign="top"><a id="a330b166457e41239e06f192a409dc4f8"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a330b166457e41239e06f192a409dc4f8">averageRuntime</a> = 0</td></tr>
+long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a330b166457e41239e06f192a409dc4f8">averageRuntime</a> = <a class="el" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">get_nan</a>&lt;long double&gt;()</td></tr>
 <tr class="memdesc:a330b166457e41239e06f192a409dc4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimated average runtime. <br /></td></tr>
 <tr class="separator:a330b166457e41239e06f192a409dc4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd39d6a1a1cc5e6709e153d79dec709d"><td class="memItemLeft" align="right" valign="top"><a id="afd39d6a1a1cc5e6709e153d79dec709d"></a>
+long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#afd39d6a1a1cc5e6709e153d79dec709d">stdevRuntime</a> = <a class="el" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">get_nan</a>&lt;long double&gt;()</td></tr>
+<tr class="memdesc:afd39d6a1a1cc5e6709e153d79dec709d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample standard deviation of the runtime. <br /></td></tr>
+<tr class="separator:afd39d6a1a1cc5e6709e153d79dec709d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ac314f2bab879010b2ab54db4c173c8"><td class="memItemLeft" align="right" valign="top"><a id="a6ac314f2bab879010b2ab54db4c173c8"></a>
-long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a6ac314f2bab879010b2ab54db4c173c8">runsPerSecond</a> = 0</td></tr>
+long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a6ac314f2bab879010b2ab54db4c173c8">runsPerSecond</a> = <a class="el" href="namespacechebyshev.html#a62181021524138fb26d708e15a8feb06">get_nan</a>&lt;long double&gt;()</td></tr>
 <tr class="memdesc:a6ac314f2bab879010b2ab54db4c173c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of runs per second. <br /></td></tr>
 <tr class="separator:a6ac314f2bab879010b2ab54db4c173c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43ea920f1ef1d52ef78bf0115dbe6d4b"><td class="memItemLeft" align="right" valign="top"><a id="a43ea920f1ef1d52ef78bf0115dbe6d4b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a43ea920f1ef1d52ef78bf0115dbe6d4b">failed</a> = true</td></tr>
 <tr class="memdesc:a43ea920f1ef1d52ef78bf0115dbe6d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the benchmark failed because an exception was thrown. <br /></td></tr>
 <tr class="separator:a43ea920f1ef1d52ef78bf0115dbe6d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a268718473da56ddf125b1709404a9019"><td class="memItemLeft" align="right" valign="top"><a id="a268718473da56ddf125b1709404a9019"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#a268718473da56ddf125b1709404a9019">quiet</a> = false</td></tr>
+<tr class="memdesc:a268718473da56ddf125b1709404a9019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to print to standard output or not. <br /></td></tr>
+<tr class="separator:a268718473da56ddf125b1709404a9019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af186c31ba4cd39f2df32fc9c0b8d1553"><td class="memItemLeft" align="right" valign="top"><a id="af186c31ba4cd39f2df32fc9c0b8d1553"></a>
 std::map&lt; std::string, long double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html#af186c31ba4cd39f2df32fc9c0b8d1553">additionalFields</a> {}</td></tr>
 <tr class="memdesc:af186c31ba4cd39f2df32fc9c0b8d1553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional fields in floating point representation. <br /></td></tr>
@@ -149,7 +157,7 @@ std::map&lt; std::string, long double &gt;&#160;</td><td class="memItemRight" va
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1benchmark.html">benchmark</a></li><li class="navelem"><a class="el" href="structchebyshev_1_1benchmark_1_1benchmark__result.html">benchmark_result</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

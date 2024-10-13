@@ -113,8 +113,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1exception__result.html">exception_result</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of exception checking of a function.  <a href="structchebyshev_1_1err_1_1exception__result.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__state.html">err_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global state of the error testing module.  <a href="structchebyshev_1_1err_1_1err__state.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__settings.html">err_settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global settings of the error testing module.  <a href="structchebyshev_1_1err_1_1err__settings.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1err_1_1err__results.html">err_results</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">error checking  <a href="structchebyshev_1_1err_1_1err__results.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -125,54 +128,57 @@ Functions</h2></td></tr>
 <tr class="memitem:a7624d059ef5082ba28ab83e7b85f5483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a7624d059ef5082ba28ab83e7b85f5483">terminate</a> (bool exit=true)</td></tr>
 <tr class="memdesc:a7624d059ef5082ba28ab83e7b85f5483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the error testing environment.  <a href="namespacechebyshev_1_1err.html#a7624d059ef5082ba28ab83e7b85f5483">More...</a><br /></td></tr>
 <tr class="separator:a7624d059ef5082ba28ab83e7b85f5483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af98bf5721f5edf2b2b382ef217b97547"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#af98bf5721f5edf2b2b382ef217b97547">assert</a> (const std::string &amp;name, bool exp, std::string description=&quot;&quot;)</td></tr>
-<tr class="memdesc:af98bf5721f5edf2b2b382ef217b97547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert that an expression is true.  <a href="namespacechebyshev_1_1err.html#af98bf5721f5edf2b2b382ef217b97547">More...</a><br /></td></tr>
-<tr class="separator:af98bf5721f5edf2b2b382ef217b97547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2431222acc5a373a1d29ef098ece59"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:aaf2431222acc5a373a1d29ef098ece59"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#aaf2431222acc5a373a1d29ef098ece59">check_errno</a> (const std::string &amp;name, Function f, InputType x, int expected_errno)</td></tr>
-<tr class="memdesc:aaf2431222acc5a373a1d29ef098ece59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#aaf2431222acc5a373a1d29ef098ece59">More...</a><br /></td></tr>
-<tr class="separator:aaf2431222acc5a373a1d29ef098ece59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aade0501905e8ea18805c3cf3eb3fde18"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:aade0501905e8ea18805c3cf3eb3fde18"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#aade0501905e8ea18805c3cf3eb3fde18">check_errno</a> (const std::string &amp;name, Function f, std::function&lt; InputType(unsigned int)&gt; generator, int expected_errno)</td></tr>
-<tr class="memdesc:aade0501905e8ea18805c3cf3eb3fde18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#aade0501905e8ea18805c3cf3eb3fde18">More...</a><br /></td></tr>
-<tr class="separator:aade0501905e8ea18805c3cf3eb3fde18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3515bf853e2df5e9c8d5100b615b68ef"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:a3515bf853e2df5e9c8d5100b615b68ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a3515bf853e2df5e9c8d5100b615b68ef">check_errno</a> (const std::string &amp;name, Function f, InputType x, std::vector&lt; int &gt; &amp;expected_flags)</td></tr>
-<tr class="memdesc:a3515bf853e2df5e9c8d5100b615b68ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#a3515bf853e2df5e9c8d5100b615b68ef">More...</a><br /></td></tr>
-<tr class="separator:a3515bf853e2df5e9c8d5100b615b68ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6108b3234a0dda816da8eb239c027632"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:a6108b3234a0dda816da8eb239c027632"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a6108b3234a0dda816da8eb239c027632">check_errno</a> (const std::string &amp;name, Function f, std::function&lt; InputType(unsigned int)&gt; generator, std::vector&lt; int &gt; &amp;expected_flags)</td></tr>
-<tr class="memdesc:a6108b3234a0dda816da8eb239c027632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#a6108b3234a0dda816da8eb239c027632">More...</a><br /></td></tr>
-<tr class="separator:a6108b3234a0dda816da8eb239c027632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5875c03bf5c2c5199f9c8f4f1509d5"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:aca5875c03bf5c2c5199f9c8f4f1509d5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#aca5875c03bf5c2c5199f9c8f4f1509d5">check_exception</a> (const std::string &amp;name, Function f, InputType x)</td></tr>
-<tr class="memdesc:aca5875c03bf5c2c5199f9c8f4f1509d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call.  <a href="namespacechebyshev_1_1err.html#aca5875c03bf5c2c5199f9c8f4f1509d5">More...</a><br /></td></tr>
-<tr class="separator:aca5875c03bf5c2c5199f9c8f4f1509d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a32f6b99976ec0a1865a8cc9f3c2b2"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:a76a32f6b99976ec0a1865a8cc9f3c2b2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a76a32f6b99976ec0a1865a8cc9f3c2b2">check_exception</a> (const std::string &amp;name, Function f, std::function&lt; InputType(unsigned int)&gt; generator)</td></tr>
-<tr class="memdesc:a76a32f6b99976ec0a1865a8cc9f3c2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call.  <a href="namespacechebyshev_1_1err.html#a76a32f6b99976ec0a1865a8cc9f3c2b2">More...</a><br /></td></tr>
-<tr class="separator:a76a32f6b99976ec0a1865a8cc9f3c2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfdd97028ac1c917288bb8463c9cb12a"><td class="memTemplParams" colspan="2">template&lt;typename ExceptionType , typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:abfdd97028ac1c917288bb8463c9cb12a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#abfdd97028ac1c917288bb8463c9cb12a">check_exception</a> (const std::string &amp;name, Function f, InputType x)</td></tr>
-<tr class="memdesc:abfdd97028ac1c917288bb8463c9cb12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call and that the type of the exception is correct.  <a href="namespacechebyshev_1_1err.html#abfdd97028ac1c917288bb8463c9cb12a">More...</a><br /></td></tr>
-<tr class="separator:abfdd97028ac1c917288bb8463c9cb12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7f0779be4739d3c6221f15fdb8e8852"><td class="memTemplParams" colspan="2">template&lt;typename ExceptionType , typename Function , typename InputType &gt; </td></tr>
-<tr class="memitem:ad7f0779be4739d3c6221f15fdb8e8852"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#ad7f0779be4739d3c6221f15fdb8e8852">check_exception</a> (const std::string &amp;name, Function f, std::function&lt; InputType(unsigned int)&gt; generator)</td></tr>
-<tr class="memdesc:ad7f0779be4739d3c6221f15fdb8e8852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call and that the type of the exception is correct.  <a href="namespacechebyshev_1_1err.html#ad7f0779be4739d3c6221f15fdb8e8852">More...</a><br /></td></tr>
-<tr class="separator:ad7f0779be4739d3c6221f15fdb8e8852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25b2aa42cd9517ca921a0bea3d41fa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#ae25b2aa42cd9517ca921a0bea3d41fa8">assert</a> (const std::string &amp;name, bool exp, std::string description=&quot;&quot;, bool quiet=false)</td></tr>
+<tr class="memdesc:ae25b2aa42cd9517ca921a0bea3d41fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert that an expression is true.  <a href="namespacechebyshev_1_1err.html#ae25b2aa42cd9517ca921a0bea3d41fa8">More...</a><br /></td></tr>
+<tr class="separator:ae25b2aa42cd9517ca921a0bea3d41fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf15988fc9d65e231a36e46a0fa4e5d"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a1bf15988fc9d65e231a36e46a0fa4e5d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a1bf15988fc9d65e231a36e46a0fa4e5d">check_errno</a> (const std::string &amp;name, Function f, InputType x, int expected_errno, bool quiet=false)</td></tr>
+<tr class="memdesc:a1bf15988fc9d65e231a36e46a0fa4e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#a1bf15988fc9d65e231a36e46a0fa4e5d">More...</a><br /></td></tr>
+<tr class="separator:a1bf15988fc9d65e231a36e46a0fa4e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ff128b3a28deb2c120ebd29be008bb"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a11ff128b3a28deb2c120ebd29be008bb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a11ff128b3a28deb2c120ebd29be008bb">check_errno</a> (const std::string &amp;name, Function f, std::function&lt; InputType()&gt; generator, int expected_errno, bool quiet=false)</td></tr>
+<tr class="memdesc:a11ff128b3a28deb2c120ebd29be008bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#a11ff128b3a28deb2c120ebd29be008bb">More...</a><br /></td></tr>
+<tr class="separator:a11ff128b3a28deb2c120ebd29be008bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab33ff00bbb87d2691e7a7c2977d4b9"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a1ab33ff00bbb87d2691e7a7c2977d4b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a1ab33ff00bbb87d2691e7a7c2977d4b9">check_errno</a> (const std::string &amp;name, Function f, InputType x, std::vector&lt; int &gt; &amp;expected_flags, bool quiet=false)</td></tr>
+<tr class="memdesc:a1ab33ff00bbb87d2691e7a7c2977d4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#a1ab33ff00bbb87d2691e7a7c2977d4b9">More...</a><br /></td></tr>
+<tr class="separator:a1ab33ff00bbb87d2691e7a7c2977d4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cf61afa2583ccc08618a9ca0d2cb47"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:af6cf61afa2583ccc08618a9ca0d2cb47"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#af6cf61afa2583ccc08618a9ca0d2cb47">check_errno</a> (const std::string &amp;name, Function f, std::function&lt; InputType()&gt; generator, std::vector&lt; int &gt; &amp;expected_flags, bool quiet=false)</td></tr>
+<tr class="memdesc:af6cf61afa2583ccc08618a9ca0d2cb47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check errno value after function call.  <a href="namespacechebyshev_1_1err.html#af6cf61afa2583ccc08618a9ca0d2cb47">More...</a><br /></td></tr>
+<tr class="separator:af6cf61afa2583ccc08618a9ca0d2cb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f75050b8b010b97b86ded86285d7160"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a3f75050b8b010b97b86ded86285d7160"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a3f75050b8b010b97b86ded86285d7160">check_exception</a> (const std::string &amp;name, Function f, InputType x, bool quiet=false)</td></tr>
+<tr class="memdesc:a3f75050b8b010b97b86ded86285d7160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call.  <a href="namespacechebyshev_1_1err.html#a3f75050b8b010b97b86ded86285d7160">More...</a><br /></td></tr>
+<tr class="separator:a3f75050b8b010b97b86ded86285d7160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919d16ce7087cb5afa687c62a8143bd8"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a919d16ce7087cb5afa687c62a8143bd8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a919d16ce7087cb5afa687c62a8143bd8">check_exception</a> (const std::string &amp;name, Function f, std::function&lt; InputType()&gt; generator, bool quiet=false)</td></tr>
+<tr class="memdesc:a919d16ce7087cb5afa687c62a8143bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call.  <a href="namespacechebyshev_1_1err.html#a919d16ce7087cb5afa687c62a8143bd8">More...</a><br /></td></tr>
+<tr class="separator:a919d16ce7087cb5afa687c62a8143bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c2cab6cc5b12e3313ce1aa585a7d1d"><td class="memTemplParams" colspan="2">template&lt;typename ExceptionType , typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a29c2cab6cc5b12e3313ce1aa585a7d1d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a29c2cab6cc5b12e3313ce1aa585a7d1d">check_exception</a> (const std::string &amp;name, Function f, InputType x, bool quiet=false)</td></tr>
+<tr class="memdesc:a29c2cab6cc5b12e3313ce1aa585a7d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call and that the type of the exception is correct.  <a href="namespacechebyshev_1_1err.html#a29c2cab6cc5b12e3313ce1aa585a7d1d">More...</a><br /></td></tr>
+<tr class="separator:a29c2cab6cc5b12e3313ce1aa585a7d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b83b1e262aad3cb9d88ebfd063bbf26"><td class="memTemplParams" colspan="2">template&lt;typename ExceptionType , typename Function , typename InputType &gt; </td></tr>
+<tr class="memitem:a5b83b1e262aad3cb9d88ebfd063bbf26"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1err.html#a5b83b1e262aad3cb9d88ebfd063bbf26">check_exception</a> (const std::string &amp;name, Function f, std::function&lt; InputType()&gt; generator, bool quiet=false)</td></tr>
+<tr class="memdesc:a5b83b1e262aad3cb9d88ebfd063bbf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that an exception is thrown during a function call and that the type of the exception is correct.  <a href="namespacechebyshev_1_1err.html#a5b83b1e262aad3cb9d88ebfd063bbf26">More...</a><br /></td></tr>
+<tr class="separator:a5b83b1e262aad3cb9d88ebfd063bbf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a590ed98af97b3d231c51c8fe81afc96b"><td class="memItemLeft" align="right" valign="top"><a id="a590ed98af97b3d231c51c8fe81afc96b"></a>
-struct <a class="el" href="structchebyshev_1_1err_1_1err__state.html">chebyshev::err::err_state</a>&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="separator:a590ed98af97b3d231c51c8fe81afc96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d0e6416e83de977f695f7497d94d95"><td class="memItemLeft" align="right" valign="top"><a id="a05d0e6416e83de977f695f7497d94d95"></a>
+struct <a class="el" href="structchebyshev_1_1err_1_1err__settings.html">chebyshev::err::err_settings</a>&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
+<tr class="separator:a05d0e6416e83de977f695f7497d94d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0edf6e125069224ec5aeb7111779d464"><td class="memItemLeft" align="right" valign="top"><a id="a0edf6e125069224ec5aeb7111779d464"></a>
+struct <a class="el" href="structchebyshev_1_1err_1_1err__results.html">chebyshev::err::err_results</a>&#160;</td><td class="memItemRight" valign="bottom"><b>results</b></td></tr>
+<tr class="separator:a0edf6e125069224ec5aeb7111779d464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Error checking module. </p>
-<p>This module provides functions to test error reporting with different methods. Assertions are checked with <a class="el" href="namespacechebyshev_1_1err.html#af98bf5721f5edf2b2b382ef217b97547" title="Assert that an expression is true.">err::assert</a>, while the value of errno after a function call can be checked using <a class="el" href="namespacechebyshev_1_1err.html#aaf2431222acc5a373a1d29ef098ece59" title="Check errno value after function call.">err::check_errno</a> and the throwing of exceptions can be checked using check_exception. </p>
+<p>This module provides functions to test error reporting with different methods. Assertions are checked with <a class="el" href="namespacechebyshev_1_1err.html#ae25b2aa42cd9517ca921a0bea3d41fa8" title="Assert that an expression is true.">err::assert</a>, while the value of errno after a function call can be checked using <a class="el" href="namespacechebyshev_1_1err.html#a1bf15988fc9d65e231a36e46a0fa4e5d" title="Check errno value after function call.">err::check_errno</a> and the throwing of exceptions can be checked using check_exception. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="af98bf5721f5edf2b2b382ef217b97547"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af98bf5721f5edf2b2b382ef217b97547">&#9670;&nbsp;</a></span>assert()</h2>
+<a id="ae25b2aa42cd9517ca921a0bea3d41fa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25b2aa42cd9517ca921a0bea3d41fa8">&#9670;&nbsp;</a></span>assert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +202,13 @@ struct <a class="el" href="structchebyshev_1_1err_1_1err__state.html">chebyshev:
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>description</em> = <code>&quot;&quot;</code>&#160;</td>
+          <td class="paramname"><em>description</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -223,8 +235,8 @@ struct <a class="el" href="structchebyshev_1_1err_1_1err__state.html">chebyshev:
 
 </div>
 </div>
-<a id="aaf2431222acc5a373a1d29ef098ece59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf2431222acc5a373a1d29ef098ece59">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[1/4]</span></h2>
+<a id="a1bf15988fc9d65e231a36e46a0fa4e5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf15988fc9d65e231a36e46a0fa4e5d">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +268,13 @@ template&lt;typename Function , typename InputType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>expected_errno</em>&#160;</td>
+          <td class="paramname"><em>expected_errno</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -284,8 +302,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="a3515bf853e2df5e9c8d5100b615b68ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3515bf853e2df5e9c8d5100b615b68ef">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[2/4]</span></h2>
+<a id="a1ab33ff00bbb87d2691e7a7c2977d4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab33ff00bbb87d2691e7a7c2977d4b9">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,7 +335,13 @@ template&lt;typename Function , typename InputType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>expected_flags</em>&#160;</td>
+          <td class="paramname"><em>expected_flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -345,8 +369,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="aade0501905e8ea18805c3cf3eb3fde18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aade0501905e8ea18805c3cf3eb3fde18">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[3/4]</span></h2>
+<a id="a11ff128b3a28deb2c120ebd29be008bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ff128b3a28deb2c120ebd29be008bb">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,14 +395,20 @@ template&lt;typename Function , typename InputType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; InputType(unsigned int)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; InputType()&gt;&#160;</td>
           <td class="paramname"><em>generator</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>expected_errno</em>&#160;</td>
+          <td class="paramname"><em>expected_errno</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -406,8 +436,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="a6108b3234a0dda816da8eb239c027632"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6108b3234a0dda816da8eb239c027632">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[4/4]</span></h2>
+<a id="af6cf61afa2583ccc08618a9ca0d2cb47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6cf61afa2583ccc08618a9ca0d2cb47">&#9670;&nbsp;</a></span>check_errno() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,14 +459,20 @@ template&lt;typename Function , typename InputType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; InputType(unsigned int)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; InputType()&gt;&#160;</td>
           <td class="paramname"><em>generator</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>expected_flags</em>&#160;</td>
+          <td class="paramname"><em>expected_flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -459,8 +495,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="aca5875c03bf5c2c5199f9c8f4f1509d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca5875c03bf5c2c5199f9c8f4f1509d5">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[1/4]</span></h2>
+<a id="a3f75050b8b010b97b86ded86285d7160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f75050b8b010b97b86ded86285d7160">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -486,7 +522,13 @@ template&lt;typename Function , typename InputType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">InputType&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -513,8 +555,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="abfdd97028ac1c917288bb8463c9cb12a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfdd97028ac1c917288bb8463c9cb12a">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[2/4]</span></h2>
+<a id="a29c2cab6cc5b12e3313ce1aa585a7d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c2cab6cc5b12e3313ce1aa585a7d1d">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +582,13 @@ template&lt;typename ExceptionType , typename Function , typename InputType &gt;
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">InputType&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -567,8 +615,8 @@ template&lt;typename ExceptionType , typename Function , typename InputType &gt;
 
 </div>
 </div>
-<a id="a76a32f6b99976ec0a1865a8cc9f3c2b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76a32f6b99976ec0a1865a8cc9f3c2b2">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[3/4]</span></h2>
+<a id="a919d16ce7087cb5afa687c62a8143bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a919d16ce7087cb5afa687c62a8143bd8">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,8 +641,14 @@ template&lt;typename Function , typename InputType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; InputType(unsigned int)&gt;&#160;</td>
-          <td class="paramname"><em>generator</em>&#160;</td>
+          <td class="paramtype">std::function&lt; InputType()&gt;&#160;</td>
+          <td class="paramname"><em>generator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -621,8 +675,8 @@ template&lt;typename Function , typename InputType &gt; </div>
 
 </div>
 </div>
-<a id="ad7f0779be4739d3c6221f15fdb8e8852"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7f0779be4739d3c6221f15fdb8e8852">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[4/4]</span></h2>
+<a id="a5b83b1e262aad3cb9d88ebfd063bbf26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b83b1e262aad3cb9d88ebfd063bbf26">&#9670;&nbsp;</a></span>check_exception() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -647,8 +701,14 @@ template&lt;typename ExceptionType , typename Function , typename InputType &gt;
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; InputType(unsigned int)&gt;&#160;</td>
-          <td class="paramname"><em>generator</em>&#160;</td>
+          <td class="paramtype">std::function&lt; InputType()&gt;&#160;</td>
+          <td class="paramname"><em>generator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>quiet</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -768,7 +828,7 @@ template&lt;typename ExceptionType , typename Function , typename InputType &gt;
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1err.html">err</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

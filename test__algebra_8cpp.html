@@ -100,38 +100,11 @@ $(document).ready(function(){initNavTree('test__algebra_8cpp.html',''); initResi
 <p>Test cases for linear algebra.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="theoretica_8h_source.html">theoretica.h</a>&quot;</code><br />
-<code>#include &quot;chebyshev/prec.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="chebyshev_8h_source.html">chebyshev.h</a>&quot;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af13b8e6c66efcbd9cc576fddbd548d1d"><td class="memTemplParams" colspan="2"><a id="af13b8e6c66efcbd9cc576fddbd548d1d"></a>
-template&lt;unsigned int N, unsigned int M&gt; </td></tr>
-<tr class="memitem:af13b8e6c66efcbd9cc576fddbd548d1d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>rand_mat</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g)</td></tr>
-<tr class="separator:af13b8e6c66efcbd9cc576fddbd548d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4761bdf09383fe31294ef5aab214feb2"><td class="memTemplParams" colspan="2"><a id="a4761bdf09383fe31294ef5aab214feb2"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a4761bdf09383fe31294ef5aab214feb2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_matrix_inverse</b> (interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:a4761bdf09383fe31294ef5aab214feb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1cc3120e043e339670b89c86286b9e5"><td class="memTemplParams" colspan="2"><a id="ad1cc3120e043e339670b89c86286b9e5"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:ad1cc3120e043e339670b89c86286b9e5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_matrix_det</b> (interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:ad1cc3120e043e339670b89c86286b9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d776bc0be7058482cd663c02dadd8e5"><td class="memItemLeft" align="right" valign="top"><a id="a1d776bc0be7058482cd663c02dadd8e5"></a>
-<a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memItemRight" valign="bottom"><b>test_matrix_mul</b> (interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:a1d776bc0be7058482cd663c02dadd8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a1cbfc2e2de447a97b75327f7fdec1b"><td class="memTemplParams" colspan="2"><a id="a8a1cbfc2e2de447a97b75327f7fdec1b"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a8a1cbfc2e2de447a97b75327f7fdec1b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_distance</b> (std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;)&gt; d, interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:a8a1cbfc2e2de447a97b75327f7fdec1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45d89f5525e50c802e17add8593873bf"><td class="memTemplParams" colspan="2"><a id="a45d89f5525e50c802e17add8593873bf"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a45d89f5525e50c802e17add8593873bf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_distance_tol</b> (std::function&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>)&gt; d, interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:a45d89f5525e50c802e17add8593873bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e3f26aec062056d14decc94cf3ad065"><td class="memTemplParams" colspan="2"><a id="a3e3f26aec062056d14decc94cf3ad065"></a>
-template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a3e3f26aec062056d14decc94cf3ad065"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structchebyshev_1_1prec_1_1estimate__result.html">prec::estimate_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_hermitian</b> (interval k, Real tol, unsigned int n)</td></tr>
-<tr class="separator:a3e3f26aec062056d14decc94cf3ad065"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top"><a id="abf9e6b7e6f15df4b525a2e7705ba3089"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char const *argv[])</td></tr>
 <tr class="separator:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +117,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_3b26dd7fc34dad5ad24f72f04fbee3ea.html">prec</a></li><li class="navelem"><a class="el" href="test__algebra_8cpp.html">test_algebra.cpp</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

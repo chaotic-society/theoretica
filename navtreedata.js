@@ -94,17 +94,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8h.html",
-"classtheoretica_1_1dual.html#a23266df0d4d5d5ee24f3f5cf73dc5c68",
-"classtheoretica_1_1multidual.html#a6da4f77bb81fb5c2e6d3a1f9a976786e",
-"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa064100b0916e49cda943cc128cfafe",
-"dual2__functions_8h.html#ac81dcde719b69b4d63ecd3127cb289d9",
-"montecarlo_8h.html#a11c69bea27399e4d430e877b538ce777",
-"namespacetheoretica.html#a23f1da297b159938c8b3fb2dc9121e0d",
-"namespacetheoretica.html#ac3a7880ad0abc4b7b03198d90001631c",
-"namespacetheoretica_1_1distribution.html#a02b341a54737fbbc4201362784bf63ec",
-"prec_8h.html#a1bfb375300fa5e9a8774f8fdac3c3c80",
-"statistics_8h.html#a9afb6b4c7a3ad56b4b93ff58b2bd2de6",
-"structtheoretica_1_1spline__node.html#a5ec52159dd50bbc0ce91b79f480c500e"
+"classtheoretica_1_1dual.html#a2230abb4fbfd72c2561b4632f75a026c",
+"classtheoretica_1_1multidual.html#a6cacc0b48b77b3273a9c63f76ad7928b",
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895",
+"dual2__functions_8h.html#a9d5fed4cfa9af5d148c59a6005422edc",
+"montecarlo_8h.html",
+"namespacetheoretica.html#a1efe3bd7ff87719aab92b67cec535096",
+"namespacetheoretica.html#abf57380f471e8eb6e2b2334154894c67",
+"namespacetheoretica_1_1autodiff.html#aeb0e9c2d5268a320dcfad6dbfb9b49f8",
+"polyn__interp_8h.html#a25e8ede5b63e3e928ba06999468f33ef",
+"statistics_8h.html#a2cb8ca58fcf503d0322ca86bc45b3c3d",
+"structtheoretica_1_1regression_1_1linear__model.html#a650937a121eb8590ced453d5324cb1c2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

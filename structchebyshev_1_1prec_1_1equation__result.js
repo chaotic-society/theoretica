@@ -5,7 +5,7 @@ var structchebyshev_1_1prec_1_1equation__result =
     [ "evaluated", "structchebyshev_1_1prec_1_1equation__result.html#ad85945fcabb36308138a76657faa1ede", null ],
     [ "expected", "structchebyshev_1_1prec_1_1equation__result.html#adb48df43eb13ea436816b50e29adedb6", null ],
     [ "failed", "structchebyshev_1_1prec_1_1equation__result.html#a4b3d1031d612460e6749b47fdd9468a7", null ],
-    [ "funcName", "structchebyshev_1_1prec_1_1equation__result.html#a540561c2baead5fd7150ce67792a83aa", null ],
+    [ "name", "structchebyshev_1_1prec_1_1equation__result.html#a799b5be24e2ba39ebcb05919ed2aa017", null ],
     [ "quiet", "structchebyshev_1_1prec_1_1equation__result.html#a6e892e9dc9c0f3fd0c16f4d11f682447", null ],
     [ "tolerance", "structchebyshev_1_1prec_1_1equation__result.html#a1a2a1dfd1dad519646296a13baa4188b", null ]
 ];

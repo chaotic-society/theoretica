@@ -119,8 +119,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1field__options.html">chebyshev::output::field_options</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom options for printing a certain field.  <a href="structchebyshev_1_1output_1_1field__options.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__state.html">chebyshev::output::output_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global state of printing results to standard output.  <a href="structchebyshev_1_1output_1_1output__state.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1output_1_1output__settings.html">chebyshev::output::output_settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global settings of printing results to standard output.  <a href="structchebyshev_1_1output_1_1output__settings.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -137,9 +137,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aa79830f14a5ea8e84a255822a93c41a3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1output.html#aa79830f14a5ea8e84a255822a93c41a3">chebyshev::output::OutputFormat</a> = output_state::OutputFormat_t</td></tr>
-<tr class="memdesc:aa79830f14a5ea8e84a255822a93c41a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which converts the table entries of a row to a string to print (e.g.  <a href="namespacechebyshev_1_1output.html#aa79830f14a5ea8e84a255822a93c41a3">More...</a><br /></td></tr>
-<tr class="separator:aa79830f14a5ea8e84a255822a93c41a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36fa18e4a5f1851a0d5acfd70a50db50"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1output.html#a36fa18e4a5f1851a0d5acfd70a50db50">chebyshev::output::OutputFormat</a> = output_settings::OutputFormat_t</td></tr>
+<tr class="memdesc:a36fa18e4a5f1851a0d5acfd70a50db50"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which converts the table entries of a row to a string to print (e.g.  <a href="namespacechebyshev_1_1output.html#a36fa18e4a5f1851a0d5acfd70a50db50">More...</a><br /></td></tr>
+<tr class="separator:a36fa18e4a5f1851a0d5acfd70a50db50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -168,7 +168,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="separator:a5feeb87138e94b32f0c4bfcc1082ac5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1db4be876f47d39f9e82caef2b2f2ac"><td class="memItemLeft" align="right" valign="top"><a id="aa1db4be876f47d39f9e82caef2b2f2ac"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1output.html#aa1db4be876f47d39f9e82caef2b2f2ac">chebyshev::output::terminate</a> ()</td></tr>
-<tr class="memdesc:aa1db4be876f47d39f9e82caef2b2f2ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the output module by closing all output files and resetting its state. <br /></td></tr>
+<tr class="memdesc:aa1db4be876f47d39f9e82caef2b2f2ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the output module by closing all output files and resetting its settings. <br /></td></tr>
 <tr class="separator:aa1db4be876f47d39f9e82caef2b2f2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3391f6a24134ef1b3199ececfd5121de"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1output.html#a3391f6a24134ef1b3199ececfd5121de">chebyshev::output::resolve_field</a> (const std::string &amp;fieldName, prec::estimate_result r)</td></tr>
 <tr class="memdesc:a3391f6a24134ef1b3199ececfd5121de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve the field of an estimate result by name, returning the value as a string.  <a href="namespacechebyshev_1_1output.html#a3391f6a24134ef1b3199ececfd5121de">More...</a><br /></td></tr>
@@ -198,14 +198,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="separator:abd28a75f8a9f542876d8b2490f6a605b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ac4dd4024287898404604750be5b564"><td class="memTemplParams" colspan="2">template&lt;typename ResultType &gt; </td></tr>
 <tr class="memitem:a1ac4dd4024287898404604750be5b564"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1output.html#a1ac4dd4024287898404604750be5b564">chebyshev::output::print_results</a> (const std::map&lt; std::string, std::vector&lt; ResultType &gt;&gt; &amp;results, const std::vector&lt; std::string &gt; &amp;fields, const std::vector&lt; std::string &gt; &amp;filenames)</td></tr>
-<tr class="memdesc:a1ac4dd4024287898404604750be5b564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the test results to standard output and output files with their given formats, defaulting to state.outputFiles if no filenames are specified.  <a href="namespacechebyshev_1_1output.html#a1ac4dd4024287898404604750be5b564">More...</a><br /></td></tr>
+<tr class="memdesc:a1ac4dd4024287898404604750be5b564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the test results to standard output and output files with their given formats, defaulting to settings.outputFiles if no filenames are specified.  <a href="namespacechebyshev_1_1output.html#a1ac4dd4024287898404604750be5b564">More...</a><br /></td></tr>
 <tr class="separator:a1ac4dd4024287898404604750be5b564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a63beecceb3aa61fb596f41249698e377"><td class="memItemLeft" align="right" valign="top"><a id="a63beecceb3aa61fb596f41249698e377"></a>
-struct <a class="el" href="structchebyshev_1_1output_1_1output__state.html">chebyshev::output::output_state</a>&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::output::state</b></td></tr>
-<tr class="separator:a63beecceb3aa61fb596f41249698e377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac61c6d83bd74077989d20fca2371bce7"><td class="memItemLeft" align="right" valign="top"><a id="ac61c6d83bd74077989d20fca2371bce7"></a>
+struct <a class="el" href="structchebyshev_1_1output_1_1output__settings.html">chebyshev::output::output_settings</a>&#160;</td><td class="memItemRight" valign="bottom"><b>chebyshev::output::settings</b></td></tr>
+<tr class="separator:ac61c6d83bd74077989d20fca2371bce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The output module, with formatting capabilities. </p>
@@ -215,7 +215,7 @@ struct <a class="el" href="structchebyshev_1_1output_1_1output__state.html">cheb
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_f34e67786cf6786decd18dae57af4e06.html">core</a></li><li class="navelem"><a class="el" href="output_8h.html">output.h</a></li>
-    <li class="footer">Generated on Sat Oct 12 2024 21:08:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 13 2024 09:33:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
