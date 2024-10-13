@@ -17,14 +17,14 @@ namespace chebyshev {
 	namespace random {
 
 
-		/// @class random_state
+		/// @class random_settings
 		/// 
-		struct random_state {
+		struct random_settings {
 			
 			/// The seed for random number generation
 			uint64_t seed = 0;
 
-		} state;
+		} settings;
 
 
 		/// Initialize the random module.
@@ -33,8 +33,8 @@ namespace chebyshev {
 			if(seed == 0)
 				seed = time(nullptr);
 
-			state.seed = seed;
-			srand(state.seed);
+			settings.seed = seed;
+			srand(settings.seed);
 		}
 
 

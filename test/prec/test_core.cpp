@@ -14,8 +14,8 @@ int main(int argc, char const *argv[]) {
 
 	prec::setup("core", argc, argv);
 
-		output::state.outputFiles = { "test/prec/prec_core.csv" };
-		prec::state.defaultIterations = 1'000'000;
+		output::settings.outputFiles = { "test/prec/prec_core.csv" };
+		prec::settings.defaultIterations = 1'000'000;
 
 		// Estimate options for real endofunctions.
 		auto R_opt = prec::estimate_options<real, real>(

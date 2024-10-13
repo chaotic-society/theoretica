@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("example");
 
-		output::state.outputFiles = { "test/prec_example.csv" };
+		output::settings.outputFiles = { "test/prec_example.csv" };
 
 		// prec::estimate(...);
 

@@ -28,7 +28,7 @@ int main(int argc, char const *argv[]) {
 	err::setup("example");
 
 		// Set the output file for the err module
-		err::state.outputFiles = { "example_err.csv" };
+		err::settings.outputFiles = { "example_err.csv" };
 
 		// Make an assert
 		err::assert("std::sqrt", std::sqrt(4) == 2, "sqrt(4) is 2");

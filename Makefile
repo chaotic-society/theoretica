@@ -96,6 +96,7 @@ test_signal:
 # Compile all test programs and run them
 #test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics
 test: test_core test_complex test_statistics test_calculus test_signal
+test: test_core test_algebra test_complex test_autodiff test_calculus test_polynomial test_interpolation test_optimization test_pseudorandom test_statistics test_signal
 
 # Example programs
 

@@ -1,9 +1,10 @@
 
 #include "theoretica.h"
-#include "chebyshev/prec.h"
+#include "chebyshev.h"
 
 using namespace chebyshev;
 using namespace theoretica;
+using namespace autodiff;
 
 
 real f(real x) {
@@ -30,24 +31,24 @@ dual2 h2(vec<dual2> v) {
 }
 
 
-dreal_t<> p(dvec_t<> v) {
+dreal p(dvec v) {
     return v * v;
 }
 
 
-dreal_t<> H(dvec_t<> v) {
+dreal H(dvec v) {
     return v * v + 1000;
 }
 
 
-dvec_t<> V(dvec_t<> v) {
+dvec V(dvec v) {
 	return {
 		1 / (v * v), 1 / (v * v), 1 / (v * v)
 	};
 }
 
 
-dreal_t<> d1(dvec_t<> v) {
+dreal d1(dvec v) {
     return v[0] - 2 * v[1] + v[2];
 }
 
@@ -59,83 +60,18 @@ int main(int argc, char const *argv[]) {
 	g.discard(1000);
 
 
-	prec::state.outputFolder = "test/";
-	prec::state.defaultIterations = 1000;
+	prec::settings.outputFiles = { "test/prec/prec_autodiff.h" };
+	prec::settings.defaultIterations = 1000;
 	
 	prec::setup("autodiff");
 
-		// Compare the automatic derivative to the analytical derivative
-		prec::estimate(
-			"dual::Dual()", f, df, {interval(0.001, 0.5), interval(-0.5, -0.001)}
-		);
+		// autodiff.h
 
+		// dual.h
 
-		prec::estimate("dual::laplacian (h1)",
-			[](interval k, Real tol, unsigned int n) {
-				return test_operator(
-					laplacian(h1),
-					PRNG::xoshiro(time(nullptr)),
-					k, 1E-8, n, 2
-				);
-			}, interval(-100, 100)
-		);
+		// dual2.h
 
-
-		prec::estimate("dual::laplacian (h2)",
-			[](interval k, Real tol, unsigned int n) {
-				return test_operator(
-					laplacian(h2),
-					PRNG::xoshiro(time(nullptr)),
-					k, 1E-8, n, 2
-				);
-			}, interval(-100, 100)
-		);
-
-
-		// Test the gradient computation by evaluating
-		// the time derivative of a constant of motion
-		// for a Hamiltonian system
-		mat<> J = mat4::symplectic();
-
-		
-		prec::estimate("dual::gradient (p)",
-			[=](interval k, Real tol, unsigned int n) {
-				return test_operator(
-					[=](vec<> v) {
-						return gradient(p, v) * (J * gradient(H, v));
-					},
-					PRNG::xoshiro(time(nullptr)),
-					k, 1E-8, n, 4
-				);
-			}, interval(-100, 100)
-		);
-
-
-		// Test against an irrotational vector field
-		prec::estimate("dual::curl (V)",
-			[=](interval k, Real tol, unsigned int n) {
-				return test_operator(
-					[=](vec<> v) {
-						return curl(V, v).sqr_norm();
-					},
-					PRNG::xoshiro(time(nullptr)),
-					k, 1E-5, n, 3
-				);
-			}, interval(1, 100)
-		);
-
-
-		// Test against a divergence-free scalar field
-		prec::estimate("dual::divergence (d1)",
-			[](interval k, Real tol, unsigned int n) {
-				return test_operator(
-					divergence(d1),
-					PRNG::xoshiro(time(nullptr)),
-					k, 1E-8, n, 3
-				);
-			}, interval(-100, 100)
-		);
-
+		// multidual.h
 
 	prec::terminate();
 }

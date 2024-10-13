@@ -20,8 +20,8 @@ namespace chebyshev {
 		/// Result of assertion checking of a function
 		struct assert_result {
 
-			/// Function name or test case name
-			std::string funcName = "unknown";
+			/// Identifying name of the function or test case.
+			std::string name = "unknown";
 			
 			/// Evaluated boolean value
 			bool evaluated = false;
@@ -31,6 +31,9 @@ namespace chebyshev {
 
 			/// Whether the test failed
 			bool failed = true;
+
+			/// Whether to print to standard output or not.
+			bool quiet = false;
 		};
 
 
@@ -38,8 +41,8 @@ namespace chebyshev {
 		/// Result of errno checking of a function
 		struct errno_result {
 
-			/// Function name or test case name
-			std::string funcName = "unknown";
+			/// Identifying name of the function or test case.
+			std::string name = "unknown";
 			
 			/// Evaluated errno value
 			int evaluated;
@@ -49,6 +52,9 @@ namespace chebyshev {
 
 			/// Whether the test failed.
 			bool failed = true;
+
+			/// Whether to print to standard output or not.
+			bool quiet = false;
 		};
 
 
@@ -56,8 +62,8 @@ namespace chebyshev {
 		/// Result of exception checking of a function
 		struct exception_result {
 
-			/// Function name or test case name
-			std::string funcName = "unknown";
+			/// Identifying name of the function or test case.
+			std::string name = "unknown";
 			
 			/// Whether the function has thrown
 			bool thrown = false;
@@ -68,6 +74,9 @@ namespace chebyshev {
 
 			/// Whether the test failed.
 			bool failed = true;
+
+			/// Whether to print to standard output or not.
+			bool quiet = false;
 		};
 
 	}

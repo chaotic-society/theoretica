@@ -24,8 +24,8 @@ namespace chebyshev {
 		/// A structure holding the result of precision estimation.
 		struct estimate_result {
 			
-			/// Uniquely identifying name of the function.
-			std::string funcName = "unknown";
+			/// Identifying name of the function or test case.
+			std::string name = "unknown";
 
 			/// Interval of estimation.
 			std::vector<interval> domain {};
@@ -124,10 +124,14 @@ namespace chebyshev {
 
 
 			/// Construct estimate options from a one-dimensional
-			/// interval domain, an estimator and the tolerance,
-			/// with other fields equal to the default values.
-			estimate_options(interval omega, Estimator_t estimator, long double tolerance)
-			: domain({omega}), estimator(estimator), tolerance(tolerance) {}
+			/// interval domain, an estimator, a tolerance and an optional
+			/// quiet flag, with other fields equal to the default values.
+			estimate_options(
+				interval omega,
+				Estimator_t estimator,
+				long double tolerance,
+				bool quiet = false)
+			: domain({omega}), estimator(estimator), tolerance(tolerance), quiet(quiet) {}
 
 
 			/// Construct estimate options from a multidimensional
@@ -136,12 +140,15 @@ namespace chebyshev {
 			estimate_options(std::vector<interval> omega, Estimator_t estimator)
 			: domain(omega), estimator(estimator) {}
 
-
 			/// Construct estimate options from a multidimensional
-			/// interval domain, an estimator and a tolerance, with other fields
-			/// equal to the default values.
-			estimate_options(std::vector<interval> omega, Estimator_t estimator, long double tolerance)
-			: domain(omega), estimator(estimator), tolerance(tolerance) {}
+			/// interval domain, an estimator, a tolerance and an optional quiet flag,
+			/// with other fields equal to the default values.
+			estimate_options(
+				std::vector<interval> omega,
+				Estimator_t estimator,
+				long double tolerance,
+				bool quiet = false)
+			: domain(omega), estimator(estimator), tolerance(tolerance), quiet(quiet) {}
 			
 		};
 
@@ -155,8 +162,8 @@ namespace chebyshev {
 		/// A structure holding the result of an evaluation.
 		struct equation_result {
 
-			/// Uniquely identifying function name.
-			std::string funcName = "unknown";
+			/// Identifying name of the function or test case.
+			std::string name = "unknown";
 
 			/// Evaluated value.
 			long double evaluated = get_nan<long double>();

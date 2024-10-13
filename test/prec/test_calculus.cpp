@@ -1,7 +1,7 @@
 
 #include "theoretica.h"
-#include <cmath>
 #include "chebyshev.h"
+#include <cmath>
 
 using namespace chebyshev;
 using namespace theoretica;
@@ -88,9 +88,9 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("calculus");
 
-		output::state.outputFiles = { "test/prec/prec_calculus.csv" };
-		prec::state.estimateColumns = {
-			"funcName", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
+		output::settings.outputFiles = { "test/prec/prec_calculus.csv" };
+		prec::settings.estimateColumns = {
+			"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
 		};
 
 		// Compare the numerical derivative to the analytical derivative

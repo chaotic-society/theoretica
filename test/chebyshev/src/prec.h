@@ -31,8 +31,8 @@ namespace chebyshev {
 	namespace prec {
 
 
-		/// @class prec_state Global state of the precision testing module.
-		struct prec_state {
+		/// @class prec_settings Global settings of the precision testing module.
+		struct prec_settings {
 			
 			/// Name of the module being tested
 			std::string moduleName = "unknown";
@@ -42,12 +42,6 @@ namespace chebyshev {
 
 			/// Output to file?
 			bool outputToFile = true;
-
-			/// Total number of tests run
-			unsigned int totalTests = 0;
-
-			/// Number of failed tests
-			unsigned int failedTests = 0;
 
 			/// Default number of iterations for integral quadrature
 			unsigned int defaultIterations = CHEBYSHEV_PREC_ITER;
@@ -61,24 +55,18 @@ namespace chebyshev {
 			/// The files to write all precision testing results to
 			std::vector<std::string> outputFiles {};
 
-			/// Results of precision testing
-			std::map<std::string, std::vector<estimate_result>> estimateResults {};
-
 			/// Default columns to print for precision estimates.
 			std::vector<std::string> estimateColumns = {
-				"funcName", "meanErr", "rmsErr", "maxErr", "failed"
+				"name", "meanErr", "rmsErr", "maxErr", "failed"
 			};
 
 			/// The files to write estimate results to
 			/// (if empty, all results are output to a generic file).
 			std::vector<std::string> estimateOutputFiles {};
-			
-			/// Results of equations
-			std::map<std::string, std::vector<equation_result>> equationResults {};
 
 			/// Default columns to print for equations.
 			std::vector<std::string> equationColumns = {
-				"funcName", "difference", "tolerance", "failed"
+				"name", "difference", "tolerance", "failed"
 			};
 
 			/// The files to write equation results to
@@ -90,7 +78,25 @@ namespace chebyshev {
 			/// by command line. (all tests will be executed if empty)
 			std::map<std::string, bool> pickedTests {};
 
-		} state;
+		} settings;
+
+
+		/// @class prec_results Test results of the precision testing module.
+		struct prec_results {
+
+			/// Total number of tests run
+			unsigned int totalTests = 0;
+
+			/// Number of failed tests
+			unsigned int failedTests = 0;
+
+			/// Results of error estimation
+			std::map<std::string, std::vector<estimate_result>> estimateResults {};
+
+			/// Results of equation evaluation
+			std::map<std::string, std::vector<equation_result>> equationResults {};
+			
+		} results;
 
 
 		/// Setup the precision testing environment.
@@ -108,14 +114,14 @@ namespace chebyshev {
 			// Initialize list of picked tests
 			if(argc && argv)
 				for (int i = 1; i < argc; ++i)
-					state.pickedTests[argv[i]] = true;
+					settings.pickedTests[argv[i]] = true;
 
 			std::cout << "Starting precision testing of the "
 				<< moduleName << " module ..." << std::endl;
 
-			state.moduleName = moduleName;
-			state.failedTests = 0;
-			state.totalTests = 0;
+			settings.moduleName = moduleName;
+			results.failedTests = 0;
+			results.totalTests = 0;
 
 			random::setup();
 			output::setup();
@@ -128,44 +134,44 @@ namespace chebyshev {
 		/// @param exit Whether to exit after terminating the module.
 		inline void terminate(bool exit = true) {
 
-			output::state.quiet = state.quiet;
+			output::settings.quiet = settings.quiet;
 
 			// Output to file is true but no specific files are specified, add default output file.
-			if(	 state.outputToFile &&
-				!output::state.outputFiles.size() &&
-				!state.estimateOutputFiles.size() &&
-				!state.equationOutputFiles.size() &&
-				!state.outputFiles.size()) {
+			if(	 settings.outputToFile &&
+				!output::settings.outputFiles.size() &&
+				!settings.estimateOutputFiles.size() &&
+				!settings.equationOutputFiles.size() &&
+				!settings.outputFiles.size()) {
 
-				state.outputFiles = { state.moduleName + "_results" };
+				settings.outputFiles = { settings.moduleName + "_results" };
 			}
 
 			std::vector<std::string> outputFiles;
 
 			// Print estimate results
-			outputFiles  = state.outputFiles;
-			outputFiles.insert(outputFiles.end(), state.estimateOutputFiles.begin(), state.estimateOutputFiles.end());
+			outputFiles  = settings.outputFiles;
+			outputFiles.insert(outputFiles.end(), settings.estimateOutputFiles.begin(), settings.estimateOutputFiles.end());
 
-			output::print_results(state.estimateResults, state.estimateColumns, outputFiles);
+			output::print_results(results.estimateResults, settings.estimateColumns, outputFiles);
 
 			// Print equation results
-			outputFiles  = state.outputFiles;
-			outputFiles.insert(outputFiles.end(), state.equationOutputFiles.begin(), state.equationOutputFiles.end());
+			outputFiles  = settings.outputFiles;
+			outputFiles.insert(outputFiles.end(), settings.equationOutputFiles.begin(), settings.equationOutputFiles.end());
 
-			output::print_results(state.equationResults, state.equationColumns, outputFiles);
+			output::print_results(results.equationResults, settings.equationColumns, outputFiles);
 
-			std::cout << "Finished testing " << state.moduleName << '\n';
-			std::cout << state.totalTests << " total tests, "
-				<< state.failedTests << " failed (" << std::setprecision(3) <<
-				(state.failedTests / (double) state.totalTests) * 100 << "%)"
+			std::cout << "Finished testing " << settings.moduleName << '\n';
+			std::cout << results.totalTests << " total tests, "
+				<< results.failedTests << " failed (" << std::setprecision(3) <<
+				(results.failedTests / (double) results.totalTests) * 100 << "%)"
 				<< '\n';
 
-			// Reset module information
-			state = prec_state();
+			// Discard previous results
+			results = prec_results();
 
 			if(exit) {
 				output::terminate();
-				std::exit(state.failedTests);
+				std::exit(results.failedTests);
 			}
 		}
 
@@ -181,6 +187,7 @@ namespace chebyshev {
 		template<typename R, typename ...Args,
 			typename Function1 = std::function<R(Args...)>,
 			typename Function2 = Function1>
+			
 		inline void estimate(
 			const std::string& name,
 			Function1 funcApprox,
@@ -189,14 +196,14 @@ namespace chebyshev {
 
 			// Skip the test case if any tests have been picked
 			// and this one was not picked.
-			if(state.pickedTests.size())
-				if(state.pickedTests.find(name) == state.pickedTests.end())
+			if(settings.pickedTests.size())
+				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
 
 			// Use the estimator to estimate error integrals.
 			auto res = opt.estimator(funcApprox, funcExpected, opt);
 
-			res.funcName = name;
+			res.name = name;
 			res.domain = opt.domain;
 			res.tolerance = opt.tolerance;
 			res.quiet = opt.quiet;
@@ -205,11 +212,11 @@ namespace chebyshev {
 			// Use the fail function to determine whether the test failed.
 			res.failed = opt.fail(res);
 
-			state.totalTests++;
+			results.totalTests++;
 			if(res.failed)
-				state.failedTests++;
+				results.failedTests++;
 
-			state.estimateResults[name].push_back(res);
+			results.estimateResults[name].push_back(res);
 		}
 
 
@@ -229,6 +236,7 @@ namespace chebyshev {
 		template<typename R, typename ...Args,
 			typename Function1 = std::function<R(Args...)>,
 			typename Function2 = Function1>
+
 		inline void estimate(
 			const std::string& name,
 			Function1 funcApprox,
@@ -270,8 +278,8 @@ namespace chebyshev {
 			EndoFunction<double> funcApprox,
 			EndoFunction<double> funcExpected,
 			interval domain,
-			long double tolerance = state.defaultTolerance,
-			unsigned int iterations = state.defaultIterations,
+			long double tolerance = settings.defaultTolerance,
+			unsigned int iterations = settings.defaultIterations,
 			FailFunction fail = fail::fail_on_max_err(),
 			Estimator<double, double> estimator = estimator::quadrature1D<double>(),
 			bool quiet = false) {
@@ -426,8 +434,8 @@ namespace chebyshev {
 
 			// Skip the test case if any tests have been picked
 			// and this one was not picked.
-			if(state.pickedTests.size())
-				if(state.pickedTests.find(name) == state.pickedTests.end())
+			if(settings.pickedTests.size())
+				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
 
 			equation_result res {};
@@ -439,17 +447,17 @@ namespace chebyshev {
 			// is bigger than the tolerance.
 			res.failed = (diff > opt.tolerance);
 
-			res.funcName = name;
+			res.name = name;
 			res.difference = diff;
 			res.tolerance = opt.tolerance;
 			res.quiet = opt.quiet;
 
-			state.totalTests++;
+			results.totalTests++;
 			if(res.failed)
-				state.failedTests++;
+				results.failedTests++;
 
 			// Register the result of the equation by name
-			state.equationResults[name].push_back(res);
+			results.equationResults[name].push_back(res);
 		}
 
 
@@ -490,13 +498,13 @@ namespace chebyshev {
 		inline void equals(
 			const std::string& name,
 			long double evaluated, long double expected,
-			long double tolerance = state.defaultTolerance,
+			long double tolerance = settings.defaultTolerance,
 			bool quiet = false) {
 
 			// Skip the test case if any tests have been picked
 			// and this one was not picked.
-			if(state.pickedTests.size())
-				if(state.pickedTests.find(name) == state.pickedTests.end())
+			if(settings.pickedTests.size())
+				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
 
 			equation_result res {};
@@ -508,7 +516,7 @@ namespace chebyshev {
 			// is bigger than the tolerance.
 			res.failed = (diff > tolerance);
 
-			res.funcName = name;
+			res.name = name;
 			res.difference = diff;
 			res.tolerance = tolerance;
 			res.quiet = quiet;
@@ -516,12 +524,12 @@ namespace chebyshev {
 			res.evaluated = evaluated;
 			res.expected = expected;
 
-			state.totalTests++;
+			results.totalTests++;
 			if(res.failed)
-				state.failedTests++;
+				results.failedTests++;
 
 			// Register the result of the equation by name
-			state.equationResults[name].push_back(res);
+			results.equationResults[name].push_back(res);
 		}
 
 
@@ -536,13 +544,13 @@ namespace chebyshev {
 		inline void equals(
 			const std::string& name,
 			std::vector<std::array<T, 2>> values,
-			long double tolerance = state.defaultTolerance,
+			long double tolerance = settings.defaultTolerance,
 			bool quiet = false) {
 
 			// Skip the test case if any tests have been picked
 			// and this one was not picked.
-			if(state.pickedTests.size())
-				if(state.pickedTests.find(name) == state.pickedTests.end())
+			if(settings.pickedTests.size())
+				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
 
 			for (const auto& v : values)

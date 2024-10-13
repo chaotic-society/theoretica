@@ -46,15 +46,15 @@ namespace chebyshev {
 		};
 
 
-		/// @class output_state
-		/// Global state of printing results to standard output.
-		struct output_state {
+		/// @class output_settings
+		/// Global settings of printing results to standard output.
+		struct output_settings {
 
 			using OutputFormat_t = std::function<
 			std::string(
 				const std::vector<std::vector<std::string>>&,
 				const std::vector<std::string>&,
-				const output_state&)>;
+				const output_settings&)>;
 
 			/// Map of field name to output string
 			/// (e.g. "maxErr" -> "Max Err.").
@@ -91,13 +91,13 @@ namespace chebyshev {
 			/// Whether the output module was setup.
 			bool wasSetup = false;
 
-		} state;
+		} settings;
 
 
 		/// A function which converts the table entries of a row
 		/// to a string to print (e.g. adding separators and padding).
-		/// @see output_state::OutputFormat_t
-		using OutputFormat = output_state::OutputFormat_t;
+		/// @see output_settings::OutputFormat_t
+		using OutputFormat = output_settings::OutputFormat_t;
 
 
 		/// @namespace chebyshev::output::format Output formatting functions
@@ -106,7 +106,7 @@ namespace chebyshev {
 		/// signature of OutputFormat. An output format is a function which
 		/// takes in a matrix of strings which contains all entries of the
 		/// table resulting from tests, the list of the fields printed in
-		/// each respective column and the global state of the output module
+		/// each respective column and the global settings of the output module
 		/// (which contains the options for formatting and other settings).
 		/// The output format may be fully customized, but many options are
 		/// already available in this namespace. The output format is returned
@@ -122,7 +122,7 @@ namespace chebyshev {
 				return [](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					if(!table.size())
 						return "";
@@ -139,16 +139,16 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end() && i)
+							if(it != settings.fieldOptions.end() && i)
 								result << std::setw(it->second.columnWidth)
 								<< std::left << it->second.fieldInterpreter(table[i][j]);
-							else if(it != state.fieldOptions.end())
+							else if(it != settings.fieldOptions.end())
 								result << std::setw(it->second.columnWidth)
 								<< std::left << table[i][j];
 							else
-								result << std::setw(state.defaultColumnWidth)
+								result << std::setw(settings.defaultColumnWidth)
 								<< std::left << table[i][j];
 						}
 
@@ -170,7 +170,7 @@ namespace chebyshev {
 				return [](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					if(!table.size())
 						return "";
@@ -182,12 +182,12 @@ namespace chebyshev {
 
 					for (size_t i = 0; i < table[0].size(); ++i) {
 
-						auto it = state.fieldOptions.find(fields[i]);
+						auto it = settings.fieldOptions.find(fields[i]);
 
-						if(it != state.fieldOptions.end())
+						if(it != settings.fieldOptions.end())
 							header_str << std::setw(it->second.columnWidth) << table[0][i] << " | ";
 						else
-							header_str << std::setw(state.defaultColumnWidth) << table[0][i] << " | ";
+							header_str << std::setw(settings.defaultColumnWidth) << table[0][i] << " | ";
 					}
 
 					std::string header = header_str.str();
@@ -208,13 +208,13 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end())
+							if(it != settings.fieldOptions.end())
 								result << std::setw(it->second.columnWidth)
 								<< it->second.fieldInterpreter(table[i][j]) << " | ";
 							else
-								result << std::setw(state.defaultColumnWidth)
+								result << std::setw(settings.defaultColumnWidth)
 								<< table[i][j] << " | ";
 						}
 
@@ -238,7 +238,7 @@ namespace chebyshev {
 				return [](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					if(!table.size())
 						return "";
@@ -253,16 +253,16 @@ namespace chebyshev {
 
 					for (size_t i = 0; i < table[0].size(); ++i) {
 
-						auto it = state.fieldOptions.find(fields[i]);
+						auto it = settings.fieldOptions.find(fields[i]);
 
-						if(it != state.fieldOptions.end()) {
+						if(it != settings.fieldOptions.end()) {
 							header_str << std::setw(it->second.columnWidth)
 							<< table[0][i] << " │ ";
 							eff_length += it->second.columnWidth;
 						} else {
-							header_str << std::setw(state.defaultColumnWidth)
+							header_str << std::setw(settings.defaultColumnWidth)
 							<< table[0][i] << " │ ";
-							eff_length += state.defaultColumnWidth;
+							eff_length += settings.defaultColumnWidth;
 						}
 
 						eff_length += 3;
@@ -297,13 +297,13 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end())
+							if(it != settings.fieldOptions.end())
 								result << std::setw(it->second.columnWidth)
 								<< it->second.fieldInterpreter(table[i][j]) << " │ ";
 							else
-								result << std::setw(state.defaultColumnWidth)
+								result << std::setw(settings.defaultColumnWidth)
 								<< table[i][j] << " │ ";
 						}
 
@@ -331,7 +331,7 @@ namespace chebyshev {
 				return [separator](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					std::stringstream s;
 
@@ -346,9 +346,9 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end() && i)
+							if(it != settings.fieldOptions.end() && i)
 								s << "\"" << it->second.fieldInterpreter(table[i][j]) << "\"";
 							else
 								s << "\"" << table[i][j] << "\"";
@@ -372,7 +372,7 @@ namespace chebyshev {
 				return [](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					if(!table.size())
 						return "";
@@ -384,13 +384,13 @@ namespace chebyshev {
 
 					for (size_t i = 0; i < table[0].size(); ++i) {
 
-						auto it = state.fieldOptions.find(fields[i]);
+						auto it = settings.fieldOptions.find(fields[i]);
 
-						if(it != state.fieldOptions.end())
+						if(it != settings.fieldOptions.end())
 							header_str << std::setw(it->second.columnWidth)
 							<< std::left << table[0][i];
 						else
-							header_str << std::setw(state.defaultColumnWidth)
+							header_str << std::setw(settings.defaultColumnWidth)
 							<< std::left << table[0][i];
 
 						header_str << "|";
@@ -414,13 +414,13 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end())
+							if(it != settings.fieldOptions.end())
 								result << std::setw(it->second.columnWidth)
 								<< std::left << it->second.fieldInterpreter(table[i][j]);
 							else
-								result << std::setw(state.defaultColumnWidth)
+								result << std::setw(settings.defaultColumnWidth)
 								<< std::left << table[i][j];
 
 							result << "|";
@@ -441,7 +441,7 @@ namespace chebyshev {
 				return [=](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
-					const output_state& state) -> std::string {
+					const output_settings& settings) -> std::string {
 
 					if(!table.size())
 						return "";
@@ -476,9 +476,9 @@ namespace chebyshev {
 
 						for (size_t j = 0; j < table[i].size(); ++j) {
 
-							auto it = state.fieldOptions.find(fields[j]);
+							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != state.fieldOptions.end())
+							if(it != settings.fieldOptions.end())
 								result << it->second.fieldInterpreter(table[i][j]);
 							else
 								result << table[i][j];
@@ -502,66 +502,69 @@ namespace chebyshev {
 		/// Setup printing to the output stream with default options.
 		inline void setup() {
 
+			// Skip subsequent setup calls
+			if (settings.wasSetup)
+				return;
+
 			// Estimate fields
-			state.fieldNames["funcName"] = "Function";
-			state.fieldNames["maxErr"] = "Max Err.";
-			state.fieldNames["meanErr"] = "Mean Err.";
-			state.fieldNames["rmsErr"] = "RMS Err.";
-			state.fieldNames["relErr"] = "Rel. Err.";
-			state.fieldNames["absErr"] = "Abs. Err.";
-			state.fieldNames["tolerance"] = "Tolerance";
-			state.fieldNames["failed"] = "Result";
-			state.fieldNames["iterations"] = "Iterations";
+			settings.fieldNames["name"] = "Function";
+			settings.fieldNames["maxErr"] = "Max Err.";
+			settings.fieldNames["meanErr"] = "Mean Err.";
+			settings.fieldNames["rmsErr"] = "RMS Err.";
+			settings.fieldNames["relErr"] = "Rel. Err.";
+			settings.fieldNames["absErr"] = "Abs. Err.";
+			settings.fieldNames["tolerance"] = "Tolerance";
+			settings.fieldNames["failed"] = "Result";
+			settings.fieldNames["iterations"] = "Iterations";
 
 			// Equation fields
-			state.fieldNames["difference"] = "Difference";
-			state.fieldNames["evaluated"] = "Evaluated";
-			state.fieldNames["expected"] = "Expected";
+			settings.fieldNames["difference"] = "Difference";
+			settings.fieldNames["evaluated"] = "Evaluated";
+			settings.fieldNames["expected"] = "Expected";
 
 			// Benchmark fields
-			state.fieldNames["totalRuntime"] = "Tot. Time (ms)";
-			state.fieldNames["averageRuntime"] = "Avg. Time (ms)";
-			state.fieldNames["runsPerSecond"] = "Runs per Sec.";
-			state.fieldNames["runs"] = "Runs";
+			settings.fieldNames["totalRuntime"] = "Tot. Time (ms)";
+			settings.fieldNames["averageRuntime"] = "Avg. Time (ms)";
+			settings.fieldNames["stdevRuntime"] = "Stdev. Time (ms)";
+			settings.fieldNames["runsPerSecond"] = "Runs per Sec.";
+			settings.fieldNames["runs"] = "Runs";
 
 			// Error checking
-			state.fieldNames["correctType"] = "Correct Type";
-			state.fieldNames["description"] = "Description";
-			state.fieldNames["expectedFlags"] = "Exp. Flags";
-			state.fieldNames["thrown"] = "Has Thrown";
+			settings.fieldNames["correctType"] = "Correct Type";
+			settings.fieldNames["description"] = "Description";
+			settings.fieldNames["expectedFlags"] = "Exp. Flags";
+			settings.fieldNames["thrown"] = "Has Thrown";
 
 			// Set wider column width for some fields
-			state.fieldOptions["funcName"].columnWidth = 20;
-			state.fieldOptions["averageRuntime"].columnWidth = 14;
-			state.fieldOptions["runsPerSecond"].columnWidth = 14;
-			state.fieldOptions["description"].columnWidth = 20;
+			settings.fieldOptions["name"].columnWidth = 20;
+			settings.fieldOptions["averageRuntime"].columnWidth = 14;
+			settings.fieldOptions["stdevRuntime"].columnWidth = 16;
+			settings.fieldOptions["runsPerSecond"].columnWidth = 14;
+			settings.fieldOptions["description"].columnWidth = 20;
 
 			// Set a special field interpreter for the "failed" field
-			state.fieldOptions["failed"].fieldInterpreter = [](const std::string& s) {
+			settings.fieldOptions["failed"].fieldInterpreter = [](const std::string& s) {
 				if(s == "0") return "PASS";
 				else if(s == "1") return "FAIL";
 				else return "UNKNOWN";
 			};
 
 			// Set the default output formats
-			state.outputFormat = format::fancy();
-			state.defaultFileOutputFormat = format::csv();
+			settings.outputFormat = format::fancy();
+			settings.defaultFileOutputFormat = format::csv();
 
-			state.wasSetup = true;
+			settings.wasSetup = true;
 		}
 
 
 		/// Terminate the output module by closing all output files
-		/// and resetting its state.
+		/// and resetting its settings.
 		inline void terminate() {
 
 			// Close all open files
-			for (auto& file_pair : state.openFiles)
+			for (auto& file_pair : settings.openFiles)
 				if(file_pair.second.is_open())
 					file_pair.second.close();
-
-			// Reset module information
-			state = output_state();
 		}
 
 
@@ -575,31 +578,31 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "maxErr") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.maxErr;
 			} else if(fieldName == "meanErr") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.meanErr;
 			} else if(fieldName == "rmsErr") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.rmsErr;
 			} else if(fieldName == "relErr") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.relErr;
 			} else if(fieldName == "absErr") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.absErr;
 			} else if(fieldName == "tolerance") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.tolerance;
 			} else if(fieldName == "failed") {
 				value << r.failed;
@@ -625,19 +628,19 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "evaluated") {
 				value << r.evaluated;
 			} else if(fieldName == "expected") {
 				value << r.expected;
 			} else if(fieldName == "difference") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.difference;
 			} else if(fieldName == "tolerance") {
 				value << std::scientific
-					<< std::setprecision(state.outputPrecision)
+					<< std::setprecision(settings.outputPrecision)
 					<< r.tolerance;
 			} else if(fieldName == "failed") {
 				value << r.failed;
@@ -660,16 +663,24 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "runs") {
 				value << r.runs;
 			} else if(fieldName == "iterations") {
 				value << r.iterations;
 			} else if(fieldName == "totalRuntime") {
-				value << r.totalRuntime;
+				value << std::scientific
+					  << std::setprecision(settings.outputPrecision)
+					  << r.totalRuntime;
 			} else if(fieldName == "averageRuntime") {
-				value << r.averageRuntime;
+				value << std::scientific
+					  << std::setprecision(settings.outputPrecision)
+					  << r.averageRuntime;
+			} else if(fieldName == "stdevRuntime") {
+				value << std::scientific
+					  << std::setprecision(settings.outputPrecision)
+					  << r.stdevRuntime;
 			} else if(fieldName == "runsPerSecond") {
 				if(r.runsPerSecond > 1000)
 					value << uint64_t(r.runsPerSecond);
@@ -699,8 +710,8 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "evaluated") {
 				value << r.evaluated;
 			} else if(fieldName == "description") {
@@ -725,8 +736,8 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "evaluated") {
 				value << r.evaluated;
 			} else if(fieldName == "expectedFlags") {
@@ -757,8 +768,8 @@ namespace chebyshev {
 
 			std::stringstream value;
 
-			if(fieldName == "funcName") {
-				value << r.funcName;
+			if(fieldName == "name") {
+				value << r.name;
 			} else if(fieldName == "thrown") {
 				value << r.thrown;
 			} else if(fieldName == "correctType") {
@@ -774,7 +785,9 @@ namespace chebyshev {
 
 
 		/// Generate a table of results as a string matrix to pass to
-		/// a specific formatter of OutputFormat type.
+		/// a specific formatter of OutputFormat type. This function
+		/// is used by print_results to create the table of results
+		/// which is then formatted and printed to output.
 		///
 		/// @param results The map of test results of any type
 		/// @param fields The fields of the test results to write
@@ -791,10 +804,10 @@ namespace chebyshev {
 			std::vector<std::string> header (fields.size());
 			for (size_t i = 0; i < fields.size(); ++i) {
 
-				const auto it = state.fieldNames.find(fields[i]);
+				const auto it = settings.fieldNames.find(fields[i]);
 
 				// Associate string to field name
-				if(it != state.fieldNames.end())
+				if(it != settings.fieldNames.end())
 					header[i] = it->second;
 				else
 					header[i] = fields[i];
@@ -806,8 +819,8 @@ namespace chebyshev {
 				for (const auto& result : p.second) {
 
 					// Skip results marked as quiet
-					// if (result.quiet)
-					// 	continue;
+					if (result.quiet)
+						continue;
 
 					std::vector<std::string> row (fields.size());
 
@@ -830,15 +843,15 @@ namespace chebyshev {
 		/// @return Whether the file was correctly opened or not
 		inline bool open_file(std::string filename) {
 
-			const auto file_pair = state.openFiles.find(filename);
+			const auto file_pair = settings.openFiles.find(filename);
 
 			// If the file is not already open, try to open it and write to it 
-			if (file_pair == state.openFiles.end() || !file_pair->second.is_open()) {
+			if (file_pair == settings.openFiles.end() || !file_pair->second.is_open()) {
 
-				state.openFiles[filename].open(filename);
+				settings.openFiles[filename].open(filename);
 
-				if (!state.openFiles[filename].is_open()) {
-					state.openFiles.erase(filename);
+				if (!settings.openFiles[filename].is_open()) {
+					settings.openFiles.erase(filename);
 					return false;
 				}
 			}
@@ -848,7 +861,7 @@ namespace chebyshev {
 
 
 		/// Print the test results to standard output and output files
-		/// with their given formats, defaulting to state.outputFiles
+		/// with their given formats, defaulting to settings.outputFiles
 		/// if no filenames are specified.
 		///
 		/// @param results The map of test results, of any type
@@ -868,8 +881,8 @@ namespace chebyshev {
 			std::vector<std::vector<std::string>> table = generate_table(results, fields);
 
 			// Write to standard output
-			if(!state.quiet)
-				std::cout << "\n" << state.outputFormat(table, fields, state) << "\n";
+			if(!settings.quiet)
+				std::cout << "\n" << settings.outputFormat(table, fields, settings) << "\n";
 
 			// Write to the module specific output files
 			for (const auto& filename : filenames) {
@@ -879,36 +892,36 @@ namespace chebyshev {
 					continue;
 				}
 
-				auto& file = state.openFiles[filename];
+				auto& file = settings.openFiles[filename];
 
 				// Apply formatting according to set options
-				const auto it = state.fileOutputFormat.find(filename);
+				const auto it = settings.fileOutputFormat.find(filename);
 
-				if(it != state.fileOutputFormat.end())
-					file << it->second(table, fields, state);
+				if(it != settings.fileOutputFormat.end())
+					file << it->second(table, fields, settings);
 				else
-					file << state.defaultFileOutputFormat(table, fields, state);
+					file << settings.defaultFileOutputFormat(table, fields, settings);
 
 				std::cout << "Results have been saved in: " << filename << std::endl;
 			}
 
 			// Write to the generic output files
-			for (const auto& filename : state.outputFiles) {
+			for (const auto& filename : settings.outputFiles) {
 
 				if (!open_file(filename)) {
 					std::cout << "Unable to write to output file: " << filename << std::endl;
 					continue;
 				}
 
-				auto& file = state.openFiles[filename];
+				auto& file = settings.openFiles[filename];
 				
 				// Apply formatting according to set options
-				const auto it = state.fileOutputFormat.find(filename);
+				const auto it = settings.fileOutputFormat.find(filename);
 
-				if(it != state.fileOutputFormat.end())
-					file << it->second(table, fields, state);
+				if(it != settings.fileOutputFormat.end())
+					file << it->second(table, fields, settings);
 				else
-					file << state.defaultFileOutputFormat(table, fields, state);
+					file << settings.defaultFileOutputFormat(table, fields, settings);
 
 				std::cout << "Results have been saved in: " << filename << std::endl;
 			}

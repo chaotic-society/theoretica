@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("signal");
 
-		output::state.outputFiles = { "test/prec/prec_signal.csv" };
+		output::settings.outputFiles = { "test/prec/prec_signal.csv" };
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
 		pdf_sampler gauss = pdf_sampler::gaussian(0, 1E+03, g);

@@ -21,6 +21,14 @@ namespace prec {
 	namespace fail {
 
 
+		/// Passthrough fail function which marks all tests as passed (not failed).
+		inline auto passthrough() {
+			return [](const estimate_result& r) -> bool {
+				return false;
+			};
+		} 
+
+
 		/// Default fail function which marks the test as failed
 		/// if the maximum error on the domain is bigger than the tolerance
 		inline auto fail_on_max_err() {

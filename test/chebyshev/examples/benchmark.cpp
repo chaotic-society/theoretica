@@ -12,11 +12,14 @@ double f(double x) {
 	return x * std::sqrt(x);
 }
 
+
 double g(double x) {
 	return std::atan(x * x);
 }
 
+
 unsigned int h(unsigned int n) {
+	
 	if(n == 0)
 		return 0;
 	else
@@ -31,7 +34,7 @@ int main(int argc, char const *argv[]) {
 	benchmark::setup("example", argc, argv);
 
 		// Set the output file for the benchmark module
-		benchmark::state.outputFiles = { "example_benchmark.csv" };
+		benchmark::settings.outputFiles = { "example_benchmark.csv" };
 
 		// Set options for multiple benchmarks
 		// with a benchmark_options structure,

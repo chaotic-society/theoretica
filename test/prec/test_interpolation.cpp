@@ -1,7 +1,7 @@
 
 #include "theoretica.h"
 #include <cmath>
-#include "chebyshev/prec.h"
+#include "chebyshev.h"
 
 using namespace chebyshev;
 using namespace theoretica;
@@ -10,11 +10,13 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 
-	prec::state.outputFolder = "test/prec/";
+	prec::settings.outputFiles = { "test/prec/prec_interpolation.csv" };
 	
 	prec::setup("interpolation");
 
-		
+		// polyn_interp.h
+
+		// splines.h
 
 	prec::terminate();
 }

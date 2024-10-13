@@ -17,7 +17,7 @@ Chebyshev is a header-only C++ testing framework designed for testing scientific
 - **Multi-platform support:** Chebyshev is designed to work on various platforms, including Windows, Linux, and MacOS, and is fully platform-independent.
 
 ## Interface
-The different modules are contained in their respective namespaces and are initialized through the `<module>::setup()` function and are terminated with the `<module>::terminate()` function, which outputs the results. The behavior of a module may be customized and extended by modifying the fields of the `<module>::state` structure after the module has been initialized. The results of testing are also output to file in CSV or other formats for easy analysis, manipulation and visualization.
+The different modules are contained in their respective namespaces and are initialized through the `<module>::setup()` function and are terminated with the `<module>::terminate()` function, which outputs the results. The behavior of a module may be customized and extended by modifying the fields of the `<module>::settings` structure after the module has been initialized. The results of testing are also output to file in CSV or other formats for easy analysis, manipulation and visualization.
 
 
 ### Precision testing
@@ -43,7 +43,7 @@ The `err` module makes it possible to test that functions correctly set `errno` 
 
 
 ### Output customization
-The additional `output` module, not directly used for testing, makes it possible to customize the output of the tests, such as which fields to print and how to display them. Customization options are available through the `output::state` structure and are automatically applied to the other modules.
+The additional `output` module, not directly used for testing, makes it possible to customize the output of the tests, such as which fields to print and how to display them. Customization options are available through the `output::settings` structure and are automatically applied to the other modules.
 
 
 ### Randomized tests

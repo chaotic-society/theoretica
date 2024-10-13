@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]) {
 	
 	benchmark::setup("real_analysis", argc, argv);
 
-		output::state.outputFiles = { "test/benchmark/benchmark_real_analysis.csv" };
+		output::settings.outputFiles = { "test/benchmark/benchmark_real_analysis.csv" };
 
 		// Benchmark options for real functions
 		auto R_opt = benchmark::benchmark_options<real>(

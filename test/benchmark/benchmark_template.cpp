@@ -11,9 +11,9 @@ int main(int argc, char const *argv[]) {
 	
 	benchmark::setup("example");
 
-		// output::state.outputFolder = "test/benchmark/";
+		output::settings.outputFolder = { "test/benchmark/benchmark_example.csv" };
 
-		// benchmark::benchmark<real>(...);
+		// benchmark::benchmark(...);
 
 	benchmark::terminate();
 }

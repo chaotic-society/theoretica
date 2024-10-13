@@ -23,3 +23,5 @@ theoretica-cppcheck-build-dir/*
 **/montecarlo_comparison
 **/multivariate_minimization
 **/sampling_distributions
+test/chebyshev/build/doxygen-awesome.css
+test/chebyshev/build/Doxyfile
