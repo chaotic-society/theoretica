@@ -15,7 +15,13 @@ int main(int argc, char const *argv[]) {
 	prec::setup("core", argc, argv);
 
 		output::settings.outputFiles = { "test/prec/prec_core.csv" };
+		output::settings.fieldOptions["name"].columnWidth = 24;
+
 		prec::settings.defaultIterations = 1'000'000;
+
+
+		// Test real_analysis.h
+
 
 		// Estimate options for real endofunctions.
 		auto R_opt = prec::estimate_options<real, real>(
@@ -494,6 +500,9 @@ int main(int argc, char const *argv[]) {
 		);
 
 
+		// Test special.h
+
+
 		// Special functions
 		auto special_opt = prec::estimate_options<real, real>(
 			prec::interval(1, 20),
@@ -532,62 +541,102 @@ int main(int argc, char const *argv[]) {
 			},
 			special_opt
 		);
-    // ---------------------------------
-    // Bit Operation Test Cases Section
-    // ---------------------------------
-    
-    {
-        uint64_t a = 0xFFFFFFFFFFFFFFFF;
-        uint64_t b = 0x2;
-        uint64_t c_low, c_high;
 
-        uint64_t expected_low = 0xFFFFFFFFFFFFFFFE;
-        uint64_t expected_high = 0x1;
 
-        th::mul_uint128(a, b, c_low, c_high);
+		// Test bit_op.h
+	
 
-        prec::equals("th::mul_uint128 (c_low)", c_low, expected_low);
-        prec::equals("th::mul_uint128 (c_high)", c_high, expected_high);
-    }
+	{
+		uint64_t a = 0xFFFFFFFFFFFFFFFF;
+		uint64_t b = 0x2;
+		uint64_t c_low, c_high;
 
-    {
-        uint64_t a = 0x12345678ABCDEF00;
-        uint64_t b = 0x0FEDCBA987654321;
-        
-        uint64_t result = th::mix_mum(a, b);
-        
-        prec::equals("th::mix_mum non-zero result", result != 0, true);
-    }
+		uint64_t expected_low = 0xFFFFFFFFFFFFFFFE;
+		uint64_t expected_high = 0x1;
 
-    {
-        uint64_t x = 0x12345678ABCDEF00;
-        unsigned int i = 8;
-        uint64_t rotated = th::bit_rotate(x, i);
+		th::mul_uint128(a, b, c_low, c_high);
 
-        uint64_t expected_rotated = 0x345678ABCDEF0012;
+		prec::equals("th::mul_uint128 (c_low)", c_low, expected_low);
+		prec::equals("th::mul_uint128 (c_high)", c_high, expected_high);
+	}
 
-        prec::equals("th::bit_rotate (64-bit)", rotated, expected_rotated);
-    }
+	{
+		uint64_t a = 0;
+		uint64_t b = 0;
+		
+		uint64_t result = th::mix_mum(a, b);
+		
+		prec::equals("th::mix_mum == 0", result, 0);
+	}
 
-    {
-        uint32_t x = 0xABCDEF00;
-        unsigned int i = 4;
-        uint32_t rotated = theoretica::bit_rotate(x, i);
+	{
+		uint64_t a = 0x12345678ABCDEF00;
+		uint64_t b = 0x0FEDCBA987654321;
+		
+		uint64_t result = th::mix_mum(a, b);
+		
+		prec::equals("th::mix_mum != 0", result != 0, true, 0);
+	}
 
-        uint32_t expected_rotated = 0xBCDEF00A;
+	{
+		uint64_t x = 0x12345678ABCDEF00;
+		unsigned int i = 8;
+		uint64_t rotated = th::bit_rotate(x, i);
 
-        prec::equals("th::bit_rotate (32-bit)", rotated, expected_rotated);
-    }
+		uint64_t expected_rotated = 0x345678ABCDEF0012;
 
-    {
-        std::vector<uint8_t> vec = {1, 2, 3, 4};
-        
-        theoretica::swap_bit_reverse(vec, 2);
+		prec::equals("th::bit_rotate (64-bit)", rotated, expected_rotated);
+	}
 
-        std::vector<uint8_t> expected = {1, 3, 2, 4};
+	{
+		uint32_t x = 0xABCDEF00;
+		unsigned int i = 4;
+		uint32_t rotated = th::bit_rotate(x, i);
 
-        prec::equals("th::swap_bit_reverse", vec == expected, true);
-    }
+		uint32_t expected_rotated = 0xBCDEF00A;
+
+		prec::equals("th::bit_rotate (32-bit)", rotated, expected_rotated);
+	}
+
+	{
+		std::vector<uint8_t> v = {};
+		
+		th::swap_bit_reverse(v, 0);
+
+		std::vector<uint8_t> expected = {};
+
+		prec::equals("th::swap_bit_reverse", v == expected, true);
+	}
+
+	{
+		std::vector<uint8_t> v = {1};
+		
+		th::swap_bit_reverse(v, 0);
+
+		std::vector<uint8_t> expected = {1};
+
+		prec::equals("th::swap_bit_reverse", v == expected, true);
+	}
+
+	{
+		std::vector<uint8_t> v = {1, 2, 3, 4};
+		
+		th::swap_bit_reverse(v, 2);
+
+		std::vector<uint8_t> expected = {1, 3, 2, 4};
+
+		prec::equals("th::swap_bit_reverse", v == expected, true);
+	}
+
+	{
+		vec<uint8_t> v = {1, 2, 3, 4, 5, 6};
+		
+		th::swap_bit_reverse(v, 2);
+
+		vec<uint8_t> expected = {1, 3, 2, 4, 5, 6};
+
+		prec::equals("th::swap_bit_reverse", v == expected, true);
+	}
 
 	prec::terminate();
 }

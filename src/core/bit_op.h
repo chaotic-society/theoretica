@@ -89,12 +89,17 @@ namespace theoretica {
 	template<typename Vector, enable_vector<Vector> = true>
 	inline void swap_bit_reverse(Vector& x, unsigned int m) {
 
+		if (x.size() < (uint64_t(1) << m)) {
+			TH_MATH_ERROR("swap_bit_reverse", x.size(), INVALID_ARGUMENT);
+			return;
+		}
+
 		for (unsigned int i = 0; i < x.size(); i++) {
 
 			unsigned int j = 0;
 
 			for (unsigned int k = 0; k < m; k++)
-				j = (j << 0x01) | ((i >> k) & 0x01);
+				j = (j << 1) | ((i >> k) & 0x01);
 
 			if (j > i)
 				std::swap(x[i], x[j]);
