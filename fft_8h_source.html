@@ -123,62 +123,61 @@ $(document).ready(function(){initNavTree('fft_8h_source.html',''); initResizable
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="comment">// Enforce power of 2 vector size</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (N != (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) (1 &lt;&lt; log2N)) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">algebra::vec_error</a>(k);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> k;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">// Bit reverse</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">swap_bit_reverse</a>(k, log2N);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">algebra::vec_error</a>(k);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">// Bit reverse</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">swap_bit_reverse</a>(k, log2N);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p = 1; p &lt;= log2N; p++) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = 1 &lt;&lt; p;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = m / 2;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> w (1.0, 0.0);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sign = (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a> ? 1.0 : -1.0);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="comment">// Phase shift between iterations</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> phase = <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a>(</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <a class="code" href="namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3">cos</a>(sign * 2 * <a class="code" href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">PI</a> / m),</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <a class="code" href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">sin</a>(sign * 2 * <a class="code" href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">PI</a> / m)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; offset; j++) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = j; i &lt; N; i += m) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> t = w * k[i + offset];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        k[i + offset] = k[i] - t;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        k[i] += t;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    w *= phase;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">// The normalization constant is 1/N</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                k /= N;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> k;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p = 1; p &lt;= log2N; p++) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = 1 &lt;&lt; p;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = m / 2;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> w (1.0, 0.0);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sign = (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a> ? 1.0 : -1.0);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// Phase shift between iterations</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> phase = <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a>(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <a class="code" href="namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3">cos</a>(sign * 2 * <a class="code" href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">PI</a> / m),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <a class="code" href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">sin</a>(sign * 2 * <a class="code" href="namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9">PI</a> / m)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; offset; j++) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = j; i &lt; N; i += m) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> t = w * k[i + offset];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        k[i + offset] = k[i] - t;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        k[i] += t;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    w *= phase;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">// The normalization constant is 1/N</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                k /= N;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">return</span> k;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ReturnVector = cvec, <span class="keyword">typename</span> InputVector = cvec&gt;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">   89</a></span>&#160;        <span class="keyword">inline</span> ReturnVector <a class="code" href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">ifft</a>(<span class="keyword">const</span> InputVector&amp; k) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec">fft</a>(k, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ReturnVector = cvec, <span class="keyword">typename</span> InputVector = cvec&gt;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">   88</a></span>&#160;        <span class="keyword">inline</span> ReturnVector <a class="code" href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">ifft</a>(<span class="keyword">const</span> InputVector&amp; k) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec">fft</a>(k, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1complex_html"><div class="ttname"><a href="classtheoretica_1_1complex.html">theoretica::complex</a></div><div class="ttdoc">Complex number in algebraic form .</div><div class="ttdef"><b>Definition:</b> complex.h:26</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a49d62aec691ca8921e5a2f2fdacf095f"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">theoretica::algebra::vec_error</a></div><div class="ttdeci">Vector &amp; vec_error(Vector &amp;v)</div><div class="ttdoc">Overwrite the given vector with the error vector with NaN values.</div><div class="ttdef"><b>Definition:</b> algebra.h:62</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1signal_html_a78e52487d0082e91ff0bf2be336980ec"><div class="ttname"><a href="namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec">theoretica::signal::fft</a></div><div class="ttdeci">ReturnVector fft(const InputVector &amp;x, bool inverse=false)</div><div class="ttdoc">Compute the Fast Fourier Transform of a set of data points.</div><div class="ttdef"><b>Definition:</b> fft.h:29</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1signal_html_a7abda6f973288b2f973ed0997d43f46f"><div class="ttname"><a href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">theoretica::signal::ifft</a></div><div class="ttdeci">ReturnVector ifft(const InputVector &amp;k)</div><div class="ttdoc">Compute the Inverse Fast Fourier Transform of a set of data points.</div><div class="ttdef"><b>Definition:</b> fft.h:89</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1signal_html_a7abda6f973288b2f973ed0997d43f46f"><div class="ttname"><a href="namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f">theoretica::signal::ifft</a></div><div class="ttdeci">ReturnVector ifft(const InputVector &amp;k)</div><div class="ttdoc">Compute the Inverse Fast Fourier Transform of a set of data points.</div><div class="ttdef"><b>Definition:</b> fft.h:88</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:188</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a50cd5107369678c27b30dbae079283c5"><div class="ttname"><a href="namespacetheoretica.html#a50cd5107369678c27b30dbae079283c5">theoretica::ilog2</a></div><div class="ttdeci">UnsignedIntType ilog2(UnsignedIntType x)</div><div class="ttdoc">Find the integer logarithm of x.</div><div class="ttdef"><b>Definition:</b> real_analysis.h:548</div></div>
@@ -193,7 +192,7 @@ $(document).ready(function(){initNavTree('fft_8h_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e681bd22f1a85a89d9c18b68cc50d922.html">signal</a></li><li class="navelem"><a class="el" href="fft_8h.html">fft.h</a></li>
-    <li class="footer">Generated on Mon Oct 14 2024 19:56:05 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 15 2024 07:54:37 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

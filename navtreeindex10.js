@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"statistics_8h.html#a2ca8623e22dedb09c3707c9642ca119a":[13,0,11,4,10],
 "statistics_8h.html#a2cb8ca58fcf503d0322ca86bc45b3c3d":[13,0,11,4,1],
 "statistics_8h.html#a3ccb179128f0761da65483844d9ffc26":[13,0,11,4,3],
 "statistics_8h.html#a4c983e103502941a828a43ce9c1c073d":[13,0,11,4,22],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "structtheoretica_1_1regression_1_1linear__model.html#a37611e9829c046273d59c934aae7cea1":[12,0,1,3,0,14],
 "structtheoretica_1_1regression_1_1linear__model.html#a3ed054ec51560999b30b431eb916aabd":[12,0,1,3,0,16],
 "structtheoretica_1_1regression_1_1linear__model.html#a50b9b320df9cc158ce5c5021e05feeb8":[12,0,1,3,0,18],
-"structtheoretica_1_1regression_1_1linear__model.html#a59ae836cf496943f5586178571ef76e9":[12,0,1,3,0,15],
-"structtheoretica_1_1regression_1_1linear__model.html#a5c5d5b3e6ec294b66b2d094ac556f02b":[12,0,1,3,0,4]
+"structtheoretica_1_1regression_1_1linear__model.html#a59ae836cf496943f5586178571ef76e9":[12,0,1,3,0,15]
 };

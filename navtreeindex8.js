@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica_1_1autodiff.html#adf1827a9b056881521d9e6cb4699a270":[11,0,2,2,13],
 "namespacetheoretica_1_1autodiff.html#aeb0e9c2d5268a320dcfad6dbfb9b49f8":[11,0,2,2,21],
 "namespacetheoretica_1_1autodiff.html#af30b57b1eece89b60a2a7ba334d935b2":[11,0,2,2,32],
 "namespacetheoretica_1_1autodiff.html#af793622d62b94ac6cf99e93fd80d435f":[11,0,2,2,30],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "parallel_8h_source.html":[13,0,0,4],
 "phasor_8h.html":[13,0,3,3],
 "phasor_8h_source.html":[13,0,3,3],
-"polyn__interp_8h.html":[13,0,6,0],
-"polyn__interp_8h.html#a116004655010183c6b99fbda44b2a427":[13,0,6,0,2]
+"polyn__interp_8h.html":[13,0,6,0]
 };

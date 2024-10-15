@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"structtheoretica_1_1regression_1_1linear__model.html#a5c5d5b3e6ec294b66b2d094ac556f02b":[12,0,1,3,0,4],
 "structtheoretica_1_1regression_1_1linear__model.html#a650937a121eb8590ced453d5324cb1c2":[12,0,1,3,0,12],
 "structtheoretica_1_1regression_1_1linear__model.html#a68b30368f310f356354dc039b9aa096f":[12,0,1,3,0,20],
 "structtheoretica_1_1regression_1_1linear__model.html#a86b4a72cd91b1839ad510932c6234c36":[12,0,1,3,0,21],
@@ -75,6 +76,5 @@ var NAVTREEINDEX11 =
 "vec_8h.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c":[13,0,0,6,3],
 "vec_8h.html#a8fe375758727a9f9a510a0898d69aaf4":[13,0,0,6,5],
 "vec_8h.html#aaac93661f565556c9740402f262e9a80":[13,0,0,6,4],
-"vec_8h_source.html":[13,0,0,6],
-"":[11,0,2,0]
+"vec_8h_source.html":[13,0,0,6]
 };

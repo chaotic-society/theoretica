@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29":[10,4,0],
 "montecarlo_8h.html":[13,0,9,0],
 "montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28":[13,0,9,0,1],
 "montecarlo_8h.html#a0edff8be282482211b0cbc6cd022222e":[13,0,9,0,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a1bd4dbfccbb88413ccb29c93ae7254da":[11,0,2,257],
 "namespacetheoretica.html#a1c677c9632428a668c5f327b89ba3fb8":[11,0,2,377],
 "namespacetheoretica.html#a1dd4867609a302e1846b9cbdb83f629f":[11,0,2,349],
-"namespacetheoretica.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c":[11,0,2,254],
-"namespacetheoretica.html#a1ec5b4f8c9f0d58d65415cec30915d16":[11,0,2,243]
+"namespacetheoretica.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c":[11,0,2,254]
 };
