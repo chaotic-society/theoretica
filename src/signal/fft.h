@@ -37,8 +37,7 @@ namespace theoretica {
 
 			// Enforce power of 2 vector size
 			if (N != (unsigned int) (1 << log2N)) {
-				algebra::vec_error(k);
-				return k;
+				return algebra::vec_error(k);
 			}
 
 			// Bit reverse
