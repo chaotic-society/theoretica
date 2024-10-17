@@ -1,12 +1,13 @@
 var NAVTREEINDEX9 =
 {
-"polyn__interp_8h.html#a116004655010183c6b99fbda44b2a427":[13,0,6,0,2],
-"polyn__interp_8h.html#a25e8ede5b63e3e928ba06999468f33ef":[13,0,6,0,0],
-"polyn__interp_8h.html#a5461c3ec6578189d183a337670806fd5":[13,0,6,0,3],
-"polyn__interp_8h.html#adaa5640e5d2bcccdeeee0b171b7fc88b":[13,0,6,0,1],
-"polyn__interp_8h_source.html":[13,0,6,0],
-"polynomial_8h.html":[13,0,8,1],
-"polynomial_8h_source.html":[13,0,8,1],
+"parallel_8h.html#ae1ddd26f8f60e457ee385b955e57e17f":[13,0,0,4,7],
+"parallel_8h.html#ae7ed2a788fecfe7588124b8a3fe51124":[13,0,0,4,3],
+"parallel_8h.html#aef1a21b94c3c0b26f2bc8de158d0e069":[13,0,0,4,1],
+"parallel_8h_source.html":[13,0,0,4],
+"phasor_8h.html":[13,0,3,3],
+"phasor_8h_source.html":[13,0,3,3],
+"polynomial_2polynomial_8h.html":[13,0,8,1],
+"polynomial_2polynomial_8h_source.html":[13,0,8,1],
 "prec_8h.html":[13,0,12,0,1,7],
 "prec_8h.html#a1bfb375300fa5e9a8774f8fdac3c3c80":[13,0,12,0,1,7,8],
 "prec_8h.html#a24043759246501daaf25cf9c4405d526":[13,0,12,0,1,7,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "statistics_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,5,11,0],
 "statistics_8h.html":[13,0,11,4],
 "statistics_8h.html#a1454ce9037c0af9f6125c3f399302a4d":[13,0,11,4,13],
-"statistics_8h.html#a1baa2faa86d8049c601c3c10915a3dcb":[13,0,11,4,9],
-"statistics_8h.html#a1c169cdd82273fc892ed678c33d98582":[13,0,11,4,16]
+"statistics_8h.html#a1baa2faa86d8049c601c3c10915a3dcb":[13,0,11,4,9]
 };

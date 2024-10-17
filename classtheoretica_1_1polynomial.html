@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1polynomial.html',''
 <p>A polynomial of arbitrary order.  
  <a href="classtheoretica_1_1polynomial.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="polynomial_8h_source.html">polynomial.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="polynomial_2polynomial_8h_source.html">polynomial.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -156,11 +156,11 @@ template&lt;typename EvalType  = Type&gt; </td></tr>
 <tr class="separator:a52af3b9462261c4827e639dffdb5424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="memItemLeft" align="right" valign="top"><a id="ab36273a6c8e82eb0b6fc6a9a441c5d3e"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#ab36273a6c8e82eb0b6fc6a9a441c5d3e">find_order</a> () const</td></tr>
-<tr class="memdesc:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring null coefficients) <br /></td></tr>
+<tr class="memdesc:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring trailing null coefficients) <br /></td></tr>
 <tr class="separator:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5077f2fccc1b634155c98b0139a6c41e"><td class="memItemLeft" align="right" valign="top"><a id="a5077f2fccc1b634155c98b0139a6c41e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a5077f2fccc1b634155c98b0139a6c41e">trim</a> ()</td></tr>
-<tr class="memdesc:a5077f2fccc1b634155c98b0139a6c41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove higher order null coefficients. <br /></td></tr>
+<tr class="memdesc:a5077f2fccc1b634155c98b0139a6c41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove trailing zero coefficients. <br /></td></tr>
 <tr class="separator:a5077f2fccc1b634155c98b0139a6c41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09795f30bdbf0f19e596a86788a4299"><td class="memItemLeft" align="right" valign="top"><a id="ac09795f30bdbf0f19e596a86788a4299"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#ac09795f30bdbf0f19e596a86788a4299">size</a> () const</td></tr>
@@ -226,6 +226,14 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a6d963d4f40a6922b45c3ee79ea2f9fc6">end</a> ()</td></tr>
 <tr class="memdesc:a6d963d4f40a6922b45c3ee79ea2f9fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an iterator for the one plus last coefficient of the polynomial. <br /></td></tr>
 <tr class="separator:a6d963d4f40a6922b45c3ee79ea2f9fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4484fac8d10519a8ef975ae27c3f7590"><td class="memItemLeft" align="right" valign="top"><a id="a4484fac8d10519a8ef975ae27c3f7590"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a4484fac8d10519a8ef975ae27c3f7590">cbegin</a> ()</td></tr>
+<tr class="memdesc:a4484fac8d10519a8ef975ae27c3f7590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the first coefficient of the polynomial. <br /></td></tr>
+<tr class="separator:a4484fac8d10519a8ef975ae27c3f7590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="memItemLeft" align="right" valign="top"><a id="abd6e54c75c7dfda3fc8ff96d1470f6b3"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#abd6e54c75c7dfda3fc8ff96d1470f6b3">cend</a> ()</td></tr>
+<tr class="memdesc:abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the one plus last coefficient of the polynomial. <br /></td></tr>
+<tr class="separator:abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6887edfd047baeb5d9055617adbc9eb"><td class="memItemLeft" align="right" valign="top"><a id="ab6887edfd047baeb5d9055617adbc9eb"></a>
 <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt;&gt;, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#ab6887edfd047baeb5d9055617adbc9eb">quadratic_roots</a> () const</td></tr>
 <tr class="memdesc:ab6887edfd047baeb5d9055617adbc9eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the roots of a quadratic polynomial. <br /></td></tr>
@@ -278,7 +286,7 @@ class theoretica::polynomial&lt; Type &gt;</h3>
 
 <p>A polynomial of arbitrary order. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>polynomial/<a class="el" href="polynomial_8h_source.html">polynomial.h</a></li>
+<li>polynomial/<a class="el" href="polynomial_2polynomial_8h_source.html">polynomial.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -286,7 +294,7 @@ class theoretica::polynomial&lt; Type &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a></li>
-    <li class="footer">Generated on Tue Oct 15 2024 07:54:37 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 17 2024 16:23:54 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

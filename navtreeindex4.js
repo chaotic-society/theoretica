@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"dual2__functions_8h.html#a60d712fc2f7470e40f65fd470cbb6982":[13,0,1,4,4],
 "dual2__functions_8h.html#a97cec74fe963806729cbdd0d43de5cd3":[13,0,1,4,5],
 "dual2__functions_8h.html#a9d5fed4cfa9af5d148c59a6005422edc":[13,0,1,4,6],
 "dual2__functions_8h.html#ac81dcde719b69b4d63ecd3127cb289d9":[13,0,1,4,16],
@@ -226,6 +227,12 @@ var NAVTREEINDEX4 =
 "integration_8h.html#ae3ef1f840419cad00471912201b3e10b":[13,0,2,2,20],
 "integration_8h.html#ae48153156a44ef0245d23491aed11f81":[13,0,2,2,15],
 "integration_8h_source.html":[13,0,2,2],
+"interpolation_2polynomial_8h.html":[13,0,6,0],
+"interpolation_2polynomial_8h.html#a116004655010183c6b99fbda44b2a427":[13,0,6,0,2],
+"interpolation_2polynomial_8h.html#a25e8ede5b63e3e928ba06999468f33ef":[13,0,6,0,0],
+"interpolation_2polynomial_8h.html#a5461c3ec6578189d183a337670806fd5":[13,0,6,0,3],
+"interpolation_2polynomial_8h.html#adaa5640e5d2bcccdeeee0b171b7fc88b":[13,0,6,0,1],
+"interpolation_2polynomial_8h_source.html":[13,0,6,0],
 "interval_8h.html":[13,0,12,0,1,3,3],
 "interval_8h_source.html":[13,0,12,0,1,3,3],
 "logfit_8cpp.html":[13,0,5,7],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18":[9,1],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md19":[9,2],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20":[9,3],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html":[10],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22":[0],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23":[10,0],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24":[10,0,1],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md25":[10,1],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md26":[10,2],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md27":[10,3],
-"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md28":[10,4]
+"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html":[10]
 };

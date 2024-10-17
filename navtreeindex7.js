@@ -1,5 +1,12 @@
 var NAVTREEINDEX7 =
 {
+"namespacetheoretica.html#abad6a42bf9fd0176e622e01e0f7446a9":[11,0,2,210],
+"namespacetheoretica.html#abbd0ef7aa0b136fbd1b4579cec14f369":[11,0,2,253],
+"namespacetheoretica.html#abbe2540b2ff381a14b61588280cb9016":[11,0,2,195],
+"namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9":[11,0,2,329],
+"namespacetheoretica.html#abd62a4c7a7b860f42ccf2e01fc2acb07":[11,0,2,137],
+"namespacetheoretica.html#abd783739794f700157cc7f7d6f9d9632":[11,0,2,196],
+"namespacetheoretica.html#abd7f07a4d7a0abca49824b5926f259f1":[11,0,2,88],
 "namespacetheoretica.html#abe9d9a32dc2c9f00de35c1b1a49b218e":[11,0,2,402],
 "namespacetheoretica.html#abf57380f471e8eb6e2b2334154894c67":[11,0,2,98],
 "namespacetheoretica.html#abf60e1fdc60411ae615b952b7248b093":[11,0,2,300],
@@ -242,12 +249,5 @@ var NAVTREEINDEX7 =
 "namespacetheoretica_1_1autodiff.html#a93a3f53e75aa368e0001da36d441cb23":[11,0,2,2,37],
 "namespacetheoretica_1_1autodiff.html#a93b5daaaa098c584759b48964e8bf13b":[11,0,2,2,36],
 "namespacetheoretica_1_1autodiff.html#aa5d6ec907b99d403a930b6ec6d8ffe8f":[11,0,2,2,28],
-"namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58":[11,0,2,2,34],
-"namespacetheoretica_1_1autodiff.html#ab727178b4600275224052e5945d70923":[11,0,2,2,7],
-"namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1":[11,0,2,2,23],
-"namespacetheoretica_1_1autodiff.html#abcc6e5c42e04cfddabb3486b30fa9af0":[11,0,2,2,39],
-"namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08":[11,0,2,2,15],
-"namespacetheoretica_1_1autodiff.html#ac151e8d74c0ead137833933eeaf94206":[11,0,2,2,20],
-"namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f":[11,0,2,2,27],
-"namespacetheoretica_1_1autodiff.html#ad402f57cd1c7e6e2ce22bf7ba16d8966":[11,0,2,2,18]
+"namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58":[11,0,2,2,34]
 };

@@ -7,6 +7,8 @@ var classtheoretica_1_1polynomial =
     [ "~polynomial", "classtheoretica_1_1polynomial.html#a16539515c87865ce88dfd71661482759", null ],
     [ "at", "classtheoretica_1_1polynomial.html#a95fdc5887e3e4fa6152b3134d9f5852e", null ],
     [ "begin", "classtheoretica_1_1polynomial.html#a20d9c4e379abcaf3211c889f1d6c2997", null ],
+    [ "cbegin", "classtheoretica_1_1polynomial.html#a4484fac8d10519a8ef975ae27c3f7590", null ],
+    [ "cend", "classtheoretica_1_1polynomial.html#abd6e54c75c7dfda3fc8ff96d1470f6b3", null ],
     [ "end", "classtheoretica_1_1polynomial.html#a6d963d4f40a6922b45c3ee79ea2f9fc6", null ],
     [ "eval", "classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f", null ],
     [ "find_order", "classtheoretica_1_1polynomial.html#ab36273a6c8e82eb0b6fc6a9a441c5d3e", null ],

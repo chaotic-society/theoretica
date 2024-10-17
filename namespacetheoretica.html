@@ -120,7 +120,7 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1ode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numerical methods for ordinary differential equations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetheoretica_1_1parallel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html">parallel</a></td></tr>
-<tr class="memdesc:namespacetheoretica_1_1parallel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise, parallelized evaluation of functions. <br /></td></tr>
+<tr class="memdesc:namespacetheoretica_1_1parallel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallelized element-wise evaluation of functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetheoretica_1_1regression"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1regression.html">regression</a></td></tr>
 <tr class="memdesc:namespacetheoretica_1_1regression"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regression to a model. <br /></td></tr>
@@ -1051,7 +1051,7 @@ template&lt;typename Type , typename  = std::enable_if&lt;is_real_type&lt;Type&g
 <tr class="separator:a50cd5107369678c27b30dbae079283c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9628d333f307cc0dfe8578f29146615"><td class="memTemplParams" colspan="2">template&lt;typename UnsignedIntType  = uint64_t&gt; </td></tr>
 <tr class="memitem:aa9628d333f307cc0dfe8578f29146615"><td class="memTemplItemLeft" align="right" valign="top">UnsignedIntType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa9628d333f307cc0dfe8578f29146615">pad2</a> (UnsignedIntType x)</td></tr>
-<tr class="memdesc:aa9628d333f307cc0dfe8578f29146615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the smallest power 2 bigger or equal to x.  <a href="namespacetheoretica.html#aa9628d333f307cc0dfe8578f29146615">More...</a><br /></td></tr>
+<tr class="memdesc:aa9628d333f307cc0dfe8578f29146615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the smallest power of 2 bigger than or equal to x.  <a href="namespacetheoretica.html#aa9628d333f307cc0dfe8578f29146615">More...</a><br /></td></tr>
 <tr class="separator:aa9628d333f307cc0dfe8578f29146615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13248f2e439afdb6f72e0f2c1e79cc55"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
 <tr class="memitem:a13248f2e439afdb6f72e0f2c1e79cc55"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a13248f2e439afdb6f72e0f2c1e79cc55">pow</a> (T x, int n)</td></tr>
@@ -2893,7 +2893,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The cotangent of x</dd></dl>
-<p>On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fsincos</code> instruction will be used. </p>
+<p>On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fsincos</code> instruction will be used if supported by the compiler. </p>
 
 </div>
 </div>
@@ -8078,7 +8078,7 @@ template&lt;typename UnsignedIntType  = uint64_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the smallest power 2 bigger or equal to x. </p>
+<p>Get the smallest power of 2 bigger than or equal to x. </p>
 <p>This function is useful to add padding to vectors and matrices to apply recursive algorithms such as the FFT. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>An integer number </td></tr>
@@ -11352,7 +11352,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The tangent of x</dd></dl>
-<p>On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fsincos</code> instruction will be used. </p>
+<p>On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fsincos</code> instruction will be used if supported by the compiler. </p>
 
 </div>
 </div>
@@ -11397,7 +11397,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Tue Oct 15 2024 07:54:37 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 17 2024 16:23:54 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
