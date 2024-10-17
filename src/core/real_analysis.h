@@ -378,17 +378,19 @@ namespace theoretica {
 	/// Compute \f$y log2(x)\f$ using x86 Assembly instructions
 	inline real fyl2x(real x, real y) {
 
-		real res;
-
 		#ifdef MSVC_ASM
 
-		// TO-DO
+			__asm {
+				fld y
+				fld x
+				fyl2x
+			}
 
 		#else
-		asm ("fyl2x" : "=t"(res) : "0"(x), "u"(y) : "st(1)");
+			double r;
+			asm ("fyl2x" : "=t"(r) : "0"(x), "u"(y) : "st(1)");
+			return r;
 		#endif
-
-		return res;
 	}
 
 
@@ -399,15 +401,16 @@ namespace theoretica {
 	inline real f2xm1(real x) {
 
 		#ifdef MSVC_ASM
-		__asm {
-			fld x
-			f2xm1
-		}
-		#else
-		asm("f2xm1" : "+t"(x));
-		#endif
 
-		return x;
+			__asm {
+				fld x
+				f2xm1
+			}
+
+		#else
+			asm("f2xm1" : "+t"(x));
+			return x;
+		#endif
 	}
 
 #endif
@@ -566,7 +569,7 @@ namespace theoretica {
 	}
 
 
-	/// Get the smallest power 2 bigger or equal to x.
+	/// Get the smallest power of 2 bigger than or equal to x.
 	/// This function is useful to add padding to vectors and matrices
 	/// to apply recursive algorithms such as the FFT.
 	/// @param x An integer number
@@ -949,20 +952,14 @@ namespace theoretica {
 	/// @return The tangent of x
 	///
 	/// On x86 architectures, if `THEORETICA_X86` is defined,
-	/// the `fsincos` instruction will be used.
+	/// the `fsincos` instruction will be used if supported by the compiler.
 	inline real tan(real x) {
 
-#ifdef THEORETICA_X86
+#if defined(THEORETICA_X86) && !defined(MSVC_ASM)
 
 		real s, c;
 
-		#ifdef MSVC_ASM
-
-		// TO-DO
-
-		#else
 		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
-		#endif
 
 		if(abs(c) < MACH_EPSILON) {
 			TH_MATH_ERROR("tan", c, DIV_BY_ZERO);
@@ -970,8 +967,8 @@ namespace theoretica {
 		}
 
 		return s / c;
-
 #else
+
 		// Reflection
 		if(x < 0)
 			return -tan(-x);
@@ -1003,21 +1000,14 @@ namespace theoretica {
 	/// @return The cotangent of x
 	///
 	/// On x86 architectures, if `THEORETICA_X86` is defined,
-	/// the `fsincos` instruction will be used.
+	/// the `fsincos` instruction will be used if supported by the compiler.
 	inline real cot(real x) {
 
 		real s, c;
 
-#ifdef THEORETICA_X86
-
-		#ifdef MSVC_ASM
-
-		// TO-DO
-
-		#else
+#if defined(THEORETICA_X86) && !defined(MSVC_ASM)
+		
 		asm ("fsincos" : "=t"(c), "=u"(s) : "0"(x));
-		#endif
-
 #else
 		s = sin(x);
 		c = cos(x);
