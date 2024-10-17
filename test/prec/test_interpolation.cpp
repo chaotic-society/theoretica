@@ -14,7 +14,7 @@ int main(int argc, char const *argv[]) {
 	
 	prec::setup("interpolation");
 
-		// polyn_interp.h
+		// polynomial.h
 
 		// splines.h
 

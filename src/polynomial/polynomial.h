@@ -93,11 +93,12 @@ namespace theoretica {
 			}
 
 
-			/// Find the true order of the polynomial (ignoring null coefficients)
+			/// Find the true order of the polynomial
+			/// (ignoring trailing null coefficients)
 			inline unsigned int find_order() const {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
-					if(coeff[i] != 0)
+					if(abs(coeff[i]) < MACH_EPSILON)
 						return i;
 				}
 
@@ -105,7 +106,7 @@ namespace theoretica {
 			}
 
 
-			/// Remove higher order null coefficients
+			/// Remove trailing zero coefficients
 			inline void trim() {
 
 				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
@@ -126,11 +127,20 @@ namespace theoretica {
 			/// Sum two polynomials
 			inline polynomial operator+(const polynomial& p) const {
 
-				polynomial r(coeff);
+				polynomial r;
+				r.coeff.resize(max(coeff.size(), p.size()));
 
-				for (unsigned int i = 0; i < min(r.size(), p.size()); ++i) {
-					r[i] += p.get(i);
-				}
+				unsigned int i = 0;
+
+				for (; i < min(coeff.size(), p.size()); ++i)
+					r[i] = coeff[i] + p[i];
+
+				if (coeff.size() > p.size())
+					for (; i < coeff.size(); ++i)
+						r[i] = coeff[i];
+				else
+					for (; i < p.size(); ++i)
+						r[i] = p[i];
 
 				return r;
 			}
@@ -139,11 +149,20 @@ namespace theoretica {
 			/// Subtract a polynomial from another
 			inline polynomial operator-(const polynomial& p) const {
 				
-				polynomial r(coeff);
+				polynomial r;
+				r.coeff.resize(max(coeff.size(), p.size()));
 
-				for (unsigned int i = 0; i < min(r.size(), p.size()); ++i) {
-					r[i] -= p.get(i);
-				}
+				unsigned int i = 0;
+
+				for (; i < min(r.size(), p.size()); ++i)
+					r[i] = coeff[i] - p.get(i);
+
+				if (coeff.size() > p.size())
+					for (; i < coeff.size(); ++i)
+						r[i] = coeff[i];
+				else
+					for (; i < p.size(); ++i)
+						r[i] = -p[i];
 
 				return r;
 			}
@@ -232,7 +251,7 @@ namespace theoretica {
 			/// Divide a polynomial by a scalar
 			inline polynomial operator/(Type a) const {
 
-				if(a == 0) {
+				if(abs(a) < MACH_EPSILON) {
 					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
 				}
 
@@ -266,7 +285,7 @@ namespace theoretica {
 				if(coeff.size() < p.size())
 					coeff.resize(p.size(), Type(0));
 
-				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
+				for (unsigned int i = 0; i < min(coeff.size(), p.size()); ++i)
 					coeff[i] -= p.get(i);
 
 				return *this;
@@ -279,7 +298,7 @@ namespace theoretica {
 				polynomial r = polynomial();
 				r.coeff.resize(this->size() + p.size() - 1, Type(0));
 
-				for (unsigned int i = 0; i < size(); ++i)
+				for (unsigned int i = 0; i < coeff.size(); ++i)
 					for (unsigned int j = 0; j < p.size(); ++j)
 						r[i + j] += coeff[i] * p.get(j);
 
@@ -307,7 +326,7 @@ namespace theoretica {
 			/// Divide a polynomial by a scalar value
 			inline polynomial& operator/=(Type a) {
 
-				if(a == 0) {
+				if(abs(a) < MACH_EPSILON) {
 					TH_MATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
 					return *this;
 				}
@@ -324,18 +343,18 @@ namespace theoretica {
 
 				const unsigned int n = min(other.size(), this->size());
 				for (unsigned int i = 0; i < n; ++i) {
-					if(other.coeff[i] != coeff[i])
+					if(abs(other.coeff[i] - coeff[i]) >= MACH_EPSILON)
 						return false;
 				}
 
 				if(size() > other.size()) {
 					for (unsigned int i = 0; i < size(); ++i) {
-						if(coeff[i] != 0)
+						if(abs(coeff[i]) >= MACH_EPSILON)
 							return false;
 					}
 				} else {
 					for (unsigned int i = 0; i < other.size(); ++i) {
-						if(other.coeff[i] != 0)
+						if(abs(other.coeff[i]) >= MACH_EPSILON)
 							return false;
 					}
 				}
@@ -355,6 +374,20 @@ namespace theoretica {
 			/// of the polynomial.
 			inline auto end() {
 				return coeff.end();
+			}
+
+
+			/// Get a const iterator for the first coefficient
+			/// of the polynomial.
+			inline auto cbegin() {
+				return coeff.cbegin();
+			}
+
+
+			/// Get a const iterator for the one plus last coefficient
+			/// of the polynomial.
+			inline auto cend() {
+				return coeff.cend();
 			}
 
 

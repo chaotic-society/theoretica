@@ -1,10 +1,10 @@
 
 ///
-/// @file polyn_interp.h Polynomial interpolation of real functions
+/// @file polynomial.h Polynomial interpolation of real functions
 ///
 
-#ifndef THEORETICA_POLYN_INTERP_H
-#define THEORETICA_POLYN_INTERP_H
+#ifndef THEORETICA_INTERP_POLYNOMIAL_H
+#define THEORETICA_INTERP_POLYNOMIAL_H
 
 #include <vector>
 #include "../core/real_analysis.h"

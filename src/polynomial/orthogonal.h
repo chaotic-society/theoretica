@@ -1,10 +1,10 @@
 
 ///
-/// @file ortho_polyn.h Orthogonal polynomial bases
+/// @file orthogonal.h Orthogonal polynomial bases
 ///
 
-#ifndef THEORETICA_ORTHO_POLYN_H
-#define THEORETICA_ORTHO_POLYN_H
+#ifndef THEORETICA_POLYN_ORTHOGONAL_H
+#define THEORETICA_POLYN_ORTHOGONAL_H
 
 #include "./polynomial.h"
 #include "../optimization/roots.h"

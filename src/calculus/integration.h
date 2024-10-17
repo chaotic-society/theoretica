@@ -9,7 +9,7 @@
 #include "../core/constants.h"
 #include "../core/function.h"
 #include "../polynomial/polynomial.h"
-#include "../polynomial/ortho_polyn.h"
+#include "../polynomial/orthogonal.h"
 #include "./gauss.h"
 
 

@@ -7,9 +7,9 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	const size_t N = 1000000;
-	const uint64_t seed = time(nullptr);
-	auto dummy = [](unsigned int i) { return 0; };
+	// const size_t N = 1000000;
+	// const uint64_t seed = time(nullptr);
+	// auto dummy = [](unsigned int i) { return 0; };
 
 	benchmark::settings.outputFiles = { "test/benchmark/" };
 	benchmark::settings.defaultIterations = 10;

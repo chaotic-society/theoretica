@@ -49,7 +49,7 @@
 
 // Interpolation
 #include "interpolation/splines.h"
-#include "interpolation/polyn_interp.h"
+#include "interpolation/polynomial.h"
 	
 // Statistical functions
 #include "statistics/statistics.h"
@@ -77,7 +77,7 @@
 
 // Polynomial class
 #include "polynomial/polynomial.h"
-#include "polynomial/ortho_polyn.h"
+#include "polynomial/orthogonal.h"
 
 // Dual numbers and automatic differentiation
 #include "autodiff/dual.h"

@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
 
 		// polynomial.h
 
-		// ortho_polyn.h
+		// orthogonal.h
 
 	prec::terminate();
 }
