@@ -17,10 +17,15 @@
 
 namespace theoretica {
 
-	/// @namespace theoretica::parallel Element-wise, parallelized evaluation of functions.
+
+	/// @namespace theoretica::parallel Parallelized element-wise evaluation of functions.
 	namespace parallel {
 
-		/// Vectorized (element-wise) evaluation of a function,
+
+		// Unary operations
+
+
+		/// Parallel element-wise evaluation of a function,
 		/// using OpenMP to speed up execution over a vector.
 		///
 		/// @param f The function to evaluate
@@ -40,7 +45,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the square function.
+		/// Parallel element-wise evaluation of the square function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -58,7 +63,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the cube function.
+		/// Parallel element-wise evaluation of the cube function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -76,7 +81,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the abs function.
+		/// Parallel element-wise evaluation of the abs function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -94,7 +99,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the pow function.
+		/// Parallel element-wise evaluation of the pow function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -104,7 +109,7 @@ namespace theoretica {
 			Vector res;
 			res.resize(v.size());
 
-			// #pragma omp parallel for
+			#pragma omp parallel for
 			for (unsigned int i = 0; i < v.size(); i++)
 				res[i] = theoretica::pow(v[i], n);
 
@@ -112,7 +117,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the powf function.
+		/// Parallel element-wise evaluation of the powf function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -122,7 +127,7 @@ namespace theoretica {
 			Vector res;
 			res.resize(v.size());
 
-			// #pragma omp parallel for
+			#pragma omp parallel for
 			for (unsigned int i = 0; i < v.size(); i++)
 				res[i] = theoretica::powf(v[i], x);
 
@@ -130,7 +135,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the sqrt function.
+		/// Parallel element-wise evaluation of the sqrt function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -140,7 +145,7 @@ namespace theoretica {
 			Vector res;
 			res.resize(v.size());
 
-			// #pragma omp parallel for
+			#pragma omp parallel for
 			for (unsigned int i = 0; i < v.size(); i++)
 				res[i] = theoretica::sqrt(v[i]);
 
@@ -148,7 +153,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the cbrt function.
+		/// Parallel element-wise evaluation of the cbrt function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -166,7 +171,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the exp function.
+		/// Parallel element-wise evaluation of the exp function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -184,7 +189,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the ln function.
+		/// Parallel element-wise evaluation of the ln function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -202,7 +207,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the log2 function.
+		/// Parallel element-wise evaluation of the log2 function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -220,7 +225,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the log10 function.
+		/// Parallel element-wise evaluation of the log10 function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -238,7 +243,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the sin function.
+		/// Parallel element-wise evaluation of the sin function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -256,7 +261,7 @@ namespace theoretica {
 		}
 
 
-		/// Vectorized form (element-wise evaluation) of the cos function.
+		/// Parallel element-wise evaluation of the cos function.
 		///
 		/// @param v The vector of inputs
 		/// @return The transformed vector
@@ -434,7 +439,6 @@ namespace theoretica {
 
 			return res;
 		}
-
 	}
 }
 
