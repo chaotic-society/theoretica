@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespacetheoretica.html#abad6a42bf9fd0176e622e01e0f7446a9":[11,0,2,210],
 "namespacetheoretica.html#abbd0ef7aa0b136fbd1b4579cec14f369":[11,0,2,253],
 "namespacetheoretica.html#abbe2540b2ff381a14b61588280cb9016":[11,0,2,195],
 "namespacetheoretica.html#abc42228ba03a0f01c33d192ba87766a9":[11,0,2,329],
@@ -62,6 +61,7 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#adb032626b2f25bf5c31026c1ee6e639d":[11,0,2,165],
 "namespacetheoretica.html#adb04217fd0bd9dd23daaa186d3756d1e":[11,0,2,249],
 "namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d":[11,0,2,443],
+"namespacetheoretica.html#adc09e622addcc28c9a5a90baa053fe59":[11,0,2,359],
 "namespacetheoretica.html#adcb53498374f76292a3da8bb8c785341":[11,0,2,70],
 "namespacetheoretica.html#adcecb5d20e275f7fe2d606306a3af1a9":[11,0,2,184],
 "namespacetheoretica.html#adefc7e5553fca6b62313bb2a3037e49b":[11,0,2,82],
@@ -100,6 +100,7 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#aee1e83bd6490463372f8bb980e5b9de7":[11,0,2,115],
 "namespacetheoretica.html#aee807e1a55c73e90e1f852b4d1cf67fc":[11,0,2,59],
 "namespacetheoretica.html#af0493013e208bb00505abbc4ca37f292":[11,0,2,105],
+"namespacetheoretica.html#af0ac22cce9177af8dc9183a433f932c3":[11,0,2,352],
 "namespacetheoretica.html#af1a4ad4c5446986fe2d255a03be337a1":[11,0,2,119],
 "namespacetheoretica.html#af2072cd5c511827de6cd4f5f0f7539ed":[11,0,2,278],
 "namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1":[11,0,2,324],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "namespacetheoretica_1_1autodiff.html#a889bd5fc09e6e1f6ebb81a6b3fd79bee":[11,0,2,2,38],
 "namespacetheoretica_1_1autodiff.html#a93a3f53e75aa368e0001da36d441cb23":[11,0,2,2,37],
 "namespacetheoretica_1_1autodiff.html#a93b5daaaa098c584759b48964e8bf13b":[11,0,2,2,36],
-"namespacetheoretica_1_1autodiff.html#aa5d6ec907b99d403a930b6ec6d8ffe8f":[11,0,2,2,28],
-"namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58":[11,0,2,2,34]
+"namespacetheoretica_1_1autodiff.html#aa5d6ec907b99d403a930b6ec6d8ffe8f":[11,0,2,2,28]
 };

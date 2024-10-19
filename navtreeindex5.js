@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html":[10],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22":[0],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23":[10,0],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24":[10,0,1],
@@ -211,6 +212,7 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html":[11,0,2],
 "namespacetheoretica.html#a012d14c9ef85d6f3028bf8ceb1008787":[11,0,2,332],
 "namespacetheoretica.html#a01522152b1ccfd9a7db77654b6d8c12a":[11,0,2,327],
+"namespacetheoretica.html#a01f52fe3e32a6a9c9477c0bb66abfd62":[11,0,2,355],
 "namespacetheoretica.html#a0220dc8ab53289f775519eaef1079fed":[11,0,2,143],
 "namespacetheoretica.html#a024554cae44fb42700e8f68d235f0f15":[11,0,2,178],
 "namespacetheoretica.html#a0347aca2b094329df5c4593d8fe7e39d":[11,0,2,387],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb":[11,0,2,177],
 "namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e":[11,0,2,69],
 "namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7":[11,0,2,394],
-"namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c":[11,0,2,384],
-"namespacetheoretica.html#a1a22d48e483fe9169702f6a3f8f91bf6":[11,0,2,280],
-"namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382":[11,0,2,121]
+"namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c":[11,0,2,384]
 };

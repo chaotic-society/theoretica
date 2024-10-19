@@ -117,26 +117,26 @@ $(document).ready(function(){initNavTree('fft_8h_source.html',''); initResizable
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="comment">// Resulting vector in the frequency domain</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            ReturnVector k = x;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = x.size();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="comment">// Compute the logarithm of the size</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> log2N = <a class="code" href="namespacetheoretica.html#a50cd5107369678c27b30dbae079283c5">ilog2</a>(N);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="comment">// Enforce power of 2 vector size</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (N != (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) (1 &lt;&lt; log2N)) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">algebra::vec_error</a>(k);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">// Bit reverse</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">swap_bit_reverse</a>(k, log2N);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sign = (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a> ? 1.0 : -1.0);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="comment">// Compute the logarithm of the size</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> log2N = <a class="code" href="namespacetheoretica.html#a50cd5107369678c27b30dbae079283c5">ilog2</a>(N);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="comment">// Enforce power of 2 vector size</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> (N != (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) (1 &lt;&lt; log2N)) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacetheoretica_1_1algebra.html#a49d62aec691ca8921e5a2f2fdacf095f">algebra::vec_error</a>(k);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">// Bit reverse</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb">swap_bit_reverse</a>(k, log2N);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p = 1; p &lt;= log2N; p++) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = 1 &lt;&lt; p;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = m / 2;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> w (1.0, 0.0);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> sign = (<a class="code" href="namespacetheoretica.html#a5add4455a9f2e6a07d9af094bfd29435">inverse</a> ? 1.0 : -1.0);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p = 1; p &lt;= log2N; p++) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m = 1 &lt;&lt; p;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = m / 2;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> w (1.0, 0.0);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// Phase shift between iterations</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">const</span> <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a> phase = <a class="code" href="classtheoretica_1_1complex.html">complex&lt;real&gt;</a>(</div>
@@ -192,7 +192,7 @@ $(document).ready(function(){initNavTree('fft_8h_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e681bd22f1a85a89d9c18b68cc50d922.html">signal</a></li><li class="navelem"><a class="el" href="fft_8h.html">fft.h</a></li>
-    <li class="footer">Generated on Thu Oct 17 2024 16:23:53 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 19 2024 13:20:47 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
