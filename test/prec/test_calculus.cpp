@@ -95,7 +95,7 @@ long double distance_polyn(const polynomial<real>& p1, const polynomial<real>& p
 	real r = -inf();
 
 	for (size_t i = 0; i < d.size(); ++i)
-		r = max(r, abs(d[i]));
+		r = max(r, std::abs(d[i]));
 
 	return r;
 }
