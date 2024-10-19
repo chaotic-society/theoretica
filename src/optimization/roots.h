@@ -155,10 +155,10 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the polynomial,
 	/// or NaN if the algorithm did not converge.
-	inline real root_newton(polynomial<real> p, real guess = 0) {
+	inline real root_newton(const polynomial<real>& p, real guess = 0) {
 
 		real x = guess;
-		polynomial<> Dp = deriv(p);
+		polynomial<real> Dp = deriv(p);
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_NEWTON_ITER) {
@@ -280,10 +280,10 @@ namespace theoretica {
 	/// @guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the polynomial,
 	/// or NaN if the algorithm did not converge.
-	inline real root_halley(polynomial<real> p, real guess = 0) {
+	inline real root_halley(const polynomial<real>& p, real guess = 0) {
 
-		polynomial<> Dp = deriv(p);
-		polynomial<> D2p = deriv(Dp);
+		polynomial<real> Dp = deriv(p);
+		polynomial<real> D2p = deriv(Dp);
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -336,7 +336,7 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
-	inline real root_steffensen(polynomial<real> p, real guess = 0) {
+	inline real root_steffensen(const polynomial<real>& p, real guess = 0) {
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -364,7 +364,8 @@ namespace theoretica {
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
-	inline real root_chebyshev(RealFunction f, RealFunction Df,
+	inline real root_chebyshev(
+		RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0) {
 
 		real x = guess;
@@ -424,10 +425,10 @@ namespace theoretica {
 	/// @param guess The initial guess (defaults to 0).
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
-	inline real root_chebyshev(polynomial<real> p, real guess = 0) {
+	inline real root_chebyshev(const polynomial<real>& p, real guess = 0) {
 
-		polynomial<> Dp = deriv(p);
-		polynomial<> D2p = deriv(p);
+		polynomial<real> Dp = deriv(p);
+		polynomial<real> D2p = deriv(p);
 
 		real x = guess;
 		unsigned int iter = 0;
@@ -506,7 +507,8 @@ namespace theoretica {
 	/// @return A vector of the roots of the polynomial that were found.
 	template<typename Field>
 	inline std::vector<Field> roots(
-		polynomial<Field> p, real tolerance = OPTIMIZATION_TOL,
+		const polynomial<Field>& p,
+		real tolerance = OPTIMIZATION_TOL,
 		unsigned int steps = 0) {
 
 		// Effective order of the polynomial

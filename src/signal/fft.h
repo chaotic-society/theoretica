@@ -31,6 +31,7 @@ namespace theoretica {
 			// Resulting vector in the frequency domain
 			ReturnVector k = x;
 			const unsigned int N = x.size();
+			const real sign = (inverse ? 1.0 : -1.0);
 
 			// Compute the logarithm of the size
 			const unsigned int log2N = ilog2(N);
@@ -50,7 +51,6 @@ namespace theoretica {
 				const unsigned int offset = m / 2;
 				
 				complex<real> w (1.0, 0.0);
-				const real sign = (inverse ? 1.0 : -1.0);
 
 				// Phase shift between iterations
 				const complex<real> phase = complex<real>(

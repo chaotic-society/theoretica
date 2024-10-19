@@ -1090,8 +1090,8 @@ namespace theoretica {
 
 
 	/// Compute the 2 argument arctangent
-	/// @param y The y coordinate in cartesian space
-	/// @param x The x coordinate in cartesian space
+	/// @param y The y coordinate in Cartesian space
+	/// @param x The x coordinate in Cartesian space
 	/// @return The counterclockwise angle between the vector described by x and y
 	/// and the x axis.
 	///
