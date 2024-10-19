@@ -29,6 +29,12 @@ real G(real x) {
 }
 
 
+template<typename Field>
+Field h(Field x) {
+	return x * sin(x) - cos(x);
+}
+
+
 vec2 diff_eq(real t, vec2 v) {
 
 	return {
@@ -83,12 +89,25 @@ auto ode_estimator(const ode::ode_solution_t<Vector>& sol) {
 }
 
 
+long double distance_polyn(const polynomial<real>& p1, const polynomial<real>& p2) {
+
+	const polynomial<real> d = p1 - p2;
+	real r = -inf();
+
+	for (size_t i = 0; i < d.size(); ++i)
+		r = max(r, abs(d[i]));
+
+	return r;
+}
+
+
 
 int main(int argc, char const *argv[]) {
 	
 	prec::setup("calculus");
 
 		output::settings.outputFiles = { "test/prec/prec_calculus.csv" };
+		output::settings.fieldOptions["name"].columnWidth = 24;
 		prec::settings.estimateColumns = {
 			"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
 		};
@@ -131,6 +150,15 @@ int main(int argc, char const *argv[]) {
 
 		auto integ_opt = prec::estimate_options<real, real>(
 			prec::interval(0.1, 3.0),
+			prec::estimator::quadrature1D()
+		);
+
+
+		prec::estimate("integral_midpoint",
+			[](real x) { return integral_midpoint(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			{ prec::interval(0.1, 3.0) },
+			1E-04, 1'000, prec::fail::fail_on_max_err(),
 			prec::estimator::quadrature1D()
 		);
 
@@ -217,6 +245,33 @@ int main(int argc, char const *argv[]) {
 		);
 		prec::estimate("ode::solve_k38", emptyf, sho, opt);
 
+
+		// taylor.h
+
+
+		auto taylor_opt = prec::equation_options<polynomial<real>>(
+			1E-08, distance_polyn
+		);
+
+	{
+		polynomial<real> evaluated = taylor::expand_linear(h<dual>);
+		polynomial<real> expected = {-1, 0};
+
+		prec::equals(
+			"taylor::expand_linear",
+			evaluated, expected, taylor_opt
+		);
+	}
+
+	{
+		polynomial<real> evaluated = taylor::expand_quadratic(h<dual2>);
+		polynomial<real> expected = {-1, 0, 1.5};
+
+		prec::equals(
+			"taylor::expand_quadratic",
+			evaluated, expected, taylor_opt
+		);
+	}
 
 	prec::terminate();
 }
