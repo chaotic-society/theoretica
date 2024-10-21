@@ -29,6 +29,17 @@ real G(real x) {
 }
 
 
+// e^{x} sin(x) e^{-x^2}
+real GaussI(real x) {
+	return th::exp(x) * th::sin(x);
+}
+
+// sqrt(x) e^{-x}
+real ExpI(real x) {
+	return th::cos(x);
+}
+
+
 template<typename Field>
 Field h(Field x) {
 	return x * sin(x) - cos(x);
@@ -187,10 +198,31 @@ int main(int argc, char const *argv[]) {
 		);
 
 
+		prec::estimate("integral_romberg_tol",
+			[](real x) { return integral_romberg_tol(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
+
+
 		prec::estimate("integral_legendre",
 			[](real x) { return integral_legendre(g, 1, x, 16); },
 			[](real x) { return G(x) - G(1); },
 			integ_opt
+		);
+
+
+		prec::equals(
+			"integral_hermite",
+			integral_hermite(GaussI),
+			0.8497596421214707431181
+		);
+
+
+		prec::equals(
+			"integral_laguerre",
+			integral_laguerre(ExpI),
+			0.5
 		);
 
 
