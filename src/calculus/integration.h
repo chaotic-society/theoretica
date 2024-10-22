@@ -21,7 +21,7 @@ namespace theoretica {
 	/// @param p The polynomial to integrate
 	/// @return The indefinite polynomial integral
 	template<typename T = real>
-	inline polynomial<T> integrate_polynomial(const polynomial<T>& p) {
+	inline polynomial<T> integral(const polynomial<T>& p) {
 
 		polynomial<T> P;
 		P.coeff.resize(p.size() + 1);

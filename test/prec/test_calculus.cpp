@@ -123,8 +123,39 @@ int main(int argc, char const *argv[]) {
 			"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
 		};
 
+
+		// derivation.h
 		// Compare the numerical derivative to the analytical derivative
 
+
+	{
+		auto opt = prec::equation_options<polynomial<real>>(
+			1E-08, distance_polyn
+		);
+
+		polynomial<real> p = {1.0, 1.0, 1.0};
+		polynomial<real> expected = {1.0, 2.0};
+
+		prec::equals(
+			"deriv(P)",
+			deriv(p), expected, opt
+		);
+
+		prec::equals(
+			"deriv(0)",
+			deriv(polynomial<real>({0.0})),
+			polynomial<real>({0.0}),
+			opt
+		);
+
+		prec::equals(
+			"deriv(P{})",
+			deriv(polynomial<real>()) == polynomial<real>(),
+			true
+		);
+	}
+
+	{
 		auto deriv_opt = prec::estimate_options<real, real>(
 			prec::interval(0.001, 0.5),
 			prec::estimator::quadrature1D(),
@@ -155,10 +186,14 @@ int main(int argc, char const *argv[]) {
 		prec::estimate("deriv_ridders",
 			[](real x) { return deriv_ridders(f, x, 10E-6, 3); },
 			Df, deriv_opt);
+	}
 
 
+		// integration.h
 		// Compare integral quadrature to primitives
 
+
+	{
 		auto integ_opt = prec::estimate_options<real, real>(
 			prec::interval(0.1, 3.0),
 			prec::estimator::quadrature1D()
@@ -224,10 +259,43 @@ int main(int argc, char const *argv[]) {
 			integral_laguerre(ExpI),
 			0.5
 		);
+	}
+
+	{
+		auto opt = prec::equation_options<polynomial<real>>(
+			1E-08, distance_polyn
+		);
+
+		polynomial<real> p = {1, 1};
+		polynomial<real> expected = {0, 1, 0.5};
+
+		prec::equals(
+			"integral(P)",
+			integral(p),
+			expected,
+			opt
+		);
+
+		prec::equals(
+			"integral(0)",
+			integral(polynomial<real>({0.0})),
+			polynomial<real>({0.0}),
+			opt
+		);
+
+		prec::equals(
+			"integral(P{})",
+			integral(polynomial<real>({})) == polynomial<real>({}),
+			true
+		);
+	}
 
 
+		// ode.h
 		// Integrate the simple harmonic oscillator
 
+
+	{
 		real tf = 1.0;
 		vec2 x0 = {0.0, 1.0};
 
@@ -276,6 +344,7 @@ int main(int argc, char const *argv[]) {
 			ode::solve_k38(diff_eq, x0, 0.0, tf)
 		);
 		prec::estimate("ode::solve_k38", emptyf, sho, opt);
+	}
 
 
 		// taylor.h
