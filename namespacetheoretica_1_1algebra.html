@@ -348,12 +348,16 @@ Functions</h2></td></tr>
 <tr class="separator:a6fc85f89aafd490490d0a7b36bed8e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">solve_lu_inplace</a> (const Matrix &amp;A, Vector &amp;b)</td></tr>
-<tr class="memdesc:ac243a7509ce421dc7af9f1e690c4ac62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has already undergone in-place LU decomposition.  <a href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">More...</a><br /></td></tr>
+<tr class="memdesc:ac243a7509ce421dc7af9f1e690c4ac62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has <b>already undergone in-place LU decomposition</b>.  <a href="namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62">More...</a><br /></td></tr>
 <tr class="separator:ac243a7509ce421dc7af9f1e690c4ac62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">solve_lu</a> (Matrix A, Vector b)</td></tr>
 <tr class="memdesc:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\).  <a href="namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089">More...</a><br /></td></tr>
 <tr class="separator:a6dc8b5c2fa93053f3370b22b5fad2089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Vector &gt; </td></tr>
+<tr class="memitem:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a8ea88b9c22e1b32d1a32519aa02ea4e4">solve_lu</a> (const Matrix1 &amp;L, const Matrix2 &amp;U, const Vector &amp;b)</td></tr>
+<tr class="memdesc:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the LU decomposition of a matrix to solve its associated linear system, solving \(A \vec x = \vec b\) for \(\vec b\).  <a href="namespacetheoretica_1_1algebra.html#a8ea88b9c22e1b32d1a32519aa02ea4e4">More...</a><br /></td></tr>
+<tr class="separator:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a> (const Matrix &amp;A, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a47d7736bbdcc4b5c721923592f6a65e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\) using the best available algorithm.  <a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">More...</a><br /></td></tr>
@@ -4560,12 +4564,68 @@ template&lt;typename Matrix , typename Vector &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The unknown vector </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The unknown vector \(\vec x\) </dd></dl>
+
+</div>
+</div>
+<a id="a8ea88b9c22e1b32d1a32519aa02ea4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea88b9c22e1b32d1a32519aa02ea4e4">&#9670;&nbsp;</a></span>solve_lu() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix1 , typename Matrix2 , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector theoretica::algebra::solve_lu </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix1 &amp;&#160;</td>
+          <td class="paramname"><em>L</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Matrix2 &amp;&#160;</td>
+          <td class="paramname"><em>U</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use the LU decomposition of a matrix to solve its associated linear system, solving \(A \vec x = \vec b\) for \(\vec b\). </p>
+<p>When solving the same linear system over and over, it is advantageous to compute its LU decomposition using decompose_lu and then use the decomposition to solve the system for different known vectors, reducing the overall computational cost.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>The lower triangular matrix </td></tr>
+    <tr><td class="paramname">U</td><td>The upper triangular matrix </td></tr>
+    <tr><td class="paramname">b</td><td>The known vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector solution \(\vec x\). </dd></dl>
 
 </div>
 </div>
 <a id="a6dc8b5c2fa93053f3370b22b5fad2089"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dc8b5c2fa93053f3370b22b5fad2089">&#9670;&nbsp;</a></span>solve_lu()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc8b5c2fa93053f3370b22b5fad2089">&#9670;&nbsp;</a></span>solve_lu() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4649,7 +4709,7 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has already undergone in-place LU decomposition. </p>
+<p>Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\), where the matrix A has <b>already undergone in-place LU decomposition</b>. </p>
 <p>Forward and backward elimination is used to solve the system in place. This routine is particularly efficient for solving linear systems multiple times with the same matrix but different vectors. The input vector is overwritten, as to not use any additional memory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5658,7 +5718,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Tue Oct 22 2024 19:47:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 26 2024 20:09:14 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

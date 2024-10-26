@@ -99,6 +99,7 @@ var namespacetheoretica =
       [ "rotation_3d_yaxis", "namespacetheoretica_1_1algebra.html#ab5d11b57ca82a631907f4eb1b1d67438", null ],
       [ "rotation_3d_zaxis", "namespacetheoretica_1_1algebra.html#acfb980ed1301d1e78fc2232181d93b9a", null ],
       [ "solve", "namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4", null ],
+      [ "solve_lu", "namespacetheoretica_1_1algebra.html#a8ea88b9c22e1b32d1a32519aa02ea4e4", null ],
       [ "solve_lu", "namespacetheoretica_1_1algebra.html#a6dc8b5c2fa93053f3370b22b5fad2089", null ],
       [ "solve_lu_inplace", "namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62", null ],
       [ "solve_triangular", "namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15", null ],

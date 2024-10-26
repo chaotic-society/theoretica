@@ -55,6 +55,7 @@ var algebra_8h =
     [ "pair_inner_product", "algebra_8h.html#a838277b2f0e59831f5f0b3f5d388c925", null ],
     [ "rayleigh_quotient", "algebra_8h.html#a90657bcb7de860059ab5c52087c5d37b", null ],
     [ "solve", "algebra_8h.html#a47d7736bbdcc4b5c721923592f6a65e4", null ],
+    [ "solve_lu", "algebra_8h.html#a8ea88b9c22e1b32d1a32519aa02ea4e4", null ],
     [ "solve_lu", "algebra_8h.html#a6dc8b5c2fa93053f3370b22b5fad2089", null ],
     [ "solve_lu_inplace", "algebra_8h.html#ac243a7509ce421dc7af9f1e690c4ac62", null ],
     [ "solve_triangular", "algebra_8h.html#a6fc85f89aafd490490d0a7b36bed8e15", null ],
