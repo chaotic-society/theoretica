@@ -1500,6 +1500,49 @@ namespace theoretica {
 		}
 
 
+		/// Decompose a symmetric positive definite matrix in-place,
+		/// overwriting the starting matrix, without using additional space.
+		///
+		/// @param A The symmetric, positive definite matrix to decompose and overwrite
+		/// with the lower triangular matrix.
+		template<typename Matrix>
+		inline Matrix& decompose_cholesky_inplace(Matrix& A) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", A.rows(), INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (!is_symmetric(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", false, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			// Compute the Cholesky decomposition in-place
+			for (unsigned int k = 0; k < A.rows(); ++k) {
+
+				A(k, k) = sqrt(A(k, k));
+
+				for (unsigned int i = k + 1; i < A.rows(); ++i)
+					A(i, k) = A(i, k) / A(k, k);
+
+				for (unsigned int j = k + 1; j < A.rows(); ++j)
+					for (unsigned int i = j; i < A.cols(); ++i)
+						A(i, j) -= pair_inner_product(A(i, k), A(j, k));
+			}
+
+			// Zero out elements over the diagonal
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = i + 1; j < A.rows(); ++j)
+					A(i, j) = Type(0.0);
+					
+
+			return A;
+		}
+
+
 		// Linear system solvers
 
 
@@ -1742,7 +1785,63 @@ namespace theoretica {
 				for (unsigned int j = i + 1; j < U.rows(); ++j)
 					sum += U(i, j) * x[j];
 
+				if (abs(U(i, i)) < MACH_EPSILON) {
+					TH_MATH_ERROR("algebra::solve_lu", U(i, i), DIV_BY_ZERO);
+					return vec_error(x);
+				}
+
 				x[i] = (x[i] - sum) / U(i, i);
+			}
+
+			return x;
+		}
+
+
+		/// Solve a linear system \f$A \vec x = \vec b\f$ defined by a symmetric
+		/// positive definite matrix, using the Cholesky decomposition \f$L\f$ constructed
+		/// so that \f$A = LL^T\f$.
+		///
+		/// @param L The already computed Cholesky decomposition of the symmetric
+		/// positive definite matrix describing the system.
+		/// @param b The known vector
+		/// @return The unknown vector \f$\vec x\f$
+		template<typename Matrix, typename Vector>
+		inline Vector solve_cholesky(const Matrix& L, const Vector& b) {
+
+			Vector x = b;
+
+			if (!is_square(L)) {
+				TH_MATH_ERROR("algebra::solve_cholesky", L.rows(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (L.rows() != b.size()) {
+				TH_MATH_ERROR("algebra::solve_cholesky", b.size(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			using Type = matrix_element_t<Matrix>;
+
+			// Forward elimination for L
+			for (unsigned int i = 0; i < L.rows(); ++i) {
+				
+				Type sum = Type(0.0);
+
+				for (unsigned int j = 0; j < i; ++j)
+					sum += L(i, j) * x[j];
+
+				x[i] = (x[i] - sum) / L(i, i);
+			}
+
+			// Backward elimination for L transpose
+			for (int i = L.rows() - 1; i >= 0; --i) {
+
+				Type sum = Type(0.0);
+				
+				for (unsigned int j = i + 1; j < L.rows(); ++j)
+					sum += L(j, i) * x[j];
+
+				x[i] = (x[i] - sum) / L(i, i);
 			}
 
 			return x;
