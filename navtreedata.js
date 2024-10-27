@@ -94,17 +94,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "",
-"classtheoretica_1_1dual.html#a185a37e2be7fb819309d271be809b610",
-"classtheoretica_1_1multidual.html#a63db080707f6a78ec7c9c663454c5f42",
-"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a94bac04a49c3f253c4069ed0f0ca8234",
-"dual2__functions_8h.html#a3def790003197bb019f5933b4db45c44",
-"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20",
-"namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c",
-"namespacetheoretica.html#abad6a42bf9fd0176e622e01e0f7446a9",
-"namespacetheoretica_1_1autodiff.html#a93b5daaaa098c584759b48964e8bf13b",
-"parallel_8h.html#adcdf1a9035d33e10195327dee95cb530",
-"statistics_8h.html",
-"structtheoretica_1_1regression_1_1linear__model.html#a37611e9829c046273d59c934aae7cea1"
+"classtheoretica_1_1dual.html#a13df821c92c9e28aa6702ea7ae83a5fa",
+"classtheoretica_1_1multidual.html#a54eecbaa9642455b3d491b3d2d31d264",
+"classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8f98dc318360a3f2e66417fabb0e8564",
+"dual2__functions_8h.html#a29e46804be47f0c4865014a4a763cf76",
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18",
+"namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e",
+"namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4",
+"namespacetheoretica_1_1autodiff.html#a7f11f1d8910570fe74ba30293b593aec",
+"parallel_8h.html#ac378a527f94a51ae90f53fea5d849fa0",
+"src_2algebra_2distance_8h.html#afda85103719a7a69d69670a8ae6dc13b",
+"structtheoretica_1_1regression_1_1linear__model.html#a02941b26afead579d34cae623c8de78e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

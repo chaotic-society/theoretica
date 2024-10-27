@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18":[9,1],
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md19":[9,2],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20":[9,3],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html":[10],
 "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22":[0],
@@ -155,8 +157,8 @@ var NAVTREEINDEX5 =
 "namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6":[11,0,0,4,2],
 "namespacechebyshev_1_1random.html#aacb43b37f8d8c05e6792d26c36d4024c":[11,0,0,4,7],
 "namespacechebyshev_1_1random.html#ab92694bf83718dcdb666a2b523b32834":[11,0,0,4,6],
-"namespacemembers.html":[11,1,0,0],
 "namespacemembers.html":[11,1,0],
+"namespacemembers.html":[11,1,0,0],
 "namespacemembers_b.html":[11,1,0,1],
 "namespacemembers_c.html":[11,1,0,2],
 "namespacemembers_d.html":[11,1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47":[11,0,2,343],
 "namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7":[11,0,2,74],
 "namespacetheoretica.html#a155575a245643b0e8a861c26b0840b9d":[11,0,2,370],
-"namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb":[11,0,2,177],
-"namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e":[11,0,2,69],
-"namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7":[11,0,2,394]
+"namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb":[11,0,2,177]
 };

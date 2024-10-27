@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"structtheoretica_1_1regression_1_1linear__model.html#a02941b26afead579d34cae623c8de78e":[12,0,1,3,0,7],
+"structtheoretica_1_1regression_1_1linear__model.html#a189ba751efe2f7757b5aabb79be3f214":[12,0,1,3,0,0],
+"structtheoretica_1_1regression_1_1linear__model.html#a248025bcded0a3c958aaed8c1437bef1":[12,0,1,3,0,6],
+"structtheoretica_1_1regression_1_1linear__model.html#a2b22f1375cd518b479415ac9ec94ced2":[12,0,1,3,0,3],
 "structtheoretica_1_1regression_1_1linear__model.html#a37611e9829c046273d59c934aae7cea1":[12,0,1,3,0,14],
 "structtheoretica_1_1regression_1_1linear__model.html#a3ed054ec51560999b30b431eb916aabd":[12,0,1,3,0,16],
 "structtheoretica_1_1regression_1_1linear__model.html#a50b9b320df9cc158ce5c5021e05feeb8":[12,0,1,3,0,18],

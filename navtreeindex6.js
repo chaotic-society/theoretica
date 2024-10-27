@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e":[11,0,2,69],
+"namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7":[11,0,2,394],
 "namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c":[11,0,2,384],
 "namespacetheoretica.html#a1a22d48e483fe9169702f6a3f8f91bf6":[11,0,2,280],
 "namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382":[11,0,2,121],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "namespacetheoretica.html#ab4d71500ca8667ee14c30bc90605db9d":[11,0,2,434],
 "namespacetheoretica.html#ab540a53d6b06cf92b73738c655b6c1f5":[11,0,2,385],
 "namespacetheoretica.html#ab5a2df66b64dfabba4e439df58abf341":[11,0,2,95],
-"namespacetheoretica.html#ab762400eb460e0e4b1df27bb6133f3d9":[11,0,2,161],
-"namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4":[11,0,2,328],
-"namespacetheoretica.html#ab85064afd88800f3129e97d2e2955be4":[11,0,2,109]
+"namespacetheoretica.html#ab762400eb460e0e4b1df27bb6133f3d9":[11,0,2,161]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX10 =
 {
+"src_2algebra_2distance_8h.html#afda85103719a7a69d69670a8ae6dc13b":[13,0,0,2,1],
+"src_2algebra_2distance_8h_source.html":[13,0,0,2],
+"statistics_8cpp.html":[13,0,5,11],
+"statistics_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,5,11,0],
 "statistics_8h.html":[13,0,11,4],
 "statistics_8h.html#a1454ce9037c0af9f6125c3f399302a4d":[13,0,11,4,13],
 "statistics_8h.html#a1baa2faa86d8049c601c3c10915a3dcb":[13,0,11,4,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX10 =
 "structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98":[12,0,1,38,0],
 "structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e":[12,0,1,38,7],
 "structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c":[12,0,1,38,3],
-"structtheoretica_1_1regression_1_1linear__model.html":[12,0,1,3,0],
-"structtheoretica_1_1regression_1_1linear__model.html#a02941b26afead579d34cae623c8de78e":[12,0,1,3,0,7],
-"structtheoretica_1_1regression_1_1linear__model.html#a189ba751efe2f7757b5aabb79be3f214":[12,0,1,3,0,0],
-"structtheoretica_1_1regression_1_1linear__model.html#a248025bcded0a3c958aaed8c1437bef1":[12,0,1,3,0,6],
-"structtheoretica_1_1regression_1_1linear__model.html#a2b22f1375cd518b479415ac9ec94ced2":[12,0,1,3,0,3]
+"structtheoretica_1_1regression_1_1linear__model.html":[12,0,1,3,0]
 };

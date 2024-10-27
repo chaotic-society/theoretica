@@ -334,6 +334,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a752dce461a75811726c0f2c63fa0411a"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a752dce461a75811726c0f2c63fa0411a">decompose_cholesky</a> (const Matrix &amp;A)</td></tr>
 <tr class="memdesc:a752dce461a75811726c0f2c63fa0411a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose a symmetric positive definite matrix into a triangular matrix so that \(A = L L^T\) using Cholesky decomposition.  <a href="namespacetheoretica_1_1algebra.html#a752dce461a75811726c0f2c63fa0411a">More...</a><br /></td></tr>
 <tr class="separator:a752dce461a75811726c0f2c63fa0411a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3953758394ba8cfb783665267aa3cb2"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
+<tr class="memitem:ad3953758394ba8cfb783665267aa3cb2"><td class="memTemplItemLeft" align="right" valign="top">Matrix &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ad3953758394ba8cfb783665267aa3cb2">decompose_cholesky_inplace</a> (Matrix &amp;A)</td></tr>
+<tr class="memdesc:ad3953758394ba8cfb783665267aa3cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose a symmetric positive definite matrix in-place, overwriting the starting matrix, without using additional space.  <a href="namespacetheoretica_1_1algebra.html#ad3953758394ba8cfb783665267aa3cb2">More...</a><br /></td></tr>
+<tr class="separator:ad3953758394ba8cfb783665267aa3cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b7074a581766dad1465f4ea1264c229"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a9b7074a581766dad1465f4ea1264c229"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">solve_triangular_lower</a> (const Matrix &amp;L, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a9b7074a581766dad1465f4ea1264c229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(L \vec x = b\) for lower triangular \(L\).  <a href="namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229">More...</a><br /></td></tr>
@@ -358,6 +362,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a8ea88b9c22e1b32d1a32519aa02ea4e4">solve_lu</a> (const Matrix1 &amp;L, const Matrix2 &amp;U, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the LU decomposition of a matrix to solve its associated linear system, solving \(A \vec x = \vec b\) for \(\vec b\).  <a href="namespacetheoretica_1_1algebra.html#a8ea88b9c22e1b32d1a32519aa02ea4e4">More...</a><br /></td></tr>
 <tr class="separator:a8ea88b9c22e1b32d1a32519aa02ea4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b885344f6ad8216871eae18dd0a1d1"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
+<tr class="memitem:ad6b885344f6ad8216871eae18dd0a1d1"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ad6b885344f6ad8216871eae18dd0a1d1">solve_cholesky</a> (const Matrix &amp;L, const Vector &amp;b)</td></tr>
+<tr class="memdesc:ad6b885344f6ad8216871eae18dd0a1d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve a linear system \(A \vec x = \vec b\) defined by a symmetric positive definite matrix, using the Cholesky decomposition \(L\) constructed so that \(A = LL^T\).  <a href="namespacetheoretica_1_1algebra.html#ad6b885344f6ad8216871eae18dd0a1d1">More...</a><br /></td></tr>
+<tr class="separator:ad6b885344f6ad8216871eae18dd0a1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , typename Vector &gt; </td></tr>
 <tr class="memitem:a47d7736bbdcc4b5c721923592f6a65e4"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">solve</a> (const Matrix &amp;A, const Vector &amp;b)</td></tr>
 <tr class="memdesc:a47d7736bbdcc4b5c721923592f6a65e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\) using the best available algorithm.  <a href="namespacetheoretica_1_1algebra.html#a47d7736bbdcc4b5c721923592f6a65e4">More...</a><br /></td></tr>
@@ -825,6 +833,42 @@ template&lt;typename Matrix &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Cholesky decomposition of the matrix </dd></dl>
+
+</div>
+</div>
+<a id="ad3953758394ba8cfb783665267aa3cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3953758394ba8cfb783665267aa3cb2">&#9670;&nbsp;</a></span>decompose_cholesky_inplace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix&amp; theoretica::algebra::decompose_cholesky_inplace </td>
+          <td>(</td>
+          <td class="paramtype">Matrix &amp;&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decompose a symmetric positive definite matrix in-place, overwriting the starting matrix, without using additional space. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The symmetric, positive definite matrix to decompose and overwrite with the lower triangular matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -4568,6 +4612,54 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 
 </div>
 </div>
+<a id="ad6b885344f6ad8216871eae18dd0a1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b885344f6ad8216871eae18dd0a1d1">&#9670;&nbsp;</a></span>solve_cholesky()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector theoretica::algebra::solve_cholesky </td>
+          <td>(</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>L</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solve a linear system \(A \vec x = \vec b\) defined by a symmetric positive definite matrix, using the Cholesky decomposition \(L\) constructed so that \(A = LL^T\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L</td><td>The already computed Cholesky decomposition of the symmetric positive definite matrix describing the system. </td></tr>
+    <tr><td class="paramname">b</td><td>The known vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unknown vector \(\vec x\) </dd></dl>
+
+</div>
+</div>
 <a id="a8ea88b9c22e1b32d1a32519aa02ea4e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ea88b9c22e1b32d1a32519aa02ea4e4">&#9670;&nbsp;</a></span>solve_lu() <span class="overload">[1/2]</span></h2>
 
@@ -5718,7 +5810,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Sat Oct 26 2024 20:09:14 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 27 2024 10:36:20 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
