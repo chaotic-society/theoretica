@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('namespacechebyshev_1_1random.html','')
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1random_1_1random__settings.html">random_settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for the random module.  <a href="structchebyshev_1_1random_1_1random__settings.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -124,6 +125,9 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memitem:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6">sample_uniform</a> (Vector &amp;x, const std::vector&lt; <a class="el" href="structchebyshev_1_1prec_1_1interval.html">prec::interval</a> &gt; intervals)</td></tr>
 <tr class="memdesc:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill an already allocated vector with uniformly distributed numbers over different intervals.  <a href="namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6">More...</a><br /></td></tr>
 <tr class="separator:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05">gaussian</a> (long double m, long double s)</td></tr>
+<tr class="memdesc:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Gaussian distributed random number.  <a href="namespacechebyshev_1_1random.html#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05">More...</a><br /></td></tr>
+<tr class="separator:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15bbdc55dff1111ed74f09a061ad08d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#a15bbdc55dff1111ed74f09a061ad08d0">string</a> (size_t length)</td></tr>
 <tr class="memdesc:a15bbdc55dff1111ed74f09a061ad08d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random string made of human-readable ASCII characters.  <a href="namespacechebyshev_1_1random.html#a15bbdc55dff1111ed74f09a061ad08d0">More...</a><br /></td></tr>
 <tr class="separator:a15bbdc55dff1111ed74f09a061ad08d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +151,52 @@ struct <a class="el" href="structchebyshev_1_1random_1_1random__settings.html">c
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Pseudorandom number generation and sampling module. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05">&#9670;&nbsp;</a></span>gaussian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long double chebyshev::random::gaussian </td>
+          <td>(</td>
+          <td class="paramtype">long double&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a Gaussian distributed random number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>The mean of the distribution </td></tr>
+    <tr><td class="paramname">s</td><td>The standard deviation of the distribution </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pseudorandom number Gaussian distributed. </dd></dl>
+
+</div>
+</div>
 <a id="a7bd42d61be7fd8d4225b93c0a48e05c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7bd42d61be7fd8d4225b93c0a48e05c6">&#9670;&nbsp;</a></span>sample_uniform()</h2>
 
@@ -421,7 +471,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacechebyshev.html">chebyshev</a></li><li class="navelem"><a class="el" href="namespacechebyshev_1_1random.html">random</a></li>
-    <li class="footer">Generated on Sun Oct 27 2024 10:36:20 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Nov 5 2024 20:46:14 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

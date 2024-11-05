@@ -103,13 +103,15 @@ $(document).ready(function(){initNavTree('random_8h.html',''); initResizable(); 
 <p>The pseudorandom number generation and sampling module.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &quot;<a class="el" href="interval_8h_source.html">../prec/interval.h</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">../core/common.h</a>&quot;</code><br />
 </div>
 <p><a href="random_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchebyshev_1_1random_1_1random__settings.html">chebyshev::random::random_settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for the random module.  <a href="structchebyshev_1_1random_1_1random__settings.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -138,6 +140,9 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memitem:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6">chebyshev::random::sample_uniform</a> (Vector &amp;x, const std::vector&lt; prec::interval &gt; intervals)</td></tr>
 <tr class="memdesc:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill an already allocated vector with uniformly distributed numbers over different intervals.  <a href="namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6">More...</a><br /></td></tr>
 <tr class="separator:a7bd42d61be7fd8d4225b93c0a48e05c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05">chebyshev::random::gaussian</a> (long double m, long double s)</td></tr>
+<tr class="memdesc:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Gaussian distributed random number.  <a href="namespacechebyshev_1_1random.html#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05">More...</a><br /></td></tr>
+<tr class="separator:ac7ab3f7b6f0f0dc0a77e7c1b147c3e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15bbdc55dff1111ed74f09a061ad08d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechebyshev_1_1random.html#a15bbdc55dff1111ed74f09a061ad08d0">chebyshev::random::string</a> (size_t length)</td></tr>
 <tr class="memdesc:a15bbdc55dff1111ed74f09a061ad08d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random string made of human-readable ASCII characters.  <a href="namespacechebyshev_1_1random.html#a15bbdc55dff1111ed74f09a061ad08d0">More...</a><br /></td></tr>
 <tr class="separator:a15bbdc55dff1111ed74f09a061ad08d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,7 +171,7 @@ struct <a class="el" href="structchebyshev_1_1random_1_1random__settings.html">c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_7693ae4dd4071e0feb1d1a6e7c0a7b5e.html">chebyshev</a></li><li class="navelem"><a class="el" href="dir_87fcc473771e54f067207b78759b0280.html">src</a></li><li class="navelem"><a class="el" href="dir_f34e67786cf6786decd18dae57af4e06.html">core</a></li><li class="navelem"><a class="el" href="random_8h.html">random.h</a></li>
-    <li class="footer">Generated on Sun Oct 27 2024 10:36:20 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Nov 5 2024 20:46:14 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

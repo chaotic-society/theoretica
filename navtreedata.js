@@ -97,14 +97,14 @@ var NAVTREEINDEX =
 "classtheoretica_1_1dual.html#a13df821c92c9e28aa6702ea7ae83a5fa",
 "classtheoretica_1_1multidual.html#a54eecbaa9642455b3d491b3d2d31d264",
 "classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8f98dc318360a3f2e66417fabb0e8564",
-"dual2__functions_8h.html#a29e46804be47f0c4865014a4a763cf76",
-"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18",
-"namespacetheoretica.html#a17352cbe273b80ae0f08eac818eba84e",
-"namespacetheoretica.html#ab7c6bc4e4c3bc2e859b5ff1e4b344df4",
-"namespacetheoretica_1_1autodiff.html#a7f11f1d8910570fe74ba30293b593aec",
-"parallel_8h.html#ac378a527f94a51ae90f53fea5d849fa0",
-"src_2algebra_2distance_8h.html#afda85103719a7a69d69670a8ae6dc13b",
-"structtheoretica_1_1regression_1_1linear__model.html#a02941b26afead579d34cae623c8de78e"
+"dual2__functions_8h.html#a29720d3e71b280bb3ea048aa71bc3655",
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md17",
+"namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7",
+"namespacetheoretica.html#ab540a53d6b06cf92b73738c655b6c1f5",
+"namespacetheoretica_1_1autodiff.html#a55789385df53d96638cb5d3451815560",
+"parallel_8h.html#aaab2e6bac495c2ceb14f6d0af823fbb4",
+"src_2algebra_2distance_8h.html#ae22507b333d714ba60bd5045ea3c3adf",
+"structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

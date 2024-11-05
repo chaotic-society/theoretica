@@ -1,6 +1,7 @@
 var namespacechebyshev_1_1random =
 [
     [ "random_settings", "structchebyshev_1_1random_1_1random__settings.html", "structchebyshev_1_1random_1_1random__settings" ],
+    [ "gaussian", "namespacechebyshev_1_1random.html#ac7ab3f7b6f0f0dc0a77e7c1b147c3e05", null ],
     [ "natural", "namespacechebyshev_1_1random.html#a2e84df7ad7b996b980afe16f085b2104", null ],
     [ "sample_uniform", "namespacechebyshev_1_1random.html#a7bd42d61be7fd8d4225b93c0a48e05c6", null ],
     [ "setup", "namespacechebyshev_1_1random.html#a55c243009a6a0db0791b5a1473f3dab9", null ],

@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98":[12,0,1,38,0],
+"structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e":[12,0,1,38,7],
+"structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c":[12,0,1,38,3],
+"structtheoretica_1_1regression_1_1linear__model.html":[12,0,1,3,0],
 "structtheoretica_1_1regression_1_1linear__model.html#a02941b26afead579d34cae623c8de78e":[12,0,1,3,0,7],
 "structtheoretica_1_1regression_1_1linear__model.html#a189ba751efe2f7757b5aabb79be3f214":[12,0,1,3,0,0],
 "structtheoretica_1_1regression_1_1linear__model.html#a248025bcded0a3c958aaed8c1437bef1":[12,0,1,3,0,6],
@@ -40,7 +44,10 @@ var NAVTREEINDEX11 =
 "test_2chebyshev_2src_2prec_2distance_8h.html#ae4555b874cad1361260c5500267bd7b2":[13,0,12,0,1,3,0,0],
 "test_2chebyshev_2src_2prec_2distance_8h_source.html":[13,0,12,0,1,3,0],
 "test__algebra_8cpp.html":[13,0,12,1,0],
-"test__algebra_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,0,0],
+"test__algebra_8cpp.html#a634a07923e2017b8e491f444cda5d0bc":[13,0,12,1,0,3],
+"test__algebra_8cpp.html#aafc8b694483e28f1e783422b0c145354":[13,0,12,1,0,0],
+"test__algebra_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,0,1],
+"test__algebra_8cpp.html#ad185edd35fcfd8479177d5770ebee1a6":[13,0,12,1,0,2],
 "test__core_8cpp.html":[13,0,12,1,1],
 "test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,1,0],
 "test__polynomial_8cpp.html":[13,0,12,1,2],
