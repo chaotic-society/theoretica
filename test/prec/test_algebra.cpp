@@ -17,7 +17,7 @@ real linf_norm(const Structure& A) {
 	real m = 0.0;
 
 	for (const auto& x : A)
-		m = max(m, abs(x));
+		m = std::max(m, std::abs(x));
 
 	return m;
 }
@@ -104,11 +104,9 @@ int main(int argc, char const *argv[]) {
 		);
 
 		// Compute the residual N items
-		alg_opt.iterations = 10;
+		alg_opt.iterations = 100;
 
-		auto is_zero = []() -> real {
-			return 0.0;
-		};
+		auto is_zero = []() -> real { return 0.0; };
 
 
 		prec::estimate(
