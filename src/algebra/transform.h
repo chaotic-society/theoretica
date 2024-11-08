@@ -497,6 +497,7 @@ namespace theoretica {
 		}
 
 
+		/// Generate a NxN symplectic matrix where N is even.
 		template<typename Matrix>
 		inline Matrix symplectic(unsigned int rows = 0, unsigned int cols = 0) {
 
@@ -519,6 +520,29 @@ namespace theoretica {
 			}
 
 			return m;
+		}
+
+
+		/// Construct the Hilbert matrix of arbitrary dimension.
+		/// The Hilbert matrices are square matrices with particularly high
+		/// condition number, which makes them ill-conditioned for numerical calculations.
+		/// The elements of the Hilbert matrix are given by
+		/// \f$H_{ij} = \frac{1}{i + j - 1}\f$ (for \f$i,j\f$ starting from 1).
+		///
+		/// @param rows The number of rows (and columns) of the resulting matrix
+		/// @return The Hilbert matrix of the given size
+		template<typename Matrix>
+		inline Matrix hilbert(unsigned int rows = 0) {
+
+			Matrix H;
+			if (rows)
+				H.resize(rows, rows);
+
+			for (unsigned int i = 0; i < H.rows(); ++i)
+				for (unsigned int j = 0; j < H.cols(); ++j)
+					H(i, j) = 1.0 / (i + j + 1);
+
+			return H;
 		}
 
 
