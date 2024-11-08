@@ -13,7 +13,7 @@ var searchData=
   ['failedtests_283',['failedTests',['../structchebyshev_1_1prec_1_1prec__results.html#a7e5b4b0dd1881038fc92ca3858228466',1,'chebyshev::prec::prec_results']]],
   ['failfunction_284',['FailFunction',['../namespacechebyshev_1_1prec.html#a5022ef665cb15b39272380050636962f',1,'chebyshev::prec']]],
   ['falling_5ffact_285',['falling_fact',['../namespacetheoretica.html#adb032626b2f25bf5c31026c1ee6e639d',1,'theoretica']]],
-  ['fancy_286',['fancy',['../namespacechebyshev_1_1output_1_1format.html#a5b02f4d40cd542dbd526c65cf5bbd2a0',1,'chebyshev::output::format']]],
+  ['fancy_286',['fancy',['../namespacechebyshev_1_1output_1_1format.html#a6239ee7d20c0129acb5da46f156c58e1',1,'chebyshev::output::format']]],
   ['fft_287',['fft',['../namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec',1,'theoretica::signal']]],
   ['fft_2eh_288',['fft.h',['../fft_8h.html',1,'']]],
   ['field_5foptions_289',['field_options',['../structchebyshev_1_1output_1_1field__options.html',1,'chebyshev::output']]],

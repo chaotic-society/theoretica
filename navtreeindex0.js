@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"":[11,0,2,0],
 "algebra_8h.html":[13,0,0,0],
 "algebra_8h.html#a0054d7da3d235f12c325512776b386a8":[13,0,0,0,36],
 "algebra_8h.html#a01182d050ae939b2fb0647806478882c":[13,0,0,0,23],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "classtheoretica_1_1complex.html#aff2ad732cc1e69bfaf9f48befff182dc":[12,0,1,13,5],
 "classtheoretica_1_1dual.html":[12,0,1,10],
 "classtheoretica_1_1dual.html#a060cc0b9919312af782347934883773c":[12,0,1,10,36],
-"classtheoretica_1_1dual.html#a09dad730d7cc110ef1d413c218c430ad":[12,0,1,10,24]
+"classtheoretica_1_1dual.html#a09dad730d7cc110ef1d413c218c430ad":[12,0,1,10,24],
+"classtheoretica_1_1dual.html#a13df821c92c9e28aa6702ea7ae83a5fa":[12,0,1,10,30]
 };

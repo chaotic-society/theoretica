@@ -6,7 +6,7 @@ var searchData=
   ['fail_5fon_5frel_5ferr_1232',['fail_on_rel_err',['../namespacechebyshev_1_1prec_1_1fail.html#a67f9c1527640b8a8156f3f2fca702e97',1,'chebyshev::prec::fail']]],
   ['fail_5fon_5frms_5ferr_1233',['fail_on_rms_err',['../namespacechebyshev_1_1prec_1_1fail.html#adf88360c8f076b6b9f0089a8617ef046',1,'chebyshev::prec::fail']]],
   ['falling_5ffact_1234',['falling_fact',['../namespacetheoretica.html#adb032626b2f25bf5c31026c1ee6e639d',1,'theoretica']]],
-  ['fancy_1235',['fancy',['../namespacechebyshev_1_1output_1_1format.html#a5b02f4d40cd542dbd526c65cf5bbd2a0',1,'chebyshev::output::format']]],
+  ['fancy_1235',['fancy',['../namespacechebyshev_1_1output_1_1format.html#a6239ee7d20c0129acb5da46f156c58e1',1,'chebyshev::output::format']]],
   ['fft_1236',['fft',['../namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec',1,'theoretica::signal']]],
   ['fill_1237',['fill',['../structtheoretica_1_1pdf__sampler.html#a23493bbdec32c2ce50f5036b13fd044d',1,'theoretica::pdf_sampler::fill(Vector &amp;x)'],['../structtheoretica_1_1pdf__sampler.html#a02301a6898722cf941c095fa13e338f5',1,'theoretica::pdf_sampler::fill(Vector &amp;x, size_t N)']]],
   ['find_5forder_1238',['find_order',['../classtheoretica_1_1polynomial.html#ab36273a6c8e82eb0b6fc6a9a441c5d3e',1,'theoretica::polynomial']]],
