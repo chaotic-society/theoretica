@@ -233,9 +233,9 @@ namespace chebyshev {
 			/// Fancy output format which uses Unicode characters
 			/// to print a continuous outline around the table.
 			/// The OutputFormat is returned as a lambda function.
-			inline OutputFormat fancy() {
+			inline OutputFormat fancy(bool adaptiveWidth = true) {
 
-				return [](
+				return [adaptiveWidth](
 					const std::vector<std::vector<std::string>>& table,
 					const std::vector<std::string>& fields,
 					const output_settings& settings) -> std::string {
@@ -251,21 +251,54 @@ namespace chebyshev {
 					header_str << " │ ";
 					eff_length += 3;
 
+					// Processed table
+					auto proc_table = table;
+
+					// Field value interpretation step
+					for (size_t i = 0; i < proc_table[0].size(); ++i) {
+						
+						auto it = settings.fieldOptions.find(fields[i]);
+
+						if (it == settings.fieldOptions.end())
+							continue;
+
+						for (size_t j = 1; j < proc_table.size(); ++j)
+							proc_table[j][i] = it->second.fieldInterpreter(table[j][i]);
+					}
+
+					std::vector<size_t> computedWidth;
+
+					// Compute the ideal column width
+					if (adaptiveWidth) {
+
+						computedWidth.resize(proc_table[0].size());
+
+						for (size_t i = 0; i < proc_table[0].size(); ++i) {
+							
+							// 2 is for padding before and after
+							computedWidth[i] = settings.defaultColumnWidth;
+
+							for (size_t j = 1; j < proc_table.size(); ++j)
+								if (proc_table[j][i].size() > computedWidth[i])
+									computedWidth[i] = proc_table[j][i].size() + 2;
+						}
+					}
+
 					for (size_t i = 0; i < table[0].size(); ++i) {
 
 						auto it = settings.fieldOptions.find(fields[i]);
 
-						if(it != settings.fieldOptions.end()) {
-							header_str << std::setw(it->second.columnWidth)
-							<< table[0][i] << " │ ";
-							eff_length += it->second.columnWidth;
-						} else {
-							header_str << std::setw(settings.defaultColumnWidth)
-							<< table[0][i] << " │ ";
-							eff_length += settings.defaultColumnWidth;
-						}
+						unsigned int width = 0;
 
-						eff_length += 3;
+						if(it != settings.fieldOptions.end() && !adaptiveWidth)
+							width = it->second.columnWidth;
+						else if (adaptiveWidth) 
+							width = computedWidth[i];
+						else
+							width = settings.defaultColumnWidth;
+
+						header_str << std::setw(width) << table[0][i] << " │ ";
+						eff_length += width + 3;
 					}
 
 					std::string header = " ┌";
@@ -285,9 +318,9 @@ namespace chebyshev {
 
 					std::stringstream result;
 
-					for (size_t i = 1; i < table.size(); ++i) {
+					for (size_t i = 1; i < proc_table.size(); ++i) {
 
-						if(table[i].size() != fields.size()) {
+						if(proc_table[i].size() != fields.size()) {
 							std::runtime_error(
 								"Number of columns and <fields> argument must have "
 								"the same size in output::format::fancy");
@@ -295,16 +328,19 @@ namespace chebyshev {
 
 						result << " │ ";
 
-						for (size_t j = 0; j < table[i].size(); ++j) {
+						for (size_t j = 0; j < proc_table[i].size(); ++j) {
 
 							auto it = settings.fieldOptions.find(fields[j]);
 
-							if(it != settings.fieldOptions.end())
+							if(it != settings.fieldOptions.end() && !adaptiveWidth)
 								result << std::setw(it->second.columnWidth)
-								<< it->second.fieldInterpreter(table[i][j]) << " │ ";
-							else
+								<< proc_table[i][j] << " │ ";
+							else if (adaptiveWidth) {
+								result << std::setw(computedWidth[j])
+								<< proc_table[i][j] << " │ ";
+							} else
 								result << std::setw(settings.defaultColumnWidth)
-								<< table[i][j] << " │ ";
+								<< proc_table[i][j] << " │ ";
 						}
 
 						result << "\n";

@@ -37,6 +37,38 @@ Matrix rand_mat(real m, real s, unsigned int rows, unsigned int cols) {
 }
 
 
+// Generate a random lower triangular matrix with Gaussian distributed elements
+template<typename Matrix = mat<real>>
+Matrix rand_mat_lower(real m, real s, unsigned int rows, unsigned int cols) {
+
+	Matrix L;
+	L.resize(rows, cols);
+
+	for (unsigned int i = 0; i < L.rows(); ++i)
+		for (unsigned int j = 0; j < L.cols(); ++j)
+			if (i <= j)
+				L(i, j) = random::gaussian(m, s);
+
+	return L;
+}
+
+
+// Generate a random upper triangular matrix with Gaussian distributed elements
+template<typename Matrix = mat<real>>
+Matrix rand_mat_upper(real m, real s, unsigned int rows, unsigned int cols) {
+
+	Matrix U;
+	U.resize(rows, cols);
+
+	for (unsigned int i = 0; i < U.rows(); ++i)
+		for (unsigned int j = 0; j < U.cols(); ++j)
+			if (i >= j)
+				U(i, j) = random::gaussian(m, s);
+
+	return U;
+}
+
+
 // Generate a random symmetric matrix with Gaussian distributed elements
 template<typename Matrix = mat<real>>
 Matrix rand_mat_symmetric(real m, real s, unsigned int rows, unsigned int cols) {
@@ -93,8 +125,6 @@ int main(int argc, char const *argv[]) {
 	prec::settings.outputFiles = { "test/prec/test_algebra.csv" };
 
 	prec::setup("algebra", argc, argv);
-
-		output::settings.fieldOptions["name"].columnWidth = 30;
 
 		// algebra.h
 

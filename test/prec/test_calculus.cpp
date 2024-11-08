@@ -118,7 +118,6 @@ int main(int argc, char const *argv[]) {
 	prec::setup("calculus");
 
 		output::settings.outputFiles = { "test/prec/prec_calculus.csv" };
-		output::settings.fieldOptions["name"].columnWidth = 24;
 		prec::settings.estimateColumns = {
 			"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
 		};

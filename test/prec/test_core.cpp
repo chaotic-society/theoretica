@@ -15,10 +15,8 @@ int main(int argc, char const *argv[]) {
 	prec::setup("core", argc, argv);
 
 		output::settings.outputFiles = { "test/prec/prec_core.csv" };
-		output::settings.fieldOptions["name"].columnWidth = 24;
 
 		prec::settings.defaultIterations = 1'000'000;
-
 
 		// Test real_analysis.h
 
