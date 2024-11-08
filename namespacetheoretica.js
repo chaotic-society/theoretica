@@ -46,6 +46,7 @@ var namespacetheoretica =
       [ "hermitian", "namespacetheoretica_1_1algebra.html#ab27e1f7cb91803bcaa589262d38e32e5", null ],
       [ "hermitian", "namespacetheoretica_1_1algebra.html#ad4f36cb3ef370d7a919feb6ec0ae389f", null ],
       [ "hermitian_distance", "namespacetheoretica_1_1algebra.html#a9de933be9b870772f4023c5d1ad6fb65", null ],
+      [ "hilbert", "namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2", null ],
       [ "identity", "namespacetheoretica_1_1algebra.html#acd28fad57af499af2e6684cb08bab273", null ],
       [ "inverse", "namespacetheoretica_1_1algebra.html#aa5adc77960e5924940603eb503c12828", null ],
       [ "inverse", "namespacetheoretica_1_1algebra.html#aa07d864923839f2e5ced058527bdf104", null ],

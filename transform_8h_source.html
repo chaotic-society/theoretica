@@ -538,51 +538,68 @@ $(document).ready(function(){initNavTree('transform_8h_source.html',''); initRes
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        }</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix&gt;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        <span class="keyword">inline</span> Matrix symplectic(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rows = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cols = 0) {</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; </div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;            Matrix m;</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            <span class="keywordflow">if</span>(rows &amp;&amp; cols)</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                m.resize(rows, cols);</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <span class="keywordflow">if</span>(rows != cols || (rows % 2 != 0)) {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::symplectic&quot;</span>, rows, INVALID_ARGUMENT);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a8a27cf2ce776b56e7546021ecca7db53">mat_error</a>(m);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                <span class="keywordflow">return</span> m;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;            }</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> half = m.rows() / 2;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#a01ac4d9844e1bb4c7ef409277bed451f">mat_zeroes</a>(m);</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; half; ++i) {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                m(i, i + half) = 1;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                m(i + half, i) = -1;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;            }</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            <span class="keywordflow">return</span> m;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        }</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix&gt;</div>
+<div class="line"><a name="l00502"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718">  502</a></span>&#160;        <span class="keyword">inline</span> Matrix <a class="code" href="namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718">symplectic</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rows = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cols = 0) {</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            Matrix m;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;            <span class="keywordflow">if</span>(rows &amp;&amp; cols)</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                m.resize(rows, cols);</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            <span class="keywordflow">if</span>(rows != cols || (rows % 2 != 0)) {</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                <a class="code" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;algebra::symplectic&quot;</span>, rows, INVALID_ARGUMENT);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                <a class="code" href="namespacetheoretica_1_1algebra.html#a8a27cf2ce776b56e7546021ecca7db53">mat_error</a>(m);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <span class="keywordflow">return</span> m;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            }</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> half = m.rows() / 2;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            <a class="code" href="namespacetheoretica_1_1algebra.html#a01ac4d9844e1bb4c7ef409277bed451f">mat_zeroes</a>(m);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; half; ++i) {</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                m(i, i + half) = 1;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                m(i + half, i) = -1;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            }</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            <span class="keywordflow">return</span> m;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        }</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2&gt;</div>
-<div class="line"><a name="l00531"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">  531</a></span>&#160;        <span class="keyword">inline</span> Vector1 <a class="code" href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">sphere_inversion</a>(</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            <span class="keyword">const</span> Vector1&amp; p, <span class="keyword">const</span> Vector2&amp; c = Vector2(0), <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r = 1) {</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            Vector1 q = p - c;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            <span class="keywordflow">return</span> c + q * <a class="code" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(r / q.norm());</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        }</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    }</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;}</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Matrix&gt;</div>
+<div class="line"><a name="l00535"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2">  535</a></span>&#160;        <span class="keyword">inline</span> Matrix <a class="code" href="namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2">hilbert</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rows = 0) {</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            Matrix H;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            <span class="keywordflow">if</span> (rows)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                H.resize(rows, rows);</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; H.rows(); ++i)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; H.cols(); ++j)</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                    H(i, j) = 1.0 / (i + j + 1);</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; </div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;            <span class="keywordflow">return</span> H;</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        }</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2&gt;</div>
+<div class="line"><a name="l00555"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">  555</a></span>&#160;        <span class="keyword">inline</span> Vector1 <a class="code" href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">sphere_inversion</a>(</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;            <span class="keyword">const</span> Vector1&amp; p, <span class="keyword">const</span> Vector2&amp; c = Vector2(0), <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r = 1) {</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            Vector1 q = p - c;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;            <span class="keywordflow">return</span> c + q * <a class="code" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(r / q.norm());</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        }</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    }</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;}</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aalgebra_8h_html"><div class="ttname"><a href="algebra_8h.html">algebra.h</a></div><div class="ttdoc">Linear algebra routines.</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition:</b> error.h:220</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a01ac4d9844e1bb4c7ef409277bed451f"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a01ac4d9844e1bb4c7ef409277bed451f">theoretica::algebra::mat_zeroes</a></div><div class="ttdeci">Matrix &amp; mat_zeroes(Matrix &amp;m)</div><div class="ttdoc">Overwrite a matrix with all zeroes.</div><div class="ttdef"><b>Definition:</b> algebra.h:93</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a02e77b387067938a20b4da8bdf642718"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718">theoretica::algebra::symplectic</a></div><div class="ttdeci">Matrix symplectic(unsigned int rows=0, unsigned int cols=0)</div><div class="ttdoc">Generate a NxN symplectic matrix where N is even.</div><div class="ttdef"><b>Definition:</b> transform.h:502</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a038ef7f20afa9fbbdd052c020c90f581"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581">theoretica::algebra::cross</a></div><div class="ttdeci">Vector1 cross(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Compute the cross product between two tridimensional vectors.</div><div class="ttdef"><b>Definition:</b> algebra.h:373</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a063f399cc1085c363880f3425e88c628"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a063f399cc1085c363880f3425e88c628">theoretica::algebra::make_identity</a></div><div class="ttdeci">Matrix &amp; make_identity(Matrix &amp;m)</div><div class="ttdoc">Overwrite a matrix with the identity matrix.</div><div class="ttdef"><b>Definition:</b> algebra.h:77</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a1740381f968a6d4ca37079ae8abcd904"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a1740381f968a6d4ca37079ae8abcd904">theoretica::algebra::make_normalized</a></div><div class="ttdeci">Vector &amp; make_normalized(Vector &amp;v)</div><div class="ttdoc">Normalize a given vector overwriting it.</div><div class="ttdef"><b>Definition:</b> algebra.h:327</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a2796454efe36f2b64f6f813113ff4830"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a2796454efe36f2b64f6f813113ff4830">theoretica::algebra::look_at</a></div><div class="ttdeci">Matrix look_at(Vector1 camera, Vector2 target, Vector3 up)</div><div class="ttdoc">Return a transformation matrix that points the field of view towards a given point from the &lt;camera&gt; ...</div><div class="ttdef"><b>Definition:</b> transform.h:449</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a38f892f84cf60902500fc4a4f114f8fe"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a38f892f84cf60902500fc4a4f114f8fe">theoretica::algebra::rotation_2d</a></div><div class="ttdeci">Matrix rotation_2d(real theta, unsigned int rows=0, unsigned int cols=0)</div><div class="ttdoc">Returns a matrix representing a 2D rotation.</div><div class="ttdef"><b>Definition:</b> transform.h:118</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a517bdd1d7ac545a5f3ccfab6e627caca"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">theoretica::algebra::sphere_inversion</a></div><div class="ttdeci">Vector1 sphere_inversion(const Vector1 &amp;p, const Vector2 &amp;c=Vector2(0), real r=1)</div><div class="ttdoc">Sphere inversion of a point with respect to a sphere of radius r centered at a point c.</div><div class="ttdef"><b>Definition:</b> transform.h:531</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a517bdd1d7ac545a5f3ccfab6e627caca"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">theoretica::algebra::sphere_inversion</a></div><div class="ttdeci">Vector1 sphere_inversion(const Vector1 &amp;p, const Vector2 &amp;c=Vector2(0), real r=1)</div><div class="ttdoc">Sphere inversion of a point with respect to a sphere of radius r centered at a point c.</div><div class="ttdef"><b>Definition:</b> transform.h:555</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a6d8959e6c5653f2a821935ca4a1d4cd2"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2">theoretica::algebra::hilbert</a></div><div class="ttdeci">Matrix hilbert(unsigned int rows=0)</div><div class="ttdoc">Construct the Hilbert matrix of arbitrary dimension.</div><div class="ttdef"><b>Definition:</b> transform.h:535</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a78eaf414de804da51ccf4ee4dc20d31c"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c">theoretica::algebra::dot</a></div><div class="ttdeci">auto dot(const Vector1 &amp;v, const Vector2 &amp;w)</div><div class="ttdoc">Computes the dot product between two vectors, using the Hermitian form if needed.</div><div class="ttdef"><b>Definition:</b> algebra.h:351</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a7e41df03a4e0f1273b41aea2fc1dee3a"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a7e41df03a4e0f1273b41aea2fc1dee3a">theoretica::algebra::rotation_3d_xaxis</a></div><div class="ttdeci">Matrix rotation_3d_xaxis(real theta, unsigned int rows=0, unsigned int cols=0)</div><div class="ttdoc">Returns a matrix representing a 3D rotation around the x axis.</div><div class="ttdef"><b>Definition:</b> transform.h:218</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a8a27cf2ce776b56e7546021ecca7db53"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a8a27cf2ce776b56e7546021ecca7db53">theoretica::algebra::mat_error</a></div><div class="ttdeci">Matrix &amp; mat_error(Matrix &amp;m)</div><div class="ttdoc">Overwrite the given matrix with the error matrix with NaN values on the diagonal and zeroes everywher...</div><div class="ttdef"><b>Definition:</b> algebra.h:44</div></div>
@@ -611,7 +628,7 @@ $(document).ready(function(){initNavTree('transform_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_086a664662017844fa76bd8f66ac71cd.html">algebra</a></li><li class="navelem"><a class="el" href="transform_8h.html">transform.h</a></li>
-    <li class="footer">Generated on Fri Nov 8 2024 12:02:46 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 8 2024 12:35:05 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

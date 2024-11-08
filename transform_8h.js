@@ -2,6 +2,7 @@ var transform_8h =
 [
     [ "diagonal", "transform_8h.html#a30801ece0c3185cc1da7d02f6e339de1", null ],
     [ "diagonal", "transform_8h.html#a8ac98f4149fbe0ee5aca456bd504a769", null ],
+    [ "hilbert", "transform_8h.html#a6d8959e6c5653f2a821935ca4a1d4cd2", null ],
     [ "identity", "transform_8h.html#acd28fad57af499af2e6684cb08bab273", null ],
     [ "look_at", "transform_8h.html#a2796454efe36f2b64f6f813113ff4830", null ],
     [ "ortho", "transform_8h.html#aca924f650d8b397b61d252dc01c71826", null ],

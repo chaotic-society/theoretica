@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"dual2__functions_8h.html#a29720d3e71b280bb3ea048aa71bc3655":[13,0,1,4,0],
 "dual2__functions_8h.html#a29e46804be47f0c4865014a4a763cf76":[13,0,1,4,11],
 "dual2__functions_8h.html#a3761005d81ac85b7297426bfc3f62ea2":[13,0,1,4,2],
 "dual2__functions_8h.html#a3def790003197bb019f5933b4db45c44":[13,0,1,4,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md13":[8,1],
 "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md14":[8,2],
 "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html#autotoc_md15":[8,3],
-"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html":[9],
-"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md17":[9,0]
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html":[9]
 };

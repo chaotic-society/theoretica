@@ -549,8 +549,13 @@ template&lt;typename Matrix , typename Vector1 , typename Vector2 , typename Vec
 <tr class="separator:a2796454efe36f2b64f6f813113ff4830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02e77b387067938a20b4da8bdf642718"><td class="memTemplParams" colspan="2"><a id="a02e77b387067938a20b4da8bdf642718"></a>
 template&lt;typename Matrix &gt; </td></tr>
-<tr class="memitem:a02e77b387067938a20b4da8bdf642718"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><b>symplectic</b> (unsigned int rows=0, unsigned int cols=0)</td></tr>
+<tr class="memitem:a02e77b387067938a20b4da8bdf642718"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718">symplectic</a> (unsigned int rows=0, unsigned int cols=0)</td></tr>
+<tr class="memdesc:a02e77b387067938a20b4da8bdf642718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a NxN symplectic matrix where N is even. <br /></td></tr>
 <tr class="separator:a02e77b387067938a20b4da8bdf642718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d8959e6c5653f2a821935ca4a1d4cd2"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
+<tr class="memitem:a6d8959e6c5653f2a821935ca4a1d4cd2"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2">hilbert</a> (unsigned int rows=0)</td></tr>
+<tr class="memdesc:a6d8959e6c5653f2a821935ca4a1d4cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Hilbert matrix of arbitrary dimension.  <a href="namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2">More...</a><br /></td></tr>
+<tr class="separator:a6d8959e6c5653f2a821935ca4a1d4cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a517bdd1d7ac545a5f3ccfab6e627caca"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2 &gt; </td></tr>
 <tr class="memitem:a517bdd1d7ac545a5f3ccfab6e627caca"><td class="memTemplItemLeft" align="right" valign="top">Vector1&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">sphere_inversion</a> (const Vector1 &amp;p, const Vector2 &amp;c=Vector2(0), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> r=1)</td></tr>
 <tr class="memdesc:a517bdd1d7ac545a5f3ccfab6e627caca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sphere inversion of a point with respect to a sphere of radius r centered at a point c.  <a href="namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca">More...</a><br /></td></tr>
@@ -2242,6 +2247,44 @@ template&lt;typename Vector , typename T  = real&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Hermitian distance between v1 and v2 </dd></dl>
+
+</div>
+</div>
+<a id="a6d8959e6c5653f2a821935ca4a1d4cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d8959e6c5653f2a821935ca4a1d4cd2">&#9670;&nbsp;</a></span>hilbert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix theoretica::algebra::hilbert </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>rows</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the Hilbert matrix of arbitrary dimension. </p>
+<p>The Hilbert matrices are square matrices with particularly high condition number, which makes them ill-conditioned for numerical calculations. The elements of the Hilbert matrix are given by \(H_{ij} = \frac{1}{i + j - 1}\) (for \(i,j\) starting from 1).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>The number of rows (and columns) of the resulting matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The Hilbert matrix of the given size </dd></dl>
 
 </div>
 </div>
@@ -5810,7 +5853,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Fri Nov 8 2024 12:02:46 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 8 2024 12:35:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
