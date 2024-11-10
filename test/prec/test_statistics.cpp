@@ -13,7 +13,6 @@ int main(int argc, char const *argv[]) {
 	prec::setup("statistics");
 
 		output::settings.outputFiles = { "test/prec/prec_statistics.csv" };
-		output::settings.fieldOptions["funcName"].columnWidth = 22;
 
 		PRNG g = PRNG::xoshiro(time(nullptr));
 

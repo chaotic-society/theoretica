@@ -18,3 +18,4 @@ errors:
 
 clean:
 	@rm *.csv
+	@rm *.exe

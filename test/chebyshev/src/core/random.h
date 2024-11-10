@@ -7,7 +7,8 @@
 #define CHEBYSHEV_RANDOM_H
 
 #include <cstdlib>
-#include "../prec/interval.h"
+#include <cmath>
+#include "../core/common.h"
 
 
 namespace chebyshev {
@@ -18,7 +19,7 @@ namespace chebyshev {
 
 
 		/// @class random_settings
-		/// 
+		/// Settings for the random module
 		struct random_settings {
 			
 			/// The seed for random number generation
@@ -72,6 +73,23 @@ namespace chebyshev {
 				x[i] = uniform(intervals[i].a, intervals[i].b);
 		
 			return x;
+		}
+
+
+		/// Generate a Gaussian distributed random number.
+		///
+		/// @param m The mean of the distribution
+		/// @param s The standard deviation of the distribution
+		/// @return A pseudorandom number Gaussian distributed.
+		inline long double gaussian(long double m, long double s) {
+
+			const long double x = uniform(0.0, 1.0);
+			const long double y = uniform(0.0, 1.0);
+
+			const long double v = std::sqrt(-2 * std::log(x));
+			const long double u = v * std::cos(2 * PI_CONST * y);
+
+			return m + s * u;
 		}
 
 

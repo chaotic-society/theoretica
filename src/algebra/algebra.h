@@ -1472,10 +1472,10 @@ namespace theoretica {
 				
 				for (unsigned int j = 0; j <= i; ++j) {
 					
-					Type sum = L(i, 0) * L(j, 0);
+					Type sum = pair_inner_product(L(i, 0), L(j, 0));
 
 					for (unsigned int k = 1; k < j; ++k)
-						sum += L(i, k) * L(j, k);
+						sum += pair_inner_product(L(i, k), L(j, k));
 
 					if (i == j) {
 
@@ -1500,6 +1500,49 @@ namespace theoretica {
 		}
 
 
+		/// Decompose a symmetric positive definite matrix in-place,
+		/// overwriting the starting matrix, without using additional space.
+		///
+		/// @param A The symmetric, positive definite matrix to decompose and overwrite
+		/// with the lower triangular matrix.
+		template<typename Matrix>
+		inline Matrix& decompose_cholesky_inplace(Matrix& A) {
+
+			using Type = matrix_element_t<Matrix>;
+
+			if (!is_square(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", A.rows(), INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			if (!is_symmetric(A)) {
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", false, INVALID_ARGUMENT);
+				return mat_error(A);
+			}
+
+			// Compute the Cholesky decomposition in-place
+			for (unsigned int k = 0; k < A.rows(); ++k) {
+
+				A(k, k) = sqrt(A(k, k));
+
+				for (unsigned int i = k + 1; i < A.rows(); ++i)
+					A(i, k) = A(i, k) / A(k, k);
+
+				for (unsigned int j = k + 1; j < A.rows(); ++j)
+					for (unsigned int i = j; i < A.cols(); ++i)
+						A(i, j) -= pair_inner_product(A(i, k), A(j, k));
+			}
+
+			// Zero out elements over the diagonal
+			for (unsigned int i = 0; i < A.rows(); ++i)
+				for (unsigned int j = i + 1; j < A.rows(); ++j)
+					A(i, j) = Type(0.0);
+					
+
+			return A;
+		}
+
+
 		// Linear system solvers
 
 
@@ -1516,12 +1559,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(L)) {
-				TH_MATH_ERROR("solve_triangular_lower", false, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_triangular_lower", false, INVALID_ARGUMENT);
 				return vec_error(x);
 			}
 
 			if (b.size() != L.rows()) {
-				TH_MATH_ERROR("solve_triangular_lower", b.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_triangular_lower", b.size(), INVALID_ARGUMENT);
 				return vec_error(x);
 			}
 
@@ -1534,7 +1577,7 @@ namespace theoretica {
 					sum += L(i, j) * x[j];
 
 				if (abs(L(i, i)) < MACH_EPSILON) {
-					TH_MATH_ERROR("solve_triangular_lower", L(i, i), DIV_BY_ZERO);
+					TH_MATH_ERROR("algebra::solve_triangular_lower", L(i, i), DIV_BY_ZERO);
 					return vec_error(x);
 				}
 
@@ -1616,7 +1659,7 @@ namespace theoretica {
 
 
 		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$,
-		/// where the matrix A has already undergone in-place LU decomposition.
+		/// where the matrix A has **already undergone in-place LU decomposition**.
 		/// Forward and backward elimination is used to solve the system in place.
 		/// This routine is particularly efficient for solving linear systems
 		/// multiple times with the same matrix but different vectors.
@@ -1684,12 +1727,133 @@ namespace theoretica {
 		}
 
 
+		/// Use the LU decomposition of a matrix to solve its associated linear system,
+		/// solving \f$A \vec x = \vec b\f$ for \f$\vec b\f$. When solving the same linear
+		/// system over and over, it is advantageous to compute its LU decomposition
+		/// using decompose_lu and then use the decomposition to solve the system for
+		/// different known vectors, reducing the overall computational cost.
+		///
+		/// @param L The lower triangular matrix
+		/// @param U The upper triangular matrix
+		/// @param b The known vector
+		/// @return The vector solution \f$\vec x\f$.
+		template<typename Matrix1, typename Matrix2, typename Vector>
+		inline Vector solve_lu(const Matrix1& L, const Matrix2& U, const Vector& b) {
+
+			Vector x = b;
+
+			if (!is_square(L)) {
+				TH_MATH_ERROR("algebra::solve_lu", L.rows(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (!is_square(U)) {
+				TH_MATH_ERROR("algebra::solve_lu", U.rows(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (L.rows() != U.rows()) {
+				TH_MATH_ERROR("algebra::solve_lu", U.rows(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (b.size() != L.rows()) {
+				TH_MATH_ERROR("algebra::solve_lu", b.size(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			using Type1 = matrix_element_t<Matrix1>;
+
+			// Forward elimination for L
+			for (unsigned int i = 1; i < L.rows(); ++i) {
+				
+				Type1 sum = Type1(0.0);
+
+				for (unsigned int j = 0; j < i; ++j)
+					sum += L(i, j) * x[j];
+
+				x[i] -= sum;
+			}
+
+			using Type2 = matrix_element_t<Matrix2>;
+
+			// Backward elimination for U
+			for (int i = U.rows() - 1; i >= 0; --i) {
+
+				Type2 sum = Type2(0.0);
+				
+				for (unsigned int j = i + 1; j < U.rows(); ++j)
+					sum += U(i, j) * x[j];
+
+				if (abs(U(i, i)) < MACH_EPSILON) {
+					TH_MATH_ERROR("algebra::solve_lu", U(i, i), DIV_BY_ZERO);
+					return vec_error(x);
+				}
+
+				x[i] = (x[i] - sum) / U(i, i);
+			}
+
+			return x;
+		}
+
+
+		/// Solve a linear system \f$A \vec x = \vec b\f$ defined by a symmetric
+		/// positive definite matrix, using the Cholesky decomposition \f$L\f$ constructed
+		/// so that \f$A = LL^T\f$.
+		///
+		/// @param L The already computed Cholesky decomposition of the symmetric
+		/// positive definite matrix describing the system.
+		/// @param b The known vector
+		/// @return The unknown vector \f$\vec x\f$
+		template<typename Matrix, typename Vector>
+		inline Vector solve_cholesky(const Matrix& L, const Vector& b) {
+
+			Vector x = b;
+
+			if (!is_square(L)) {
+				TH_MATH_ERROR("algebra::solve_cholesky", L.rows(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			if (L.rows() != b.size()) {
+				TH_MATH_ERROR("algebra::solve_cholesky", b.size(), INVALID_ARGUMENT);
+				return vec_error(x);
+			}
+
+			using Type = matrix_element_t<Matrix>;
+
+			// Forward elimination for L
+			for (unsigned int i = 0; i < L.rows(); ++i) {
+				
+				Type sum = Type(0.0);
+
+				for (unsigned int j = 0; j < i; ++j)
+					sum += L(i, j) * x[j];
+
+				x[i] = (x[i] - sum) / L(i, i);
+			}
+
+			// Backward elimination for L transpose
+			for (int i = L.rows() - 1; i >= 0; --i) {
+
+				Type sum = Type(0.0);
+				
+				for (unsigned int j = i + 1; j < L.rows(); ++j)
+					sum += L(j, i) * x[j];
+
+				x[i] = (x[i] - sum) / L(i, i);
+			}
+
+			return x;
+		}
+
+
 		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$
 		/// using the best available algorithm.
 		/// 
 		/// @param A The matrix of the linear system
 		/// @param b The known vector
-		/// @return The unknown vector
+		/// @return The unknown vector \f$\vec x\f$
 		template<typename Matrix, typename Vector>
 		inline Vector solve(const Matrix& A, const Vector& b) {
 

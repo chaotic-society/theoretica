@@ -55,6 +55,10 @@ namespace chebyshev {
 	inline constexpr FloatType get_nan() {
 		return std::numeric_limits<FloatType>::quiet_NaN();
 	}
+
+
+	/// The Pi mathematical constant
+	const long double PI_CONST = 3.141592653589793238462643L;
 	
 }
 
