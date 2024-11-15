@@ -275,15 +275,15 @@ namespace chebyshev {
 
 						for (size_t i = 0; i < proc_table[0].size(); ++i) {
 							
-							// 2 is for padding before and after
 							computedWidth[i] = settings.defaultColumnWidth;
 
-							for (size_t j = 1; j < proc_table.size(); ++j)
+							for (size_t j = 0; j < proc_table.size(); ++j)
 								if (proc_table[j][i].size() > computedWidth[i])
-									computedWidth[i] = proc_table[j][i].size() + 2;
+									computedWidth[i] = proc_table[j][i].size();
 						}
 					}
 
+					// Print table header
 					for (size_t i = 0; i < table[0].size(); ++i) {
 
 						auto it = settings.fieldOptions.find(fields[i]);

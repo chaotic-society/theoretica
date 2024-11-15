@@ -237,8 +237,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = 1;
 			m(1, 1) = c;
@@ -279,8 +279,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = c;
 			m(1, 1) = 1;
@@ -322,8 +322,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = c;
 			m(1, 1) = c;

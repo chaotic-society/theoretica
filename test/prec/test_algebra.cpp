@@ -23,6 +23,20 @@ real linf_norm(const Structure& A) {
 }
 
 
+// Generate a random vector with Gaussian distributed elements
+template<typename Vector = vec<real>>
+Vector rand_vec(real m, real s, unsigned int n) {
+
+	Vector v;
+	v.resize(n);
+
+	for (auto& x : v)
+		x = random::gaussian(m, s);
+
+	return v;
+}
+
+
 // Generate a random matrix with Gaussian distributed elements
 template<typename Matrix = mat<real>>
 Matrix rand_mat(real m, real s, unsigned int rows, unsigned int cols) {
@@ -120,6 +134,28 @@ auto mat_estimator() {
 }
 
 
+// Run a test against a residual function over random matrices or vectors.
+template<typename Function>
+void test_residual(
+	const std::string& name,
+	Function residual,
+	unsigned int iterations = 100) {
+
+	auto opt = prec::estimate_options<real>(
+		prec::interval(),
+		mat_estimator()
+	);
+	opt.iterations = iterations;
+
+	prec::estimate(
+		name,
+		residual,
+		[]() { return 0.0; },
+		opt
+	);
+}
+
+
 int main(int argc, char const *argv[]) {
 
 	prec::settings.outputFiles = { "test/prec/test_algebra.csv" };
@@ -128,61 +164,57 @@ int main(int argc, char const *argv[]) {
 
 		// algebra.h
 
-		auto alg_opt = prec::estimate_options<real>(
-			prec::interval(),
-			mat_estimator()
-		);
 
-		// Compute the residual N items
-		alg_opt.iterations = 100;
+		test_residual("normalize", []() {
 
-		auto is_zero = []() -> real { return 0.0; };
+			auto v = rand_vec(0.0, 1.0, 100);
+			auto w = algebra::normalize(v);
+			return std::abs(1 - algebra::norm(w));
+		});
 
 
-		prec::estimate(
-			"transpose",
-			[]() {
+		test_residual("make_normalized", []() {
+
+			auto v = rand_vec(0.0, 1.0, 100);
+			algebra::make_normalized(v);
+			return std::abs(1 - algebra::norm(v));
+		});
+
+
+		test_residual("transpose", []() {
+
 				auto A = rand_mat(0.0, 1.0, 100, 100);
 				return linf_norm(A - algebra::transpose(algebra::transpose(A)));
-			},
-			is_zero, alg_opt
-		);
+		});
 
 
-		prec::estimate(
-			"make_transposed",
-			[]() {
+		test_residual("make_transposed", []() {
+
 				auto A = rand_mat(0.0, 1.0, 100, 100);
 				auto B = A;
+
 				algebra::make_transposed(B);
 				algebra::make_transposed(B);
 				return linf_norm(A - B);
-			},
-			is_zero, alg_opt
-		);
+		});
 
 
-		prec::estimate(
-			"decompose_cholesky",
-			[]() {
+		test_residual("decompose_cholesky", []() {
+
 				auto A = rand_mat_posdef(0.0, 1.0, 100);
 				auto L = algebra::decompose_cholesky(A);
 				return linf_norm(A - algebra::mat_mul_transpose(L, L));
-			},
-			is_zero, alg_opt
-		);
+		});
 
 
-		prec::estimate(
-			"decompose_cholesky_inplace",
-			[]() {
+		test_residual("decompose_cholesky_inplace", []() {
+
 				auto A = rand_mat_posdef(0.0, 1.0, 100);
 				auto L = A;
+			
 				algebra::decompose_cholesky_inplace(L);
 				return linf_norm(A - algebra::mat_mul_transpose(L, L));
-			},
-			is_zero, alg_opt
-		);
+		});
 
 		// mat.h
 

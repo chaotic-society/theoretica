@@ -58,7 +58,7 @@ int main(int argc, char const *argv[]) {
 		// N * t = 100 ms
 
 		benchmark::benchmark(
-			"base_sqrt",
+			"th::sqrt",
 			wrap_base(th::sqrt<real>),
 			data
 		);
@@ -76,7 +76,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		benchmark::benchmark(
-			"base_exp",
+			"th::exp",
 			wrap_base(th::exp<real>),
 			data
 		);
@@ -88,7 +88,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		benchmark::benchmark(
-			"base_atan",
+			"th::atan",
 			wrap_base(th::atan<real>),
 			data
 		);
