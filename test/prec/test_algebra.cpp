@@ -9,6 +9,9 @@ using namespace theoretica;
 using namespace chebyshev;
 
 
+constexpr unsigned int DEFAULT_ITER = 10;
+
+
 // Compute the L_inf norm of any iterable structure, such as vectors or matrices.
 // The norm finds the maximum element in absolute value.
 template<typename Structure>
@@ -139,7 +142,7 @@ template<typename Function>
 void test_residual(
 	const std::string& name,
 	Function residual,
-	unsigned int iterations = 100) {
+	unsigned int iterations = DEFAULT_ITER) {
 
 	auto opt = prec::estimate_options<real>(
 		prec::interval(),
@@ -165,9 +168,36 @@ int main(int argc, char const *argv[]) {
 		// algebra.h
 
 
+		const unsigned int N = 100;
+
+
+	{
+		vec<real> v = vec<real>(N);
+		algebra::vec_error(v);
+
+		prec::equals(
+			"vec_error",
+			is_nan(v),
+			true, 0
+		);
+	}
+
+
+	{
+		mat<real> A = mat<real>(N, N);
+		algebra::mat_error(A);
+
+		prec::equals(
+			"mat_error",
+			is_nan(A),
+			true, 0
+		);
+	}
+
+
 		test_residual("normalize", []() {
 
-			auto v = rand_vec(0.0, 1.0, 100);
+			auto v = rand_vec(0.0, 1.0, N);
 			auto w = algebra::normalize(v);
 			return std::abs(1 - algebra::norm(w));
 		});
@@ -175,46 +205,87 @@ int main(int argc, char const *argv[]) {
 
 		test_residual("make_normalized", []() {
 
-			auto v = rand_vec(0.0, 1.0, 100);
+			auto v = rand_vec(0.0, 1.0, N);
 			algebra::make_normalized(v);
 			return std::abs(1 - algebra::norm(v));
 		});
 
 
+		test_residual("dot", []() {
+
+			auto v = rand_vec(0.0, 1.0, N);
+			return std::abs(algebra::dot(v, v) - algebra::sqr_norm(v));
+		});
+
+
+		test_residual("cross", []() {
+			auto v1 = rand_vec(0.0, 1.0, 3);
+			auto v2 = rand_vec(0.0, 1.0, 3);
+			return std::abs(v1 * algebra::cross(v1, v2));
+		});
+
+
+		test_residual("cross", []() {
+			auto v1 = rand_vec(0.0, 1.0, 3);
+			auto v2 = rand_vec(0.0, 1.0, 3);
+			return std::abs(v2 * algebra::cross(v1, v2));
+		});
+
+
 		test_residual("transpose", []() {
 
-				auto A = rand_mat(0.0, 1.0, 100, 100);
-				return linf_norm(A - algebra::transpose(algebra::transpose(A)));
+			auto A = rand_mat(0.0, 1.0, N, N);
+			return linf_norm(A - algebra::transpose(algebra::transpose(A)));
 		});
 
 
 		test_residual("make_transposed", []() {
 
-				auto A = rand_mat(0.0, 1.0, 100, 100);
-				auto B = A;
+			auto A = rand_mat(0.0, 1.0, N, N);
+			auto B = A;
 
-				algebra::make_transposed(B);
-				algebra::make_transposed(B);
-				return linf_norm(A - B);
+			algebra::make_transposed(B);
+			algebra::make_transposed(B);
+			return linf_norm(A - B);
 		});
 
 
 		test_residual("decompose_cholesky", []() {
 
-				auto A = rand_mat_posdef(0.0, 1.0, 100);
-				auto L = algebra::decompose_cholesky(A);
-				return linf_norm(A - algebra::mat_mul_transpose(L, L));
+			auto A = rand_mat_posdef(0.0, 1.0, N);
+			auto L = algebra::decompose_cholesky(A);
+			return linf_norm(A - algebra::mat_mul_transpose(L, L));
 		});
 
 
 		test_residual("decompose_cholesky_inplace", []() {
 
-				auto A = rand_mat_posdef(0.0, 1.0, 100);
-				auto L = A;
-			
-				algebra::decompose_cholesky_inplace(L);
-				return linf_norm(A - algebra::mat_mul_transpose(L, L));
+			auto A = rand_mat_posdef(0.0, 1.0, N);
+			auto L = A;
+		
+			algebra::decompose_cholesky_inplace(L);
+			return linf_norm(A - algebra::mat_mul_transpose(L, L));
 		});
+
+
+		test_residual("det", []() {
+
+			size_t sz = 10;
+
+			auto L = rand_mat_lower(0.0, 1.0, sz, sz);
+			auto U = rand_mat_upper(0.0, 1.0, sz, sz);
+			auto A = L * U;
+
+			matrix_element_t<decltype(A)> d = 1.0;
+
+			// The determinant of L * U is the product
+			// of the diagonal elements of L and U
+			for (size_t i = 0; i < sz; ++i)
+				d *= L(i, i) * U(i, i);
+
+			return std::abs(d - algebra::det(A));
+		});
+
 
 		// mat.h
 

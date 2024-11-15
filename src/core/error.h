@@ -56,8 +56,7 @@ namespace theoretica {
 	}
 
 
-	/// Check whether a generic variable is
-	/// (equivalent to) a NaN number.
+	/// Check whether a generic variable is (equivalent to) a NaN number.
 	///
 	/// NaN numbers are the only variables which do not
 	/// compare equal to themselves in floating point

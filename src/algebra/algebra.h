@@ -1112,10 +1112,15 @@ namespace theoretica {
 			if(A.rows() != B.rows() || A.cols() != B.cols())
 				return false;
 
-			for (unsigned int i = 0; i < A.rows(); ++i)
-				for (unsigned int j = 0; j < A.cols(); ++j)
-					if(abs(A(i, j) - B(i, j)) > tolerance)
+			for (unsigned int i = 0; i < A.rows(); ++i) {
+				for (unsigned int j = 0; j < A.cols(); ++j) {
+			
+					const auto diff = abs(A(i, j) - B(i, j));
+
+					if(diff > tolerance || is_nan(diff))
 						return false;
+				}
+			}
 
 			return true;
 		}
@@ -1359,6 +1364,10 @@ namespace theoretica {
 
 			// Check the shapes of A, L and U
 			unsigned int err = 0;
+
+			// Make sure to allocate L and U if they are empty
+			L.resize(A.rows(), A.cols());
+			U.resize(A.rows(), A.cols());
 
 			if (!is_square(A))
 				err = A.rows();
