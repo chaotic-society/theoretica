@@ -9,5 +9,6 @@ var test__algebra_8cpp =
     [ "rand_mat_symmetric", "test__algebra_8cpp.html#ad5b65b88a1bfcd1e6652f43d43945eed", null ],
     [ "rand_mat_upper", "test__algebra_8cpp.html#a0bf575efc75c0d15bbe1b576d73cba97", null ],
     [ "rand_vec", "test__algebra_8cpp.html#a56313b2c533593984af52e94c0d2d3c2", null ],
-    [ "test_residual", "test__algebra_8cpp.html#a354ac7b38c5bdd4e229b826157d2cf81", null ]
+    [ "test_residual", "test__algebra_8cpp.html#a13b0f08b91c5dbaa83d464dff9ab3048", null ],
+    [ "DEFAULT_ITER", "test__algebra_8cpp.html#adec2c17d7b76f427d27631d536cddbf0", null ]
 ];

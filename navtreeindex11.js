@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"structtheoretica_1_1pdf__sampler.html#a95faaf9e3d1914d735fc05204962bfcc":[12,0,1,38,4],
 "structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98":[12,0,1,38,0],
 "structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e":[12,0,1,38,7],
 "structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c":[12,0,1,38,3],
@@ -46,8 +45,8 @@ var NAVTREEINDEX11 =
 "test_2chebyshev_2src_2prec_2distance_8h_source.html":[13,0,12,0,1,3,0],
 "test__algebra_8cpp.html":[13,0,12,1,0],
 "test__algebra_8cpp.html#a0bf575efc75c0d15bbe1b576d73cba97":[13,0,12,1,0,7],
+"test__algebra_8cpp.html#a13b0f08b91c5dbaa83d464dff9ab3048":[13,0,12,1,0,9],
 "test__algebra_8cpp.html#a1fa5cfb7e91cf72df0f1bfe55c0fe374":[13,0,12,1,0,4],
-"test__algebra_8cpp.html#a354ac7b38c5bdd4e229b826157d2cf81":[13,0,12,1,0,9],
 "test__algebra_8cpp.html#a442658981265a170f03236760bee7fe8":[13,0,12,1,0,5],
 "test__algebra_8cpp.html#a4e8e89494c2065ed05132f2a5762d463":[13,0,12,1,0,3],
 "test__algebra_8cpp.html#a56313b2c533593984af52e94c0d2d3c2":[13,0,12,1,0,8],
@@ -55,6 +54,7 @@ var NAVTREEINDEX11 =
 "test__algebra_8cpp.html#aafc8b694483e28f1e783422b0c145354":[13,0,12,1,0,0],
 "test__algebra_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,0,1],
 "test__algebra_8cpp.html#ad5b65b88a1bfcd1e6652f43d43945eed":[13,0,12,1,0,6],
+"test__algebra_8cpp.html#adec2c17d7b76f427d27631d536cddbf0":[13,0,12,1,0,10],
 "test__core_8cpp.html":[13,0,12,1,1],
 "test__core_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089":[13,0,12,1,1,0],
 "test__polynomial_8cpp.html":[13,0,12,1,2],
@@ -99,5 +99,6 @@ var NAVTREEINDEX11 =
 "vec_8h.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c":[13,0,0,6,3],
 "vec_8h.html#a8fe375758727a9f9a510a0898d69aaf4":[13,0,0,6,5],
 "vec_8h.html#aaac93661f565556c9740402f262e9a80":[13,0,0,6,4],
-"vec_8h_source.html":[13,0,0,6]
+"vec_8h_source.html":[13,0,0,6],
+"":[11,0,2,0]
 };
