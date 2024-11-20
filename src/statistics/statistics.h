@@ -9,7 +9,7 @@
 #include "../core/constants.h"
 #include "../core/real_analysis.h"
 #include "../core/special.h"
-#include "../calculus/integration.h"
+#include "../calculus/integral.h"
 #include "../calculus/gauss.h"
 #include "../core/dataset.h"
 

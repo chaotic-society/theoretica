@@ -7,7 +7,7 @@
 #define THEORETICA_ROOTS_H
 
 #include "../core/function.h"
-#include "../calculus/derivation.h"
+#include "../calculus/deriv.h"
 #include "../autodiff/dual.h"
 #include "../autodiff/dual2.h"
 #include "../algebra/vec.h"

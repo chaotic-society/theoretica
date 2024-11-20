@@ -1,6 +1,6 @@
 
 ///
-/// @file derivation.h Derivative approximation
+/// @file deriv.h Derivative approximation
 ///
 
 #ifndef DERIVATION_THEORETICA_H

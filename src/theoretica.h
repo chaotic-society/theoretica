@@ -70,8 +70,8 @@
 #include "complex/complex_types.h"
 
 // Derivative and integral approximation
-#include "calculus/derivation.h"
-#include "calculus/integration.h"
+#include "calculus/deriv.h"
+#include "calculus/integral.h"
 #include "calculus/ode.h"
 #include "calculus/taylor.h"
 

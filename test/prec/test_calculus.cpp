@@ -123,7 +123,7 @@ int main(int argc, char const *argv[]) {
 		};
 
 
-		// derivation.h
+		// deriv.h
 		// Compare the numerical derivative to the analytical derivative
 
 
@@ -188,7 +188,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 
-		// integration.h
+		// integral.h
 		// Compare integral quadrature to primitives
 
 

@@ -1,6 +1,6 @@
 
 ///
-/// @file integration.h Integral approximation
+/// @file integral.h Integral approximation
 ///
 
 #ifndef THEORETICA_INTEGRATION_H
