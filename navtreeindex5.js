@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md17":[9,0],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md18":[9,1],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md19":[9,2],
 "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html#autotoc_md20":[9,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a13248f2e439afdb6f72e0f2c1e79cc55":[11,0,2,291],
 "namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1":[11,0,2,270],
 "namespacetheoretica.html#a1373c528867e33024d2975dfa7c41ca4":[11,0,2,200],
-"namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47":[11,0,2,343],
-"namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7":[11,0,2,74]
+"namespacetheoretica.html#a13b30362a1d08c8522c5297efd6f4a47":[11,0,2,343]
 };
