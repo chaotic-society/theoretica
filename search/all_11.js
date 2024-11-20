@@ -34,7 +34,7 @@ var searchData=
   ['real_699',['real',['../namespacetheoretica.html#a049966946220f1f7e5eae57293703066',1,'theoretica']]],
   ['real_5fanalysis_2eh_700',['real_analysis.h',['../real__analysis_8h.html',1,'']]],
   ['real_5ffunction_701',['real_function',['../namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904',1,'theoretica']]],
-  ['reduced_5fchi_5fsquare_5flinearization_702',['reduced_chi_square_linearization',['../namespacetheoretica_1_1stats.html#aeda91159c6961b837338c76615692adf',1,'theoretica::stats']]],
+  ['reduced_5fchi_5fsquare_5flinear_702',['reduced_chi_square_linear',['../namespacetheoretica_1_1stats.html#af5bdec262e5a486fe2dc0020a4d54a16',1,'theoretica::stats']]],
   ['regression_2eh_703',['regression.h',['../regression_8h.html',1,'']]],
   ['relerr_704',['relErr',['../structchebyshev_1_1prec_1_1estimate__result.html#a511671ebf1d3bf2cb002448196dc1a81',1,'chebyshev::prec::estimate_result']]],
   ['remap_705',['remap',['../namespacetheoretica.html#a6d55941e7aa059d066873e4116c531b0',1,'theoretica::remap(real iFrom, real iTo, real oFrom, real oTo, real value)'],['../namespacetheoretica.html#acf22b4d852d5dcbfb19acda64e9d1370',1,'theoretica::remap(const vec&lt; real, N &gt; &amp;iFrom, const vec&lt; real, N &gt; &amp;iTo, const vec&lt; real, N &gt; &amp;oFrom, const vec&lt; real, N &gt; &amp;oTo, real value)']]],

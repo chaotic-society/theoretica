@@ -206,16 +206,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a1454ce9037c0af9f6125c3f399302a4d"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d">theoretica::stats::pvalue_chi_squared</a> (real chi_sqr, unsigned int ndf)</td></tr>
 <tr class="memdesc:a1454ce9037c0af9f6125c3f399302a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the (right-tailed) p-value associated to a computed Chi-square value as the integral of the Chi-squared distribution from the given value to infinity (right-tailed).  <a href="namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d">More...</a><br /></td></tr>
 <tr class="separator:a1454ce9037c0af9f6125c3f399302a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ccb179128f0761da65483844d9ffc26"><td class="memTemplParams" colspan="2"><a id="a3ccb179128f0761da65483844d9ffc26"></a>
-template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
-<tr class="memitem:a3ccb179128f0761da65483844d9ffc26"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a3ccb179128f0761da65483844d9ffc26">theoretica::stats::chi_square_linearization</a> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
-<tr class="memdesc:a3ccb179128f0761da65483844d9ffc26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square on a linear regression. <br /></td></tr>
-<tr class="separator:a3ccb179128f0761da65483844d9ffc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeda91159c6961b837338c76615692adf"><td class="memTemplParams" colspan="2"><a id="aeda91159c6961b837338c76615692adf"></a>
-template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
-<tr class="memitem:aeda91159c6961b837338c76615692adf"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#aeda91159c6961b837338c76615692adf">theoretica::stats::reduced_chi_square_linearization</a> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
-<tr class="memdesc:aeda91159c6961b837338c76615692adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the reduced chi-squared on a linearization. <br /></td></tr>
-<tr class="separator:aeda91159c6961b837338c76615692adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5339b599f3c4840887d36b3314ed79c5"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
+<tr class="memitem:a5339b599f3c4840887d36b3314ed79c5"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a5339b599f3c4840887d36b3314ed79c5">theoretica::stats::chi_square_linear</a> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
+<tr class="memdesc:a5339b599f3c4840887d36b3314ed79c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the chi-square on a linear regression, as the sum of the squares of the residuals divided by the standard deviation.  <a href="namespacetheoretica_1_1stats.html#a5339b599f3c4840887d36b3314ed79c5">More...</a><br /></td></tr>
+<tr class="separator:a5339b599f3c4840887d36b3314ed79c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bdec262e5a486fe2dc0020a4d54a16"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td></tr>
+<tr class="memitem:af5bdec262e5a486fe2dc0020a4d54a16"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#af5bdec262e5a486fe2dc0020a4d54a16">theoretica::stats::reduced_chi_square_linear</a> (const Dataset1 &amp;X, const Dataset2 &amp;Y, const Dataset3 &amp;sigma, real intercept, real slope)</td></tr>
+<tr class="memdesc:af5bdec262e5a486fe2dc0020a4d54a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the reduced chi-squared on a linear regression, computed as the usual chi-square (computed by chi_square_linear) divided by the number of degrees of freedom of the model ( \(N - 2\)).  <a href="namespacetheoretica_1_1stats.html#af5bdec262e5a486fe2dc0020a4d54a16">More...</a><br /></td></tr>
+<tr class="separator:af5bdec262e5a486fe2dc0020a4d54a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Statistical functions. </p>
@@ -225,7 +223,7 @@ template&lt;typename Dataset1 , typename Dataset2 , typename Dataset3 &gt; </td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_65ad14ba617219a91653797a9020c4d5.html">statistics</a></li><li class="navelem"><a class="el" href="statistics_8h.html">statistics.h</a></li>
-    <li class="footer">Generated on Fri Nov 15 2024 16:07:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 20 2024 12:50:58 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
