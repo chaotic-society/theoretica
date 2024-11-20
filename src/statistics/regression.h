@@ -470,7 +470,7 @@ namespace theoretica {
 				sigma_B = sqrt(this->covar_mat(1, 1));
 
 				err = ols_linear_error(X, Y, A, B);
-				chi_squared = stats::chi_square_linearization(X, Y, sigma, A, B);
+				chi_squared = stats::chi_square_linear(X, Y, sigma, A, B);
 				ndf = Y.size() - 2;
 				p_value = stats::pvalue_chi_squared(chi_squared, ndf);
 			}
