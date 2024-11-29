@@ -116,10 +116,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aa84e1f2b40ea798849447952526a1a78"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#aa84e1f2b40ea798849447952526a1a78">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;delta_x)</td></tr>
 <tr class="memdesc:aa84e1f2b40ea798849447952526a1a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <a href="namespacetheoretica_1_1stats.html#aa84e1f2b40ea798849447952526a1a78">More...</a><br /></td></tr>
 <tr class="separator:aa84e1f2b40ea798849447952526a1a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0fbe6f0ae1a051a5ae69deb4838110"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, unsigned int M = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
-<tr class="memitem:a7c0fbe6f0ae1a051a5ae69deb4838110"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a7c0fbe6f0ae1a051a5ae69deb4838110">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, M &gt; &amp;cm)</td></tr>
-<tr class="memdesc:a7c0fbe6f0ae1a051a5ae69deb4838110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <a href="namespacetheoretica_1_1stats.html#a7c0fbe6f0ae1a051a5ae69deb4838110">More...</a><br /></td></tr>
-<tr class="separator:a7c0fbe6f0ae1a051a5ae69deb4838110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaeb91b248637a3c8061d59f513ba64e"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
+<tr class="memitem:acaeb91b248637a3c8061d59f513ba64e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#acaeb91b248637a3c8061d59f513ba64e">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const Matrix &amp;cm)</td></tr>
+<tr class="memdesc:acaeb91b248637a3c8061d59f513ba64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <a href="namespacetheoretica_1_1stats.html#acaeb91b248637a3c8061d59f513ba64e">More...</a><br /></td></tr>
+<tr class="separator:acaeb91b248637a3c8061d59f513ba64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade2f84eab7bcf5797495830141f4b075"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;), typename Dataset  = vec&lt;real, N&gt;&gt; </td></tr>
 <tr class="memitem:ade2f84eab7bcf5797495830141f4b075"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#ade2f84eab7bcf5797495830141f4b075">error_propagation</a> (MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
 <tr class="memdesc:ade2f84eab7bcf5797495830141f4b075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data.  <a href="namespacetheoretica_1_1stats.html#ade2f84eab7bcf5797495830141f4b075">More...</a><br /></td></tr>
@@ -684,13 +684,13 @@ template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;
 
 </div>
 </div>
-<a id="a7c0fbe6f0ae1a051a5ae69deb4838110"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c0fbe6f0ae1a051a5ae69deb4838110">&#9670;&nbsp;</a></span>error_propagation() <span class="overload">[2/3]</span></h2>
+<a id="acaeb91b248637a3c8061d59f513ba64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaeb91b248637a3c8061d59f513ba64e">&#9670;&nbsp;</a></span>error_propagation() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0, unsigned int M = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
+template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -710,7 +710,7 @@ template&lt;unsigned int N = 0, unsigned int M = 0, typename MultiDualFunction  
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, M &gt; &amp;&#160;</td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
           <td class="paramname"><em>cm</em>&#160;</td>
         </tr>
         <tr>
@@ -782,7 +782,7 @@ template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&
 </div><div class="memdoc">
 
 <p>Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation. </p>
-<p>This function presupposes that the correlation between different variables is zero.</p>
+<p>This function assumes that the correlation between different variables is zero, if that is not the case, the covariance matrix should be used.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
@@ -1855,7 +1855,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1stats.html">stats</a></li>
-    <li class="footer">Generated on Wed Nov 20 2024 16:28:31 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 29 2024 10:33:34 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

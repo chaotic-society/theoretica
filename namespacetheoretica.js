@@ -214,7 +214,7 @@ var namespacetheoretica =
       [ "covar_mat", "namespacetheoretica_1_1stats.html#ae055c553303dd22a706aee072969db5a", null ],
       [ "covariance", "namespacetheoretica_1_1stats.html#a50a7f8cd0bd1fd66c09eaa2d414b2f8b", null ],
       [ "error_propagation", "namespacetheoretica_1_1stats.html#ade2f84eab7bcf5797495830141f4b075", null ],
-      [ "error_propagation", "namespacetheoretica_1_1stats.html#a7c0fbe6f0ae1a051a5ae69deb4838110", null ],
+      [ "error_propagation", "namespacetheoretica_1_1stats.html#acaeb91b248637a3c8061d59f513ba64e", null ],
       [ "error_propagation", "namespacetheoretica_1_1stats.html#aa84e1f2b40ea798849447952526a1a78", null ],
       [ "error_propagation_mc", "namespacetheoretica_1_1stats.html#aca6e7d9e9746fc989efe0261fe2746f8", null ],
       [ "gaussian_expectation", "namespacetheoretica_1_1stats.html#a9afb6b4c7a3ad56b4b93ff58b2bd2de6", null ],

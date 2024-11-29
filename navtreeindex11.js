@@ -1,6 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"structtheoretica_1_1pdf__sampler.html#a95faaf9e3d1914d735fc05204962bfcc":[12,0,1,38,4],
 "structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98":[12,0,1,38,0],
 "structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e":[12,0,1,38,7],
 "structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c":[12,0,1,38,3],
@@ -100,5 +99,6 @@ var NAVTREEINDEX11 =
 "vec_8h.html#a1e7cb80c2195e1c0ef0cf6b7eb4aa68c":[13,0,0,6,3],
 "vec_8h.html#a8fe375758727a9f9a510a0898d69aaf4":[13,0,0,6,5],
 "vec_8h.html#aaac93661f565556c9740402f262e9a80":[13,0,0,6,4],
-"vec_8h_source.html":[13,0,0,6]
+"vec_8h_source.html":[13,0,0,6],
+"":[11,0,2,0]
 };

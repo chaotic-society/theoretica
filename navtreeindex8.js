@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794":[11,0,2,2,19],
 "namespacetheoretica_1_1autodiff.html#a55789385df53d96638cb5d3451815560":[11,0,2,2,25],
 "namespacetheoretica_1_1autodiff.html#a5a73fffe1203263616b44d8a9b00b527":[11,0,2,2,40],
 "namespacetheoretica_1_1autodiff.html#a6c0d26bc5791e79fd708e6a5cbf6386f":[11,0,2,2,6],
@@ -148,7 +147,6 @@ var NAVTREEINDEX8 =
 "namespacetheoretica_1_1stats.html#a60a1b591d15633549ce54d3c366f3d48":[11,0,2,9,26],
 "namespacetheoretica_1_1stats.html#a626d8c01a36f95686337a95fb642d729":[11,0,2,9,30],
 "namespacetheoretica_1_1stats.html#a7bef3a4cc5b07ff999e5679a4a0f2475":[11,0,2,9,33],
-"namespacetheoretica_1_1stats.html#a7c0fbe6f0ae1a051a5ae69deb4838110":[11,0,2,9,8],
 "namespacetheoretica_1_1stats.html#a7f4c0485ee5b8248b6277aa589acbf25":[11,0,2,9,0],
 "namespacetheoretica_1_1stats.html#a9afb6b4c7a3ad56b4b93ff58b2bd2de6":[11,0,2,9,11],
 "namespacetheoretica_1_1stats.html#aa18b39d50dbfdaf83539d5ec1e237997":[11,0,2,9,29],
@@ -159,6 +157,7 @@ var NAVTREEINDEX8 =
 "namespacetheoretica_1_1stats.html#ac57ad1706eb41ca1de23c307e9819f86":[11,0,2,9,25],
 "namespacetheoretica_1_1stats.html#ac6e40d27dba3068e2472926746327cce":[11,0,2,9,12],
 "namespacetheoretica_1_1stats.html#aca6e7d9e9746fc989efe0261fe2746f8":[11,0,2,9,10],
+"namespacetheoretica_1_1stats.html#acaeb91b248637a3c8061d59f513ba64e":[11,0,2,9,8],
 "namespacetheoretica_1_1stats.html#acdf648810b2ca72fbd08106f5a410f15":[11,0,2,9,2],
 "namespacetheoretica_1_1stats.html#ade2f84eab7bcf5797495830141f4b075":[11,0,2,9,7],
 "namespacetheoretica_1_1stats.html#ae055c553303dd22a706aee072969db5a":[11,0,2,9,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "parallel_8h.html#a552aac6d38bd3b42269c0d2e18407185":[13,0,0,4,4],
 "parallel_8h.html#a7ffc9c8474883257f4d615b6e29fcf3f":[13,0,0,4,13],
 "parallel_8h.html#a8416adb293a3d0f770d405ed236aa551":[13,0,0,4,20],
-"parallel_8h.html#a87ee75d0ac443c3c0b82d3c4995b9632":[13,0,0,4,22]
+"parallel_8h.html#a87ee75d0ac443c3c0b82d3c4995b9632":[13,0,0,4,22],
+"parallel_8h.html#a9cc414c6ef029d11e75b017ce589c751":[13,0,0,4,10]
 };
