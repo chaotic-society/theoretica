@@ -52,7 +52,7 @@ namespace theoretica {
 			);
 
 			// Update the current best guess
-			x = x - J.inverse() * f_x;
+			x -= algebra::solve(J, f_x);
 			iter++;
 		}
 

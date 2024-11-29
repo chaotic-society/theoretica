@@ -46,8 +46,9 @@ namespace theoretica {
 		/// on an arbitrary function given the uncertainties
 		/// on the variables, the mean values of the variables
 		/// and the function itself, by using automatic differentiation.
-		/// This function presupposes that the correlation between
-		/// different variables is zero.
+		/// This function assumes that the correlation between
+		/// different variables is zero, if that is not the case, the covariance
+		/// matrix should be used.
 		///
 		/// @param f The function to propagate error on
 		/// @param x Best values for the variables
@@ -84,11 +85,14 @@ namespace theoretica {
 		/// using the function covar_mat.
 		/// @return The propagated error on the function
 		template <
-			unsigned int N = 0, unsigned int M = 0,
-			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)>
+			unsigned int N = 0,
+			typename Matrix, enable_matrix<Matrix> = true,
+			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)
+		>
 		inline real error_propagation(
 			MultiDualFunction f,
-			const vec<real, N>& x_best, const mat<real, M, M>& cm) {
+			const vec<real, N>& x_best,
+			const Matrix& cm) {
 
 
 			if(cm.rows() != x_best.size()) {
@@ -106,8 +110,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < cm.rows(); ++i)
 				for (unsigned int j = 0; j < cm.cols(); ++j)
-					err_sqr += df.Dual().get(i) * df.Dual().get(j)
-						* cm(i, j);
+					err_sqr += df.Dual().get(i) * df.Dual().get(j) * cm(i, j);
 
 			return sqrt(err_sqr);
 		}
