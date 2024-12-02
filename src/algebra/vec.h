@@ -19,12 +19,12 @@
 
 namespace theoretica {
 
-
-/// @class vec_iterator
-/// A sequential iterator for traversing vector-like containers.
-///
-/// @tparam Vector The type of vector being iterated over.
-/// @tparam ReturnType The type returned when dereferencing the iterator, defaults to a reference to the vector's element type.
+	
+	/// @class vec_iterator
+	/// A sequential iterator for traversing vector-like containers.
+	///
+	/// @tparam Vector The type of vector being iterated over.
+	/// @tparam ReturnType The type returned when dereferencing the iterator, defaults to a reference to the vector's element type.
 	template<typename Vector, typename ReturnType = vector_element_t<Vector>&>
 	class vec_iterator {
 
@@ -903,6 +903,7 @@ namespace theoretica {
 
 	/// Populates a vector with a single element at the specified index.
 	/// This function is the base case for recursive population.
+	///
 	/// @param v Reference to the vector being populated.
 	/// @param index The current index to populate in the vector.
 	/// @param last The last element to assign to the vector at the specified index.
@@ -915,6 +916,7 @@ namespace theoretica {
 	/// Populates a vector with multiple elements using variadic arguments.
 	/// This function assigns the first element to the specified index, then
 	/// recursively populates subsequent indices with remaining elements.
+	///
 	/// @param v Reference to the vector being populated.
 	/// @param index The current index to populate in the vector.
 	/// @param first The first element to assign to the vector at the specified index.
