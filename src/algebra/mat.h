@@ -52,14 +52,14 @@ namespace theoretica {
 			using reference = value_type&;
 
         
-         	/// Constructs an iterator for a matrix, optionally starting at a specified row and column.
-         	/// @param matrix Reference to the matrix to iterate over.
-         	/// @param row Initial row index for the iterator (default is 0).
-         	/// @param col Initial column index for the iterator (default is 0).
+	         	/// Constructs an iterator for a matrix, optionally starting at a specified row and column.
+	         	/// @param matrix Reference to the matrix to iterate over.
+	         	/// @param row Initial row index for the iterator (default is 0).
+	         	/// @param col Initial column index for the iterator (default is 0).
 			///
-         	/// Constructs an iterator that points to the specified initial position
-         	/// within the matrix. If no row and column are specified, the iterator
-         	/// starts at the matrix's top-left corner (0, 0).
+	         	/// Constructs an iterator that points to the specified initial position
+	         	/// within the matrix. If no row and column are specified, the iterator
+	         	/// starts at the matrix's top-left corner (0, 0).
 			mat_iterator(
 				Matrix& matrix,
 				size_t row = 0,
@@ -67,20 +67,20 @@ namespace theoretica {
 			: matrix(matrix), row(row), col(col) {}
         	
 			
-        	/// Dereferences the iterator to access the current matrix element.
-        	/// @return A reference (or const reference) to the matrix element at the current iterator position.
-        	///
-        	/// Provides direct access to the element at the iterator's current position.
+	        	/// Dereferences the iterator to access the current matrix element.
+	        	/// @return A reference (or const reference) to the matrix element at the current iterator position.
+	        	///
+	        	/// Provides direct access to the element at the iterator's current position.
 			ReturnType operator*() {
 				return matrix(row, col);
 			}
 
         
-        	/// Advances the iterator to the next element in row-major order.
-        	/// @return A reference to the updated iterator.
+	        	/// Advances the iterator to the next element in row-major order.
+	        	/// @return A reference to the updated iterator.
 			///
-        	/// Moves the iterator one element forward within the matrix. When the end
-        	/// of a row is reached, it continues to the first element of the next row.
+	        	/// Moves the iterator one element forward within the matrix. When the end
+	        	/// of a row is reached, it continues to the first element of the next row.
 			mat_iterator& operator++() {
 
 				col++;
@@ -94,15 +94,15 @@ namespace theoretica {
 			}
 
 
-        	/// Retrieves the current row index of the iterator.
-        	/// @return The row index as a `size_t`.
+	        	/// Retrieves the current row index of the iterator.
+	        	/// @return The row index as a `size_t`.
 			size_t row_index() {
 				return row;
 			}
 
 
-        	/// Retrieves the current column index of the iterator.
-        	/// @return The column index as a `size_t`.
+	        	/// Retrieves the current column index of the iterator.
+	        	/// @return The column index as a `size_t`.
 			size_t col_index() {
 				return col;
 			}
@@ -125,18 +125,18 @@ namespace theoretica {
 			// }
 
 
-        	/// Equality operator to compare two iterators.
-        	/// @param other Another iterator to compare with.
-        	/// @return `true` if the iterators point to the same matrix element; otherwise, `false`.
+	        	/// Equality operator to compare two iterators.
+	        	/// @param other Another iterator to compare with.
+	        	/// @return `true` if the iterators point to the same matrix element; otherwise, `false`.
 			bool operator==(const mat_iterator& other) const {
 				return (row == other.row) &&
 					(col == other.col);
 			}
 
 
-        	/// Inequality operator to compare two iterators.
-        	/// @param other Another iterator to compare with.
-        	/// @return `true` if the iterators do not point to the same matrix element; otherwise, `false`.
+	        	/// Inequality operator to compare two iterators.
+	        	/// @param other Another iterator to compare with.
+	        	/// @return `true` if the iterators do not point to the same matrix element; otherwise, `false`.
 			bool operator!=(const mat_iterator& other) const {
 				return !(*this == other);
 			}
@@ -160,31 +160,31 @@ namespace theoretica {
 #endif
 
 
-    	/// Default constructor.
-    	///
-    	/// Initializes the matrix with all elements set to zero.
+	    	/// Default constructor.
+	    	///
+	    	/// Initializes the matrix with all elements set to zero.
 		mat() {
 			algebra::mat_zeroes(*this);
 		}
 
 
-    	/// Copy constructor.
-    	/// @tparam Matrix The type of the matrix to copy from.
-    	/// @param m The matrix to copy.
-    	///
-    	/// Copies all elements from the given matrix `m` into this matrix.
+	    	/// Copy constructor.
+	    	/// @tparam Matrix The type of the matrix to copy from.
+	    	/// @param m The matrix to copy.
+	    	///
+	    	/// Copies all elements from the given matrix `m` into this matrix.
 		template<typename Matrix>
 		mat(const Matrix& m) {
 			algebra::mat_copy(*this, m);
 		}
 
 
-	    /// Constructs a matrix from an initializer list.
-	    /// @tparam T The type of elements in the initializer list (default is `Type`).
-	    /// @param rows An initializer list representing the rows of the matrix.
-	    ///
-	    /// Initializes the matrix with values from the initializer list. Ensures that
-	    /// the initializer list matches the size of the matrix (i.e., `N` rows and `K` columns).
+		    /// Constructs a matrix from an initializer list.
+		    /// @tparam T The type of elements in the initializer list (default is `Type`).
+		    /// @param rows An initializer list representing the rows of the matrix.
+		    ///
+		    /// Initializes the matrix with values from the initializer list. Ensures that
+		    /// the initializer list matches the size of the matrix (i.e., `N` rows and `K` columns).
 		template<typename T = Type>
 		inline mat(const std::initializer_list<std::initializer_list<T>>& rows) {
 
@@ -216,24 +216,24 @@ namespace theoretica {
 		}
 
 
-    	/// Assignment operator to copy from another matrix.
-    	/// @tparam Matrix The type of the matrix to copy from.
-    	/// @param other The matrix to copy.
-    	/// @return Reference to this matrix after assignment.
+	    	/// Assignment operator to copy from another matrix.
+	    	/// @tparam Matrix The type of the matrix to copy from.
+	    	/// @param other The matrix to copy.
+	    	/// @return Reference to this matrix after assignment.
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator=(const Matrix& other) {
 			return algebra::mat_copy(*this, other);
 		}
 
 
-    	/// Sets all elements of the matrix to zero.
+	    	/// Sets all elements of the matrix to zero.
 		inline void make_zeroes() {
 			algebra::mat_zeroes(*this);
 		}
 
-
-    	/// Returns a null matrix with all elements set to zero.
-    	/// @return A new matrix with zero values.
+	
+	    	/// Returns a null matrix with all elements set to zero.
+	    	/// @return A new matrix with zero values.
 		inline static mat<Type, N, K> zeroes() {
 			mat<Type, N, K> res;
 			algebra::mat_zeroes(res);
@@ -241,10 +241,10 @@ namespace theoretica {
 		}
 
 
-    	/// Matrix addition.
-    	/// @tparam Matrix The type of the matrix to add.
-    	/// @param other The matrix to add.
-    	/// @return A new matrix that is the result of adding `other` to this matrix.
+	    	/// Matrix addition.
+	    	/// @tparam Matrix The type of the matrix to add.
+	    	/// @param other The matrix to add.
+	    	/// @return A new matrix that is the result of adding `other` to this matrix.
 		template<typename Matrix>
 		inline mat<Type, N, K> operator+(const Matrix& other) const {
 			mat<Type, N, K> res;
@@ -252,10 +252,10 @@ namespace theoretica {
 		}
 
 
-    	/// Matrix subtraction.
-    	/// @tparam Matrix The type of the matrix to subtract.
-    	/// @param other The matrix to subtract.
-    	/// @return A new matrix that is the result of subtracting `other` from this matrix.
+	    	/// Matrix subtraction.
+	    	/// @tparam Matrix The type of the matrix to subtract.
+	    	/// @param other The matrix to subtract.
+	    	/// @return A new matrix that is the result of subtracting `other` from this matrix.
 		template<typename Matrix>
 		inline mat<Type, N, K> operator-(const Matrix& other) const {
 			mat<Type, N, K> res;
@@ -263,30 +263,30 @@ namespace theoretica {
 		}
 
 
-    	/// Scalar multiplication.
-    	/// @param scalar The scalar value to multiply.
-    	/// @return A new matrix that is the result of multiplying this matrix by `scalar`.
+	    	/// Scalar multiplication.
+	    	/// @param scalar The scalar value to multiply.
+	    	/// @return A new matrix that is the result of multiplying this matrix by `scalar`.
 		inline mat<Type, N, K> operator*(Type scalar) const {
 			mat<Type, N, K> res;
 			return algebra::mat_scalmul(res, scalar, *this);
 		}
 
 
-    	/// Friend operator for scalar multiplication (T * mat).
-    	/// @param a The scalar multiplier.
-    	/// @param B The matrix to be multiplied.
-    	/// @return A new matrix that is the result of multiplying `B` by `a`.
+	    	/// Friend operator for scalar multiplication (T * mat).
+	    	/// @param a The scalar multiplier.
+	    	/// @param B The matrix to be multiplied.
+	    	/// @return A new matrix that is the result of multiplying `B` by `a`.
 		inline friend mat<Type, N, K> operator*(Type a, const mat<Type, N, K>& B) {
 			return B * a;
 		}
 
 
-    	/// Friend operator for vector-matrix multiplication.
-    	/// @tparam VecType The type of vector elements.
-    	/// @tparam M The number of elements in the vector.
-    	/// @param a The vector to multiply.
-    	/// @param B The matrix to be multiplied by.
-    	/// @return The resulting vector after multiplication.
+	    	/// Friend operator for vector-matrix multiplication.
+	    	/// @tparam VecType The type of vector elements.
+	    	/// @tparam M The number of elements in the vector.
+	    	/// @param a The vector to multiply.
+	    	/// @param B The matrix to be multiplied by.
+	    	/// @return The resulting vector after multiplication.
 		template<typename VecType, unsigned int M>
 		inline friend vec<VecType, K> operator*(
 			const vec<VecType, M>& a, const mat<Type, N, K>& B) {
@@ -294,11 +294,11 @@ namespace theoretica {
 		}
 
 
-    	/// Scalar division.
-    	/// @param scalar The scalar divisor.
-    	/// @return A new matrix that is the result of dividing this matrix by `scalar`.
-    	///
-    	/// If `scalar` is close to zero, an error is raised.
+	    	/// Scalar division.
+	    	/// @param scalar The scalar divisor.
+	    	/// @return A new matrix that is the result of dividing this matrix by `scalar`.
+	    	///
+	    	/// If `scalar` is close to zero, an error is raised.
 		inline mat<Type, N, K> operator/(Type scalar) const {
 
 			mat<Type, N, K> res;
@@ -312,13 +312,13 @@ namespace theoretica {
 		}
 
 
-    	/// Transforms a vector by multiplying it with the matrix.
-    	/// @tparam Vector The type of the vector to transform.
-    	/// @param v The vector to transform.
-    	/// @return The transformed vector.
-    	///
-    	/// This function multiplies the given vector `v` by the matrix. It checks
-    	/// if the size of `v` matches the number of columns in the matrix.
+	    	/// Transforms a vector by multiplying it with the matrix.
+	    	/// @tparam Vector The type of the vector to transform.
+	    	/// @param v The vector to transform.
+	    	/// @return The transformed vector.
+	    	///
+	    	/// This function multiplies the given vector `v` by the matrix. It checks
+	    	/// if the size of `v` matches the number of columns in the matrix.
 		template<typename Vector>
 		inline Vector transform(const Vector& v) const {
 
@@ -334,9 +334,9 @@ namespace theoretica {
 		}
 
 
-    	/// Transforms a fixed-size vector by multiplying it with the matrix.
-    	/// @param v The vector to transform.
-    	/// @return The transformed vector as a new `vec<Type, N>`.
+	    	/// Transforms a fixed-size vector by multiplying it with the matrix.
+	    	/// @param v The vector to transform.
+	    	/// @return The transformed vector as a new `vec<Type, N>`.
 		inline vec<Type, N> transform(const vec<Type, K>& v) const {
 			return algebra::transform(*this, v);
 		}
@@ -350,10 +350,10 @@ namespace theoretica {
 		}
 
 
-    	/// Matrix multiplication for matrices with different column counts.
-    	/// @tparam M The number of columns in matrix `B`.
-    	/// @param B The matrix to multiply with.
-    	/// @return A new matrix resulting from the multiplication.
+	    	/// Matrix multiplication for matrices with different column counts.
+	    	/// @tparam M The number of columns in matrix `B`.
+	    	/// @param B The matrix to multiply with.
+	    	/// @return A new matrix resulting from the multiplication.
 		template<unsigned int M>
 		inline mat<Type, N, M> mul(const mat<Type, K, M>& B) const {
 			mat<Type, N, M> res;
@@ -361,13 +361,13 @@ namespace theoretica {
 		}
 
 
-    	/// Matrix multiplication for matrices with any type.
-    	/// @tparam Matrix The type of the matrix to multiply with.
-    	/// @param B The matrix to multiply with.
-    	/// @return The resulting matrix.
-    	///
-    	/// This function multiplies this matrix with another matrix `B`. It checks if
-    	/// the number of rows in `B` matches the number of columns in this matrix.
+	    	/// Matrix multiplication for matrices with any type.
+	    	/// @tparam Matrix The type of the matrix to multiply with.
+	    	/// @param B The matrix to multiply with.
+	    	/// @return The resulting matrix.
+	    	///
+	    	/// This function multiplies this matrix with another matrix `B`. It checks if
+	    	/// the number of rows in `B` matches the number of columns in this matrix.
 		template<typename Matrix>
 		inline Matrix mul(const Matrix& B) const {
 
@@ -404,39 +404,39 @@ namespace theoretica {
 		}
 
 
-    	/// Matrix addition.
-    	/// @tparam Matrix The type of the matrix to add.
-    	/// @param other The matrix to add to this matrix.
-    	/// @return Reference to this matrix after addition.
+	    	/// Matrix addition.
+	    	/// @tparam Matrix The type of the matrix to add.
+	    	/// @param other The matrix to add to this matrix.
+	    	/// @return Reference to this matrix after addition.
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator+=(const Matrix& other) {
 			return algebra::mat_sum(*this, other);
 		}
 
 
-    	/// Matrix subtraction.
-    	/// @tparam Matrix The type of the matrix to subtract.
-    	/// @param other The matrix to subtract from this matrix.
-    	/// @return Reference to this matrix after subtraction.
+	    	/// Matrix subtraction.
+	    	/// @tparam Matrix The type of the matrix to subtract.
+	    	/// @param other The matrix to subtract from this matrix.
+	    	/// @return Reference to this matrix after subtraction.
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator-=(const Matrix& other) {
 			return algebra::mat_diff(*this, other);
 		}
 
 
-    	/// Scalar multiplication.
-    	/// @param scalar The scalar value to multiply with.
-    	/// @return Reference to this matrix after multiplication.
+	    	/// Scalar multiplication.
+	    	/// @param scalar The scalar value to multiply with.
+	    	/// @return Reference to this matrix after multiplication.
 		inline mat<Type, N, K>& operator*=(Type scalar) {
 			return algebra::mat_scalmul(scalar, *this);
 		}
 
 
-    	/// Scalar division.
-    	/// @param scalar The scalar value to divide by.
-    	/// @return Reference to this matrix after division.
-    	///
-    	/// If the scalar value is close to zero, this function raises a division by zero error.
+	    	/// Scalar division.
+	    	/// @param scalar The scalar value to divide by.
+	    	/// @return Reference to this matrix after division.
+	    	///
+	    	/// If the scalar value is close to zero, this function raises a division by zero error.
 		inline mat<Type, N, K>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
@@ -447,40 +447,40 @@ namespace theoretica {
 			return algebra::mat_scalmul(1.0 / scalar, *this);
 		}
 
-
-    	/// Matrix multiplication with an assignment operator.
-    	/// @tparam Matrix The type of the matrix to multiply with.
-    	/// @param B The matrix to multiply with.
-    	/// @return Reference to this matrix after multiplication.
+	
+	    	/// Matrix multiplication with an assignment operator.
+	    	/// @tparam Matrix The type of the matrix to multiply with.
+	    	/// @param B The matrix to multiply with.
+	    	/// @return Reference to this matrix after multiplication.
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator*=(const Matrix& B) {
 			return (*this = this->operator*(B));
 		}
 
 
-    	/// Transposes the matrix in place.
-    	/// @return Reference to this matrix after transposition.
-    	///
-    	/// This function only works if the matrix is square. An assertion will trigger
-    	/// if the matrix is not square.
+	    	/// Transposes the matrix in place.
+	    	/// @return Reference to this matrix after transposition.
+	    	///
+	    	/// This function only works if the matrix is square. An assertion will trigger
+	    	/// if the matrix is not square.
 		inline mat<Type, N, K>& transpose() {
 			static_assert(
 				N == K, "The matrix must be square to be transposed in place.");
 			return algebra::make_transposed(*this);
 		}
 
-
-    	/// Returns a transposed version of the matrix.
-    	/// @return A new matrix that is the transposed version of this matrix.
+	
+	    	/// Returns a transposed version of the matrix.
+	    	/// @return A new matrix that is the transposed version of this matrix.
 		inline mat<Type, K, N> transposed() const {
 			return algebra::transpose<mat<Type, N, K>, mat<Type, K, N>>(*this);
 		}
 
 
-    	/// Accesses the element at the given row and column.
-    	/// @param i The row index.
-    	/// @param j The column index.
-    	/// @return A reference to the element at position (i, j).
+	    	/// Accesses the element at the given row and column.
+	    	/// @param i The row index.
+	    	/// @param j The column index.
+	    	/// @return A reference to the element at position (i, j).
 		inline Type& at(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
@@ -491,10 +491,10 @@ namespace theoretica {
 		}
 
 
-    	/// Accesses the element at the given row and column.
-    	/// @param i The row index.
-    	/// @param j The column index.
-    	/// @return A constant reference to the element at position (i, j).
+	    	/// Accesses the element at the given row and column.
+	    	/// @param i The row index.
+	    	/// @param j The column index.
+	    	/// @return A constant reference to the element at position (i, j).
 		inline const Type& at(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
@@ -505,28 +505,28 @@ namespace theoretica {
 		}
 
 
-    	/// Overloads the `()` operator to access an element.
-    	/// @param i The row index.
-    	/// @param j The column index.
-    	/// @return A reference to the element at position (i, j).
+	    	/// Overloads the `()` operator to access an element.
+	    	/// @param i The row index.
+	    	/// @param j The column index.
+	    	/// @return A reference to the element at position (i, j).
 		inline Type& operator()(unsigned int i, unsigned int j) {
 			return at(i, j);
 		}
 
 
-    	/// Overloads the `()` operator to access an element.
-    	/// @param i The row index.
-    	/// @param j The column index.
-    	/// @return A constant reference to the element at position (i, j).
+	    	/// Overloads the `()` operator to access an element.
+	    	/// @param i The row index.
+	    	/// @param j The column index.
+	    	/// @return A constant reference to the element at position (i, j).
 		inline const Type& operator()(unsigned int i, unsigned int j) const {
 			return at(i, j);
 		}
 
 
-    	/// Gets the element at the specified row and column.
-    	/// @param i The row index.
-    	/// @param j The column index.
-    	/// @return A copy of the element at position (i, j).
+	    	/// Gets the element at the specified row and column.
+	    	/// @param i The row index.
+	    	/// @param j The column index.
+	    	/// @return A copy of the element at position (i, j).
 		inline Type get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
@@ -545,59 +545,59 @@ namespace theoretica {
 		using const_iterator = mat_iterator<const mat<Type, N, K>, const Type&>;
 
 
-    	/// Returns an iterator to the first element of the matrix.
-    	/// @return An iterator to the beginning of the matrix.
+	    	/// Returns an iterator to the first element of the matrix.
+	    	/// @return An iterator to the beginning of the matrix.
 		inline auto begin() {
 			return iterator(*this, 0, 0);
 		}
 
 
-    	/// Returns an iterator to one past the last element of the matrix.
-    	/// @return An iterator to the end of the matrix.
+	    	/// Returns an iterator to one past the last element of the matrix.
+	    	/// @return An iterator to the end of the matrix.
 		inline auto end() {
 			return iterator(*this, rows(), 0);
 		}
 
-
-    	/// Returns a const iterator to the first element of the matrix.
-    	/// @return A const iterator to the beginning of the matrix.
+	
+	    	/// Returns a const iterator to the first element of the matrix.
+	    	/// @return A const iterator to the beginning of the matrix.
 		inline auto begin() const {
 			return const_iterator(*this, 0, 0);
 		}
 
-
-    	/// Returns a const iterator to one past the last element of the matrix.
-    	/// @return A const iterator to the end of the matrix.
+	
+	    	/// Returns a const iterator to one past the last element of the matrix.
+	    	/// @return A const iterator to the end of the matrix.
 		inline auto end() const {
 			return const_iterator(*this, rows(), 0);
 		}
 
-
-    	/// Returns the number of rows in the matrix.
-    	/// @return The number of rows.
+	
+	    	/// Returns the number of rows in the matrix.
+	    	/// @return The number of rows.
 		TH_CONSTEXPR inline unsigned int rows() const {
 			return N;
 		}
 
 
-    	/// Returns the number of columns in the matrix.
-    	/// @return The number of columns.
+	    	/// Returns the number of columns in the matrix.
+	    	/// @return The number of columns.
 		TH_CONSTEXPR inline unsigned int cols() const {
 			return K;
 		}
 
 
-    	/// Returns the total number of elements in the matrix.
-    	/// @return The total number of elements (rows * columns).
+	    	/// Returns the total number of elements in the matrix.
+	    	/// @return The total number of elements (rows * columns).
 		inline unsigned int size() const {
 			return N * K;
 		}
 
 
-    	/// Checks whether this matrix is equal to another matrix element-wise.
-    	/// @tparam Matrix The type of the other matrix.
-    	/// @param other The matrix to compare with.
-    	/// @return `true` if all elements are equal, `false` otherwise.
+	    	/// Checks whether this matrix is equal to another matrix element-wise.
+	    	/// @tparam Matrix The type of the other matrix.
+	    	/// @param other The matrix to compare with.
+	    	/// @return `true` if all elements are equal, `false` otherwise.
 		template<typename Matrix>
 		inline bool operator==(const Matrix& other) const {
 			return algebra::mat_equals(*this, other);
@@ -614,22 +614,22 @@ namespace theoretica {
 		}
 
 
-    	/// Checks if the matrix is square.
-    	/// @return `true` if the matrix is square (N == K), `false` otherwise.
+	    	/// Checks if the matrix is square.
+	    	/// @return `true` if the matrix is square (N == K), `false` otherwise.
 		inline bool is_square() const {
 			return algebra::is_square(*this);
 		}
 
 
-    	/// Checks if the matrix is diagonal.
-    	/// @return `true` if the matrix is diagonal, `false` otherwise.
+	    	/// Checks if the matrix is diagonal.
+	    	/// @return `true` if the matrix is diagonal, `false` otherwise.
 		inline bool is_diagonal() const {
 			return algebra::is_diagonal(*this);
 		}
 
 
-    	/// Checks if the matrix is symmetric.
-    	/// @return `true` if the matrix is symmetric, `false` otherwise.
+	    	/// Checks if the matrix is symmetric.
+	    	/// @return `true` if the matrix is symmetric, `false` otherwise.
 		inline bool is_symmetric() const {
 			return algebra::is_symmetric(*this);
 		}
@@ -661,44 +661,44 @@ namespace theoretica {
 		}
 
 
-    	/// Computes the trace of the matrix.
-    	/// @return The trace (sum of diagonal elements).
+	    	/// Computes the trace of the matrix.
+	    	/// @return The trace (sum of diagonal elements).
 		inline Type trace() {
 			return algebra::trace(*this);
 		}
 
-
-    	/// Computes the product of the diagonal elements.
-    	/// @return The product of diagonal elements.
+	
+	    	/// Computes the product of the diagonal elements.
+	    	/// @return The product of diagonal elements.
 		inline Type diagonal_product() {
 			return algebra::diagonal_product(*this);
 		}
 
 
-    	/// Computes the determinant of the matrix.
-    	/// @return The determinant.
-    	///
-    	/// This function is only valid for square matrices.
+	    	/// Computes the determinant of the matrix.
+	    	/// @return The determinant.
+	    	///
+	    	/// This function is only valid for square matrices.
 		inline Type det() const {
 			static_assert(N == K, "The matrix must be square to compute the determinant.");
 			return algebra::det(*this);
 		}
 
 
-    	/// Computes the inverse of the matrix.
-    	/// @return The inverse matrix.
-    	///
-    	/// This function is only valid for square matrices.
+	    	/// Computes the inverse of the matrix.
+	    	/// @return The inverse matrix.
+	    	///
+	    	/// This function is only valid for square matrices.
 		inline mat<Type, N, K> inverse() const {
 			static_assert(N == K, "The matrix must be square to be invertible.");
 			return algebra::inverse(*this);
 		}
 
 
-    	/// Inverts the matrix in place.
-    	/// @return Reference to the inverted matrix.
-    	///
-    	/// This function is only valid for square matrices.
+	    	/// Inverts the matrix in place.
+	    	/// @return Reference to the inverted matrix.
+	    	///
+	    	/// This function is only valid for square matrices.
 		inline mat<Type, N, K>& invert() {
 			static_assert(N == K, "The matrix must be square to be invertible.");
 			return algebra::invert(*this);
@@ -725,60 +725,60 @@ namespace theoretica {
 		// Transformation matrices
 
 
-    	/// Returns the identity matrix.
-    	/// @return An identity matrix of the current dimensions.
+	    	/// Returns the identity matrix.
+	    	/// @return An identity matrix of the current dimensions.
 		inline static mat<Type, N, K> identity() {
 			return algebra::identity<mat<Type, N, K>>();
 		}
 
 
-    	/// Returns a diagonal matrix with the specified diagonal element.
-    	/// @param diag The value for the diagonal elements.
-    	/// @return A diagonal matrix with the given diagonal value.
+	    	/// Returns a diagonal matrix with the specified diagonal element.
+	    	/// @param diag The value for the diagonal elements.
+	    	/// @return A diagonal matrix with the given diagonal value.
 		inline static mat<Type, N, K> diagonal(Type diag) {
 			return mat<Type, N, K>(diag);
 		}
 
-    	/// Returns a 4x4 matrix for translation by the vector {x, y, z}.
-    	/// @tparam Vector The type of the translation vector.
-    	/// @param t The translation vector.
-    	/// @return A 4x4 translation matrix.
+	    	/// Returns a 4x4 matrix for translation by the vector {x, y, z}.
+	    	/// @tparam Vector The type of the translation vector.
+	    	/// @param t The translation vector.
+	    	/// @return A 4x4 translation matrix.
 		template<typename Vector = vec<real, N - 1>>
 		inline static mat<Type, N, K> translation(Vector&& t) {
 			return algebra::translation<mat<Type, N, K>>(t);
 		}
 
-
-    	/// Returns a matrix for 2D rotation by theta radians.
-    	/// @param theta The angle of rotation in radians.
-    	/// @return A 2x2 rotation matrix.
+	
+	    	/// Returns a matrix for 2D rotation by theta radians.
+	    	/// @param theta The angle of rotation in radians.
+	    	/// @return A 2x2 rotation matrix.
 		inline static mat<Type, N, K> rotation_2d(real theta) {
 			static_assert(N >= 2 && K >= 2, "The matrix must be 2x2 or bigger");
 			return algebra::rotation_2d<mat<Type, N, K>>(theta);
 		}
 
 
-    	/// Returns a matrix for 3D rotation around the x-axis.
-    	/// @param theta The angle of rotation in radians.
-    	/// @return A 3x3 rotation matrix for the x-axis.
+	    	/// Returns a matrix for 3D rotation around the x-axis.
+	    	/// @param theta The angle of rotation in radians.
+	    	/// @return A 3x3 rotation matrix for the x-axis.
 		inline static mat<Type, N, K> rotation_3d_xaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
 			return algebra::rotation_3d_xaxis<mat<Type, N, K>>(theta);
 		}
 
 
-    	/// Returns a matrix for 3D rotation around the y-axis.
-    	/// @param theta The angle of rotation in radians.
-    	/// @return A 3x3 rotation matrix for the y-axis.
+	    	/// Returns a matrix for 3D rotation around the y-axis.
+	    	/// @param theta The angle of rotation in radians.
+	    	/// @return A 3x3 rotation matrix for the y-axis.
 		inline static mat<Type, N, K> rotation_3d_yaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
 			return algebra::rotation_3d_yaxis<mat<Type, N, K>>(theta);
 		}
 
 
-	    /// Returns a matrix for 3D rotation around the z-axis.
-    	/// @param theta The angle of rotation in radians.
-    	/// @return A 3x3 rotation matrix for the z-axis.
+		/// Returns a matrix for 3D rotation around the z-axis.
+	    	/// @param theta The angle of rotation in radians.
+	    	/// @return A 3x3 rotation matrix for the z-axis.
 		inline static mat<Type, N, K> rotation_3d_zaxis(real theta) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
 			return algebra::rotation_3d_zaxis<mat<Type, N, K>>(theta);
@@ -786,10 +786,10 @@ namespace theoretica {
 
 
 	    /// Returns a matrix for 3D rotation around an arbitrary axis.
-    	/// @tparam Vector The type of the rotation axis vector.
-    	/// @param theta The angle of rotation in radians.
-    	/// @param axis The axis vector to rotate around.
-    	/// @return A 3x3 rotation matrix for the given axis.
+	    	/// @tparam Vector The type of the rotation axis vector.
+	    	/// @param theta The angle of rotation in radians.
+	    	/// @param axis The axis vector to rotate around.
+	    	/// @return A 3x3 rotation matrix for the given axis.
 		template<typename Vector = vec<real, 3>>
 		inline static mat<Type, N, K> rotation_3d(real theta, Vector&& axis) {
 			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
@@ -797,14 +797,14 @@ namespace theoretica {
 		}
 
 
-    	/// Returns a perspective projection matrix.
-    	/// @param left The left boundary.
-    	/// @param right The right boundary.
-    	/// @param bottom The bottom boundary.
-    	/// @param top The top boundary.
-    	/// @param near The near boundary.
-    	/// @param far The far boundary.
-    	/// @return A 4x4 perspective projection matrix.
+	    	/// Returns a perspective projection matrix.
+	    	/// @param left The left boundary.
+	    	/// @param right The right boundary.
+	    	/// @param bottom The bottom boundary.
+	    	/// @param top The top boundary.
+	    	/// @param near The near boundary.
+	    	/// @param far The far boundary.
+	    	/// @return A 4x4 perspective projection matrix.
 		inline static mat<Type, N, K> perspective(
 			real left, real right, real bottom,
 			real top, real near, real far) {
@@ -814,29 +814,29 @@ namespace theoretica {
 				left, right, bottom, top, near, far);
 		}
 
-
-    	/// Returns a perspective projection matrix based on field of view.
-    	/// @param fov The field of view angle in radians.
-    	/// @param aspect The aspect ratio.
-    	/// @param near The near boundary.
-    	/// @param far The far boundary.
-    	/// @return A 4x4 perspective projection matrix.
+	
+	    	/// Returns a perspective projection matrix based on field of view.
+	    	/// @param fov The field of view angle in radians.
+	    	/// @param aspect The aspect ratio.
+	    	/// @param near The near boundary.
+	    	/// @param far The far boundary.
+	    	/// @return A 4x4 perspective projection matrix.
 		inline static mat<Type, N, K> perspective_fov(
 			real fov, real aspect, real near, real far) {
 
 			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
 			return algebra::perspective_fov<mat<Type, N, K>>(fov, aspect, near, far);
 		}
-
-
-    	/// Returns an orthographic projection matrix.
-    	/// @param left The left boundary.
-    	/// @param right The right boundary.
-    	/// @param bottom The bottom boundary.
-    	/// @param top The top boundary.
-    	/// @param near The near boundary.
-    	/// @param far The far boundary.
-    	/// @return A 4x4 orthographic projection matrix.
+	
+	
+	    	/// Returns an orthographic projection matrix.
+	    	/// @param left The left boundary.
+	    	/// @param right The right boundary.
+	    	/// @param bottom The bottom boundary.
+	    	/// @param top The top boundary.
+	    	/// @param near The near boundary.
+	    	/// @param far The far boundary.
+	    	/// @return A 4x4 orthographic projection matrix.
 		inline static mat<Type, N, K> ortho(
 			real left, real right, real bottom, real top, real near, real far) {
 			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
@@ -847,10 +847,10 @@ namespace theoretica {
 		/// Return a 4x4 transformation matrix that points the
 		/// field of view towards a given point from the <camera> point
 		/// @tparam Vector1, Vector2, Vector3 Types for the camera, target, and up vectors.
-    	/// @param camera The camera position.
-    	/// @param target The target point to look at.
-    	/// @param up The up direction vector.
-    	/// @return A 4x4 look-at transformation matrix.
+	    	/// @param camera The camera position.
+	    	/// @param target The target point to look at.
+	    	/// @param up The up direction vector.
+	    	/// @return A 4x4 look-at transformation matrix.
 		template<typename Vector1, typename Vector2, typename Vector3>
 		inline static mat<Type, 4, 4> look_at(
 			const Vector1& camera, const Vector2& target, const Vector3& up) {
@@ -860,8 +860,8 @@ namespace theoretica {
 
 		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
 		/// @param n Optional parameter for number of rows.
-    	/// @param k Optional parameter for number of columns.
-    	/// @return A symplectic matrix with given dimensions.
+	    	/// @param k Optional parameter for number of columns.
+	    	/// @return A symplectic matrix with given dimensions.
 		inline static mat<Type, N, K> symplectic(unsigned int n = 0, unsigned int k = 0) {
 			static_assert(N == K && (N % 2 == 0),
 				"N must equal K and they should be a multiple of 2");
@@ -872,10 +872,10 @@ namespace theoretica {
 
 #ifndef THEORETICA_NO_PRINT
 
-    		/// Converts the matrix to a string representation.
-    		/// @param separator Separator between elements (default is ", ").
-    		/// @param parenthesis Whether to enclose each row in parentheses (default is true).
-    		/// @return The matrix as a formatted string.
+	    		/// Converts the matrix to a string representation.
+	    		/// @param separator Separator between elements (default is ", ").
+	    		/// @param parenthesis Whether to enclose each row in parentheses (default is true).
+	    		/// @return The matrix as a formatted string.
 			inline std::string to_string(
 				std::string separator = ", ", bool parenthesis = true) const {
 
@@ -912,9 +912,9 @@ namespace theoretica {
 
 
 			/// Outputs the matrix to an output stream in string format.
-    		/// @param out The output stream.
-    		/// @param obj The matrix to output.
-    		/// @return The modified output stream.
+	    		/// @param out The output stream.
+	    		/// @param obj The matrix to output.
+	    		/// @return The modified output stream.
 			inline friend std::ostream& operator<<(
 				std::ostream& out, const mat<Type, N, K>& obj) {
 				return out << obj.to_string();
@@ -961,10 +961,10 @@ namespace theoretica {
 			algebra::mat_zeroes(*this);
 		}
 
-
-    	/// Copy constructor for creating a matrix from another matrix.
-    	/// @tparam Matrix A compatible matrix type.
-    	/// @param m The matrix to copy from.
+	
+	    	/// Copy constructor for creating a matrix from another matrix.
+	    	/// @tparam Matrix A compatible matrix type.
+	    	/// @param m The matrix to copy from.
 		template <
 			typename Matrix, enable_matrix<Matrix>
 		>
@@ -973,10 +973,10 @@ namespace theoretica {
 			algebra::mat_copy(*this, m);
 		}
 
-
-    	/// Constructor that initializes a matrix from a list of rows.
-    	/// @tparam T The type of the initializer elements (default is `Type`).
-    	/// @param rows Initializer list representing the matrix rows.
+	
+	    	/// Constructor that initializes a matrix from a list of rows.
+	    	/// @tparam T The type of the initializer elements (default is `Type`).
+	    	/// @param rows Initializer list representing the matrix rows.
 		template<typename T = Type>
 		inline mat(const std::initializer_list<std::initializer_list<T>>& rows) {
 
@@ -1006,7 +1006,7 @@ namespace theoretica {
 
 
 		/// Copy assignment operator for copying from another matrix.
-    	/// @tparam Matrix A compatible matrix type.
+    		/// @tparam Matrix A compatible matrix type.
    		/// @param other The matrix to copy from.
 		template<typename Matrix>
 		inline mat<Type>& operator=(const Matrix& other) {
@@ -1015,10 +1015,10 @@ namespace theoretica {
 		}
 
 
-    	/// Constructor that initializes a diagonal matrix with equal entries on the diagonal.
-    	/// @param diagonal The value for the diagonal entries.
-    	/// @param n Number of rows.
-    	/// @param k Number of columns.
+	    	/// Constructor that initializes a diagonal matrix with equal entries on the diagonal.
+	    	/// @param diagonal The value for the diagonal entries.
+	    	/// @param n Number of rows.
+	    	/// @param k Number of columns.
 		mat(Type diagonal, unsigned int n, unsigned int k) {
 			
 			resize(n, k);
@@ -1030,23 +1030,23 @@ namespace theoretica {
 		}
 
 
-    	/// Destructor that deallocates memory and resets matrix size.
+    		/// Destructor that deallocates memory and resets matrix size.
 		~mat() {
 			row_sz = 0;
 			col_sz = 0;
 		}
 
 
-    	/// Sets all elements in the matrix to zero.
+    		/// Sets all elements in the matrix to zero.
 		inline void make_zeroes() {
 			algebra::mat_zeroes(*this);
 		}
 
 
-    	/// Static method that returns a null matrix with specified dimensions.
-    	/// @param rows Number of rows.
-    	/// @param cols Number of columns.
-    	/// @return A matrix with all elements set to zero.
+	    	/// Static method that returns a null matrix with specified dimensions.
+	    	/// @param rows Number of rows.
+	    	/// @param cols Number of columns.
+	    	/// @return A matrix with all elements set to zero.
 		inline static mat<Type> zeroes(unsigned int rows, unsigned int cols) {
 			mat<Type> res;
 			res.resize(rows, cols);
@@ -1055,10 +1055,10 @@ namespace theoretica {
 		}
 
 
-    	/// Adds two matrices element-wise.
-    	/// @tparam Matrix A compatible matrix type.
-    	/// @param other The matrix to add.
-    	/// @return A new matrix containing the sum of the two matrices.
+	    	/// Adds two matrices element-wise.
+	    	/// @tparam Matrix A compatible matrix type.
+	    	/// @param other The matrix to add.
+	    	/// @return A new matrix containing the sum of the two matrices.
 		template<typename Matrix>
 		inline mat<Type> operator+(const Matrix& other) const {
 			mat<Type> res;
@@ -1068,9 +1068,9 @@ namespace theoretica {
 
 
 	    /// Subtracts another matrix element-wise.
-    	/// @tparam Matrix A compatible matrix type.
-    	/// @param other The matrix to subtract.
-    	/// @return A new matrix containing the difference of the two matrices.
+	    	/// @tparam Matrix A compatible matrix type.
+	    	/// @param other The matrix to subtract.
+	    	/// @return A new matrix containing the difference of the two matrices.
 		template<typename Matrix>
 		inline mat<Type> operator-(const Matrix& other) const {
 			mat<Type> res;
@@ -1079,9 +1079,9 @@ namespace theoretica {
 		}
 
 
-    	/// Multiplies the matrix by a scalar.
-    	/// @param scalar The scalar to multiply with.
-    	/// @return A new matrix with each element multiplied by the scalar.
+	    	/// Multiplies the matrix by a scalar.
+	    	/// @param scalar The scalar to multiply with.
+	    	/// @return A new matrix with each element multiplied by the scalar.
 		inline mat<Type> operator*(Type scalar) const {
 			mat<Type> res;
 			res.resize(rows(), cols());
@@ -1091,8 +1091,8 @@ namespace theoretica {
 
 		/// Friend operator to enable equations of the form
 		/// (T) * (mat)
-    	/// @param a The scalar value.
-    	/// @param B The matrix to multiply.		
+	    	/// @param a The scalar value.
+	    	/// @param B The matrix to multiply.		
 		inline friend mat<Type> operator*(Type a, const mat<Type>& B) {
 			return B * a;
 		}
@@ -1100,10 +1100,10 @@ namespace theoretica {
 
 		/// Friend operator to enable equations of the form
 		/// (vec) * (mat) (Enables vector-matrix multiplication.)
-    	/// @tparam VecType The vector element type.
+    		/// @tparam VecType The vector element type.
    		/// @tparam M The vector size.
-    	/// @param a The vector.
-    	/// @param B The matrix.
+	    	/// @param a The vector.
+	    	/// @param B The matrix.
 		template<typename VecType, unsigned int M>
 		inline friend vec<VecType, 0> operator*(
 			const vec<VecType, M>& a, const mat<Type, 0, 0>& B) {
@@ -1112,8 +1112,8 @@ namespace theoretica {
 
 
 		/// Divides each element in the matrix by a scalar.
-    	/// @param scalar The scalar to divide with.
-    	/// @return A new matrix with each element divided by the scalar.
+	    	/// @param scalar The scalar to divide with.
+	    	/// @return A new matrix with each element divided by the scalar.
 		inline mat<Type> operator/(Type scalar) const {
 
 			mat<Type> res;
@@ -1129,9 +1129,9 @@ namespace theoretica {
 
 
 		/// Transforms a vector by multiplying it with the matrix.
-    	/// @tparam Vector The vector type.
-    	/// @param v The vector to transform.
-    	/// @return The transformed vector.
+	    	/// @tparam Vector The vector type.
+	    	/// @param v The vector to transform.
+	    	/// @return The transformed vector.
 		template<typename Vector>
 		inline Vector transform(const Vector& v) const {
 
@@ -1147,20 +1147,20 @@ namespace theoretica {
 		}
 
 
-	    /// Transforms a vector by multiplying it with the matrix.
+	    	/// Transforms a vector by multiplying it with the matrix.
    		/// @tparam N The number of elements in the result vector.
-    	/// @tparam K The number of elements in the input vector.
-    	/// @param v The vector to transform.
+    		/// @tparam K The number of elements in the input vector.
+    		/// @param v The vector to transform.
 		template<unsigned int N = 0, unsigned int K = 0>
 		inline vec<Type, N> transform(const vec<Type, K>& v) const {
 			return algebra::transform(*this, v);
 		}
 
 
-    	/// Transforms a vector by multiplying it with the matrix.
-    	/// @tparam N The number of elements in the result vector.
-    	/// @tparam K The number of elements in the input vector.
-    	/// @param v The vector to transform.
+	    	/// Transforms a vector by multiplying it with the matrix.
+	    	/// @tparam N The number of elements in the result vector.
+	    	/// @tparam K The number of elements in the input vector.
+	    	/// @param v The vector to transform.
 		template<unsigned int N = 0, unsigned int K = 0>
 		inline vec<Type, N> operator*(const vec<Type, K>& v) const {
 			return transform(v);
@@ -1602,8 +1602,7 @@ namespace theoretica {
 			if(rows() == n && cols() == k)
 				return *this;
 
-			// Distinguish between row-first and column-first
-			// allocation
+			// Distinguish between row-first and column-first allocation
 #ifdef THEORETICA_ROW_FIRST
 			size_t size1 = n, size2 = k;
 #else
