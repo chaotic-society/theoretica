@@ -737,7 +737,6 @@ html.dark-mode iframe#MSearchResults {
 #side-nav {
     padding: 0 !important;
     background: var(--side-nav-background);
-    /* display:none; */
 }
 
 @media screen and (max-width: 767px) {
@@ -810,8 +809,6 @@ html.dark-mode iframe#MSearchResults {
     font-weight: bolder;
     font-weight: 600;
 }
-
-
 
 .ui-resizable-e {
     background: var(--separator-color);
