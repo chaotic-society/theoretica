@@ -1,5 +1,0 @@
-var structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4 =
-[
-    [ "args_type", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html#a178024ec3385fd5438edf90f9ed9e497", null ],
-    [ "return_type", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html#ad8f9a20e20a802ff72e1580aca03ea4f", null ]
-];
