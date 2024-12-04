@@ -337,7 +337,22 @@ namespace theoretica {
 		}
 
 
-		/// Returns a perspective projection matrix
+		/// Returns a perspective projection matrix with adjustable view volume boundaries.
+		/// @tparam Matrix The type of matrix to be returned.
+		/// @param left The left boundary of the view volume.
+		/// @param right The right boundary of the view volume.
+		/// @param bottom The bottom boundary of the view volume.
+		/// @param top The top boundary of the view volume.
+		/// @param near The near clipping plane distance.
+		/// @param far The far clipping plane distance.
+		/// @param rows Optional number of rows to set for the matrix (default is 0).
+		/// @param cols Optional number of columns to set for the matrix (default is 0).
+		/// @return A perspective projection matrix with dimensions at least 4x4.
+		///
+		/// This function creates a perspective projection matrix that maps a 3D frustum 
+		/// into a 2D plane. If the matrix dimensions are smaller than 4x4, an error is 
+		/// triggered. The matrix is initialized to zero, with values set to define the 
+		/// specified perspective projection parameters.
 		template<typename Matrix>
 		inline Matrix perspective(
 			real left, real right, real bottom,
