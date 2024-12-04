@@ -180,6 +180,12 @@ namespace theoretica {
 
 	namespace _internal {
 
+		// Helper structure to extract the first type of a variadic template
+		template<typename Arg, typename ...Other>
+		struct get_first {
+			using type = Arg;
+		};
+
 		// Helper structure for is_real_func and related traits
 		template<typename Function, typename T, typename = void>
 		struct return_type_or_void {
@@ -195,28 +201,31 @@ namespace theoretica {
 
 
 		// Helper structure for extracting information from Callables
-		template<class T>
+		template<typename T>
 		struct func_helper : public func_helper<decltype(&T::operator())> {};
 
-		template<class ReturnType, class... Args>
+		template<typename ReturnType, typename ...Args>
 		struct func_helper<ReturnType(Args...)> {
 
 			using return_type = ReturnType;
 			using args_type = std::tuple<Args...>;
+			using first_arg_type = typename get_first<Args...>::type;
 		};
 
-		template<class ReturnType, class... Args>
+		template<typename ReturnType, typename ...Args>
 		struct func_helper<ReturnType(*)(Args...)> {
 
 			using return_type = ReturnType;
 			using args_type = std::tuple<Args...>;
+			using first_arg_type = typename get_first<Args...>::type;
 		};
 
-		template<class Class, class ReturnType, class... Args>
+		template<typename Class, typename ReturnType, typename ...Args>
 		struct func_helper<ReturnType(Class::*)(Args...) const> {
 
 			using return_type = ReturnType;
 			using args_type = std::tuple<Args...>;
+			using first_arg_type = typename get_first<Args...>::type;
 		};
 	}
 

@@ -137,7 +137,7 @@ namespace theoretica {
 			// Find the only positive root of the polynomial
 			// x^s+1 - x - 1 = 0
 
-			alpha = 1.0 / root_bisection(
+			alpha = 1.0 / root_bisect(
 				[](real x) {
 					return pow(x, S + 1) - x - 1;
 				}, 0, 2);

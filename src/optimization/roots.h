@@ -53,22 +53,21 @@ namespace theoretica {
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
-	inline real root_bisection(
+	inline real root_bisect(
 		RealFunction f, real a, real b, real tolerance = OPTIMIZATION_TOL) {
 
 		if(f(a) * f(b) >= 0) {
-			TH_MATH_ERROR("root_bisection", f(a) * f(b), INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_bisect", f(a) * f(b), INVALID_ARGUMENT);
 			return nan();
 		}
 
 		real x_avg = a;
-
 		real x_min = a;
 		real x_max = b;
 
 		unsigned int iter = 0;
 
-		while((x_max - x_min) > tolerance && iter <= OPTIMIZATION_BISECTION_ITER) {
+		while((x_max - x_min) > 2 * tolerance && iter <= OPTIMIZATION_BISECTION_ITER) {
 
 			x_avg = (x_max + x_min) / 2.0;
 
@@ -81,7 +80,7 @@ namespace theoretica {
 		}
 
 		if(iter > OPTIMIZATION_BISECTION_ITER) {
-			TH_MATH_ERROR("root_bisection", x_avg, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_bisect", x_avg, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
@@ -187,14 +186,15 @@ namespace theoretica {
 	/// the algorithm (defaults to OPTIMIZATION_TOL).
 	/// @return The coordinate of the root of the function,
 	/// or a complex NaN if the algorithm did not converge.
-	inline complex<> root_newton(
-		complex<>(*f)(complex<>),
-		complex<>(*df)(complex<>),
-		complex<> guess = complex<>(0, 0),
+	template<typename Type = real>
+	inline complex<Type> root_newton(
+		complex<Type>(*f)(complex<Type>),
+		complex<Type>(*df)(complex<Type>),
+		complex<Type> guess = complex<Type>(0, 0),
 		real tolerance = OPTIMIZATION_TOL,
 		unsigned int max_iter = OPTIMIZATION_TOL) {
 
-		complex<> z = guess;
+		complex<Type> z = guess;
 		unsigned int iter = 0;
 
 		while(abs(f(z)) > tolerance && iter <= max_iter) {
@@ -227,7 +227,7 @@ namespace theoretica {
 		unsigned int iter = 0;
 
 		while(abs(f(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_HALLEY_ITER) {
-			x = x - (2 * f(x) * Df(x)) / (2 * Df(x) - f(x) * D2f(x));
+			x = x - (2 * f(x) * Df(x)) / (2 * square(Df(x)) - f(x) * D2f(x));
 			iter++;
 		}
 
@@ -260,8 +260,11 @@ namespace theoretica {
 
 			s = f(dual2(x, 1, 0));
 
-			x = x - (2 * s.Re() * s.Dual1())
-						/ (2 * s.Dual1() - s.Re() * s.Dual2());
+			const real f_x = s.Re();
+			const real df_x = s.Dual1();
+			const real d2f_x = s.Dual2();
+
+			x = x - (2 * f_x * df_x) / (2 * square(df_x) - f_x * d2f_x);
 			iter++;
 		}
 
@@ -282,14 +285,19 @@ namespace theoretica {
 	/// or NaN if the algorithm did not converge.
 	inline real root_halley(const polynomial<real>& p, real guess = 0) {
 
-		polynomial<real> Dp = deriv(p);
-		polynomial<real> D2p = deriv(Dp);
+		const polynomial<real> Dp = deriv(p);
+		const polynomial<real> D2p = deriv(Dp);
 
 		real x = guess;
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_HALLEY_ITER) {
-			x = x - (2 * p(x) * Dp(x)) / (2 * Dp(x) - p(x) * D2p(x));
+
+			const real p_x = p(x);
+			const real dp_x = Dp(x);
+			const real d2p_x = D2p(x);
+
+			x = x - (2 * p_x * dp_x) / (2 * square(dp_x) - p_x * d2p_x);
 			iter++;
 		}
 
@@ -342,7 +350,10 @@ namespace theoretica {
 		unsigned int iter = 0;
 
 		while(abs(p(x)) > OPTIMIZATION_TOL && iter <= OPTIMIZATION_STEFFENSEN_ITER) {
-			x = x - (p(x) / ((p(x + p(x)) / p(x)) - 1));
+
+			const real p_x = p(x);
+
+			x = x - (p_x / ((p(x + p_x) / p_x) - 1));
 			iter++;
 		}
 
@@ -491,7 +502,7 @@ namespace theoretica {
 
 			// Approximate the roots using bisection inside each interval
 			res.push_back(
-				root_bisection(f, intervals[i][0], intervals[i][1], tolerance));
+				root_bisect(f, intervals[i][0], intervals[i][1], tolerance));
 		}
 
 		return res;

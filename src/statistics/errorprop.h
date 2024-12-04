@@ -90,9 +90,7 @@ namespace theoretica {
 			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)
 		>
 		inline real error_propagation(
-			MultiDualFunction f,
-			const vec<real, N>& x_best,
-			const Matrix& cm) {
+			MultiDualFunction f, const vec<real, N>& x_best, const Matrix& cm) {
 
 
 			if(cm.rows() != x_best.size()) {

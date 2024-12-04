@@ -167,7 +167,7 @@ namespace theoretica {
 		RealFunction f, RealFunction Df,
 		real a, real b) {
 
-		real z = root_bisection(Df, a, b);
+		real z = root_bisect(Df, a, b);
 
 		if(deriv_central(Df, z) > 0) {
 			TH_MATH_ERROR("maximize_bisection", z, NO_ALGO_CONVERGENCE);
@@ -190,7 +190,7 @@ namespace theoretica {
 	template<typename RealFunction>
 	inline real minimize_bisection(RealFunction f, RealFunction Df, real a, real b) {
 
-		real z = root_bisection(Df, a, b);
+		real z = root_bisect(Df, a, b);
 
 		if(deriv_central(Df, z) < 0) {
 			TH_MATH_ERROR("minimize_bisection", z, NO_ALGO_CONVERGENCE);
