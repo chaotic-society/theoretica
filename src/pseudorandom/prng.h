@@ -132,7 +132,10 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 
-				return PRNG(rand_congruential, seed, {48271, 0, ((uint64_t) 1 << 31) - 1});
+				return PRNG(
+					randgen_congruential, seed,
+					{48271, 0, ((uint64_t) 1 << 31) - 1}
+				);
 			}
 
 
@@ -140,7 +143,7 @@ namespace theoretica {
 			/// @param p The four state parameters
 			/// @return A Xoshiro256++ pseudorandom number generator
 			inline static PRNG xoshiro(const std::vector<uint64_t>& p) {
-				return PRNG(rand_xoshiro, 0, p);
+				return PRNG(randgen_xoshiro, 0, p);
 			}
 
 
@@ -155,12 +158,12 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 				
-				const uint64_t n1 = rand_splitmix64(seed);
-				const uint64_t n2 = rand_splitmix64(n1);
-				const uint64_t n3 = rand_splitmix64(n2);
-				const uint64_t n4 = rand_splitmix64(n3);
+				const uint64_t n1 = randgen_splitmix64(seed);
+				const uint64_t n2 = randgen_splitmix64(n1);
+				const uint64_t n3 = randgen_splitmix64(n2);
+				const uint64_t n4 = randgen_splitmix64(n3);
 
-				return PRNG(rand_xoshiro, 0, {n1, n2, n3, n4});
+				return PRNG(randgen_xoshiro, 0, {n1, n2, n3, n4});
 			}
 
 
@@ -172,7 +175,7 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 
-				return PRNG(rand_splitmix64, seed);
+				return PRNG(randgen_splitmix64, seed);
 			}
 
 
@@ -184,9 +187,9 @@ namespace theoretica {
 					seed = 1;
 
 				if(p2 == 0)
-					p2 = rand_splitmix64(seed);
+					p2 = randgen_splitmix64(seed);
 
-				return PRNG(rand_wyrand, 0, {seed, p1, p2});
+				return PRNG(randgen_wyrand, 0, {seed, p1, p2});
 			}
 
 
@@ -195,12 +198,12 @@ namespace theoretica {
 				uint64_t seed, uint64_t offset = 765872292751861) {
 
 				if(seed == 0)
-					seed = rand_splitmix64(765872292751861);
+					seed = randgen_splitmix64(765872292751861);
 
 				if(offset == 0)
 					offset = 765872292751861;
 
-				return PRNG(rand_middlesquare, seed, {offset});
+				return PRNG(randgen_middlesquare, seed, {offset});
 			}
 		
 	};
