@@ -79,9 +79,6 @@ namespace theoretica {
 				for (unsigned int i = 0; i < coeff.size(); ++i)
 					sum = coeff[coeff.size() - i - 1] + x * sum;
 
-				// TO-DO Compare performance using fma x86 Assembly instruction
-				// sum = fma(x, sum, coeff[coeff.size() - i - 1]);
-
 				return sum;
 			}
 

@@ -46,13 +46,13 @@ namespace theoretica {
 			}
 
 
-#ifndef THEORETICA_NO_PRINT
+#ifndef THEORETICA_NO_PRINT			
 
 			/// Convert the ODE solution to string representation
 			inline std::string to_string(const std::string& separator = " ") const {
 
 				if (t.size() != x.size()) {
-					TH_MATH_ERROR("ode_solution::to_string", t.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("ode_solution_t::to_string", t.size(), INVALID_ARGUMENT);
 					return "";
 				}
 

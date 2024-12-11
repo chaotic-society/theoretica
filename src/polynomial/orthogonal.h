@@ -260,7 +260,7 @@ namespace theoretica {
 
 		for (unsigned int i = 1; i <= n; ++i) {
 			roots.push_back(
-				root_newton(P, (2.0 / (n + 1)) * i - 1.0)
+				root_newton(P, deriv(P), (2.0 / (n + 1)) * i - 1.0)
 			);
 		}
 
