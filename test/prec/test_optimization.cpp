@@ -95,6 +95,16 @@ int main(int argc, char const *argv[]) {
 			"root_chebyshev (1)",
 			f1(root_chebyshev(f1<dual2>, 0.7)), 0.0
 		);
+
+		prec::equals(
+			"root_ostrowski (1)",
+			f1(root_ostrowski(f1<real>, df1, 0.7)), 0.0
+		);
+
+		prec::equals(
+			"root_jarrat (1)",
+			f1(root_jarrat(f1<real>, df1, 0.7)), 0.0
+		);
 	}
 
 
@@ -135,6 +145,16 @@ int main(int argc, char const *argv[]) {
 		prec::equals(
 			"root_chebyshev (2)",
 			g1(root_chebyshev(g1, dg1, d2g1, 1.5)), 0.0
+		);
+
+		prec::equals(
+			"root_ostrowski (2)",
+			g1(root_ostrowski(g1, dg1, 1.5)), 0.0
+		);
+
+		prec::equals(
+			"root_jarrat (2)",
+			g1(root_jarrat(g1, dg1, 1.5)), 0.0
 		);
 	}
 

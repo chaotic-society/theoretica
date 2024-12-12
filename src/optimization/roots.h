@@ -348,6 +348,11 @@ namespace theoretica {
 	/// the algorithm is assumed to not have converged.
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
+	///
+	/// Chebyshev's method can be derived by expanding the inverse of the function
+	/// around the zero and truncating the series. This method is particularly suited
+	/// when the derivatives of the function are easy to compute, especially
+	/// when using automatic differentiation.
 	template<typename RealFunction>
 	inline real root_chebyshev(
 		RealFunction f, RealFunction Df,
@@ -391,6 +396,12 @@ namespace theoretica {
 	/// the algorithm is assumed to not have converged.
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
+	///
+	/// Chebyshev's method can be derived by expanding the inverse of the function
+	/// around the zero and truncating the series. This method is particularly suited
+	/// when the derivatives of the function are easy to compute, especially
+	/// when using automatic differentiation. For example, the exponential needs to be
+	/// computed only once to evaluate the function and its derivatives.
 	inline real root_chebyshev(
 		dual2(*f)(dual2), real guess = 0,
 		real tol = OPTIMIZATION_TOL,
@@ -414,6 +425,100 @@ namespace theoretica {
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
+	/// Find a root of a univariate real function using Ostrowski's method.
+	///
+	/// @param f The real function to search the root of.
+	/// @param Df The first derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm
+	/// when \f$|f(x_n)| \leq \epsilon\f$.
+	/// @param max_iter The maximum number of iterations to perform, after which
+	/// the algorithm is assumed to not have converged.
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
+	///
+	/// Ostrowski's method is a 4-th order method using 2 function evaluations
+	/// and 1 function evaluation. It combines a Newton step with a
+	/// corrective coefficient. This method does not have an overload using
+	/// automatic differentiation as it would hinder the performance benefit.
+	template<typename RealFunction>
+	inline real root_ostrowski(
+		RealFunction f, RealFunction Df, real guess = 0.0,
+		real tol = OPTIMIZATION_TOL,
+		unsigned int max_iter = OPTIMIZATION_CHEBYSHEV_ITER) {
+
+		real x = guess;
+		real f_x = inf();
+		unsigned int iter = 0;
+
+		while(abs(f_x) > tol && iter <= max_iter) {
+
+			f_x = f(x);
+			const real df_x = Df(x);
+			const real u = f_x / df_x;
+			const real f_xu = f(x - u);
+
+			x = x - u - (f_xu / df_x) * (f_x / (f_x - 2 * f_xu));
+
+			iter++;
+		}
+
+		if(iter > max_iter) {
+			TH_MATH_ERROR("root_ostrowski", x, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return x;
+	}
+
+
+	/// Find a root of a univariate real function using Jarrat's method.
+	///
+	/// @param f The real function to search the root of.
+	/// @param Df The first derivative of the function.
+	/// @param guess The initial guess (defaults to 0).
+	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm
+	/// when \f$|f(x_n)| \leq \epsilon\f$.
+	/// @param max_iter The maximum number of iterations to perform, after which
+	/// the algorithm is assumed to not have converged.
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
+	///
+	/// Jarrat's method is a 4-th order method which is particularly suited when
+	/// the derivative of the function is less computationally expensive than
+	/// the function itself, like in the case of integrals. This method does not
+	/// have an overload using automatic differentiation as it would hinder the
+	/// performance benefit.
+	template<typename RealFunction>
+	inline real root_jarrat(
+		RealFunction f, RealFunction Df, real guess = 0.0,
+		real tol = OPTIMIZATION_TOL,
+		unsigned int max_iter = OPTIMIZATION_CHEBYSHEV_ITER) {
+
+		real x = guess;
+		real f_x = inf();
+		unsigned int iter = 0;
+
+		while(abs(f_x) > tol && iter <= max_iter) {
+
+			f_x = f(x);
+			const real df_x = Df(x);
+			const real u = f_x / df_x;
+			const real f_xu = Df(x - 2.0 * u / 3.0);
+
+			x = x - 0.5 * u + f_x / (df_x - 3 * f_xu);
+			iter++;
+		}
+
+		if(iter > max_iter) {
+			TH_MATH_ERROR("root_jarrat", x, NO_ALGO_CONVERGENCE);
 			return nan();
 		}
 
