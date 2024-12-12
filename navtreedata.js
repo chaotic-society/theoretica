@@ -25,10 +25,6 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "tutorial", "md__home_runner_work_theoretica_theoretica_build_tutorial.html", null ],
-    [ "Bibliography", "md__home_runner_work_theoretica_theoretica__b_i_b_l_i_o_g_r_a_p_h_y.html", null ],
-    [ "Coding standard", "md__home_runner_work_theoretica_theoretica__c_o_d_i_n_g__s_t_a_n_d_a_r_d.html", null ],
-    [ "Contributing Guide", "md__home_runner_work_theoretica_theoretica__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -64,16 +60,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classtheoretica_1_1dual.html#abfef7a93dd1cc2329245979b6ffffccf",
-"classtheoretica_1_1phasor.html#a0eadc958091b549094a87baff0accce0",
-"classtheoretica_1_1vec__iterator.html#acd67e234002b1839dc7bd12248013487",
-"dual__functions_8h.html#ad5f05865ec8d49e6abf889d81e1cd428",
-"namespacemembers_z.html",
-"namespacetheoretica.html#aa14178d5680aaca3da91f2f0dc8a86d4",
-"namespacetheoretica_1_1algebra.html#ac67d0c47a4affc760af23fe656b41881",
-"orthogonal_8h.html#adcb53498374f76292a3da8bb8c785341",
-"structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html#afc6b5d5b12ddb68aafe80d26ca49edbc"
+"algebra_8h.html",
+"classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45",
+"classtheoretica_1_1phasor.html#a1251ee6acdbf836f2c31fdb912ba144a",
+"classtheoretica_1_1vec__iterator.html#af0ce3b605d89e3d7185fd09643973fee",
+"dual__functions_8h.html#a892e7542b82c516e65023555a0e30f6b",
+"namespacemembers_w.html",
+"namespacetheoretica.html#aa0edd44311fc206d96919ab11d1977a9",
+"namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62",
+"orthogonal_8h.html#ada16d429085d759447ca84a74124c435",
+"structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
