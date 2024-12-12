@@ -7,7 +7,7 @@ var roots_8h =
     [ "root_halley", "roots_8h.html#a1bdea1fd73b49016d4d7bec2e829eb7e", null ],
     [ "root_halley", "roots_8h.html#a1feafa93b8400245b1004281f75ed39f", null ],
     [ "root_jarrat", "roots_8h.html#afaea7b4edb00ac6a76fb713ea26d57ad", null ],
-    [ "root_newton", "roots_8h.html#aa4c0f3022f9ad4257df9e474517109a4", null ],
+    [ "root_newton", "roots_8h.html#ac3ef01ee1d6e689040938996d699896e", null ],
     [ "root_newton", "roots_8h.html#a13f0ff1bc27c68e40b1da5c870e1b15e", null ],
     [ "root_newton", "roots_8h.html#a12682ec4d92c0ad2c459f7a1ae2bfda4", null ],
     [ "root_ostrowski", "roots_8h.html#ace0fd7648be8bf97f1e83741dbe3594f", null ],

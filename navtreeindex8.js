@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"orthogonal_8h.html#aa7f71b544a84a09a4d5f895e83cad579":[3,0,0,0,0,0,0,0,7,0,4],
+"orthogonal_8h.html#ac5c55ac525043a0f72ef967a8c6c07ac":[3,0,0,0,0,0,0,0,7,0,19],
+"orthogonal_8h.html#ac63977b2a1329e3e8e755eb062002f47":[3,0,0,0,0,0,0,0,7,0,10],
+"orthogonal_8h.html#aca937d779d223cab3a43b4236876491a":[3,0,0,0,0,0,0,0,7,0,16],
 "orthogonal_8h.html#ada16d429085d759447ca84a74124c435":[3,0,0,0,0,0,0,0,7,0,14],
 "orthogonal_8h.html#adcb53498374f76292a3da8bb8c785341":[3,0,0,0,0,0,0,0,7,0,0],
 "orthogonal_8h.html#aea776bc1503b58828c9b02d50d6a3553":[3,0,0,0,0,0,0,0,7,0,15],
@@ -143,9 +147,9 @@ var NAVTREEINDEX8 =
 "roots_8h.html#a3e9e164e51e8ed01e633dfa36633e439":[3,0,0,0,0,0,0,0,6,3,2],
 "roots_8h.html#a9905a3dd18e2b87db3456bcb940a917e":[3,0,0,0,0,0,0,0,6,3,0],
 "roots_8h.html#aa0649a3f31e025510b86dc7031c35f08":[3,0,0,0,0,0,0,0,6,3,1],
-"roots_8h.html#aa4c0f3022f9ad4257df9e474517109a4":[3,0,0,0,0,0,0,0,6,3,7],
 "roots_8h.html#aa5e78dc79a291aea5b24e1ab5663bb5e":[3,0,0,0,0,0,0,0,6,3,12],
 "roots_8h.html#aafa127bcc16e700cfee3ae2105df3307":[3,0,0,0,0,0,0,0,6,3,11],
+"roots_8h.html#ac3ef01ee1d6e689040938996d699896e":[3,0,0,0,0,0,0,0,6,3,7],
 "roots_8h.html#ac4ee6d3e221a56829de33e03d5d100d2":[3,0,0,0,0,0,0,0,6,3,13],
 "roots_8h.html#ac8f9fbd5182e447c5f16a48617e16aa4":[3,0,0,0,0,0,0,0,6,3,3],
 "roots_8h.html#ace0fd7648be8bf97f1e83741dbe3594f":[3,0,0,0,0,0,0,0,6,3,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html#a5440c7e3523c6018d6a3f8d7ed345a85":[2,0,0,0,9,1],
 "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html#ad8f9a20e20a802ff72e1580aca03ea4f":[2,0,0,0,9,2],
 "structtheoretica_1_1__internal_1_1get__first.html":[2,0,0,0,3],
-"structtheoretica_1_1__internal_1_1get__first.html#a0f3f6ceea5f33047baa22f43a9319c95":[2,0,0,0,3,0],
-"structtheoretica_1_1__internal_1_1make__void.html":[2,0,0,0,0],
-"structtheoretica_1_1__internal_1_1make__void.html#abdc6b4014edd9626dfcb38ed3e75d1e8":[2,0,0,0,0,0],
-"structtheoretica_1_1__internal_1_1return__type__or__void.html":[2,0,0,0,4],
-"structtheoretica_1_1__internal_1_1return__type__or__void.html#a9697c59a95198967f651d5af108cdbaa":[2,0,0,0,4,0]
+"structtheoretica_1_1__internal_1_1get__first.html#a0f3f6ceea5f33047baa22f43a9319c95":[2,0,0,0,3,0]
 };

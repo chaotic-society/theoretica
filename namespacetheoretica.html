@@ -669,6 +669,9 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad7a9ad3afd4578cfdf1a242c215d837a">deriv</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt; &amp;p)</td></tr>
 <tr class="memdesc:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the exact derivative of a polynomial function.  <a href="namespacetheoretica.html#ad7a9ad3afd4578cfdf1a242c215d837a">More...</a><br /></td></tr>
 <tr class="separator:ad7a9ad3afd4578cfdf1a242c215d837a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6a820d42c7b057384b9eb88fc312f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6e6a820d42c7b057384b9eb88fc312f3">deriv</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memdesc:a6e6a820d42c7b057384b9eb88fc312f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the exact derivative of a polynomial function at the given point.  <a href="namespacetheoretica.html#a6e6a820d42c7b057384b9eb88fc312f3">More...</a><br /></td></tr>
+<tr class="separator:a6e6a820d42c7b057384b9eb88fc312f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction  = std::function&lt;real(real)&gt;, enable_real_func&lt; RealFunction &gt;  = true&gt; </td></tr>
 <tr class="memitem:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa6f7dff89fe2dd3e8124c10ff19bd0ed">deriv_central</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
 <tr class="memdesc:aa6f7dff89fe2dd3e8124c10ff19bd0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the first derivative of a real function using the central method.  <a href="namespacetheoretica.html#aa6f7dff89fe2dd3e8124c10ff19bd0ed">More...</a><br /></td></tr>
@@ -697,10 +700,13 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:ac470f622545e9f044b6099d96222532f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac470f622545e9f044b6099d96222532f">deriv2</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h=<a class="el" href="namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09">CALCULUS_DERIV_STEP</a>)</td></tr>
 <tr class="memdesc:ac470f622545e9f044b6099d96222532f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the second derivative of a real function using the best available algorithm.  <a href="namespacetheoretica.html#ac470f622545e9f044b6099d96222532f">More...</a><br /></td></tr>
 <tr class="separator:ac470f622545e9f044b6099d96222532f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7379f3b3f7835c3b3b6328c20ad82d3"><td class="memTemplParams" colspan="2">template&lt;typename T  = real&gt; </td></tr>
-<tr class="memitem:ac7379f3b3f7835c3b3b6328c20ad82d3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac7379f3b3f7835c3b3b6328c20ad82d3">integral</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt; &amp;p)</td></tr>
-<tr class="memdesc:ac7379f3b3f7835c3b3b6328c20ad82d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the indefinite integral of a polynomial.  <a href="namespacetheoretica.html#ac7379f3b3f7835c3b3b6328c20ad82d3">More...</a><br /></td></tr>
-<tr class="separator:ac7379f3b3f7835c3b3b6328c20ad82d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79bd8e084a8ad6d43b261eb44cec7943"><td class="memTemplParams" colspan="2">template&lt;typename Field  = real&gt; </td></tr>
+<tr class="memitem:a79bd8e084a8ad6d43b261eb44cec7943"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a79bd8e084a8ad6d43b261eb44cec7943">integral</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt; &amp;p)</td></tr>
+<tr class="memdesc:a79bd8e084a8ad6d43b261eb44cec7943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the indefinite integral of a polynomial.  <a href="namespacetheoretica.html#a79bd8e084a8ad6d43b261eb44cec7943">More...</a><br /></td></tr>
+<tr class="separator:a79bd8e084a8ad6d43b261eb44cec7943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0e87bfeb1a4e484de143465a263465"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9f0e87bfeb1a4e484de143465a263465">integral</a> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;p, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b)</td></tr>
+<tr class="memdesc:a9f0e87bfeb1a4e484de143465a263465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the definite integral of a polynomial over an interval.  <a href="namespacetheoretica.html#a9f0e87bfeb1a4e484de143465a263465">More...</a><br /></td></tr>
+<tr class="separator:a9f0e87bfeb1a4e484de143465a263465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae48153156a44ef0245d23491aed11f81"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:ae48153156a44ef0245d23491aed11f81"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae48153156a44ef0245d23491aed11f81">integral_midpoint</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, unsigned int steps=<a class="el" href="namespacetheoretica.html#a92f59d0debe6a7cbdee72b28d4d53f16">CALCULUS_INTEGRAL_STEPS</a>)</td></tr>
 <tr class="memdesc:ae48153156a44ef0245d23491aed11f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the definite integral of an arbitrary function using the midpoint method.  <a href="namespacetheoretica.html#ae48153156a44ef0245d23491aed11f81">More...</a><br /></td></tr>
@@ -1316,10 +1322,10 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a13f0ff1bc27c68e40b1da5c870e1b15e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a13f0ff1bc27c68e40b1da5c870e1b15e">root_newton</a> (<a class="el" href="classtheoretica_1_1dual.html">dual</a>(*f)(<a class="el" href="classtheoretica_1_1dual.html">dual</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ac83f2fa2a615e5fe6bf4acafa0549c3f">OPTIMIZATION_NEWTON_ITER</a>)</td></tr>
 <tr class="memdesc:a13f0ff1bc27c68e40b1da5c870e1b15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Newton's method, computing the derivative using automatic differentiation.  <a href="namespacetheoretica.html#a13f0ff1bc27c68e40b1da5c870e1b15e">More...</a><br /></td></tr>
 <tr class="separator:a13f0ff1bc27c68e40b1da5c870e1b15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4c0f3022f9ad4257df9e474517109a4"><td class="memTemplParams" colspan="2">template&lt;typename Type  = real&gt; </td></tr>
-<tr class="memitem:aa4c0f3022f9ad4257df9e474517109a4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa4c0f3022f9ad4257df9e474517109a4">root_newton</a> (<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;(*f)(<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;), <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;(*df)(<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;), <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; guess=<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;(0.0, 0.0), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ac83f2fa2a615e5fe6bf4acafa0549c3f">OPTIMIZATION_NEWTON_ITER</a>)</td></tr>
-<tr class="memdesc:aa4c0f3022f9ad4257df9e474517109a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a complex function using Newton's method.  <a href="namespacetheoretica.html#aa4c0f3022f9ad4257df9e474517109a4">More...</a><br /></td></tr>
-<tr class="separator:aa4c0f3022f9ad4257df9e474517109a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ef01ee1d6e689040938996d699896e"><td class="memTemplParams" colspan="2">template&lt;typename Type  = real, typename ComplexFunction  = std::function&lt;complex&lt;Type&gt;(complex&lt;Type&gt;)&gt;&gt; </td></tr>
+<tr class="memitem:ac3ef01ee1d6e689040938996d699896e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac3ef01ee1d6e689040938996d699896e">root_newton</a> (ComplexFunction f, ComplexFunction Df, <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt; guess, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ac83f2fa2a615e5fe6bf4acafa0549c3f">OPTIMIZATION_NEWTON_ITER</a>)</td></tr>
+<tr class="memdesc:ac3ef01ee1d6e689040938996d699896e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a complex function using Newton's method.  <a href="namespacetheoretica.html#ac3ef01ee1d6e689040938996d699896e">More...</a><br /></td></tr>
+<tr class="separator:ac3ef01ee1d6e689040938996d699896e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1feafa93b8400245b1004281f75ed39f"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:a1feafa93b8400245b1004281f75ed39f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1feafa93b8400245b1004281f75ed39f">root_halley</a> (RealFunction f, RealFunction Df, RealFunction D2f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ae648762992e4710d0d7d2c9d01c0e66d">OPTIMIZATION_HALLEY_ITER</a>)</td></tr>
 <tr class="memdesc:a1feafa93b8400245b1004281f75ed39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Halley's method.  <a href="namespacetheoretica.html#a1feafa93b8400245b1004281f75ed39f">More...</a><br /></td></tr>
@@ -3109,7 +3115,7 @@ template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </div>
 </div>
 </div>
 <a id="ad7a9ad3afd4578cfdf1a242c215d837a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7a9ad3afd4578cfdf1a242c215d837a">&#9670;&nbsp;</a></span>deriv() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a9ad3afd4578cfdf1a242c215d837a">&#9670;&nbsp;</a></span>deriv() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3145,8 +3151,55 @@ template&lt;typename Field  = real&gt; </div>
 
 </div>
 </div>
+<a id="a6e6a820d42c7b057384b9eb88fc312f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6a820d42c7b057384b9eb88fc312f3">&#9670;&nbsp;</a></span>deriv() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::deriv </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the exact derivative of a polynomial function at the given point. </p>
+<p>In-place calculation with Horner's evaluation scheme is used, with linear complexity in the coefficients \(O(n)\).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The polynomial to differentiate </td></tr>
+    <tr><td class="paramname">x</td><td>The point to compute the derivative at </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The derivative of the polynomial at the given point </dd></dl>
+
+</div>
+</div>
 <a id="a69edeaa0ec50e54eeaf1473f83582a68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69edeaa0ec50e54eeaf1473f83582a68">&#9670;&nbsp;</a></span>deriv() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69edeaa0ec50e54eeaf1473f83582a68">&#9670;&nbsp;</a></span>deriv() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4047,21 +4100,21 @@ template&lt;typename UnsignedIntType  = uint64_t&gt; </div>
 
 </div>
 </div>
-<a id="ac7379f3b3f7835c3b3b6328c20ad82d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7379f3b3f7835c3b3b6328c20ad82d3">&#9670;&nbsp;</a></span>integral() <span class="overload">[1/3]</span></h2>
+<a id="a79bd8e084a8ad6d43b261eb44cec7943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bd8e084a8ad6d43b261eb44cec7943">&#9670;&nbsp;</a></span>integral() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T  = real&gt; </div>
+template&lt;typename Field  = real&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt;T&gt; theoretica::integral </td>
+          <td class="memname"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt;Field&gt; theoretica::integral </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Field &gt; &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4080,12 +4133,66 @@ template&lt;typename T  = real&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The indefinite polynomial integral </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The indefinite polynomial integral, with zero constant term. </dd></dl>
+
+</div>
+</div>
+<a id="a9f0e87bfeb1a4e484de143465a263465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f0e87bfeb1a4e484de143465a263465">&#9670;&nbsp;</a></span>integral() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::integral </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the definite integral of a polynomial over an interval. </p>
+<p>In-place calculation with Horner's evaluation scheme is used, with linear complexity in the coefficients \(O(n)\).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The polynomial to integrate </td></tr>
+    <tr><td class="paramname">a</td><td>The lower extreme of integration </td></tr>
+    <tr><td class="paramname">b</td><td>The upper extreme of integration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The definite polynomial integral </dd></dl>
 
 </div>
 </div>
 <a id="ae095e7eee4b03eddc3b035b2bde14a7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae095e7eee4b03eddc3b035b2bde14a7e">&#9670;&nbsp;</a></span>integral() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae095e7eee4b03eddc3b035b2bde14a7e">&#9670;&nbsp;</a></span>integral() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4140,7 +4247,7 @@ template&lt;typename RealFunction &gt; </div>
 </div>
 </div>
 <a id="aa29abada0134095a6d9a120c241ce461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29abada0134095a6d9a120c241ce461">&#9670;&nbsp;</a></span>integral() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29abada0134095a6d9a120c241ce461">&#9670;&nbsp;</a></span>integral() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10160,7 +10267,7 @@ template&lt;typename RealFunction &gt; </div>
   <table class="params">
     <tr><td class="paramname">f</td><td>The real function to search the root of, with <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> argument and return value. </td></tr>
     <tr><td class="paramname">guess</td><td>The initial guess (defaults to 0). </td></tr>
-    <tr><td class="paramname">tol</td><td>The \(\epsilon\) tolerance value to stop the algorithm when \(|f(x_n)| &lt; \epsilon\) </td></tr>
+    <tr><td class="paramname">tol</td><td>The \(\epsilon\) tolerance value to stop the algorithm when \(|f(x_n)| &lt; \epsilon\). </td></tr>
     <tr><td class="paramname">max_iter</td><td>The maximum number of iterations to perform, after which the algorithm is assumed to not have converged. </td></tr>
   </table>
   </dd>
@@ -10315,13 +10422,13 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="aa4c0f3022f9ad4257df9e474517109a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4c0f3022f9ad4257df9e474517109a4">&#9670;&nbsp;</a></span>root_newton() <span class="overload">[1/3]</span></h2>
+<a id="ac3ef01ee1d6e689040938996d699896e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ef01ee1d6e689040938996d699896e">&#9670;&nbsp;</a></span>root_newton() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type  = real&gt; </div>
+template&lt;typename Type  = real, typename ComplexFunction  = std::function&lt;complex&lt;Type&gt;(complex&lt;Type&gt;)&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -10329,20 +10436,20 @@ template&lt;typename Type  = real&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt;Type&gt; theoretica::root_newton </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;(*)(<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;)&#160;</td>
+          <td class="paramtype">ComplexFunction&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;(*)(<a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;)&#160;</td>
-          <td class="paramname"><em>df</em>, </td>
+          <td class="paramtype">ComplexFunction&#160;</td>
+          <td class="paramname"><em>Df</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; Type &gt;&#160;</td>
-          <td class="paramname"><em>guess</em> = <code><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt;Type&gt;(0.0,&#160;0.0)</code>, </td>
+          <td class="paramname"><em>guess</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -11560,7 +11667,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Thu Dec 12 2024 20:43:54 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Dec 12 2024 21:16:50 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

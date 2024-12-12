@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"namespacetheoretica_1_1algebra.html#ab8c9f739421b9bf5f3e13dc85908844d":[1,0,1,1,0],
+"namespacetheoretica_1_1algebra.html#abb07bbcc3f136d05ab51d06dc46052d9":[1,0,1,1,45],
+"namespacetheoretica_1_1algebra.html#abc19e58fd39649b8e9d2c48a2d7fa90e":[1,0,1,1,83],
+"namespacetheoretica_1_1algebra.html#abc6ca28bf9594eb59ea71a3d5ddf3373":[1,0,1,1,1],
 "namespacetheoretica_1_1algebra.html#ac243a7509ce421dc7af9f1e690c4ac62":[1,0,1,1,91],
 "namespacetheoretica_1_1algebra.html#ac67d0c47a4affc760af23fe656b41881":[1,0,1,1,105],
 "namespacetheoretica_1_1algebra.html#ac787d51e34331a81ae902aacd83797fc":[1,0,1,1,107],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "orthogonal_8h.html#a65bdc13d059960e7e0351a163b5a1caa":[3,0,0,0,0,0,0,0,7,0,20],
 "orthogonal_8h.html#a6becc0f9a59c2e48241b396293b34012":[3,0,0,0,0,0,0,0,7,0,6],
 "orthogonal_8h.html#a7659e1b121c8c96e884b95bb4ae45ebc":[3,0,0,0,0,0,0,0,7,0,9],
-"orthogonal_8h.html#a8b65dc09b5c73201a634891226718549":[3,0,0,0,0,0,0,0,7,0,7],
-"orthogonal_8h.html#aa7f71b544a84a09a4d5f895e83cad579":[3,0,0,0,0,0,0,0,7,0,4],
-"orthogonal_8h.html#ac5c55ac525043a0f72ef967a8c6c07ac":[3,0,0,0,0,0,0,0,7,0,19],
-"orthogonal_8h.html#ac63977b2a1329e3e8e755eb062002f47":[3,0,0,0,0,0,0,0,7,0,10],
-"orthogonal_8h.html#aca937d779d223cab3a43b4236876491a":[3,0,0,0,0,0,0,0,7,0,16]
+"orthogonal_8h.html#a8b65dc09b5c73201a634891226718549":[3,0,0,0,0,0,0,0,7,0,7]
 };
