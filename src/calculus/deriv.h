@@ -38,6 +38,27 @@ namespace theoretica {
 	}
 
 
+	/// Compute the exact derivative of a polynomial function at the given point.
+	/// In-place calculation with Horner's evaluation scheme is used,
+	/// with linear complexity in the coefficients \f$O(n)\f$.
+	///
+	/// @param p The polynomial to differentiate
+	/// @param x The point to compute the derivative at
+	/// @return The derivative of the polynomial at the given point
+	inline real deriv(const polynomial<real>& p, real x) {
+
+		real dp = 0.0;
+
+		for (unsigned int i = 0; i + 1 < p.size(); ++i) {
+
+			const unsigned int pos = p.size() - i - 1;
+			dp = pos * p[pos] + x * dp;
+		}
+
+		return dp;
+	}
+
+
 	/// Approximate the first derivative of a real function
 	/// using the central method.
 	///

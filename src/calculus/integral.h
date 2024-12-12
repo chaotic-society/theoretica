@@ -16,26 +16,50 @@
 namespace theoretica {
 
 
-	/// Compute the indefinite integral of a polynomial
+	/// Compute the indefinite integral of a polynomial.
 	///
 	/// @param p The polynomial to integrate
-	/// @return The indefinite polynomial integral
-	template<typename T = real>
-	inline polynomial<T> integral(const polynomial<T>& p) {
+	/// @return The indefinite polynomial integral, with zero constant term.
+	template<typename Field = real>
+	inline polynomial<Field> integral(const polynomial<Field>& p) {
 
-		polynomial<T> P;
+		polynomial<Field> P;
 		P.coeff.resize(p.size() + 1);
-		P[0] = 0;
+		P[0] = Field(0.0);
 
 		for (unsigned int i = 0; i < p.size(); ++i)
-			P[i + 1] = p[i] / T(i + 1);
+			P[i + 1] = p[i] / Field(i + 1);
 
 		return P;
 	}
 
 
+	/// Compute the definite integral of a polynomial over an interval.
+	/// In-place calculation with Horner's evaluation scheme is used,
+	/// with linear complexity in the coefficients \f$O(n)\f$.
+	///
+	/// @param p The polynomial to integrate
+	/// @param a The lower extreme of integration
+	/// @param b The upper extreme of integration
+	/// @return The definite polynomial integral
+	inline real integral(const polynomial<real>& p, real a, real b) {
+
+		real P_a = 0.0;
+		real P_b = 0.0;
+
+		for (unsigned int i = 0; i < p.size(); ++i) {
+
+			const unsigned int pos = p.size() - i - 1;
+			P_a = a * (p[pos] / (pos + 1) + P_a);
+			P_b = b * (p[pos] / (pos + 1) + P_b);
+		}
+
+		return P_b - P_a;
+	}
+
+
 	/// Approximate the definite integral of an arbitrary function
-	/// using the midpoint method
+	/// using the midpoint method.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -62,7 +86,7 @@ namespace theoretica {
 
 
 	/// Approximate the definite integral of an arbitrary function
-	/// using the trapezoid method
+	/// using the trapezoid method.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
@@ -127,7 +151,7 @@ namespace theoretica {
 
 
 	/// Approximate the definite integral of an arbitrary function
-	/// using Romberg's method accurate to the given order
+	/// using Romberg's method accurate to the given order.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration

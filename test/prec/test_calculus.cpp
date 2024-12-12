@@ -154,6 +154,22 @@ int main(int argc, char const *argv[]) {
 		);
 	}
 
+
+	{
+		polynomial<real> P = {};
+		prec::equals("deriv(P{}, x)", deriv(P, 1.0), 0.0);
+
+		P = {1.0};
+		prec::equals("deriv(P{const.}, x)", deriv(P, 1.0), 0.0);
+
+		P = {1.0, 1.0, 1.0, 1.0};
+		prec::equals("deriv(P, x)", deriv(P, 1.0), 6.0);
+
+		P = {+1.4, -3.2, 12.7, 7.5, 11,7};
+		prec::equals("deriv(P, x)", deriv(P, 1.0), deriv(P)(1.0));
+	}
+
+
 	{
 		auto deriv_opt = prec::estimate_options<real, real>(
 			prec::interval(0.001, 0.5),
@@ -190,6 +206,52 @@ int main(int argc, char const *argv[]) {
 
 		// integral.h
 		// Compare integral quadrature to primitives
+
+
+	{
+		auto opt = prec::equation_options<polynomial<real>>(
+			1E-08, distance_polyn
+		);
+
+		polynomial<real> p = {1, 1};
+		polynomial<real> expected = {0, 1, 0.5};
+
+		prec::equals(
+			"integral(P)",
+			integral(p),
+			expected,
+			opt
+		);
+
+		prec::equals(
+			"integral(0)",
+			integral(polynomial<real>({0.0})),
+			polynomial<real>({0.0}),
+			opt
+		);
+
+		prec::equals(
+			"integral(P{})",
+			integral(polynomial<real>({})) == polynomial<real>({}),
+			true
+		);
+	}
+
+
+	{
+		polynomial<real> P = {};
+		prec::equals("integral(P{}, x)", integral(P, 0.0, 1.0), 0.0);
+
+		P = {1.0};
+		prec::equals("integral(P{const.}, x)", integral(P, 0.0, 1.0), 1.0);
+
+		P = {1.0, 2.0, 3.0, 4.0};
+		prec::equals("integral(P, x)", integral(P, 0.0, 1.0), 4.0);
+
+		P = {1.2, 4.5, -8.8, 11.3, -9.6};
+		auto I_P = integral(P);
+		prec::equals("integral(P, x)", integral(P, -7.0, 5.0), I_P(5.0) - I_P(-7.0));
+	}
 
 
 	{
@@ -257,35 +319,6 @@ int main(int argc, char const *argv[]) {
 			"integral_laguerre",
 			integral_laguerre(ExpI),
 			0.5
-		);
-	}
-
-	{
-		auto opt = prec::equation_options<polynomial<real>>(
-			1E-08, distance_polyn
-		);
-
-		polynomial<real> p = {1, 1};
-		polynomial<real> expected = {0, 1, 0.5};
-
-		prec::equals(
-			"integral(P)",
-			integral(p),
-			expected,
-			opt
-		);
-
-		prec::equals(
-			"integral(0)",
-			integral(polynomial<real>({0.0})),
-			polynomial<real>({0.0}),
-			opt
-		);
-
-		prec::equals(
-			"integral(P{})",
-			integral(polynomial<real>({})) == polynomial<real>({}),
-			true
 		);
 	}
 

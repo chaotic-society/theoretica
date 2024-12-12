@@ -185,11 +185,12 @@ namespace theoretica {
 	/// the algorithm (defaults to OPTIMIZATION_NEWTON_ITER).
 	/// @return The coordinate of the root of the function,
 	/// or a complex NaN if the algorithm did not converge.
-	template<typename Type = real>
+	template <
+		typename Type = real,
+		typename ComplexFunction = std::function<complex<Type>(complex<Type>)>
+	>
 	inline complex<Type> root_newton(
-		complex<Type>(*f)(complex<Type>),
-		complex<Type>(*df)(complex<Type>),
-		complex<Type> guess = complex<Type>(0.0, 0.0),
+		ComplexFunction f, ComplexFunction Df, complex<Type> guess,
 		real tol = OPTIMIZATION_TOL,
 		unsigned int max_iter = OPTIMIZATION_NEWTON_ITER) {
 
@@ -261,7 +262,8 @@ namespace theoretica {
 	/// @param f The real function to search the root of,
 	/// with dual2 argument and return value.
 	/// @param guess The initial guess (defaults to 0).
-	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm when \f$|f(x_n)| < \epsilon\f$
+	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm
+	/// when \f$|f(x_n)| < \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
 	/// @return The coordinate of the root of the function,
