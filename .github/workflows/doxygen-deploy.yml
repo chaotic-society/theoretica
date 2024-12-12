@@ -34,5 +34,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
-          folder: "./html"
+          folder: "./build/html"
           target-folder: "./"
