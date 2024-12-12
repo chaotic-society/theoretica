@@ -26,7 +26,8 @@ jobs:
 
       - name: Generate Documentation
         shell: bash
-        run: doxygen ./build/Doxyfile
+        working-directory: ./build
+        run: doxygen Doxyfile
 
       - name: Deploy Documentation
         uses: JamesIves/github-pages-deploy-action@v4.6.4
