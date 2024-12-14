@@ -13,7 +13,6 @@
 #include "../algebra/vec.h"
 #include "../complex/complex.h"
 
-#include <iostream>
 
 namespace theoretica {
 
@@ -454,7 +453,7 @@ namespace theoretica {
 	inline real root_ostrowski(
 		RealFunction f, RealFunction Df, real guess = 0.0,
 		real tol = OPTIMIZATION_TOL,
-		unsigned int max_iter = OPTIMIZATION_CHEBYSHEV_ITER) {
+		unsigned int max_iter = OPTIMIZATION_OSTROWSKI_ITER) {
 
 		real x = guess;
 		real f_x = inf();
@@ -502,7 +501,7 @@ namespace theoretica {
 	inline real root_jarrat(
 		RealFunction f, RealFunction Df, real guess = 0.0,
 		real tol = OPTIMIZATION_TOL,
-		unsigned int max_iter = OPTIMIZATION_CHEBYSHEV_ITER) {
+		unsigned int max_iter = OPTIMIZATION_JARRAT_ITER) {
 
 		real x = guess;
 		real f_x = inf();

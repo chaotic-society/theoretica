@@ -100,6 +100,16 @@
 #define THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER 100
 #endif
 
+/// Maximum number of iterations for Ostrowski root finding
+#ifndef THEORETICA_OPTIMIZATION_OSTROWSKI_ITER
+#define THEORETICA_OPTIMIZATION_OSTROWSKI_ITER 100
+#endif
+
+/// Maximum number of iterations for Jarrat root finding
+#ifndef THEORETICA_OPTIMIZATION_JARRAT_ITER
+#define THEORETICA_OPTIMIZATION_JARRAT_ITER 100
+#endif
+
 /// Maximum number of failed iterations for the Try-and-Catch algorithm
 #ifndef THEORETICA_STATISTICS_TRYANDCATCH_ITER
 #define THEORETICA_STATISTICS_TRYANDCATCH_ITER 100
@@ -294,6 +304,12 @@ namespace theoretica {
 
 	/// Maximum number of iterations for the Chebyshev algorithm
 	constexpr unsigned int OPTIMIZATION_CHEBYSHEV_ITER = THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER;
+
+	/// Maximum number of iterations for the Ostrowski algorithm
+	constexpr unsigned int OPTIMIZATION_OSTROWSKI_ITER = THEORETICA_OPTIMIZATION_OSTROWSKI_ITER;
+
+	/// Maximum number of iterations for the Jarrat algorithm
+	constexpr unsigned int OPTIMIZATION_JARRAT_ITER = THEORETICA_OPTIMIZATION_JARRAT_ITER;
 
 	/// Maximum number of failed iterations for the Try-and-Catch algorithm
 	constexpr unsigned int STATISTICS_TRYANDCATCH_ITER = THEORETICA_STATISTICS_TRYANDCATCH_ITER;
