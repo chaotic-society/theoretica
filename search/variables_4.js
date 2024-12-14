@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['e_1362',['E',['../namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7',1,'theoretica']]],
-  ['err_1363',['err',['../structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72',1,'theoretica::regression::linear_model']]]
+  ['e_1368',['E',['../namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7',1,'theoretica']]],
+  ['err_1369',['err',['../structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72',1,'theoretica::regression::linear_model']]]
 ];

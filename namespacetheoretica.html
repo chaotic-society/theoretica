@@ -1315,6 +1315,10 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:aa0649a3f31e025510b86dc7031c35f08"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa0649a3f31e025510b86dc7031c35f08">root_bisect</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ab2a935663988c6d893699a70ddfd7bdd">OPTIMIZATION_BISECTION_ITER</a>)</td></tr>
 <tr class="memdesc:aa0649a3f31e025510b86dc7031c35f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the root of a univariate real function using bisection inside a compact interval [a, b] where \(f(a) * f(b) &lt; 0\).  <a href="namespacetheoretica.html#aa0649a3f31e025510b86dc7031c35f08">More...</a><br /></td></tr>
 <tr class="separator:aa0649a3f31e025510b86dc7031c35f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3de94cffc4e11a1a0fbaaa11db16d65"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:aa3de94cffc4e11a1a0fbaaa11db16d65"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa3de94cffc4e11a1a0fbaaa11db16d65">root_itp</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int n0=1, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> k1=0.0)</td></tr>
+<tr class="memdesc:aa3de94cffc4e11a1a0fbaaa11db16d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using the ITP (Interpolate-Truncate-Project) method, by bracketing the zero inside a compact interval [a, b] where \(f(a) * f(b) &lt; 0\).  <a href="namespacetheoretica.html#aa3de94cffc4e11a1a0fbaaa11db16d65">More...</a><br /></td></tr>
+<tr class="separator:aa3de94cffc4e11a1a0fbaaa11db16d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12682ec4d92c0ad2c459f7a1ae2bfda4"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:a12682ec4d92c0ad2c459f7a1ae2bfda4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a12682ec4d92c0ad2c459f7a1ae2bfda4">root_newton</a> (RealFunction f, RealFunction Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0.0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ac83f2fa2a615e5fe6bf4acafa0549c3f">OPTIMIZATION_NEWTON_ITER</a>)</td></tr>
 <tr class="memdesc:a12682ec4d92c0ad2c459f7a1ae2bfda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Newton's method.  <a href="namespacetheoretica.html#a12682ec4d92c0ad2c459f7a1ae2bfda4">More...</a><br /></td></tr>
@@ -1344,14 +1348,14 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a3e9e164e51e8ed01e633dfa36633e439"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a3e9e164e51e8ed01e633dfa36633e439">root_chebyshev</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a>)</td></tr>
 <tr class="memdesc:a3e9e164e51e8ed01e633dfa36633e439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Chebyshev's method, by computing the first and second derivatives using automatic differentiation.  <a href="namespacetheoretica.html#a3e9e164e51e8ed01e633dfa36633e439">More...</a><br /></td></tr>
 <tr class="separator:a3e9e164e51e8ed01e633dfa36633e439"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace0fd7648be8bf97f1e83741dbe3594f"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:ace0fd7648be8bf97f1e83741dbe3594f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ace0fd7648be8bf97f1e83741dbe3594f">root_ostrowski</a> (RealFunction f, RealFunction Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0.0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a>)</td></tr>
-<tr class="memdesc:ace0fd7648be8bf97f1e83741dbe3594f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Ostrowski's method.  <a href="namespacetheoretica.html#ace0fd7648be8bf97f1e83741dbe3594f">More...</a><br /></td></tr>
-<tr class="separator:ace0fd7648be8bf97f1e83741dbe3594f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaea7b4edb00ac6a76fb713ea26d57ad"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
-<tr class="memitem:afaea7b4edb00ac6a76fb713ea26d57ad"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#afaea7b4edb00ac6a76fb713ea26d57ad">root_jarrat</a> (RealFunction f, RealFunction Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0.0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a>)</td></tr>
-<tr class="memdesc:afaea7b4edb00ac6a76fb713ea26d57ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Jarrat's method.  <a href="namespacetheoretica.html#afaea7b4edb00ac6a76fb713ea26d57ad">More...</a><br /></td></tr>
-<tr class="separator:afaea7b4edb00ac6a76fb713ea26d57ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9662690d148c3037300c4f34c6c9d07"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:ab9662690d148c3037300c4f34c6c9d07"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab9662690d148c3037300c4f34c6c9d07">root_ostrowski</a> (RealFunction f, RealFunction Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0.0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#a6a8f4ef82e19e3dc1b382c03df5d15f9">OPTIMIZATION_OSTROWSKI_ITER</a>)</td></tr>
+<tr class="memdesc:ab9662690d148c3037300c4f34c6c9d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Ostrowski's method.  <a href="namespacetheoretica.html#ab9662690d148c3037300c4f34c6c9d07">More...</a><br /></td></tr>
+<tr class="separator:ab9662690d148c3037300c4f34c6c9d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd038a12f3d962ecf4ee8c63ae0a22e"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
+<tr class="memitem:aefd038a12f3d962ecf4ee8c63ae0a22e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aefd038a12f3d962ecf4ee8c63ae0a22e">root_jarrat</a> (RealFunction f, RealFunction Df, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> guess=0.0, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#a10e44603eb761970ec19fd740bda6c21">OPTIMIZATION_JARRAT_ITER</a>)</td></tr>
+<tr class="memdesc:aefd038a12f3d962ecf4ee8c63ae0a22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a root of a univariate real function using Jarrat's method.  <a href="namespacetheoretica.html#aefd038a12f3d962ecf4ee8c63ae0a22e">More...</a><br /></td></tr>
+<tr class="separator:aefd038a12f3d962ecf4ee8c63ae0a22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ee6d3e221a56829de33e03d5d100d2"><td class="memTemplParams" colspan="2">template&lt;typename RealFunction &gt; </td></tr>
 <tr class="memitem:ac4ee6d3e221a56829de33e03d5d100d2"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac4ee6d3e221a56829de33e03d5d100d2">roots</a> (RealFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tol=<a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> steps=10)</td></tr>
 <tr class="memdesc:ac4ee6d3e221a56829de33e03d5d100d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the roots of a univariate real function inside a given interval, by first searching for candidate intervals and then applying bracketing methods.  <a href="namespacetheoretica.html#ac4ee6d3e221a56829de33e03d5d100d2">More...</a><br /></td></tr>
@@ -1807,6 +1811,14 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a cla
 constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a> = <a class="el" href="constants_8h.html#a372d072243b6c7c42db84d5debef1924">THEORETICA_OPTIMIZATION_CHEBYSHEV_ITER</a></td></tr>
 <tr class="memdesc:ab147579539a73fa79bc4e13852eb53e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Chebyshev algorithm. <br /></td></tr>
 <tr class="separator:ab147579539a73fa79bc4e13852eb53e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a8f4ef82e19e3dc1b382c03df5d15f9"><td class="memItemLeft" align="right" valign="top"><a id="a6a8f4ef82e19e3dc1b382c03df5d15f9"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a6a8f4ef82e19e3dc1b382c03df5d15f9">OPTIMIZATION_OSTROWSKI_ITER</a> = <a class="el" href="constants_8h.html#a93ff0c9b628b71df6c6adf5368e08cb0">THEORETICA_OPTIMIZATION_OSTROWSKI_ITER</a></td></tr>
+<tr class="memdesc:a6a8f4ef82e19e3dc1b382c03df5d15f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Ostrowski algorithm. <br /></td></tr>
+<tr class="separator:a6a8f4ef82e19e3dc1b382c03df5d15f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e44603eb761970ec19fd740bda6c21"><td class="memItemLeft" align="right" valign="top"><a id="a10e44603eb761970ec19fd740bda6c21"></a>
+constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a10e44603eb761970ec19fd740bda6c21">OPTIMIZATION_JARRAT_ITER</a> = <a class="el" href="constants_8h.html#ab2c7b0e513db2fde54902664d75903df">THEORETICA_OPTIMIZATION_JARRAT_ITER</a></td></tr>
+<tr class="memdesc:a10e44603eb761970ec19fd740bda6c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of iterations for the Jarrat algorithm. <br /></td></tr>
+<tr class="separator:a10e44603eb761970ec19fd740bda6c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69a848b21acb5341a013db4baa629bde"><td class="memItemLeft" align="right" valign="top"><a id="a69a848b21acb5341a013db4baa629bde"></a>
 constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde">STATISTICS_TRYANDCATCH_ITER</a> = <a class="el" href="constants_8h.html#a9df2dd49806e72c313d62bda3e61298e">THEORETICA_STATISTICS_TRYANDCATCH_ITER</a></td></tr>
 <tr class="memdesc:a69a848b21acb5341a013db4baa629bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of failed iterations for the Try-and-Catch algorithm. <br /></td></tr>
@@ -10352,8 +10364,85 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="afaea7b4edb00ac6a76fb713ea26d57ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaea7b4edb00ac6a76fb713ea26d57ad">&#9670;&nbsp;</a></span>root_jarrat()</h2>
+<a id="aa3de94cffc4e11a1a0fbaaa11db16d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3de94cffc4e11a1a0fbaaa11db16d65">&#9670;&nbsp;</a></span>root_itp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RealFunction &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::root_itp </td>
+          <td>(</td>
+          <td class="paramtype">RealFunction&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>tol</em> = <code><a class="el" href="namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09">OPTIMIZATION_TOL</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n0</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>k1</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find a root of a univariate real function using the ITP (Interpolate-Truncate-Project) method, by bracketing the zero inside a compact interval [a, b] where \(f(a) * f(b) &lt; 0\). </p>
+<p>The \(k_2\) parameter is chosen to be 2, avoiding expensive operations while retaining good convergence. This method is the best choice when the function is not smooth and is expensive to compute.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The univariate real function. </td></tr>
+    <tr><td class="paramname">a</td><td>The lower extreme of the interval. </td></tr>
+    <tr><td class="paramname">b</td><td>The upper extreme of the interval. </td></tr>
+    <tr><td class="paramname">tol</td><td>The minimum half-length of the bracketing interval to stop the algorithm, so that \(|x_r - x_l| \leq 2\epsilon\). </td></tr>
+    <tr><td class="paramname">n0</td><td>A hyper-parameter of the algorithm, must be zero or greater. Bigger values give more importance to the regula falsi estimate. </td></tr>
+    <tr><td class="paramname">k1</td><td>A hyper-parameter of the algorithm, influences the truncation step (defaults to \(0.2 / (b - a)\), following the authors' results). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The coordinate of the root of the function, or NaN if the algorithm did not converge. </dd></dl>
+
+</div>
+</div>
+<a id="aefd038a12f3d962ecf4ee8c63ae0a22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd038a12f3d962ecf4ee8c63ae0a22e">&#9670;&nbsp;</a></span>root_jarrat()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10391,7 +10480,7 @@ template&lt;typename RealFunction &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>max_iter</em> = <code><a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a></code>&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code><a class="el" href="namespacetheoretica.html#a10e44603eb761970ec19fd740bda6c21">OPTIMIZATION_JARRAT_ITER</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -10620,8 +10709,8 @@ template&lt;typename RealFunction &gt; </div>
 
 </div>
 </div>
-<a id="ace0fd7648be8bf97f1e83741dbe3594f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace0fd7648be8bf97f1e83741dbe3594f">&#9670;&nbsp;</a></span>root_ostrowski()</h2>
+<a id="ab9662690d148c3037300c4f34c6c9d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9662690d148c3037300c4f34c6c9d07">&#9670;&nbsp;</a></span>root_ostrowski()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10659,7 +10748,7 @@ template&lt;typename RealFunction &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>max_iter</em> = <code><a class="el" href="namespacetheoretica.html#ab147579539a73fa79bc4e13852eb53e9">OPTIMIZATION_CHEBYSHEV_ITER</a></code>&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code><a class="el" href="namespacetheoretica.html#a6a8f4ef82e19e3dc1b382c03df5d15f9">OPTIMIZATION_OSTROWSKI_ITER</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -11667,7 +11756,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Thu Dec 12 2024 21:16:50 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 14 2024 14:28:58 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
