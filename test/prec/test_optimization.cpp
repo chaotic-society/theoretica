@@ -72,7 +72,14 @@ int main(int argc, char const *argv[]) {
 
 		prec::equals(
 			"root_bisect (1)",
-			f1(root_bisect(f1<real>, 0.5, 0.8, 1E-12)), 0.0
+			f1(root_bisect(f1<real>, 0.6, 0.7, 1E-12)),
+			0.0
+		);
+
+		prec::equals(
+			"root_itp (1)",
+			f1(root_itp(f1<real>, 0.6, 0.7, 1E-12)),
+			0.0
 		);
 		
 		prec::equals(
@@ -114,6 +121,12 @@ int main(int argc, char const *argv[]) {
 		prec::equals(
 			"root_bisect (2)",
 			g1(root_bisect(g1<real>, 1.5, 2, 1E-12)),
+			0.0
+		);
+
+		prec::equals(
+			"root_itp (2)",
+			g1(root_itp(g1<real>, 1.5, 2, 1E-12)),
 			0.0
 		);
 

@@ -97,6 +97,112 @@ namespace theoretica {
 	}
 
 
+	/// Find a root of a univariate real function using the ITP
+	/// (Interpolate-Truncate-Project) method, by bracketing the zero
+	/// inside a compact interval [a, b] where \f$f(a) * f(b) < 0\f$.
+	/// The \f$k_2\f$ parameter is chosen to be 2, avoiding expensive
+	/// operations while retaining good convergence. This method is
+	/// the best choice when the function is not smooth and is expensive
+	/// to compute.
+	///
+	/// @param f The univariate real function.
+	/// @param a The lower extreme of the interval.
+	/// @param b The upper extreme of the interval.
+	/// @param tol The minimum half-length of the bracketing interval to stop
+	/// the algorithm, so that \f$|x_r - x_l| \leq 2\epsilon\f$.
+	/// @param n0 A hyper-parameter of the algorithm, must be zero or greater. Bigger values
+	/// give more importance to the regula falsi estimate.
+	/// @param k1 A hyper-parameter of the algorithm, influences the truncation step
+	/// (defaults to \f$0.2 / (b - a)\f$, following the authors' results).
+	/// @return The coordinate of the root of the function,
+	/// or NaN if the algorithm did not converge.
+	template<typename RealFunction>
+	inline real root_itp(
+		RealFunction f, real a, real b, real tol = OPTIMIZATION_TOL,
+		unsigned int n0 = 1, real k1 = 0.0) {
+
+		// Default value for k1
+		if (k1 == 0.0)
+			k1 = 0.2 / (b - a);
+
+		if(a > b) {
+			TH_MATH_ERROR("root_itp", a, INVALID_ARGUMENT);
+			return nan();
+		}
+
+		real y_a = f(a);
+		real y_b = f(b);
+
+		if(y_a * y_b >= 0) {
+			TH_MATH_ERROR("root_itp", y_a * y_b, INVALID_ARGUMENT);
+			return nan();
+		}
+
+		// Monotonicity of the function
+		const int monotone = (y_a < y_b) ? 1 : -1;
+
+		real x_t, x_new;
+
+		const unsigned int n_half = th::floor(th::log2((b - a) / tol));
+		const unsigned int n_max = n_half + n0;
+
+		real eps = tol * pow(2.0, n_max);
+		unsigned int iter = 0;
+
+		while((b - a) > (2 * tol) && iter <= n_max) {
+
+
+			// Interpolation
+			const real x_f = (a * y_b - b * y_a) / (y_b - y_a);
+			const real x_half = 0.5 * (a + b);
+
+
+			// Truncation
+			const int sigma = th::sgn(x_half - x_f);
+			const real delta = k1 * square(b - a);
+
+			if (delta <= abs(x_half - x_f))
+				x_t = x_f + sigma * delta;
+			else
+				x_t = x_half;
+
+
+			// Projection
+			const real r = eps - (b - a) / 2.0;
+
+			if (abs(x_t - x_half) <= r)
+				x_new = x_t;
+			else
+				x_new = x_half - sigma * r;
+
+
+			// Update
+			const real y_new = f(x_new);
+
+			if (monotone * y_new > 0) {
+				b = x_new;
+				y_b = y_new;
+			} else if (monotone * y_new < 0) {
+				a = x_new;
+				y_a = y_new;
+			} else {
+				return x_new;
+			}
+
+			eps *= 0.5;
+			iter++;
+
+		}
+
+		if(abs(b - a) > 2 * tol) {
+			TH_MATH_ERROR("root_itp", (a + b) / 2.0, NO_ALGO_CONVERGENCE);
+			return nan();
+		}
+
+		return (a + b) / 2.0;
+	}
+
+
 	/// Find a root of a univariate real function using Newton's method.
 	///
 	/// @param f The real function to search the root of.
