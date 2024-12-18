@@ -143,11 +143,11 @@ namespace theoretica {
 
 		real x_t, x_new;
 
-		const unsigned int n_half = th::floor(th::log2((b - a) / tol));
-		const unsigned int n_max = n_half + n0;
+		const long int n_half = floor(log2((b - a) / tol));
+		const long int n_max = n_half + n0;
 
 		real eps = tol * pow(2.0, n_max);
-		unsigned int iter = 0;
+		long int iter = 0;
 
 		while((b - a) > (2 * tol) && iter <= n_max) {
 
@@ -158,7 +158,7 @@ namespace theoretica {
 
 
 			// Truncation
-			const int sigma = th::sgn(x_half - x_f);
+			const int sigma = sgn(x_half - x_f);
 			const real delta = k1 * square(b - a);
 
 			if (delta <= abs(x_half - x_f))
