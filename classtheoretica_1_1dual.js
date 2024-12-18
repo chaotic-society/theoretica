@@ -18,6 +18,7 @@ var classtheoretica_1_1dual =
     [ "operator+", "classtheoretica_1_1dual.html#abfef7a93dd1cc2329245979b6ffffccf", null ],
     [ "operator+", "classtheoretica_1_1dual.html#a75613aa8416abe0487cc40412d6a5e54", null ],
     [ "operator+", "classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45", null ],
+    [ "operator+=", "classtheoretica_1_1dual.html#ad0347bd69b225b671691809034769e69", null ],
     [ "operator+=", "classtheoretica_1_1dual.html#adb19e22e7aed1dd299de5af05f7ceb7a", null ],
     [ "operator-", "classtheoretica_1_1dual.html#aa238803210d7a6f5e072300dee7a63ba", null ],
     [ "operator-", "classtheoretica_1_1dual.html#a44c2c6e805939b43b5d8c3d8fba0a477", null ],
