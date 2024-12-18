@@ -191,7 +191,6 @@ namespace theoretica {
 
 			eps *= 0.5;
 			iter++;
-
 		}
 
 		if(abs(b - a) > 2 * tol) {

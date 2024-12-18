@@ -181,6 +181,15 @@ namespace theoretica {
 			}
 
 
+			/// Add a dual number to this one 
+			inline dual& operator+=(const dual& other) {
+
+				a += other.a;
+				b += other.b;
+				return *this;
+			}
+
+
 			/// Sum a real number to this dual number
 			inline dual& operator+=(real r) {
 

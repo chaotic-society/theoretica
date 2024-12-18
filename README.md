@@ -6,18 +6,9 @@
 
 > A C++ math library for scientific computing with a simple and elegant interface.
 
-Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximations. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software and graphical applications. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
+Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximation. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
-## Table of Contents
-- [Features](#features)
-- [Setup](#setup)
-- [Examples](#examples)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Workflow](#workflow)
-- [License](#license)
 
----
 
 ## Features
 
@@ -29,6 +20,7 @@ Some features of the library include:
 - Complex numbers (algebraic & exponential form) and **quaternions**
 - Numerical calculus, from integrals to ODEs
 - Multivariate **Automatic Differentiation** with differential operators
+- Univariate and multivariate optimization and root-finding
 - Descriptive and inferential statistics and **Monte Carlo** methods
 - Bezier curves and spline interpolation
 
