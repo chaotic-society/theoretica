@@ -40,6 +40,9 @@ namespace chebyshev {
 			/// Print to standard output or not
 			bool quiet = false;
 
+			/// Print to standard output when each test case is run
+			bool verboseOutput = false;
+
 			/// Output to file?
 			bool outputToFile = true;
 
@@ -184,10 +187,11 @@ namespace chebyshev {
 		/// @param funcApprox The approximation to test
 		/// @param funcExpected The expected result
 		/// @param opt The options for the estimation
-		template<typename R, typename ...Args,
+		template <
+			typename R, typename ...Args,
 			typename Function1 = std::function<R(Args...)>,
-			typename Function2 = Function1>
-			
+			typename Function2 = Function1
+		>
 		inline void estimate(
 			const std::string& name,
 			Function1 funcApprox,
@@ -199,6 +203,9 @@ namespace chebyshev {
 			if(settings.pickedTests.size())
 				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
+
+			if(settings.verboseOutput)
+				std::cout << "Running test case \'" << name << "\'..." << std::endl;
 
 			// Use the estimator to estimate error integrals.
 			auto res = opt.estimator(funcApprox, funcExpected, opt);
@@ -438,6 +445,9 @@ namespace chebyshev {
 				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
 
+			if(settings.verboseOutput)
+				std::cout << "Running test case \'" << name << "\'..." << std::endl;
+
 			equation_result res {};
 
 			long double diff = opt.distance(evaluated, expected);
@@ -506,6 +516,9 @@ namespace chebyshev {
 			if(settings.pickedTests.size())
 				if(settings.pickedTests.find(name) == settings.pickedTests.end())
 					return;
+
+			if(settings.verboseOutput)
+				std::cout << "Running test case \'" << name << "\'..." << std::endl;
 
 			equation_result res {};
 
