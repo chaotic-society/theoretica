@@ -146,7 +146,9 @@ namespace theoretica {
 
 		real x_t, x_new;
 
-		const long int n_half = floor(log2((b - a) / tol));
+		TH_DEBUG("Computing n_half");
+
+		const long int n_half = th::floor(th::log2((b - a) / tol));
 		const long int n_max = n_half + n0;
 
 		TH_DEBUG(n_half);
