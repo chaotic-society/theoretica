@@ -66,7 +66,6 @@ int main(int argc, char const *argv[]) {
 	prec::setup("optimization");
 
 		prec::settings.outputFiles = { "test/prec/prec_optimization.csv" };
-		prec::settings.verboseOutput = true;
 
 	{
 		// root = 0.690389757422;

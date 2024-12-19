@@ -8,7 +8,36 @@
 
 Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximation. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
+## A short example
 
+The following code solves the Lorenz attractor and writes the solution to a file:
+
+```cpp
+vec3 f(real t, vec3 v) {
+
+    const real a = 13, b = 20, c = 8./3.;
+    const real x = v[0], y = v[1], z = v[2];
+
+    return {
+        y * a - x * a,
+        x * b - x * z,
+        x * y - c * z
+    };
+}
+
+int main() {
+
+    // Initial conditions
+    vec3 x0 = {0.0, 0.1, 0.0};
+
+    // Use Runge-Kutta between t=0 and 50
+    auto sol = ode::solve_rk4(f, x0, 0.0, 50.0);
+
+    std::ofstream file ("lorenz.dat");
+    file << sol;
+}
+
+```
 
 ## Features
 
