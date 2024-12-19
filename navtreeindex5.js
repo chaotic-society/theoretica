@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"namespacemembers_o.html":[1,1,0,14],
 "namespacemembers_p.html":[1,1,0,15],
 "namespacemembers_q.html":[1,1,0,16],
 "namespacemembers_r.html":[1,1,0,17],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "namespacetheoretica.html#a968bc8465bcb421983d457b96469e9ef":[1,0,1,317],
 "namespacetheoretica.html#a96bf598b39c148bddb7ceebd7aa9b446":[1,0,1,195],
 "namespacetheoretica.html#a96f957ad9b2354268f56ab1ca3843080":[1,0,1,139],
-"namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4":[1,0,1,443]
+"namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4":[1,0,1,443],
+"namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3":[1,0,1,129]
 };
