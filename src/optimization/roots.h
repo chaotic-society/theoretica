@@ -14,6 +14,9 @@
 #include "../complex/complex.h"
 
 
+#include <iostream>
+
+
 namespace theoretica {
 
 
@@ -146,6 +149,9 @@ namespace theoretica {
 		const long int n_half = floor(log2((b - a) / tol));
 		const long int n_max = n_half + n0;
 
+		TH_DEBUG(n_half);
+		TH_DEBUG(n_max);
+
 		real eps = tol * pow(2.0, n_max);
 		long int iter = 0;
 
@@ -188,6 +194,8 @@ namespace theoretica {
 			} else {
 				return x_new;
 			}
+
+			TH_DEBUG((b - a) / 2.0);
 
 			eps *= 0.5;
 			iter++;
