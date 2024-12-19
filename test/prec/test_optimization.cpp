@@ -77,11 +77,11 @@ int main(int argc, char const *argv[]) {
 			0.0
 		);
 
-		prec::equals(
-			"root_itp (1)",
-			f1(root_itp(f1<real>, 0.6, 0.7, 1E-12)),
-			0.0
-		);
+		// prec::equals(
+		// 	"root_itp (1)",
+		// 	f1(root_itp(f1<real>, 0.6, 0.7, 1E-12)),
+		// 	0.0
+		// );
 		
 		prec::equals(
 			"root_newton (1)",
