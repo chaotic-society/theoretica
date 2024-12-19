@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"orthogonal_8h.html#a3628a79e4bb98a5b26d673cb914534cf":[3,0,0,0,0,0,0,0,7,0,18],
 "orthogonal_8h.html#a36f93695ecdb8cf61069a23007b5da8e":[3,0,0,0,0,0,0,0,7,0,13],
 "orthogonal_8h.html#a41ee196da702fd61a4be7c8edb337039":[3,0,0,0,0,0,0,0,7,0,1],
 "orthogonal_8h.html#a50ef3c3e6f10e74f14864145eb8bc4fa":[3,0,0,0,0,0,0,0,7,0,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "structtheoretica_1_1__internal_1_1func__helper.html":[2,0,0,0,6],
 "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html":[2,0,0,0,8],
 "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html#aa0b5fc2f4c73c2a23295a14bc0d47b63":[2,0,0,0,8,2],
-"structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html#ab0ac905344847a109e02fa6e7a1e6c11":[2,0,0,0,8,1],
-"structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html#afdbdc65031e56cafe75ba03089e5ebb8":[2,0,0,0,8,0]
+"structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html#ab0ac905344847a109e02fa6e7a1e6c11":[2,0,0,0,8,1]
 };

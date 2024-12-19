@@ -99,7 +99,35 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>A C++ math library for scientific computing with a simple and elegant interface. </p>
 </blockquote>
 <p>Theoretica provides methods for <b>scientific computing</b>, statistical analysis of experimental data and numerical approximation. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software. The library is tested using <a href="https://github.com/chaotic-society/chebyshev">Chebyshev</a>, a unit testing framework specifically developed for scientific and numerical software.</p>
-<h1>Features</h1>
+<h1>A short example</h1>
+<p>The following code solves the Lorenz attractor and writes the solution to a file:</p>
+<div class="fragment"><div class="line"><a class="code" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> f(<a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t, <a class="code" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> v) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a = 13, b = 20, c = 8./3.;</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x = v[0], y = v[1], z = v[2];</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> {</div>
+<div class="line">        y * a - x * a,</div>
+<div class="line">        x * b - x * z,</div>
+<div class="line">        x * y - c * z</div>
+<div class="line">    };</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Initial conditions</span></div>
+<div class="line">    <a class="code" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> x0 = {0.0, 0.1, 0.0};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Use Runge-Kutta between t=0 and 50</span></div>
+<div class="line">    <span class="keyword">auto</span> sol = <a class="code" href="namespacetheoretica_1_1ode.html#a9ff8a22eaf5a40fbd5accd445b792d82">ode::solve_rk4</a>(f, x0, 0.0, 50.0);</div>
+<div class="line"> </div>
+<div class="line">    std::ofstream file (<span class="stringliteral">&quot;lorenz.dat&quot;</span>);</div>
+<div class="line">    file &lt;&lt; sol;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespacetheoretica_1_1ode_html_a9ff8a22eaf5a40fbd5accd445b792d82"><div class="ttname"><a href="namespacetheoretica_1_1ode.html#a9ff8a22eaf5a40fbd5accd445b792d82">theoretica::ode::solve_rk4</a></div><div class="ttdeci">ode_solution_t&lt; Vector &gt; solve_rk4(OdeFunction f, const Vector &amp;x0, real t0, real tf, real stepsize=0.01)</div><div class="ttdoc">Integrate an ordinary differential equation over a certain domain with the given initial conditions u...</div><div class="ttdef"><b>Definition:</b> ode.h:456</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition:</b> constants.h:198</div></div>
+<div class="ttc" id="anamespacetheoretica_html_ac512b7e62a96d6b2a94a64e642a34910"><div class="ttname"><a href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">theoretica::vec3</a></div><div class="ttdeci">vec&lt; real, 3 &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> algebra_types.h:42</div></div>
+</div><!-- fragment --><h1>Features</h1>
 <p>Some features of the library include:</p>
 <ul>
 <li>Cross-platform with x86 and OpenMP enhancements</li>
@@ -133,7 +161,6 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">}</div>
 <div class="ttc" id="aclasstheoretica_1_1mat_html_adde6784b064438f9beaedd5a6ac8a839"><div class="ttname"><a href="classtheoretica_1_1mat.html#adde6784b064438f9beaedd5a6ac8a839">theoretica::mat::identity</a></div><div class="ttdeci">static mat&lt; Type, N, K &gt; identity()</div><div class="ttdoc">Returns the identity matrix.</div><div class="ttdef"><b>Definition:</b> mat.h:730</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition:</b> algebra.h:27</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ac512b7e62a96d6b2a94a64e642a34910"><div class="ttname"><a href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">theoretica::vec3</a></div><div class="ttdeci">vec&lt; real, 3 &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition:</b> algebra_types.h:42</div></div>
 <div class="ttc" id="anamespacetheoretica_html_afb7eff567887e9025d2edd9870a31311"><div class="ttname"><a href="namespacetheoretica.html#afb7eff567887e9025d2edd9870a31311">theoretica::mat3</a></div><div class="ttdeci">mat&lt; real, 3, 3 &gt; mat3</div><div class="ttdoc">A 3x3 matrix with real entries.</div><div class="ttdef"><b>Definition:</b> algebra_types.h:20</div></div>
 <div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">General include file.</div></div>
 </div><!-- fragment --><h1>Examples</h1>
@@ -163,7 +190,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Dec 19 2024 10:19:57 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Dec 19 2024 12:41:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classtheoretica_1_1vec__iterator.html#abbc8d4e38590cf3c831ba4db9ab35943":[2,0,0,7,5],
 "classtheoretica_1_1vec__iterator.html#acca998ed6b5a26b7523d02fbd47d939c":[2,0,0,7,2],
 "classtheoretica_1_1vec__iterator.html#acd67e234002b1839dc7bd12248013487":[2,0,0,7,8],
 "classtheoretica_1_1vec__iterator.html#af0ce3b605d89e3d7185fd09643973fee":[2,0,0,7,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "dual__functions_8h.html":[3,0,0,0,0,0,0,0,1,5],
 "dual__functions_8h.html#a1b8d81973a127a1e66c180cba58d08ee":[3,0,0,0,0,0,0,0,1,5,6],
 "dual__functions_8h.html#a1f8c95ef4ed4e4da6af87e9eee675f82":[3,0,0,0,0,0,0,0,1,5,15],
-"dual__functions_8h.html#a21974bc022495f59a7702ce937f4544c":[3,0,0,0,0,0,0,0,1,5,9],
-"dual__functions_8h.html#a254b955eacdab15792dcb9d871559499":[3,0,0,0,0,0,0,0,1,5,11]
+"dual__functions_8h.html#a21974bc022495f59a7702ce937f4544c":[3,0,0,0,0,0,0,0,1,5,9]
 };
