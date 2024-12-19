@@ -14,9 +14,6 @@
 #include "../complex/complex.h"
 
 
-#include <iostream>
-
-
 namespace theoretica {
 
 
@@ -146,17 +143,8 @@ namespace theoretica {
 
 		real x_t, x_new;
 
-		TH_DEBUG((b - a) / tol);
-
-		const long double log2n = th::log2((b - a) / tol);
-
-		TH_DEBUG(log2n);
-
-		const long int n_half = th::floor(log2n);
+		const long int n_half = th::floor(th::log2((b - a) / tol));
 		const long int n_max = n_half + n0;
-
-		TH_DEBUG(n_half);
-		TH_DEBUG(n_max);
 
 		real eps = tol * pow(2.0, n_max);
 		long int iter = 0;
@@ -200,8 +188,6 @@ namespace theoretica {
 			} else {
 				return x_new;
 			}
-
-			TH_DEBUG((b - a) / 2.0);
 
 			eps *= 0.5;
 			iter++;
