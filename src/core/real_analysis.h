@@ -10,6 +10,8 @@
 #include "./constants.h"
 #include "./error.h"
 
+#include <iostream>
+
 
 namespace theoretica {
 
@@ -424,6 +426,8 @@ namespace theoretica {
 	/// the `fyl2x` instruction will be used.
 	inline real log2(real x) {
 
+		std::cout << "Computing binary logarithm..." << std::endl;
+
 		if(x <= 0) {
 
 			if(x == 0) {
@@ -437,10 +441,13 @@ namespace theoretica {
 
 #ifdef THEORETICA_X86
 
+		std::cout << "Using x86 Assembly..." << std::endl;
+
 		// Approximate the binary logarithm of x by
 		// exploiting x86 Assembly instructions
 		return fyl2x(x, 1.0);
 #else
+		std::cout << "Using fallback implementation..." << std::endl;
 
 		// Domain reduction to [1, +inf)
 		if(x < 1)
@@ -451,6 +458,8 @@ namespace theoretica {
 		int i = 0;
 		while(x > (1 << i))
 			i++;
+
+		TH_DEBUG(i);
 
 		// Domain reduction to [1, 2]
 		x /= (1 << i);
