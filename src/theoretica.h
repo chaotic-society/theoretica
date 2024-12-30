@@ -1,8 +1,9 @@
 
 ///
-/// @file theoretica.h General include file
+/// @file theoretica.h Include file for all modules of the library.
 ///
-/// If `THEORETICA_INCLUDE_BASE` is defined, only core headers will be included
+/// To pick specific modules, you can include them directly or include `theoretica_mini.h`
+/// to automatically include fundamental modules such as linear algebra and real functions.
 ///
 
 #ifndef THEORETICA_H
@@ -28,9 +29,6 @@
 #include "complex/complex.h"
 #include "complex/quat.h"
 
-
-// All other headers
-#ifndef THEORETICA_INCLUDE_BASE
 
 // Special functions
 #include "core/special.h"
@@ -98,7 +96,5 @@
 
 // Fast Fourier transform
 #include "signal/fft.h"
-
-#endif
 
 #endif

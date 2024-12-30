@@ -6,35 +6,23 @@
 
 > A C++ math library for scientific computing with a simple and elegant interface.
 
-Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximation. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
+Theoretica provides access to numerical methods with applications in science and engineering, is easy to setup and use, and is completely open source.  Applications include **scientific computing**, statistical analysis of data and numerical approximation. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
 ## A short example
 
-The following code solves the Lorenz attractor and writes the solution to a file:
+The following code solves a differential equation, such as the Lorenz attractor, and writes the result to file:
 
 ```cpp
-vec3 f(real t, vec3 v) {
-
-    const real a = 13, b = 20, c = 8./3.;
-    const real x = v[0], y = v[1], z = v[2];
-
-    return {
-        y * a - x * a,
-        x * b - x * z,
-        x * y - c * z
-    };
-}
-
 int main() {
 
     // Initial conditions
     vec3 x0 = {0.0, 0.1, 0.0};
 
-    // Use Runge-Kutta between t=0 and 50
-    auto sol = ode::solve_rk4(f, x0, 0.0, 50.0);
+    // Use Runge-Kutta between t=0 and t=50
+    auto solution = ode::solve_rk4(f, x0, 0.0, 50.0);
 
-    std::ofstream file ("lorenz.dat");
-    file << sol;
+    std::ofstream file ("solution.dat");
+    file << solution;
 }
 
 ```
@@ -57,7 +45,7 @@ Theoretica is constantly developed and improved with new ideas!
 
 ## Setup
 
-Theoretica is a header-only library and has **no dependencies**, so you can include it in your projects straight-away! You can build all tests and example programs by running `make all` in the main folder, ensuring that it works on your machine. When using the library, you can include single headers or use `theoretica.h` which includes all library headers (you can define `THEORETICA_INCLUDE_BASE` to make it include only fundamental headers).
+Theoretica is a header-only library and has **no dependencies**, so you can include it in your projects straight-away! You can build all tests and example programs by running `make all` in the main folder, ensuring that it works on your machine. To use the library, you can include single headers or use `theoretica.h` which includes all modules, or alternatively include `theoretica_mini.h` which includes only common use modules.
 
 ### Quickstart
 
