@@ -12,5 +12,6 @@ var dir_4a0b0faa2bc1827a96d7c32d179d0dfc =
     [ "signal", "dir_0038931d267fa1458a44abe985526e59.html", "dir_0038931d267fa1458a44abe985526e59" ],
     [ "statistics", "dir_0374ffe4280b1e794a31d1a81eb19e58.html", "dir_0374ffe4280b1e794a31d1a81eb19e58" ],
     [ "theoretica.h", "theoretica_8h.html", null ],
+    [ "theoretica_mini.h", "theoretica__mini_8h.html", null ],
     [ "utility.h", "utility_8h.html", "utility_8h" ]
 ];
