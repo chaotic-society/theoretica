@@ -5,6 +5,7 @@ var classtheoretica_1_1mat =
     [ "mat", "classtheoretica_1_1mat.html#a8976dc8d13dd72b150c36696c8bb307a", null ],
     [ "mat", "classtheoretica_1_1mat.html#aa9bc97314c3d876f284f6756fb218b41", null ],
     [ "mat", "classtheoretica_1_1mat.html#a4dc13ce30701a5ec954164cb7cea6b7f", null ],
+    [ "mat", "classtheoretica_1_1mat.html#a780eec612cfc505d90a6a5f4a617bb89", null ],
     [ "at", "classtheoretica_1_1mat.html#acc9ec00e88f58c292416286cd9ca0107", null ],
     [ "at", "classtheoretica_1_1mat.html#a7cfe99cd432ce44ed5ad9df2b7f96c2e", null ],
     [ "begin", "classtheoretica_1_1mat.html#afe41380064ddcea033d2dd7fb406929a", null ],

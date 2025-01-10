@@ -130,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4dc13ce30701a5ec954164cb7cea6b7f"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a4dc13ce30701a5ec954164cb7cea6b7f">mat</a> (const std::initializer_list&lt; std::initializer_list&lt; T &gt;&gt; &amp;<a class="el" href="classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc">rows</a>)</td></tr>
 <tr class="memdesc:a4dc13ce30701a5ec954164cb7cea6b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a matrix from an initializer list.  <a href="classtheoretica_1_1mat.html#a4dc13ce30701a5ec954164cb7cea6b7f">More...</a><br /></td></tr>
 <tr class="separator:a4dc13ce30701a5ec954164cb7cea6b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a780eec612cfc505d90a6a5f4a617bb89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a780eec612cfc505d90a6a5f4a617bb89">mat</a> (Type <a class="el" href="classtheoretica_1_1mat.html#ad6cbd0be3016d1ea7133d6dc0f855551">diagonal</a>, unsigned int n=0, unsigned int k=0)</td></tr>
+<tr class="memdesc:a780eec612cfc505d90a6a5f4a617bb89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes a diagonal matrix with equal entries on the diagonal.  <a href="classtheoretica_1_1mat.html#a780eec612cfc505d90a6a5f4a617bb89">More...</a><br /></td></tr>
+<tr class="separator:a780eec612cfc505d90a6a5f4a617bb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58712ce8c869f8af8f4755207ea5a473"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a58712ce8c869f8af8f4755207ea5a473"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; Type, N, K &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a58712ce8c869f8af8f4755207ea5a473">operator=</a> (const Matrix &amp;other)</td></tr>
 <tr class="memdesc:a58712ce8c869f8af8f4755207ea5a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator to copy from another matrix.  <a href="classtheoretica_1_1mat.html#a58712ce8c869f8af8f4755207ea5a473">More...</a><br /></td></tr>
@@ -365,7 +368,7 @@ class theoretica::mat&lt; Type, N, K &gt;</h3>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8976dc8d13dd72b150c36696c8bb307a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8976dc8d13dd72b150c36696c8bb307a">&#9670;&nbsp;</a></span>mat() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8976dc8d13dd72b150c36696c8bb307a">&#9670;&nbsp;</a></span>mat() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +398,7 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </div>
 </div>
 <a id="aa9bc97314c3d876f284f6756fb218b41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9bc97314c3d876f284f6756fb218b41">&#9670;&nbsp;</a></span>mat() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bc97314c3d876f284f6756fb218b41">&#9670;&nbsp;</a></span>mat() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,7 +443,7 @@ template&lt;typename Matrix &gt; </div>
 </div>
 </div>
 <a id="a4dc13ce30701a5ec954164cb7cea6b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dc13ce30701a5ec954164cb7cea6b7f">&#9670;&nbsp;</a></span>mat() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc13ce30701a5ec954164cb7cea6b7f">&#9670;&nbsp;</a></span>mat() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -481,6 +484,61 @@ template&lt;typename T  = Type&gt; </div>
   </dd>
 </dl>
 <p>Initializes the matrix with values from the initializer list. Ensures that the initializer list matches the size of the matrix (i.e., <code>N</code> rows and <code>K</code> columns). </p>
+
+</div>
+</div>
+<a id="a780eec612cfc505d90a6a5f4a617bb89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780eec612cfc505d90a6a5f4a617bb89">&#9670;&nbsp;</a></span>mat() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, N, K &gt;::<a class="el" href="classtheoretica_1_1mat.html">mat</a> </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>diagonal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>k</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor that initializes a diagonal matrix with equal entries on the diagonal. </p>
+<p>The size parameters are required for compatibility with mat&lt;T, 0&gt; and may be used for additional error prevention.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">diagonal</td><td>The value for the diagonal entries. </td></tr>
+    <tr><td class="paramname">n</td><td>Number of rows. </td></tr>
+    <tr><td class="paramname">k</td><td>Number of columns. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -3002,7 +3060,7 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat.html">mat</a></li>
-    <li class="footer">Generated on Mon Dec 30 2024 21:17:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 10 2025 17:36:08 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

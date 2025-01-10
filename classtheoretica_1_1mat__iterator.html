@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad3f17a31ed0db86bcaa30dec8e004bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current column index of the iterator.  <a href="classtheoretica_1_1mat__iterator.html#ad3f17a31ed0db86bcaa30dec8e004bc4">More...</a><br /></td></tr>
 <tr class="separator:ad3f17a31ed0db86bcaa30dec8e004bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae918bd646ce0f86a5bcc710bb65ea060"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ae918bd646ce0f86a5bcc710bb65ea060">operator==</a> (const <a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;other) const</td></tr>
-<tr class="memdesc:ae918bd646ce0f86a5bcc710bb65ea060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move to the previous element in the matrix.  <a href="classtheoretica_1_1mat__iterator.html#ae918bd646ce0f86a5bcc710bb65ea060">More...</a><br /></td></tr>
+<tr class="memdesc:ae918bd646ce0f86a5bcc710bb65ea060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator to compare two iterators.  <a href="classtheoretica_1_1mat__iterator.html#ae918bd646ce0f86a5bcc710bb65ea060">More...</a><br /></td></tr>
 <tr class="separator:ae918bd646ce0f86a5bcc710bb65ea060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad445febe954867cb87c606c80b489429"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat__iterator.html#ad445febe954867cb87c606c80b489429">operator!=</a> (const <a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a> &amp;other) const</td></tr>
 <tr class="memdesc:ad445febe954867cb87c606c80b489429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality operator to compare two iterators.  <a href="classtheoretica_1_1mat__iterator.html#ad445febe954867cb87c606c80b489429">More...</a><br /></td></tr>
@@ -196,10 +196,11 @@ template&lt;typename Matrix , typename ReturnType  = matrix_element_t&lt;Matrix&
   <table class="params">
     <tr><td class="paramname">matrix</td><td>Reference to the matrix to iterate over. </td></tr>
     <tr><td class="paramname">row</td><td>Initial row index for the iterator (default is 0). </td></tr>
-    <tr><td class="paramname">col</td><td>Initial column index for the iterator (default is 0). Constructs an iterator that points to the specified initial position within the matrix. If no row and column are specified, the iterator starts at the matrix's top-left corner (0, 0). </td></tr>
+    <tr><td class="paramname">col</td><td>Initial column index for the iterator (default is 0).</td></tr>
   </table>
   </dd>
 </dl>
+<p>Constructs an iterator that points to the specified initial position within the matrix. If no row and column are specified, the iterator starts at the matrix's top-left corner (0, 0). </p>
 
 </div>
 </div>
@@ -328,7 +329,8 @@ template&lt;typename Matrix , typename ReturnType  = matrix_element_t&lt;Matrix&
 </div><div class="memdoc">
 
 <p>Advances the iterator to the next element in row-major order. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the updated iterator. Moves the iterator one element forward within the matrix. When the end of a row is reached, it continues to the first element of the next row. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the updated iterator.</dd></dl>
+<p>Moves the iterator one element forward within the matrix. When the end of a row is reached, it continues to the first element of the next row. </p>
 
 </div>
 </div>
@@ -358,8 +360,8 @@ template&lt;typename Matrix , typename ReturnType  = matrix_element_t&lt;Matrix&
 </table>
 </div><div class="memdoc">
 
-<p>Move to the previous element in the matrix. </p>
-<p>Equality operator to compare two iterators. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Equality operator to compare two iterators. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Another iterator to compare with. </td></tr>
   </table>
@@ -408,7 +410,7 @@ template&lt;typename Matrix , typename ReturnType  = matrix_element_t&lt;Matrix&
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat__iterator.html">mat_iterator</a></li>
-    <li class="footer">Generated on Mon Dec 30 2024 21:17:36 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 10 2025 17:36:08 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

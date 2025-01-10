@@ -60,8 +60,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classtheoretica_1_1dual.html#abfef7a93dd1cc2329245979b6ffffccf",
+"algebra_8h.html",
+"classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45",
 "classtheoretica_1_1phasor.html#a0d46cb8ae039dbaa60ed0b3bf3c6d3cb",
 "classtheoretica_1_1vec__iterator.html#abbc8d4e38590cf3c831ba4db9ab35943",
 "dual__functions_8h.html#a254b955eacdab15792dcb9d871559499",
