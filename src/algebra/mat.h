@@ -693,12 +693,8 @@ namespace theoretica {
 	class mat<Type, 0, 0> {
 		public:
 
-		// Container type for storage (alias for std::vector)
-		template<typename T>
-		using Container = std::vector<T>;
-
 		/// Dynamically allocated array of the elements
-		Container<Container<Type>> data;
+		std::vector<Type> data;
 
 		/// Number of rows
 		size_t row_sz {0};
@@ -1070,9 +1066,9 @@ namespace theoretica {
 		inline Type& at(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return data[j + i * row_sz];
 #else
-			return data[j][i];
+			return data[i + j * col_sz];
 #endif
 		}
 
@@ -1086,9 +1082,9 @@ namespace theoretica {
 		inline const Type& at(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return data[j + i * row_sz];
 #else
-			return data[j][i];
+			return data[i + j * col_sz];
 #endif
 		}
 
@@ -1233,95 +1229,30 @@ namespace theoretica {
 
 
 		/// Set or change the size of the matrix
-		/// @param n The number of rows
-		/// @param k The number of columns
-		inline mat<Type>& resize(unsigned int n, unsigned int k) {
+		/// @param rows The number of rows
+		/// @param cols The number of columns
+		inline mat<Type>& resize(unsigned int rows, unsigned int cols) {
 
 			// Do nothing if the size is already correct
-			if(rows() == n && cols() == k)
+			if (row_sz == rows && col_sz == cols)
 				return *this;
 
-			// Distinguish between row-first and column-first allocation
-#ifdef THEORETICA_ROW_FIRST
-			size_t size1 = n, size2 = k;
-#else
-			size_t size1 = k, size2 = n;
-#endif
+			std::vector<Type> new_data (rows * cols);
 
-			// The matrix must be allocated anew
-			if(!data.size()) {
+			if (data.size()) {
 
-				data.resize(size1);
-				for (unsigned int i = 0; i < size1; ++i)
-					data[i].resize(size2);
-				
-				row_sz = n;
-				col_sz = k;
-				algebra::mat_zeroes(*this);
+				size_t min_elements = min(rows, row_sz) * min(cols, col_sz);
 
-			// The matrix must be reallocated
-			} else {
-
-				std::vector<std::vector<Type>> new_data;
-				new_data.resize(size1);
-				for (unsigned int i = 0; i < size1; ++i)
-					new_data[i].resize(size2);
-
-				// Copy data to new memory location
-
-				// Bounds on the region to copy
-				const size_t row_bound = min(rows(), n);
-				const size_t col_bound = min(cols(), n);
-
-				for (unsigned int i = 0; i < row_bound; ++i) {
-					for (unsigned int j = 0; j < col_bound; ++j) {
-#ifdef THEORETICA_ROW_FIRST
-						new_data[i][j] = get(i, j);
-#else
-						new_data[j][i] = get(i, j);
-#endif
-					}
-				}
-
-				// If the new matrix size is bigger,
-				// zero out all remaining entries
-				for (unsigned int i = 0; i < n; ++i) {
-					for (unsigned int j = col_bound; j < k; ++j) {
-
-
-#ifdef THEORETICA_ROW_FIRST
-						new_data[i][j] = (Type) 0;
-#else
-						new_data[j][i] = (Type) 0;
-#endif
-					}
-				}
-
-
-				// If the new matrix size is bigger,
-				// zero out all remaining entries
-				for (unsigned int i = row_bound; i < n; ++i) {
-					for (unsigned int j = 0; j < k; ++j) {
-
-
-#ifdef THEORETICA_ROW_FIRST
-						new_data[i][j] = (Type) 0;
-#else
-						new_data[j][i] = (Type) 0;
-#endif
-					}
-				}
-
-				data.clear();
-				data = new_data;
-
-				row_sz = n;
-				col_sz = k;
+				// Copy the overlapping elements
+				for (unsigned int i = 0; i < min_elements; ++i)
+					new_data[i] = data[i];
 			}
 
-			return *this;
-		}
+			data = new_data;
+			row_sz = rows;
+			col_sz = cols;
 
+			return *this;
 		}
 
 
