@@ -9,7 +9,7 @@ var utility_8h =
     [ "println", "utility_8h.html#a52cf6fb440a16f2884c2d1a69866eef8", null ],
     [ "println", "utility_8h.html#a8c29f8db75bba82e599acb57a24d8997", null ],
     [ "println", "utility_8h.html#a2f4644c562747582e9802c5d9bf5cf99", null ],
-    [ "readln", "utility_8h.html#aec35a4dff6ba621ca39b7781d76ba6b9", null ],
-    [ "readln", "utility_8h.html#ac8021d136cee11920c79c49560eb33b7", null ],
-    [ "readln", "utility_8h.html#a053dd265e974f369e33bccdf698918f9", null ]
+    [ "readln", "utility_8h.html#a0f3eb50fb28bd74d4f9692c652beac4c", null ],
+    [ "readln", "utility_8h.html#ae3d24797ec2dd04cdc3f3288660bb5c9", null ],
+    [ "readln", "utility_8h.html#aa9b96df3a9ba9e56299d44c363c1ca03", null ]
 ];

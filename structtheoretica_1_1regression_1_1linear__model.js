@@ -12,7 +12,7 @@ var structtheoretica_1_1regression_1_1linear__model =
     [ "operator std::string", "structtheoretica_1_1regression_1_1linear__model.html#ad6b0247dfe2dc477f84b3d602bea6b52", null ],
     [ "operator()", "structtheoretica_1_1regression_1_1linear__model.html#abdd9056014e3c2b97af666fd266e207d", null ],
     [ "to_string", "structtheoretica_1_1regression_1_1linear__model.html#adf0da3aa06866126f4a1641b803df7cd", null ],
-    [ "operator<<", "structtheoretica_1_1regression_1_1linear__model.html#a650937a121eb8590ced453d5324cb1c2", null ],
+    [ "operator<<", "structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6", null ],
     [ "A", "structtheoretica_1_1regression_1_1linear__model.html#af7cad9f424b0341ae8727e672ca62879", null ],
     [ "B", "structtheoretica_1_1regression_1_1linear__model.html#a37611e9829c046273d59c934aae7cea1", null ],
     [ "chi_squared", "structtheoretica_1_1regression_1_1linear__model.html#a59ae836cf496943f5586178571ef76e9", null ],

@@ -1,12 +1,12 @@
 var dataset_8h =
 [
-    [ "apply", "dataset_8h.html#a577718046a061b09c2c571d84b4cf47b", null ],
+    [ "apply", "dataset_8h.html#ac0a76a59d0419eb65ee9d89e7bd6c1db", null ],
     [ "arithmetic_mean", "dataset_8h.html#a1191a32286f176c367f648431b1444ac", null ],
     [ "concatenate", "dataset_8h.html#a1a85d4034e2edc73c0175f1d3b6d1382", null ],
     [ "geometric_mean", "dataset_8h.html#a73c73eaa2f2276a66b309426cc308d1b", null ],
     [ "harmonic_mean", "dataset_8h.html#a1638fb86d8cb03965ff398d41f7b00fb", null ],
     [ "map", "dataset_8h.html#a1bd4dbfccbb88413ccb29c93ae7254da", null ],
-    [ "map", "dataset_8h.html#ad8f39fdf206c30999a973d03e49cdd5b", null ],
+    [ "map", "dataset_8h.html#a1b898a8449d723a807854f805f8be23e", null ],
     [ "map", "dataset_8h.html#ac43890de03a7e2c959fdabe4f7452042", null ],
     [ "max", "dataset_8h.html#a79c3cffe1db6b2cb178d41bfc98b1c41", null ],
     [ "min", "dataset_8h.html#a133ae02c952df7352cfb3830a1616bc1", null ],

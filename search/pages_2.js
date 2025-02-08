@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['theoretica_1516',['Theoretica',['../index.html',1,'']]],
-  ['tutorial_1517',['tutorial',['../md__home_runner_work_theoretica_theoretica_build_tutorial.html',1,'']]]
+  ['guide_0',['Contributing Guide',['../md__2home_2runner_2work_2theoretica_2theoretica_2_c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]]
 ];

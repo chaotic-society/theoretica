@@ -2,7 +2,7 @@ var classtheoretica_1_1histogram =
 [
     [ "histogram", "classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615", null ],
     [ "histogram", "classtheoretica_1_1histogram.html#acc5edfcda71029bf5185cbb12188705b", null ],
-    [ "bins", "classtheoretica_1_1histogram.html#aa4004f20bb3cfc016b484a23a5dc01fb", null ],
+    [ "bins", "classtheoretica_1_1histogram.html#af40ac3b20569a3535192b36f9a122c0e", null ],
     [ "index", "classtheoretica_1_1histogram.html#a4c6e96deec4f677ac8cdec9f63149910", null ],
     [ "insert", "classtheoretica_1_1histogram.html#acfeeea8ad894735b918789128c64a074", null ],
     [ "max", "classtheoretica_1_1histogram.html#a6bb629f097ef676e842d30fbb73b333f", null ],
@@ -14,5 +14,5 @@ var classtheoretica_1_1histogram =
     [ "operator[]", "classtheoretica_1_1histogram.html#aae5eed807b9dbd3baed0e864b12ac38d", null ],
     [ "to_string", "classtheoretica_1_1histogram.html#ab5ffed309334094979bfc3aecb6f7424", null ],
     [ "tss", "classtheoretica_1_1histogram.html#a9e2e5e2761facadb13b41a7b753d57dd", null ],
-    [ "operator<<", "classtheoretica_1_1histogram.html#ad9704b5beb2eb07e03d7a4ec32a439cc", null ]
+    [ "operator<<", "classtheoretica_1_1histogram.html#a69d58d295bb90bbba730b780cba15866", null ]
 ];

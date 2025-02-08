@@ -1,6 +1,6 @@
 var regression_8h =
 [
-    [ "linear_model", "structtheoretica_1_1regression_1_1linear__model.html", "structtheoretica_1_1regression_1_1linear__model" ],
+    [ "theoretica::regression::linear_model", "structtheoretica_1_1regression_1_1linear__model.html", "structtheoretica_1_1regression_1_1linear__model" ],
     [ "ols_linear", "regression_8h.html#ab3310b8c7b4730cfed2089fc3e4f76d0", null ],
     [ "ols_linear", "regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e", null ],
     [ "ols_linear", "regression_8h.html#ac756ea4900f4fef409de1887578b85cb", null ],

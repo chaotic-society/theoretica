@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Modules", "modules.html", "modules" ],
+    [ "Tutorial", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -45,7 +45,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -61,15 +61,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8h.html",
-"classtheoretica_1_1dual.html#ac0ba3560724f9dd848d29d735501fe45",
-"classtheoretica_1_1phasor.html#a0d46cb8ae039dbaa60ed0b3bf3c6d3cb",
-"classtheoretica_1_1vec__iterator.html#abbc8d4e38590cf3c831ba4db9ab35943",
-"dual__functions_8h.html#a254b955eacdab15792dcb9d871559499",
-"namespacemembers_o.html",
-"namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3",
-"namespacetheoretica_1_1algebra.html#aa07d864923839f2e5ced058527bdf104",
-"orthogonal_8h.html#a3628a79e4bb98a5b26d673cb914534cf",
-"structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html#afdbdc65031e56cafe75ba03089e5ebb8"
+"classtheoretica_1_1complex.html#ad3b2fb75c25bd6571457db7da9f3b2ec",
+"classtheoretica_1_1mat.html#a6904396138fdd64894a0993471be4b44",
+"classtheoretica_1_1phasor.html#a0050a34aad1452bce49f55421f3683ae",
+"classtheoretica_1_1ratio.html#aa653b6aa2cdd9ba7a07e62f2b5b352ec",
+"constants_8h.html#a27b5dac597409564afdc448fbef23eae",
+"extrema_8h.html#a4e122e9c54b7f36043851a702fb7e79a",
+"namespacetheoretica.html#a133da02105ffbd23a2f6f07c03b219f6",
+"namespacetheoretica.html#ab3e5e8380097d9ad25a51413bcb244d3",
+"namespacetheoretica_1_1autodiff.html#a42ec261a909d2db46560e1a29eb9e535",
+"prng_8h_source.html",
+"structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

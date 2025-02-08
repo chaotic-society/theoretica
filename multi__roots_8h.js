@@ -1,4 +1,4 @@
 var multi__roots_8h =
 [
-    [ "multiroot_newton", "multi__roots_8h.html#aa33d75230bab0d4def2c9aeec6e05b1d", null ]
+    [ "multiroot_newton", "multi__roots_8h.html#a266e22e5ea430f0524e91f2cc377387f", null ]
 ];

@@ -1,4 +1,0 @@
-var structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427 =
-[
-    [ "type", "structtheoretica_1_1__internal_1_1return__type__or__void_3_01_function_00_01_t_00_01__internal_1269559a89b2061bef1e09b04d2db8427.html#afc6b5d5b12ddb68aafe80d26ca49edbc", null ]
-];

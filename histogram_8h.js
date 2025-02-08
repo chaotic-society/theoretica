@@ -1,6 +1,6 @@
 var histogram_8h =
 [
-    [ "histogram", "classtheoretica_1_1histogram.html", "classtheoretica_1_1histogram" ],
+    [ "theoretica::histogram", "classtheoretica_1_1histogram.html", "classtheoretica_1_1histogram" ],
     [ "max", "histogram_8h.html#a33f27a1f05cae98a0a9a55cce43c1e1b", null ],
     [ "mean", "histogram_8h.html#ac1ebf0e7700cf7df7f46caa61086ab25", null ],
     [ "min", "histogram_8h.html#a98aafc63fe4127e81acdfd9c69ace2ae", null ],

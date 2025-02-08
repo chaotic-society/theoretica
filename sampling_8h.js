@@ -1,6 +1,6 @@
 var sampling_8h =
 [
-    [ "pdf_sampler", "structtheoretica_1_1pdf__sampler.html", "structtheoretica_1_1pdf__sampler" ],
+    [ "theoretica::pdf_sampler", "structtheoretica_1_1pdf__sampler.html", "structtheoretica_1_1pdf__sampler" ],
     [ "pdf_sampling_function", "sampling_8h.html#a17352cbe273b80ae0f08eac818eba84e", null ],
     [ "metropolis", "sampling_8h.html#a66a8fc915915b6eff35dbf94c74b13bd", null ],
     [ "metropolis", "sampling_8h.html#ac91dfc5efe4fa412bd7ef46f142f7045", null ],

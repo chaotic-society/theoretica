@@ -1,6 +1,5 @@
 var error_8h =
 [
-    [ "TH_DEBUG", "error_8h.html#aa77f8d4ff9d754778f1e49a33d623b1c", null ],
     [ "TH_MATH_ERROR", "error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e", null ],
     [ "MATH_ERRCODE", "error_8h.html#a47d8f770edb576685f4b8752f2eb9760", [
       [ "NO_ERROR", "error_8h.html#a47d8f770edb576685f4b8752f2eb9760af8b1ea5551e4f94a00bc423850412b8d", null ],

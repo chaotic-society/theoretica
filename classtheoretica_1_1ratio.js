@@ -2,7 +2,6 @@ var classtheoretica_1_1ratio =
 [
     [ "ratio", "classtheoretica_1_1ratio.html#a598ab29ca81e22dca002eea00a8dfdb7", null ],
     [ "ratio", "classtheoretica_1_1ratio.html#a06e0e220890d9f0a0ae6963668ff52ca", null ],
-    [ "~ratio", "classtheoretica_1_1ratio.html#a55b7d1d76a406965f297e6950c922ff7", null ],
     [ "eval", "classtheoretica_1_1ratio.html#a8cc5f2f9ec1c0d8f5c9117fbbab5c53b", null ],
     [ "eval_as", "classtheoretica_1_1ratio.html#abaf51b92e75d13b96123770288396b1b", null ],
     [ "operator std::string", "classtheoretica_1_1ratio.html#a0be5c4482c872e9e7e086985b508d892", null ],
@@ -14,7 +13,7 @@ var classtheoretica_1_1ratio =
     [ "operator/", "classtheoretica_1_1ratio.html#a2b49241f06c0e0098885218fab85dcd5", null ],
     [ "operator/", "classtheoretica_1_1ratio.html#aa653b6aa2cdd9ba7a07e62f2b5b352ec", null ],
     [ "to_string", "classtheoretica_1_1ratio.html#aa0fd234ef38da6eba29da1c65299b3d3", null ],
-    [ "operator<<", "classtheoretica_1_1ratio.html#ad0de338a56d95c00cfd745e258d4b79e", null ],
+    [ "operator<<", "classtheoretica_1_1ratio.html#a93e09648fadabcd8d6a723fb678ad5d8", null ],
     [ "den", "classtheoretica_1_1ratio.html#a0cd6002cbef8b23bba837eb620e066a4", null ],
     [ "num", "classtheoretica_1_1ratio.html#a1f894e315ace8e6f2cf3898440105e7c", null ]
 ];
