@@ -234,15 +234,6 @@ namespace theoretica {
 			algebra::mat_zeroes(*this);
 		}
 
-	
-		/// Returns a null matrix with all elements set to zero.
-		/// @return A new matrix with zero values.
-		inline static mat<Type, N, K> zeroes() {
-			mat<Type, N, K> res;
-			algebra::mat_zeroes(res);
-			return res;
-		}
-
 
 		/// Matrix addition.
 		/// @tparam Matrix The type of the matrix to add.
@@ -473,13 +464,6 @@ namespace theoretica {
 		}
 
 	
-		/// Returns a transposed version of the matrix.
-		/// @return A new matrix that is the transposed version of this matrix.
-		inline mat<Type, K, N> transposed() const {
-			return algebra::transpose<mat<Type, N, K>, mat<Type, K, N>>(*this);
-		}
-
-
 		/// Accesses the element at the given row and column.
 		/// @param i The row index.
 		/// @param j The column index.
@@ -617,87 +601,6 @@ namespace theoretica {
 		}
 
 
-		/// Checks if the matrix is square.
-		/// @return `true` if the matrix is square (N == K), `false` otherwise.
-		inline bool is_square() const {
-			return algebra::is_square(*this);
-		}
-
-
-		/// Checks if the matrix is diagonal.
-		/// @return `true` if the matrix is diagonal, `false` otherwise.
-		inline bool is_diagonal() const {
-			return algebra::is_diagonal(*this);
-		}
-
-
-		/// Checks if the matrix is symmetric.
-		/// @return `true` if the matrix is symmetric, `false` otherwise.
-		inline bool is_symmetric() const {
-			return algebra::is_symmetric(*this);
-		}
-
-
-		/// Compute the density of the matrix, counting the proportion
-		/// of non-zero (bigger in module than the given tolerance) elements
-		/// with respect to the total number of elements.
-		///
-		/// @param tolerance The minimum tolerance in absolute value
-		/// to consider an element non-zero.
-		/// @return A real number between 0 and 1 representing the
-		/// proportion of non-zero elements of the matrix.
-		inline real density(real tolerance = 1E-12) {
-			return algebra::density(*this, tolerance);
-		}
-
-
-		/// Compute the sparsity of the matrix, counting the proportion
-		/// of zero (smaller in module than the given tolerance) elements
-		/// with respect to the total number of elements.
-		///
-		/// @param tolerance The minimum tolerance in absolute value
-		/// to consider an element non-zero.
-		/// @return A real number between 0 and 1 representing the
-		/// proportion of zero elements of the matrix.
-		inline real sparsity(real tolerance = 1E-12) {
-			return algebra::sparsity(*this, tolerance);
-		}
-
-
-		/// Computes the trace of the matrix.
-		/// @return The trace (sum of diagonal elements).
-		inline Type trace() {
-			return algebra::trace(*this);
-		}
-
-	
-		/// Computes the product of the diagonal elements.
-		/// @return The product of diagonal elements.
-		inline Type diagonal_product() {
-			return algebra::diagonal_product(*this);
-		}
-
-
-		/// Computes the determinant of the matrix.
-		/// @return The determinant.
-		///
-		/// This function is only valid for square matrices.
-		inline Type det() const {
-			static_assert(N == K, "The matrix must be square to compute the determinant.");
-			return algebra::det(*this);
-		}
-
-
-		/// Computes the inverse of the matrix.
-		/// @return The inverse matrix.
-		///
-		/// This function is only valid for square matrices.
-		inline mat<Type, N, K> inverse() const {
-			static_assert(N == K, "The matrix must be square to be invertible.");
-			return algebra::inverse(*this);
-		}
-
-
 		/// Inverts the matrix in place.
 		/// @return Reference to the inverted matrix.
 		///
@@ -723,154 +626,6 @@ namespace theoretica {
 
 			return *this;
 		}
-
-
-		// Transformation matrices
-
-
-		/// Returns the identity matrix.
-		/// @return An identity matrix of the current dimensions.
-		inline static mat<Type, N, K> identity() {
-			return algebra::identity<mat<Type, N, K>>();
-		}
-
-
-		/// Returns a diagonal matrix with the specified diagonal element.
-		/// @param diag The value for the diagonal elements.
-		/// @return A diagonal matrix with the given diagonal value.
-		inline static mat<Type, N, K> diagonal(Type diag) {
-			return mat<Type, N, K>(diag);
-		}
-
-		/// Returns a 4x4 matrix for translation by the vector {x, y, z}.
-		/// @tparam Vector The type of the translation vector.
-		/// @param t The translation vector.
-		/// @return A 4x4 translation matrix.
-		template<typename Vector = vec<real, N - 1>>
-		inline static mat<Type, N, K> translation(Vector&& t) {
-			return algebra::translation<mat<Type, N, K>>(t);
-		}
-
-	
-		/// Returns a matrix for 2D rotation by theta radians.
-		/// @param theta The angle of rotation in radians.
-		/// @return A 2x2 rotation matrix.
-		inline static mat<Type, N, K> rotation_2d(real theta) {
-			static_assert(N >= 2 && K >= 2, "The matrix must be 2x2 or bigger");
-			return algebra::rotation_2d<mat<Type, N, K>>(theta);
-		}
-
-
-		/// Returns a matrix for 3D rotation around the x-axis.
-		/// @param theta The angle of rotation in radians.
-		/// @return A 3x3 rotation matrix for the x-axis.
-		inline static mat<Type, N, K> rotation_3d_xaxis(real theta) {
-			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_xaxis<mat<Type, N, K>>(theta);
-		}
-
-
-		/// Returns a matrix for 3D rotation around the y-axis.
-		/// @param theta The angle of rotation in radians.
-		/// @return A 3x3 rotation matrix for the y-axis.
-		inline static mat<Type, N, K> rotation_3d_yaxis(real theta) {
-			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_yaxis<mat<Type, N, K>>(theta);
-		}
-
-
-		/// Returns a matrix for 3D rotation around the z-axis.
-		/// @param theta The angle of rotation in radians.
-		/// @return A 3x3 rotation matrix for the z-axis.
-		inline static mat<Type, N, K> rotation_3d_zaxis(real theta) {
-			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d_zaxis<mat<Type, N, K>>(theta);
-		}
-
-
-	    /// Returns a matrix for 3D rotation around an arbitrary axis.
-		/// @tparam Vector The type of the rotation axis vector.
-		/// @param theta The angle of rotation in radians.
-		/// @param axis The axis vector to rotate around.
-		/// @return A 3x3 rotation matrix for the given axis.
-		template<typename Vector = vec<real, 3>>
-		inline static mat<Type, N, K> rotation_3d(real theta, Vector&& axis) {
-			static_assert(N >= 3 && K >= 3, "The matrix must be 3x3 or bigger");
-			return algebra::rotation_3d<mat<Type, N, K>>(theta, axis);
-		}
-
-
-		/// Returns a perspective projection matrix.
-		/// @param left The left boundary.
-		/// @param right The right boundary.
-		/// @param bottom The bottom boundary.
-		/// @param top The top boundary.
-		/// @param near The near boundary.
-		/// @param far The far boundary.
-		/// @return A 4x4 perspective projection matrix.
-		inline static mat<Type, N, K> perspective(
-			real left, real right, real bottom,
-			real top, real near, real far) {
-
-			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::perspective<mat<Type, N, K>>(
-				left, right, bottom, top, near, far);
-		}
-
-	
-		/// Returns a perspective projection matrix based on field of view.
-		/// @param fov The field of view angle in radians.
-		/// @param aspect The aspect ratio.
-		/// @param near The near boundary.
-		/// @param far The far boundary.
-		/// @return A 4x4 perspective projection matrix.
-		inline static mat<Type, N, K> perspective_fov(
-			real fov, real aspect, real near, real far) {
-
-			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::perspective_fov<mat<Type, N, K>>(fov, aspect, near, far);
-		}
-	
-	
-		/// Returns an orthographic projection matrix.
-		/// @param left The left boundary.
-		/// @param right The right boundary.
-		/// @param bottom The bottom boundary.
-		/// @param top The top boundary.
-		/// @param near The near boundary.
-		/// @param far The far boundary.
-		/// @return A 4x4 orthographic projection matrix.
-		inline static mat<Type, N, K> ortho(
-			real left, real right, real bottom, real top, real near, real far) {
-			static_assert(N >= 4 && K >= 4, "The matrix must be 4x4 or bigger");
-			return algebra::ortho<mat<Type, N, K>>(left, right, bottom, top, near, far);
-		}
-
-
-		/// Return a 4x4 transformation matrix that points the
-		/// field of view towards a given point from the <camera> point
-		/// @tparam Vector1, Vector2, Vector3 Types for the camera, target, and up vectors.
-		/// @param camera The camera position.
-		/// @param target The target point to look at.
-		/// @param up The up direction vector.
-		/// @return A 4x4 look-at transformation matrix.
-		template<typename Vector1, typename Vector2, typename Vector3>
-		inline static mat<Type, 4, 4> look_at(
-			const Vector1& camera, const Vector2& target, const Vector3& up) {
-			return algebra::look_at<mat<Type, 4, 4>>(camera, target, up);
-		}
-
-
-		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
-		/// @param n Optional parameter for number of rows.
-		/// @param k Optional parameter for number of columns.
-		/// @return A symplectic matrix with given dimensions.
-		inline static mat<Type, N, K> symplectic(unsigned int n = 0, unsigned int k = 0) {
-			static_assert(N == K && (N % 2 == 0),
-				"N must equal K and they should be a multiple of 2");
-			return algebra::symplectic<mat<Type, N, K>>(n, k);
-		}
-
 
 
 #ifndef THEORETICA_NO_PRINT
@@ -1033,7 +788,7 @@ namespace theoretica {
 		}
 
 
-		/// Destructor that deallocates memory and resets matrix size.
+		/// Destructor that resets the matrix size.
 		~mat() {
 			row_sz = 0;
 			col_sz = 0;
@@ -1043,18 +798,6 @@ namespace theoretica {
 		/// Sets all elements in the matrix to zero.
 		inline void make_zeroes() {
 			algebra::mat_zeroes(*this);
-		}
-
-
-		/// Static method that returns a null matrix with specified dimensions.
-		/// @param rows Number of rows.
-		/// @param cols Number of columns.
-		/// @return A matrix with all elements set to zero.
-		inline static mat<Type> zeroes(unsigned int rows, unsigned int cols) {
-			mat<Type> res;
-			res.resize(rows, cols);
-			algebra::mat_zeroes(res);
-			return res;
 		}
 
 
@@ -1142,8 +885,7 @@ namespace theoretica {
 				TH_MATH_ERROR("mat::transform", v.size(), INVALID_ARGUMENT);
 				Vector res;
 				res.resize(rows());
-				algebra::vec_error(res);
-				return res;
+				return algebra::vec_error(res);
 			}
 
 			return algebra::transform(*this, v);
@@ -1319,16 +1061,6 @@ namespace theoretica {
 		}
 
 
-		/// Return a transposed copy of the current matrix.
-		/// @return A new matrix that is the transpose of the current matrix.
-		///
-		/// Creates a new matrix that represents the transpose of the current matrix
-		/// without modifying the original matrix.
-		inline mat<Type> transposed() const {
-			return algebra::transpose<mat<Type>, mat<Type>>(*this);
-		}
-
-
 		/// Access a modifiable element at a specific row and column.
 		/// @param i The row index.
 		/// @param j The column index.
@@ -1392,12 +1124,7 @@ namespace theoretica {
 		///
 		/// Returns a copy of the matrix element at the specified row and column indices.
 		inline Type get(unsigned int i, unsigned int j) const {
-
-#ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
-#else
-			return data[j][i];
-#endif
+			return at(i, j);
 		}
 
 
@@ -1493,97 +1220,6 @@ namespace theoretica {
 		template<typename Matrix>
 		inline bool operator!=(const Matrix& other) const {
 			return !algebra::mat_equals(*this, other);
-		}
-
-
-		/// Determine if the matrix is square (rows == columns).
-		/// @return True if the matrix is square, otherwise false.
-		///
-		/// Checks if the number of rows and columns are equal.
-		inline bool is_square() const {
-			return algebra::is_square(*this);
-		}
-
-
-		/// Determine if the matrix is diagonal (all non-diagonal elements are zero).
-		/// @return True if the matrix is diagonal, otherwise false.
-		///
-		/// Checks if all elements outside the main diagonal are zero.
-		inline bool is_diagonal() const {
-			return algebra::is_diagonal(*this);
-		}
-
-
-		/// Determine if the matrix is symmetric (matrix == transpose).
-		/// @return True if the matrix is symmetric, otherwise false.
-		///
-		/// Checks if the matrix is equal to its transpose.
-		inline bool is_symmetric() const {
-			return algebra::is_symmetric(*this);
-		}
-
-
-		/// Compute the density of the matrix, counting the proportion
-		/// of non-zero (bigger in module than the given tolerance) elements
-		/// with respect to the total number of elements.
-		///
-		/// @param tolerance The minimum tolerance in absolute value
-		/// to consider an element non-zero.
-		/// @return A real number between 0 and 1 representing the
-		/// proportion of non-zero elements of the matrix.
-		inline real density(real tolerance = 1E-12) {
-			return algebra::density(*this, tolerance);
-		}
-
-
-		/// Compute the sparsity of the matrix, counting the proportion
-		/// of zero (smaller in module than the given tolerance) elements
-		/// with respect to the total number of elements.
-		///
-		/// @param tolerance The minimum tolerance in absolute value
-		/// to consider an element non-zero.
-		/// @return A real number between 0 and 1 representing the
-		/// proportion of zero elements of the matrix.
-		inline real sparsity(real tolerance = 1E-12) {
-			return algebra::sparsity(*this, tolerance);
-		}
-
-
-		/// Compute the trace (sum of elements on the diagonal) of a square matrix.
-		/// @return The trace of the matrix.
-		///
-		/// Calculates the sum of all diagonal elements in a square matrix.
-		inline Type trace() {
-			return algebra::trace(*this);
-		}
-
-
-		/// Compute the product of the diagonal elements of a square matrix.
-		/// @return The product of all diagonal elements.
-		///
-		/// Multiplies all elements on the main diagonal to get the product.
-		inline Type diagonal_product() {
-			return algebra::diagonal_product(*this);
-		}
-
-
-		/// Compute the determinant of the matrix.
-		/// @return The determinant of the matrix.
-		///
-		/// This function returns the determinant, which is defined only for square matrices.
-		/// The determinant is a scalar value that characterizes certain properties of the matrix
-		inline Type det() const {
-			return algebra::det(*this);
-		}
-
-
-		/// Compute the inverse of a generic square matrix.
-		/// @return The inverse of the matrix.
-		///
-		/// Returns the inverse matrix, which, when multiplied by the original matrix, yields the identity matrix.
-		/// If the matrix is singular (determinant is zero), this operation is undefined.
-		inline mat<Type> inverse() const {
-			return algebra::inverse(*this);
 		}
 
 
@@ -1686,148 +1322,7 @@ namespace theoretica {
 			return *this;
 		}
 
-
-		// Transformation matrices
-
-
-		/// Get the identity matrix.
-		/// @param row_sz The number of rows.
-		/// @param col_sz The number of columns.
-		/// @return A matrix initialized as the identity matrix.
-		///
-		/// Creates a matrix with ones on the main diagonal and zeros elsewhere.
-		inline static mat<Type> identity(
-			unsigned int row_sz, unsigned int col_sz) {
-
-			return algebra::identity<mat<Type>>(row_sz, col_sz);
 		}
-
-
-		/// Get a diagonal matrix with a specified diagonal value.
-		/// @param diag The value to set on the main diagonal.
-		/// @param row_sz The number of rows.
-		/// @param col_sz The number of columns.
-		/// @return A matrix initialized as a diagonal matrix.
-		inline static mat<Type> diagonal(
-			Type diag, unsigned int row_sz, unsigned int col_sz) {
-			return mat<Type>(diag, row_sz, col_sz);
-		}
-
-
-		/// Get a 4x4 matrix which translates by {x, y, z}.
-		/// @param t A vector containing translation values.
-		/// @return A 4x4 translation matrix.
-		template<typename Vector>
-		inline static mat<Type> translation(Vector&& t) {
-			return algebra::translation<mat<Type>>(t);
-		}
-
-
-		/// Get a matrix which rotates the 2D plane by `theta` radians.
-		/// @param theta The angle in radians.
-		/// @return A 2D rotation matrix.
-		inline static mat<Type> rotation_2d(real theta) {
-			return algebra::rotation_2d<mat<Type>>(theta);
-		}
-
-
-		/// Get a matrix which rotates by `theta` radians around the x-axis.
-		/// @param theta The angle in radians.
-		/// @return A 3D rotation matrix.
-		inline static mat<Type> rotation_3d_xaxis(real theta) {
-			return algebra::rotation_3d_xaxis<mat<Type>>(theta);
-		}
-
-
-		/// Get a matrix which rotates by `theta` radians around the y-axis.
-		/// @param theta The angle in radians.
-		/// @return A 3D rotation matrix.
-		inline static mat<Type> rotation_3d_yaxis(real theta) {
-			return algebra::rotation_3d_yaxis<mat<Type>>(theta);
-		}
-
-
-		/// Get a matrix which rotates by `theta` radians around the z-axis.
-		/// @param theta The angle in radians.
-		/// @return A 3D rotation matrix.
-		inline static mat<Type> rotation_3d_zaxis(real theta) {
-			return algebra::rotation_3d_zaxis<mat<Type>>(theta);
-		}
-
-
-		/// Get a matrix which rotates by `theta` radians around the given axis.
-		/// @param theta The angle in radians.
-		/// @param axis A vector representing the axis of rotation.
-		/// @return A 3D rotation matrix.
-		template<typename Vector = vec<real, 3>>
-		inline static mat<Type> rotation_3d(real theta, Vector&& axis) {
-			return algebra::rotation_3d<mat<Type>>(theta, axis);
-		}
-
-		/// Get a perspective projection matrix.
-		/// @param left Left coordinate of the view volume.
-		/// @param right Right coordinate of the view volume.
-		/// @param bottom Bottom coordinate of the view volume.
-		/// @param top Top coordinate of the view volume.
-		/// @param near Near coordinate of the view volume.
-		/// @param far Far coordinate of the view volume.
-		/// @return A perspective projection matrix.
-		inline static mat<Type> perspective(
-			real left, real right, real bottom,
-			real top, real near, real far) {
-
-			return algebra::perspective<mat<Type>>(
-				left, right, bottom, top, near, far);
-		}
-
-		/// Get a perspective projection matrix using field of view.
-		/// @param fov Field of view angle in radians.
-		/// @param aspect Aspect ratio.
-		/// @param near Near clipping plane.
-		/// @param far Far clipping plane.
-		/// @return A perspective projection matrix.
-		inline static mat<Type> perspective_fov(
-			real fov, real aspect, real near, real far) {
-
-			return algebra::perspective_fov<mat<Type>>(fov, aspect, near, far);
-		}
-
-		/// Get an orthographic projection matrix.
-		/// @param left Left coordinate of the view volume.
-		/// @param right Right coordinate of the view volume.
-		/// @param bottom Bottom coordinate of the view volume.
-		/// @param top Top coordinate of the view volume.
-		/// @param near Near coordinate of the view volume.
-		/// @param far Far coordinate of the view volume.
-		/// @return An orthographic projection matrix.
-		inline static mat<Type> ortho(
-			real left, real right, real bottom, real top, real near, real far) {
-			return algebra::ortho<mat<Type>>(left, right, bottom, top, near, far);
-		}
-
-
-		/// Return a 4x4 transformation matrix that points the
-		/// field of view towards a given point from the <camera> point
-		/// @param camera Position of the camera.
-		/// @param target Target point to look at.
-		/// @param up Upward direction vector.
-		/// @return A "look at" view transformation matrix.
-		template<typename Vector1, typename Vector2, typename Vector3>
-		inline static mat<Type> look_at(
-			const Vector1& camera, const Vector2& target, const Vector3& up) {
-			return algebra::look_at<mat<Type>>(camera, target, up);
-		}
-
-
-		/// A symplectic NxN matrix, where \f$N = 2K\f$ for some natural K
-		/// @param rows Number of rows in the matrix.
-		/// @param cols Number of columns in the matrix.
-		/// @return A symplectic matrix.
-		inline static mat<Type> symplectic(unsigned int rows, unsigned int cols) {
-			return algebra::symplectic<mat<Type>>(rows, cols);
-		}
-
-
 
 
 #ifndef THEORETICA_NO_PRINT

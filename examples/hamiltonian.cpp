@@ -18,7 +18,7 @@ constexpr unsigned int N = 3;
 constexpr unsigned int M = 2 * N;
 
 // MxM symplectic matrix
-const auto M_symplectic = mat<real, M, M>::symplectic();
+const auto M_symplectic = algebra::symplectic<mat<real, M, M>>();
 
 
 // Hamiltonian for the N-dimensional harmonic oscillator (m = 1, omega = 1)

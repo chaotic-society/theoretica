@@ -14,6 +14,7 @@ namespace theoretica {
 
 	namespace algebra {
 
+
 		/// Returns the identity matrix. Size parameters are used
 		/// only for dynamically allocated matrix types.
 		/// @return The identity matrix of the given type

@@ -61,7 +61,7 @@ int main() {
     vec3 v = {1, 2, 3};
 
     // Create a 3x3 identity matrix
-    mat3 A = mat3::identity();
+    mat3 A = mat3(1.0);
 
     // Transform v by A
     vec3 w = A * v;
