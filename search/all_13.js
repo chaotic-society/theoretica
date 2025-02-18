@@ -57,6 +57,5 @@ var searchData=
   ['translation_54',['translation',['../namespacetheoretica_1_1algebra.html#aeea5d17fa90dc48629d2028208e4b8d1',1,'theoretica::algebra']]],
   ['transpose_55',['transpose',['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ac9e1d517bb04b6916bc84922a3165f3c',1,'theoretica::mat&lt; Type, 0, 0 &gt;::transpose()'],['../namespacetheoretica_1_1algebra.html#afe362b810eac7593d63e67afaaf66836',1,'theoretica::algebra::transpose(const Matrix &amp;m)'],['../namespacetheoretica_1_1algebra.html#ac5fb1b942d9ec2548b7677e67d2f9235',1,'theoretica::algebra::transpose(Matrix1 &amp;dest, const Matrix2 &amp;src)'],['../classtheoretica_1_1mat.html#a742b71e14e3af6ef2aecd4b9c0eb1d81',1,'theoretica::mat::transpose()']]],
   ['trim_56',['trim',['../classtheoretica_1_1polynomial.html#a5077f2fccc1b634155c98b0139a6c41e',1,'theoretica::polynomial']]],
-  ['tss_57',['tss',['../classtheoretica_1_1histogram.html#a9e2e5e2761facadb13b41a7b753d57dd',1,'theoretica::histogram::tss()'],['../namespacetheoretica_1_1stats.html#ae074ef5153b3f2453cb2b8f218e66764',1,'theoretica::stats::tss()']]],
-  ['tutorial_58',['tutorial',['../md__2home_2runner_2work_2theoretica_2theoretica_2build_2tutorial.html',1,'']]]
+  ['tss_57',['tss',['../classtheoretica_1_1histogram.html#a9e2e5e2761facadb13b41a7b753d57dd',1,'theoretica::histogram::tss()'],['../namespacetheoretica_1_1stats.html#ae074ef5153b3f2453cb2b8f218e66764',1,'theoretica::stats::tss()']]]
 ];

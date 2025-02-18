@@ -167,7 +167,32 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 <h1>Documentation</h1>
 <p>The documentation for the project is available at this <a href="https://chaotic-society.github.io/theoretica">link</a>. The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the <code>gh-pages</code> branch. The bibliography used during research for the library is listed in <a href="https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md">BIBLIOGRAPHY.md</a>. You may learn more about the design choices behind the library reading the <a href="https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf">Software Specification</a>.</p>
-<h1>Contributing</h1>
+<h1>Build</h1>
+<p>The source distribution includes example programs, test units and benchmarks, which may be compiled using different tools, but are not needed to use the library itself.</p>
+<h2>Make</h2>
+<p>Using Make and GCC, you can run the following commands in the root directory of the project:</p>
+<div class="fragment"><div class="line"># Build all binaries</div>
+<div class="line">make all</div>
+<div class="line"> </div>
+<div class="line"># Build example programs</div>
+<div class="line">make examples</div>
+<div class="line"> </div>
+<div class="line"># Build and run test units</div>
+<div class="line">make test</div>
+<div class="line"> </div>
+<div class="line"># Build and run benchmarks</div>
+<div class="line">make benchmark</div>
+</div><!-- fragment --><h2>CMake</h2>
+<p>Using CMake, run the following commands:</p>
+<div class="fragment"><div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line"> </div>
+<div class="line"># Build all binaries</div>
+<div class="line">make all</div>
+<div class="line"> </div>
+<div class="line"># Run test units</div>
+<div class="line">make test</div>
+</div><!-- fragment --><h1>Contributing</h1>
 <p>Contributions are welcome and appreciated! Have a look at the <a href="https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md">Contributing Guide</a> to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.</p>
 <h1>Workflow</h1>
 <p><a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg" alt="Test on Linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg" alt="Test on Windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg" alt="Test on MacOS" style="pointer-events: none;" class="inline"/></a></p>
@@ -180,7 +205,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Feb 18 2025 11:52:48 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Feb 18 2025 15:04:55 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
