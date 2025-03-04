@@ -168,22 +168,14 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h1>Documentation</h1>
 <p>The documentation for the project is available at this <a href="https://chaotic-society.github.io/theoretica">link</a>. The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the <code>gh-pages</code> branch. The bibliography used during research for the library is listed in <a href="https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md">BIBLIOGRAPHY.md</a>. You may learn more about the design choices behind the library reading the <a href="https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf">Software Specification</a>.</p>
 <h1>Build</h1>
-<p>The source distribution includes example programs, test units and benchmarks, which may be compiled using different tools, but are not needed to use the library itself.</p>
+<p>The source distribution includes example programs, test units and benchmarks, which may be compiled using different tools, but are not needed to use the library itself. Run the following commands in the root directory of the project, depending on your toolchain:</p>
 <h2>Make</h2>
-<p>Using Make and GCC, you can run the following commands in the root directory of the project:</p>
 <div class="fragment"><div class="line"># Build all binaries</div>
 <div class="line">make all</div>
 <div class="line"> </div>
-<div class="line"># Build example programs</div>
-<div class="line">make examples</div>
-<div class="line"> </div>
 <div class="line"># Build and run test units</div>
 <div class="line">make test</div>
-<div class="line"> </div>
-<div class="line"># Build and run benchmarks</div>
-<div class="line">make benchmark</div>
 </div><!-- fragment --><h2>CMake</h2>
-<p>Using CMake, run the following commands:</p>
 <div class="fragment"><div class="line">cd build</div>
 <div class="line">cmake ..</div>
 <div class="line"> </div>
@@ -205,7 +197,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Feb 18 2025 15:04:55 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Mar 4 2025 21:51:59 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
