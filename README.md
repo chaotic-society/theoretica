@@ -90,26 +90,19 @@ The documentation for the project is available at this [link](https://chaotic-so
 
 The source distribution includes example programs, test units and benchmarks, which may be
 compiled using different tools, but are not needed to use the library itself.
+Run the following commands in the root directory of the project, depending on your toolchain:
 
 ### Make
-Using Make and GCC, you can run the following commands in the root directory of the project:
 
 ```
 # Build all binaries
 make all
 
-# Build example programs
-make examples
-
 # Build and run test units
 make test
-
-# Build and run benchmarks
-make benchmark
 ```
 
 ### CMake
-Using CMake, run the following commands:
 
 ```
 cd build
