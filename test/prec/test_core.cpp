@@ -540,6 +540,37 @@ int main(int argc, char const *argv[]) {
 			special_opt
 		);
 
+		prec::estimate(
+		    "special::half_gamma(uint32_t)",
+		    CAST_LAMBDA(special::half_gamma, uint32_t),
+		    [](uint32_t k) { 
+		        return (k % 2 == 0)
+		            ? fact<uint64_t>(k / 2 - 1)
+		            : double_fact<uint64_t>(k - 2) * SQRTPI / (1 << ((k - 1) / 2));
+		    },
+		    special_opt
+		);
+
+		prec::estimate(
+		    "special::lngamma(real)",
+		    CAST_LAMBDA(special::lngamma, real),
+		    [](real x) {
+		        const real c[7] = {1.000000000178, 76.180091729400, -86.505320327112, 24.014098222230, -1.231739516140, 0.001208580030, -0.000005363820};
+		        real A5 = c[0];
+		        for (int i = 1; i < 7; ++i)
+		            A5 += c[i] / (x + i - 1);
+		        return (x - 0.5) * (std::log(x + 4.5) - 1) - 5 + std::log(SQRTPI * SQRT2 * A5);
+		    },
+		    special_opt
+		);
+
+		prec::equals(
+		    "special::beta(real)",
+		    special::beta(2.0, 3.0),
+		    std::exp(special::lngamma(2.0) + special::lngamma(3.0) - special::lngamma(5.0)),
+		    1e-8
+		);
+
 
 		// Test bit_op.h
 	
