@@ -203,7 +203,7 @@ int main(int argc, char const *argv[]) {
 			"th::ilog2(uint32_t)",
 			[](real x) { return ilog2<uint32_t>(uint32_t(x)); },
 			[](real x) { return uint32_t(std::log2(x)); },
-			Rplus_opt
+			prec::interval(1, 1E+06)
 		);
 
 
@@ -211,7 +211,7 @@ int main(int argc, char const *argv[]) {
 			"th::ilog2(uint64_t)",
 			[](real x) { return ilog2<uint64_t>(uint64_t(x)); },
 			[](real x) { return uint64_t(std::log2(x)); },
-			Rplus_opt
+			prec::interval(1, 1E+06)
 		);
 
 
@@ -635,6 +635,16 @@ int main(int argc, char const *argv[]) {
 
 		prec::equals("th::swap_bit_reverse", v == expected, true);
 	}
+
+
+	// error.h
+
+	prec::equals("th::is_nan", th::is_nan(1.0), false);
+	prec::equals("th::is_nan", th::is_nan(th::nan()), true);
+
+	prec::equals("th::is_inf", th::is_inf(1.0), false);
+	prec::equals("th::is_inf", th::is_inf(th::inf()), true);
+
 
 	prec::terminate();
 }

@@ -51,7 +51,7 @@ namespace theoretica {
 
 
 	/// Return a quiet NaN number in floating point representation
-	inline real nan() {
+	inline TH_CONSTEXPR real nan() {
 		return std::numeric_limits<real>::quiet_NaN();
 	}
 
@@ -72,9 +72,15 @@ namespace theoretica {
 	}
 
 
-	/// Return positive infinity in floating point representation
-	inline real inf() {
+	/// Get positive infinity in floating point representation
+	inline TH_CONSTEXPR real inf() {
 		return std::numeric_limits<real>::infinity();
+	}
+
+
+	/// Check whether a real number is infinite.
+	inline bool is_inf(real x) {
+		return (x == inf()) || (x == -inf());
 	}
 
 
