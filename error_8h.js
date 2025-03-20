@@ -10,8 +10,9 @@ var error_8h =
       [ "NO_ALGO_CONVERGENCE", "error_8h.html#a47d8f770edb576685f4b8752f2eb9760aa44cd766f82e41f0989c8cdfd4ce84b3", null ],
       [ "INVALID_ARGUMENT", "error_8h.html#a47d8f770edb576685f4b8752f2eb9760ab55b853abe3dcd1dc17989d01cd55ce3", null ]
     ] ],
-    [ "inf", "error_8h.html#a252ec9220e4dab52b18b400381624538", null ],
+    [ "inf", "error_8h.html#adab15c6d834d781bbe9fdc152cf5be1e", null ],
+    [ "is_inf", "error_8h.html#aa0e2748628e6c133de6a7e843c02c7d7", null ],
     [ "is_nan", "error_8h.html#a22e311a811c0c7e23c30e4496cfbe63d", null ],
-    [ "nan", "error_8h.html#ae95680d1669eee1549fe112b9a846519", null ],
+    [ "nan", "error_8h.html#a88ee927450a4d29cb6318b2aede74fa6", null ],
     [ "th_errcode_to_errno", "error_8h.html#a710c25d508e9e9ae9ed4e734fe4cd6f9", null ]
 ];

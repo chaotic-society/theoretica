@@ -227,8 +227,7 @@ var NAVTREEINDEX5 =
 "dual__functions_8h.html#afef33e5920ccf4cfe7f79c70ebc9dfbb":[2,0,0,0,0,0,0,0,1,5,18],
 "dual__functions_8h_source.html":[2,0,0,0,0,0,0,0,1,5],
 "error_8h.html":[2,0,0,0,0,0,0,0,4,4],
-"error_8h.html#a22e311a811c0c7e23c30e4496cfbe63d":[2,0,0,0,0,0,0,0,4,4,3],
-"error_8h.html#a252ec9220e4dab52b18b400381624538":[2,0,0,0,0,0,0,0,4,4,2],
+"error_8h.html#a22e311a811c0c7e23c30e4496cfbe63d":[2,0,0,0,0,0,0,0,4,4,4],
 "error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e":[2,0,0,0,0,0,0,0,4,4,0],
 "error_8h.html#a47d8f770edb576685f4b8752f2eb9760":[2,0,0,0,0,0,0,0,4,4,1],
 "error_8h.html#a47d8f770edb576685f4b8752f2eb9760a2b59a7dcf481a7370abf13a0071934ce":[2,0,0,0,0,0,0,0,4,4,1,3],
@@ -238,8 +237,10 @@ var NAVTREEINDEX5 =
 "error_8h.html#a47d8f770edb576685f4b8752f2eb9760ab55b853abe3dcd1dc17989d01cd55ce3":[2,0,0,0,0,0,0,0,4,4,1,6],
 "error_8h.html#a47d8f770edb576685f4b8752f2eb9760af8b1ea5551e4f94a00bc423850412b8d":[2,0,0,0,0,0,0,0,4,4,1,0],
 "error_8h.html#a47d8f770edb576685f4b8752f2eb9760afd348681772c32b0908c924682081f29":[2,0,0,0,0,0,0,0,4,4,1,4],
-"error_8h.html#a710c25d508e9e9ae9ed4e734fe4cd6f9":[2,0,0,0,0,0,0,0,4,4,5],
-"error_8h.html#ae95680d1669eee1549fe112b9a846519":[2,0,0,0,0,0,0,0,4,4,4],
+"error_8h.html#a710c25d508e9e9ae9ed4e734fe4cd6f9":[2,0,0,0,0,0,0,0,4,4,6],
+"error_8h.html#a88ee927450a4d29cb6318b2aede74fa6":[2,0,0,0,0,0,0,0,4,4,5],
+"error_8h.html#aa0e2748628e6c133de6a7e843c02c7d7":[2,0,0,0,0,0,0,0,4,4,3],
+"error_8h.html#adab15c6d834d781bbe9fdc152cf5be1e":[2,0,0,0,0,0,0,0,4,4,2],
 "error_8h_source.html":[2,0,0,0,0,0,0,0,4,4],
 "errorprop_8h.html":[2,0,0,0,0,0,0,0,10,1],
 "errorprop_8h.html#aa84e1f2b40ea798849447952526a1a78":[2,0,0,0,0,0,0,0,10,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "errorprop_8h.html#ade2f84eab7bcf5797495830141f4b075":[2,0,0,0,0,0,0,0,10,1,1],
 "errorprop_8h.html#ae055c553303dd22a706aee072969db5a":[2,0,0,0,0,0,0,0,10,1,0],
 "errorprop_8h_source.html":[2,0,0,0,0,0,0,0,10,1],
-"extrema_8h.html":[2,0,0,0,0,0,0,0,6,0],
-"extrema_8h.html#a0f9db1a3ca3da10bd76a8af20bb513ae":[2,0,0,0,0,0,0,0,6,0,3]
+"extrema_8h.html":[2,0,0,0,0,0,0,0,6,0]
 };

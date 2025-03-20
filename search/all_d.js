@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nan_0',['nan',['../namespacetheoretica.html#ae95680d1669eee1549fe112b9a846519',1,'theoretica']]],
+  ['nan_0',['nan',['../namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6',1,'theoretica']]],
   ['ndf_1',['ndf',['../structtheoretica_1_1regression_1_1linear__model.html#a50b9b320df9cc158ce5c5021e05feeb8',1,'theoretica::regression::linear_model']]],
   ['next_2',['next',['../classtheoretica_1_1_p_r_n_g.html#afb4f56a38e82dc3e046171f696523ee0',1,'theoretica::PRNG::next()'],['../structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c',1,'theoretica::pdf_sampler::next()']]],
   ['nlerp_3',['nlerp',['../namespacetheoretica.html#a5d7403a0756ef5ec70b2a821373def40',1,'theoretica']]],
