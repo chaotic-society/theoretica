@@ -1,6 +1,6 @@
 
 ///
-/// @file prng.h Pseudorandom number generator class
+/// @file prng.h Pseudorandom number generation.
 ///
 
 #ifndef THEORETICA_PRNG_H
@@ -12,6 +12,7 @@
 
 
 namespace theoretica {
+
 
 	/// @class PRNG
 	/// A pseudorandom number generator
@@ -35,14 +36,6 @@ namespace theoretica {
 			PRNG(pseudorandom_function p,
 				uint64_t seed,
 				const std::vector<uint64_t>& s) : f(p), x(seed), param(s) {}
-
-
-			/// Construct a PRNG with the given
-			/// generating algorithm p and parameters s
-			///
-			/// The seed will be set to 1.
-			PRNG(pseudorandom_function p,
-				const std::vector<uint64_t>& s) : f(p), x(1), param(s) {}
 
 
 			/// Construct a PRNG with the given

@@ -98,7 +98,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan(), N));
+					return multidual(nan(), vec<real, N>(N, nan()));
 				}
 
 				return multidual(1.0 / a, v * (-1 / (a * a)));
