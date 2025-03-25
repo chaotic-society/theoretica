@@ -1,7 +1,6 @@
 var classtheoretica_1_1_p_r_n_g =
 [
     [ "PRNG", "classtheoretica_1_1_p_r_n_g.html#afdc432e50bfa8c5c2e0dfef94e9102f3", null ],
-    [ "PRNG", "classtheoretica_1_1_p_r_n_g.html#afb7b1af9fe688d8421765ad12161bd2c", null ],
     [ "PRNG", "classtheoretica_1_1_p_r_n_g.html#a571a60595e0891f8693da3431ada2d75", null ],
     [ "PRNG", "classtheoretica_1_1_p_r_n_g.html#afa265889b02e3b9441c6357605a0510c", null ],
     [ "discard", "classtheoretica_1_1_p_r_n_g.html#a7477a9df4565ff4ad7afb1a7c52d64d7", null ],

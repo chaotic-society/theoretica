@@ -1,7 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html":[0,0,1,31],
-"structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html":[1,0,0,24],
 "structtheoretica_1_1ode_1_1ode__solution__t.html":[0,0,1,3,0],
 "structtheoretica_1_1ode_1_1ode__solution__t.html":[1,0,0,2,0],
 "structtheoretica_1_1ode_1_1ode__solution__t.html#a48a741fbf7a422a36456ea855125c95f":[1,0,0,2,0,4],
