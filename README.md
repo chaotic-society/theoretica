@@ -84,7 +84,7 @@ The `examples` folder contains simple programs that showcase usage of the librar
 
 ## Documentation
 
-The documentation for the project is available at this [link](https://chaotic-society.github.io/theoretica). The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the `gh-pages` branch. The bibliography used during research for the library is listed in [BIBLIOGRAPHY.md](https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md). You may learn more about the design choices behind the library reading the [Software Specification](https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf).
+The documentation for the project is available at this [link](https://chaotic-society.github.io/theoretica). The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the `gh-pages` branch. The bibliography used during research for the library is listed in [BIBLIOGRAPHY.md](https://github.com/chaotic-society/theoretica/blob/master/txt/BIBLIOGRAPHY.md). You may learn more about the design choices behind the library reading the [Software Specification](https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf).
 
 ## Build
 
@@ -117,7 +117,7 @@ make test
 
 ## Contributing
 
-Contributions are welcome and appreciated! Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.
+Contributions are welcome and appreciated! Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md) to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.
 
 ## Workflow
 

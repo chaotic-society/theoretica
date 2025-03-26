@@ -21,7 +21,7 @@ Writing new code or improving the existing one is a great way to push the projec
 - Make sure your code works by running `make all`
 - Open a **pull request** (you can follow the [Pull Request Template](https://github.com/chaotic-society/theoretica/blob/master/.github/PULL_REQUEST_TEMPLATE.md))
 
-Your code will then be reviewed for merging into the codebase. Depending on the task, you may need some technical resources on the feature to implement. If the issue does not include it, feel free to ask! Remember to follow the [Coding Standard](https://github.com/chaotic-society/theoretica/blob/master/CODING_STANDARD.md) while writing your code. If you need to create a new header, you can follow this template:
+Your code will then be reviewed for merging into the codebase. Depending on the task, you may need some technical resources on the feature to implement. If the issue does not include it, feel free to ask! Remember to follow the [Coding Standard](https://github.com/chaotic-society/theoretica/blob/master/txt/CODING_STANDARD.md) while writing your code. If you need to create a new header, you can follow this template:
 
 ```cpp
 #ifndef THEORETICA_FILENAME_H
@@ -39,7 +39,7 @@ You can also consult the [Documentation](https://chaotic-society.github.io/theor
 
 ## Contributing with research
 
-The library needs continuous research of algorithms, concepts and theories. You may contribute greatly by researching topics listed in the [Issues](https://github.com/chaotic-society/theoretica/issues) page. This generally includes understanding and sharing how to implement a certain algorithm or concept, how it would benefit the project and how it works under the hood. Your expertise may prove fundamental in implementing a certain method. Note that contributing with research requires prior knowledge in the fields of numerical analysis, scientific computing, algorithms and data structures. The [Bibliography](https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md) page is a good starting point to look for research materials. You can also write in the [Discussion](https://github.com/chaotic-society/theoretica/discussions) page if you want to open a discussion about a certain topic and confront your ideas with others. Also remember to add consulted literature to the bibliography.
+The library needs continuous research of algorithms, concepts and theories. You may contribute greatly by researching topics listed in the [Issues](https://github.com/chaotic-society/theoretica/issues) page. This generally includes understanding and sharing how to implement a certain algorithm or concept, how it would benefit the project and how it works under the hood. Your expertise may prove fundamental in implementing a certain method. Note that contributing with research requires prior knowledge in the fields of numerical analysis, scientific computing, algorithms and data structures. The [Bibliography](https://github.com/chaotic-society/theoretica/blob/master/txt/BIBLIOGRAPHY.md) page is a good starting point to look for research materials. You can also write in the [Discussion](https://github.com/chaotic-society/theoretica/discussions) page if you want to open a discussion about a certain topic and confront your ideas with others. Also remember to add consulted literature to the bibliography.
 
 ## Contributing with tests
 
@@ -67,7 +67,7 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
-Chebyshev has three different modules `prec`, `benchmark` and `err`, but you will generally only need the first one, to estimate the error on numerical approximations. To know more about writing tests, please have a look at [TESTING.md](https://github.com/chaotic-society/theoretica/blob/master/TESTING.md).
+Chebyshev has three different modules `prec`, `benchmark` and `err`, but you will generally only need the first one, to estimate the error on numerical approximations. To know more about writing tests, please have a look at [TESTING.md](https://github.com/chaotic-society/theoretica/blob/master/txt/TESTING.md).
 
 ## Contributing with documentation
 

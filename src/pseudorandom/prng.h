@@ -220,8 +220,8 @@ namespace theoretica {
 		for (unsigned int i = 0; i < rounds; ++i) {
 			
 			// Generate two random indices
-			size_t index1 = g() % v.size();
-			size_t index2 = g() % v.size();
+			const size_t index1 = g() % v.size();
+			const size_t index2 = g() % v.size();
 
 			// Exchange the two values at the random indices
 			const auto x1 = v[index1];
