@@ -159,6 +159,9 @@ namespace theoretica {
 
 
 		/// Chi-squared distribution
+		///
+		/// @param x The point to evaluate the distribution at
+		/// @param k The number of degrees of freedom
 		inline real chi_squared(real x, unsigned int k) {
 
 			if(x < 0)
@@ -172,6 +175,29 @@ namespace theoretica {
 			else
 				return pow(sqrt(x), k - 2) * exp(-x / 2.0)
 					/ (pow(SQRT2, k) * coeff);
+		}
+
+
+		/// Chi-squared distribution
+		///
+		/// @param x The point to evaluate the distribution at
+		/// @param k The number of degrees of freedom
+		/// @param half_gamma_k A precomputed value of special::half_gamma(k)
+		///
+		/// This function accepts a precomputed value of special::half_gamma(k)
+		/// for repeated evaluation of the distribution. You can compute it once
+		/// and reuse the same result for constant ndf.
+		inline real chi_squared(real x, unsigned int k, real half_gamma_k) {
+
+			if(x < 0)
+				return 0;
+
+			if(k % 2 == 0)
+				return pow(x, int(k / 2) - 1) * exp(-x / 2.0)
+					/ (pow(SQRT2, k) * half_gamma_k);
+			else
+				return pow(sqrt(x), k - 2) * exp(-x / 2.0)
+					/ (pow(SQRT2, k) * half_gamma_k);
 		}
 
 

@@ -43,6 +43,8 @@ int main(int argc, char const *argv[]) {
 		// Error bounds are 10^-6
 		const real tol = 1E-06;
 
+
+		// Test that the p-value is always < 1
 		for (int i = 0; i < 10; ++i) {
 
 			unsigned int chi = g() % 500 + 1;
@@ -55,6 +57,8 @@ int main(int argc, char const *argv[]) {
 				(stats::pvalue_chi_squared(chi, ndf) - 1) < tol, 1);
 		}
 
+
+		// Test that p-value of 0 is 1
 		for (int i = 0; i < 10; ++i) {
 
 			unsigned int ndf = g() % 500 + 1;
@@ -65,6 +69,7 @@ int main(int argc, char const *argv[]) {
 			prec::equals(str.str(),
 				stats::pvalue_chi_squared(0, ndf), 1, tol);
 		}
+
 
 	prec::terminate();
 }
