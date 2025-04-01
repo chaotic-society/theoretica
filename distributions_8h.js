@@ -12,6 +12,7 @@ var distributions_8h =
     [ "cauchy", "distributions_8h.html#ae1258a2337487752e60aae93ba6e7391", null ],
     [ "chi_squared", "distributions_8h.html#a23208b6184144c832d689295442599de", null ],
     [ "chi_squared", "distributions_8h.html#a467f2fa339b4321afc01d0da1d3c2d9c", null ],
+    [ "chi_squared", "distributions_8h.html#ab4e2d142bb6f0b85debd8728144d5788", null ],
     [ "erlang", "distributions_8h.html#a44af917c88f4738b2b3ef1385bf2c8a3", null ],
     [ "erlang", "distributions_8h.html#a4cf38559e21277391f97c36688413f68", null ],
     [ "exponential", "distributions_8h.html#ad59d0d3c581616972996bf7ca2d2fba7", null ],
