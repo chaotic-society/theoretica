@@ -551,7 +551,7 @@ namespace theoretica {
 
 		if(x == 0) {
 			TH_MATH_ERROR("ilog2", x, OUT_OF_RANGE);
-			return -inf();
+			return std::numeric_limits<UnsignedIntType>::max();
 		}
 
 		UnsignedIntType bit = 0;

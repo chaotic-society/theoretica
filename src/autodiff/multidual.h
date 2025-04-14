@@ -158,7 +158,7 @@ namespace theoretica {
 
 				if(a == 0) {
 					TH_MATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan(), N));
+					return multidual(nan(), vec<real, N>(N, nan()));
 				}
 
 				return multidual(a / other.a,
@@ -232,7 +232,7 @@ namespace theoretica {
 				if(r == 0) {
 					TH_MATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
 					a = nan();
-					v = vec<real, N>(nan(), N);
+					v = vec<real, N>(N, nan());
 					return *this;
 				}
 
