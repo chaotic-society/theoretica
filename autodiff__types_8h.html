@@ -99,7 +99,6 @@ $(document).ready(function(){initNavTree('autodiff__types_8h.html',''); initResi
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">autodiff_types.h File Reference</div></div>
@@ -111,21 +110,6 @@ $(document).ready(function(){initNavTree('autodiff__types_8h.html',''); initResi
 
 <p><a href="autodiff__types_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">theoretica::autodiff::is_dual_type&lt; Type &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__dual__type_3_01dual_01_4.html">theoretica::autodiff::is_dual_type&lt; dual &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">theoretica::autodiff::is_dual2_type&lt; Type &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__dual2__type_3_01dual2_01_4.html">theoretica::autodiff::is_dual2_type&lt; dual2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">theoretica::autodiff::is_multidual_type&lt; Type &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html">theoretica::autodiff::is_multidual_type&lt; multidual&lt; N &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetheoretica" id="r_namespacetheoretica"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html">theoretica</a></td></tr>
@@ -137,34 +121,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a852ba15fc3c20f4a43226d27ec6c8fac" id="r_a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memTemplParams" colspan="2"><a id="a852ba15fc3c20f4a43226d27ec6c8fac" name="a852ba15fc3c20f4a43226d27ec6c8fac"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::is_dual_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual.html">dual</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
-<tr class="separator:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a242f5cce004ff2043013419c56ce0ff1" id="r_a242f5cce004ff2043013419c56ce0ff1"><td class="memTemplParams" colspan="2"><a id="a242f5cce004ff2043013419c56ce0ff1" name="a242f5cce004ff2043013419c56ce0ff1"></a>
-template&lt;typename Function , typename T  = bool&gt; </td></tr>
-<tr class="memitem:a242f5cce004ff2043013419c56ce0ff1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::enable_dual_func</b> = typename std::enable_if&lt; is_dual_func&lt; Function &gt;::value, T &gt;::type</td></tr>
-<tr class="separator:a242f5cce004ff2043013419c56ce0ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb0e9c2d5268a320dcfad6dbfb9b49f8" id="r_aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memTemplParams" colspan="2"><a id="aeb0e9c2d5268a320dcfad6dbfb9b49f8" name="aeb0e9c2d5268a320dcfad6dbfb9b49f8"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::is_dual2_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual2.html">dual2</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
-<tr class="separator:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45ab0587d749d2b377bc861da3d00539" id="r_a45ab0587d749d2b377bc861da3d00539"><td class="memTemplParams" colspan="2"><a id="a45ab0587d749d2b377bc861da3d00539" name="a45ab0587d749d2b377bc861da3d00539"></a>
-template&lt;typename Function , typename T  = bool&gt; </td></tr>
-<tr class="memitem:a45ab0587d749d2b377bc861da3d00539"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::enable_dual2_func</b> = typename std::enable_if&lt; is_dual2_func&lt; Function &gt;::value, T &gt;::type</td></tr>
-<tr class="separator:a45ab0587d749d2b377bc861da3d00539"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad402f57cd1c7e6e2ce22bf7ba16d8966" id="r_ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memTemplParams" colspan="2"><a id="ad402f57cd1c7e6e2ce22bf7ba16d8966" name="ad402f57cd1c7e6e2ce22bf7ba16d8966"></a>
-template&lt;typename Type , typename T  = bool&gt; </td></tr>
-<tr class="memitem:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::enable_multidual</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; Type &gt;::value, T &gt;::type</td></tr>
-<tr class="separator:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f164ad9d8ce709f2fef7e22e04f794" id="r_a51f164ad9d8ce709f2fef7e22e04f794"><td class="memTemplParams" colspan="2"><a id="a51f164ad9d8ce709f2fef7e22e04f794" name="a51f164ad9d8ce709f2fef7e22e04f794"></a>
-template&lt;typename Function , typename T  = bool&gt; </td></tr>
-<tr class="memitem:a51f164ad9d8ce709f2fef7e22e04f794"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::enable_scalar_field</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; return_type_t&lt; Function &gt; &gt;::value, T &gt;::type</td></tr>
-<tr class="separator:a51f164ad9d8ce709f2fef7e22e04f794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac151e8d74c0ead137833933eeaf94206" id="r_ac151e8d74c0ead137833933eeaf94206"><td class="memTemplParams" colspan="2"><a id="ac151e8d74c0ead137833933eeaf94206" name="ac151e8d74c0ead137833933eeaf94206"></a>
-template&lt;typename Function , typename T  = bool&gt; </td></tr>
-<tr class="memitem:ac151e8d74c0ead137833933eeaf94206"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::enable_vector_field</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; vector_element_t&lt; return_type_t&lt; Function &gt; &gt; &gt;::value, T &gt;::type</td></tr>
-<tr class="separator:ac151e8d74c0ead137833933eeaf94206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7" id="r_a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplParams" colspan="2"><a id="a04de34623e5bf22418b595f14c2bc9b7" name="a04de34623e5bf22418b595f14c2bc9b7"></a>
 template&lt;unsigned int N = 0&gt; </td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::autodiff::dreal_t</b> = <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;</td></tr>
@@ -216,7 +172,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::autodiff
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_1036706e55c22cab35bc1c58ee689f1d.html">runner</a></li><li class="navelem"><a class="el" href="dir_629f8151d55d307162ff2d619fb1783d.html">work</a></li><li class="navelem"><a class="el" href="dir_3cf22d0bc207120da3cc0fc290661e59.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_324545ef17611d9ee96c56f7ed859351.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_4a0b0faa2bc1827a96d7c32d179d0dfc.html">src</a></li><li class="navelem"><a class="el" href="dir_9b3810400ab2209a3b26df39cada85ac.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff__types_8h.html">autodiff_types.h</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 15:05:25 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 15:13:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

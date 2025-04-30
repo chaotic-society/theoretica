@@ -613,8 +613,7 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span> </div>
 <div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span> </div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="foldopen" id="foldopen00497" data-start="{" data-end="};">
-<div class="line"><a id="l00497" name="l00497"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html">  497</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtheoretica_1_1vec.html">vec</a>&lt;Type, 0&gt; {</div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    <span class="keyword">class </span>vec&lt;Type, 0&gt; {</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span> </div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>        <span class="comment">// Container type for storage (alias for std::vector)</span></div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
@@ -628,91 +627,72 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>        <span class="comment">// Vector size template argument</span></div>
 <div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> size_argument = 0;</div>
 <div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span> </div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa3ba8430199b6d8c19ea4805be6f685">  512</a></span>        <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa3ba8430199b6d8c19ea4805be6f685">vec</a>() {}</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <a class="code hl_function" href="classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec">vec</a>() {}</div>
 <div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span> </div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span> </div>
-<div class="foldopen" id="foldopen00517" data-start="{" data-end="}">
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895">  517</a></span>        <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895">vec</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        <a class="code hl_function" href="classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec">vec</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>            <a class="code hl_function" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a>(n);</div>
 <div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#ac5e8fa43f30568039c57c3f2996fcc97">algebra::vec_zeroes</a>(*<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        }</div>
-</div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
-<div class="foldopen" id="foldopen00525" data-start="{" data-end="}">
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7349609fa9e3c75aa2795f3d8f3fd36b">  525</a></span>        <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7349609fa9e3c75aa2795f3d8f3fd36b">vec</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n, Type a) {</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>        <a class="code hl_function" href="classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec">vec</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n, Type a) {</div>
 <div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>            data = std::vector&lt;Type&gt;(n, a);</div>
 <div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        }</div>
-</div>
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span> </div>
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>        <span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> M&gt;</div>
-<div class="foldopen" id="foldopen00532" data-start="{" data-end="}">
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad334afa326d522c23634e97be1e39994">  532</a></span>        <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad334afa326d522c23634e97be1e39994">vec</a>(<span class="keyword">const</span> vec&lt;Type, M&gt;&amp; other) {</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>        <a class="code hl_function" href="classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec">vec</a>(<span class="keyword">const</span> vec&lt;Type, M&gt;&amp; other) {</div>
 <div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a425738669ab6decff8d928400d19c82f">algebra::vec_copy</a>(*<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        }</div>
-</div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
 <div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00539" data-start="{" data-end="}">
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a37e54f7ed4d8d0d28e79dec00323c73d">  539</a></span>        vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a37e54f7ed4d8d0d28e79dec00323c73d">operator=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a90c3d2cbdef09a4ae7f4d38bca6a7566">operator=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
 <div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a425738669ab6decff8d928400d19c82f">algebra::vec_copy</a>(*<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        }</div>
-</div>
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
-<div class="foldopen" id="foldopen00545" data-start="{" data-end="}">
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a018a469fdf7158e6d3be76b841622c18">  545</a></span>        <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a018a469fdf7158e6d3be76b841622c18">vec</a>(std::initializer_list&lt;Type&gt; l) {</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        <a class="code hl_function" href="classtheoretica_1_1vec.html#a2728c0bedfcb5c9fc91eec48b6eb0cec">vec</a>(std::initializer_list&lt;Type&gt; l) {</div>
 <div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span> </div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            <a class="code hl_function" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a>(l.size());</div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>            std::copy(l.begin(), l.end(), &amp;data[0]);</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>        }</div>
-</div>
 <div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span> </div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        <a class="code hl_class" href="classtheoretica_1_1vec.html">~vec</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        ~vec() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
 <div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
-<div class="foldopen" id="foldopen00555" data-start="{" data-end="}">
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a47cb85855595a1ae54f21c51984e253c">  555</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a47cb85855595a1ae54f21c51984e253c">operator+</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#ae650a67dab1e5f806f7bf8d4b063158a">operator+</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        }</div>
-</div>
 <div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span> </div>
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00562" data-start="{" data-end="}">
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abcb153f4e587c2a49867c062d55e475b">  562</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abcb153f4e587c2a49867c062d55e475b">operator+</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#ae650a67dab1e5f806f7bf8d4b063158a">operator+</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>            </div>
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>            vec&lt;Type&gt; result;</div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>            result.resize(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>());</div>
 <div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#aa3dfff35041d5071c7c44b10b3f00716">algebra::vec_sum</a>(result, *<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>        }</div>
-</div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span> </div>
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
-<div class="foldopen" id="foldopen00572" data-start="{" data-end="}">
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#addb25b419465b78d3357d11a6ada1722">  572</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#addb25b419465b78d3357d11a6ada1722">operator-</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#afa9d0a045e16552c93dcc7ac6519c64c">operator-</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span> * (Type) -1;</div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>        }</div>
-</div>
 <div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
 <div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span> </div>
 <div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00579" data-start="{" data-end="}">
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6d8ca9bdf66d047abc66514d9c2d9371">  579</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6d8ca9bdf66d047abc66514d9c2d9371">operator-</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#afa9d0a045e16552c93dcc7ac6519c64c">operator-</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>            </div>
 <div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>            vec&lt;Type&gt; result;</div>
 <div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>            result.resize(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>());</div>
 <div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#aad4487895be628508f067a215df9de0e">algebra::vec_diff</a>(result, *<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>        }</div>
-</div>
 <div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span> </div>
-<div class="foldopen" id="foldopen00589" data-start="{" data-end="}">
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8d8e5442f9db80c9bd295bb9daf4defe">  589</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8d8e5442f9db80c9bd295bb9daf4defe">operator*</a>(Type scalar)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_friend" href="classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d">operator*</a>(Type scalar)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>            vec&lt;Type&gt; result;</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>            result.resize(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>());</div>
@@ -722,11 +702,9 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>        }</div>
-</div>
 <div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span> </div>
 <div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
-<div class="foldopen" id="foldopen00602" data-start="{" data-end="}">
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#acc27d62b18c1d3a886c01f125e1b9391">  602</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#acc27d62b18c1d3a886c01f125e1b9391">operator/</a>(Type scalar)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#adc51f9c794fb59cdacc6b3748c073c7d">operator/</a>(Type scalar)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span> </div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            vec&lt;Type&gt; result;</div>
 <div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>            result.resize(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>());</div>
@@ -736,28 +714,22 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
 <div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>        }</div>
-</div>
 <div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span> </div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span> </div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00616" data-start="{" data-end="}">
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8e7d45fa54d6a4c824b544305a97ae03">  616</a></span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8e7d45fa54d6a4c824b544305a97ae03">dot</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec.html#ab8231b80c7506360999d9777d9d4a9c3">dot</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c">algebra::dot</a>(*<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        }</div>
-</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
 <div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span> </div>
 <div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00623" data-start="{" data-end="}">
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad570a4504440d6ca05e820cdc505abfd">  623</a></span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad570a4504440d6ca05e820cdc505abfd">operator*</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>        <span class="keyword">inline</span> Type <a class="code hl_friend" href="classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d">operator*</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#ab8231b80c7506360999d9777d9d4a9c3">dot</a>(other);</div>
 <div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>        }</div>
-</div>
 <div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span> </div>
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span> </div>
 <div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00630" data-start="{" data-end="}">
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a0fbe7a8deacb05ee84969dd9068e9ac1">  630</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a0fbe7a8deacb05ee84969dd9068e9ac1">cross</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#a098b5dd4de0455c4a54f8fd72819f7b3">cross</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>        </div>
 <div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>            <span class="keywordflow">if</span>(other.size() != 3) {</div>
 <div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;vec::cross&quot;</span>, other.size(), INVALID_ARGUMENT);</div>
@@ -766,12 +738,10 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
 <div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581">algebra::cross</a>(*<span class="keyword">this</span>, other);</div>
 <div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>        }</div>
-</div>
 <div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span> </div>
 <div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span> </div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00643" data-start="{" data-end="}">
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7b077834c129a59a1b2033598acb1145">  643</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7b077834c129a59a1b2033598acb1145">operator+=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a61ed1d6af2a1cc04f546bdf6dbea4d20">operator+=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
 <div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span> </div>
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            <span class="comment">// If the vector is uninitialized,</span></div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            <span class="comment">// initialize it to be a zero vector</span></div>
@@ -789,12 +759,10 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        </div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        }</div>
-</div>
 <div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
 <div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span> </div>
 <div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00665" data-start="{" data-end="}">
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6086524412f2de61956ae3effb424697">  665</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6086524412f2de61956ae3effb424697">operator-=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a823eda73eb3fe43559e74264b7b55470">operator-=</a>(<span class="keyword">const</span> Vector&amp; other) {</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span> </div>
 <div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>() != other.size()) {</div>
 <div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;vec::operator-=&quot;</span>, <a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>(), INVALID_ARGUMENT);</div>
@@ -806,22 +774,18 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>        </div>
 <div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>        }</div>
-</div>
 <div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
 <div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span> </div>
-<div class="foldopen" id="foldopen00680" data-start="{" data-end="}">
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a60719b5be10a3e9b889787d3b2c0a534">  680</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a60719b5be10a3e9b889787d3b2c0a534">operator*=</a>(Type scalar) {</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a5f1dd78b61893d838da2501db730835e">operator*=</a>(Type scalar) {</div>
 <div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span> </div>
 <div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>(); ++i)</div>
 <div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>                data[i] *= scalar;</div>
 <div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>        </div>
 <div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>        }</div>
-</div>
 <div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
 <div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span> </div>
-<div class="foldopen" id="foldopen00690" data-start="{" data-end="}">
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a784274b4be125b8cf2541df8f8c5a86a">  690</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a784274b4be125b8cf2541df8f8c5a86a">operator/=</a>(Type scalar) {</div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>        <span class="keyword">inline</span> vec&lt;Type&gt;&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#ae2b917790789898fe5e8abdd16723cd3">operator/=</a>(Type scalar) {</div>
 <div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span> </div>
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(scalar) &lt; <a class="code hl_variable" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;vec::operator/=&quot;</span>, scalar, DIV_BY_ZERO);</div>
@@ -834,106 +798,78 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        </div>
 <div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>        }</div>
-</div>
 <div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span> </div>
 <div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span> </div>
-<div class="foldopen" id="foldopen00706" data-start="{" data-end="}">
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#af9121c1a1e004fe6aef495c517055614">  706</a></span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#af9121c1a1e004fe6aef495c517055614">norm</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562">norm</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#ae1521a586075b668b4a8765dadcdd1a3">algebra::norm</a>(*<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>        }</div>
-</div>
 <div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span> </div>
 <div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span> </div>
-<div class="foldopen" id="foldopen00712" data-start="{" data-end="}">
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abc848cc22fa9da71056931e2f1c5bbcf">  712</a></span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abc848cc22fa9da71056931e2f1c5bbcf">sqr_norm</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec.html#a60f9614e82285319bf2ce1b167885f1f">sqr_norm</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a90bea2f231e34937ede290fd070f7f21">algebra::sqr_norm</a>(*<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>        }</div>
-</div>
 <div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span> </div>
 <div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span> </div>
-<div class="foldopen" id="foldopen00718" data-start="{" data-end="}">
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a705a7b2a41cf7adada444c275befb2b9">  718</a></span>        <span class="keyword">inline</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a705a7b2a41cf7adada444c275befb2b9">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        <span class="keyword">inline</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a0a8100b917398d63627a81899bb7d772">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
 <div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>            <span class="keywordflow">return</span> data[i];</div>
 <div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>        }</div>
-</div>
 <div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span> </div>
 <div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span> </div>
-<div class="foldopen" id="foldopen00724" data-start="{" data-end="}">
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a9bca94cb6dece546bbc358523358f2ea">  724</a></span>        <span class="keyword">inline</span> <span class="keyword">const</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a9bca94cb6dece546bbc358523358f2ea">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <span class="keyword">inline</span> <span class="keyword">const</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#a0a8100b917398d63627a81899bb7d772">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>            <span class="keywordflow">return</span> data[i];</div>
 <div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        }</div>
-</div>
 <div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span> </div>
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span> </div>
-<div class="foldopen" id="foldopen00730" data-start="{" data-end="}">
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8712517b5507112de7392b461ab4984f">  730</a></span>        <span class="keyword">inline</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8712517b5507112de7392b461ab4984f">at</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        <span class="keyword">inline</span> Type&amp; <a class="code hl_function" href="classtheoretica_1_1vec.html#abb8b956f15af860a89025ac36a491d2f">at</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i) {</div>
 <div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>            <span class="keywordflow">return</span> data[i];</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>        }</div>
-</div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span> </div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span> </div>
-<div class="foldopen" id="foldopen00736" data-start="{" data-end="}">
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8f98dc318360a3f2e66417fabb0e8564">  736</a></span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8f98dc318360a3f2e66417fabb0e8564">get</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="keyword">inline</span> Type <a class="code hl_function" href="classtheoretica_1_1vec.html#a2f104fe54007bef111b686e2722e472b">get</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>            <span class="keywordflow">return</span> data[i];</div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>        }</div>
-</div>
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
 <div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span> </div>
-<div class="foldopen" id="foldopen00742" data-start="{" data-end="}">
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1006868f4fa2cb63cfdbefb955508bb">  742</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1006868f4fa2cb63cfdbefb955508bb">set</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, Type x) {</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a18f88edef9b571305ca3d97473ed7045">set</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, Type x) {</div>
 <div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>            data[i] = x;</div>
 <div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>        }</div>
-</div>
 <div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span> </div>
 <div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span> </div>
 <div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtheoretica_1_1vec.html#a1c876f60ad2c8d387ae5f839ddd11793">iterator</a> = <span class="keyword">typename</span> Container&lt;Type&gt;::iterator;</div>
 <div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
 <div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
-<div class="foldopen" id="foldopen00752" data-start="{" data-end="}">
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ae219e1433d41c9416cdc853c6a0c74fd">  752</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ae219e1433d41c9416cdc853c6a0c74fd">begin</a>() {</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#abe60e5adc4cb9a62f2e5db9e9744f3f8">begin</a>() {</div>
 <div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>            <span class="keywordflow">return</span> data.begin();</div>
 <div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>        }</div>
-</div>
 <div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span> </div>
 <div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span> </div>
-<div class="foldopen" id="foldopen00759" data-start="{" data-end="}">
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a94bac04a49c3f253c4069ed0f0ca8234">  759</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a94bac04a49c3f253c4069ed0f0ca8234">begin</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#abe60e5adc4cb9a62f2e5db9e9744f3f8">begin</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>            <span class="keywordflow">return</span> data.cbegin();</div>
 <div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        }</div>
-</div>
 <div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
 <div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span> </div>
-<div class="foldopen" id="foldopen00766" data-start="{" data-end="}">
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac33185b56574413d49b96fdac8bb7c99">  766</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac33185b56574413d49b96fdac8bb7c99">end</a>() {</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a3388c945319742764ae7da59b659b701">end</a>() {</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>            <span class="keywordflow">return</span> data.end();</div>
 <div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>        }</div>
-</div>
 <div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span> </div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
-<div class="foldopen" id="foldopen00773" data-start="{" data-end="}">
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#adb116d2a78e8c24c5b4d6118117e3ec3">  773</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#adb116d2a78e8c24c5b4d6118117e3ec3">end</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a3388c945319742764ae7da59b659b701">end</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>            <span class="keywordflow">return</span> data.cend();</div>
 <div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        }</div>
-</div>
 <div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span> </div>
 <div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span> </div>
-<div class="foldopen" id="foldopen00779" data-start="{" data-end="}">
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7d78036fec0e5ad33057f4ab17c8eee4">  779</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7d78036fec0e5ad33057f4ab17c8eee4">normalize</a>() {</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830">normalize</a>() {</div>
 <div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a3b62d14e94e493460b4eb6b9c9b716ae">algebra::make_normalized</a>(*<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        }</div>
-</div>
 <div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span> </div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span> </div>
-<div class="foldopen" id="foldopen00785" data-start="{" data-end="}">
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a12f800a20abfd0f1e96f650d68816509">  785</a></span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a12f800a20abfd0f1e96f650d68816509">normalized</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        <span class="keyword">inline</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#abd086c811176e06eb4e2612a95c04302">normalized</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#af3f76287e1f911f7223ebf865ee16eea">algebra::normalize</a>(*<span class="keyword">this</span>);</div>
 <div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>        }</div>
-</div>
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
 <div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
 <div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00792" data-start="{" data-end="}">
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad9302c325b2d31ca5e39e7c6d55b982b">  792</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad9302c325b2d31ca5e39e7c6d55b982b">operator==</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#ad055a53a4315e3514cbbe30f2edbdb2d">operator==</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span> </div>
 <div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>() != other.size())</div>
 <div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -944,47 +880,35 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span> </div>
 <div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>        }</div>
-</div>
 <div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span> </div>
 <div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span> </div>
 <div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00807" data-start="{" data-end="}">
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1dd006cd9579cf0ee981186f0ca06e9">  807</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1dd006cd9579cf0ee981186f0ca06e9">operator!=</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a0d1cac8762ef542c46e424bd4d8379e3">operator!=</a>(<span class="keyword">const</span> Vector&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
 <div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>        }</div>
-</div>
 <div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span> </div>
 <div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span> </div>
-<div class="foldopen" id="foldopen00813" data-start="{" data-end="}">
-<div class="line"><a id="l00813" name="l00813"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abd9e5b76cee4b298d5727348cc7ac5a6">  813</a></span>        <span class="keyword">inline</span> <a class="code hl_define" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abd9e5b76cee4b298d5727348cc7ac5a6">size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>        <span class="keyword">inline</span> <a class="code hl_define" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a6a7120f55423ba45ee410ec07c7ea5fb">size</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>            <span class="keywordflow">return</span> data.size();</div>
 <div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>        }</div>
-</div>
 <div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span> </div>
 <div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span> </div>
-<div class="foldopen" id="foldopen00819" data-start="{" data-end="}">
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a3a40d3ae91253fa80776b5deec0bba9c">  819</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a3a40d3ae91253fa80776b5deec0bba9c">resize</a>(<span class="keywordtype">size_t</span> n) {</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a>(<span class="keywordtype">size_t</span> n) {</div>
 <div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>            data.resize(n);</div>
 <div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>        }</div>
-</div>
 <div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span> </div>
 <div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span> </div>
-<div class="foldopen" id="foldopen00826" data-start="{" data-end="}">
-<div class="line"><a id="l00826" name="l00826"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a31601a078d9effc8673df2732f8590b8">  826</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a31601a078d9effc8673df2732f8590b8">push</a>(<span class="keyword">const</span> Type&amp; x) {</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> push(<span class="keyword">const</span> Type&amp; x) {</div>
 <div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            data.push_back(x);</div>
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>        }</div>
-</div>
 <div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span> </div>
 <div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span> </div>
-<div class="foldopen" id="foldopen00833" data-start="{" data-end="}">
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a4aa9e6bc7d339452d47ef507aa3a30ec">  833</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a4aa9e6bc7d339452d47ef507aa3a30ec">push</a>(Type&amp;&amp; x) {</div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> push(Type&amp;&amp; x) {</div>
 <div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>            data.push_back(x);</div>
 <div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>        }</div>
-</div>
 <div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span> </div>
 <div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span> </div>
-<div class="foldopen" id="foldopen00840" data-start="{" data-end="}">
-<div class="line"><a id="l00840" name="l00840"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ab1f91a7369722befa632375a982deae1">  840</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ab1f91a7369722befa632375a982deae1">euclidean_base</a>(</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>        <span class="keyword">inline</span> <span class="keyword">static</span> vec&lt;Type&gt; <a class="code hl_function" href="classtheoretica_1_1vec.html#a3997d484957c40c69892044d9f56ac73">euclidean_base</a>(</div>
 <div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
 <div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span> </div>
 <div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>            <span class="keywordflow">if</span>(i &gt;= n) {</div>
@@ -998,20 +922,16 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span> </div>
 <div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>            <span class="keywordflow">return</span> e_i;</div>
 <div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>        }</div>
-</div>
 <div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span> </div>
 <div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span> </div>
-<div class="foldopen" id="foldopen00858" data-start="{" data-end="};">
-<div class="line"><a id="l00858" name="l00858"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a642922b87b0b000bd09a9a29d101619f">  858</a></span>        <span class="keyword">inline</span> <span class="keyword">friend</span> vec&lt;Type&gt; <a class="code hl_friend" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a642922b87b0b000bd09a9a29d101619f">operator*</a>(Type a, <span class="keyword">const</span> vec&lt;Type&gt;&amp; v) {</div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span>        <span class="keyword">inline</span> <span class="keyword">friend</span> vec&lt;Type&gt; <a class="code hl_friend" href="classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d">operator*</a>(Type a, <span class="keyword">const</span> vec&lt;Type&gt;&amp; v) {</div>
 <div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>            <span class="keywordflow">return</span> v * a;</div>
 <div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span>        }</div>
-</div>
 <div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span> </div>
 <div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span> </div>
 <div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span><span class="preprocessor">#ifndef THEORETICA_NO_PRINT</span></div>
 <div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span> </div>
-<div class="foldopen" id="foldopen00866" data-start="{" data-end="}">
-<div class="line"><a id="l00866" name="l00866"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a03817a561782c54c2d935d74d03a718e">  866</a></span>        <span class="keyword">inline</span> std::string <a class="code hl_function" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a03817a561782c54c2d935d74d03a718e">to_string</a>(</div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>        <span class="keyword">inline</span> std::string <a class="code hl_function" href="classtheoretica_1_1vec.html#a61ebbe9283470061fbf2e201dd9f6e64">to_string</a>(</div>
 <div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>            <span class="keyword">const</span> std::string&amp; separator = <span class="stringliteral">&quot;, &quot;</span>,</div>
 <div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>            <span class="keywordtype">bool</span> parenthesis = <span class="keyword">true</span>)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span> </div>
@@ -1031,26 +951,20 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span> </div>
 <div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>            <span class="keywordflow">return</span> res.str();</div>
 <div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>        }</div>
-</div>
 <div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span> </div>
 <div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span> </div>
-<div class="foldopen" id="foldopen00889" data-start="{" data-end="}">
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a929e20c9c17bc5bef34837acdb0ed9b2">  889</a></span>        <span class="keyword">inline</span> <span class="keyword">operator</span> std::string() {</div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>        <span class="keyword">inline</span> <span class="keyword">operator</span> std::string() {</div>
 <div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classtheoretica_1_1vec.html#a61ebbe9283470061fbf2e201dd9f6e64">to_string</a>();</div>
 <div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>        }</div>
-</div>
 <div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span> </div>
 <div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span> </div>
-<div class="foldopen" id="foldopen00895" data-start="{" data-end="};">
-<div class="line"><a id="l00895" name="l00895"></a><span class="lineno"><a class="line" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac0f8df140f77a444de9fb6ceeb62b32a">  895</a></span>        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code hl_friend" href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac0f8df140f77a444de9fb6ceeb62b32a">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> vec&lt;Type&gt;&amp; obj) {</div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>        <span class="keyword">inline</span> <span class="keyword">friend</span> std::ostream&amp; <a class="code hl_friend" href="classtheoretica_1_1vec.html#acc5f431e0a4f141fdc55465f4df577e2">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> vec&lt;Type&gt;&amp; obj) {</div>
 <div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>            <span class="keywordflow">return</span> out &lt;&lt; obj.to_string();</div>
 <div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>        }</div>
-</div>
 <div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span> </div>
 <div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span> </div>
 <div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>    };</div>
-</div>
 <div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span> </div>
 <div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span> </div>
 <div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType, <span class="keyword">typename</span> Type, <span class="keyword">typename</span> ...Args&gt;</div>
@@ -1076,7 +990,7 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00935" name="l00935"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a5822f6ae7c03a023f79361f9dbb3118b">  935</a></span>    vec&lt;Type&gt; <a class="code hl_function" href="namespacetheoretica.html#a8fe375758727a9f9a510a0898d69aaf4">make_vec</a>(Type first, Args... elements) {</div>
 <div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span> </div>
 <div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>        vec&lt;Type&gt; v;</div>
-<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>        v.<a class="code hl_function" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a>(<span class="keyword">sizeof</span>...(elements) + 1);</div>
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>        v.resize(<span class="keyword">sizeof</span>...(elements) + 1);</div>
 <div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span> </div>
 <div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>        v[0] = first;</div>
 <div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span>        make_vec&lt;Type&gt;(v, 1, elements...);</div>
@@ -1090,48 +1004,6 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span> </div>
 <div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aalgebra_8h_html"><div class="ttname"><a href="algebra_8h.html">algebra.h</a></div><div class="ttdoc">Linear algebra routines.</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a018a469fdf7158e6d3be76b841622c18"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a018a469fdf7158e6d3be76b841622c18">theoretica::vec&lt; Type, 0 &gt;::vec</a></div><div class="ttdeci">vec(std::initializer_list&lt; Type &gt; l)</div><div class="ttdoc">Initialize from a list, e.g. {1, 2, 3}.</div><div class="ttdef"><b>Definition</b> vec.h:545</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a03817a561782c54c2d935d74d03a718e"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a03817a561782c54c2d935d74d03a718e">theoretica::vec&lt; Type, 0 &gt;::to_string</a></div><div class="ttdeci">std::string to_string(const std::string &amp;separator=&quot;, &quot;, bool parenthesis=true) const</div><div class="ttdoc">Convert the vector to string representation.</div><div class="ttdef"><b>Definition</b> vec.h:866</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a0fbe7a8deacb05ee84969dd9068e9ac1"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a0fbe7a8deacb05ee84969dd9068e9ac1">theoretica::vec&lt; Type, 0 &gt;::cross</a></div><div class="ttdeci">vec&lt; Type &gt; cross(const Vector &amp;other) const</div><div class="ttdoc">Cross product between vectors.</div><div class="ttdef"><b>Definition</b> vec.h:630</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a12f800a20abfd0f1e96f650d68816509"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a12f800a20abfd0f1e96f650d68816509">theoretica::vec&lt; Type, 0 &gt;::normalized</a></div><div class="ttdeci">vec&lt; Type &gt; normalized() const</div><div class="ttdoc">Return the normalized vector (v / |v|)</div><div class="ttdef"><b>Definition</b> vec.h:785</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a31601a078d9effc8673df2732f8590b8"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a31601a078d9effc8673df2732f8590b8">theoretica::vec&lt; Type, 0 &gt;::push</a></div><div class="ttdeci">void push(const Type &amp;x)</div><div class="ttdoc">Add a value at the end of the vector (only for dynamically allocated vectors).</div><div class="ttdef"><b>Definition</b> vec.h:826</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a37e54f7ed4d8d0d28e79dec00323c73d"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a37e54f7ed4d8d0d28e79dec00323c73d">theoretica::vec&lt; Type, 0 &gt;::operator=</a></div><div class="ttdeci">vec&lt; Type &gt; &amp; operator=(const Vector &amp;other)</div><div class="ttdoc">Copy from other.</div><div class="ttdef"><b>Definition</b> vec.h:539</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a3a40d3ae91253fa80776b5deec0bba9c"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a3a40d3ae91253fa80776b5deec0bba9c">theoretica::vec&lt; Type, 0 &gt;::resize</a></div><div class="ttdeci">void resize(size_t n)</div><div class="ttdoc">Change the size of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:819</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a47cb85855595a1ae54f21c51984e253c"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a47cb85855595a1ae54f21c51984e253c">theoretica::vec&lt; Type, 0 &gt;::operator+</a></div><div class="ttdeci">vec&lt; Type &gt; operator+() const</div><div class="ttdoc">Identity.</div><div class="ttdef"><b>Definition</b> vec.h:555</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a4aa9e6bc7d339452d47ef507aa3a30ec"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a4aa9e6bc7d339452d47ef507aa3a30ec">theoretica::vec&lt; Type, 0 &gt;::push</a></div><div class="ttdeci">void push(Type &amp;&amp;x)</div><div class="ttdoc">Add a value at the end of the vector (only for dynamically allocated vectors).</div><div class="ttdef"><b>Definition</b> vec.h:833</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a60719b5be10a3e9b889787d3b2c0a534"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a60719b5be10a3e9b889787d3b2c0a534">theoretica::vec&lt; Type, 0 &gt;::operator*=</a></div><div class="ttdeci">vec&lt; Type &gt; &amp; operator*=(Type scalar)</div><div class="ttdoc">Multiply the vector itself by a scalar.</div><div class="ttdef"><b>Definition</b> vec.h:680</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a6086524412f2de61956ae3effb424697"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6086524412f2de61956ae3effb424697">theoretica::vec&lt; Type, 0 &gt;::operator-=</a></div><div class="ttdeci">vec&lt; Type &gt; &amp; operator-=(const Vector &amp;other)</div><div class="ttdoc">Subtract a vector from the vector itself.</div><div class="ttdef"><b>Definition</b> vec.h:665</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a642922b87b0b000bd09a9a29d101619f"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a642922b87b0b000bd09a9a29d101619f">theoretica::vec&lt; Type, 0 &gt;::operator*</a></div><div class="ttdeci">friend vec&lt; Type &gt; operator*(Type a, const vec&lt; Type &gt; &amp;v)</div><div class="ttdoc">Friend operator to enable equations of the form (Type) * (vec)</div><div class="ttdef"><b>Definition</b> vec.h:858</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a6d8ca9bdf66d047abc66514d9c2d9371"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a6d8ca9bdf66d047abc66514d9c2d9371">theoretica::vec&lt; Type, 0 &gt;::operator-</a></div><div class="ttdeci">vec&lt; Type &gt; operator-(const Vector &amp;other) const</div><div class="ttdoc">Vector subtraction.</div><div class="ttdef"><b>Definition</b> vec.h:579</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a705a7b2a41cf7adada444c275befb2b9"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a705a7b2a41cf7adada444c275befb2b9">theoretica::vec&lt; Type, 0 &gt;::operator[]</a></div><div class="ttdeci">Type &amp; operator[](unsigned int i)</div><div class="ttdoc">Access i-th component.</div><div class="ttdef"><b>Definition</b> vec.h:718</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a7349609fa9e3c75aa2795f3d8f3fd36b"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7349609fa9e3c75aa2795f3d8f3fd36b">theoretica::vec&lt; Type, 0 &gt;::vec</a></div><div class="ttdeci">vec(unsigned int n, Type a)</div><div class="ttdoc">Construct a vector with the given size and all elements equal to the given value.</div><div class="ttdef"><b>Definition</b> vec.h:525</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a784274b4be125b8cf2541df8f8c5a86a"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a784274b4be125b8cf2541df8f8c5a86a">theoretica::vec&lt; Type, 0 &gt;::operator/=</a></div><div class="ttdeci">vec&lt; Type &gt; &amp; operator/=(Type scalar)</div><div class="ttdoc">Divide the vector itself by a scalar.</div><div class="ttdef"><b>Definition</b> vec.h:690</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a7b077834c129a59a1b2033598acb1145"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7b077834c129a59a1b2033598acb1145">theoretica::vec&lt; Type, 0 &gt;::operator+=</a></div><div class="ttdeci">vec&lt; Type &gt; &amp; operator+=(const Vector &amp;other)</div><div class="ttdoc">Sum a vector to the vector itself.</div><div class="ttdef"><b>Definition</b> vec.h:643</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a7d78036fec0e5ad33057f4ab17c8eee4"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a7d78036fec0e5ad33057f4ab17c8eee4">theoretica::vec&lt; Type, 0 &gt;::normalize</a></div><div class="ttdeci">void normalize()</div><div class="ttdoc">Vector normalization (v / |v|)</div><div class="ttdef"><b>Definition</b> vec.h:779</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a8712517b5507112de7392b461ab4984f"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8712517b5507112de7392b461ab4984f">theoretica::vec&lt; Type, 0 &gt;::at</a></div><div class="ttdeci">Type &amp; at(unsigned int i)</div><div class="ttdoc">Access i-th element.</div><div class="ttdef"><b>Definition</b> vec.h:730</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a8d8e5442f9db80c9bd295bb9daf4defe"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8d8e5442f9db80c9bd295bb9daf4defe">theoretica::vec&lt; Type, 0 &gt;::operator*</a></div><div class="ttdeci">vec&lt; Type &gt; operator*(Type scalar) const</div><div class="ttdoc">Scalar multiplication (av = (v.x * a, ...))</div><div class="ttdef"><b>Definition</b> vec.h:589</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a8e7d45fa54d6a4c824b544305a97ae03"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8e7d45fa54d6a4c824b544305a97ae03">theoretica::vec&lt; Type, 0 &gt;::dot</a></div><div class="ttdeci">Type dot(const Vector &amp;other) const</div><div class="ttdoc">Dot product between vectors (v * w = v.x * w.x + ...)</div><div class="ttdef"><b>Definition</b> vec.h:616</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a8f98dc318360a3f2e66417fabb0e8564"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a8f98dc318360a3f2e66417fabb0e8564">theoretica::vec&lt; Type, 0 &gt;::get</a></div><div class="ttdeci">Type get(unsigned int i) const</div><div class="ttdoc">Getters and setters.</div><div class="ttdef"><b>Definition</b> vec.h:736</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a94bac04a49c3f253c4069ed0f0ca8234"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a94bac04a49c3f253c4069ed0f0ca8234">theoretica::vec&lt; Type, 0 &gt;::begin</a></div><div class="ttdeci">auto begin() const</div><div class="ttdoc">Get a const iterator to the first element of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:759</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_a9bca94cb6dece546bbc358523358f2ea"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#a9bca94cb6dece546bbc358523358f2ea">theoretica::vec&lt; Type, 0 &gt;::operator[]</a></div><div class="ttdeci">const Type &amp; operator[](unsigned int i) const</div><div class="ttdoc">Get the i-th component.</div><div class="ttdef"><b>Definition</b> vec.h:724</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_aa1006868f4fa2cb63cfdbefb955508bb"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1006868f4fa2cb63cfdbefb955508bb">theoretica::vec&lt; Type, 0 &gt;::set</a></div><div class="ttdeci">void set(unsigned int i, Type x)</div><div class="ttdoc">Set the i-th element.</div><div class="ttdef"><b>Definition</b> vec.h:742</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_aa1dd006cd9579cf0ee981186f0ca06e9"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa1dd006cd9579cf0ee981186f0ca06e9">theoretica::vec&lt; Type, 0 &gt;::operator!=</a></div><div class="ttdeci">bool operator!=(const Vector &amp;other) const</div><div class="ttdoc">Check whether all elements of both vectors are unequal.</div><div class="ttdef"><b>Definition</b> vec.h:807</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_aa23f98eb05bd7a023c67c92330728895"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aa23f98eb05bd7a023c67c92330728895">theoretica::vec&lt; Type, 0 &gt;::vec</a></div><div class="ttdeci">vec(unsigned int n)</div><div class="ttdoc">Construct a vector with the given size and all elements equal to zero.</div><div class="ttdef"><b>Definition</b> vec.h:517</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_aaa3ba8430199b6d8c19ea4805be6f685"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#aaa3ba8430199b6d8c19ea4805be6f685">theoretica::vec&lt; Type, 0 &gt;::vec</a></div><div class="ttdeci">vec()</div><div class="ttdoc">Construct an empty vector.</div><div class="ttdef"><b>Definition</b> vec.h:512</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ab1f91a7369722befa632375a982deae1"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ab1f91a7369722befa632375a982deae1">theoretica::vec&lt; Type, 0 &gt;::euclidean_base</a></div><div class="ttdeci">static vec&lt; Type &gt; euclidean_base(unsigned int i, unsigned int n)</div><div class="ttdoc">Returns an euclidean base unit vector with the i-th element set to 1 and size n.</div><div class="ttdef"><b>Definition</b> vec.h:840</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_abc848cc22fa9da71056931e2f1c5bbcf"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abc848cc22fa9da71056931e2f1c5bbcf">theoretica::vec&lt; Type, 0 &gt;::sqr_norm</a></div><div class="ttdeci">Type sqr_norm() const</div><div class="ttdoc">Compute the square norm of the vector (v * v)</div><div class="ttdef"><b>Definition</b> vec.h:712</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_abcb153f4e587c2a49867c062d55e475b"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abcb153f4e587c2a49867c062d55e475b">theoretica::vec&lt; Type, 0 &gt;::operator+</a></div><div class="ttdeci">vec&lt; Type &gt; operator+(const Vector &amp;other) const</div><div class="ttdoc">Vector sum (v + w = (v.x + w.x, ...))</div><div class="ttdef"><b>Definition</b> vec.h:562</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_abd9e5b76cee4b298d5727348cc7ac5a6"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#abd9e5b76cee4b298d5727348cc7ac5a6">theoretica::vec&lt; Type, 0 &gt;::size</a></div><div class="ttdeci">TH_CONSTEXPR unsigned int size() const</div><div class="ttdoc">Returns the size of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:813</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ac0f8df140f77a444de9fb6ceeb62b32a"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac0f8df140f77a444de9fb6ceeb62b32a">theoretica::vec&lt; Type, 0 &gt;::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const vec&lt; Type &gt; &amp;obj)</div><div class="ttdoc">Stream the vector in string representation to an output stream (std::ostream)</div><div class="ttdef"><b>Definition</b> vec.h:895</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ac33185b56574413d49b96fdac8bb7c99"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ac33185b56574413d49b96fdac8bb7c99">theoretica::vec&lt; Type, 0 &gt;::end</a></div><div class="ttdeci">auto end()</div><div class="ttdoc">Get an iterator to one plus the last element of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:766</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_acc27d62b18c1d3a886c01f125e1b9391"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#acc27d62b18c1d3a886c01f125e1b9391">theoretica::vec&lt; Type, 0 &gt;::operator/</a></div><div class="ttdeci">vec&lt; Type &gt; operator/(Type scalar) const</div><div class="ttdoc">Scalar division (v / a = (v.x / a, ...))</div><div class="ttdef"><b>Definition</b> vec.h:602</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ad334afa326d522c23634e97be1e39994"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad334afa326d522c23634e97be1e39994">theoretica::vec&lt; Type, 0 &gt;::vec</a></div><div class="ttdeci">vec(const vec&lt; Type, M &gt; &amp;other)</div><div class="ttdoc">Copy constructor.</div><div class="ttdef"><b>Definition</b> vec.h:532</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ad570a4504440d6ca05e820cdc505abfd"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad570a4504440d6ca05e820cdc505abfd">theoretica::vec&lt; Type, 0 &gt;::operator*</a></div><div class="ttdeci">Type operator*(const Vector &amp;other) const</div><div class="ttdoc">Dot product between vectors (v * w = v.x * w.x + ...)</div><div class="ttdef"><b>Definition</b> vec.h:623</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ad9302c325b2d31ca5e39e7c6d55b982b"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ad9302c325b2d31ca5e39e7c6d55b982b">theoretica::vec&lt; Type, 0 &gt;::operator==</a></div><div class="ttdeci">bool operator==(const Vector &amp;other) const</div><div class="ttdoc">Check whether all elements of both vectors are equal.</div><div class="ttdef"><b>Definition</b> vec.h:792</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_adb116d2a78e8c24c5b4d6118117e3ec3"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#adb116d2a78e8c24c5b4d6118117e3ec3">theoretica::vec&lt; Type, 0 &gt;::end</a></div><div class="ttdeci">auto end() const</div><div class="ttdoc">Get a const iterator to one plus the last element of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:773</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_addb25b419465b78d3357d11a6ada1722"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#addb25b419465b78d3357d11a6ada1722">theoretica::vec&lt; Type, 0 &gt;::operator-</a></div><div class="ttdeci">vec&lt; Type &gt; operator-() const</div><div class="ttdoc">Opposite vector.</div><div class="ttdef"><b>Definition</b> vec.h:572</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_ae219e1433d41c9416cdc853c6a0c74fd"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#ae219e1433d41c9416cdc853c6a0c74fd">theoretica::vec&lt; Type, 0 &gt;::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdoc">Get an iterator to the first element of the vector.</div><div class="ttdef"><b>Definition</b> vec.h:752</div></div>
-<div class="ttc" id="aclasstheoretica_1_1vec_3_01_type_00_010_01_4_html_af9121c1a1e004fe6aef495c517055614"><div class="ttname"><a href="classtheoretica_1_1vec_3_01_type_00_010_01_4.html#af9121c1a1e004fe6aef495c517055614">theoretica::vec&lt; Type, 0 &gt;::norm</a></div><div class="ttdeci">Type norm() const</div><div class="ttdoc">Compute the norm of the vector (sqrt(v * v))</div><div class="ttdef"><b>Definition</b> vec.h:706</div></div>
 <div class="ttc" id="aclasstheoretica_1_1vec__iterator_html"><div class="ttname"><a href="classtheoretica_1_1vec__iterator.html">theoretica::vec_iterator</a></div><div class="ttdoc">A sequential iterator for traversing vector-like containers.</div><div class="ttdef"><b>Definition</b> vec.h:29</div></div>
 <div class="ttc" id="aclasstheoretica_1_1vec__iterator_html_a39a924acbb692e96da7b6ce515679a06"><div class="ttname"><a href="classtheoretica_1_1vec__iterator.html#a39a924acbb692e96da7b6ce515679a06">theoretica::vec_iterator::operator*</a></div><div class="ttdeci">ReturnType operator*()</div><div class="ttdoc">Dereference the iterator to get the current element.</div><div class="ttdef"><b>Definition</b> vec.h:52</div></div>
 <div class="ttc" id="aclasstheoretica_1_1vec__iterator_html_a9810c3c9be9e80f795d14347841fcd5b"><div class="ttname"><a href="classtheoretica_1_1vec__iterator.html#a9810c3c9be9e80f795d14347841fcd5b">theoretica::vec_iterator::vec_iterator</a></div><div class="ttdeci">vec_iterator(Vector &amp;vector, size_t index)</div><div class="ttdoc">Construct the iterator from a pointer to the elements and a starting index.</div><div class="ttdef"><b>Definition</b> vec.h:48</div></div>
@@ -1206,7 +1078,7 @@ $(document).ready(function(){initNavTree('vec_8h_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_1036706e55c22cab35bc1c58ee689f1d.html">runner</a></li><li class="navelem"><a class="el" href="dir_629f8151d55d307162ff2d619fb1783d.html">work</a></li><li class="navelem"><a class="el" href="dir_3cf22d0bc207120da3cc0fc290661e59.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_324545ef17611d9ee96c56f7ed859351.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_4a0b0faa2bc1827a96d7c32d179d0dfc.html">src</a></li><li class="navelem"><a class="el" href="dir_3a73c2d33428b02848fc4c3445746286.html">algebra</a></li><li class="navelem"><a class="el" href="vec_8h.html">vec.h</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 15:05:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 15:13:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

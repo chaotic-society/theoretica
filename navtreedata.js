@@ -38,7 +38,6 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
@@ -64,13 +63,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc",
 "classtheoretica_1_1phasor.html#a1952a0d36522df5d695b8624f80a4ab0",
 "classtheoretica_1_1ratio.html#ad3a013f9d5cfb6066258615e0b54efde",
-"constants_8h.html#a4d6916417c8d2b817cfc48b8e2a1abb5",
-"functions_b.html",
-"namespacetheoretica.html#a21974bc022495f59a7702ce937f4544c",
-"namespacetheoretica.html#ac673920f8956ebea402eac4271f551ba",
-"namespacetheoretica_1_1distribution.html#a2e1d320249b8efb3dfb78d7ae3a08aa9",
-"real__analysis_8h.html#a2c2ea0b1258dfe34df321901707d1808",
-"structtheoretica_1_1pdf__sampler.html#af0c13b4714c080501d2e14ca2834d49c"
+"dir_1036706e55c22cab35bc1c58ee689f1d.html",
+"mat_8h_source.html",
+"namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde",
+"namespacetheoretica_1_1algebra.html#a04d386e7bd52acd0ecea1a5923777254",
+"namespacetheoretica_1_1stats.html#a1baa2faa86d8049c601c3c10915a3dcb",
+"sampling_8h.html#ac8bdf0dc89459fedaf6950c0f9b96df5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

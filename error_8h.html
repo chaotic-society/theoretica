@@ -127,22 +127,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TH_MATH_ERROR</b>(F_NAME,  VALUE,  EXCEPTION)&#160;&#160;&#160;	{ errno = th_errcode_to_errno(EXCEPTION); }</td></tr>
 <tr class="memdesc:a3cb22530e3e3a835f4af97e985e6a32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling options are defined) <br /></td></tr>
 <tr class="separator:a3cb22530e3e3a835f4af97e985e6a32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa77f8d4ff9d754778f1e49a33d623b1c" id="r_aa77f8d4ff9d754778f1e49a33d623b1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8h.html#aa77f8d4ff9d754778f1e49a33d623b1c">TH_DEBUG</a>(VARIABLE)</td></tr>
-<tr class="separator:aa77f8d4ff9d754778f1e49a33d623b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a47d8f770edb576685f4b8752f2eb9760" id="r_a47d8f770edb576685f4b8752f2eb9760"><td class="memItemLeft" align="right" valign="top"><a id="a47d8f770edb576685f4b8752f2eb9760" name="a47d8f770edb576685f4b8752f2eb9760"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760">theoretica::MATH_ERRCODE</a> { <br />
-&#160;&#160;<b>NO_ERROR</b> = 0x00
-, <b>DIV_BY_ZERO</b> = 0x01
-, <b>OUT_OF_DOMAIN</b> = 0x02
-, <b>OUT_OF_RANGE</b> = 0x04
-, <br />
-&#160;&#160;<b>IMPOSSIBLE_OPERATION</b> = 0x08
-, <b>NO_ALGO_CONVERGENCE</b> = 0x10
-, <b>INVALID_ARGUMENT</b> = 0x20
-<br />
- }</td></tr>
+<tr class="memitem:a47d8f770edb576685f4b8752f2eb9760" id="r_a47d8f770edb576685f4b8752f2eb9760"><td class="memItemLeft" align="right" valign="top"><a id="a47d8f770edb576685f4b8752f2eb9760" name="a47d8f770edb576685f4b8752f2eb9760"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760">theoretica::MATH_ERRCODE</a> </td></tr>
 <tr class="memdesc:a47d8f770edb576685f4b8752f2eb9760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math error enumeration. <br /></td></tr>
 <tr class="separator:a47d8f770edb576685f4b8752f2eb9760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -171,35 +159,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::is_inf</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Error handling. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa77f8d4ff9d754778f1e49a33d623b1c" name="aa77f8d4ff9d754778f1e49a33d623b1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa77f8d4ff9d754778f1e49a33d623b1c">&#9670;&#160;</a></span>TH_DEBUG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TH_DEBUG</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">VARIABLE</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    { \</div>
-<div class="line">    std::cout &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> \</div>
-<div class="line">    &lt;&lt; #VARIABLE &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; VARIABLE &lt;&lt; std::endl; }</div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_1036706e55c22cab35bc1c58ee689f1d.html">runner</a></li><li class="navelem"><a class="el" href="dir_629f8151d55d307162ff2d619fb1783d.html">work</a></li><li class="navelem"><a class="el" href="dir_3cf22d0bc207120da3cc0fc290661e59.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_324545ef17611d9ee96c56f7ed859351.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_4a0b0faa2bc1827a96d7c32d179d0dfc.html">src</a></li><li class="navelem"><a class="el" href="dir_d9050939e12ad63401a3b3b1aa67559c.html">core</a></li><li class="navelem"><a class="el" href="error_8h.html">error.h</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 15:05:25 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 15:13:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

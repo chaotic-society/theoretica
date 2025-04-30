@@ -122,11 +122,11 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="comment">// Type trait to check whether the given type is a multidual number</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">   20</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a> : std::false_type {};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">struct </span>is_dual_type : std::false_type {};</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__dual__type_3_01dual_01_4.html">   24</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a>&lt;<a class="code hl_class" href="classtheoretica_1_1dual.html">dual</a>&gt; : std::true_type {};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">struct </span>is_dual_type&lt;dual&gt; : std::true_type {};</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// Type trait to check whether the given function takes</span></div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function&gt;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">using </span>is_dual_func =</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        std::conditional_t &lt;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a> &lt;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            is_dual_type &lt;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                <span class="keyword">typename</span> _internal::return_type_or_void&lt;Function, dual&gt;::type</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            &gt;::value,</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            std::true_type, std::false_type</div>
@@ -150,11 +150,11 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">// Type trait to check whether the given type is a multidual number</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">   48</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a> : std::false_type {};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">struct </span>is_dual2_type : std::false_type {};</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__dual2__type_3_01dual2_01_4.html">   52</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a>&lt;<a class="code hl_class" href="classtheoretica_1_1dual2.html">dual2</a>&gt; : std::true_type {};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">struct </span>is_dual2_type&lt;dual2&gt; : std::true_type {};</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// Type trait to check whether the given function takes</span></div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function&gt;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">using </span>is_dual2_func =</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::conditional_t &lt;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a> &lt;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            is_dual2_type &lt;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                <span class="keyword">typename</span> _internal::return_type_or_void&lt;Function, dual2&gt;::type</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            &gt;::value,</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            std::true_type, std::false_type</div>
@@ -178,11 +178,11 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// Type trait to check whether the given type is a multidual number</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">   76</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a> : std::false_type {};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">struct </span>is_multidual_type : std::false_type {};</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N&gt;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structtheoretica_1_1autodiff_1_1is__multidual__type_3_01multidual_3_01_n_01_4_01_4.html">   80</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt;<a class="code hl_class" href="classtheoretica_1_1multidual.html">multidual</a>&lt;N&gt;&gt; : std::true_type {};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">struct </span>is_multidual_type&lt;multidual&lt;N&gt;&gt; : std::true_type {};</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// Enable a certain function overload if the given type</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">// is an instantiation of the multidual template class</span></div>
@@ -207,7 +207,7 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="comment">// a dvec_t and returning a dvec_t.</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span> T = <span class="keywordtype">bool</span>&gt;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keyword">using </span>enable_vector_field = <span class="keyword">typename</span> std::enable_if &lt;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_struct" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a> &lt;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            is_multidual_type &lt;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                vector_element_t&lt;return_type_t&lt;Function&gt;&gt;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            &gt;::value, T</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        &gt;::type;</div>
@@ -245,9 +245,6 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclasstheoretica_1_1dual2_html"><div class="ttname"><a href="classtheoretica_1_1dual2.html">theoretica::dual2</a></div><div class="ttdoc">Second order dual number class.</div><div class="ttdef"><b>Definition</b> dual2.h:29</div></div>
-<div class="ttc" id="aclasstheoretica_1_1dual_html"><div class="ttname"><a href="classtheoretica_1_1dual.html">theoretica::dual</a></div><div class="ttdoc">Dual number class.</div><div class="ttdef"><b>Definition</b> dual.h:28</div></div>
-<div class="ttc" id="aclasstheoretica_1_1multidual_html"><div class="ttname"><a href="classtheoretica_1_1multidual.html">theoretica::multidual</a></div><div class="ttdoc">Multidual number algebra for functions of the form .</div><div class="ttdef"><b>Definition</b> multidual.h:26</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1autodiff_html_a04de34623e5bf22418b595f14c2bc9b7"><div class="ttname"><a href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">theoretica::autodiff::dreal_t</a></div><div class="ttdeci">multidual&lt; N &gt; dreal_t</div><div class="ttdoc">Real type for multivariate automatic differentiation (read &quot;differential real&quot;).</div><div class="ttdef"><b>Definition</b> autodiff_types.h:117</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1autodiff_html_a2734801ec33014bcc76d21d1baa5fed9"><div class="ttname"><a href="namespacetheoretica_1_1autodiff.html#a2734801ec33014bcc76d21d1baa5fed9">theoretica::autodiff::dvec2</a></div><div class="ttdeci">dvec_t&lt; 2 &gt; dvec2</div><div class="ttdoc">Vector type for multivariate automatic differentiation with two-dimensional statically allocated vect...</div><div class="ttdef"><b>Definition</b> autodiff_types.h:140</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1autodiff_html_a2a50ff577cd425eedee192194adf2c88"><div class="ttname"><a href="namespacetheoretica_1_1autodiff.html#a2a50ff577cd425eedee192194adf2c88">theoretica::autodiff::dvec</a></div><div class="ttdeci">dvec_t&lt; 0 &gt; dvec</div><div class="ttdoc">Vector type for multivariate automatic differentiation with dynamically allocated vectors.</div><div class="ttdef"><b>Definition</b> autodiff_types.h:131</div></div>
@@ -259,16 +256,13 @@ $(document).ready(function(){initNavTree('autodiff__types_8h_source.html',''); i
 <div class="ttc" id="anamespacetheoretica_1_1autodiff_html_afc232ba1fc81e203db1c935cf73773df"><div class="ttname"><a href="namespacetheoretica_1_1autodiff.html#afc232ba1fc81e203db1c935cf73773df">theoretica::autodiff::dvec4</a></div><div class="ttdeci">dvec_t&lt; 4 &gt; dvec4</div><div class="ttdoc">Vector type for multivariate automatic differentiation with four-dimensional statically allocated vec...</div><div class="ttdef"><b>Definition</b> autodiff_types.h:158</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1autodiff_html_aff0a93ad2d7b70c8d514eecb24f0f099"><div class="ttname"><a href="namespacetheoretica_1_1autodiff.html#aff0a93ad2d7b70c8d514eecb24f0f099">theoretica::autodiff::dreal3</a></div><div class="ttdeci">dreal_t&lt; 3 &gt; dreal3</div><div class="ttdoc">Real type for multivariate automatic differentiation with three-dimensional statically allocated vect...</div><div class="ttdef"><b>Definition</b> autodiff_types.h:145</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
-<div class="ttc" id="astructtheoretica_1_1autodiff_1_1is__dual2__type_html"><div class="ttname"><a href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">theoretica::autodiff::is_dual2_type</a></div><div class="ttdef"><b>Definition</b> autodiff_types.h:48</div></div>
-<div class="ttc" id="astructtheoretica_1_1autodiff_1_1is__dual__type_html"><div class="ttname"><a href="structtheoretica_1_1autodiff_1_1is__dual__type.html">theoretica::autodiff::is_dual_type</a></div><div class="ttdef"><b>Definition</b> autodiff_types.h:20</div></div>
-<div class="ttc" id="astructtheoretica_1_1autodiff_1_1is__multidual__type_html"><div class="ttname"><a href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">theoretica::autodiff::is_multidual_type</a></div><div class="ttdef"><b>Definition</b> autodiff_types.h:76</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_1036706e55c22cab35bc1c58ee689f1d.html">runner</a></li><li class="navelem"><a class="el" href="dir_629f8151d55d307162ff2d619fb1783d.html">work</a></li><li class="navelem"><a class="el" href="dir_3cf22d0bc207120da3cc0fc290661e59.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_324545ef17611d9ee96c56f7ed859351.html">theoretica</a></li><li class="navelem"><a class="el" href="dir_4a0b0faa2bc1827a96d7c32d179d0dfc.html">src</a></li><li class="navelem"><a class="el" href="dir_9b3810400ab2209a3b26df39cada85ac.html">autodiff</a></li><li class="navelem"><a class="el" href="autodiff__types_8h.html">autodiff_types.h</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 15:05:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 15:13:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
