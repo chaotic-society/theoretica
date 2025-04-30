@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "theoretica", "namespacetheoretica.html", [
-      [ "_internal", null, [
+      [ "_internal", "namespacetheoretica_1_1__internal.html", [
         [ "func_helper", "structtheoretica_1_1__internal_1_1func__helper.html", null ],
         [ "func_helper< ReturnType(*)(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html", null ],
         [ "func_helper< ReturnType(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_args_8_8_8_08_4.html", null ],

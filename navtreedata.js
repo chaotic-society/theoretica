@@ -65,12 +65,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1phasor.html#a05ad3aba2253f74949fb94882ccfd832",
 "classtheoretica_1_1ratio.html#abaf51b92e75d13b96123770288396b1b",
 "constants_8h.html#a372d072243b6c7c42db84d5debef1924",
-"fft_8h_source.html",
-"namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee",
-"namespacetheoretica.html#ac1d4be50bf77c6b368c94bb627305224",
-"namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f",
-"quasirandom_8h.html#aa7e523c1cc3621e7cbc1ac0df01913c3",
-"structtheoretica_1_1pdf__sampler.html"
+"extrema_8h.html#a4e122e9c54b7f36043851a702fb7e79a",
+"namespacetheoretica.html#a1373c528867e33024d2975dfa7c41ca4",
+"namespacetheoretica.html#ab3e5e8380097d9ad25a51413bcb244d3",
+"namespacetheoretica_1_1autodiff.html#a3b264676bfd450cb5887a706f6b19f5e",
+"prng_8h.html",
+"structtheoretica_1_1is__matrix_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1d71853b5e69a5a4d7531f2d68fdf8bdec.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

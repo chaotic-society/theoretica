@@ -62,13 +62,14 @@ var searchData=
   ['is_5fnan_59',['is_nan',['../namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d',1,'theoretica']]],
   ['is_5forderable_60',['is_orderable',['../structtheoretica_1_1is__orderable.html',1,'theoretica']]],
   ['is_5forderable_3c_20structure_2c_20_5finternal_3a_3avoid_5ft_3c_20decltype_28std_3a_3adeclval_3c_20structure_20_3e_28_29_3c_20std_3a_3adeclval_3c_20structure_20_3e_28_29_29_3e_20_3e_61',['is_orderable&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()&lt; std::declval&lt; Structure &gt;())&gt; &gt;',['../structtheoretica_1_1is__orderable_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_12e209b403793e9b560712d8d8a4def95.html',1,'theoretica']]],
-  ['is_5freal_5ftype_62',['is_real_type',['../structtheoretica_1_1is__real__type.html',1,'theoretica']]],
-  ['is_5freal_5ftype_3c_20real_20_3e_63',['is_real_type&lt; real &gt;',['../structtheoretica_1_1is__real__type_3_01real_01_4.html',1,'theoretica']]],
-  ['is_5fsquare_64',['is_square',['../namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1',1,'theoretica::algebra']]],
-  ['is_5fsymmetric_65',['is_symmetric',['../namespacetheoretica_1_1algebra.html#a4752e001d3198f3be8ae8f05f4fb06bf',1,'theoretica::algebra']]],
-  ['is_5fupper_5ftriangular_66',['is_upper_triangular',['../namespacetheoretica_1_1algebra.html#a580a1460c4ab6eb87cd12d461e0ff675',1,'theoretica::algebra']]],
-  ['is_5fvector_67',['is_vector',['../structtheoretica_1_1is__vector.html',1,'theoretica']]],
-  ['is_5fvector_3c_20structure_2c_20_5finternal_3a_3avoid_5ft_3c_20decltype_28std_3a_3adeclval_3c_20structure_20_3e_28_29_5b0_5d_29_2c_20decltype_28std_3a_3adeclval_3c_20structure_20_3e_28_29_2esize_28_29_29_3e_20_3e_68',['is_vector&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()[0]), decltype(std::declval&lt; Structure &gt;().size())&gt; &gt;',['../structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html',1,'theoretica']]],
-  ['isqrt_69',['isqrt',['../namespacetheoretica.html#a68914a563241494dfe7ac42f0462920c',1,'theoretica']]],
-  ['iterator_70',['iterator',['../classtheoretica_1_1mat.html#a2e3c65bfa2b3a59935fc9a2b12ac37b2',1,'theoretica::mat::iterator'],['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a12b2f8f1a7bf6ae870d2521569c30033',1,'theoretica::mat&lt; Type, 0, 0 &gt;::iterator'],['../classtheoretica_1_1vec.html#a1c876f60ad2c8d387ae5f839ddd11793',1,'theoretica::vec::iterator']]]
+  ['is_5freal_5ffunc_62',['is_real_func',['../namespacetheoretica.html#ae562824808d98ae987dd07e3258c2772',1,'theoretica']]],
+  ['is_5freal_5ftype_63',['is_real_type',['../structtheoretica_1_1is__real__type.html',1,'theoretica']]],
+  ['is_5freal_5ftype_3c_20real_20_3e_64',['is_real_type&lt; real &gt;',['../structtheoretica_1_1is__real__type_3_01real_01_4.html',1,'theoretica']]],
+  ['is_5fsquare_65',['is_square',['../namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1',1,'theoretica::algebra']]],
+  ['is_5fsymmetric_66',['is_symmetric',['../namespacetheoretica_1_1algebra.html#a4752e001d3198f3be8ae8f05f4fb06bf',1,'theoretica::algebra']]],
+  ['is_5fupper_5ftriangular_67',['is_upper_triangular',['../namespacetheoretica_1_1algebra.html#a580a1460c4ab6eb87cd12d461e0ff675',1,'theoretica::algebra']]],
+  ['is_5fvector_68',['is_vector',['../structtheoretica_1_1is__vector.html',1,'theoretica']]],
+  ['is_5fvector_3c_20structure_2c_20_5finternal_3a_3avoid_5ft_3c_20decltype_28std_3a_3adeclval_3c_20structure_20_3e_28_29_5b0_5d_29_2c_20decltype_28std_3a_3adeclval_3c_20structure_20_3e_28_29_2esize_28_29_29_3e_20_3e_69',['is_vector&lt; Structure, _internal::void_t&lt; decltype(std::declval&lt; Structure &gt;()[0]), decltype(std::declval&lt; Structure &gt;().size())&gt; &gt;',['../structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html',1,'theoretica']]],
+  ['isqrt_70',['isqrt',['../namespacetheoretica.html#a68914a563241494dfe7ac42f0462920c',1,'theoretica']]],
+  ['iterator_71',['iterator',['../classtheoretica_1_1mat.html#a2e3c65bfa2b3a59935fc9a2b12ac37b2',1,'theoretica::mat::iterator'],['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a12b2f8f1a7bf6ae870d2521569c30033',1,'theoretica::mat&lt; Type, 0, 0 &gt;::iterator'],['../classtheoretica_1_1vec.html#a1c876f60ad2c8d387ae5f839ddd11793',1,'theoretica::vec::iterator']]]
 ];
