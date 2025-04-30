@@ -23,14 +23,5 @@ var core__traits_8h =
     [ "theoretica::_internal::func_helper< T >", "structtheoretica_1_1__internal_1_1func__helper.html", null ],
     [ "theoretica::_internal::func_helper< ReturnType(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_args_8_8_8_08_4.html", null ],
     [ "theoretica::_internal::func_helper< ReturnType(*)(Args...)>", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_5_08_07_args_8_8_8_08_4.html", null ],
-    [ "theoretica::_internal::func_helper< ReturnType(Class::*)(Args...) const >", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", null ],
-    [ "enable_matrix", "core__traits_8h.html#aee807e1a55c73e90e1f852b4d1cf67fc", null ],
-    [ "enable_real_func", "core__traits_8h.html#a08d395991c6d895a327dff7affa37f23", null ],
-    [ "enable_vector", "core__traits_8h.html#a746b3f92213a0d6340e98b850cacdeb9", null ],
-    [ "has_real_elements", "core__traits_8h.html#a7c9335370d9b3d0aa90ba8d2dde12edd", null ],
-    [ "is_real_func", "core__traits_8h.html#ae562824808d98ae987dd07e3258c2772", null ],
-    [ "matrix_element_t", "core__traits_8h.html#a329b5b07df2933958087db965a444c10", null ],
-    [ "return_type_t", "core__traits_8h.html#a147fe079cc499a72d5c73c0224cd28f7", null ],
-    [ "vector_element_or_void_t", "core__traits_8h.html#aafa052f077a96a5e383143fb79d4e237", null ],
-    [ "vector_element_t", "core__traits_8h.html#a337913497bb9febc8e931920c4da3dd9", null ]
+    [ "theoretica::_internal::func_helper< ReturnType(Class::*)(Args...) const >", "structtheoretica_1_1__internal_1_1func__helper_3_01_return_type_07_class_1_1_5_08_07_args_8_8_8_08_01const_01_4.html", null ]
 ];

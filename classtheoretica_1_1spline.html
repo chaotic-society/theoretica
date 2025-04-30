@@ -114,33 +114,33 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1spline.html',''); i
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5" id="r_a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplParams" colspan="2"><a id="a73737dc18f49fd83ed4d0096abeddec5" name="a73737dc18f49fd83ed4d0096abeddec5"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DataPoints</a>  = std::vector&lt;vec2&gt;&gt; </td></tr>
-<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DataPoints</a> &amp;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">p</a>)</td></tr>
+template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </td></tr>
+<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (const DataPoints &amp;p)</td></tr>
 <tr class="memdesc:a73737dc18f49fd83ed4d0096abeddec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from a vector of coordinate pairs. <br /></td></tr>
 <tr class="separator:a73737dc18f49fd83ed4d0096abeddec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a263320fe86eef4ff2e709502e5607788" id="r_a263320fe86eef4ff2e709502e5607788"><td class="memTemplParams" colspan="2"><a id="a263320fe86eef4ff2e709502e5607788" name="a263320fe86eef4ff2e709502e5607788"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dataset1</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dataset2</a> &gt; </td></tr>
-<tr class="memitem:a263320fe86eef4ff2e709502e5607788"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dataset1</a> &amp;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">X</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dataset2</a> &amp;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Y</a>)</td></tr>
+template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a263320fe86eef4ff2e709502e5607788"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
 <tr class="memdesc:a263320fe86eef4ff2e709502e5607788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from the sets of X and Y data points. <br /></td></tr>
 <tr class="separator:a263320fe86eef4ff2e709502e5607788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af2528abf4b07f00cebbe84dbadcff6" id="r_a7af2528abf4b07f00cebbe84dbadcff6"><td class="memItemLeft" align="right" valign="top"><a id="a7af2528abf4b07f00cebbe84dbadcff6" name="a7af2528abf4b07f00cebbe84dbadcff6"></a>
-<a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">other</a>)</td></tr>
+<a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;other)</td></tr>
 <tr class="memdesc:a7af2528abf4b07f00cebbe84dbadcff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy from another spline. <br /></td></tr>
 <tr class="separator:a7af2528abf4b07f00cebbe84dbadcff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a320da037cfe9c556a8c3e47bc729e91d" id="r_a320da037cfe9c556a8c3e47bc729e91d"><td class="memItemLeft" align="right" valign="top"><a id="a320da037cfe9c556a8c3e47bc729e91d" name="a320da037cfe9c556a8c3e47bc729e91d"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a></td></tr>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) const</td></tr>
 <tr class="memdesc:a320da037cfe9c556a8c3e47bc729e91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the natural cubic spline interpolation at a given point. <br /></td></tr>
 <tr class="separator:a320da037cfe9c556a8c3e47bc729e91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40bc58e77bf7683c731786dc9071b206" id="r_a40bc58e77bf7683c731786dc9071b206"><td class="memItemLeft" align="right" valign="top"><a id="a40bc58e77bf7683c731786dc9071b206" name="a40bc58e77bf7683c731786dc9071b206"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>deriv</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a></td></tr>
+<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>deriv</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) const</td></tr>
 <tr class="memdesc:a40bc58e77bf7683c731786dc9071b206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the derivative of the natural cubic spline interpolation at a given point. <br /></td></tr>
 <tr class="separator:a40bc58e77bf7683c731786dc9071b206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a720be0ec428891b7336aff253904f28c" id="r_a720be0ec428891b7336aff253904f28c"><td class="memItemLeft" align="right" valign="top"><a id="a720be0ec428891b7336aff253904f28c" name="a720be0ec428891b7336aff253904f28c"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="memdesc:a720be0ec428891b7336aff253904f28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an iterator to the first spline element. <br /></td></tr>
 <tr class="separator:a720be0ec428891b7336aff253904f28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a424ad671599093fd8724eea12f79ef5e" id="r_a424ad671599093fd8724eea12f79ef5e"><td class="memItemLeft" align="right" valign="top"><a id="a424ad671599093fd8724eea12f79ef5e" name="a424ad671599093fd8724eea12f79ef5e"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="memdesc:a424ad671599093fd8724eea12f79ef5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an iterator to one plus the last spline element. <br /></td></tr>
 <tr class="separator:a424ad671599093fd8724eea12f79ef5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -162,7 +162,7 @@ std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">splin
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1spline.html">spline</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 14:45:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 14:51:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

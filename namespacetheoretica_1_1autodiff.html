@@ -130,155 +130,148 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a852ba15fc3c20f4a43226d27ec6c8fac" id="r_a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memTemplParams" colspan="2"><a id="a852ba15fc3c20f4a43226d27ec6c8fac" name="a852ba15fc3c20f4a43226d27ec6c8fac"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt; </td></tr>
-<tr class="memitem:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_dual_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>, <a class="el" href="classtheoretica_1_1dual.html">dual</a> &gt;::type &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, std::true_type, std::false_type &gt;</td></tr>
-<tr class="memdesc:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a dual number as its first argument. <br /></td></tr>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_dual_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual__type.html">is_dual_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual.html">dual</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
 <tr class="separator:a852ba15fc3c20f4a43226d27ec6c8fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a242f5cce004ff2043013419c56ce0ff1" id="r_a242f5cce004ff2043013419c56ce0ff1"><td class="memTemplParams" colspan="2"><a id="a242f5cce004ff2043013419c56ce0ff1" name="a242f5cce004ff2043013419c56ce0ff1"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a>  = bool&gt; </td></tr>
-<tr class="memitem:a242f5cce004ff2043013419c56ce0ff1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_dual_func</b> = <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> std::enable_if&lt; <a class="el" href="namespacetheoretica_1_1autodiff.html#a852ba15fc3c20f4a43226d27ec6c8fac">is_dual_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a> &gt;::type</td></tr>
-<tr class="memdesc:a242f5cce004ff2043013419c56ce0ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a dual number. <br /></td></tr>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a242f5cce004ff2043013419c56ce0ff1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_dual_func</b> = typename std::enable_if&lt; is_dual_func&lt; Function &gt;::value, T &gt;::type</td></tr>
 <tr class="separator:a242f5cce004ff2043013419c56ce0ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb0e9c2d5268a320dcfad6dbfb9b49f8" id="r_aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memTemplParams" colspan="2"><a id="aeb0e9c2d5268a320dcfad6dbfb9b49f8" name="aeb0e9c2d5268a320dcfad6dbfb9b49f8"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt; </td></tr>
-<tr class="memitem:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_dual2_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>, <a class="el" href="classtheoretica_1_1dual2.html">dual2</a> &gt;::type &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, std::true_type, std::false_type &gt;</td></tr>
-<tr class="memdesc:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type trait to check whether the given function takes a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number as its first argument. <br /></td></tr>
+template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>is_dual2_func</b> = std::conditional_t&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__dual2__type.html">is_dual2_type</a>&lt; typename <a class="el" href="structtheoretica_1_1__internal_1_1return__type__or__void.html">_internal::return_type_or_void</a>&lt; Function, <a class="el" href="classtheoretica_1_1dual2.html">dual2</a> &gt;::type &gt;::value, std::true_type, std::false_type &gt;</td></tr>
 <tr class="separator:aeb0e9c2d5268a320dcfad6dbfb9b49f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45ab0587d749d2b377bc861da3d00539" id="r_a45ab0587d749d2b377bc861da3d00539"><td class="memTemplParams" colspan="2"><a id="a45ab0587d749d2b377bc861da3d00539" name="a45ab0587d749d2b377bc861da3d00539"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a>  = bool&gt; </td></tr>
-<tr class="memitem:a45ab0587d749d2b377bc861da3d00539"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_dual2_func</b> = <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> std::enable_if&lt; <a class="el" href="namespacetheoretica_1_1autodiff.html#aeb0e9c2d5268a320dcfad6dbfb9b49f8">is_dual2_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a> &gt;::type</td></tr>
-<tr class="memdesc:a45ab0587d749d2b377bc861da3d00539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a function taking as first argument a <a class="el" href="classtheoretica_1_1dual2.html" title="Second order dual number class.">dual2</a> number. <br /></td></tr>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a45ab0587d749d2b377bc861da3d00539"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_dual2_func</b> = typename std::enable_if&lt; is_dual2_func&lt; Function &gt;::value, T &gt;::type</td></tr>
 <tr class="separator:a45ab0587d749d2b377bc861da3d00539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad402f57cd1c7e6e2ce22bf7ba16d8966" id="r_ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memTemplParams" colspan="2"><a id="ad402f57cd1c7e6e2ce22bf7ba16d8966" name="ad402f57cd1c7e6e2ce22bf7ba16d8966"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Type</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a>  = bool&gt; </td></tr>
-<tr class="memitem:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_multidual</b> = <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Type</a> &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a> &gt;::type</td></tr>
-<tr class="memdesc:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is an instantiation of the multidual template class. <br /></td></tr>
+template&lt;typename Type , typename T  = bool&gt; </td></tr>
+<tr class="memitem:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_multidual</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; Type &gt;::value, T &gt;::type</td></tr>
 <tr class="separator:ad402f57cd1c7e6e2ce22bf7ba16d8966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51f164ad9d8ce709f2fef7e22e04f794" id="r_a51f164ad9d8ce709f2fef7e22e04f794"><td class="memTemplParams" colspan="2"><a id="a51f164ad9d8ce709f2fef7e22e04f794" name="a51f164ad9d8ce709f2fef7e22e04f794"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a>  = bool&gt; </td></tr>
-<tr class="memitem:a51f164ad9d8ce709f2fef7e22e04f794"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_scalar_field</b> = <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; <a class="el" href="namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7">return_type_t</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt; &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a> &gt;::type</td></tr>
-<tr class="memdesc:a51f164ad9d8ce709f2fef7e22e04f794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a Callable object corresponding to a multidual function representing a scalar field, that is, a function taking a dvec_t and returning a dreal_t. <br /></td></tr>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:a51f164ad9d8ce709f2fef7e22e04f794"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_scalar_field</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; return_type_t&lt; Function &gt; &gt;::value, T &gt;::type</td></tr>
 <tr class="separator:a51f164ad9d8ce709f2fef7e22e04f794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac151e8d74c0ead137833933eeaf94206" id="r_ac151e8d74c0ead137833933eeaf94206"><td class="memTemplParams" colspan="2"><a id="ac151e8d74c0ead137833933eeaf94206" name="ac151e8d74c0ead137833933eeaf94206"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a>  = bool&gt; </td></tr>
-<tr class="memitem:ac151e8d74c0ead137833933eeaf94206"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_vector_field</b> = <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">vector_element_t</a>&lt; <a class="el" href="namespacetheoretica.html#a147fe079cc499a72d5c73c0224cd28f7">return_type_t</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt; &gt; &gt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">::value</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">T</a> &gt;::type</td></tr>
-<tr class="memdesc:ac151e8d74c0ead137833933eeaf94206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a certain function overload if the given type is a Callable object corresponding to a multidual function representing a vector field, that is, a function taking a dvec_t and returning a dvec_t. <br /></td></tr>
+template&lt;typename Function , typename T  = bool&gt; </td></tr>
+<tr class="memitem:ac151e8d74c0ead137833933eeaf94206"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>enable_vector_field</b> = typename std::enable_if&lt; <a class="el" href="structtheoretica_1_1autodiff_1_1is__multidual__type.html">is_multidual_type</a>&lt; vector_element_t&lt; return_type_t&lt; Function &gt; &gt; &gt;::value, T &gt;::type</td></tr>
 <tr class="separator:ac151e8d74c0ead137833933eeaf94206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7" id="r_a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplParams" colspan="2"><a id="a04de34623e5bf22418b595f14c2bc9b7" name="a04de34623e5bf22418b595f14c2bc9b7"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dreal_t</b> = <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;</td></tr>
+template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a04de34623e5bf22418b595f14c2bc9b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dreal_t</b> = <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;</td></tr>
 <tr class="memdesc:a04de34623e5bf22418b595f14c2bc9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation (read "differential real"). <br /></td></tr>
 <tr class="separator:a04de34623e5bf22418b595f14c2bc9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdc7bdd230700601e24de68a05d7ec08" id="r_abdc7bdd230700601e24de68a05d7ec08"><td class="memTemplParams" colspan="2"><a id="abdc7bdd230700601e24de68a05d7ec08" name="abdc7bdd230700601e24de68a05d7ec08"></a>
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:abdc7bdd230700601e24de68a05d7ec08"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dvec_t</b> = <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; N &gt;, N &gt;</td></tr>
+template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:abdc7bdd230700601e24de68a05d7ec08"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dvec_t</b> = <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; N &gt;, N &gt;</td></tr>
 <tr class="memdesc:abdc7bdd230700601e24de68a05d7ec08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation (read "differential vector"). <br /></td></tr>
 <tr class="separator:abdc7bdd230700601e24de68a05d7ec08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c0d26bc5791e79fd708e6a5cbf6386f" id="r_a6c0d26bc5791e79fd708e6a5cbf6386f"><td class="memItemLeft" align="right" valign="top"><a id="a6c0d26bc5791e79fd708e6a5cbf6386f" name="a6c0d26bc5791e79fd708e6a5cbf6386f"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dreal</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 0 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dreal</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 0 &gt;</td></tr>
 <tr class="memdesc:a6c0d26bc5791e79fd708e6a5cbf6386f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation with dynamically allocated vectors. <br /></td></tr>
 <tr class="separator:a6c0d26bc5791e79fd708e6a5cbf6386f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a50ff577cd425eedee192194adf2c88" id="r_a2a50ff577cd425eedee192194adf2c88"><td class="memItemLeft" align="right" valign="top"><a id="a2a50ff577cd425eedee192194adf2c88" name="a2a50ff577cd425eedee192194adf2c88"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dvec</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 0 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dvec</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 0 &gt;</td></tr>
 <tr class="memdesc:a2a50ff577cd425eedee192194adf2c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation with dynamically allocated vectors. <br /></td></tr>
 <tr class="separator:a2a50ff577cd425eedee192194adf2c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab727178b4600275224052e5945d70923" id="r_ab727178b4600275224052e5945d70923"><td class="memItemLeft" align="right" valign="top"><a id="ab727178b4600275224052e5945d70923" name="ab727178b4600275224052e5945d70923"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dreal2</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 2 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dreal2</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 2 &gt;</td></tr>
 <tr class="memdesc:ab727178b4600275224052e5945d70923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation with two-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:ab727178b4600275224052e5945d70923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2734801ec33014bcc76d21d1baa5fed9" id="r_a2734801ec33014bcc76d21d1baa5fed9"><td class="memItemLeft" align="right" valign="top"><a id="a2734801ec33014bcc76d21d1baa5fed9" name="a2734801ec33014bcc76d21d1baa5fed9"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dvec2</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 2 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dvec2</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 2 &gt;</td></tr>
 <tr class="memdesc:a2734801ec33014bcc76d21d1baa5fed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation with two-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:a2734801ec33014bcc76d21d1baa5fed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff0a93ad2d7b70c8d514eecb24f0f099" id="r_aff0a93ad2d7b70c8d514eecb24f0f099"><td class="memItemLeft" align="right" valign="top"><a id="aff0a93ad2d7b70c8d514eecb24f0f099" name="aff0a93ad2d7b70c8d514eecb24f0f099"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dreal3</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 3 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dreal3</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 3 &gt;</td></tr>
 <tr class="memdesc:aff0a93ad2d7b70c8d514eecb24f0f099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation with three-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:aff0a93ad2d7b70c8d514eecb24f0f099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf1827a9b056881521d9e6cb4699a270" id="r_adf1827a9b056881521d9e6cb4699a270"><td class="memItemLeft" align="right" valign="top"><a id="adf1827a9b056881521d9e6cb4699a270" name="adf1827a9b056881521d9e6cb4699a270"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dvec3</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 3 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dvec3</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 3 &gt;</td></tr>
 <tr class="memdesc:adf1827a9b056881521d9e6cb4699a270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation with three-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:adf1827a9b056881521d9e6cb4699a270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3055f9e1af6b19a2501c4ad197d84a8b" id="r_a3055f9e1af6b19a2501c4ad197d84a8b"><td class="memItemLeft" align="right" valign="top"><a id="a3055f9e1af6b19a2501c4ad197d84a8b" name="a3055f9e1af6b19a2501c4ad197d84a8b"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dreal4</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 4 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dreal4</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#a04de34623e5bf22418b595f14c2bc9b7">dreal_t</a>&lt; 4 &gt;</td></tr>
 <tr class="memdesc:a3055f9e1af6b19a2501c4ad197d84a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Real type for multivariate automatic differentiation with four-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:a3055f9e1af6b19a2501c4ad197d84a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc232ba1fc81e203db1c935cf73773df" id="r_afc232ba1fc81e203db1c935cf73773df"><td class="memItemLeft" align="right" valign="top"><a id="afc232ba1fc81e203db1c935cf73773df" name="afc232ba1fc81e203db1c935cf73773df"></a>
-<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dvec4</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 4 &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>dvec4</b> = <a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">dvec_t</a>&lt; 4 &gt;</td></tr>
 <tr class="memdesc:afc232ba1fc81e203db1c935cf73773df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector type for multivariate automatic differentiation with four-dimensional statically allocated vectors. <br /></td></tr>
 <tr class="separator:afc232ba1fc81e203db1c935cf73773df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7f11f1d8910570fe74ba30293b593aec" id="r_a7f11f1d8910570fe74ba30293b593aec"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>  = std::function&lt;dual(dual)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a242f5cce004ff2043013419c56ce0ff1">enable_dual_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:a7f11f1d8910570fe74ba30293b593aec"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a7f11f1d8910570fe74ba30293b593aec">deriv</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memitem:a7f11f1d8910570fe74ba30293b593aec" id="r_a7f11f1d8910570fe74ba30293b593aec"><td class="memTemplParams" colspan="2">template&lt;typename DualFunction  = std::function&lt;dual(dual)&gt;, enable_dual_func&lt; DualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a7f11f1d8910570fe74ba30293b593aec"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a7f11f1d8910570fe74ba30293b593aec">deriv</a> (DualFunction f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:a7f11f1d8910570fe74ba30293b593aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivative of a function at the given point using univariate automatic differentiation.  <br /></td></tr>
 <tr class="separator:a7f11f1d8910570fe74ba30293b593aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55789385df53d96638cb5d3451815560" id="r_a55789385df53d96638cb5d3451815560"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>  = std::function&lt;dual(dual)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a242f5cce004ff2043013419c56ce0ff1">enable_dual_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:a55789385df53d96638cb5d3451815560"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a55789385df53d96638cb5d3451815560">deriv</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> f)</td></tr>
+<tr class="memitem:a55789385df53d96638cb5d3451815560" id="r_a55789385df53d96638cb5d3451815560"><td class="memTemplParams" colspan="2">template&lt;typename DualFunction  = std::function&lt;dual(dual)&gt;, enable_dual_func&lt; DualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a55789385df53d96638cb5d3451815560"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a55789385df53d96638cb5d3451815560">deriv</a> (DualFunction f)</td></tr>
 <tr class="memdesc:a55789385df53d96638cb5d3451815560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the derivative of the given function at the given point, using automatic differentiation.  <br /></td></tr>
 <tr class="separator:a55789385df53d96638cb5d3451815560"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d6ec907b99d403a930b6ec6d8ffe8f" id="r_aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>  = std::function&lt;dual2(dual2)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a45ab0587d749d2b377bc861da3d00539">enable_dual2_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aa5d6ec907b99d403a930b6ec6d8ffe8f">deriv2</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
+<tr class="memitem:aa5d6ec907b99d403a930b6ec6d8ffe8f" id="r_aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_dual2_func&lt; Dual2Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aa5d6ec907b99d403a930b6ec6d8ffe8f">deriv2</a> (Dual2Function f, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second derivative of a function at the given point using univariate automatic differentiation.  <br /></td></tr>
 <tr class="separator:aa5d6ec907b99d403a930b6ec6d8ffe8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e387871c7f089a66593fad243c974f" id="r_ac5e387871c7f089a66593fad243c974f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>  = std::function&lt;dual2(dual2)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a45ab0587d749d2b377bc861da3d00539">enable_dual2_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:ac5e387871c7f089a66593fad243c974f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f">deriv2</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> f)</td></tr>
+<tr class="memitem:ac5e387871c7f089a66593fad243c974f" id="r_ac5e387871c7f089a66593fad243c974f"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_dual2_func&lt; Dual2Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:ac5e387871c7f089a66593fad243c974f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f">deriv2</a> (Dual2Function f)</td></tr>
 <tr class="memdesc:ac5e387871c7f089a66593fad243c974f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the second derivative of the given function at the given point, using automatic differentiation.  <br /></td></tr>
 <tr class="separator:ac5e387871c7f089a66593fad243c974f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0" id="r_abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">MultidualType</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;&gt; </td></tr>
-<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#abcc6e5c42e04cfddabb3486b30fa9af0">make_autodiff_arg</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;x)</td></tr>
+<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0" id="r_abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplParams" colspan="2">template&lt;typename MultidualType , typename Vector  = vec&lt;real&gt;&gt; </td></tr>
+<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#abcc6e5c42e04cfddabb3486b30fa9af0">make_autodiff_arg</a> (const Vector &amp;x)</td></tr>
 <tr class="memdesc:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare a vector of multidual numbers in "canonical" form, where the i-th element of the vector has a dual part which is the i-th canonical vector.  <br /></td></tr>
 <tr class="separator:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf379aee57f596b7880992f394364d58" id="r_aaf379aee57f596b7880992f394364d58"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true, <a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:aaf379aee57f596b7880992f394364d58"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58">gradient</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> f, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;x)</td></tr>
+<tr class="memitem:aaf379aee57f596b7880992f394364d58" id="r_aaf379aee57f596b7880992f394364d58"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:aaf379aee57f596b7880992f394364d58"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58">gradient</a> (Function f, const Vector &amp;x)</td></tr>
 <tr class="memdesc:aaf379aee57f596b7880992f394364d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient \(\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\) for a given \(\vec x\) of a scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:aaf379aee57f596b7880992f394364d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8a28a9e5d6bfa90c60bb7e7bda11973" id="r_af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973">gradient</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> f)</td></tr>
+<tr class="memitem:af8a28a9e5d6bfa90c60bb7e7bda11973" id="r_af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memTemplParams" colspan="2">template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973">gradient</a> (Function f)</td></tr>
 <tr class="memdesc:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the gradient \(\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\) of a given scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at \(\vec x\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2" id="r_af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true, <a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af30b57b1eece89b60a2a7ba334d935b2">divergence</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> f, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;x)</td></tr>
+<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2" id="r_af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af30b57b1eece89b60a2a7ba334d935b2">divergence</a> (Function f, const Vector &amp;x)</td></tr>
 <tr class="memdesc:af30b57b1eece89b60a2a7ba334d935b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence \(\sum_i^n \frac{\partial}{\partial x_i} f(\vec x)\) for a given \(\vec x\) of a scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:af30b57b1eece89b60a2a7ba334d935b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e" id="r_a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true&gt; </td></tr>
-<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a3b264676bfd450cb5887a706f6b19f5e">divergence</a> (<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> f)</td></tr>
+<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e" id="r_a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplParams" colspan="2">template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a3b264676bfd450cb5887a706f6b19f5e">divergence</a> (Function f)</td></tr>
 <tr class="memdesc:a3b264676bfd450cb5887a706f6b19f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the divergence of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:a3b264676bfd450cb5887a706f6b19f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a" id="r_ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> M = 0&gt; </td></tr>
-<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ad7686ca48ff9eba424f77154da3d509a">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a> &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
+<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a" id="r_ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, unsigned int M = 0&gt; </td></tr>
+<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ad7686ca48ff9eba424f77154da3d509a">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
 <tr class="memdesc:ad7686ca48ff9eba424f77154da3d509a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the jacobian of a vector field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\).  <br /></td></tr>
 <tr class="separator:ad7686ca48ff9eba424f77154da3d509a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535" id="r_a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> M = 0&gt; </td></tr>
-<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a42ec261a909d2db46560e1a29eb9e535">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a> &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
+<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535" id="r_a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, unsigned int M = 0&gt; </td></tr>
+<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a42ec261a909d2db46560e1a29eb9e535">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
 <tr class="memdesc:a42ec261a909d2db46560e1a29eb9e535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the jacobian of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\) for a given $\vec x$.  <br /></td></tr>
 <tr class="separator:a42ec261a909d2db46560e1a29eb9e535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f3319ac64bde3462395369acd10e28" id="r_a28f3319ac64bde3462395369acd10e28"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a28f3319ac64bde3462395369acd10e28"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a28f3319ac64bde3462395369acd10e28">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
+<tr class="memitem:a28f3319ac64bde3462395369acd10e28" id="r_a28f3319ac64bde3462395369acd10e28"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a28f3319ac64bde3462395369acd10e28"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a28f3319ac64bde3462395369acd10e28">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
 <tr class="memdesc:a28f3319ac64bde3462395369acd10e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:a28f3319ac64bde3462395369acd10e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1" id="r_ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
+<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1" id="r_ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
 <tr class="memdesc:ab9683ba266b85535eebe0fd3319c7da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:ab9683ba266b85535eebe0fd3319c7da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1" id="r_a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a8277dab871d580c39d3bf7bad69f38a1">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
+<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1" id="r_a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a8277dab871d580c39d3bf7bad69f38a1">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
 <tr class="memdesc:a8277dab871d580c39d3bf7bad69f38a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <br /></td></tr>
 <tr class="separator:a8277dab871d580c39d3bf7bad69f38a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf" id="r_a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a0125dcd72238d5284fefe2f7dd0bfddf">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
+<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf" id="r_a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a0125dcd72238d5284fefe2f7dd0bfddf">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
 <tr class="memdesc:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <br /></td></tr>
 <tr class="separator:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee" id="r_a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a889bd5fc09e6e1f6ebb81a6b3fd79bee">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;), <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
+<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee" id="r_a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a889bd5fc09e6e1f6ebb81a6b3fd79bee">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
 <tr class="memdesc:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
 <tr class="separator:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23" id="r_a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a93a3f53e75aa368e0001da36d441cb23">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;))</td></tr>
+<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23" id="r_a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a93a3f53e75aa368e0001da36d441cb23">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;))</td></tr>
 <tr class="memdesc:a93a3f53e75aa368e0001da36d441cb23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
 <tr class="separator:a93a3f53e75aa368e0001da36d441cb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527" id="r_a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </td></tr>
-<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a5a73fffe1203263616b44d8a9b00b527">sturm_liouville</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">H</a>)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">eta</a>)</td></tr>
+<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527" id="r_a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
+<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a5a73fffe1203263616b44d8a9b00b527">sturm_liouville</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*H)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; eta)</td></tr>
 <tr class="memdesc:a5a73fffe1203263616b44d8a9b00b527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Sturm-Liouville operator on a generic function of the form \(f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) with respect to a given Hamiltonian function of the form \(H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) where the first N arguments are the coordinates in phase space and the last N arguments are the conjugate momenta, for a given point in phase space.  <br /></td></tr>
 <tr class="separator:a5a73fffe1203263616b44d8a9b00b527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -291,13 +284,13 @@ Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::curl </td>
+          <td class="memname">auto theoretica::autodiff::curl </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
@@ -328,7 +321,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -342,7 +335,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -376,15 +369,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>  = std::function&lt;dual(dual)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a242f5cce004ff2043013419c56ce0ff1">enable_dual_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> &gt;  = true&gt; </div>
+template&lt;typename DualFunction  = std::function&lt;dual(dual)&gt;, enable_dual_func&lt; DualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::deriv </td>
+          <td class="memname">auto theoretica::autodiff::deriv </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>&#160;</td>
+          <td class="paramtype">DualFunction&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -413,7 +406,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>  = std::function&lt;dual(dual)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a242f5cce004ff2043013419c56ce0ff1">enable_dual_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a> &gt;  = true&gt; </div>
+template&lt;typename DualFunction  = std::function&lt;dual(dual)&gt;, enable_dual_func&lt; DualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -421,7 +414,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::deriv </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">DualFunction</a>&#160;</td>
+          <td class="paramtype">DualFunction&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
@@ -461,15 +454,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>  = std::function&lt;dual2(dual2)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a45ab0587d749d2b377bc861da3d00539">enable_dual2_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> &gt;  = true&gt; </div>
+template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_dual2_func&lt; Dual2Function &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::deriv2 </td>
+          <td class="memname">auto theoretica::autodiff::deriv2 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>&#160;</td>
+          <td class="paramtype">Dual2Function&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -498,7 +491,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>  = std::function&lt;dual2(dual2)&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a45ab0587d749d2b377bc861da3d00539">enable_dual2_func</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a> &gt;  = true&gt; </div>
+template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_dual2_func&lt; Dual2Function &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -506,7 +499,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::deriv2 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Dual2Function</a>&#160;</td>
+          <td class="paramtype">Dual2Function&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
@@ -546,13 +539,13 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::directional_derivative </td>
+          <td class="memname">auto theoretica::autodiff::directional_derivative </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
           <td class="paramname"><em>f</em>, </td>
@@ -560,7 +553,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -603,7 +596,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -617,13 +610,13 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -667,15 +660,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true&gt; </div>
+template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::divergence </td>
+          <td class="memname">auto theoretica::autodiff::divergence </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>&#160;</td>
+          <td class="paramtype">Function&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -705,7 +698,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true, <a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &gt;  = true&gt; </div>
+template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -713,13 +706,13 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::divergence </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>&#160;</td>
+          <td class="paramtype">Function&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -754,15 +747,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true&gt; </div>
+template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::gradient </td>
+          <td class="memname">auto theoretica::autodiff::gradient </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>&#160;</td>
+          <td class="paramtype">Function&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -792,21 +785,21 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;, <a class="el" href="namespacetheoretica_1_1autodiff.html#a51f164ad9d8ce709f2fef7e22e04f794">enable_scalar_field</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a> &gt;  = true, <a class="el" href="namespacetheoretica.html#a746b3f92213a0d6340e98b850cacdeb9">enable_vector</a>&lt; <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &gt;  = true&gt; </div>
+template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::gradient </td>
+          <td class="memname">auto theoretica::autodiff::gradient </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Function</a>&#160;</td>
+          <td class="paramtype">Function&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -841,15 +834,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> M = 0&gt; </div>
+template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::jacobian </td>
+          <td class="memname">auto theoretica::autodiff::jacobian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a> &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -878,21 +871,21 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> M = 0&gt; </div>
+template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a>, N &gt; theoretica::autodiff::jacobian </td>
+          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, N &gt; theoretica::autodiff::jacobian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">M</a> &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -926,13 +919,13 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::laplacian </td>
+          <td class="memname">auto theoretica::autodiff::laplacian </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;)&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
@@ -963,7 +956,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -977,7 +970,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -1011,15 +1004,15 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">MultidualType</a> , <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">typename</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a>  = vec&lt;real&gt;&gt; </div>
+template&lt;typename MultidualType , typename Vector  = vec&lt;real&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">auto</a> theoretica::autodiff::make_autodiff_arg </td>
+          <td class="memname">auto theoretica::autodiff::make_autodiff_arg </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">const</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">Vector</a> &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1042,7 +1035,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">unsigned</a> <a class="el" href="namespacetheoretica.html#a337913497bb9febc8e931920c4da3dd9">int</a> N = 0&gt; </div>
+template&lt;unsigned int N = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1096,7 +1089,7 @@ template&lt;<a class="el" href="namespacetheoretica.html#a337913497bb9febc8e9319
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1autodiff.html">autodiff</a></li>
-    <li class="footer">Generated on Wed Apr 30 2025 14:45:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Apr 30 2025 14:51:07 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

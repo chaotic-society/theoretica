@@ -15,12 +15,5 @@ var autodiff__types_8h =
     [ "dvec2", "autodiff__types_8h.html#a2734801ec33014bcc76d21d1baa5fed9", null ],
     [ "dvec3", "autodiff__types_8h.html#adf1827a9b056881521d9e6cb4699a270", null ],
     [ "dvec4", "autodiff__types_8h.html#afc232ba1fc81e203db1c935cf73773df", null ],
-    [ "dvec_t", "autodiff__types_8h.html#abdc7bdd230700601e24de68a05d7ec08", null ],
-    [ "enable_dual2_func", "autodiff__types_8h.html#a45ab0587d749d2b377bc861da3d00539", null ],
-    [ "enable_dual_func", "autodiff__types_8h.html#a242f5cce004ff2043013419c56ce0ff1", null ],
-    [ "enable_multidual", "autodiff__types_8h.html#ad402f57cd1c7e6e2ce22bf7ba16d8966", null ],
-    [ "enable_scalar_field", "autodiff__types_8h.html#a51f164ad9d8ce709f2fef7e22e04f794", null ],
-    [ "enable_vector_field", "autodiff__types_8h.html#ac151e8d74c0ead137833933eeaf94206", null ],
-    [ "is_dual2_func", "autodiff__types_8h.html#aeb0e9c2d5268a320dcfad6dbfb9b49f8", null ],
-    [ "is_dual_func", "autodiff__types_8h.html#a852ba15fc3c20f4a43226d27ec6c8fac", null ]
+    [ "dvec_t", "autodiff__types_8h.html#abdc7bdd230700601e24de68a05d7ec08", null ]
 ];
