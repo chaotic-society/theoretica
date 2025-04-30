@@ -65,12 +65,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1phasor.html#a05ad3aba2253f74949fb94882ccfd832",
 "classtheoretica_1_1ratio.html#abaf51b92e75d13b96123770288396b1b",
 "constants_8h.html#a372d072243b6c7c42db84d5debef1924",
-"extrema_8h.html#a4e122e9c54b7f36043851a702fb7e79a",
-"namespacetheoretica.html#a1373c528867e33024d2975dfa7c41ca4",
-"namespacetheoretica.html#ab3e5e8380097d9ad25a51413bcb244d3",
-"namespacetheoretica_1_1autodiff.html#a42ec261a909d2db46560e1a29eb9e535",
-"prng_8h.html#a8679d2642c8820e78e33f7aa3294f7eb",
-"structtheoretica_1_1is__vector_3_01_structure_00_01__internal_1_1void__t_3_01decltype_07std_1_1deff424bfb078b2dba726f0fba11ce5f9.html"
+"fft_8h_source.html",
+"namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee",
+"namespacetheoretica.html#ac1d4be50bf77c6b368c94bb627305224",
+"namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f",
+"quasirandom_8h.html#aa7e523c1cc3621e7cbc1ac0df01913c3",
+"structtheoretica_1_1pdf__sampler.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
