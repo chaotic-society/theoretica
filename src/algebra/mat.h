@@ -190,7 +190,7 @@ namespace theoretica {
 
 				for (const auto& x : row) {
 					
-					at(i, j) = x;
+					get(i, j) = x;
 					j = (j + 1) % K;
 				}
 
@@ -215,7 +215,7 @@ namespace theoretica {
 			const unsigned int m = min(n, k);
 
 			for (unsigned int i = 0; i < m; ++i)
-				at(i, i) = diagonal;
+				get(i, i) = diagonal;
 		}
 
 
@@ -226,12 +226,6 @@ namespace theoretica {
 		template<typename Matrix>
 		inline mat<Type, N, K>& operator=(const Matrix& other) {
 			return algebra::mat_copy(*this, other);
-		}
-
-
-		/// Sets all elements of the matrix to zero.
-		inline void make_zeroes() {
-			algebra::mat_zeroes(*this);
 		}
 
 
@@ -463,64 +457,98 @@ namespace theoretica {
 			return algebra::make_transposed(*this);
 		}
 
+
+		/// Access the element at the given row and column, by reference.
+		/// This is equivalent to using (i, j).
+		/// @param i The row index.
+		/// @param j The column index.
+		/// @return A reference to the element at position (i, j).
+		inline Type& get(unsigned int i, unsigned int j) {
+
+#ifdef THEORETICA_ROW_FIRST
+			return data[i][j];
+#else
+			return data[j][i];
+#endif
+		}
+
+
+		/// Get the element at the given row and column.
+		/// This is equivalent to using (i, j).
+		/// @param i The row index.
+		/// @param j The column index.
+		/// @return The element at position (i, j) as a constant reference.
+		inline const Type& get(unsigned int i, unsigned int j) const {
+
+#ifdef THEORETICA_ROW_FIRST
+			return data[i][j];
+#else
+			return data[j][i];
+#endif
+		}
+
 	
-		/// Accesses the element at the given row and column.
+		/// Accesses the element at the given row and column with bound checking.
+		/// Throws an std::out_of_range exception if the indices are out of bounds.
 		/// @param i The row index.
 		/// @param j The column index.
 		/// @return A reference to the element at position (i, j).
 		inline Type& at(unsigned int i, unsigned int j) {
 
-#ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
-#else
-			return data[j][i];
-#endif
+			if (i >= rows()) {
+				throw std::out_of_range(
+					"The provided row index in mat::at() is out of range"
+				);
+			}
+
+			if (j >= cols()) {
+				throw std::out_of_range(
+					"The provided column index in mat::at() is out of range"
+				);
+			}
+
+			return get(i, j);
 		}
 
 
-		/// Accesses the element at the given row and column.
+		/// Accesses the element at the given row and column with bound checking.
+		/// Throws an std::out_of_range exception if the indices are out of bounds.
 		/// @param i The row index.
 		/// @param j The column index.
 		/// @return A constant reference to the element at position (i, j).
 		inline const Type& at(unsigned int i, unsigned int j) const {
 
-#ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
-#else
-			return data[j][i];
-#endif
+			if (i >= rows()) {
+				throw std::out_of_range(
+					"The provided row index in mat::at() is out of range"
+				);
+			}
+
+			if (j >= cols()) {
+				throw std::out_of_range(
+					"The provided column index in mat::at() is out of range"
+				);
+			}
+
+			return get(i, j);
 		}
 
 
-		/// Overloads the `()` operator to access an element.
+		/// Overloads the `()` operator to access an element by reference.
 		/// @param i The row index.
 		/// @param j The column index.
 		/// @return A reference to the element at position (i, j).
 		inline Type& operator()(unsigned int i, unsigned int j) {
-			return at(i, j);
+			return get(i, j);
 		}
 
 
-		/// Overloads the `()` operator to access an element.
+		/// Overloads the `()` operator to access an element by value.
 		/// @param i The row index.
 		/// @param j The column index.
 		/// @return A constant reference to the element at position (i, j).
 		inline const Type& operator()(unsigned int i, unsigned int j) const {
-			return at(i, j);
-		}
-
-
-		/// Gets the element at the specified row and column.
-		/// @param i The row index.
-		/// @param j The column index.
-		/// @return A copy of the element at position (i, j).
-		inline Type get(unsigned int i, unsigned int j) const {
-
-#ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
-#else
-			return data[j][i];
-#endif
+			return get(i, j);
 		}
 
 
@@ -750,7 +778,7 @@ namespace theoretica {
 						return;
 					}
 
-					at(i, j) = x;
+					get(i, j) = x;
 					j = (j + 1) % col_sz;
 				}
 
@@ -780,7 +808,7 @@ namespace theoretica {
 			const unsigned int m = min(n, k);
 
 			for (unsigned int i = 0; i < m; ++i)
-				at(i, i) = diagonal;
+				get(i, i) = diagonal;
 		}
 
 
@@ -1057,6 +1085,36 @@ namespace theoretica {
 		}
 
 
+		/// Access the element at the given row and column, by reference.
+		/// This is equivalent to using (i, j).
+		/// @param i The row index.
+		/// @param j The column index.
+		/// @return A reference to the element at position (i, j).
+		inline Type& get(unsigned int i, unsigned int j) {
+
+#ifdef THEORETICA_ROW_FIRST
+			return data[j + i * row_sz];
+#else
+			return data[i + j * col_sz];
+#endif
+		}
+
+
+		/// Get the element at the given row and column.
+		/// This is equivalent to using (i, j).
+		/// @param i The row index.
+		/// @param j The column index.
+		/// @return The element at position (i, j) as a constant reference.
+		inline const Type& get(unsigned int i, unsigned int j) const {
+
+#ifdef THEORETICA_ROW_FIRST
+			return data[j + i * row_sz];
+#else
+			return data[i + j * col_sz];
+#endif
+		}
+
+
 		/// Access a modifiable element at a specific row and column.
 		/// @param i The row index.
 		/// @param j The column index.
@@ -1065,11 +1123,19 @@ namespace theoretica {
 		/// Provides modifiable access to the matrix element at row `i` and column `j`.
 		inline Type& at(unsigned int i, unsigned int j) {
 
-#ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
-#else
-			return data[i + j * col_sz];
-#endif
+			if (i >= rows()) {
+				throw std::out_of_range(
+					"The provided row index in mat::at() is out of range"
+				);
+			}
+
+			if (j >= cols()) {
+				throw std::out_of_range(
+					"The provided column index in mat::at() is out of range"
+				);
+			}
+
+			return get(i, j);
 		}
 
 
@@ -1081,11 +1147,19 @@ namespace theoretica {
 		/// Provides constant access to the matrix element at row `i` and column `j`.
 		inline const Type& at(unsigned int i, unsigned int j) const {
 
-#ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
-#else
-			return data[i + j * col_sz];
-#endif
+			if (i >= rows()) {
+				throw std::out_of_range(
+					"The provided row index in mat::at() is out of range"
+				);
+			}
+
+			if (j >= cols()) {
+				throw std::out_of_range(
+					"The provided column index in mat::at() is out of range"
+				);
+			}
+
+			return get(i, j);
 		}
 
 
@@ -1097,7 +1171,7 @@ namespace theoretica {
 		/// This overload allows accessing matrix elements using the function call syntax,
 		/// enabling expressions like `matrix(i, j)`.
 		inline Type& operator()(unsigned int i, unsigned int j) {
-			return at(i, j);
+			return get(i, j);
 		}
 
 
@@ -1109,18 +1183,7 @@ namespace theoretica {
 		/// This overload allows accessing matrix elements using the function call syntax
 		/// in a constant context, enabling expressions like `matrix(i, j)`.
 		inline const Type& operator()(unsigned int i, unsigned int j) const {
-			return at(i, j);
-		}
-
-
-		/// Get a copy of the element at a specific row and column.
-		/// @param i The row index.
-		/// @param j The column index.
-		/// @return The value of the element at the specified position.
-		///
-		/// Returns a copy of the matrix element at the specified row and column indices.
-		inline Type get(unsigned int i, unsigned int j) const {
-			return at(i, j);
+			return get(i, j);
 		}
 
 
@@ -1187,8 +1250,7 @@ namespace theoretica {
 		}
 
 
-		/// Get the total number of elements of the matrix
-		/// (rows * columns)
+		/// Get the total number of elements of the matrix, equal to (rows * columns).
 		/// @return The total number of elements in the matrix.
 		inline unsigned int size() const {
 			return rows() * cols();
