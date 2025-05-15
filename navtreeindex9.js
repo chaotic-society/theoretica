@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"namespacetheoretica_1_1stats.html#a1c169cdd82273fc892ed678c33d98582":[0,0,1,8,24],
+"namespacetheoretica_1_1stats.html#a205cd572d1aa0baecdcd77425dab5560":[0,0,1,8,28],
 "namespacetheoretica_1_1stats.html#a2ca8623e22dedb09c3707c9642ca119a":[0,0,1,8,14],
 "namespacetheoretica_1_1stats.html#a2cb8ca58fcf503d0322ca86bc45b3c3d":[0,0,1,8,1],
 "namespacetheoretica_1_1stats.html#a441c1b983a4cda263aedc3562178afe2":[0,0,1,8,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "sampling_8h.html#aad2c1865b7a5639ed82643a069554e3d":[2,0,8,4,12],
 "sampling_8h.html#ac34a4b6660c0287dc6dfa979a2f83002":[2,0,8,4,5],
 "sampling_8h.html#ac8bdf0dc89459fedaf6950c0f9b96df5":[2,0,8,4,17],
-"sampling_8h.html#ac91dfc5efe4fa412bd7ef46f142f7045":[2,0,8,4,3],
-"sampling_8h.html#accbe6df09ae3883660614f02f70a2ade":[2,0,8,4,25],
-"sampling_8h.html#ad7e77a1836e1b966cdbb0934d5ebbbf2":[2,0,8,4,26]
+"sampling_8h.html#ac91dfc5efe4fa412bd7ef46f142f7045":[2,0,8,4,3]
 };

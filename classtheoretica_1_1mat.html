@@ -144,10 +144,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b2007b60b46e7ff490dd4a9871e2ebd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; Type, N, K &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a0b2007b60b46e7ff490dd4a9871e2ebd">operator=</a> (const Matrix &amp;other)</td></tr>
 <tr class="memdesc:a0b2007b60b46e7ff490dd4a9871e2ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator to copy from another matrix.  <br /></td></tr>
 <tr class="separator:a0b2007b60b46e7ff490dd4a9871e2ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26cb03dd8ebfe872f4bbdd121d52b1e0" id="r_a26cb03dd8ebfe872f4bbdd121d52b1e0"><td class="memItemLeft" align="right" valign="top"><a id="a26cb03dd8ebfe872f4bbdd121d52b1e0" name="a26cb03dd8ebfe872f4bbdd121d52b1e0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>make_zeroes</b> ()</td></tr>
-<tr class="memdesc:a26cb03dd8ebfe872f4bbdd121d52b1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all elements of the matrix to zero. <br /></td></tr>
-<tr class="separator:a26cb03dd8ebfe872f4bbdd121d52b1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a050b931897c54e654685c99e8fec4ef0" id="r_a050b931897c54e654685c99e8fec4ef0"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a050b931897c54e654685c99e8fec4ef0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; Type, N, K &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a050b931897c54e654685c99e8fec4ef0">operator+</a> (const Matrix &amp;other) const</td></tr>
 <tr class="memdesc:a050b931897c54e654685c99e8fec4ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix addition.  <br /></td></tr>
@@ -205,21 +201,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>make_zeroes</b> ()</t
 <tr class="memitem:a742b71e14e3af6ef2aecd4b9c0eb1d81" id="r_a742b71e14e3af6ef2aecd4b9c0eb1d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; Type, N, K &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a742b71e14e3af6ef2aecd4b9c0eb1d81">transpose</a> ()</td></tr>
 <tr class="memdesc:a742b71e14e3af6ef2aecd4b9c0eb1d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the matrix in place.  <br /></td></tr>
 <tr class="separator:a742b71e14e3af6ef2aecd4b9c0eb1d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8117e4c5a766c6e5a02606a27f954c1b" id="r_a8117e4c5a766c6e5a02606a27f954c1b"><td class="memItemLeft" align="right" valign="top">Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a8117e4c5a766c6e5a02606a27f954c1b">get</a> (unsigned int i, unsigned int j)</td></tr>
+<tr class="memdesc:a8117e4c5a766c6e5a02606a27f954c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the element at the given row and column, by reference.  <br /></td></tr>
+<tr class="separator:a8117e4c5a766c6e5a02606a27f954c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e4bb478de78dec14d6d81db97acf70" id="r_a11e4bb478de78dec14d6d81db97acf70"><td class="memItemLeft" align="right" valign="top">const Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a11e4bb478de78dec14d6d81db97acf70">get</a> (unsigned int i, unsigned int j) const</td></tr>
+<tr class="memdesc:a11e4bb478de78dec14d6d81db97acf70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the element at the given row and column.  <br /></td></tr>
+<tr class="separator:a11e4bb478de78dec14d6d81db97acf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b1418c79572db4885a089999a0cdd60" id="r_a7b1418c79572db4885a089999a0cdd60"><td class="memItemLeft" align="right" valign="top">Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a7b1418c79572db4885a089999a0cdd60">at</a> (unsigned int i, unsigned int j)</td></tr>
-<tr class="memdesc:a7b1418c79572db4885a089999a0cdd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element at the given row and column.  <br /></td></tr>
+<tr class="memdesc:a7b1418c79572db4885a089999a0cdd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element at the given row and column with bound checking.  <br /></td></tr>
 <tr class="separator:a7b1418c79572db4885a089999a0cdd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5b1fb7b696cdea4e3f49fae760c339" id="r_acd5b1fb7b696cdea4e3f49fae760c339"><td class="memItemLeft" align="right" valign="top">const Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#acd5b1fb7b696cdea4e3f49fae760c339">at</a> (unsigned int i, unsigned int j) const</td></tr>
-<tr class="memdesc:acd5b1fb7b696cdea4e3f49fae760c339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element at the given row and column.  <br /></td></tr>
+<tr class="memdesc:acd5b1fb7b696cdea4e3f49fae760c339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element at the given row and column with bound checking.  <br /></td></tr>
 <tr class="separator:acd5b1fb7b696cdea4e3f49fae760c339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af20f3d5cec2114c865d1e6cbac93b9fd" id="r_af20f3d5cec2114c865d1e6cbac93b9fd"><td class="memItemLeft" align="right" valign="top">Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#af20f3d5cec2114c865d1e6cbac93b9fd">operator()</a> (unsigned int i, unsigned int j)</td></tr>
-<tr class="memdesc:af20f3d5cec2114c865d1e6cbac93b9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>()</code> operator to access an element.  <br /></td></tr>
+<tr class="memdesc:af20f3d5cec2114c865d1e6cbac93b9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>()</code> operator to access an element by reference.  <br /></td></tr>
 <tr class="separator:af20f3d5cec2114c865d1e6cbac93b9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae30c4ab0ed9d6e9314ee87d055545250" id="r_ae30c4ab0ed9d6e9314ee87d055545250"><td class="memItemLeft" align="right" valign="top">const Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#ae30c4ab0ed9d6e9314ee87d055545250">operator()</a> (unsigned int i, unsigned int j) const</td></tr>
-<tr class="memdesc:ae30c4ab0ed9d6e9314ee87d055545250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>()</code> operator to access an element.  <br /></td></tr>
+<tr class="memdesc:ae30c4ab0ed9d6e9314ee87d055545250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the <code>()</code> operator to access an element by value.  <br /></td></tr>
 <tr class="separator:ae30c4ab0ed9d6e9314ee87d055545250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35c717d5bd87070d9b0813c431e83bef" id="r_a35c717d5bd87070d9b0813c431e83bef"><td class="memItemLeft" align="right" valign="top">Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#a35c717d5bd87070d9b0813c431e83bef">get</a> (unsigned int i, unsigned int j) const</td></tr>
-<tr class="memdesc:a35c717d5bd87070d9b0813c431e83bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the element at the specified row and column.  <br /></td></tr>
-<tr class="separator:a35c717d5bd87070d9b0813c431e83bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe41380064ddcea033d2dd7fb406929a" id="r_afe41380064ddcea033d2dd7fb406929a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat.html#afe41380064ddcea033d2dd7fb406929a">begin</a> ()</td></tr>
 <tr class="memdesc:afe41380064ddcea033d2dd7fb406929a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the first element of the matrix.  <br /></td></tr>
 <tr class="separator:afe41380064ddcea033d2dd7fb406929a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -500,8 +499,8 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </table>
 </div><div class="memdoc">
 
-<p>Accesses the element at the given row and column. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Accesses the element at the given row and column with bound checking. </p>
+<p>Throws an std::out_of_range exception if the indices are out of bounds. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The row index. </td></tr>
     <tr><td class="paramname">j</td><td>The column index. </td></tr>
@@ -548,8 +547,8 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </table>
 </div><div class="memdoc">
 
-<p>Accesses the element at the given row and column. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Accesses the element at the given row and column with bound checking. </p>
+<p>Throws an std::out_of_range exception if the indices are out of bounds. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The row index. </td></tr>
     <tr><td class="paramname">j</td><td>The column index. </td></tr>
@@ -710,8 +709,8 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 
 </div>
 </div>
-<a id="a35c717d5bd87070d9b0813c431e83bef" name="a35c717d5bd87070d9b0813c431e83bef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35c717d5bd87070d9b0813c431e83bef">&#9670;&#160;</a></span>get()</h2>
+<a id="a8117e4c5a766c6e5a02606a27f954c1b" name="a8117e4c5a766c6e5a02606a27f954c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8117e4c5a766c6e5a02606a27f954c1b">&#9670;&#160;</a></span>get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -722,7 +721,55 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Type <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, N, K &gt;::get </td>
+          <td class="memname">Type &amp; <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, N, K &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access the element at the given row and column, by reference. </p>
+<p>This is equivalent to using (i, j). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The row index. </td></tr>
+    <tr><td class="paramname">j</td><td>The column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the element at position (i, j). </dd></dl>
+
+</div>
+</div>
+<a id="a11e4bb478de78dec14d6d81db97acf70" name="a11e4bb478de78dec14d6d81db97acf70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e4bb478de78dec14d6d81db97acf70">&#9670;&#160;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Type &amp; <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, N, K &gt;::get </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>i</em>, </td>
@@ -746,15 +793,15 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </table>
 </div><div class="memdoc">
 
-<p>Gets the element at the specified row and column. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Get the element at the given row and column. </p>
+<p>This is equivalent to using (i, j). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The row index. </td></tr>
     <tr><td class="paramname">j</td><td>The column index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A copy of the element at position (i, j). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The element at position (i, j) as a constant reference. </dd></dl>
 
 </div>
 </div>
@@ -961,7 +1008,7 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </table>
 </div><div class="memdoc">
 
-<p>Overloads the <code>()</code> operator to access an element. </p>
+<p>Overloads the <code>()</code> operator to access an element by reference. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The row index. </td></tr>
@@ -1009,7 +1056,7 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 </table>
 </div><div class="memdoc">
 
-<p>Overloads the <code>()</code> operator to access an element. </p>
+<p>Overloads the <code>()</code> operator to access an element by value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The row index. </td></tr>
@@ -1994,7 +2041,7 @@ template&lt;typename Type  = real, unsigned int N = 0, unsigned int K = 0&gt; </
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat.html">mat</a></li>
-    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 16:26:45 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

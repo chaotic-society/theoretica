@@ -415,10 +415,10 @@ $(document).ready(function(){initNavTree('dual_8h_source.html',''); initResizabl
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="classtheoretica_1_1dual.html#a6998d2b449df122d6dac20a8bebe7dc5">  279</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classtheoretica_1_1mat.html">mat2</a> <a class="code hl_function" href="classtheoretica_1_1dual.html#a6998d2b449df122d6dac20a8bebe7dc5">to_mat</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <a class="code hl_class" href="classtheoretica_1_1mat.html">mat2</a> m;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                m.<a class="code hl_function" href="classtheoretica_1_1mat.html#a7b1418c79572db4885a089999a0cdd60">at</a>(0, 0) = a;</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                m.at(1, 0) = 0;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                m.at(0, 1) = b;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                m.at(1, 1) = a;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                m(0, 0) = a;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                m(1, 0) = 0;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                m(0, 1) = b;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                m(1, 1) = a;</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                <span class="keywordflow">return</span> m;</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            }</div>
 </div>
@@ -525,7 +525,6 @@ $(document).ready(function(){initNavTree('dual_8h_source.html',''); initResizabl
 <div class="ttc" id="aclasstheoretica_1_1dual_html_adb84944b653159380892d1bf9b058650"><div class="ttname"><a href="classtheoretica_1_1dual.html#adb84944b653159380892d1bf9b058650">theoretica::dual::operator/=</a></div><div class="ttdeci">dual &amp; operator/=(real r)</div><div class="ttdoc">Divide a dual number by a real number.</div><div class="ttdef"><b>Definition</b> dual.h:240</div></div>
 <div class="ttc" id="aclasstheoretica_1_1dual_html_afbf37f429239a3987afe5bd05a16225e"><div class="ttname"><a href="classtheoretica_1_1dual.html#afbf37f429239a3987afe5bd05a16225e">theoretica::dual::operator-=</a></div><div class="ttdeci">dual &amp; operator-=(const dual &amp;other)</div><div class="ttdoc">Subtract a real number from this one.</div><div class="ttdef"><b>Definition</b> dual.h:201</div></div>
 <div class="ttc" id="aclasstheoretica_1_1mat_html"><div class="ttname"><a href="classtheoretica_1_1mat.html">theoretica::mat&lt; real, 2, 2 &gt;</a></div></div>
-<div class="ttc" id="aclasstheoretica_1_1mat_html_a7b1418c79572db4885a089999a0cdd60"><div class="ttname"><a href="classtheoretica_1_1mat.html#a7b1418c79572db4885a089999a0cdd60">theoretica::mat::at</a></div><div class="ttdeci">Type &amp; at(unsigned int i, unsigned int j)</div><div class="ttdoc">Accesses the element at the given row and column.</div><div class="ttdef"><b>Definition</b> mat.h:471</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition</b> error.h:225</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition</b> constants.h:198</div></div>
@@ -539,7 +538,7 @@ $(document).ready(function(){initNavTree('dual_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f14c1ec6b1b681afe4f813df7a6aad99.html">autodiff</a></li><li class="navelem"><a class="el" href="dual_8h.html">dual.h</a></li>
-    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 16:26:45 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

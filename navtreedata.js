@@ -60,15 +60,15 @@ var NAVTREEINDEX =
 [
 "algebra_8h.html",
 "classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
-"classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc",
-"classtheoretica_1_1phasor.html#a0d4254d619edb4e6cd560f44bdd7aa85",
-"classtheoretica_1_1ratio.html#ac3ff41a5f452c7e402e72e960fb4699b",
-"dir_3628a51508f49ff79e676473537f3cb3.html",
-"montecarlo_8h.html#a11c69bea27399e4d430e877b538ce777",
-"namespacetheoretica.html#a6ae6ab14a39d6132b6858934dadaaf3e",
-"namespacetheoretica_1_1algebra.html#a0ec28ec5a0ac0dc055108a9d37fd5326",
-"namespacetheoretica_1_1stats.html#a2ca8623e22dedb09c3707c9642ca119a",
-"sampling_8h.html#ada12d3bc9842b85e97e14f0eb975e132"
+"classtheoretica_1_1mat.html#a7636d12345cdbe82eb4e6cb7dde1b984",
+"classtheoretica_1_1phasor.html#a05ad3aba2253f74949fb94882ccfd832",
+"classtheoretica_1_1ratio.html#abaf51b92e75d13b96123770288396b1b",
+"deriv_8h.html#ae231f0ed7d65026e95d86dad20498113",
+"montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28",
+"namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde",
+"namespacetheoretica_1_1algebra.html#a0e0fb9692dbe481cc96fc7dea38f5fc5",
+"namespacetheoretica_1_1stats.html#a1c169cdd82273fc892ed678c33d98582",
+"sampling_8h.html#accbe6df09ae3883660614f02f70a2ade"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
