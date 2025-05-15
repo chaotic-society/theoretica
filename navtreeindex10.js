@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"sampling_8h.html#ada12d3bc9842b85e97e14f0eb975e132":[2,0,8,4,6],
+"sampling_8h.html#ae66a655f57ef0f6e436dfc03e800585b":[2,0,8,4,20],
 "sampling_8h.html#af2b8d1fc98c8429d4b342e860cab6ed1":[2,0,8,4,16],
 "sampling_8h_source.html":[2,0,8,4],
 "special_8h.html":[2,0,4,8],

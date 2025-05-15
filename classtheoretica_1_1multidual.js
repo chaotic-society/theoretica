@@ -6,6 +6,8 @@ var classtheoretica_1_1multidual =
     [ "conjugate", "classtheoretica_1_1multidual.html#aeebcdca3f57a9f6f15f31b6638dbf55c", null ],
     [ "Dual", "classtheoretica_1_1multidual.html#a827c05aad337c92deedaa57ef138b58e", null ],
     [ "Dual", "classtheoretica_1_1multidual.html#a9fd0e82025184b4a165b483b9bf64cb6", null ],
+    [ "Dual", "classtheoretica_1_1multidual.html#a0eb16280926e5e07a0b4c08d471502f3", null ],
+    [ "Dual", "classtheoretica_1_1multidual.html#a3488b0d8191dcf611cbbc5e7d804bdf4", null ],
     [ "inverse", "classtheoretica_1_1multidual.html#abff404cfd9e0d9e7faa85c0a807183b9", null ],
     [ "operator std::string", "classtheoretica_1_1multidual.html#a87acbbe4cdd77f45947caa308e384096", null ],
     [ "operator*", "classtheoretica_1_1multidual.html#a45c62574dbf774c8a658b7db985d70a6", null ],

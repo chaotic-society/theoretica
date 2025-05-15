@@ -134,8 +134,8 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment">// Check that all x_i are different to prevent</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">// division by zero</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; points.size() - 1; ++i) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">if</span>(points[i].get(0) == points[i + 1].get(0)) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;lagrange_polynomial&quot;</span>, points[i].get(0), INVALID_ARGUMENT);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">if</span>(points[i][0] == points[i + 1][0]) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;lagrange_polynomial&quot;</span>, points[i][0], INVALID_ARGUMENT);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                <span class="keywordflow">return</span> polynomial&lt;T&gt;({T(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())});</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
@@ -155,12 +155,12 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="comment">// l_j = product(x - x_m / x_j - x_m)</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                l_j *= polynomial&lt;T&gt;({-points[m].get(0), 1});</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                l_j /= points[j].get(0) - points[m].get(0);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                l_j *= polynomial&lt;T&gt;({-points[m][0], 1});</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                l_j /= points[j][0] - points[m][0];</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            }</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="comment">// L = sum(y_j * l_j)</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            l_j *= points[j].get(1);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            l_j *= points[j][1];</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            L += l_j;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
@@ -238,7 +238,7 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5596f951296b42de5afea2209fd56ea2.html">interpolation</a></li><li class="navelem"><a class="el" href="interpolation_2polynomial_8h.html">polynomial.h</a></li>
-    <li class="footer">Generated on Thu May 1 2025 15:30:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

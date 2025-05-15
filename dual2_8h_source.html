@@ -154,17 +154,17 @@ $(document).ready(function(){initNavTree('dual2_8h_source.html',''); initResizab
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        </div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classtheoretica_1_1dual2.html#a8c15673d7db733b9be113e7ef813a82e">   54</a></span>            <a class="code hl_function" href="classtheoretica_1_1dual2.html#a8c15673d7db733b9be113e7ef813a82e">dual2</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a>&amp; v) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                a = v.get(0);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                b = v.get(1);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                c = v.get(2);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                a = v[0];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                b = v[1];</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                c = v[2];</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            }</div>
 </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classtheoretica_1_1dual2.html#ad7c91b0ef78c549162edeeaf576765c9">   61</a></span>            <span class="keyword">inline</span> <a class="code hl_class" href="classtheoretica_1_1dual2.html">dual2</a>&amp; <a class="code hl_function" href="classtheoretica_1_1dual2.html#ad7c91b0ef78c549162edeeaf576765c9">operator=</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a>&amp; v) {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                a = v.get(0);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                b = v.get(1);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                c = v.get(2);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                a = v[0];</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                b = v[1];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                c = v[2];</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            }</div>
 </div>
@@ -385,18 +385,18 @@ $(document).ready(function(){initNavTree('dual2_8h_source.html',''); initResizab
 <div class="foldopen" id="foldopen00257" data-start="{" data-end="}">
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="classtheoretica_1_1dual2.html#a5c7bc61b58afa5dcf92b15f81c02146f">  257</a></span>            <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> <a class="code hl_function" href="classtheoretica_1_1dual2.html#a5c7bc61b58afa5dcf92b15f81c02146f">to_vec</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> res;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                res.at(0) = a;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                res.at(1) = b;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                res.at(2) = c;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                res[0] = a;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                res[1] = b;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                res[2] = c;</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            }</div>
 </div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="foldopen" id="foldopen00266" data-start="{" data-end="}">
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb">  266</a></span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb">from_vec</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a>&amp; v) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                a = v.get(0);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                b = v.get(1);</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                c = v.get(2);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                a = v[0];</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                b = v[1];</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                c = v[2];</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            }</div>
 </div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
@@ -518,7 +518,7 @@ $(document).ready(function(){initNavTree('dual2_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f14c1ec6b1b681afe4f813df7a6aad99.html">autodiff</a></li><li class="navelem"><a class="el" href="dual2_8h.html">dual2.h</a></li>
-    <li class="footer">Generated on Thu May 1 2025 15:30:26 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

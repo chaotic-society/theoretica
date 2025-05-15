@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('structtheoretica_1_1ode_1_1ode__soluti
 </div><!--header-->
 <div class="contents">
 
-<p>The base type for the solution of an ODE, holding a vector \(t\) of the values of the time (independent variable) and a vector \(\vec x\) of the computed variables of the solution at each instant.  
+<p>Data structure holding the numerical solution of a discretized ODE, where the vector \(\vec t\) represents the discrete time points (independent variable) and the vector \(\vec x\) the discrete solution.  
  <a href="structtheoretica_1_1ode_1_1ode__solution__t.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ode_8h_source.html">ode.h</a>&gt;</code></p>
@@ -140,7 +140,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5d9290f84b5460bfa85859ab83f31f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acedf6bb8143f4a24640e679845942a25" id="r_acedf6bb8143f4a24640e679845942a25"><td class="memItemLeft" align="right" valign="top"><a id="acedf6bb8143f4a24640e679845942a25" name="acedf6bb8143f4a24640e679845942a25"></a>
 <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Vector &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
-<tr class="memdesc:acedf6bb8143f4a24640e679845942a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of the phase space values (dependent variable). <br /></td></tr>
+<tr class="memdesc:acedf6bb8143f4a24640e679845942a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of the phase space values (solution). <br /></td></tr>
 <tr class="separator:acedf6bb8143f4a24640e679845942a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -152,7 +152,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Vector = vec&lt;real&gt;&gt;<br />
-class theoretica::ode::ode_solution_t&lt; Vector &gt;</div><p>The base type for the solution of an ODE, holding a vector \(t\) of the values of the time (independent variable) and a vector \(\vec x\) of the computed variables of the solution at each instant. </p>
+class theoretica::ode::ode_solution_t&lt; Vector &gt;</div><p>Data structure holding the numerical solution of a discretized ODE, where the vector \(\vec t\) represents the discrete time points (independent variable) and the vector \(\vec x\) the discrete solution. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>calculus/<a class="el" href="ode_8h_source.html">ode.h</a></li>
 </ul>
@@ -162,7 +162,7 @@ class theoretica::ode::ode_solution_t&lt; Vector &gt;</div><p>The base type for 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1ode.html">ode</a></li><li class="navelem"><a class="el" href="structtheoretica_1_1ode_1_1ode__solution__t.html">ode_solution_t</a></li>
-    <li class="footer">Generated on Thu May 1 2025 15:30:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

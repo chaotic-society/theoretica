@@ -120,22 +120,22 @@ Functions</h2></td></tr>
 <tr class="memitem:ae055c553303dd22a706aee072969db5a"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#ae055c553303dd22a706aee072969db5a">covar_mat</a> (const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
 <tr class="memdesc:ae055c553303dd22a706aee072969db5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the covariance matrix given a vector of datasets by computing the covariance between all couples of sets.  <br /></td></tr>
 <tr class="separator:ae055c553303dd22a706aee072969db5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa84e1f2b40ea798849447952526a1a78" id="r_aa84e1f2b40ea798849447952526a1a78"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
-<tr class="memitem:aa84e1f2b40ea798849447952526a1a78"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#aa84e1f2b40ea798849447952526a1a78">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;delta_x)</td></tr>
-<tr class="memdesc:aa84e1f2b40ea798849447952526a1a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <br /></td></tr>
-<tr class="separator:aa84e1f2b40ea798849447952526a1a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaeb91b248637a3c8061d59f513ba64e" id="r_acaeb91b248637a3c8061d59f513ba64e"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
-<tr class="memitem:acaeb91b248637a3c8061d59f513ba64e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#acaeb91b248637a3c8061d59f513ba64e">error_propagation</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const Matrix &amp;cm)</td></tr>
-<tr class="memdesc:acaeb91b248637a3c8061d59f513ba64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <br /></td></tr>
-<tr class="separator:acaeb91b248637a3c8061d59f513ba64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade2f84eab7bcf5797495830141f4b075" id="r_ade2f84eab7bcf5797495830141f4b075"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;), typename Dataset  = vec&lt;real, N&gt;&gt; </td></tr>
-<tr class="memitem:ade2f84eab7bcf5797495830141f4b075"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#ade2f84eab7bcf5797495830141f4b075">error_propagation</a> (MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
-<tr class="memdesc:ade2f84eab7bcf5797495830141f4b075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data.  <br /></td></tr>
-<tr class="separator:ade2f84eab7bcf5797495830141f4b075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca6e7d9e9746fc989efe0261fe2746f8" id="r_aca6e7d9e9746fc989efe0261fe2746f8"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:aca6e7d9e9746fc989efe0261fe2746f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#aca6e7d9e9746fc989efe0261fe2746f8">error_propagation_mc</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;rv, unsigned int N=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6)</td></tr>
-<tr class="memdesc:aca6e7d9e9746fc989efe0261fe2746f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <br /></td></tr>
-<tr class="separator:aca6e7d9e9746fc989efe0261fe2746f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b770f21d9a2dd2b19324db41b26466" id="r_a17b770f21d9a2dd2b19324db41b26466"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
+<tr class="memitem:a17b770f21d9a2dd2b19324db41b26466"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a17b770f21d9a2dd2b19324db41b26466">propagerr</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;delta_x)</td></tr>
+<tr class="memdesc:a17b770f21d9a2dd2b19324db41b26466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <br /></td></tr>
+<tr class="separator:a17b770f21d9a2dd2b19324db41b26466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add35567c560982230167f2dd8c49f5eb" id="r_add35567c560982230167f2dd8c49f5eb"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </td></tr>
+<tr class="memitem:add35567c560982230167f2dd8c49f5eb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#add35567c560982230167f2dd8c49f5eb">propagerr</a> (MultiDualFunction f, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x_best, const Matrix &amp;cm)</td></tr>
+<tr class="memdesc:add35567c560982230167f2dd8c49f5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation.  <br /></td></tr>
+<tr class="separator:add35567c560982230167f2dd8c49f5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff4a63bc94a4f78058e5c381bd8c67f" id="r_a7ff4a63bc94a4f78058e5c381bd8c67f"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;), typename Dataset  = vec&lt;real, N&gt;&gt; </td></tr>
+<tr class="memitem:a7ff4a63bc94a4f78058e5c381bd8c67f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a7ff4a63bc94a4f78058e5c381bd8c67f">propagerr</a> (MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)</td></tr>
+<tr class="memdesc:a7ff4a63bc94a4f78058e5c381bd8c67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data.  <br /></td></tr>
+<tr class="separator:a7ff4a63bc94a4f78058e5c381bd8c67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c22d1efa91769367afb5b9e9bd87152" id="r_a4c22d1efa91769367afb5b9e9bd87152"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a4c22d1efa91769367afb5b9e9bd87152"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1stats.html#a4c22d1efa91769367afb5b9e9bd87152">propagerr_mc</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;rv, unsigned int N=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6)</td></tr>
+<tr class="memdesc:a4c22d1efa91769367afb5b9e9bd87152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation.  <br /></td></tr>
+<tr class="separator:a4c22d1efa91769367afb5b9e9bd87152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ebf0e7700cf7df7f46caa61086ab25" id="r_ac1ebf0e7700cf7df7f46caa61086ab25"><td class="memItemLeft" align="right" valign="top"><a id="ac1ebf0e7700cf7df7f46caa61086ab25" name="ac1ebf0e7700cf7df7f46caa61086ab25"></a>
 <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mean</b> (const <a class="el" href="classtheoretica_1_1histogram.html">histogram</a> &amp;h)</td></tr>
 <tr class="memdesc:ac1ebf0e7700cf7df7f46caa61086ab25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean of the values of a histogram. <br /></td></tr>
@@ -643,214 +643,6 @@ template&lt;typename Dataset1 , typename Dataset2 &gt; </div>
 
 </div>
 </div>
-<a id="ade2f84eab7bcf5797495830141f4b075" name="ade2f84eab7bcf5797495830141f4b075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade2f84eab7bcf5797495830141f4b075">&#9670;&#160;</a></span>error_propagation() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;), typename Dataset  = vec&lt;real, N&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::error_propagation </td>
-          <td>(</td>
-          <td class="paramtype">MultiDualFunction&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Dataset &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data. </p>
-<p>The covar_mat function is used to estimate the covariance matrix from the data sets. For this to work, the data sets should have the same size, so as to estimate their covariance.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
-    <tr><td class="paramname">v</td><td>A vector of different datasets of the measures of the variables </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
-
-</div>
-</div>
-<a id="acaeb91b248637a3c8061d59f513ba64e" name="acaeb91b248637a3c8061d59f513ba64e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaeb91b248637a3c8061d59f513ba64e">&#9670;&#160;</a></span>error_propagation() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::error_propagation </td>
-          <td>(</td>
-          <td class="paramtype">MultiDualFunction&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>x_best</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Matrix &amp;&#160;</td>
-          <td class="paramname"><em>cm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
-    <tr><td class="paramname">x</td><td>Best values for the variables </td></tr>
-    <tr><td class="paramname">cm</td><td>Covariance matrix of the variables, where diagonal entries are the variance of the variables and off-diagonal entries are the covariance between different variables. May be constructed from datasets using the function covar_mat. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
-
-</div>
-</div>
-<a id="aa84e1f2b40ea798849447952526a1a78" name="aa84e1f2b40ea798849447952526a1a78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa84e1f2b40ea798849447952526a1a78">&#9670;&#160;</a></span>error_propagation() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::error_propagation </td>
-          <td>(</td>
-          <td class="paramtype">MultiDualFunction&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>x_best</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>delta_x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation. </p>
-<p>This function assumes that the correlation between different variables is zero, if that is not the case, the covariance matrix should be used.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
-    <tr><td class="paramname">x</td><td>Best values for the variables </td></tr>
-    <tr><td class="paramname">delta_x</td><td>Vector of uncertainties on the variables </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
-
-</div>
-</div>
-<a id="aca6e7d9e9746fc989efe0261fe2746f8" name="aca6e7d9e9746fc989efe0261fe2746f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca6e7d9e9746fc989efe0261fe2746f8">&#9670;&#160;</a></span>error_propagation_mc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Function &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::error_propagation_mc </td>
-          <td>(</td>
-          <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>N</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation. </p>
-<p>N sample vectors of size M are generated by sampling the M different <a class="el" href="structtheoretica_1_1pdf__sampler.html" title="A probability density function sampler which generates pseudorandom numbers following asymptotically ...">pdf_sampler</a> distributions which correspond to the input variables of the function. The resulting sample is used to estimate the standard deviation over the result of the function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
-    <tr><td class="paramname">rv</td><td>A list of distribution samplers which sample from the probability distributions of the random variables. </td></tr>
-    <tr><td class="paramname">N</td><td>The number of sampled values to use, defaults to 1 million. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The standard deviation of the Monte Carlo sample </dd></dl>
-
-</div>
-</div>
 <a id="a9afb6b4c7a3ad56b4b93ff58b2bd2de6" name="a9afb6b4c7a3ad56b4b93ff58b2bd2de6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9afb6b4c7a3ad56b4b93ff58b2bd2de6">&#9670;&#160;</a></span>gaussian_expectation()</h2>
 
@@ -1306,6 +1098,214 @@ template&lt;typename Dataset &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The propagated error over the sum </dd></dl>
+
+</div>
+</div>
+<a id="a7ff4a63bc94a4f78058e5c381bd8c67f" name="a7ff4a63bc94a4f78058e5c381bd8c67f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff4a63bc94a4f78058e5c381bd8c67f">&#9670;&#160;</a></span>propagerr() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N = 0, typename MultiDualFunction  = multidual&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;), typename Dataset  = vec&lt;real, N&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::propagerr </td>
+          <td>(</td>
+          <td class="paramtype">MultiDualFunction&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; Dataset &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the function and the set of measured data. </p>
+<p>The covar_mat function is used to estimate the covariance matrix from the data sets. For this to work, the data sets should have the same size, so as to estimate their covariance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
+    <tr><td class="paramname">v</td><td>A vector of different datasets of the measures of the variables </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
+
+</div>
+</div>
+<a id="add35567c560982230167f2dd8c49f5eb" name="add35567c560982230167f2dd8c49f5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add35567c560982230167f2dd8c49f5eb">&#9670;&#160;</a></span>propagerr() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N = 0, typename Matrix , enable_matrix&lt; Matrix &gt;  = true, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::propagerr </td>
+          <td>(</td>
+          <td class="paramtype">MultiDualFunction&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x_best</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Matrix &amp;&#160;</td>
+          <td class="paramname"><em>cm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
+    <tr><td class="paramname">x</td><td>Best values for the variables </td></tr>
+    <tr><td class="paramname">cm</td><td>Covariance matrix of the variables, where diagonal entries are the variance of the variables and off-diagonal entries are the covariance between different variables. May be constructed from datasets using the function covar_mat. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
+
+</div>
+</div>
+<a id="a17b770f21d9a2dd2b19324db41b26466" name="a17b770f21d9a2dd2b19324db41b26466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b770f21d9a2dd2b19324db41b26466">&#9670;&#160;</a></span>propagerr() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N = 0, typename MultiDualFunction  = autodiff::dreal_t&lt;N&gt;(*)(autodiff::dvec_t&lt;N&gt;)&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::propagerr </td>
+          <td>(</td>
+          <td class="paramtype">MultiDualFunction&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x_best</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>delta_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Automatically propagate uncertainties under quadrature on an arbitrary function given the uncertainties on the variables, the mean values of the variables and the function itself, by using automatic differentiation. </p>
+<p>This function assumes that the correlation between different variables is zero, if that is not the case, the covariance matrix should be used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
+    <tr><td class="paramname">x</td><td>Best values for the variables </td></tr>
+    <tr><td class="paramname">delta_x</td><td>Vector of uncertainties on the variables </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The propagated error on the function </dd></dl>
+
+</div>
+</div>
+<a id="a4c22d1efa91769367afb5b9e9bd87152" name="a4c22d1efa91769367afb5b9e9bd87152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c22d1efa91769367afb5b9e9bd87152">&#9670;&#160;</a></span>propagerr_mc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::stats::propagerr_mc </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>N</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>+6</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Propagate the statistical error on a given function using the Monte Carlo method, by generating a sample following the probability distribution of the function and computing its standard deviation. </p>
+<p>N sample vectors of size M are generated by sampling the M different <a class="el" href="structtheoretica_1_1pdf__sampler.html" title="A probability density function sampler which generates pseudorandom numbers following asymptotically ...">pdf_sampler</a> distributions which correspond to the input variables of the function. The resulting sample is used to estimate the standard deviation over the result of the function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to propagate error on </td></tr>
+    <tr><td class="paramname">rv</td><td>A list of distribution samplers which sample from the probability distributions of the random variables. </td></tr>
+    <tr><td class="paramname">N</td><td>The number of sampled values to use, defaults to 1 million. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The standard deviation of the Monte Carlo sample </dd></dl>
 
 </div>
 </div>
@@ -1863,7 +1863,7 @@ template&lt;typename Dataset &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1stats.html">stats</a></li>
-    <li class="footer">Generated on Thu May 1 2025 15:30:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 15 2025 09:48:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

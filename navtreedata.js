@@ -61,14 +61,14 @@ var NAVTREEINDEX =
 "algebra_8h.html",
 "classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
 "classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc",
-"classtheoretica_1_1phasor.html#a1952a0d36522df5d695b8624f80a4ab0",
-"classtheoretica_1_1ratio.html#ad3a013f9d5cfb6066258615e0b54efde",
-"dir_5596f951296b42de5afea2209fd56ea2.html",
-"montecarlo_8h.html#a22f21b203e4325f357c2c84558239269",
-"namespacetheoretica.html#a6bfa8d12242c241b6f56cebc9cdc60ed",
-"namespacetheoretica_1_1algebra.html#a1757fff7a273fbebc8c10e658e36e747",
-"namespacetheoretica_1_1stats.html#a481f4646d3c00bbe45de3df7e878713a",
-"sampling_8h.html#af2b8d1fc98c8429d4b342e860cab6ed1"
+"classtheoretica_1_1phasor.html#a0d4254d619edb4e6cd560f44bdd7aa85",
+"classtheoretica_1_1ratio.html#ac3ff41a5f452c7e402e72e960fb4699b",
+"dir_3628a51508f49ff79e676473537f3cb3.html",
+"montecarlo_8h.html#a11c69bea27399e4d430e877b538ce777",
+"namespacetheoretica.html#a6ae6ab14a39d6132b6858934dadaaf3e",
+"namespacetheoretica_1_1algebra.html#a0ec28ec5a0ac0dc055108a9d37fd5326",
+"namespacetheoretica_1_1stats.html#a2ca8623e22dedb09c3707c9642ca119a",
+"sampling_8h.html#ada12d3bc9842b85e97e14f0eb975e132"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
