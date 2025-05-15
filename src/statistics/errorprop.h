@@ -57,7 +57,7 @@ namespace theoretica {
 		template<
 			unsigned int N = 0,
 			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)>
-		inline real error_propagation(
+		inline real propagerr(
 			MultiDualFunction f,
 			const vec<real, N>& x_best, const vec<real, N>& delta_x) {
 
@@ -65,7 +65,7 @@ namespace theoretica {
 			const multidual<N> df = f(multidual<N>::make_argument(x_best));
 
 			for (unsigned int i = 0; i < x_best.size(); ++i)
-				err_sqr += square(df.Dual().get(i) * delta_x.get(i));
+				err_sqr += square(df.Dual(i) * delta_x[i]);
 
 			return sqrt(err_sqr);
 		}
@@ -89,17 +89,17 @@ namespace theoretica {
 			typename Matrix, enable_matrix<Matrix> = true,
 			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)
 		>
-		inline real error_propagation(
+		inline real propagerr(
 			MultiDualFunction f, const vec<real, N>& x_best, const Matrix& cm) {
 
 
 			if(cm.rows() != x_best.size()) {
-				TH_MATH_ERROR("error_propagation", cm.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagerr", cm.rows(), INVALID_ARGUMENT);
 				return nan();
 			}
 
 			if(cm.cols() != x_best.size()) {
-				TH_MATH_ERROR("error_propagation", cm.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagerr", cm.cols(), INVALID_ARGUMENT);
 				return nan();
 			}
 
@@ -108,7 +108,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < cm.rows(); ++i)
 				for (unsigned int j = 0; j < cm.cols(); ++j)
-					err_sqr += df.Dual().get(i) * df.Dual().get(j) * cm(i, j);
+					err_sqr += df.Dual(i) * df.Dual(j) * cm(i, j);
 
 			return sqrt(err_sqr);
 		}
@@ -128,8 +128,9 @@ namespace theoretica {
 		template<
 			unsigned int N = 0,
 			typename MultiDualFunction = multidual<N>(*)(autodiff::dvec_t<N>),
-			typename Dataset = vec<real, N>>
-		inline real error_propagation(
+			typename Dataset = vec<real, N>
+		>
+		inline real propagerr(
 			MultiDualFunction f,
 			const std::vector<Dataset>& v) {
 
@@ -139,7 +140,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < v.size(); ++i)
 				x_mean[i] = stats::mean(v[i]);
 
-			return error_propagation(
+			return propagerr(
 				f, x_mean, covar_mat<mat<real, N, N>, Dataset>(v));
 		}
 
@@ -163,7 +164,7 @@ namespace theoretica {
 		/// 1 million.
 		/// @return The standard deviation of the Monte Carlo sample
 		template<typename Function>
-		real error_propagation_mc(
+		real propagerr_mc(
 			Function f, std::vector<pdf_sampler>& rv, unsigned int N = 1E+6) {
 
 			return stats::stdev(sample_mc(f, rv, N));

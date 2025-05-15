@@ -31,8 +31,8 @@ namespace theoretica {
 		// Check that all x_i are different to prevent
 		// division by zero
 		for (unsigned int i = 0; i < points.size() - 1; ++i) {
-			if(points[i].get(0) == points[i + 1].get(0)) {
-				TH_MATH_ERROR("lagrange_polynomial", points[i].get(0), INVALID_ARGUMENT);
+			if(points[i][0] == points[i + 1][0]) {
+				TH_MATH_ERROR("lagrange_polynomial", points[i][0], INVALID_ARGUMENT);
 				return polynomial<T>({T(nan())});
 			}
 		}
@@ -52,12 +52,12 @@ namespace theoretica {
 					continue;
 
 				// l_j = product(x - x_m / x_j - x_m)
-				l_j *= polynomial<T>({-points[m].get(0), 1});
-				l_j /= points[j].get(0) - points[m].get(0);
+				l_j *= polynomial<T>({-points[m][0], 1});
+				l_j /= points[j][0] - points[m][0];
 			}
 
 			// L = sum(y_j * l_j)
-			l_j *= points[j].get(1);
+			l_j *= points[j][1];
 			L += l_j;
 		}
 

@@ -145,10 +145,8 @@ namespace theoretica {
 		vec(std::initializer_list<Type> l) {
 
 			if(l.size() != N) {
-				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
-					INVALID_ARGUMENT);
-				// Set all elements to NaN
-				*this = vec<Type, N>(Type(nan()));
+				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(), INVALID_ARGUMENT);
+				algebra::vec_error(*this);
 				return;
 			}
 
@@ -234,12 +232,6 @@ namespace theoretica {
 		/// Cross product between vectors
 		template<typename Vector>
 		inline vec<Type, N> cross(const Vector& other) const {
-		
-			if(other.size() != 3) {
-				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type, N>(Type(nan()));
-			}
-
 			return algebra::cross(*this, other);
 		}
 
@@ -281,7 +273,7 @@ namespace theoretica {
 
 			if(abs(scalar) < MACH_EPSILON) {
 				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
-				vec_error(*this);
+				algebra::vec_error(*this);
 				return *this;
 			}
 
@@ -304,33 +296,47 @@ namespace theoretica {
 		}
 
 
-		/// Access i-th component
+		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
 			return data[i];
 		}
 
 
-		/// Get the i-th component
+		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
 			return data[i];
 		}
 
 
-		/// Access i-th element
+		/// Access i-th element by reference, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
 		inline Type& at(unsigned int i) {
+
+			if (i >= N) {
+				throw std::out_of_range(
+					"The element index in vec::at() is out of bounds"
+				);
+			}
+
 			return data[i];
 		}
 
 
-		/// Getters and setters
-		inline Type get(unsigned int i) const {
+		/// Get the i-th element by value, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
+		inline Type at(unsigned int i) const {
+
+			if (i >= N) {
+				throw std::out_of_range(
+					"The element index in vec::at() is out of bounds"
+				);
+			}
+
 			return data[i];
-		}
-
-
-		/// Set the i-th element
-		inline void set(unsigned int i, Type x) {
-			data[i] = x;
 		}
 
 
@@ -628,12 +634,6 @@ namespace theoretica {
 		/// Cross product between vectors
 		template<typename Vector>
 		inline vec<Type> cross(const Vector& other) const {
-		
-			if(other.size() != 3) {
-				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type>(3, nan());
-			}
-
 			return algebra::cross(*this, other);
 		}
 
@@ -714,33 +714,33 @@ namespace theoretica {
 		}
 
 
-		/// Access i-th component
+		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
 			return data[i];
 		}
 
 
-		/// Get the i-th component
+		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
 			return data[i];
 		}
 
 
-		/// Access i-th element
+		/// Access i-th element by reference, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
 		inline Type& at(unsigned int i) {
-			return data[i];
+			return data.at(i);
 		}
 
 
-		/// Getters and setters
-		inline Type get(unsigned int i) const {
-			return data[i];
-		}
-
-
-		/// Set the i-th element
-		inline void set(unsigned int i, Type x) {
-			data[i] = x;
+		/// Get the i-th element by value, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
+		inline Type at(unsigned int i) const {
+			return data.at(i);
 		}
 
 

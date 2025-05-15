@@ -52,16 +52,16 @@ namespace theoretica {
 		
 			/// Initialize from a vec3
 			dual2(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 			}
 
 			/// Initialize a dual number from a vec3
 			inline dual2& operator=(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 				return *this;
 			}
 
@@ -256,17 +256,17 @@ namespace theoretica {
 			/// Convert a dual number to a vector
 			inline vec3 to_vec() const {
 				vec3 res;
-				res.at(0) = a;
-				res.at(1) = b;
-				res.at(2) = c;
+				res[0] = a;
+				res[1] = b;
+				res[2] = c;
 				return res;
 			}
 
 			/// Initialize from a vector
 			inline void from_vec(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 			}
 
 

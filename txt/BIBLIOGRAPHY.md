@@ -2,7 +2,7 @@
 The following resources have been consulted during the development of the library:
 
 ## General
-- Klein, O. (2021). Modern C++ Programming Techniques for Scientific Computing. Interdisciplinary Center for Scientific Computing (IWR). Heidelberg University.
+- Klein, O., 2021: Modern C++ Programming Techniques for Scientific Computing, Lecture Notes, Heidelberg University. [available here](https://conan.iwr.uni-heidelberg.de/people/oklein/)
 - Novak, K. (2022). Numerical methods for scientific computing: The Definitive Manual for Math Geeks. Equal Share Press.
 - Wilson, G., Aruliah, D. A., Brown, C. T., Hong, N. C., Davis, M. R., Guy, R., Haddock, S. H. D., Huff, K. D., Mitchell, I. M., Plumbley, M. D., Waugh, B. M., White, E., & Wilson, P. (2014). Best practices for scientific computing. PLOS Biology, 12(1), e1001745. https://doi.org/10.1371/journal.pbio.1001745
 - M. Abramowitz; I. A. Stegun, eds. (1983) [June 1964]. Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables. Applied Mathematics Series

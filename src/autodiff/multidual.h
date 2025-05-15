@@ -87,6 +87,22 @@ namespace theoretica {
 			}
 
 
+			/// Get the i-th element of the multidual part,
+			/// corresponding to the i-th independent variable
+			/// in automatic differentiation.
+			inline real Dual(unsigned int i) const {
+				return v[i];
+			}
+
+
+			/// Access the i-th element of the multidual part,
+			/// corresponding to the i-th independent variable
+			/// in automatic differentiation.
+			inline real& Dual(unsigned int i) {
+				return v[i];
+			}
+
+
 			/// Get the multidual conjugate
 			inline multidual conjugate() const {
 				return multidual(a, -v);
@@ -277,7 +293,7 @@ namespace theoretica {
 				x.resize(v.size());
 
 				for (unsigned int i = 0; i < N; ++i)
-					x[i] = v.get(i).Re();
+					x[i] = v[i].Re();
 
 				return x;
 			}
@@ -294,7 +310,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < N; ++i)
 					for (unsigned int j = 0; j < N; ++j)
-						J.at(j, i) = v.get(j).Dual().get(i);
+						J(j, i) = v[j].Dual(i);
 				
 				return J;
 			}
@@ -311,9 +327,9 @@ namespace theoretica {
 				for (unsigned int i = 0; i < N; ++i) {
 					
 					for (unsigned int j = 0; j < N; ++j)
-						J.at(j, i) = v.get(j).Dual().get(i);
+						J(j, i) = v[j].Dual(i);
 					
-					x[i] = v.get(i).Re();
+					x[i] = v[i].Re();
 				}
 			}
 

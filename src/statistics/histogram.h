@@ -226,7 +226,7 @@ namespace theoretica {
 			}
 
 
-			/// TO-DO Cumulative Distribution Function
+			// TO-DO Cumulative Distribution Function
 
 
 #ifndef THEORETICA_NO_PRINT

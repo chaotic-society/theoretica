@@ -16,16 +16,16 @@ namespace theoretica {
 
 
 		/// @class ode_solution_t
-		/// The base type for the solution of an ODE, holding a vector \f$t\f$
-		/// of the values of the time (independent variable) and a vector \f$\vec x\f$
-		/// of the computed variables of the solution at each instant.
+		/// Data structure holding the numerical solution of a discretized ODE,
+		/// where the vector \f$\vec t\f$ represents the discrete time points
+		/// (independent variable) and the vector \f$\vec x\f$ the discrete solution.
 		template<typename Vector = vec<real>>
 		struct ode_solution_t {
 
 			/// A vector of the time values (independent variable).
 			vec<real> t;
 
-			/// A vector of the phase space values (dependent variable).
+			/// A vector of the phase space values (solution).
 			vec<Vector> x;
 
 
@@ -98,19 +98,19 @@ namespace theoretica {
 		using ode_solution = ode_solution_t<vec<real>>;
 
 
-		/// The solution of an ODE in 1 variable
+		/// The solution of an ODE in 1 variable.
 		using ode_solution1d = ode_solution_t<real>;
 
 
-		/// The solution of an ODE in 2 variables
+		/// The solution of an ODE in 2 variables.
 		using ode_solution2d = ode_solution_t<vec2>;
 
 
-		/// The solution of an ODE in 3 variables
+		/// The solution of an ODE in 3 variables.
 		using ode_solution3d = ode_solution_t<vec3>;
 
 
-		/// The solution of an ODE in 4 variables
+		/// The solution of an ODE in 4 variables.
 		using ode_solution4d = ode_solution_t<vec4>;
 
 
