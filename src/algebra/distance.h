@@ -191,7 +191,7 @@ namespace theoretica {
 
 
 		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\f$
+		/// \f$d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\f$
 		/// 
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -216,7 +216,7 @@ namespace theoretica {
 
 
 		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\f$
+		/// \f$d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\f$
 		/// 
 		/// @param v1 The first vector
 		/// @param v2 The second vector
