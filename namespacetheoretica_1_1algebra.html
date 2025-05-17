@@ -469,11 +469,11 @@ Functions</h2></td></tr>
 <tr class="separator:ae22507b333d714ba60bd5045ea3c3adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de933be9b870772f4023c5d1ad6fb65" id="r_a9de933be9b870772f4023c5d1ad6fb65"><td class="memTemplParams" colspan="2">template&lt;typename Vector , typename T  = real&gt; </td></tr>
 <tr class="memitem:a9de933be9b870772f4023c5d1ad6fb65"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a9de933be9b870772f4023c5d1ad6fb65">hermitian_distance</a> (const Vector &amp;v1, const Vector &amp;v2)</td></tr>
-<tr class="memdesc:a9de933be9b870772f4023c5d1ad6fb65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\).  <br /></td></tr>
+<tr class="memdesc:a9de933be9b870772f4023c5d1ad6fb65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\).  <br /></td></tr>
 <tr class="separator:a9de933be9b870772f4023c5d1ad6fb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214e4e5c2c2ad43a63bba8143fa2363d" id="r_a214e4e5c2c2ad43a63bba8143fa2363d"><td class="memTemplParams" colspan="2">template&lt;unsigned int N, typename T &gt; </td></tr>
 <tr class="memitem:a214e4e5c2c2ad43a63bba8143fa2363d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a214e4e5c2c2ad43a63bba8143fa2363d">distance</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; T &gt;, N &gt; &amp;v1, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt; T &gt;, N &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a214e4e5c2c2ad43a63bba8143fa2363d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\).  <br /></td></tr>
+<tr class="memdesc:a214e4e5c2c2ad43a63bba8143fa2363d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\).  <br /></td></tr>
 <tr class="separator:a214e4e5c2c2ad43a63bba8143fa2363d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58980fd04564631dab6b2f76e0f0013c" id="r_a58980fd04564631dab6b2f76e0f0013c"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a58980fd04564631dab6b2f76e0f0013c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a58980fd04564631dab6b2f76e0f0013c">manhattan_distance</a> (const Vector &amp;v1, const Vector &amp;v2)</td></tr>
@@ -1343,7 +1343,7 @@ template&lt;unsigned int N, typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\). </p>
+<p>Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v1</td><td>The first vector </td></tr>
@@ -2245,7 +2245,7 @@ template&lt;typename Vector , typename T  = real&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\). </p>
+<p>Compute the Hermitian distance between two vectors: \(d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v1</td><td>The first vector </td></tr>
@@ -5957,7 +5957,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Sat May 17 2025 18:40:19 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat May 17 2025 19:12:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
