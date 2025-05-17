@@ -24,12 +24,12 @@ namespace theoretica {
 		/// Norms
 
 
-		/// Compute the Lp norm of a vector:
-		/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
+		/// Compute the lp norm of a vector:
+		/// \f$\mathcal{l}^p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
 		///
 		/// @param v The vector to compute the norm of
 		/// @param p The power of the Lp norm
-		/// @return The Lp norm of v
+		/// @return The lp norm of v
 		template<typename Vector>
 		inline real lp_norm(const Vector& v, unsigned int p) {
 
@@ -42,11 +42,11 @@ namespace theoretica {
 		}
 
 
-		/// Compute the L1 norm of a vector:
-		/// \f$L_1(\vec v) = \Sigma_i \ |v_i|\f$
+		/// Compute the l1 norm of a vector:
+		/// \f$\mathcal{l}^1(\vec v) = \Sigma_i \ |v_i|\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The L1 norm of v
+		/// @return The l1 norm of v
 		template<typename Vector>
 		inline real l1_norm(const Vector& v) {
 
@@ -58,11 +58,11 @@ namespace theoretica {
 			return sum;
 		}
 
-		/// Compute the L2 norm of a vector:
-		/// \f$L_2(\vec v) = \sqrt{\Sigma_i \ v_i^2}\f$
+		/// Compute the l2 norm of a vector:
+		/// \f$\mathcal{l}^2(\vec v) = \sqrt{\Sigma_i \ v_i^2}\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The L2 norm of v
+		/// @return The l2 norm of v
 		template<typename Vector>
 		inline real l2_norm(const Vector& v) {
 
@@ -75,11 +75,11 @@ namespace theoretica {
 		}
 
 
-		/// Compute the Linf norm of a vector:
-		/// \f$L_{\infty}(\vec v) = max(|v_i|)\f$
+		/// Compute the linf norm of a vector:
+		/// \f$\mathcal{l}^{\infty}(\vec v) = max(|v_i|)\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The Linf norm of v
+		/// @return The linf norm of v
 		template<typename Vector>
 		inline real linf_norm(const Vector& v) {
 
@@ -96,7 +96,7 @@ namespace theoretica {
 
 
 		/// Compute the Euclidean distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_2(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^2(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -114,7 +114,7 @@ namespace theoretica {
 
 
 		/// Compute the Euclidean distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_2(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^2(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -160,7 +160,7 @@ namespace theoretica {
 
 
 		/// Compute the Minkowski distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_p(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^p(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -179,7 +179,7 @@ namespace theoretica {
 
 
 		/// Compute the Minkowski distance between two values:
-		/// \f$d(a, b) = L_p(a - b)\f$
+		/// \f$d(a, b) = \mathcal{l}^p(a - b)\f$
 		///
 		/// @param a The first real value
 		/// @param b The second real value
@@ -230,7 +230,7 @@ namespace theoretica {
 
 
 		/// Compute the Manhattan distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_1(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^1(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -248,7 +248,7 @@ namespace theoretica {
 
 
 		/// Compute the Chebyshev distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_{\infty}(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^{\infty}(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
