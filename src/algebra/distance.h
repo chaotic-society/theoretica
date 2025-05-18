@@ -119,8 +119,8 @@ namespace theoretica {
 		/// @param v1 The first vector
 		/// @param v2 The second vector
 		/// @return The Euclidean distance between v1 and v2
-		template<unsigned int N>
-		inline real distance(const vec<real, N>& v1, const vec<real, N>& v2) {
+		template<typename Vector>
+		inline real distance(const Vector& v1, const Vector& v2) {
 			return euclidean_distance(v1, v2);
 		}
 
@@ -133,6 +133,18 @@ namespace theoretica {
 		/// @return The Euclidean distance between a and b
 		inline real euclidean_distance(real a, real b) {
 			return abs(a - b);
+		}
+		
+		
+		/// Compute the Euclidean distance between two complex numbers:
+		/// \f$d(z_1, z_2) = |z_1 - z_2|\f$
+		///
+		/// @param z1 The first complex value
+		/// @param z2 The second complex value
+		/// @return The distance between z1 and z2
+		template<typename T>
+		inline real euclidean_distance(complex<T> z1, complex<T> z2) {
+			return abs(z1 - z2);
 		}
 
 
@@ -147,15 +159,15 @@ namespace theoretica {
 		}
 
 
-		/// Compute the distance between two complex numbers:
+		/// Compute the Euclidean distance between two complex numbers:
 		/// \f$d(z_1, z_2) = |z_1 - z_2|\f$
 		///
 		/// @param z1 The first complex value
 		/// @param z2 The second complex value
 		/// @return The distance between z1 and z2
 		template<typename T>
-		inline complex<T> distance(complex<T> z1, complex<T> z2) {
-			return (z1 - z2).norm();
+		inline real distance(complex<T> z1, complex<T> z2) {
+			return euclidean_distance(z1, z2);
 		}
 
 
@@ -178,7 +190,7 @@ namespace theoretica {
 		}
 
 
-		/// Compute the Minkowski distance between two values:
+		/// Compute the Minkowski distance between two real values:
 		/// \f$d(a, b) = \mathcal{l}^p(a - b)\f$
 		///
 		/// @param a The first real value
@@ -188,44 +200,18 @@ namespace theoretica {
 		inline real minkowski_distance(real a, real b, unsigned int p) {
 			return root(pow(abs(b - a), p), p);
 		}
-
-
-		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\f$
-		/// 
-		/// @param v1 The first vector
-		/// @param v2 The second vector
-		/// @return The Hermitian distance between v1 and v2
-		template<typename Vector, typename T = real>
-		inline auto hermitian_distance(const Vector& v1, const Vector& v2) {
-
-			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("hermitian_distance", v1.size(), INVALID_ARGUMENT);
-				return complex<T>(nan());
-			}
-
-			complex<T> sum = 0;
-
-			for (size_t i = 0; i < v1.size(); ++i) {
-				const complex<T> diff = v1[i] - conjugate(v2[i]);
-				sum += diff * diff.conjugate();
-			}
-
-			return sqrt(sum);
-		}
-
-
-		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = \sqrt{(\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*}\f$
-		/// 
-		/// @param v1 The first vector
-		/// @param v2 The second vector
-		/// @return The Hermitian distance between v1 and v2
-		template<unsigned int N, typename T>
-		inline complex<T> distance(
-			const vec<complex<T>, N>& v1, const vec<complex<T>, N>& v2) {
-
-			return hermitian_distance<vec<complex<T>, N>, T>(v1, v2);
+		
+		
+		/// Compute the Minkowski distance between two complex values:
+		/// \f$d(z_1, z_2) = \mathcal{l}^p(z_1 - z_2)\f$
+		///
+		/// @param z1 The first complex value
+		/// @param z2 The second complex value
+		/// @param p The power of the distance
+		/// @return The Minkowski distance of power p between z1 and z2
+		template<typename T>
+		inline real minkowski_distance(complex<T> z1, complex<T> z2, unsigned int p) {
+			return root(pow(abs(z2 - z1), p), p);
 		}
 
 
