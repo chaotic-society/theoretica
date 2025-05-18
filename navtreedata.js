@@ -66,7 +66,7 @@ var NAVTREEINDEX =
 "deriv_8h.html#ae231f0ed7d65026e95d86dad20498113",
 "montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28",
 "namespacetheoretica.html#a6a6de16e5ee81d340ff91dbadb99edde",
-"namespacetheoretica_1_1algebra.html#a0e0fb9692dbe481cc96fc7dea38f5fc5",
+"namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324",
 "namespacetheoretica_1_1stats.html#a1c169cdd82273fc892ed678c33d98582",
 "sampling_8h.html#accbe6df09ae3883660614f02f70a2ade"
 ];

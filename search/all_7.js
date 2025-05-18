@@ -9,8 +9,7 @@ var searchData=
   ['hermite_5fpolynomial_6',['hermite_polynomial',['../namespacetheoretica.html#afd97a0d6d99915f065567958760164f4',1,'theoretica']]],
   ['hermite_5fweights_7',['hermite_weights',['../namespacetheoretica.html#a04806d2927b08fe51b37c5a1c517de35',1,'theoretica']]],
   ['hermitian_8',['hermitian',['../namespacetheoretica_1_1algebra.html#ab27e1f7cb91803bcaa589262d38e32e5',1,'theoretica::algebra::hermitian(const Matrix &amp;m)'],['../namespacetheoretica_1_1algebra.html#af0d8810ef51e6d38c45132998b481740',1,'theoretica::algebra::hermitian(Matrix1 &amp;dest, const Matrix2 &amp;src)']]],
-  ['hermitian_5fdistance_9',['hermitian_distance',['../namespacetheoretica_1_1algebra.html#a9de933be9b870772f4023c5d1ad6fb65',1,'theoretica::algebra']]],
-  ['hilbert_10',['hilbert',['../namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2',1,'theoretica::algebra']]],
-  ['histogram_11',['histogram',['../classtheoretica_1_1histogram.html',1,'theoretica::histogram'],['../classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615',1,'theoretica::histogram::histogram(unsigned int bin_count, real range_min, real range_max)'],['../classtheoretica_1_1histogram.html#acc5edfcda71029bf5185cbb12188705b',1,'theoretica::histogram::histogram(const Dataset &amp;data, unsigned int bin_count=0)']]],
-  ['histogram_2eh_12',['histogram.h',['../histogram_8h.html',1,'']]]
+  ['hilbert_9',['hilbert',['../namespacetheoretica_1_1algebra.html#a6d8959e6c5653f2a821935ca4a1d4cd2',1,'theoretica::algebra']]],
+  ['histogram_10',['histogram',['../classtheoretica_1_1histogram.html',1,'theoretica::histogram'],['../classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615',1,'theoretica::histogram::histogram(unsigned int bin_count, real range_min, real range_max)'],['../classtheoretica_1_1histogram.html#acc5edfcda71029bf5185cbb12188705b',1,'theoretica::histogram::histogram(const Dataset &amp;data, unsigned int bin_count=0)']]],
+  ['histogram_2eh_11',['histogram.h',['../histogram_8h.html',1,'']]]
 ];
