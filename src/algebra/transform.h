@@ -196,7 +196,7 @@ namespace theoretica {
 
 			m(0, 0) = c + Rx * Rx * cm1;
 			m(0, 1) = Rx * Ry * cm1 - Rz * s;
-			m(0, 2) = Rx * Rz * cm1 - Ry * s;
+			m(0, 2) = Rx * Rz * cm1 + Ry * s;
 
 			m(1, 0) = Ry * Rx * cm1 + Rz * s;
 			m(1, 1) = c + Ry * Ry * cm1;
