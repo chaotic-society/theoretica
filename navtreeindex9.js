@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"namespacetheoretica_1_1stats.html#a1baa2faa86d8049c601c3c10915a3dcb":[0,0,1,8,13],
 "namespacetheoretica_1_1stats.html#a1c169cdd82273fc892ed678c33d98582":[0,0,1,8,24],
 "namespacetheoretica_1_1stats.html#a205cd572d1aa0baecdcd77425dab5560":[0,0,1,8,28],
 "namespacetheoretica_1_1stats.html#a2ca8623e22dedb09c3707c9642ca119a":[0,0,1,8,14],
@@ -111,7 +112,8 @@ var NAVTREEINDEX9 =
 "polynomial_2polynomial_8h.html":[2,0,7,1],
 "polynomial_2polynomial_8h_source.html":[2,0,7,1],
 "prng_8h.html":[2,0,8,1],
-"prng_8h.html#a8679d2642c8820e78e33f7aa3294f7eb":[2,0,8,1,1],
+"prng_8h.html#a1e91a532cc435d50b6541a5cb5a80347":[2,0,8,1,1],
+"prng_8h.html#af7e8506f391fba09c0819116a8abd806":[2,0,8,1,2],
 "prng_8h_source.html":[2,0,8,1],
 "pseudorandom_8h.html":[2,0,8,2],
 "pseudorandom_8h.html#a01565fc76eac80418a68b0076f0e5c1d":[2,0,8,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "sampling_8h.html#a99ddd9fc13f4c8b28ea4025640cbadf4":[2,0,8,4,7],
 "sampling_8h.html#aa2e6165f6c783179d1b3c2e321b3e7d4":[2,0,8,4,10],
 "sampling_8h.html#aad2c1865b7a5639ed82643a069554e3d":[2,0,8,4,12],
-"sampling_8h.html#ac34a4b6660c0287dc6dfa979a2f83002":[2,0,8,4,5],
-"sampling_8h.html#ac8bdf0dc89459fedaf6950c0f9b96df5":[2,0,8,4,17],
-"sampling_8h.html#ac91dfc5efe4fa412bd7ef46f142f7045":[2,0,8,4,3]
+"sampling_8h.html#ac34a4b6660c0287dc6dfa979a2f83002":[2,0,8,4,5]
 };

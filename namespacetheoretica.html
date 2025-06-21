@@ -1374,10 +1374,14 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:a891845bdf03e80b72925c16db545606f"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a891845bdf03e80b72925c16db545606f">sample_mc</a> (Function f, std::vector&lt; <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &gt; &amp;rv, unsigned int N)</td></tr>
 <tr class="memdesc:a891845bdf03e80b72925c16db545606f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Monte Carlo sample of values of a given function of arbitrary variables following the given distributions.  <br /></td></tr>
 <tr class="separator:a891845bdf03e80b72925c16db545606f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8679d2642c8820e78e33f7aa3294f7eb" id="r_a8679d2642c8820e78e33f7aa3294f7eb"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
-<tr class="memitem:a8679d2642c8820e78e33f7aa3294f7eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8679d2642c8820e78e33f7aa3294f7eb">shuffle</a> (Vector &amp;v, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g, unsigned int rounds=0)</td></tr>
-<tr class="memdesc:a8679d2642c8820e78e33f7aa3294f7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffle a set by exchanging random couples of elements.  <br /></td></tr>
-<tr class="separator:a8679d2642c8820e78e33f7aa3294f7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e8506f391fba09c0819116a8abd806" id="r_af7e8506f391fba09c0819116a8abd806"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:af7e8506f391fba09c0819116a8abd806"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af7e8506f391fba09c0819116a8abd806">shuffle</a> (Vector &amp;v, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g, unsigned int rounds)</td></tr>
+<tr class="memdesc:af7e8506f391fba09c0819116a8abd806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffle a set by exchanging random couples of elements.  <br /></td></tr>
+<tr class="separator:af7e8506f391fba09c0819116a8abd806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e91a532cc435d50b6541a5cb5a80347" id="r_a1e91a532cc435d50b6541a5cb5a80347"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a1e91a532cc435d50b6541a5cb5a80347"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1e91a532cc435d50b6541a5cb5a80347">shuffle</a> (Vector &amp;v, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;g)</td></tr>
+<tr class="memdesc:a1e91a532cc435d50b6541a5cb5a80347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffle a set by exchanging random couples of elements.  <br /></td></tr>
+<tr class="separator:a1e91a532cc435d50b6541a5cb5a80347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafab10ea5cdd0da85e7eca301936c0d0" id="r_aafab10ea5cdd0da85e7eca301936c0d0"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aafab10ea5cdd0da85e7eca301936c0d0">randgen_congruential</a> (uint64_t x, uint64_t a=48271, uint64_t c=0, uint64_t m=((uint64_t) 1&lt;&lt; 31) - 1)</td></tr>
 <tr class="memdesc:aafab10ea5cdd0da85e7eca301936c0d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom natural number using the congruential pseudorandom number generation algorithm.  <br /></td></tr>
 <tr class="separator:aafab10ea5cdd0da85e7eca301936c0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -10886,8 +10890,8 @@ template&lt;typename Vector  = std::vector&lt;real&gt;, typename Function  = std
 
 </div>
 </div>
-<a id="a8679d2642c8820e78e33f7aa3294f7eb" name="a8679d2642c8820e78e33f7aa3294f7eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8679d2642c8820e78e33f7aa3294f7eb">&#9670;&#160;</a></span>shuffle()</h2>
+<a id="a1e91a532cc435d50b6541a5cb5a80347" name="a1e91a532cc435d50b6541a5cb5a80347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e91a532cc435d50b6541a5cb5a80347">&#9670;&#160;</a></span>shuffle() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10898,7 +10902,56 @@ template&lt;typename Vector &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void theoretica::shuffle </td>
+          <td class="memname">Vector &amp; theoretica::shuffle </td>
+          <td>(</td>
+          <td class="paramtype">Vector &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shuffle a set by exchanging random couples of elements. </p>
+<p>The number of rounds used is \((N - 1)^2\).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The set to shuffle (as a Vector with [] and .size() methods) </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized <a class="el" href="classtheoretica_1_1_p_r_n_g.html" title="A pseudorandom number generator.">PRNG</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the shuffled vector </dd></dl>
+
+</div>
+</div>
+<a id="af7e8506f391fba09c0819116a8abd806" name="af7e8506f391fba09c0819116a8abd806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e8506f391fba09c0819116a8abd806">&#9670;&#160;</a></span>shuffle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector &amp; theoretica::shuffle </td>
           <td>(</td>
           <td class="paramtype">Vector &amp;&#160;</td>
           <td class="paramname"><em>v</em>, </td>
@@ -10913,7 +10966,7 @@ template&lt;typename Vector &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>rounds</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>rounds</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -10933,10 +10986,11 @@ template&lt;typename Vector &gt; </div>
   <table class="params">
     <tr><td class="paramname">v</td><td>The set to shuffle (as a Vector with [] and .size() methods) </td></tr>
     <tr><td class="paramname">g</td><td>An already initialized <a class="el" href="classtheoretica_1_1_p_r_n_g.html" title="A pseudorandom number generator.">PRNG</a> </td></tr>
-    <tr><td class="paramname">rounds</td><td>The number of pairs to exchange (defaults to (N - 1)^2) </td></tr>
+    <tr><td class="paramname">rounds</td><td>The number of pairs to exchange. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the shuffled vector </dd></dl>
 
 </div>
 </div>
@@ -11594,7 +11648,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Sat May 31 2025 14:28:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jun 21 2025 14:06:04 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
