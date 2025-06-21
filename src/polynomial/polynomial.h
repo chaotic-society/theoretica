@@ -69,10 +69,7 @@ namespace theoretica {
 			template<typename EvalType = Type>
 			inline EvalType eval(EvalType x) const {
 
-				if(!coeff.size())
-					return 0;
-
-				EvalType sum = 0;
+				EvalType sum = EvalType(0.0);
 
 				// Evaluate using Horner's method
 				for (unsigned int i = 0; i < coeff.size(); ++i)

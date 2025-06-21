@@ -206,16 +206,13 @@ namespace theoretica {
 	/// 
 	/// @param v The set to shuffle (as a Vector with [] and .size() methods)
 	/// @param g An already initialized PRNG
-	/// @param rounds The number of pairs to exchange (defaults to (N - 1)^2)
+	/// @param rounds The number of pairs to exchange.
+	/// @return A reference to the shuffled vector
 	template<typename Vector>
-	inline void shuffle(Vector& v, PRNG& g, unsigned int rounds = 0) {
+	inline Vector& shuffle(Vector& v, PRNG& g, unsigned int rounds) {
 
 		if(v.size() == 0)
 			TH_MATH_ERROR("shuffle", v.size(), INVALID_ARGUMENT);
-
-		// The number of rounds defaults to (N - 1)^2
-		if(rounds == 0)
-			rounds = square(v.size() - 1);
 
 		for (unsigned int i = 0; i < rounds; ++i) {
 			
@@ -228,6 +225,18 @@ namespace theoretica {
 			v[index1] = v[index2];
 			v[index2] = x1;
 		}
+	}
+
+
+	/// Shuffle a set by exchanging random couples of elements.
+	/// The number of rounds used is \f$(N - 1)^2\f$.
+	/// 
+	/// @param v The set to shuffle (as a Vector with [] and .size() methods)
+	/// @param g An already initialized PRNG
+	/// @return A reference to the shuffled vector
+	template<typename Vector>
+	inline Vector& shuffle(Vector& v, PRNG& g) {
+		return shuffle(v, g, square(v.size() - 1));
 	}
 
 }
