@@ -8,18 +8,16 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	prec::setup("signal", argc, argv);
+	auto ctx = prec::make_context("signal", argc, argv);
+	ctx.output->settings.outputFiles = { "test/prec/prec_signal.csv" };
 
-		output::settings.outputFiles = { "test/prec/prec_signal.csv" };
-
-
-		// Test fft.h
+	// Test fft.h
 
 	{
 		cvec x = {};
 		cvec empty = {};
 
-		prec::equals(
+		ctx.equals(
 			"fft({})",
 			signal::fft(x) == empty,
 			true, 0
@@ -30,7 +28,7 @@ int main(int argc, char const *argv[]) {
 		cvec x = {};
 		cvec empty = {};
 
-		prec::equals(
+		ctx.equals(
 			"ifft({})",
 			signal::ifft(x) == empty,
 			true, 0
@@ -46,7 +44,7 @@ int main(int argc, char const *argv[]) {
 		cvec x = cvec(N);
 		gauss.fill(x);
 
-		prec::equals(
+		ctx.equals(
 			"ifft(fft(x)) = x",
 			algebra::linf_norm(signal::ifft(signal::fft(x)) - x),
 			0
@@ -57,7 +55,7 @@ int main(int argc, char const *argv[]) {
 		cvec x = {1, 1};
 		cvec expected = {2, 0};
 
-		prec::equals(
+		ctx.equals(
 			"fft(1, 1)",
 			algebra::linf_norm(signal::fft(x) - expected),
 			0
@@ -67,12 +65,10 @@ int main(int argc, char const *argv[]) {
 	{
 		cvec x = {1, 1, 1};
 
-		prec::equals(
+		ctx.equals(
 			"fft (N != 2^m)",
 			is_nan(signal::fft(x)[0]),
 			true
 		);
 	}
-
-	prec::terminate();
 }
