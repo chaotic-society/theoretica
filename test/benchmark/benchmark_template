@@ -9,11 +9,9 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	benchmark::setup("example");
+	auto ctx = benchmark::make_context("example");
+	ctx.output->settings.outputFiles = { "test/benchmark/benchmark_example.csv" };
 
-		output::settings.outputFolder = { "test/benchmark/benchmark_example.csv" };
+	// ctx.benchmark(...);
 
-		// benchmark::benchmark(...);
-
-	benchmark::terminate();
 }

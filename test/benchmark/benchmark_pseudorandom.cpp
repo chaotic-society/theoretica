@@ -23,6 +23,8 @@ void benchmark_PRNG(benchmark::benchmark_context& ctx, PRNG& g, vec<uint64_t>& v
 				v[i] = g();
 			return v[0];
 	}, opt);
+
+	ctx.wait_results();
 }
 
 
@@ -50,17 +52,12 @@ int main(int argc, char const *argv[]) {
 
 	// Measure the time taken to generate 1 million numbers
 	benchmark_PRNG(ctx, g_xoshiro, v);
-	ctx.wait_results();
 
 	benchmark_PRNG(ctx, g_wyrand, v);
-	ctx.wait_results();
 
 	benchmark_PRNG(ctx, g_lc, v);
-	ctx.wait_results();
 
 	benchmark_PRNG(ctx, g_splitmix64, v);
-	ctx.wait_results();
 
 	benchmark_PRNG(ctx, g_middlesquare, v);
-	ctx.wait_results();
 }

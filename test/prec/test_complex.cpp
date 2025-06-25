@@ -8,56 +8,51 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
-
 int main(int argc, char const *argv[]) {
 
-	const real MAX = 1E+6;
-	PRNG g = PRNG(time(nullptr));
-	pdf_sampler gauss = pdf_sampler::gaussian(0, MAX, g);
-	
-	output::settings.outputFiles = { "test/prec/prec_complex.csv" };
-	
+	// Variance for random number generation
+	const real VARIANCE = 1E+6;
 
-	prec::setup("complex");
+	auto ctx = prec::make_context("complex", argc, argv);
+	ctx.output->settings.outputFiles = { "test/prec/prec_complex.csv" };
+	random::random_source rnd = ctx.random->get_rnd();
 
-		// Re() and Im()
-		{
-			real x = gauss();
-			real y = gauss();
+	// Re() and Im()
+	{
+		real x = rnd.gaussian(0, VARIANCE);
+		real y = rnd.gaussian(0, VARIANCE);
 
-			prec::equals("complex::Re()", complex<real>(x, y).Re(), x);
-			prec::equals("complex::Re()", complex<real>(x, 0).Re(), x);
-			prec::equals("complex::Re()", complex<real>(0).Re(), 0);
+		ctx.equals("complex::Re()", complex<real>(x, y).Re(), x);
+		ctx.equals("complex::Re()", complex<real>(x, 0).Re(), x);
+		ctx.equals("complex::Re()", complex<real>(0).Re(), 0);
 
-			prec::equals("complex::Im()", complex<real>(x, y).Im(), y);
-			prec::equals("complex::Im()", complex<real>(0, y).Im(), y);
-			prec::equals("complex::Im()", complex<real>(0).Im(), 0);
-		}
+		ctx.equals("complex::Im()", complex<real>(x, y).Im(), y);
+		ctx.equals("complex::Im()", complex<real>(0, y).Im(), y);
+		ctx.equals("complex::Im()", complex<real>(0).Im(), 0);
+	}
 
 
-		// operator+
-		{
-			real x = gauss();
-			real y = gauss();
+	// operator+
+	{
+		real x = rnd.gaussian(0, VARIANCE);
+		real y = rnd.gaussian(0, VARIANCE);
 
-			prec::equals(
-				"complex::operator+",
-				(complex<real>(x) + complex<real>(y)).Re(),
-				x + y
-			);
+		ctx.equals(
+			"complex::operator+",
+			(complex<real>(x) + complex<real>(y)).Re(),
+			x + y
+		);
 
-			prec::equals(
-				"complex::operator+",
-				(complex<real>(x) + y).Re(),
-				x + y
-			);
+		ctx.equals(
+			"complex::operator+",
+			(complex<real>(x) + y).Re(),
+			x + y
+		);
 
-			prec::equals(
-				"complex::operator+",
-				(x + complex<real>(y)).Re(),
-				x + y
-			);
-		}
-
-	prec::terminate();
+		ctx.equals(
+			"complex::operator+",
+			(x + complex<real>(y)).Re(),
+			x + y
+		);
+	}
 }
