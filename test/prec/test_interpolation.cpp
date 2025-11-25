@@ -7,16 +7,13 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
-
 int main(int argc, char const *argv[]) {
 
-	prec::settings.outputFiles = { "test/prec/prec_interpolation.csv" };
-	
-	prec::setup("interpolation");
+	auto ctx = prec::make_context("interpolation");
+	ctx.settings.outputFiles = { "test/prec/prec_interpolation.csv" };
 
-		// polynomial.h
+	// polynomial.h
 
-		// splines.h
+	// splines.h
 
-	prec::terminate();
 }

@@ -13,13 +13,11 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	prec::setup("polynomial");
+	auto ctx = prec::make_context("polynomial");
+	ctx.settings.outputFiles = { "test/prec/prec_polynomial.csv" };
 
-		prec::settings.outputFiles = { "test/prec/prec_polynomial.csv" };
+	// polynomial.h
 
-		// polynomial.h
-
-		// orthogonal.h
-
-	prec::terminate();
+	// orthogonal.h
+	
 }

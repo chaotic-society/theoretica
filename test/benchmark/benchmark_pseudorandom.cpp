@@ -1,67 +1,58 @@
 
+#include <ctime>
+
 #include "theoretica.h"
 #include "chebyshev.h"
 using namespace chebyshev;
 using namespace theoretica;
 
 
+// Sample size for PRNGs
+const size_t N = 1'000'000;
+
+
+// Benchmark a pseudorandom number generator
+void benchmark_PRNG(std::string PRNGName, benchmark::benchmark_context& ctx, PRNG& g) {
+
+	vec<uint64_t> v (N);
+	auto opt = benchmark::benchmark_options<real>(50, 1);
+
+	ctx.benchmark("PRNG::" + PRNGName + " (1M)",
+		[&](real x) {
+			for (size_t i = 0; i < N; ++i)
+				v[i] = g();
+			return v[0];
+	}, opt);
+}
+
+
 int main(int argc, char const *argv[]) {
-	
-	// const size_t N = 1000000;
-	// const uint64_t seed = time(nullptr);
-	// auto dummy = [](unsigned int i) { return 0; };
 
-	benchmark::settings.outputFiles = { "test/benchmark/" };
-	benchmark::settings.defaultIterations = 10;
-	benchmark::settings.defaultRuns = 10;
+	auto ctx = benchmark::make_context("pseudorandom", argc, argv);
 
-	benchmark::setup("pseudorandom", argc, argv);
+	ctx.settings.outputFiles = { "test/benchmark/benchmark_pseudorandom.csv" };
+	ctx.settings.defaultIterations = 10;
+	ctx.settings.defaultRuns = 10;
 
-		// PRNG g_xoshiro = PRNG::xoshiro(seed);
-		// PRNG g_wyrand = PRNG::wyrand(seed);
-		// PRNG g_lc = PRNG::linear_congruential(seed);
-		// PRNG g_splitmix64 = PRNG::splitmix64(seed);
-		// PRNG g_middlesquare = PRNG::middlesquare(seed);
+	// Disable multithreading to avoid segmentation faults
+	// caused by PRNG benchmark
+	ctx.settings.multithreading = false;
 
-		// // Allocate a vector to fill with random numbers
-		// vec<uint64_t> v = vec<uint64_t>(N);
+	const uint64_t seed = time(nullptr);
+	PRNG g_xoshiro = PRNG::xoshiro(seed);
+	PRNG g_wyrand = PRNG::wyrand(seed);
+	PRNG g_lc = PRNG::linear_congruential(seed);
+	PRNG g_splitmix64 = PRNG::splitmix64(seed);
+	PRNG g_middlesquare = PRNG::middlesquare(seed);
 
-		// Measure the time taken to generate 1 million numbers
+	// Allocate a vector to fill with random numbers
+	vec<uint64_t> v = vec<uint64_t>(N);
 
-		// benchmark::request("PRNG::xoshiro",
-		// 	[&](real x) {
-		// 		for (size_t i = 0; i < N; ++i)
-		// 			v[i] = g_xoshiro();
-		// 		return v[0];
-		// 	}, dummy);
+	// Measure the time taken to generate 1 million numbers
 
-		// benchmark::request("PRNG::wyrand",
-		// 	[&](real x) {
-		// 		for (size_t i = 0; i < N; ++i)
-		// 			v[i] = g_wyrand();
-		// 		return v[0];
-		// 	}, dummy);
-
-		// benchmark::request("PRNG::linear_...",
-		// 	[&](real x) {
-		// 		for (size_t i = 0; i < N; ++i)
-		// 			v[i] = g_lc();
-		// 		return v[0];
-		// 	}, dummy);
-
-		// benchmark::request("PRNG::splitmix64",
-		// 	[&](real x) {
-		// 		for (size_t i = 0; i < N; ++i)
-		// 			v[i] = g_splitmix64();
-		// 		return v[0];
-		// 	}, dummy);
-
-		// benchmark::request("PRNG::middlesquare",
-		// 	[&](real x) {
-		// 		for (size_t i = 0; i < N; ++i)
-		// 			v[i] = g_middlesquare();
-		// 		return v[0];
-		// 	}, dummy);
-
-	benchmark::terminate();
+	benchmark_PRNG("xoshiro", ctx, g_xoshiro);
+	benchmark_PRNG("wyrand", ctx, g_wyrand);
+	benchmark_PRNG("linear_congruential", ctx, g_lc);
+	benchmark_PRNG("splitmix64", ctx, g_splitmix64);
+	benchmark_PRNG("middlesquare", ctx, g_middlesquare);
 }

@@ -7,41 +7,38 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 
-	benchmark::setup("dataset", argc, argv);
+	auto ctx = benchmark::make_context("dataset", argc, argv);
+	ctx.output->settings.outputFiles = { "test/benchmark/benchmark_dataset.csv" };
 
-		output::settings.outputFiles = { "test/benchmark/benchmark_dataset.csv" };
+	// Disable multithreading because it would
+	// interfere with benchmarks
+	ctx.settings.multithreading = false;
 
-		// const size_t N = 1'000'000;
-		// auto dummy = [](unsigned int i) -> real { return 0; };
+	const size_t N = 1'000'000;
+	auto opt = benchmark::benchmark_options<real>(10, 10);
 
-		// auto opt = benchmark::benchmark_options<real>(
-		// 	10, 10, dummy
-		// );
+	PRNG g = PRNG::xoshiro(time(nullptr));
+	pdf_sampler gauss = pdf_sampler::gaussian(0, 1'000'000, g);
 
-		// PRNG g = PRNG::xoshiro(time(nullptr));
-	    // pdf_sampler gauss = pdf_sampler::gaussian(0, 1'000'000, g);
+	// Generate a gaussian sample
+	vec<real> v = vec<real>(N);
+	gauss.fill(v);
 
-	    // // Generate a gaussian sample
-	    // vec<real> v = vec<real>(N);
-	    // gauss.fill(v);
+	ctx.benchmark(
+		"sum",
+		[v](real x) { return sum(v); },
+		opt
+	);
 
-	    // benchmark::benchmark(
-	    // 	"sum",
-	    // 	[v](real x) { return sum(v); },
-	    // 	opt
-	    // );
+	ctx.benchmark(
+		"sum_pairwise",
+		[v](real x) { return sum_pairwise(v); },
+		opt
+	);
 
-		// benchmark::benchmark(
-		// 	"sum_pairwise",
-		// 	[v](real x) { return sum_pairwise(v); },
-		// 	opt
-		// );
-
-		// benchmark::benchmark(
-		// 	"sum_compensated",
-		// 	[v](real x) { return sum_compensated(v); },
-		// 	opt
-		// );
-
-	benchmark::terminate();
+	ctx.benchmark(
+		"sum_compensated",
+		[v](real x) { return sum_compensated(v); },
+		opt
+	);
 }
