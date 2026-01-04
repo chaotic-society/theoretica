@@ -40,13 +40,13 @@ namespace theoretica {
 		inline Matrix& diagonal(Matrix& res, const Vector& v) {
 
 			if(v.size() != res.cols()) {
-				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(v.size() != res.rows()) {
-				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
@@ -94,7 +94,7 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(v.size() != (m.rows() - 1)) {
-				TH_MATH_ERROR("algebra::translation", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::translation", v.size(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -124,13 +124,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 2) {
-				TH_MATH_ERROR("algebra::rotation_2d", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_2d", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 2) {
-				TH_MATH_ERROR("algebra::rotation_2d", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_2d", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -165,19 +165,19 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(axis.size() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", axis.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", axis.size(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -224,13 +224,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -266,13 +266,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -309,13 +309,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -365,13 +365,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::perspective", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::perspective", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -403,13 +403,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::perspective_fov", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective_fov", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::perspective_fov", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective_fov", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -433,13 +433,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::ortho", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::ortho", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::ortho", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::ortho", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -522,7 +522,7 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(rows != cols || (rows % 2 != 0)) {
-				TH_MATH_ERROR("algebra::symplectic", rows, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::symplectic", rows, MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}

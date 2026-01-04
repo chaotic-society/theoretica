@@ -105,7 +105,7 @@ namespace theoretica {
 		inline real euclidean_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("euclidean_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("euclidean_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -182,7 +182,7 @@ namespace theoretica {
 		inline real minkowski_distance(const Vector& v1, const Vector& v2, unsigned int p) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("minkowski_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("minkowski_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -225,7 +225,7 @@ namespace theoretica {
 		inline real manhattan_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("manhattan_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("manhattan_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -243,7 +243,7 @@ namespace theoretica {
 		inline real chebyshev_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("chebyshev_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("chebyshev_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -263,7 +263,7 @@ namespace theoretica {
 			const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("discrete_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("discrete_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -292,7 +292,7 @@ namespace theoretica {
 		inline real canberra_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("canberra_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("canberra_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -314,7 +314,7 @@ namespace theoretica {
 		inline real cosine_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("cosine_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("cosine_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -344,7 +344,7 @@ namespace theoretica {
 			const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("hamming_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("hamming_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 

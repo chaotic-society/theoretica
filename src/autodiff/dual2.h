@@ -105,7 +105,7 @@ namespace theoretica {
 			inline dual2 inverse() const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("dual2::inverse", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual2::inverse", 0, MathError::DivByZero);
 					return dual2(nan(), nan(), nan());
 				}
 
@@ -163,7 +163,7 @@ namespace theoretica {
 			inline dual2 operator/(real r) const {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual2::operator/", r, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual2::operator/", r, MathError::DivByZero);
 					return dual2(nan(), nan(), nan());
 				}
 
@@ -231,7 +231,7 @@ namespace theoretica {
 			inline dual2& operator/=(real r) {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::operator/=", 0, MathError::DivByZero);
 					a = nan();
 					b = nan();
 					c = nan();

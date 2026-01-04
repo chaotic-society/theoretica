@@ -140,7 +140,7 @@ namespace theoretica {
 				const Type n = sqr_norm();
 
 				if(n < MACH_EPSILON) {
-					TH_MATH_ERROR("quat::inverse", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::inverse", n, MathError::DivByZero);
 					return quat((Type) nan());
 				}
 
@@ -154,7 +154,7 @@ namespace theoretica {
 				const Type n = sqr_norm();
 
 				if(n < MACH_EPSILON) {
-					TH_MATH_ERROR("quat::invert", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::invert", n, MathError::DivByZero);
 					return quat((Type) nan());
 				}
 
@@ -201,7 +201,7 @@ namespace theoretica {
 			inline quat operator/(Type k) const {
 
 				if(abs(k) < MACH_EPSILON) {
-					TH_MATH_ERROR("quat::operator/", k, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::operator/", k, MathError::DivByZero);
 					return quat(nan());
 				}
 
@@ -251,7 +251,7 @@ namespace theoretica {
 			inline quat& operator/=(Type k) {
 
 				if(abs(k) < MACH_EPSILON) {
-					TH_MATH_ERROR("quat::operator/=", k, DIV_BY_ZERO);
+					TH_MATH_ERROR("quat::operator/=", k, MathError::DivByZero);
 					return (*this = quat(nan()));
 				}
 
@@ -303,7 +303,7 @@ namespace theoretica {
 				res.resize(3);
 
 				if(v.size() != 3) {
-					TH_MATH_ERROR("quat::transform", v.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("quat::transform", v.size(), MathError::InvalidArgument);
 					algebra::vec_error(res);
 					return res;
 				}
@@ -339,13 +339,13 @@ namespace theoretica {
 				res.resize(3);
 
 				if(axis.size() != 3) {
-					TH_MATH_ERROR("quat::rotate", axis.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("quat::rotate", axis.size(), MathError::InvalidArgument);
 					algebra::vec_error(res);
 					return res;
 				}
 
 				if(v.size() != 3) {
-					TH_MATH_ERROR("quat::rotate", v.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("quat::rotate", v.size(), MathError::InvalidArgument);
 					algebra::vec_error(res);
 					return res;
 				}

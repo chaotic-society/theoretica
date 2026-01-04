@@ -47,7 +47,7 @@ namespace theoretica {
 	inline real rand_uniform(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_uniform", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_uniform", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -82,7 +82,7 @@ namespace theoretica {
 	inline real rand_diceroll(unsigned int faces, PRNG& g) {
 
 		if(faces == 0) {
-			TH_MATH_ERROR("rand_diceroll", faces, INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_diceroll", faces, MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -97,12 +97,12 @@ namespace theoretica {
 	inline real rand_diceroll(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_diceroll", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_diceroll", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
 		if(theta[0] < 0) {
-			TH_MATH_ERROR("rand_diceroll", theta[0], INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_diceroll", theta[0], MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -148,7 +148,7 @@ namespace theoretica {
 		} while(y > f(x, theta) && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("rand_dist_tac", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("rand_dist_tac", iter, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -186,7 +186,7 @@ namespace theoretica {
 				return x_p;
 		}
 
-		TH_MATH_ERROR("rand_reject_sample", max_tries, NO_ALGO_CONVERGENCE);
+		TH_MATH_ERROR("rand_reject_sample", max_tries, MathError::NoConvergence);
 		return nan();
 	}
 
@@ -334,7 +334,7 @@ namespace theoretica {
 	inline real rand_gaussian(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_gaussian", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_gaussian", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -347,7 +347,7 @@ namespace theoretica {
 	inline real rand_exponential(real lambda, PRNG& g) {
 
 		if(abs(lambda) < MACH_EPSILON) {
-			TH_MATH_ERROR("rand_exponential", lambda, DIV_BY_ZERO);
+			TH_MATH_ERROR("rand_exponential", lambda, MathError::DivByZero);
 			return nan();
 		}
 
@@ -362,7 +362,7 @@ namespace theoretica {
 	inline real rand_exponential(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_exponential", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_exponential", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -385,7 +385,7 @@ namespace theoretica {
 	inline real rand_rayleigh(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_rayleigh", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_rayleigh", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -408,7 +408,7 @@ namespace theoretica {
 	inline real rand_cauchy(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_cauchy", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_cauchy", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -430,7 +430,7 @@ namespace theoretica {
 	inline real rand_laplace(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_laplace", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_laplace", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 		
@@ -453,7 +453,7 @@ namespace theoretica {
 	inline real rand_pareto(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_pareto", theta.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("rand_pareto", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 

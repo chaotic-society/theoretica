@@ -56,7 +56,7 @@ namespace theoretica {
 		const real sqrt_x = sqrt(x.Re());
 
 		if(sqrt_x == 0) {
-			TH_MATH_ERROR("sqrt(dual)", sqrt_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("sqrt(dual)", sqrt_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -82,7 +82,7 @@ namespace theoretica {
 		const real cos_x = cos(x.Re());
 
 		if(cos_x == 0) {
-			TH_MATH_ERROR("tan(dual)", cos_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("tan(dual)", cos_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -96,7 +96,7 @@ namespace theoretica {
 		const real sin_x = sin(x.Re());
 
 		if(sin_x == 0) {
-			TH_MATH_ERROR("cot(dual)", sin_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("cot(dual)", sin_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -116,7 +116,7 @@ namespace theoretica {
 	inline dual ln(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("ln(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("ln(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -128,7 +128,7 @@ namespace theoretica {
 	inline dual log2(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("log2(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log2(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -140,7 +140,7 @@ namespace theoretica {
 	inline dual log10(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("log10(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log10(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -158,7 +158,7 @@ namespace theoretica {
 	inline dual asin(dual x) {
 
 		if(x.Re() >= 1) {
-			TH_MATH_ERROR("asin(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("asin(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -170,7 +170,7 @@ namespace theoretica {
 	inline dual acos(dual x) {
 
 		if(x.Re() >= 1) {
-			TH_MATH_ERROR("acos(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("acos(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 

@@ -37,7 +37,7 @@ namespace theoretica {
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
 
 		if(gamma >= 0) {
-			TH_MATH_ERROR("multi_minimize_grad", gamma, INVALID_ARGUMENT);
+			TH_MATH_ERROR("multi_minimize_grad", gamma, MathError::InvalidArgument);
 			return vec<real, N>(nan());
 		}
 
@@ -54,7 +54,7 @@ namespace theoretica {
 		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_minimize_grad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_minimize_grad", iter, MathError::NoConvergence);
 			return vec<real, N>(nan());
 		}
 
@@ -129,7 +129,7 @@ namespace theoretica {
 		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_minimize_lingrad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_minimize_lingrad", iter, MathError::NoConvergence);
 			return vec<real, N>(nan());
 		}
 
@@ -180,7 +180,7 @@ namespace theoretica {
 		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_maximize_lingrad", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_maximize_lingrad", iter, MathError::NoConvergence);
 			return vec<real, N>(nan());
 		}
 

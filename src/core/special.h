@@ -23,7 +23,7 @@ namespace theoretica {
 		inline real gamma(unsigned int k) {
 
 			if(k == 0) {
-				TH_MATH_ERROR("gamma", k, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("gamma", k, MathError::OutOfDomain);
 				return nan();
 			}
 
@@ -41,7 +41,7 @@ namespace theoretica {
 		inline real half_gamma(unsigned int k) {
 
 			if(k == 0) {
-				TH_MATH_ERROR("half_gamma", k, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("half_gamma", k, MathError::OutOfDomain);
 				return nan();
 			}
 
@@ -63,7 +63,7 @@ namespace theoretica {
 
 				// Check for negative values of Gamma(x)
 				if(floor(-x) % 2 == 0) {
-					TH_MATH_ERROR("lngamma", x, OUT_OF_DOMAIN);
+					TH_MATH_ERROR("lngamma", x, MathError::OutOfDomain);
 					return nan();
 				}
 
@@ -106,7 +106,7 @@ namespace theoretica {
 			if(x_fract < MACH_EPSILON) {
 
 				if(x <= 0) {
-					TH_MATH_ERROR("gamma", x, OUT_OF_DOMAIN);
+					TH_MATH_ERROR("gamma", x, MathError::OutOfDomain);
 					return inf();
 				} else
 					return gamma((unsigned int) x);

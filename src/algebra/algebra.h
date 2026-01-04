@@ -163,12 +163,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (row1 >= A.rows()) {
-				TH_MATH_ERROR("algebra::mat_swap_rows", row1, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_swap_rows", row1, MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
 			if (row2 >= A.rows()) {
-				TH_MATH_ERROR("algebra::mat_swap_rows", row2, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_swap_rows", row2, MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
@@ -199,12 +199,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (col1 >= A.cols()) {
-				TH_MATH_ERROR("algebra::mat_swap_cols", col1, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_swap_cols", col1, MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
 			if (col2 >= A.cols()) {
-				TH_MATH_ERROR("algebra::mat_swap_cols", col2, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_swap_cols", col2, MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
@@ -308,7 +308,7 @@ namespace theoretica {
 			const auto m = norm(v);
 
 			if(abs(m) < MACH_EPSILON) {
-				TH_MATH_ERROR("algebra::normalize", m, DIV_BY_ZERO);
+				TH_MATH_ERROR("algebra::normalize", m, MathError::DivByZero);
 				vec_error(r);
 				return r;
 			}
@@ -329,7 +329,7 @@ namespace theoretica {
 			const auto m = norm(v);
 
 			if(abs(m) < MACH_EPSILON) {
-				TH_MATH_ERROR("algebra::make_normalized", m, DIV_BY_ZERO);
+				TH_MATH_ERROR("algebra::make_normalized", m, MathError::DivByZero);
 				vec_error(v);
 				return v;
 			}
@@ -351,7 +351,7 @@ namespace theoretica {
 		inline auto dot(const Vector1& v, const Vector2& w) {
 
 			if(v.size() != w.size()) {
-				TH_MATH_ERROR("algebra::dot", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::dot", v.size(), MathError::InvalidArgument);
 				return vector_element_t<Vector1>(nan());
 			}
 
@@ -376,13 +376,13 @@ namespace theoretica {
 			v3.resize(3);
 
 			if(v1.size() != 3) {
-				TH_MATH_ERROR("algebra::cross", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::cross", v1.size(), MathError::InvalidArgument);
 				vec_error(v3);
 				return v3;
 			}
 
 			if(v2.size() != 3) {
-				TH_MATH_ERROR("algebra::cross", v2.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::cross", v2.size(), MathError::InvalidArgument);
 				vec_error(v3);
 				return v3;
 			}
@@ -420,7 +420,7 @@ namespace theoretica {
 		inline Matrix& make_transposed(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::make_transposed", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::make_transposed", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -450,13 +450,13 @@ namespace theoretica {
 			// Check that the two matrices have the correct
 			// number of rows and columns
 			if(src.rows() != dest.cols()) {
-				TH_MATH_ERROR("algebra::transpose", src.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::transpose", src.rows(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
 
 			if(src.cols() != dest.rows()) {
-				TH_MATH_ERROR("algebra::transpose", src.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::transpose", src.cols(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
@@ -497,7 +497,7 @@ namespace theoretica {
 		inline Matrix& make_hermitian(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::hermitian", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::hermitian", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -528,13 +528,13 @@ namespace theoretica {
 			// Check that the two matrices have the correct
 			// number of rows and columns
 			if(src.rows() != dest.cols()) {
-				TH_MATH_ERROR("algebra::hermitian", src.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::hermitian", src.rows(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
 
 			if(src.cols() != dest.rows()) {
-				TH_MATH_ERROR("algebra::hermitian", src.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::hermitian", src.cols(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
@@ -607,13 +607,13 @@ namespace theoretica {
 		inline Matrix1& mat_scalmul(Matrix1& dest, Field a, const Matrix2& src) {
 
 			if(src.rows() != dest.rows()) {
-				TH_MATH_ERROR("algebra::mat_scalmul", src.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_scalmul", src.rows(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
 
 			if(src.cols() != dest.cols()) {
-				TH_MATH_ERROR("algebra::mat_scalmul", src.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_scalmul", src.cols(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
@@ -650,7 +650,7 @@ namespace theoretica {
 		inline Vector1& vec_scalmul(Vector1& dest, Field a, const Vector2& src) {
 
 			if(src.size() != dest.size()) {
-				TH_MATH_ERROR("algebra::vec_scalmul", src.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_scalmul", src.size(), MathError::InvalidArgument);
 				vec_error(dest);
 				return dest;
 			}
@@ -675,7 +675,7 @@ namespace theoretica {
 		inline Vector& apply_transform(const Matrix& A, Vector& v) {
 
 			if(v.size() != A.cols()) {
-				TH_MATH_ERROR("algebra::apply_transform", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::apply_transform", v.size(), MathError::InvalidArgument);
 				vec_error(v);
 				return v;
 			}
@@ -705,7 +705,7 @@ namespace theoretica {
 			res.resize(v.size());
 
 			if(v.size() != A.cols()) {
-				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::transform", v.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
@@ -731,13 +731,13 @@ namespace theoretica {
 		inline Vector1& transform(Vector1& res, const Matrix& A, const Vector2& v) {
 
 			if(v.size() != A.cols()) {
-				TH_MATH_ERROR("algebra::transform", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::transform", v.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
 
 			if(res.size() != v.size()) {
-				TH_MATH_ERROR("algebra::transform", res.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::transform", res.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
@@ -764,13 +764,13 @@ namespace theoretica {
 		inline Matrix2& mat_sum(Matrix1& A, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_sum", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", A.rows(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_sum", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", A.cols(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
@@ -792,25 +792,25 @@ namespace theoretica {
 		inline Matrix1& mat_sum(Matrix1& res, const Matrix2& A, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_sum", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", A.rows(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_sum", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", A.cols(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(res.rows() != A.rows()) {
-				TH_MATH_ERROR("algebra::mat_sum", res.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", res.rows(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(res.cols() != A.cols()) {
-				TH_MATH_ERROR("algebra::mat_sum", res.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_sum", res.cols(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
@@ -832,13 +832,13 @@ namespace theoretica {
 		inline Matrix2& mat_diff(Matrix1& A, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", A.rows(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_diff", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", A.cols(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
@@ -860,25 +860,25 @@ namespace theoretica {
 		inline Matrix1& mat_diff(Matrix1& res, const Matrix2& A, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_diff", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", A.rows(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_diff", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", A.cols(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(res.rows() != A.rows()) {
-				TH_MATH_ERROR("algebra::mat_diff", res.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", res.rows(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(res.cols() != A.cols()) {
-				TH_MATH_ERROR("algebra::mat_diff", res.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diff", res.cols(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
@@ -902,13 +902,13 @@ namespace theoretica {
 			Field1 alpha, Matrix1& A, Field2 beta, const Matrix2& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", A.cols(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
@@ -936,25 +936,25 @@ namespace theoretica {
 			Matrix1& res, Field1 alpha, const Matrix2& A, Field2 beta, const Matrix3& B) {
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", A.rows(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", A.cols(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
 
 			if(res.rows() != A.rows()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", res.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", res.rows(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(res.cols() != A.cols()) {
-				TH_MATH_ERROR("algebra::mat_lincomb", res.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_lincomb", res.cols(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
@@ -980,7 +980,7 @@ namespace theoretica {
 			R.resize(A.rows(), B.cols());
 
 			if(A.cols() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_mul", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_mul", A.cols(), MathError::InvalidArgument);
 				mat_error(R);
 				return R;
 			}
@@ -1007,19 +1007,19 @@ namespace theoretica {
 		inline Matrix1& mat_mul(Matrix1& R, const Matrix2& A, const Matrix3& B) {
 			
 			if(R.rows() != A.rows()) {
-				TH_MATH_ERROR("algebra::mat_mul", R.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_mul", R.rows(), MathError::InvalidArgument);
 				mat_error(R);
 				return R;
 			}
 
 			if(R.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_mul", R.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_mul", R.cols(), MathError::InvalidArgument);
 				mat_error(R);
 				return R;
 			}
 
 			if(A.cols() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_mul", A.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_mul", A.cols(), MathError::InvalidArgument);
 				mat_error(R);
 				return R;
 			}
@@ -1052,7 +1052,7 @@ namespace theoretica {
 			R.resize(A.cols(), B.cols());
 
 			if(A.rows() != B.rows()) {
-				TH_MATH_ERROR("algebra::mat_transpose_mul", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_transpose_mul", A.rows(), MathError::InvalidArgument);
 				return mat_error(R);
 			}
 
@@ -1084,7 +1084,7 @@ namespace theoretica {
 			R.resize(A.rows(), B.rows());
 
 			if(A.cols() != B.cols()) {
-				TH_MATH_ERROR("algebra::mat_mul_transpose", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_mul_transpose", A.rows(), MathError::InvalidArgument);
 				return mat_error(R);
 			}
 
@@ -1135,7 +1135,7 @@ namespace theoretica {
 		inline Vector2& vec_sum(Vector1& v1, const Vector2& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_sum", v1.size(), MathError::InvalidArgument);
 				vec_error(v1);
 				return v1;
 			}
@@ -1156,13 +1156,13 @@ namespace theoretica {
 		inline Vector1& vec_sum(Vector1& res, const Vector2& v1, const Vector3& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("algebra::vec_sum", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_sum", v1.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
 
 			if(res.size() != v1.size()) {
-				TH_MATH_ERROR("algebra::vec_sum", res.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_sum", res.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
@@ -1183,7 +1183,7 @@ namespace theoretica {
 		inline Vector2& vec_diff(Vector1& v1, const Vector2& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_diff", v1.size(), MathError::InvalidArgument);
 				vec_error(v1);
 				return v1;
 			}
@@ -1204,13 +1204,13 @@ namespace theoretica {
 		inline Vector1& vec_diff(Vector1& res, const Vector2& v1, const Vector3& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("algebra::vec_diff", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_diff", v1.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
 
 			if(res.size() != v1.size()) {
-				TH_MATH_ERROR("algebra::vec_diff", res.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::vec_diff", res.size(), MathError::InvalidArgument);
 				vec_error(res);
 				return res;
 			}
@@ -1385,7 +1385,7 @@ namespace theoretica {
 				err = U.cols();
 
 			if (err) {
-				TH_MATH_ERROR("algebra::decompose_lu", err, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_lu", err, MathError::InvalidArgument);
 				mat_error(L); mat_error(U);
 				return;
 			}
@@ -1432,7 +1432,7 @@ namespace theoretica {
 		inline Matrix& decompose_lu_inplace(Matrix& A) {
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::decompose_lu_inplace", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_lu_inplace", A.rows(), MathError::InvalidArgument);
 				mat_error(A);
 				return A;
 			}
@@ -1466,12 +1466,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::decompose_cholesky", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_cholesky", A.rows(), MathError::InvalidArgument);
 				return mat_error(L);
 			}
 
 			if (!is_symmetric(A)) {
-				TH_MATH_ERROR("algebra::decompose_cholesky", false, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_cholesky", false, MathError::InvalidArgument);
 				return mat_error(L);
 			}
 
@@ -1492,7 +1492,7 @@ namespace theoretica {
 
 						// Additional check to ensure that the matrix is positive definite
 						if (sqr_diag < MACH_EPSILON) {
-							TH_MATH_ERROR("algebra::decompose_cholesky", sqr_diag, INVALID_ARGUMENT);
+							TH_MATH_ERROR("algebra::decompose_cholesky", sqr_diag, MathError::InvalidArgument);
 							return mat_error(L);
 						}
 
@@ -1520,12 +1520,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", A.rows(), MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
 			if (!is_symmetric(A)) {
-				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", false, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::decompose_cholesky_inplace", false, MathError::InvalidArgument);
 				return mat_error(A);
 			}
 
@@ -1568,12 +1568,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(L)) {
-				TH_MATH_ERROR("algebra::solve_triangular_lower", false, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_triangular_lower", false, MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (b.size() != L.rows()) {
-				TH_MATH_ERROR("algebra::solve_triangular_lower", b.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_triangular_lower", b.size(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
@@ -1586,7 +1586,7 @@ namespace theoretica {
 					sum += L(i, j) * x[j];
 
 				if (abs(L(i, i)) < MACH_EPSILON) {
-					TH_MATH_ERROR("algebra::solve_triangular_lower", L(i, i), DIV_BY_ZERO);
+					TH_MATH_ERROR("algebra::solve_triangular_lower", L(i, i), MathError::DivByZero);
 					return vec_error(x);
 				}
 
@@ -1610,12 +1610,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(U)) {
-				TH_MATH_ERROR("solve_triangular_upper", false, INVALID_ARGUMENT);
+				TH_MATH_ERROR("solve_triangular_upper", false, MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (b.size() != U.rows()) {
-				TH_MATH_ERROR("solve_triangular_upper", b.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("solve_triangular_upper", b.size(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
@@ -1633,7 +1633,7 @@ namespace theoretica {
 					sum += U(i, j) * x[j];
 
 				if (abs(U(i, i)) < MACH_EPSILON) {
-					TH_MATH_ERROR("solve_triangular_upper", U(i, i), DIV_BY_ZERO);
+					TH_MATH_ERROR("solve_triangular_upper", U(i, i), MathError::DivByZero);
 					return vec_error(x);
 				}
 
@@ -1681,12 +1681,12 @@ namespace theoretica {
 		inline Vector& solve_lu_inplace(const Matrix& A, Vector& b) {
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), MathError::InvalidArgument);
 				return vec_error(b);
 			}
 
 			if (A.rows() != b.size()) {
-				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu_inplace", A.rows(), MathError::InvalidArgument);
 				return vec_error(b);
 			}
 
@@ -1752,22 +1752,22 @@ namespace theoretica {
 			Vector x = b;
 
 			if (!is_square(L)) {
-				TH_MATH_ERROR("algebra::solve_lu", L.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu", L.rows(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (!is_square(U)) {
-				TH_MATH_ERROR("algebra::solve_lu", U.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu", U.rows(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (L.rows() != U.rows()) {
-				TH_MATH_ERROR("algebra::solve_lu", U.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu", U.rows(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (b.size() != L.rows()) {
-				TH_MATH_ERROR("algebra::solve_lu", b.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_lu", b.size(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
@@ -1795,7 +1795,7 @@ namespace theoretica {
 					sum += U(i, j) * x[j];
 
 				if (abs(U(i, i)) < MACH_EPSILON) {
-					TH_MATH_ERROR("algebra::solve_lu", U(i, i), DIV_BY_ZERO);
+					TH_MATH_ERROR("algebra::solve_lu", U(i, i), MathError::DivByZero);
 					return vec_error(x);
 				}
 
@@ -1820,12 +1820,12 @@ namespace theoretica {
 			Vector x = b;
 
 			if (!is_square(L)) {
-				TH_MATH_ERROR("algebra::solve_cholesky", L.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_cholesky", L.rows(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
 			if (L.rows() != b.size()) {
-				TH_MATH_ERROR("algebra::solve_cholesky", b.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::solve_cholesky", b.size(), MathError::InvalidArgument);
 				return vec_error(x);
 			}
 
@@ -1883,19 +1883,19 @@ namespace theoretica {
 		inline Matrix1& inverse(Matrix1& dest, const Matrix2& src) {
 
 			if(src.rows() != src.cols()) {
-				TH_MATH_ERROR("algebra::inverse", src.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::inverse", src.rows(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
 
 			if(dest.rows() != src.rows()) {
-				TH_MATH_ERROR("algebra::inverse", dest.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::inverse", dest.rows(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
 
 			if(dest.cols() != src.cols()) {
-				TH_MATH_ERROR("algebra::inverse", dest.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::inverse", dest.cols(), MathError::InvalidArgument);
 				mat_error(dest);
 				return dest;
 			}
@@ -1936,7 +1936,7 @@ namespace theoretica {
 					}
 
 					if(!flag) {
-						TH_MATH_ERROR("algebra::inverse", flag, IMPOSSIBLE_OPERATION);
+						TH_MATH_ERROR("algebra::inverse", flag, MathError::ImpossibleOperation);
 						mat_error(dest);
 						return dest;
 					}
@@ -1997,7 +1997,7 @@ namespace theoretica {
 		inline Matrix& invert(Matrix& m) {
 
 			if(m.rows() != m.cols()) {
-				TH_MATH_ERROR("algebra::invert", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::invert", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -2049,7 +2049,7 @@ namespace theoretica {
 
 			// Check for division by zero
 			if (abs(p) < MACH_EPSILON) {
-				TH_MATH_ERROR("rayleigh_quotient", abs(p), DIV_BY_ZERO);
+				TH_MATH_ERROR("rayleigh_quotient", abs(p), MathError::DivByZero);
 				return vector_element_t<Vector>(nan());
 			}
 
@@ -2076,12 +2076,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvalue_power", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_power", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (x.size() != A.rows()) {
-				TH_MATH_ERROR("eigenvalue_power", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_power", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2108,7 +2108,7 @@ namespace theoretica {
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvalue_power", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenvalue_power", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 
@@ -2137,17 +2137,17 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenpair_power", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (x.size() != A.rows()) {
-				TH_MATH_ERROR("eigenpair_power", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (v.size() != x.size()) {
-				TH_MATH_ERROR("eigenpair_power", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_power", v.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2174,7 +2174,7 @@ namespace theoretica {
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenpair_power", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenpair_power", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 
@@ -2205,12 +2205,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvalue_inverse", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_inverse", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenvalue_inverse", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_inverse", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2241,7 +2241,7 @@ namespace theoretica {
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvalue_inverse", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenvalue_inverse", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 
@@ -2271,12 +2271,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenpair_inverse", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_inverse", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenpair_inverse", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_inverse", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2307,7 +2307,7 @@ namespace theoretica {
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenpair_inverse", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenpair_inverse", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 
@@ -2341,13 +2341,13 @@ namespace theoretica {
 			real tolerance = ALGEBRA_EIGEN_TOL, unsigned int max_iter = ALGEBRA_EIGEN_ITER) {
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvector_inverse", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvector_inverse", is_square(A), MathError::InvalidArgument);
 				Vector x;
 				return vec_error(x);
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenvector_inverse", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvector_inverse", x.size(), MathError::InvalidArgument);
 				Vector x;
 				return vec_error(x);
 			}
@@ -2382,7 +2382,7 @@ namespace theoretica {
 
 			// The algorithm did not converge
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvector_inverse", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenvector_inverse", i, MathError::NoConvergence);
 				return vec_error(v_curr);
 			}
 
@@ -2411,12 +2411,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2456,7 +2456,7 @@ namespace theoretica {
 			}
 
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenvalue_rayleigh", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenvalue_rayleigh", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 
@@ -2488,12 +2488,12 @@ namespace theoretica {
 			using Type = matrix_element_t<Matrix>;
 
 			if (!is_square(A)) {
-				TH_MATH_ERROR("eigenpair_rayleigh", is_square(A), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_rayleigh", is_square(A), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
 			if (A.rows() != x.size()) {
-				TH_MATH_ERROR("eigenpair_rayleigh", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("eigenpair_rayleigh", x.size(), MathError::InvalidArgument);
 				return Type(nan());
 			}
 
@@ -2533,7 +2533,7 @@ namespace theoretica {
 			}
 
 			if (i > max_iter) {
-				TH_MATH_ERROR("eigenpair_rayleigh", i, NO_ALGO_CONVERGENCE);
+				TH_MATH_ERROR("eigenpair_rayleigh", i, MathError::NoConvergence);
 				return Type(nan());
 			}
 

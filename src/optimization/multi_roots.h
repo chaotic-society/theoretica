@@ -57,7 +57,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_root_newton", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_root_newton", iter, MathError::NoConvergence);
 			return vec<real, N>(nan());
 		}
 

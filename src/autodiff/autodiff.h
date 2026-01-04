@@ -287,7 +287,7 @@ namespace theoretica {
 			vec<multidual<N>, N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
 
 			if(x.size() != 3) {
-				TH_MATH_ERROR("th::curl", x.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("th::curl", x.size(), MathError::InvalidArgument);
 				return vec<real, N>(nan(), x.size());
 			}
 

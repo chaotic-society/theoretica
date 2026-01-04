@@ -212,7 +212,7 @@ namespace theoretica {
 	inline Vector& shuffle(Vector& v, PRNG& g, unsigned int rounds) {
 
 		if(v.size() == 0)
-			TH_MATH_ERROR("shuffle", v.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("shuffle", v.size(), MathError::InvalidArgument);
 
 		for (unsigned int i = 0; i < rounds; ++i) {
 			

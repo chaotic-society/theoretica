@@ -142,7 +142,7 @@ namespace theoretica {
 				const Type n = sqr_norm();
 
 				if(n < MACH_EPSILON) {
-					TH_MATH_ERROR("complex::inverse", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("complex::inverse", n, MathError::DivByZero);
 					return complex(nan(), nan());
 				}
 
@@ -156,7 +156,7 @@ namespace theoretica {
 				const Type n = sqr_norm();
 
 				if(n < MACH_EPSILON) {
-					TH_MATH_ERROR("complex::invert", n, DIV_BY_ZERO);
+					TH_MATH_ERROR("complex::invert", n, MathError::DivByZero);
 					a = (Type) nan();
 					b = (Type) nan();
 					return *this;
@@ -275,7 +275,7 @@ namespace theoretica {
 			inline complex operator/(Type k) const {
 
 				if(abs(k) < MACH_EPSILON) {
-					TH_MATH_ERROR("complex::operator/", k, DIV_BY_ZERO);
+					TH_MATH_ERROR("complex::operator/", k, MathError::DivByZero);
 					return complex(nan(), nan());
 				}
 
@@ -305,7 +305,7 @@ namespace theoretica {
 			inline complex& operator/=(Type k) {
 
 				if(abs(k) < MACH_EPSILON) {
-					TH_MATH_ERROR("complex::operator/=", k, DIV_BY_ZERO);
+					TH_MATH_ERROR("complex::operator/=", k, MathError::DivByZero);
 					return complex(nan(), nan());
 				}
 

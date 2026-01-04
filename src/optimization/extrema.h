@@ -24,7 +24,7 @@ namespace theoretica {
 	inline real maximize_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
-			TH_MATH_ERROR("maximize_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("maximize_goldensection", b, MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -50,7 +50,7 @@ namespace theoretica {
 		}
 
 		if(iter > OPTIMIZATION_GOLDENSECTION_ITER) {
-			TH_MATH_ERROR("maximize_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_goldensection", iter, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -69,7 +69,7 @@ namespace theoretica {
 	inline real minimize_goldensection(RealFunction f, real a, real b) {
 
 		if(a > b) {
-			TH_MATH_ERROR("minimize_goldensection", b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("minimize_goldensection", b, MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -95,7 +95,7 @@ namespace theoretica {
 		}
 
 		if(iter > OPTIMIZATION_GOLDENSECTION_ITER) {
-			TH_MATH_ERROR("minimize_goldensection", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_goldensection", iter, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -120,7 +120,7 @@ namespace theoretica {
 		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) > 0) {
-			TH_MATH_ERROR("maximize_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_newton", z, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -145,7 +145,7 @@ namespace theoretica {
 		real z = root_newton(Df, D2f, guess);
 
 		if(D2f(z) < 0) {
-			TH_MATH_ERROR("minimize_newton", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_newton", z, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -170,7 +170,7 @@ namespace theoretica {
 		real z = root_bisect(Df, a, b);
 
 		if(deriv_central(Df, z) > 0) {
-			TH_MATH_ERROR("maximize_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("maximize_bisection", z, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -193,7 +193,7 @@ namespace theoretica {
 		real z = root_bisect(Df, a, b);
 
 		if(deriv_central(Df, z) < 0) {
-			TH_MATH_ERROR("minimize_bisection", z, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("minimize_bisection", z, MathError::NoConvergence);
 			return z;
 		}
 

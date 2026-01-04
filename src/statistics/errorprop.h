@@ -94,12 +94,12 @@ namespace theoretica {
 
 
 			if(cm.rows() != x_best.size()) {
-				TH_MATH_ERROR("propagerr", cm.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagerr", cm.rows(), MathError::InvalidArgument);
 				return nan();
 			}
 
 			if(cm.cols() != x_best.size()) {
-				TH_MATH_ERROR("propagerr", cm.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagerr", cm.cols(), MathError::InvalidArgument);
 				return nan();
 			}
 

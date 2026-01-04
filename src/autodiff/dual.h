@@ -122,7 +122,7 @@ namespace theoretica {
 			inline dual inverse() const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("dual::inverse", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::inverse", 0, MathError::DivByZero);
 					return dual(nan(), nan());
 				}
 
@@ -240,7 +240,7 @@ namespace theoretica {
 			inline dual& operator/=(real r) {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::operator/=", 0, MathError::DivByZero);
 					a = nan();
 					b = nan();
 					return *this;

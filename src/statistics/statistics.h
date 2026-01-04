@@ -86,7 +86,7 @@ namespace theoretica {
 		inline real propagate_product(const Dataset1& sigma, const Dataset2& mean) {
 
 			if(sigma.size() != mean.size()) {
-				TH_MATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagate_product", sigma.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -95,7 +95,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < sigma.size(); ++i) {
 
 				if(mean[i] == 0) {
-					TH_MATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("propagate_product", mean[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -116,7 +116,7 @@ namespace theoretica {
 		inline real total_sum_squares(const Dataset& X) {
 
 			if(!X.size()) {
-				TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("total_sum_squares", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -151,7 +151,7 @@ namespace theoretica {
 		inline real variance(const Dataset& X, unsigned int constraints = 1) {
 
 			if(X.size() <= constraints) {
-				TH_MATH_ERROR("variance", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("variance", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -174,7 +174,7 @@ namespace theoretica {
 			real& out_variance, unsigned int constraints = 1) {
 
 			if(X.size() <= constraints) {
-				TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("total_sum_squares", X.size(), MathError::InvalidArgument);
 				out_mean = nan();
 				out_variance = nan();
 				return;
@@ -241,7 +241,7 @@ namespace theoretica {
 			real x_mean = mean(X);
 
 			if(abs(x_mean) < MACH_EPSILON) {
-				TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+				TH_MATH_ERROR("standard_relative_error", x_mean, MathError::DivByZero);
 				return nan();
 			}
 
@@ -263,7 +263,7 @@ namespace theoretica {
 			const Dataset1& X, const Dataset2& Y, unsigned int constraints = 1) {
 
 			if(X.size() != Y.size() || X.size() <= constraints) {
-				TH_MATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("covariance", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -305,7 +305,7 @@ namespace theoretica {
 		inline real autocorrelation(const Dataset& X, unsigned int n = 1) {
 
 			if(X.size() < n) {
-				TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("autocorrelation", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -454,7 +454,7 @@ namespace theoretica {
 			const Dataset1& O, const Dataset2& E, const Dataset3& sigma) {
 
 			if(O.size() != E.size() || E.size() != sigma.size()) {
-				TH_MATH_ERROR("chi_square", E.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("chi_square", E.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -463,7 +463,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < O.size(); ++i) {
 
 				if(abs(sigma[i]) < MACH_EPSILON) {
-					TH_MATH_ERROR("chi_square", sigma[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("chi_square", sigma[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -489,7 +489,7 @@ namespace theoretica {
 		inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
 
 			if(ndf == 0) {
-				TH_MATH_ERROR("pvalue_chi_squared", ndf, INVALID_ARGUMENT);
+				TH_MATH_ERROR("pvalue_chi_squared", ndf, MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -570,7 +570,7 @@ namespace theoretica {
 			if(X.size() != Y.size() || X.size() != sigma.size()) {
 				TH_MATH_ERROR(
 					"chi_square_linear",
-					X.size(), INVALID_ARGUMENT);
+					X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -578,7 +578,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < X.size(); ++i) {
 
 				if(abs(sigma[i]) <= MACH_EPSILON) {
-					TH_MATH_ERROR("chi_square_linear", sigma[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("chi_square_linear", sigma[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -609,7 +609,7 @@ namespace theoretica {
 
 			if(Y.size() <= 2) {
 				TH_MATH_ERROR("reduced_chi_square_linear",
-					Y.size(), INVALID_ARGUMENT);
+					Y.size(), MathError::InvalidArgument);
 				return nan();
 			}
 

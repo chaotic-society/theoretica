@@ -61,12 +61,12 @@ namespace theoretica {
 		unsigned int max_iter = OPTIMIZATION_BISECTION_ITER) {
 
 		if(a > b) {
-			TH_MATH_ERROR("root_bisect", a, INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_bisect", a, MathError::InvalidArgument);
 			return nan();
 		}
 
 		if(f(a) * f(b) >= 0) {
-			TH_MATH_ERROR("root_bisect", f(a) * f(b), INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_bisect", f(a) * f(b), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -89,7 +89,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_bisect", x_avg, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_bisect", x_avg, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -126,7 +126,7 @@ namespace theoretica {
 			k1 = 0.2 / (b - a);
 
 		if(a > b) {
-			TH_MATH_ERROR("root_itp", a, INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_itp", a, MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -134,7 +134,7 @@ namespace theoretica {
 		real y_b = f(b);
 
 		if(y_a * y_b >= 0) {
-			TH_MATH_ERROR("root_itp", y_a * y_b, INVALID_ARGUMENT);
+			TH_MATH_ERROR("root_itp", y_a * y_b, MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -194,7 +194,7 @@ namespace theoretica {
 		}
 
 		if(abs(b - a) > 2 * tol) {
-			TH_MATH_ERROR("root_itp", (a + b) / 2.0, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_itp", (a + b) / 2.0, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -230,7 +230,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -270,7 +270,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -310,7 +310,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_newton", z.Re(), NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_newton", z.Re(), MathError::NoConvergence);
 			return complex<Type>(nan(), nan());
 		}
 
@@ -351,7 +351,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -396,7 +396,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_halley", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_halley", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -434,7 +434,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_steffensen", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_steffensen", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -482,7 +482,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -530,7 +530,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_chebyshev", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_chebyshev", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -577,7 +577,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_ostrowski", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_ostrowski", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -624,7 +624,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("root_jarrat", x, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("root_jarrat", x, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -652,7 +652,7 @@ namespace theoretica {
 		real tol = OPTIMIZATION_TOL, real steps = 10) {
 
 		if(steps == 0) {
-			TH_MATH_ERROR("roots", steps, DIV_BY_ZERO);
+			TH_MATH_ERROR("roots", steps, MathError::DivByZero);
 			return {nan()};
 		}
 

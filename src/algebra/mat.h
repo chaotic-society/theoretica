@@ -172,7 +172,7 @@ namespace theoretica {
 		inline mat(const std::initializer_list<std::initializer_list<T>>& rows) {
 
 			if(rows.size() != N) {
-				TH_MATH_ERROR("mat::mat", rows.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::mat", rows.size(), MathError::InvalidArgument);
 				algebra::mat_error(*this);
 				return;
 			}
@@ -183,7 +183,7 @@ namespace theoretica {
 			for (const auto& row : rows) {
 
 				if (row.size() != K) {
-					TH_MATH_ERROR("mat::mat", rows.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("mat::mat", rows.size(), MathError::InvalidArgument);
 					algebra::mat_error(*this);
 					return;
 				}
@@ -292,7 +292,7 @@ namespace theoretica {
 			mat<Type, N, K> res;
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, MathError::DivByZero);
 				return algebra::mat_error(res);
 			}
 			
@@ -311,7 +311,7 @@ namespace theoretica {
 		inline Vector transform(const Vector& v) const {
 
 			if(v.size() != cols()) {
-				TH_MATH_ERROR("mat::transform", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::transform", v.size(), MathError::InvalidArgument);
 				Vector res;
 				res.resize(cols());
 				algebra::vec_error(res);
@@ -363,7 +363,7 @@ namespace theoretica {
 			res.resize(N, B.cols());
 
 			if(B.rows() != K) {
-				TH_MATH_ERROR("mat::transform", B.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::transform", B.rows(), MathError::InvalidArgument);
 				algebra::mat_error(res);
 				return res;
 			}
@@ -383,7 +383,7 @@ namespace theoretica {
 			res.resize(N, B.cols());
 
 			if(B.rows() != K) {
-				TH_MATH_ERROR("mat::transform", B.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::transform", B.rows(), MathError::InvalidArgument);
 				algebra::mat_error(res);
 				return res;
 			}
@@ -428,7 +428,7 @@ namespace theoretica {
 		inline mat<Type, N, K>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, MathError::DivByZero);
 				return algebra::mat_error(*this);
 			}
 
@@ -647,9 +647,9 @@ namespace theoretica {
 		inline mat<Type, N, K> resize(unsigned int n, unsigned int k) const {
 
 			if(rows() != n) {
-				TH_MATH_ERROR("mat::resize", n, INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::resize", n, MathError::InvalidArgument);
 			} else if(cols() != k) {
-				TH_MATH_ERROR("mat::resize", k, INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::resize", k, MathError::InvalidArgument);
 			}
 
 			return *this;
@@ -773,7 +773,7 @@ namespace theoretica {
 						this->resize(rows.size(), row.size());
 					}
 					else if (row.size() != col_sz) {
-						TH_MATH_ERROR("mat::mat", row.size(), INVALID_ARGUMENT);
+						TH_MATH_ERROR("mat::mat", row.size(), MathError::InvalidArgument);
 						algebra::mat_error(*this);
 						return;
 					}
@@ -890,7 +890,7 @@ namespace theoretica {
 			res.resize(rows(), cols());
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, MathError::DivByZero);
 				return algebra::mat_error(res);
 			}
 			
@@ -906,7 +906,7 @@ namespace theoretica {
 		inline Vector transform(const Vector& v) const {
 
 			if(v.size() != rows()) {
-				TH_MATH_ERROR("mat::transform", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::transform", v.size(), MathError::InvalidArgument);
 				Vector res;
 				res.resize(rows());
 				return algebra::vec_error(res);
@@ -959,7 +959,7 @@ namespace theoretica {
 			res.resize(rows(), B.cols());
 
 			if(B.rows() != cols()) {
-				TH_MATH_ERROR("mat::mul", B.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::mul", B.rows(), MathError::InvalidArgument);
 				algebra::mat_error(res);
 				return res;
 			}
@@ -986,7 +986,7 @@ namespace theoretica {
 			res.resize(rows(), B.cols());
 
 			if(B.rows() != cols()) {
-				TH_MATH_ERROR("mat::mul", B.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("mat::mul", B.rows(), MathError::InvalidArgument);
 				algebra::mat_error(res);
 				return res;
 			}
@@ -1053,7 +1053,7 @@ namespace theoretica {
 		inline mat<Type>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("mat::operator/", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("mat::operator/", scalar, MathError::DivByZero);
 				return algebra::mat_error(*this);
 			}
 

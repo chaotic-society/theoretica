@@ -52,7 +52,7 @@ namespace theoretica {
 			inline std::string to_string(const std::string& separator = " ") const {
 
 				if (t.size() != x.size()) {
-					TH_MATH_ERROR("ode_solution_t::to_string", t.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("ode_solution_t::to_string", t.size(), MathError::InvalidArgument);
 					return "";
 				}
 
@@ -314,7 +314,7 @@ namespace theoretica {
 			StepFunction step, real stepsize = 0.001) {
 
 			if (tf < t0) {
-				TH_MATH_ERROR("ode::solve_fixstep", tf, INVALID_ARGUMENT);
+				TH_MATH_ERROR("ode::solve_fixstep", tf, MathError::InvalidArgument);
 				ode_solution_t<Vector> err; err.t = Vector(nan());
 				return err;
 			}

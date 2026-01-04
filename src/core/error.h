@@ -7,8 +7,8 @@
 #define THEORETICA_ERROR_H
 
 #if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
+
 #include <exception>
-#include <string>
 
 #ifndef THEORETICA_NO_PRINT
 #include <sstream>
@@ -16,6 +16,7 @@
 
 #endif
 
+#include <string>
 #include <cerrno>
 #include <limits>
 #include "./constants.h"
@@ -23,30 +24,53 @@
 
 namespace theoretica {
 
+
 	/// Math error enumeration
-	enum MATH_ERRCODE {
-		NO_ERROR = 0x00, // No error
-		DIV_BY_ZERO = 0x01, // Division by zero
-		OUT_OF_DOMAIN = 0x02, // An argument is out of range
-		OUT_OF_RANGE = 0x04, // The result would be out of range
-		IMPOSSIBLE_OPERATION = 0x08, // Impossible operation
-		NO_ALGO_CONVERGENCE = 0x10, // The algorithm did not converge
-		INVALID_ARGUMENT = 0x20 // Invalid argument size or value
-	};
+    enum class MathError : int {
+        None = 0x00,				///< No error
+        DivByZero = 0x01,			///< Division by zero
+        OutOfDomain = 0x02,			///< Argument out of domain
+        OutOfRange = 0x04,			///< Result out of range
+        ImpossibleOperation = 0x08,	///< Mathematically impossible operation
+        NoConvergence = 0x10,		///< Algorithm did not converge
+        InvalidArgument = 0x20		///< Invalid argument
+    };
 
 
-	/// Convert a MATH_ERRCODE to errno error codes
-	inline int th_errcode_to_errno(MATH_ERRCODE err) {
+	/// Convert an MathError class enum to conventional errno codes.
+	inline int to_errno(MathError err) {
 		switch(err) {
-			case NO_ERROR: return 0; break;
-			case DIV_BY_ZERO: return ERANGE; break;
-			case OUT_OF_DOMAIN: return EDOM; break;
-			case OUT_OF_RANGE: return ERANGE; break;
-			case IMPOSSIBLE_OPERATION: return EDOM; break;
-			case NO_ALGO_CONVERGENCE: return ERANGE; break;
-			case INVALID_ARGUMENT: return EINVAL; break;
+			case MathError::None: return 0; break;
+			case MathError::DivByZero: return ERANGE; break;
+			case MathError::OutOfDomain: return EDOM; break;
+			case MathError::OutOfRange: return ERANGE; break;
+			case MathError::ImpossibleOperation: return EDOM; break;
+			case MathError::NoConvergence: return ERANGE; break;
+			case MathError::InvalidArgument: return EINVAL; break;
 			default: return 0; break;
 		}
+	}
+
+
+	/// Convert a MathError class enum to a string description.
+	inline const char* to_cstring(MathError err) {
+		switch (err) {
+			case MathError::None: return "No error"; break;
+			case MathError::DivByZero: return "Division by zero"; break;
+			case MathError::OutOfDomain:
+				return "An argument was out of the domain of the called function"; break;
+			case MathError::ImpossibleOperation:
+				return "A mathematically impossible operation was requested"; break;
+			case MathError::NoConvergence: return "The algorithm did not converge"; break;
+			case MathError::InvalidArgument: return "Invalid argument size or value"; break;
+			default: return "Unknown error"; break;
+		}
+	}
+
+
+	/// Convert a MathError class enum to a string description.
+	inline std::string to_string(MathError err) {
+		return to_cstring(err);
 	}
 
 
@@ -89,14 +113,14 @@ namespace theoretica {
 	class math_exception : std::exception {
 
 	private:
-		MATH_ERRCODE err;
+		MathError err;
 		std::string func_name;
 		std::string file_name;
 		unsigned int code_line;
 		real val;
 
 	public:
-		math_exception(MATH_ERRCODE a_err, const std::string& a_func_name,
+		math_exception(MathError a_err, const std::string& a_func_name,
 			const std::string& a_file_name, unsigned int a_code_line, real a_val)
 				: err(a_err), func_name(a_func_name), file_name(a_file_name),
 					code_line(a_code_line), val(a_val) {}
@@ -106,23 +130,12 @@ namespace theoretica {
 
 		/// Return a string describing the exception
 		inline const char* what() const noexcept {
-
-			switch(err) {
-				case NO_ERROR: return "No error"; break;
-				case DIV_BY_ZERO: return "Division by zero"; break;
-				case OUT_OF_DOMAIN:
-					return "An argument was out of the domain of the called function"; break;
-				case IMPOSSIBLE_OPERATION:
-					return "A mathematically impossible operation was requested"; break;
-				case NO_ALGO_CONVERGENCE: return "The algorithm did not converge"; break;
-				case INVALID_ARGUMENT: return "Invalid argument size or value"; break;
-				default: return "Unknown error"; break;
-			}
+			return to_cstring(err);
 		}
 
 
 		/// Get the error code associated with the exception
-		inline MATH_ERRCODE err_code() const {
+		inline MathError err_code() const {
 			return err;
 		}
 
@@ -162,14 +175,14 @@ namespace theoretica {
 			err_str << func_name << "(" << val << "): ";
 
 			switch(err) {
-				case NO_ERROR: err_str << "No error"; break;
-				case DIV_BY_ZERO: err_str << "Division by zero"; break;
-				case OUT_OF_DOMAIN:
+				case MathError::None: err_str << "No error"; break;
+				case MathError::DivByZero: err_str << "Division by zero"; break;
+				case MathError::OutOfDomain:
 					err_str << "An argument was out of the domain of the called function"; break;
-				case IMPOSSIBLE_OPERATION:
+				case MathError::ImpossibleOperation:
 					err_str << "A mathematically impossible operation was requested"; break;
-				case NO_ALGO_CONVERGENCE: err_str << "The algorithm did not converge"; break;
-				case INVALID_ARGUMENT: err_str << "Invalid argument size or value"; break;
+				case MathError::NoConvergence: err_str << "The algorithm did not converge"; break;
+				case MathError::InvalidArgument: err_str << "Invalid argument size or value"; break;
 				default: err_str << "Unknown error"; break;
 			}
 
@@ -207,7 +220,7 @@ namespace theoretica {
 #ifdef THEORETICA_ONLY_EXCEPTIONS
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	{ throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE); }
+	{ throw theoretica::math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE); }
 
 #define TH_MATH_ERROR_R(F_NAME, VALUE, EXCEPTION) \
 	TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)
@@ -216,14 +229,14 @@ namespace theoretica {
 #elif defined(THEORETICA_THROW_EXCEPTIONS)
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	{ errno = th_errcode_to_errno(EXCEPTION); \
+	{ errno = theoretica::to_errno(EXCEPTION); \
 	throw math_exception(EXCEPTION, F_NAME, __FILE__, __LINE__, VALUE); }
 
 // Modify errno only by default
 #else
 
 #define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION) \
-	{ errno = th_errcode_to_errno(EXCEPTION); }
+	{ errno = theoretica::to_errno(EXCEPTION); }
 
 #endif
 

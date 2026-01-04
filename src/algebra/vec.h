@@ -145,7 +145,7 @@ namespace theoretica {
 		vec(std::initializer_list<Type> l) {
 
 			if(l.size() != N) {
-				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(), MathError::InvalidArgument);
 				algebra::vec_error(*this);
 				return;
 			}
@@ -272,7 +272,7 @@ namespace theoretica {
 		inline vec<Type, N>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("vec::operator/=", scalar, MathError::DivByZero);
 				algebra::vec_error(*this);
 				return *this;
 			}
@@ -422,7 +422,7 @@ namespace theoretica {
 		inline void resize(size_t n) const {
 			
 			if(N != n) {
-				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::resize", N, MathError::InvalidArgument);
 			}
 		}
 
@@ -433,7 +433,7 @@ namespace theoretica {
 			unsigned int i, unsigned int n = N) {
 
 			if(i >= n) {
-				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::euclidean_base", i, MathError::InvalidArgument);
 				return vec<Type, N>(Type(nan()));
 			}
 
@@ -649,7 +649,7 @@ namespace theoretica {
 				resize(other.size());
 
 			if(size() != other.size()) {
-				TH_MATH_ERROR("vec::operator+=", size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::operator+=", size(), MathError::InvalidArgument);
 				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
@@ -665,7 +665,7 @@ namespace theoretica {
 		inline vec<Type>& operator-=(const Vector& other) {
 
 			if(size() != other.size()) {
-				TH_MATH_ERROR("vec::operator-=", size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::operator-=", size(), MathError::InvalidArgument);
 				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
@@ -690,7 +690,7 @@ namespace theoretica {
 		inline vec<Type>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("vec::operator/=", scalar, MathError::DivByZero);
 				*this = vec<Type>(max(size(), 1), nan());
 				return *this;
 			}
@@ -728,7 +728,7 @@ namespace theoretica {
 
 		/// Access i-th element by reference, with bound checking.
 		///
-		/// If the given index is out of range, an std::out_of_range
+		/// If the given index is out of range, an std::MathError::OutOfRange
 		/// exception is thrown.
 		inline Type& at(unsigned int i) {
 			return data.at(i);
@@ -737,7 +737,7 @@ namespace theoretica {
 
 		/// Get the i-th element by value, with bound checking.
 		///
-		/// If the given index is out of range, an std::out_of_range
+		/// If the given index is out of range, an std::MathError::OutOfRange
 		/// exception is thrown.
 		inline Type at(unsigned int i) const {
 			return data.at(i);
@@ -841,7 +841,7 @@ namespace theoretica {
 			unsigned int i, unsigned int n) {
 
 			if(i >= n) {
-				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::euclidean_base", i, MathError::InvalidArgument);
 				return vec<Type>(n, nan());
 			}
 

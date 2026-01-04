@@ -184,7 +184,7 @@ namespace theoretica {
 				const unsigned int this_order = find_order();
 
 				if(d_order == 0 && d[0] == 0) {
-					TH_MATH_ERROR("polynomial::operator/", d[0], DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/", d[0], MathError::DivByZero);
 					return polynomial(nan());
 				}
 
@@ -221,7 +221,7 @@ namespace theoretica {
 				// The algorithm has stopped iterating after a number
 				// of the dividend's degree counts
 				if(i == this_order) {
-					TH_MATH_ERROR("polynomial::operator/", i, NO_ALGO_CONVERGENCE);
+					TH_MATH_ERROR("polynomial::operator/", i, MathError::NoConvergence);
 					return polynomial(nan());
 				}
 
@@ -245,7 +245,7 @@ namespace theoretica {
 			inline polynomial operator/(Type a) const {
 
 				if(abs(a) < MACH_EPSILON) {
-					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/", a, MathError::DivByZero);
 				}
 
 				polynomial r = polynomial(*this);
@@ -320,7 +320,7 @@ namespace theoretica {
 			inline polynomial& operator/=(Type a) {
 
 				if(abs(a) < MACH_EPSILON) {
-					TH_MATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/=", a, MathError::DivByZero);
 					return *this;
 				}
 
@@ -391,7 +391,7 @@ namespace theoretica {
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
-					TH_MATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
+					TH_MATH_ERROR("quadratic_roots", order, MathError::ImpossibleOperation);
 					return vec<complex<>, 2>({nan(), nan()});
 				}
 

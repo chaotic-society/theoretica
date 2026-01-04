@@ -71,7 +71,7 @@ namespace theoretica {
 		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
-			TH_MATH_ERROR("integral_midpoint", steps, DIV_BY_ZERO);
+			TH_MATH_ERROR("integral_midpoint", steps, MathError::DivByZero);
 			return nan();
 		}
 		
@@ -98,7 +98,7 @@ namespace theoretica {
 		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
-			TH_MATH_ERROR("integral_trapezoid", steps, DIV_BY_ZERO);
+			TH_MATH_ERROR("integral_trapezoid", steps, MathError::DivByZero);
 			return nan();
 		}
 		
@@ -127,7 +127,7 @@ namespace theoretica {
 		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
 		if(steps == 0) {
-			TH_MATH_ERROR("integral_simpson", steps, DIV_BY_ZERO);
+			TH_MATH_ERROR("integral_simpson", steps, MathError::DivByZero);
 			return nan();
 		}
 		
@@ -235,7 +235,7 @@ namespace theoretica {
 		RealFunction f, const std::vector<real>& x, const std::vector<real>& w) {
 
 		if(x.size() != w.size()) {
-			TH_MATH_ERROR("integral_gauss", x.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("integral_gauss", x.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -446,7 +446,7 @@ namespace theoretica {
 			// case 32: return integral_gauss(f,
 			// 	tables::laguerre_roots_32, tables::laguerre_weights_32, 32); break;
 			default: {
-				TH_MATH_ERROR("integral_laguerre", n, INVALID_ARGUMENT);
+				TH_MATH_ERROR("integral_laguerre", n, MathError::InvalidArgument);
 				return nan(); break;
 			}
 		}
@@ -487,7 +487,7 @@ namespace theoretica {
 			case 16: return integral_gauss(f,
 				tables::hermite_roots_16, tables::hermite_weights_16, 16); break;
 			default: {
-				TH_MATH_ERROR("integral_hermite", n, INVALID_ARGUMENT);
+				TH_MATH_ERROR("integral_hermite", n, MathError::InvalidArgument);
 				return nan(); break;
 			}
 		}
@@ -523,7 +523,7 @@ namespace theoretica {
 		}
 
 		if(i >= max_iter) {
-			TH_MATH_ERROR("integral_inf_riemann", i, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("integral_inf_riemann", i, MathError::NoConvergence);
 			return nan();
 		}
 

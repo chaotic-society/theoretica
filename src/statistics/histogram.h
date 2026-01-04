@@ -308,7 +308,7 @@ namespace theoretica {
 		inline real variance(const histogram& h) {
 
 			if (h.number() <= 1) {
-				TH_MATH_ERROR("variance", h.number(), DIV_BY_ZERO);
+				TH_MATH_ERROR("variance", h.number(), MathError::DivByZero);
 				return nan();
 			}
 

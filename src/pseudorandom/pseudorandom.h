@@ -57,7 +57,7 @@ namespace theoretica {
 	inline uint64_t randgen_congruential(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 3) {
-			TH_MATH_ERROR("randgen_congruential", state.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("randgen_congruential", state.size(), MathError::InvalidArgument);
 			return 0;
 		}
 
@@ -66,7 +66,7 @@ namespace theoretica {
 		const uint64_t m = state[2];
 
         if(a > m || c > m) {
-            TH_MATH_ERROR("randgen_congruential", max(a, c), INVALID_ARGUMENT);
+            TH_MATH_ERROR("randgen_congruential", max(a, c), MathError::InvalidArgument);
             return 0;
         }
 
@@ -112,7 +112,7 @@ namespace theoretica {
 	inline uint64_t randgen_xoshiro(uint64_t x, std::vector<uint64_t>& state) {
 
 		if(state.size() != 4) {
-			TH_MATH_ERROR("randgen_xoshiro", state.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("randgen_xoshiro", state.size(), MathError::InvalidArgument);
 			return 0;
 		}
 
@@ -175,7 +175,7 @@ namespace theoretica {
 	inline uint64_t randgen_wyrand(uint64_t x, std::vector<uint64_t>& p) {
 
 		if(p.size() != 3) {
-			TH_MATH_ERROR("randgen_wyrand", p.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("randgen_wyrand", p.size(), MathError::InvalidArgument);
 			return 0;
 		}
 
@@ -210,7 +210,7 @@ namespace theoretica {
 	inline uint64_t randgen_middlesquare(uint64_t x, std::vector<uint64_t>& p) {
 
 		if(p.size() != 1) {
-			TH_MATH_ERROR("randgen_middlesquare", p.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("randgen_middlesquare", p.size(), MathError::InvalidArgument);
 			return 0;
 		}
 

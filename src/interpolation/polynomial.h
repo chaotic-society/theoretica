@@ -24,7 +24,7 @@ namespace theoretica {
 	inline polynomial<T> lagrange_polynomial(const std::vector<vec<T, 2>>& points) {
 
 		if(!points.size()) {
-			TH_MATH_ERROR("lagrange_polynomial", points.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("lagrange_polynomial", points.size(), MathError::InvalidArgument);
 			return polynomial<T>({T(nan())});
 		}
 
@@ -32,7 +32,7 @@ namespace theoretica {
 		// division by zero
 		for (unsigned int i = 0; i < points.size() - 1; ++i) {
 			if(points[i][0] == points[i + 1][0]) {
-				TH_MATH_ERROR("lagrange_polynomial", points[i][0], INVALID_ARGUMENT);
+				TH_MATH_ERROR("lagrange_polynomial", points[i][0], MathError::InvalidArgument);
 				return polynomial<T>({T(nan())});
 			}
 		}

@@ -115,7 +115,7 @@ namespace theoretica {
 	inline polynomial<real> assoc_legendre_polynomial_even(unsigned int l, int m) {
 
 		if(m % 2 != 0)
-			TH_MATH_ERROR("assoc_legendre_polynomial_even", m, IMPOSSIBLE_OPERATION);
+			TH_MATH_ERROR("assoc_legendre_polynomial_even", m, MathError::ImpossibleOperation);
 
 		real K = 1;
 

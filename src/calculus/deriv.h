@@ -21,7 +21,7 @@ namespace theoretica {
 	inline polynomial<Field> deriv(const polynomial<Field>& p) {
 
 		if (p.coeff.size() == 0) {
-			TH_MATH_ERROR("deriv", p.coeff.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("deriv", p.coeff.size(), MathError::InvalidArgument);
 			return polynomial<Field>({ static_cast<Field>(nan()) });
 		}
 
