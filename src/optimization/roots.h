@@ -12,6 +12,7 @@
 #include "../autodiff/dual2.h"
 #include "../algebra/vec.h"
 #include "../complex/complex.h"
+#include "../core/iter_result.h"
 
 
 namespace theoretica {
@@ -214,27 +215,36 @@ namespace theoretica {
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
-	inline real root_newton(
+	inline iter_result<real> root_newton(
 		RealFunction f, RealFunction Df, real guess = 0.0,
 		real tol = OPTIMIZATION_TOL, unsigned int max_iter = OPTIMIZATION_NEWTON_ITER) {
 
 		real x = guess;
 		real f_x = inf();
+		real Df_x = 0;
 		unsigned int iter = 0;
 
 		while(abs(f_x) > tol && iter <= max_iter) {
 
+			Df_x = Df(x);
+
+			// Check for division by zero
+			if (abs(Df_x) < MACH_EPSILON) {
+				TH_MATH_ERROR("root_newton", Df_x, DIV_BY_ZERO);
+				return iter_result<real>(ConvergenceStatus::Diverged, iter, Df_x);
+			}
+
 			f_x = f(x);
-			x = x - (f_x / Df(x));
+			x = x - (f_x / Df_x);
 			iter++;
 		}
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("root_newton", x, NO_ALGO_CONVERGENCE);
-			return nan();
+			return iter_result<real>(ConvergenceStatus::MaxIterations, iter, Df_x);
 		}
 
-		return x;
+		return iter_result<real>(x, iter, f_x);
 	}
 
 
