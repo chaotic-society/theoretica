@@ -64,11 +64,11 @@ var NAVTREEINDEX =
 "classtheoretica_1_1phasor.html#a05ad3aba2253f74949fb94882ccfd832",
 "classtheoretica_1_1ratio.html#abaf51b92e75d13b96123770288396b1b",
 "deriv_8h.html#ae231f0ed7d65026e95d86dad20498113",
-"montecarlo_8h.html#a07652c066aaca0e41b16a21554bc5a28",
-"namespacetheoretica.html#a69edeaa0ec50e54eeaf1473f83582a68",
-"namespacetheoretica_1_1algebra.html#a0e0fb9692dbe481cc96fc7dea38f5fc5",
-"namespacetheoretica_1_1stats.html#a1baa2faa86d8049c601c3c10915a3dcb",
-"sampling_8h.html#ac8bdf0dc89459fedaf6950c0f9b96df5"
+"interpolation_2polynomial_8h.html",
+"namespacetheoretica.html#a62ca5edbbdee0a51f8c0bfddb4c71f69",
+"namespacetheoretica.html#af8b9679476be607282a44a7f7f8b38c4",
+"namespacetheoretica_1_1regression.html#ab3310b8c7b4730cfed2089fc3e4f76d0",
+"sampling_8h.html#a17352cbe273b80ae0f08eac818eba84e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

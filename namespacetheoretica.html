@@ -298,9 +298,19 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>pdf_sampling_functio
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a47d8f770edb576685f4b8752f2eb9760" id="r_a47d8f770edb576685f4b8752f2eb9760"><td class="memItemLeft" align="right" valign="top"><a id="a47d8f770edb576685f4b8752f2eb9760" name="a47d8f770edb576685f4b8752f2eb9760"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760">MATH_ERRCODE</a> </td></tr>
-<tr class="memdesc:a47d8f770edb576685f4b8752f2eb9760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math error enumeration. <br /></td></tr>
-<tr class="separator:a47d8f770edb576685f4b8752f2eb9760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff1f49a0a30fe7c2e491d30de30d4b3" id="r_a9ff1f49a0a30fe7c2e491d30de30d4b3"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">MathError</a> : int { <br />
+&#160;&#160;<a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0x00
+, <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">DivByZero</a> = 0x01
+, <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd">OutOfDomain</a> = 0x02
+, <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a365b2699d38b61ef4b4c8a1066c8468f">OutOfRange</a> = 0x04
+, <br />
+&#160;&#160;<a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a5eca8b3f94ffa150b1ba8f970c0bd59b">ImpossibleOperation</a> = 0x08
+, <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a5fe13b7cc103e583443ad01e542c4c91">NoConvergence</a> = 0x10
+, <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">InvalidArgument</a> = 0x20
+<br />
+ }</td></tr>
+<tr class="memdesc:a9ff1f49a0a30fe7c2e491d30de30d4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math error enumeration.  <a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">More...</a><br /></td></tr>
+<tr class="separator:a9ff1f49a0a30fe7c2e491d30de30d4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -863,10 +873,18 @@ template&lt;typename Dataset &gt; </td></tr>
 <tr class="memitem:a9473c3dfdbe71e408fb3241d458254c0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>quadratic_mean</b> (const Dataset &amp;data)</td></tr>
 <tr class="memdesc:a9473c3dfdbe71e408fb3241d458254c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the quadratic mean (Root Mean Square) of a set of values \(m_q = \sqrt{x1^2 + x2^2 + ...}\). <br /></td></tr>
 <tr class="separator:a9473c3dfdbe71e408fb3241d458254c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a710c25d508e9e9ae9ed4e734fe4cd6f9" id="r_a710c25d508e9e9ae9ed4e734fe4cd6f9"><td class="memItemLeft" align="right" valign="top"><a id="a710c25d508e9e9ae9ed4e734fe4cd6f9" name="a710c25d508e9e9ae9ed4e734fe4cd6f9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>th_errcode_to_errno</b> (<a class="el" href="namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760">MATH_ERRCODE</a> err)</td></tr>
-<tr class="memdesc:a710c25d508e9e9ae9ed4e734fe4cd6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a MATH_ERRCODE to errno error codes. <br /></td></tr>
-<tr class="separator:a710c25d508e9e9ae9ed4e734fe4cd6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d486a0a16a9979c6b86fe8695e1543e" id="r_a9d486a0a16a9979c6b86fe8695e1543e"><td class="memItemLeft" align="right" valign="top"><a id="a9d486a0a16a9979c6b86fe8695e1543e" name="a9d486a0a16a9979c6b86fe8695e1543e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>to_errno</b> (<a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">MathError</a> err)</td></tr>
+<tr class="memdesc:a9d486a0a16a9979c6b86fe8695e1543e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an MathError class enum to conventional errno codes. <br /></td></tr>
+<tr class="separator:a9d486a0a16a9979c6b86fe8695e1543e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae19c71c27d5eafa9d80fc6db30888e90" id="r_ae19c71c27d5eafa9d80fc6db30888e90"><td class="memItemLeft" align="right" valign="top"><a id="ae19c71c27d5eafa9d80fc6db30888e90" name="ae19c71c27d5eafa9d80fc6db30888e90"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>to_cstring</b> (<a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">MathError</a> err)</td></tr>
+<tr class="memdesc:ae19c71c27d5eafa9d80fc6db30888e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a MathError class enum to a string description. <br /></td></tr>
+<tr class="separator:ae19c71c27d5eafa9d80fc6db30888e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e722f782cf762730875f3c7a9568ecb" id="r_a9e722f782cf762730875f3c7a9568ecb"><td class="memItemLeft" align="right" valign="top"><a id="a9e722f782cf762730875f3c7a9568ecb" name="a9e722f782cf762730875f3c7a9568ecb"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (<a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">MathError</a> err)</td></tr>
+<tr class="memdesc:a9e722f782cf762730875f3c7a9568ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a MathError class enum to a string description. <br /></td></tr>
+<tr class="separator:a9e722f782cf762730875f3c7a9568ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88ee927450a4d29cb6318b2aede74fa6" id="r_a88ee927450a4d29cb6318b2aede74fa6"><td class="memItemLeft" align="right" valign="top"><a id="a88ee927450a4d29cb6318b2aede74fa6" name="a88ee927450a4d29cb6318b2aede74fa6"></a>
 <a class="el" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nan</b> ()</td></tr>
 <tr class="memdesc:a88ee927450a4d29cb6318b2aede74fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a quiet NaN number in floating point representation. <br /></td></tr>
@@ -1781,6 +1799,47 @@ constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>STA
 
 <p>A real number, defined as a floating point type. </p>
 <p>The underlying type is determined by the defined macros: By default, <code>real</code> will be defined as the <code>double</code> type. If <code>THEORETICA_FLOAT_PREC</code> is defined, <code>real</code> will be defined as a <code>float</code>, if <code>THEORETICA_LONG_DOUBLE_PREC</code> is defined, <code>real</code> will be defined as a <code>long double</code> </p><dl class="section note"><dt>Note</dt><dd>The <code>THEORETICA_ARBITRARY_PREC</code> option is currently unsupported </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a9ff1f49a0a30fe7c2e491d30de30d4b3" name="a9ff1f49a0a30fe7c2e491d30de30d4b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff1f49a0a30fe7c2e491d30de30d4b3">&#9670;&#160;</a></span>MathError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3">theoretica::MathError</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Math error enumeration. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a6adf97f83acf6453d4a6a4b1070f3754" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>No error. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518" name="a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518"></a>DivByZero&#160;</td><td class="fielddoc"><p>Division by zero. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd"></a>OutOfDomain&#160;</td><td class="fielddoc"><p>Argument out of domain. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a365b2699d38b61ef4b4c8a1066c8468f" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a365b2699d38b61ef4b4c8a1066c8468f"></a>OutOfRange&#160;</td><td class="fielddoc"><p>Result out of range. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a5eca8b3f94ffa150b1ba8f970c0bd59b" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a5eca8b3f94ffa150b1ba8f970c0bd59b"></a>ImpossibleOperation&#160;</td><td class="fielddoc"><p>Mathematically impossible operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a5fe13b7cc103e583443ad01e542c4c91" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a5fe13b7cc103e583443ad01e542c4c91"></a>NoConvergence&#160;</td><td class="fielddoc"><p>Algorithm did not converge. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b" name="a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b"></a>InvalidArgument&#160;</td><td class="fielddoc"><p>Invalid argument. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -11648,7 +11707,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Sun Jan 4 2026 09:54:23 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Jan 4 2026 14:53:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

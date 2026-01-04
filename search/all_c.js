@@ -33,7 +33,7 @@ var searchData=
   ['mat_5fswap_5frows_30',['mat_swap_rows',['../namespacetheoretica_1_1algebra.html#a6c75a96ed813cfbcb8b116024a318995',1,'theoretica::algebra']]],
   ['mat_5ftranspose_5fmul_31',['mat_transpose_mul',['../namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324',1,'theoretica::algebra']]],
   ['mat_5fzeroes_32',['mat_zeroes',['../namespacetheoretica_1_1algebra.html#a80a2f381c9e87d82b362982d910f2111',1,'theoretica::algebra']]],
-  ['math_5ferrcode_33',['MATH_ERRCODE',['../namespacetheoretica.html#a47d8f770edb576685f4b8752f2eb9760',1,'theoretica']]],
+  ['matherror_33',['MathError',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3',1,'theoretica']]],
   ['max_34',['max',['../classtheoretica_1_1histogram.html#a6bb629f097ef676e842d30fbb73b333f',1,'theoretica::histogram::max()'],['../namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41',1,'theoretica::max(const Vector &amp;X)'],['../namespacetheoretica.html#a07569756dda099ecabf425371da6a31d',1,'theoretica::max(real x, real y)'],['../namespacetheoretica.html#a5e295404d1712fb17851fe105715766e',1,'theoretica::max(T x, T y)'],['../namespacetheoretica.html#a33f27a1f05cae98a0a9a55cce43c1e1b',1,'theoretica::max(const histogram &amp;h)']]],
   ['maximize_5fbisection_35',['maximize_bisection',['../namespacetheoretica.html#a4e122e9c54b7f36043851a702fb7e79a',1,'theoretica']]],
   ['maximize_5fgoldensection_36',['maximize_goldensection',['../namespacetheoretica.html#aab8f4ab246c4b2b8ed36c3893880b6c4',1,'theoretica']]],
