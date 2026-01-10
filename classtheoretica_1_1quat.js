@@ -11,6 +11,7 @@ var classtheoretica_1_1quat =
     [ "inverse", "classtheoretica_1_1quat.html#a608f11c7a18374567fbb4ee328792e4a", null ],
     [ "invert", "classtheoretica_1_1quat.html#a4ebdaeea21c4963117878046c3fb49f2", null ],
     [ "norm", "classtheoretica_1_1quat.html#aa5687507f2f32525c37ae22168e7503e", null ],
+    [ "operator real", "classtheoretica_1_1quat.html#a697541188a73830e67b72dc7b9f2fefb", null ],
     [ "operator std::string", "classtheoretica_1_1quat.html#a9c7fc40d989dbc332d86cb4a29f55374", null ],
     [ "operator*", "classtheoretica_1_1quat.html#a6e5cc67b3df5786946e6cf1dc3f5cd17", null ],
     [ "operator*", "classtheoretica_1_1quat.html#a95b5ed75114c560c5a0bccc27bb42b2c", null ],

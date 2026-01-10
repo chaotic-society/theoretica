@@ -246,6 +246,9 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:af809c7a66a6029e74474a172d5505a56"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><b>transform</b> (const Vector &amp;v) const</td></tr>
 <tr class="memdesc:af809c7a66a6029e74474a172d5505a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a 3D vector. <br /></td></tr>
 <tr class="separator:af809c7a66a6029e74474a172d5505a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697541188a73830e67b72dc7b9f2fefb" id="r_a697541188a73830e67b72dc7b9f2fefb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1quat.html#a697541188a73830e67b72dc7b9f2fefb">operator real</a> ()</td></tr>
+<tr class="memdesc:a697541188a73830e67b72dc7b9f2fefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Narrowing cast to a real number.  <br /></td></tr>
+<tr class="separator:a697541188a73830e67b72dc7b9f2fefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd9dcf134df6729b9dc9b5d7dd13442" id="r_a9dd9dcf134df6729b9dc9b5d7dd13442"><td class="memItemLeft" align="right" valign="top"><a id="a9dd9dcf134df6729b9dc9b5d7dd13442" name="a9dd9dcf134df6729b9dc9b5d7dd13442"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> () const</td></tr>
 <tr class="memdesc:a9dd9dcf134df6729b9dc9b5d7dd13442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the quaternion to string representation. <br /></td></tr>
@@ -305,7 +308,38 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Type = real&gt;<br />
 class theoretica::quat&lt; Type &gt;</div><p>Quaternion class in the form \(a + bi + cj + dk\). </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a697541188a73830e67b72dc7b9f2fefb" name="a697541188a73830e67b72dc7b9f2fefb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697541188a73830e67b72dc7b9f2fefb">&#9670;&#160;</a></span>operator real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1quat.html">theoretica::quat</a>&lt; Type &gt;::operator <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Narrowing cast to a real number. </p>
+<p>If any imaginary part is greater in module than the machine epsilon, NaN is returned. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>complex/<a class="el" href="quat_8h_source.html">quat.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -314,7 +348,7 @@ class theoretica::quat&lt; Type &gt;</div><p>Quaternion class in the form \(a + 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1quat.html">quat</a></li>
-    <li class="footer">Generated on Sun Jan 4 2026 14:53:43 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 10 2026 12:52:11 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

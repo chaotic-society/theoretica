@@ -8,7 +8,7 @@ var classtheoretica_1_1phasor =
     [ "arg", "classtheoretica_1_1phasor.html#abeb9184f2b4e56b41e2994d1b2e7cfdc", null ],
     [ "conjugate", "classtheoretica_1_1phasor.html#a1d3468b50980c5ff753163190c1b8e28", null ],
     [ "Im", "classtheoretica_1_1phasor.html#a3ef41ea67cd7073d1a48727cf40ef355", null ],
-    [ "inverse", "classtheoretica_1_1phasor.html#a1952a0d36522df5d695b8624f80a4ab0", null ],
+    [ "inverse", "classtheoretica_1_1phasor.html#a2ca37f0b7699ecff3216d97da5fe8838", null ],
     [ "invert", "classtheoretica_1_1phasor.html#a821dc43172898c81651b5be6dcbf7c33", null ],
     [ "norm", "classtheoretica_1_1phasor.html#adba94abe6537d4e12156de17117e08b7", null ],
     [ "operator complex< T >", "classtheoretica_1_1phasor.html#ab64cbab140de32f322428641b955f128", null ],
