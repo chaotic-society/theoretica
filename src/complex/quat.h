@@ -390,6 +390,18 @@ namespace theoretica {
 			}
 
 
+			/// Narrowing cast to a real number. If any imaginary part
+			/// is greater in module than the machine epsilon, NaN is returned.
+			inline operator real () {
+
+				if (abs(b) >= MACH_EPSILON || abs(c) >= MACH_EPSILON || abs(d) >= MACH_EPSILON) {
+					return nan();
+				}
+
+				return a;
+			}
+
+
 
 #ifndef THEORETICA_NO_PRINT
 

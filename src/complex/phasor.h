@@ -126,7 +126,7 @@ namespace theoretica {
 
 
 			/// Compute the inverse of the complex number
-			inline Type inverse() const {
+			inline phasor inverse() const {
 
 				if(modulus < MACH_EPSILON) {
 					TH_MATH_ERROR("phasor::inverse", modulus, MathError::DivByZero);
@@ -196,8 +196,7 @@ namespace theoretica {
 			}
 
 
-			/// Multiply a complex number in algebraic form
-			/// and a phasor
+			/// Multiply a complex number in algebraic form and a phasor
 			template<typename T>
 			inline phasor operator*(const complex<T>& other) const {
 				return phasor(
@@ -206,8 +205,7 @@ namespace theoretica {
 			}
 
 
-			/// Multiply a complex number in algebraic form
-			/// and a phasor
+			/// Multiply a complex number in algebraic form and a phasor
 			template<typename T>
 			inline friend phasor operator*(const complex<T>& z, const phasor& w) {
 				return phasor(

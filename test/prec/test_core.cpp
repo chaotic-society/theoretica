@@ -400,15 +400,17 @@ int main(int argc, char const *argv[]) {
 
 
 	// Square a relatively small number and check that the high bits are zero
-	// ctx.estimate("th::mul_uint128",
-	// 	[](real x) {
+	ctx.estimate("th::mul_uint128",
+		[](real x) {
 
-	// 		uint64_t i = (uint64_t) x;
-	// 		uint64_t r1, r2;
-	// 		mul_uint128(i, i, r1, r2);
+			uint64_t i = (uint64_t) x;
+			uint64_t r1, r2;
+			mul_uint128(i, i, r1, r2);
+			
+			return r2;
 
-	// 		return r2;
-	// 	}, [](real x) { return 0; }, interval(0, 1000));
+		}, [](real x) { return 0; }, prec::interval(0, 1000)
+	);
 
 
 // 	ctx.estimate("ratio::eval<real>", test_ratio, R_opt);
@@ -540,7 +542,7 @@ int main(int argc, char const *argv[]) {
 	);
 
 
-		// Test bit_op.h
+	// Test bit_op.h
 	
 
 	{

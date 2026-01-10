@@ -43,7 +43,8 @@ namespace theoretica {
 	inline complex<T> square(complex<T> z) {
 		return complex<T>(
 			square(z.Re()) - square(z.Im()),
-			2 * z.Re() * z.Im());
+			2 * z.Re() * z.Im()
+		);
 	}
 
 
@@ -99,7 +100,7 @@ namespace theoretica {
 	inline complex<T> tan(complex<T> z) {
 
 		const complex<T> t = z * complex<T>(0, 2);
-		return (exp(t) - 1) / (exp(t) + 1) * complex<T>(0, -1);
+		return (exp(t) + complex<T>(-1, 0)) / (exp(t) + complex<T>(1, 0)) * complex<T>(0, -1);
 	}
 
 
