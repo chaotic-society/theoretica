@@ -596,6 +596,9 @@ int main(int argc, char const *argv[]) {
 	// Complex type trait
 	{
 		ctx.equals("is_complex_type<complex<real>>", is_complex_type<complex<real>>::value, true);
+		ctx.equals("is_complex_type<complex<int>>", is_complex_type<complex<int>>::value, true);
+		ctx.equals("is_complex_type<std::vector<real>>", is_complex_type<std::vector<real>>::value, false);
+		ctx.equals("is_complex_type<quat<real>>", is_complex_type<quat<real>>::value, false);
 		ctx.equals("is_complex_type<real>", is_complex_type<real>::value, false);
 	}
 
@@ -637,6 +640,25 @@ int main(int argc, char const *argv[]) {
 				auto eval = th::exp(complex<>(v[0], v[1]));
 
 				return (eval - expected).norm();
+			},
+			opt
+		);
+	}
+
+	{
+		auto opt = prec::estimate_options<real, std::vector<real>>(
+			{ prec::interval(-1E+07, 1E+07), prec::interval(-1E+07, +1E+07) },
+			prec::estimator::montecarlo<real>(ctx.random, 2)
+		);
+
+		ctx.homogeneous(
+			"th::sqrt(complex)",
+			[](std::vector<real> v) {
+
+				auto z = complex<>(v[0], v[1]);
+				auto sqrt_z = th::sqrt(z);
+
+				return (z - sqrt_z * sqrt_z).norm();
 			},
 			opt
 		);
