@@ -13,6 +13,7 @@
 #include "core/constants.h"
 #include "core/error.h"
 #include "core/core_traits.h"
+#include "core/reprod.h"
 
 // Real functions
 #include "core/real_analysis.h"

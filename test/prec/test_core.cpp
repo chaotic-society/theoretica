@@ -645,4 +645,14 @@ int main(int argc, char const *argv[]) {
 
 	ctx.equals("th::is_inf", th::is_inf(1.0), false);
 	ctx.equals("th::is_inf", th::is_inf(th::inf()), true);
+
+
+	// reprod.h
+	auto env = reprod::get_env();
+	ctx.equals("get_env().os", env.os != "", true);
+	ctx.equals("get_env().arch", env.arch != "", true);
+	ctx.equals("get_env().compiler", env.compiler != "", true);
+	ctx.equals("get_env().compiler_version", env.compiler_version != "", true);
+	ctx.equals("get_env().build_date", env.build_date != "", true);
+	ctx.equals("get_env().cpp_standard", env.cpp_standard != "", true);
 }
