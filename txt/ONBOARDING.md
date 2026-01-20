@@ -1,79 +1,117 @@
 # On-boarding
-This tutorial will guide you through your first steps to contribute to Theoretica,
-be it with code, documentation or tests. In any case, your contributions will help shape and improve the project.
-First of all, you will need the following things:
-- A [Github](https://github.com) account
-- A C++ compiler (not needed for documentation writing)
-- A [Git](https://git-scm.com/downloads) installation (or [Github Desktop](https://desktop.github.com/download/))
+Welcome to Theoretica! 👋
 
-If you haven't, a good idea is to read the [README](https://github.com/chaotic-society/theoretica/blob/master/README.md)
-of the library to get a first idea of what's going on.
+This quick guide will get you set up and ready for your first contribution. Theoretica is a C++ math library for scientific computing, designed to be simple, elegant, and powerful. It provides numerical methods for calculus, linear algebra, optimization, statistics, and more, all in a header-only library with no dependencies.
 
-## First steps
-Once you have a working setup, you need to _clone_ the repository of the project to your computer.
-Open a terminal window in the folder where you want to copy the code and launch the following command:
+## Quick Setup
 
-```
+### Prerequisites
+Before diving in, make sure you have:
+
+- A [GitHub](https://github.com) account
+- A C++ compiler supporting C++14 or later (e.g. GCC, Clang, MSVC)
+- [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/download/)
+- A text editor or IDE (VS Code, Emacs, Vim, or any you prefer)
+
+### Get the Code
+Use Git to download the library code to your local machine:
+
+```bash
 git clone https://github.com/chaotic-society/theoretica.git
-```
-
-This will copy the code to a folder called `theoretica` and you will be able to modify the code and contribute.
-Now, to check that everything is working correctly, you can use `make` (or if you prefer, `CMake`) to build the
-example programs and tests. Run the following commands:
-
-```
 cd theoretica
 make all
 ```
 
-You should be greeted by a long wall of text containing all sorts of function names, those are the test programs of the library!
-If you get any errors and are unable to compile the project, copy the output and contact a maintainer to understand what's not working.
+You should see compilation output followed by test results. This builds all example programs and runs the test suite. If you see errors, make sure your compiler supports C++14 and is properly installed.
 
-## Where should I look?
-Looking into the folder, you can see all sorts of things. It contains not only code but also documentation and configuration files.
-Let's have a closer look at the project structure:
+If you prefer using **CMake**, that works too:
 
-- The `build` folder contains configuration files and you won't generally need to modify it.
-
-- The `examples` folder contains example programs using the library. These can be helpful to learn how to use it.
-
-- The `src` folder is where the magic is at. It contains all header files of the library and this is where you can modify or extend the codebase.
-
-- The `test` folder contains precision testing programs and benchmarks. This is where you will be able to write tests, in particular the `prec` subdirectory.
-
-- The `txt` folder contains many useful files (just like this one) which will tell you more about different parts of the library.
-
-The documentation is stored directly alongside code, that's why there is no separate folder for writing documentation (the documentation is then automatically generated and uploaded to the `gh-pages` branch).
-
-## How to Write Documentation
-> Writing and maintaining documentation is one of the easiest and yet most important things to do in any open source project.
-This is a good task to get going with a project as it makes you read code and try to understand it.
-
-To contribute with documentation writing, look through the library code in `src` and find functions which are lacking documentation or have little to no explanation.
-Read and try to understand what the function does and how the parameters work (don't worry if you struggle, you can always ask a maintainer),
-and then fill in the missing documentation with your new information, like in this example:
-
-```cpp
-/// Compute the square root.
-real sqrt(real x) {
-  ...
-}
+```bash
+cd build
+cmake ..
+make all
 ```
 
-This function has a Doxygen comment block marked by `///` (3 slashes instead of 2), but has only a short description of what it does.
-We can add important information using the `@param` (for function arguments) and `@return` (for return values) Doxygen directives:
+If tests pass, you're ready to go! 🎉
 
-```cpp
-/// Compute the square root of a non-negative real number,
-/// using Newton's method or x86 operations if available.
-///
-/// @param x A non-negative real number
-/// @return The square root of x
-real sqrt(real x) {
-  ...
-}
+## Project Structure
+
+Looking at the repository, you'll see several directories.  Here's what each contains:
+
+```
+theoretica/
+├── src/                    # Library headers (organized by module)
+│   ├── algebra/            # Vectors, matrices, linear algebra
+│   ├── autodiff/           # Automatic differentiation
+│   ├── calculus/           # Derivatives, integrals, ODEs
+│   ├── core/               # Elementary functions (sqrt, exp, sin...)
+│   ├── optimization/       # Root-finding, minimization
+│   ├── statistics/         # Statistical functions
+│   └── theoretica.h        # Main include file
+│
+├── test/                   # Tests and benchmarks
+│   ├── prec/               # Precision tests
+│   └── benchmark/          # Performance benchmarks
+│
+├── examples/               # Example programs
+├── txt/                    # Guides and documentation
+└── build/                  # Build configuration (CMake)
 ```
 
-In addition, you can use `@tparam` to document template parameters, with a syntax analogous to `@param`.
-You can also document classes with `@class` and files with `@file`. Every source file and class should be
-documented, explaining their role and functioning.
+**Key points:**
+- **`src/` is where the library code lives**, organized by functionality
+- **`test/` contains tests** that verify the library works correctly
+- **`examples/` has programs** demonstrating how to use various features
+- **`txt/` holds documentation** like coding standards and guides
+
+## Your First Contribution
+The easiest ways to start contributing: 
+
+### 1. Improve Documentation
+Browse `src/` and look for functions with minimal comments.  When you find one: 
+- Read the code to understand what it does
+- Add or improve the Doxygen documentation
+
+See the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md#contributing-with-documentation) for documentation format.
+
+### 2. Write Tests
+Look through `test/prec/` to see existing tests and `src/` to see library code, then: 
+- Find functions lacking test coverage
+- Add tests for edge cases
+- Test mathematical identities
+
+See the [Testing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/TESTING.md) for details.
+
+### 3. Pick a "Good First Issue"
+Visit the [Issues page](https://github.com/chaotic-society/theoretica/issues) and filter by `good first issue`. These are designed for newcomers and include context to help you get started.
+
+For the complete contribution process, see the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md).
+
+## Module Organization
+Each subdirectory in `src/` is a module focused on a specific area:
+
+- **algebra**: Vectors, matrices, linear systems, decompositions
+- **calculus**: Derivatives, integrals, differential equations
+- **optimization**: Finding roots and minima of functions
+- **statistics**: Mean, variance, regression, distributions
+
+When you're looking for where to add a feature or fix a bug, think about which module it belongs to.
+
+## Getting Help
+
+- **Ask on issues**: Comment directly on the issue you're working on
+- **Read the guides** in `txt/` for detailed information
+- **Check existing code**: Look at similar functions for guidance
+
+Don't hesitate to ask questions, we're here to help!
+
+## Next Steps
+
+Ready to dive deeper? 
+
+- **[Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md)**: Complete guide to all contribution types
+- **[Testing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/TESTING. md)**: Learn precision testing with Chebyshev
+- **[Coding Standard](https://github.com/chaotic-society/theoretica/blob/master/txt/CODING_STANDARD.md)**: Code style conventions
+- **[API Documentation](https://chaotic-society.github.io/theoretica)**: Complete library reference
+
+Welcome aboard! We're excited to see your contributions. 🚀
