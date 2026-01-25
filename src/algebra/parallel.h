@@ -102,6 +102,7 @@ namespace theoretica {
 		/// Parallel element-wise evaluation of the pow function.
 		///
 		/// @param v The vector of inputs
+		/// @param n The integer exponent
 		/// @return The transformed vector
 		template<typename Vector>
 		inline Vector pow(const Vector& v, int n) {
@@ -120,6 +121,7 @@ namespace theoretica {
 		/// Parallel element-wise evaluation of the powf function.
 		///
 		/// @param v The vector of inputs
+		/// @param x The real exponent
 		/// @return The transformed vector
 		template<typename Vector>
 		inline Vector powf(const Vector& v, real x) {
