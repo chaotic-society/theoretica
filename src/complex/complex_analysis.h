@@ -80,7 +80,7 @@ namespace theoretica {
 	inline complex<T> sin(complex<T> z) {
 
 		const complex<T> t = z * complex<T>(0, 1);
-		return (exp(t) - exp(-t)) / complex<T>(0, 2);
+		return (exp(t) - exp(-t)) * complex<T>(0, -0.5);
 	}
 
 
@@ -99,8 +99,8 @@ namespace theoretica {
 	template<typename T>
 	inline complex<T> tan(complex<T> z) {
 
-		const complex<T> t = z * complex<T>(0, 2);
-		return (exp(t) + complex<T>(-1, 0)) / (exp(t) + complex<T>(1, 0)) * complex<T>(0, -1);
+		const complex<T> t = exp(z * complex<T>(0, 2));
+		return (t - complex<T>(1, 0)) / (t + complex<T>(1, 0)) * complex<T>(0, -1);
 	}
 
 
@@ -130,6 +130,14 @@ namespace theoretica {
 	/// @param z A complex number
 	template<typename T>
 	inline complex<T> asin(complex<T> z) {
+
+		// For real z in [-1, 1], use real asin
+		if(abs(z.Im()) < MACH_EPSILON && abs(z.Re()) <= 1.0 + MACH_EPSILON) {
+			T real_part = (z.Re() > 1.0) ? 1.0 : ((z.Re() < -1.0) ? -1.0 : z.Re());
+			return complex<T>(asin(real_part), 0);
+		}
+
+		// General formula with better stability
 		return ln(complex<T>(0, 1) * z + sqrt(complex<T>(1, 0) - square(z))) * complex<T>(0, -1);
 	}
 
@@ -138,7 +146,15 @@ namespace theoretica {
 	/// @param z A complex number
 	template<typename T>
 	inline complex<T> acos(complex<T> z) {
-		return ln(z + sqrt(square(z) - 1)) * complex<T>(0, -1);
+
+		// For real z in [-1, 1], use real acos
+		if(abs(z.Im()) < MACH_EPSILON && abs(z.Re()) <= 1.0 + MACH_EPSILON) {
+			const T real_part = (z.Re() > 1.0) ? 1.0 : ((z. Re() < -1.0) ? -1.0 : z.Re());
+			return complex<T>(acos(real_part), 0);
+		}
+		
+		// General formula
+		return ln(z + sqrt(square(z) - complex<T>(1, 0))) * complex<T>(0, -1);
 	}
 
 
@@ -146,7 +162,7 @@ namespace theoretica {
 	/// @param z A complex number
 	template<typename T>
 	inline complex<T> atan(complex<T> z) {
-		return ln((complex<T>(0, 1) - z) / (complex<T>(0, 1) + z)) * complex<T>(0, -0.5);
+		return ln((complex<T>(0, 1) - z) / (complex<T>(0, 1) + z)) * complex<T>(0, 0.5);
 	}
 
 
