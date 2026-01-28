@@ -1,6 +1,6 @@
 # Theoretica Development Roadmap
 
-> **Last Updated:** 2026-01-25
+> **Last Updated:** 2026-01-28
 > **Author:** M. Isgrò
 > 
 > This document outlines the strategic direction and major initiatives for the Theoretica project.
@@ -47,11 +47,12 @@ The `autodiff` module will particularly benefit from this change, as C++20 conce
 ---
 
 ### 🚀 Priority 2: Key missing features
-**Status:** 🔴 Planning 
-**Target:** Q1 2026
-**RFC:** Under development
 
-**Brief Description:**  
+**Status:** 🔴 Planning
+**Target:** Q1 2026
+**RFC:** [RFC001-IO-MODULE](https://github.com/chaotic-society/documents/blob/main/specification/theoretica/rfc/RFC001-IO-MODULE.md)
+
+**Brief Description:**
 Some key features are currently missing from Theoretica that limit its usability and adoption. This initiative focuses on identifying and implementing these critical features, which may include:
 
 1. **Comprehensive Test Coverage**
