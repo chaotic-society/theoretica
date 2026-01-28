@@ -286,14 +286,6 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("sqrt(complex)", squared, z, eq_opt);
 	}
 
-	// Complex logarithm
-	{
-		complex<> z (rnd.uniform(0, MAX), rnd.uniform(0, MAX));
-		complex<> w (rnd.uniform(0, MAX), rnd.uniform(0, MAX));
-
-		ctx.equals("ln(z*w) = ln(z)+ln(w)", th::ln(z * w), th::ln(z) + th::ln(w), eq_opt);
-	}
-
 	// Complex power
 	{
 		complex<> z = rand_complex(rnd);
@@ -316,6 +308,108 @@ int main(int argc, char const *argv[]) {
 		real mag = abs(z);
 
 		ctx.equals("abs(complex) == complex::norm()", mag, z.norm());
+	}
+
+	// Complex identity
+	{
+		complex<> z = rand_complex(rnd);
+		ctx.equals("identity(complex)", identity(z), z, eq_opt);
+	}
+
+	// Complex tangent (on real axis)
+	{
+		real x = rnd.uniform(-PI / 4, PI / 4);
+		ctx.equals("tan(complex)", th::tan(complex<>(x, 0)), complex<>(std::tan(x), 0), eq_opt);
+	}
+
+	// Complex tangent (mathematical identity:  tan(z) = sin(z)/cos(z))
+	{
+		complex<> z = rand_complex(rnd, 1E+02);
+		complex<> tan_z = th::tan(z);
+		complex<> sin_z = th::sin(z);
+		complex<> cos_z = th::cos(z);
+		ctx.equals("tan(z) = sin(z)/cos(z)", tan_z, sin_z / cos_z, eq_opt);
+	}
+
+	// Complex logarithm at Re = 1 behavior
+	{
+		complex<> z(1.0, 0.0);
+		complex<> ln_z = th::ln(z);
+		ctx.equals("ln(1) = 0", ln_z, complex<>(0, 0), eq_opt);
+	}
+
+	// Complex logarithm (product rule:  ln(z*w) = ln(z) + ln(w))
+	{
+		complex<> z(rnd.uniform(0.1, MAX), rnd.uniform(0.1, MAX));
+		complex<> w(rnd.uniform(0.1, MAX), rnd.uniform(0.1, MAX));
+		ctx.equals("ln(z*w) = ln(z)+ln(w)", th::ln(z * w), th::ln(z) + th::ln(w), eq_opt);
+	}
+
+	// Complex exponential and logarithm inverse relationship
+	{
+		complex<> z(rnd.uniform(0, 5), rnd.uniform(0, 5));
+		complex<> exp_ln_z = th::exp(th::ln(z));
+		ctx.equals("exp(ln(z)) = z", exp_ln_z, z, eq_opt);
+	}
+
+	// Complex power function (positive integer exponent)
+	{
+		complex<> z = rand_complex(rnd, 1E+02);
+		ctx.equals("pow(z, 2) = z*z", th::pow(z, 2), z * z, eq_opt);
+		ctx.equals("pow(z, 4) = (z*z)*(z*z)", th::pow(z, 4), square(z * z), eq_opt);
+	}
+
+	// Complex power function (negative exponent)
+	{
+		complex<> z = rand_complex(rnd);
+		ctx.equals("pow(z, -1) = 1/z", th::pow(z, -1), z.inverse(), eq_opt);
+		ctx.equals("pow(z, -2) = 1/(z*z)", th::pow(z, -2), square(z).inverse(), eq_opt);
+	}
+
+	// Complex power function (fractional exponent)
+	{
+		complex<> z = rand_complex(rnd, 1E+02);
+		complex<> pow_half = th::pow(z, 0.5);
+		ctx.equals("pow(z, 0.5)*pow(z, 0.5) = z", pow_half * pow_half, z, eq_opt);
+	}
+
+	// Complex arcsine (on real axis)
+	{
+		real x = rnd.uniform(-0.99, 0.99);
+		ctx.equals("asin(x)", th::asin(complex<>(x, 0)), complex<>(std::asin(x), 0), eq_opt);
+	}
+
+	// Complex arccosine (on real axis)
+	{
+		real x = rnd.uniform(-0.99, 0.99);
+		ctx.equals("acos(x)", th::acos(complex<>(x, 0)), complex<>(std::acos(x), 0), eq_opt);
+	}
+
+	// Complex arctangent (on real axis)
+	{
+		real x = rnd.uniform(-1, 1);
+		ctx.equals("atan(x)", th::atan(complex<>(x, 0)), complex<>(std::atan(x), 0), eq_opt);
+	}
+
+	// Complex arcsine inverse relationship
+	{
+		complex<> z(rnd.uniform(-0.5, 0.5), rnd.uniform(-0.5, 0.5));
+		complex<> sin_asin_z = th::sin(th::asin(z));
+		ctx.equals("sin(asin(z)) = z", sin_asin_z, z, eq_opt);
+	}
+
+	// Complex arccosine inverse relationship
+	{
+		complex<> z(rnd.uniform(-0.5, 0.5), rnd.uniform(-0.5, 0.5));
+		complex<> cos_acos_z = th::cos(th:: acos(z));
+		ctx.equals("cos(acos(z)) = z", cos_acos_z, z, eq_opt);
+	}
+
+	// Complex arctangent inverse relationship
+	{
+		complex<> z(rnd. uniform(-0.5, 0.5), rnd.uniform(-0.5, 0.5));
+		complex<> tan_atan_z = th::tan(th::atan(z));
+		ctx.equals("tan(atan(z)) = z", tan_atan_z, z, eq_opt);
 	}
 
 
@@ -620,7 +714,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"th::exp(complex)",
+			"exp(complex)",
 			[](real x) { return (exp(complex<>(0.0, x)) - complex<>(th::cos(x), th::sin(x))).norm(); },
 			opt
 		);
@@ -633,7 +727,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"th::exp(complex)",
+			"exp(complex)",
 			[](std::vector<real> v) {
 
 				auto expected = std::exp(v[0]) * complex<>(std::cos(v[1]), std::sin(v[1]));
@@ -652,7 +746,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"th::sqrt(complex)",
+			"sqrt(complex)",
 			[](std::vector<real> v) {
 
 				auto z = complex<>(v[0], v[1]);
@@ -664,7 +758,7 @@ int main(int argc, char const *argv[]) {
 		);
 	}
 
-	// Complex sine
+	// Complex sine on real axis
 	{
 		auto opt = prec::estimate_options<real, real>(
 			prec::interval(-PI, PI),
@@ -672,13 +766,13 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"th::sin(complex)",
+			"sin(complex)",
 			[](real x) { return (th::sin(complex<>(x, 0.0)) - complex<>(std::sin(x), 0.0)).norm(); },
 			opt
 		);
 	}
 
-	// Complex cosine
+	// Complex cosine on real axis
 	{
 		auto opt = prec::estimate_options<real, real>(
 			prec::interval(-PI, PI),
@@ -686,8 +780,84 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"th::cos(complex)",
+			"cos(complex)",
 			[](real x) { return (th::cos(complex<>(x, 0.0)) - complex<>(std::cos(x), 0.0)).norm(); },
+			opt
+		);
+	}
+
+	// Complex tangent on real axis
+	{
+		auto opt = prec:: estimate_options<real, real>(
+			prec::interval(-PI / 4, PI / 4),
+			prec::estimator::quadrature1D()
+		);
+
+		ctx.homogeneous(
+			"tan(complex)",
+			[](real x) { return (th::tan(complex<>(x, 0.0)) - complex<>(std::tan(x), 0.0)).norm(); },
+			opt
+		);
+	}
+
+	// Complex logarithm
+	{
+		auto opt = prec::estimate_options<real, std::vector<real>>(
+			{ prec::interval(0.1, 10), prec::interval(-PI, PI) },
+			prec::estimator::montecarlo<real>(ctx. random, 2)
+		);
+
+		ctx.homogeneous(
+			"ln(complex)",
+			[](std::vector<real> v) {
+
+				auto z = complex<>(v[0] * std::cos(v[1]), v[0] * std::sin(v[1]));
+				auto ln_z = th::ln(z);
+
+				return (ln_z - complex<>(std::log(v[0]), v[1])).norm();
+			},
+			opt
+		);
+	}
+
+	// Complex arcsine on real axis
+	{
+		auto opt = prec::estimate_options<real, real>(
+			prec::interval(-0.99, 0.99),
+			prec::estimator::quadrature1D()
+		);
+
+		ctx.homogeneous(
+			"asin(complex)",
+			[](real x) { return (th::asin(complex<>(x, 0.0)) - complex<>(std::asin(x), 0.0)).norm(); },
+			opt
+		);
+	}
+
+	// Complex arccosine on real axis
+	{
+		auto opt = prec::estimate_options<real, real>(
+			prec::interval(-0.99, 0.99),
+			prec::estimator::quadrature1D()
+		);
+
+		ctx.homogeneous(
+			"acos(complex)",
+			[](real x) { return (th::acos(complex<>(x, 0.0)) - complex<>(std::acos(x), 0.0)).norm(); },
+			opt
+		);
+	}
+
+	// Complex arctangent on real axis
+	{
+		auto opt = prec::estimate_options<real, real>(
+			prec::interval(-0.99, 0.99),
+			prec::estimator::quadrature1D()
+		);
+
+		ctx.homogeneous(
+			"atan(complex)",
+			[](real x) { return (th::atan(complex<>(x, 0.0)) - complex<>(std::atan(x), 0.0)).norm(); },
 			opt
 		);
 	}

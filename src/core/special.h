@@ -32,7 +32,7 @@ namespace theoretica {
 
 
 		/// Half Gamma special function, defined as 
-		/// HG(n) = Gamma(n / 2)
+		/// \f$HG(n) = Gamma(n / 2)\f$
 		/// for any positive integer n.
 		///
 		/// @param k The positive integer argument
