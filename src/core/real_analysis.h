@@ -1025,28 +1025,60 @@ namespace theoretica {
 	/// @param x An angle in **radians**
 	/// @return The arctangent of x
 	///
-	/// A degree 9 interpolating polynomial through
-	/// Chebyshev nodes is used to approximate \f$atan(x)\f$.
-	/// Domain reduction to [-1, 1] is performed.
+	/// Symmetries and identities are used to reduce the domain to [0, tan(pi/12)] and then
+	/// a Taylor series with Kahan summation is used for rapid adaptive convergence.
 	inline real atan(real x) {
 
-		// Domain reduction to [-1, 1]
-		if(abs(x) > 1.0)
-			return (PI2 - atan(1.0 / abs(x))) * sgn(x);
+		// Odd symmetry: atan(-x) = -atan(x)
+		const int sign = (x > 0) ? 1 : -1;
+		x = abs(x);
 
+		// Reduce to [0, 1]
+		if (x > 1.0)
+			return sign * (PI2 - atan(1.0 / x));
+
+		// Around x = 0, atan(x) = x
+		if (x < MACH_EPSILON)
+			return sign * x;
+
+		// Domain reduction using the half-argument formula:
+		// atan(x) = 2 * atan(x / (1 + sqrt(1 + x^2)))
+		constexpr real TAN_PI12 = 0.26794919243112270647;
+		constexpr int MAX_ITER = 5;
+		int red = 0;
+
+		while (x > TAN_PI12 && red < MAX_ITER) {
+
+			// Half-argument formula
+			x = x / (1.0 + sqrt(1.0 + x * x));
+			red++;
+		}
+
+		// Adaptive Taylor series with atan(x) = sum_n (-1)^n x^(2n+1) / (2n+1)
 		const real x2 = x * x;
+		real power = x;
+		real sum = x;
 
-		// Interpolating Chebyshev polynomial
-		// of degree 17
-		return x * (0.999999981788655
-			+ x2 * (-0.3333303670928597
-				+ x2 * (0.1999187202864565
-					+ x2 * (-0.1419779780241299
-						+ x2 * (0.1061837062890163
-							+ x2 * (-0.07456854814404323
-								+ x2 * (0.04213762366862284
-									+ x2 * (-0.0157312490955519
-										+ x2 * 0.002766283502978695))))))));
+		// Use Taylor series up to 15 terms or until convergence
+		for (int n = 1; n <= 15; ++n) {
+
+			// Update power
+			power *= -x2;
+			
+			// Current term with alternating sign built into power
+			const real term = power / (2 * n + 1);
+			sum += term;
+			
+			// Convergence criterion
+			if (abs(term) < MACH_EPSILON * abs(sum))
+				break;
+		}
+
+		// Undo argument reductions
+		for (int i = 0; i < red; ++i)
+			sum *= 2.0;
+
+		return sign * sum;
 	}
 
 
@@ -1093,25 +1125,22 @@ namespace theoretica {
 	/// @param x The x coordinate in Cartesian space
 	/// @return The counterclockwise angle between the vector described by x and y
 	/// and the x axis.
-	///
-	/// Computed using identities on atan(x).
 	inline real atan2(real y, real x) {
 
-		if(x == 0) {
+		if(abs(x) < MACH_EPSILON) {
 
-			if(y == 0) {
+			if(abs(y) < MACH_EPSILON) {
 				TH_MATH_ERROR("atan2", y, MathError::OutOfDomain);
 				return nan();
 			}
 
-			return sgn(y) * PI2;
+			return y >= 0 ? PI2 : -PI2;
 		}
 
-		if(x > 0) {
-			return sgn(y) * atan(y / x);
-		} else {
-			return sgn(y) * atan(y / -x) + PI2;
-		}
+		if(x > 0)
+			return atan(y / x);
+		else
+			return y >= 0 ? atan(y / x) + PI : atan(y / x) - PI;
 	}
 
 

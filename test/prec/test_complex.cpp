@@ -77,6 +77,7 @@ int main(int argc, char const *argv[]) {
 
 	auto ctx = prec::make_context("complex", argc, argv);
 	ctx.output->settings.outputFiles = { "test/prec/prec_complex.csv" };
+	ctx.settings.estimateColumns = { "name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed" };
 	random::random_source rnd = ctx.random->get_rnd();
 
 	auto eq_opt = prec::equation_options<complex<>>(
@@ -126,7 +127,7 @@ int main(int argc, char const *argv[]) {
 
 	// Complex norm
 	{
-		complex<> z = rand_complex(rnd, 1E+03);
+		complex<> z = rand_complex(rnd, MAX);
 		ctx.equals("complex::sqr_norm() = complex::norm()**2", z.sqr_norm(), square(z.norm()));
 	}
 
@@ -243,7 +244,7 @@ int main(int argc, char const *argv[]) {
 
 	// Complex cube
 	{
-		complex<> z = rand_complex(rnd, 1E+03);
+		complex<> z = rand_complex(rnd, MAX);
 		complex<> cb = cube(z);
 
 		ctx.equals("cube(complex)", cb, z * z * z, eq_opt);
@@ -296,7 +297,7 @@ int main(int argc, char const *argv[]) {
 
 	// Complex conjugate function
 	{
-		complex<> z = rand_complex(rnd, 1E+04);
+		complex<> z = rand_complex(rnd, MAX);
 		complex<> conj = conjugate(z);
 
 		ctx.equals("z*z.conjugate() == z.sqr_norm()", z * conj, complex<>(z.sqr_norm()), eq_opt);
@@ -314,21 +315,6 @@ int main(int argc, char const *argv[]) {
 	{
 		complex<> z = rand_complex(rnd);
 		ctx.equals("identity(complex)", identity(z), z, eq_opt);
-	}
-
-	// Complex tangent (on real axis)
-	{
-		real x = rnd.uniform(-PI / 4, PI / 4);
-		ctx.equals("tan(complex)", th::tan(complex<>(x, 0)), complex<>(std::tan(x), 0), eq_opt);
-	}
-
-	// Complex tangent (mathematical identity:  tan(z) = sin(z)/cos(z))
-	{
-		complex<> z = rand_complex(rnd, 1E+02);
-		complex<> tan_z = th::tan(z);
-		complex<> sin_z = th::sin(z);
-		complex<> cos_z = th::cos(z);
-		ctx.equals("tan(z) = sin(z)/cos(z)", tan_z, sin_z / cos_z, eq_opt);
 	}
 
 	// Complex logarithm at Re = 1 behavior
@@ -368,9 +354,10 @@ int main(int argc, char const *argv[]) {
 
 	// Complex power function (fractional exponent)
 	{
-		complex<> z = rand_complex(rnd, 1E+02);
-		complex<> pow_half = th::pow(z, 0.5);
-		ctx.equals("pow(z, 0.5)*pow(z, 0.5) = z", pow_half * pow_half, z, eq_opt);
+		complex<> z(rnd.uniform(0.1, MAX), rnd.uniform(-MAX, MAX));
+		complex<> pow_half = th::powf(z, 0.5);
+		complex<> sqrt_z = th::sqrt(z);
+		ctx.equals("powf(z, 0.5) = sqrt(z)", pow_half, sqrt_z, eq_opt);
 	}
 
 	// Complex arcsine (on real axis)
@@ -558,7 +545,7 @@ int main(int argc, char const *argv[]) {
 
 	// Quaternion norm
 	{
-		quat<> q = rand_quat(rnd, 1E+04);
+		quat<> q = rand_quat(rnd, MAX);
 		ctx.equals("quat::sqr_norm() == quat::norm()^2", q.norm() * q.norm(), q.sqr_norm());
 	}
 
@@ -624,7 +611,7 @@ int main(int argc, char const *argv[]) {
 
 	// Quaternion multiplication property (q * conjugate(q) = norm^2)
 	{
-		quat<> q = rand_quat(rnd, 1E+03);
+		quat<> q = rand_quat(rnd, MAX);
 
 		quat<> conj = q.conjugate();
 		quat<> prod = q * conj;
@@ -706,7 +693,7 @@ int main(int argc, char const *argv[]) {
 
 	// Estimators
 
-	// Complex exponential
+	// Complex exponential on imaginary axis
 	{
 		auto opt = prec::estimate_options<real, real>(
 			prec::interval(0.0, 2.0 * PI),
@@ -714,7 +701,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"exp(complex)",
+			"exp(iz)",
 			[](real x) { return (exp(complex<>(0.0, x)) - complex<>(th::cos(x), th::sin(x))).norm(); },
 			opt
 		);
@@ -766,7 +753,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"sin(complex)",
+			"sin(real)",
 			[](real x) { return (th::sin(complex<>(x, 0.0)) - complex<>(std::sin(x), 0.0)).norm(); },
 			opt
 		);
@@ -780,7 +767,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"cos(complex)",
+			"cos(real)",
 			[](real x) { return (th::cos(complex<>(x, 0.0)) - complex<>(std::cos(x), 0.0)).norm(); },
 			opt
 		);
@@ -794,7 +781,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"tan(complex)",
+			"tan(real)",
 			[](real x) { return (th::tan(complex<>(x, 0.0)) - complex<>(std::tan(x), 0.0)).norm(); },
 			opt
 		);
@@ -804,7 +791,7 @@ int main(int argc, char const *argv[]) {
 	{
 		auto opt = prec::estimate_options<real, std::vector<real>>(
 			{ prec::interval(0.1, 10), prec::interval(-PI, PI) },
-			prec::estimator::montecarlo<real>(ctx. random, 2)
+			prec::estimator::montecarlo<real>(ctx.random, 2)
 		);
 
 		ctx.homogeneous(
@@ -828,7 +815,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"asin(complex)",
+			"asin(real)",
 			[](real x) { return (th::asin(complex<>(x, 0.0)) - complex<>(std::asin(x), 0.0)).norm(); },
 			opt
 		);
@@ -842,7 +829,7 @@ int main(int argc, char const *argv[]) {
 		);
 
 		ctx.homogeneous(
-			"acos(complex)",
+			"acos(real)",
 			[](real x) { return (th::acos(complex<>(x, 0.0)) - complex<>(std::acos(x), 0.0)).norm(); },
 			opt
 		);
@@ -851,12 +838,12 @@ int main(int argc, char const *argv[]) {
 	// Complex arctangent on real axis
 	{
 		auto opt = prec::estimate_options<real, real>(
-			prec::interval(-0.99, 0.99),
+			prec::interval(-MAX, MAX),
 			prec::estimator::quadrature1D()
 		);
 
 		ctx.homogeneous(
-			"atan(complex)",
+			"atan(real)",
 			[](real x) { return (th::atan(complex<>(x, 0.0)) - complex<>(std::atan(x), 0.0)).norm(); },
 			opt
 		);

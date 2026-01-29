@@ -333,7 +333,7 @@ namespace theoretica {
 
 
 		/// Imaginary unit
-		inline static complex i() {
+		inline static constexpr complex i() {
 			return complex(0, 1);
 		}
 

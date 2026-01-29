@@ -55,6 +55,28 @@ namespace theoretica {
 		return complex<T>(
 			cube(z.Re()) - 3 * z.Re() * square(z.Im()),
 			3 * square(z.Re()) * z.Im() - cube(z.Im()));
+	/// Compute a complex number raised to a real power
+	///
+	/// @param z The complex number
+	/// @param p A real exponent
+	/// @return The complex number \f$z^p\f$, computed using polar coordinates
+	template<typename T>
+	inline complex<T> powf(complex<T> z, real p) {
+
+		if(abs(z.Re()) < MACH_EPSILON && abs(z.Im()) < MACH_EPSILON) {
+
+			if(abs(p) < MACH_EPSILON) {
+				TH_MATH_ERROR("powf(complex, real)", 0, MathError::ImpossibleOperation);
+				return complex<T>(nan(), nan());
+			}
+
+			return complex<T>(0, 0);
+		}
+
+		const real rho = powf(z.norm(), p);
+		const real theta = p * z.arg();
+
+		return complex<T>(rho * th::cos(theta), rho * th::sin(theta));
 	}
 	
 
@@ -79,7 +101,7 @@ namespace theoretica {
 	template<typename T>
 	inline complex<T> sin(complex<T> z) {
 
-		const complex<T> t = z * complex<T>(0, 1);
+		const complex<T> t = z * complex<>::i();
 		return (exp(t) - exp(-t)) * complex<T>(0, -0.5);
 	}
 
@@ -89,7 +111,7 @@ namespace theoretica {
 	template<typename T>
 	inline complex<T> cos(complex<T> z) {
 
-		const complex<T> t = z * complex<T>(0, 1);
+		const complex<T> t = z * complex<>::i();
 		return (exp(t) + exp(-t)) / 2.0;
 	}
 
@@ -138,7 +160,7 @@ namespace theoretica {
 		}
 
 		// General formula with better stability
-		return ln(complex<T>(0, 1) * z + sqrt(complex<T>(1, 0) - square(z))) * complex<T>(0, -1);
+		return ln(complex<>::i() * z + sqrt(complex<T>(1, 0) - square(z))) * complex<T>(0, -1);
 	}
 
 
@@ -162,9 +184,9 @@ namespace theoretica {
 	/// @param z A complex number
 	template<typename T>
 	inline complex<T> atan(complex<T> z) {
-		return ln((complex<T>(0, 1) - z) / (complex<T>(0, 1) + z)) * complex<T>(0, 0.5);
-	}
 
+		return ln((complex<>::i() - z) / (complex<>::i() + z)) * complex<T>(0, -0.5);
+	}
 
 }
 
