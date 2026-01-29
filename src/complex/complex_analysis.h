@@ -55,6 +55,9 @@ namespace theoretica {
 		return complex<T>(
 			cube(z.Re()) - 3 * z.Re() * square(z.Im()),
 			3 * square(z.Re()) * z.Im() - cube(z.Im()));
+	}
+
+
 	/// Compute a complex number raised to a real power
 	///
 	/// @param z The complex number
