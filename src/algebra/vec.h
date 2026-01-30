@@ -823,14 +823,14 @@ namespace theoretica {
 
 		/// Add a value at the end of the vector
 		/// (only for dynamically allocated vectors).
-		inline void push(const Type& x) {
+		inline void append(const Type& x) {
 			data.push_back(x);
 		}
 
 
 		/// Add a value at the end of the vector
 		/// (only for dynamically allocated vectors).
-		inline void push(Type&& x) {
+		inline void append(Type&& x) {
 			data.push_back(x);
 		}
 
