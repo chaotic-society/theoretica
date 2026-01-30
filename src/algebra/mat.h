@@ -609,6 +609,24 @@ namespace theoretica {
 		}
 
 
+		/// Unpack the matrix elements into a vector.
+		///
+		/// @tparam Vector The type of the vector to unpack into (default is vec<Type, N * M>).
+		/// @return A vector containing all elements of the matrix in row-major order.
+		template<typename Vector = vec<Type, N * K>>
+		inline Vector unpack() const {
+			
+			Vector res;
+			res.resize(size());
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					res[i * cols() + j] = get(i, j);
+
+			return res;
+		}
+
+
 		/// Checks whether this matrix is equal to another matrix element-wise.
 		/// @tparam Matrix The type of the other matrix.
 		/// @param other The matrix to compare with.
