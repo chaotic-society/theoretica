@@ -60,15 +60,15 @@ var NAVTREEINDEX =
 [
 "algebra_8h.html",
 "classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
-"classtheoretica_1_1mat.html#a7636d12345cdbe82eb4e6cb7dde1b984",
-"classtheoretica_1_1phasor.html#a05ad3aba2253f74949fb94882ccfd832",
-"classtheoretica_1_1ratio.html#aa653b6aa2cdd9ba7a07e62f2b5b352ec",
-"deriv_8h.html#aa6f7dff89fe2dd3e8124c10ff19bd0ed",
-"integral_8h.html#ae095e7eee4b03eddc3b035b2bde14a7e",
-"namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09",
-"namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1",
-"namespacetheoretica_1_1regression.html#a83abb2c03a092fb7b1123c200c092ebd",
-"roots_8h.html#ab9662690d148c3037300c4f34c6c9d07"
+"classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc",
+"classtheoretica_1_1phasor.html#a0050a34aad1452bce49f55421f3683ae",
+"classtheoretica_1_1ratio.html#aa211f37a8b80a1ffcd468034573cf312",
+"deriv_8h.html#a989e6f0a6fd6fe05664b6d5de8aaaaf5",
+"integral_8h.html#ad2038787a4650a9610cdf4639901677a",
+"namespacetheoretica.html#a5fd61484f6f7bc8b474037d866a4b110",
+"namespacetheoretica.html#af1444ff9faf0b4b247468462d7b7cb01",
+"namespacetheoretica_1_1regression.html#a43911fac741333de75b825268f9f7cf5",
+"roots_8h.html#aa3de94cffc4e11a1a0fbaaa11db16d65"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica.html#af1444ff9faf0b4b247468462d7b7cb01":[0,0,2,345],
+"namespacetheoretica.html#af1a4ad4c5446986fe2d255a03be337a1":[0,0,2,87],
 "namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1":[0,0,2,294],
 "namespacetheoretica.html#af336feea10e3a8928f2d2723578d3704":[0,0,2,65],
 "namespacetheoretica.html#af62665bb64745df12234614b05c2dfb3":[0,0,2,203],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "namespacetheoretica_1_1parallel.html#aef1a21b94c3c0b26f2bc8de158d0e069":[0,0,2,4,1],
 "namespacetheoretica_1_1regression.html":[0,0,2,5],
 "namespacetheoretica_1_1regression.html#a256f8d4fa5431e922a7f872b00689a96":[0,0,2,5,10],
-"namespacetheoretica_1_1regression.html#a42740205ba00a0e35364c7d486cc835f":[0,0,2,5,6],
-"namespacetheoretica_1_1regression.html#a43911fac741333de75b825268f9f7cf5":[0,0,2,5,9],
-"namespacetheoretica_1_1regression.html#a78275eef04237b944d31cd21bc9a2e6e":[0,0,2,5,2]
+"namespacetheoretica_1_1regression.html#a42740205ba00a0e35364c7d486cc835f":[0,0,2,5,6]
 };
