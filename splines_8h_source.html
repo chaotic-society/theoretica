@@ -308,275 +308,277 @@ $(document).ready(function(){initNavTree('splines_8h_source.html',''); initResiz
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="keywordflow">return</span> vec&lt;real, N&gt;(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        }</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index = points.size(); index &gt; 1; --index) {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        std::vector&lt;vec&lt;real, N&gt;&gt; p = points;</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; index - 1; ++i)</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                points[i] = <a class="code hl_function" href="namespacetheoretica.html#aa0edd44311fc206d96919ab11d1977a9">lerp</a>(points[i], points[i + 1], t);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        }</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">return</span> points[0];</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index = p.size(); index &gt; 1; --index) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; index - 1; ++i)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                p[i] = <a class="code hl_function" href="namespacetheoretica.html#aa0edd44311fc206d96919ab11d1977a9">lerp</a>(p[i], p[i + 1], t);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> p[0];</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
 </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="foldopen" id="foldopen00213" data-start="{" data-end="};">
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html">  213</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a> {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">  216</a></span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">  220</a></span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>, b, c, d;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">  223</a></span>        <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">spline_node</a>() : <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>(0), <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>(0), b(0), c(0), d(0) {}</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">  226</a></span>        <a class="code hl_function" href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">spline_node</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> c, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> d)</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            : <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>(<a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>), <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>(<a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>), b(b), c(c), d(d) {}</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="foldopen" id="foldopen00215" data-start="{" data-end="};">
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html">  215</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a> {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">  218</a></span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">  222</a></span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>, b, c, d;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">  225</a></span>        <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">spline_node</a>() : <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>(0), <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>(0), b(0), c(0), d(0) {}</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="}">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">  228</a></span>        <a class="code hl_function" href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">spline_node</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> c, <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> d)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            : <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>(<a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>), <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>(<a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a>), b(b), c(c), d(d) {}</div>
 </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">  232</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">operator()</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> X)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h = X - <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a> + h * (b + h * (c + h * d));</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">  234</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">operator()</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> X)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h = X - <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">a</a> + h * (b + h * (c + h * d));</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        }</div>
 </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="foldopen" id="foldopen00240" data-start="{" data-end="}">
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">  240</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">deriv</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> X)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h = X - <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">return</span> b + h * (c * 2 + h * d * 3);</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">  242</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">deriv</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> X)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> h = X - <a class="code hl_variable" href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">x</a>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">return</span> b + h * (c * 2 + h * d * 3);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    };</div>
 </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataPo<span class="keywordtype">int</span>s = std::vector&lt;vec2&gt;&gt;</div>
-<div class="foldopen" id="foldopen00251" data-start="{" data-end="}">
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">  251</a></span>    <span class="keyword">inline</span> std::vector&lt;spline_node&gt; <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(DataPoints p) {</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">if</span>(p.size() &lt; 2) {</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, p.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = p.size() - 1;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataPo<span class="keywordtype">int</span>s = std::vector&lt;vec2&gt;&gt;</div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">  253</a></span>    <span class="keyword">inline</span> std::vector&lt;spline_node&gt; <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(DataPoints p) {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">if</span>(p.size() &lt; 2) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, p.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        }</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        std::vector&lt;real&gt; dx(n);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        std::vector&lt;real&gt; delta(n);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        delta[0] = 0;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = p.size() - 1;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        std::vector&lt;real&gt; dx(n);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        std::vector&lt;real&gt; delta(n);</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        std::vector&lt;real&gt; alpha(n + 1);</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        std::vector&lt;real&gt; beta(n + 1);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        std::vector&lt;real&gt; gamma(n + 1);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        alpha[0] = 1;</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        beta[0] = 0;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        gamma[0] = 0;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        std::vector&lt;real&gt; b(n);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        std::vector&lt;real&gt; c(n);</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        std::vector&lt;real&gt; d(n);</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            dx[i] = p[i + 1][0] - p[i][0];</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            delta[i] = 3 * (</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                ((p[i + 1][1] - p[i][1]) / dx[i])</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                    - (p[i][1] - p[i - 1][1]) / dx[i - 1]);</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i) {</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            alpha[i] = 2 * (p[i + 1][0] - p[i - 1][0]) - dx[i - 1] * beta[i - 1];</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            beta[i] = dx[i] / alpha[i];</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            gamma[i] = (delta[i] - dx[i] * gamma[i - 1]) / alpha[i];</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        }</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="comment">// Apply boundary conditions</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        alpha[n] = 1;</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        gamma[n] = 0;</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        c[n] = 0;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="comment">// Solve the associated tridiagonal system</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="comment">// using back-substitution</span></div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n - 1; i &gt;= 0; --i) {</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            c[i] = gamma[i] - beta[i] * c[i + 1];</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            b[i] = (p[i + 1][1] - p[i][1]) / dx[i]</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                - dx[i] * (c[i + 1] + 2 * c[i]) / 3.0;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            d[i] = (c[i + 1] - c[i]) / (3.0 * dx[i]);</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        }</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        std::vector&lt;spline_node&gt; nodes(n);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        delta[0] = 0;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        std::vector&lt;real&gt; alpha(n + 1);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        std::vector&lt;real&gt; beta(n + 1);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        std::vector&lt;real&gt; gamma(n + 1);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        alpha[0] = 1;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        beta[0] = 0;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        gamma[0] = 0;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        std::vector&lt;real&gt; b(n);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        std::vector&lt;real&gt; c(n + 1);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        std::vector&lt;real&gt; d(n);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            dx[i] = p[i + 1][0] - p[i][0];</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            delta[i] = 3 * (</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                ((p[i + 1][1] - p[i][1]) / dx[i])</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                    - (p[i][1] - p[i - 1][1]) / dx[i - 1]);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i) {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            alpha[i] = 2 * (p[i + 1][0] - p[i - 1][0]) - dx[i - 1] * beta[i - 1];</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            beta[i] = dx[i] / alpha[i];</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            gamma[i] = (delta[i] - dx[i] * gamma[i - 1]) / alpha[i];</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="comment">// Apply boundary conditions</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        alpha[n] = 1;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        gamma[n] = 0;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        c[n] = 0;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="comment">// Solve the associated tridiagonal system</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="comment">// using back-substitution</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n - 1; i &gt;= 0; --i) {</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            c[i] = gamma[i] - beta[i] * c[i + 1];</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            b[i] = (p[i + 1][1] - p[i][1]) / dx[i]</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                - dx[i] * (c[i + 1] + 2 * c[i]) / 3.0;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            d[i] = (c[i + 1] - c[i]) / (3.0 * dx[i]);</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        }</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            nodes[i] = <a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(p[i][0], p[i][1], b[i], c[i], d[i]);</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keywordflow">return</span> nodes;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        std::vector&lt;spline_node&gt; nodes(n);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            nodes[i] = <a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(p[i][0], p[i][1], b[i], c[i], d[i]);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <span class="keywordflow">return</span> nodes;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    }</div>
 </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
-<div class="foldopen" id="foldopen00319" data-start="{" data-end="}">
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae7bf96b1e850f0901d249adbfea8f382">  319</a></span>    <span class="keyword">inline</span> std::vector&lt;spline_node&gt; <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keyword">const</span> Dataset1&amp; x, <span class="keyword">const</span> Dataset2&amp; y) {</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordflow">if</span>(x.size() &lt; 2) {</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, x.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        }</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        <span class="keywordflow">if</span>(x.size() != y.size()) {</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, x.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        }</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = x.size() - 1;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
+<div class="foldopen" id="foldopen00321" data-start="{" data-end="}">
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ae7bf96b1e850f0901d249adbfea8f382">  321</a></span>    <span class="keyword">inline</span> std::vector&lt;spline_node&gt; <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keyword">const</span> Dataset1&amp; x, <span class="keyword">const</span> Dataset2&amp; y) {</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">if</span>(x.size() &lt; 2) {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, x.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        }</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        <span class="keywordflow">if</span>(x.size() != y.size()) {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            <a class="code hl_define" href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;cubic_splines&quot;</span>, x.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            <span class="keywordflow">return</span> {<a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>(), <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>())};</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        }</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        std::vector&lt;real&gt; dx(n);</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        std::vector&lt;real&gt; delta(n);</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        delta[0] = 0;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = x.size() - 1;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        std::vector&lt;real&gt; dx(n);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        std::vector&lt;real&gt; delta(n);</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        std::vector&lt;real&gt; alpha(n + 1);</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        std::vector&lt;real&gt; beta(n + 1);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        std::vector&lt;real&gt; gamma(n + 1);</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        alpha[0] = 1;</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        beta[0] = 0;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        gamma[0] = 0;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        std::vector&lt;real&gt; b(n);</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        std::vector&lt;real&gt; c(n);</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        std::vector&lt;real&gt; d(n);</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            dx[i] = x[i + 1] - x[i];</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>            delta[i] = 3 * (</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>                ((y[i + 1] - y[i]) / dx[i])</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>                    - (y[i] - y[i - 1]) / dx[i - 1]);</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i) {</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>            alpha[i] = 2 * (x[i + 1] - x[i - 1]) - dx[i - 1] * beta[i - 1];</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            beta[i] = dx[i] / alpha[i];</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            gamma[i] = (delta[i] - dx[i] * gamma[i - 1]) / alpha[i];</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        }</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        <span class="comment">// Apply boundary conditions</span></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        alpha[n] = 1;</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        gamma[n] = 0;</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        c[n] = 0;</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        <span class="comment">// Solve the associated tridiagonal system</span></div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="comment">// using back-substitution</span></div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n - 1; i &gt;= 0; --i) {</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>            </div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>            c[i] = gamma[i] - beta[i] * c[i + 1];</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>            b[i] = (y[i + 1] - y[i]) / dx[i]</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>                - dx[i] * (c[i + 1] + 2 * c[i]) / 3.0;</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            d[i] = (c[i + 1] - c[i]) / (3.0 * dx[i]);</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        }</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        std::vector&lt;spline_node&gt; nodes(n);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        delta[0] = 0;</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        std::vector&lt;real&gt; alpha(n + 1);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        std::vector&lt;real&gt; beta(n + 1);</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        std::vector&lt;real&gt; gamma(n + 1);</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        alpha[0] = 1;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        beta[0] = 0;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        gamma[0] = 0;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        std::vector&lt;real&gt; b(n);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        std::vector&lt;real&gt; c(n + 1);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        std::vector&lt;real&gt; d(n);</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            dx[i] = x[i + 1] - x[i];</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            delta[i] = 3 * (</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                ((y[i + 1] - y[i]) / dx[i])</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>                    - (y[i] - y[i - 1]) / dx[i - 1]);</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n; ++i) {</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            alpha[i] = 2 * (x[i + 1] - x[i - 1]) - dx[i - 1] * beta[i - 1];</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            beta[i] = dx[i] / alpha[i];</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>            gamma[i] = (delta[i] - dx[i] * gamma[i - 1]) / alpha[i];</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        }</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        <span class="comment">// Apply boundary conditions</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        alpha[n] = 1;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        gamma[n] = 0;</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        c[n] = 0;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        <span class="comment">// Solve the associated tridiagonal system</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="comment">// using back-substitution</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n - 1; i &gt;= 0; --i) {</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>            </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            c[i] = gamma[i] - beta[i] * c[i + 1];</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            b[i] = (y[i + 1] - y[i]) / dx[i]</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                - dx[i] * (c[i + 1] + 2 * c[i]) / 3.0;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            d[i] = (c[i + 1] - c[i]) / (3.0 * dx[i]);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        }</div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>            nodes[i] = <a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(x[i], y[i], b[i], c[i], d[i]);</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <span class="keywordflow">return</span> nodes;</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    }</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        std::vector&lt;spline_node&gt; nodes(n);</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>            nodes[i] = <a class="code hl_struct" href="structtheoretica_1_1spline__node.html">spline_node</a>(x[i], y[i], b[i], c[i], d[i]);</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">return</span> nodes;</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    }</div>
 </div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
-<div class="foldopen" id="foldopen00391" data-start="{" data-end="};">
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html">  391</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a> {</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">  396</a></span>        std::vector&lt;spline_node&gt; <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataPo<span class="keywordtype">int</span>s = std::vector&lt;vec2&gt;&gt;</div>
-<div class="foldopen" id="foldopen00402" data-start="{" data-end="}">
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">  402</a></span>        <a class="code hl_function" href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">spline</a>(<span class="keyword">const</span> DataPoints&amp; p) {</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(p);</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        }</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="foldopen" id="foldopen00393" data-start="{" data-end="};">
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html">  393</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a> {</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">  398</a></span>        std::vector&lt;spline_node&gt; <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataPo<span class="keywordtype">int</span>s = std::vector&lt;vec2&gt;&gt;</div>
+<div class="foldopen" id="foldopen00404" data-start="{" data-end="}">
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">  404</a></span>        <a class="code hl_function" href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">spline</a>(<span class="keyword">const</span> DataPoints&amp; p) {</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(p);</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        }</div>
 </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
-<div class="foldopen" id="foldopen00410" data-start="{" data-end="}">
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">  410</a></span>        <a class="code hl_function" href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">spline</a>(<span class="keyword">const</span> Dataset1&amp; X, <span class="keyword">const</span> Dataset2&amp; Y) {</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(X, Y);</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        }</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
+<div class="foldopen" id="foldopen00412" data-start="{" data-end="}">
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">  412</a></span>        <a class="code hl_function" href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">spline</a>(<span class="keyword">const</span> Dataset1&amp; X, <span class="keyword">const</span> Dataset2&amp; Y) {</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = <a class="code hl_function" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">cubic_splines</a>(X, Y);</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        }</div>
 </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
-<div class="foldopen" id="foldopen00416" data-start="{" data-end="}">
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">  416</a></span>        <span class="keyword">inline</span> <a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a>&amp; <a class="code hl_function" href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a>&amp; other) {</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = other.<a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>;</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        }</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span> </div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
+<div class="foldopen" id="foldopen00418" data-start="{" data-end="}">
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">  418</a></span>        <span class="keyword">inline</span> <a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a>&amp; <a class="code hl_function" href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtheoretica_1_1spline.html">spline</a>&amp; other) {</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a> = other.<a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        }</div>
 </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
-<div class="foldopen" id="foldopen00424" data-start="{" data-end="}">
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">  424</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">operator()</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            </div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keywordtype">int</span>(<a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.size()) - 1; i &gt; 0; --i)</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>                <span class="keywordflow">if</span>(x &gt;= <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].x)</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>                    <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i](x);</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>            <span class="comment">// Extrapolation for x &lt; x_0</span></div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[0](x);</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>        }</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="foldopen" id="foldopen00426" data-start="{" data-end="}">
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">  426</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">operator()</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            </div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keywordtype">int</span>(<a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.size()) - 1; i &gt; 0; --i)</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                <span class="keywordflow">if</span>(x &gt;= <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].x)</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                    <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i](x);</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>            <span class="comment">// Extrapolation for x &lt; x_0</span></div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[0](x);</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>        }</div>
 </div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
-<div class="foldopen" id="foldopen00437" data-start="{" data-end="}">
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">  437</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">deriv</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>            </div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.size() - 1; i &gt; 0; --i)</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>                <span class="keywordflow">if</span>(x &gt;= <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].x)</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                    <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].deriv(x);</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>            <span class="comment">// Extrapolation for x &lt; x_0</span></div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[0].deriv(x);</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>        }</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span> </div>
+<div class="foldopen" id="foldopen00439" data-start="{" data-end="}">
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">  439</a></span>        <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">deriv</a>(<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            </div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.size() - 1; i &gt; 0; --i)</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                <span class="keywordflow">if</span>(x &gt;= <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].x)</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                    <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[i].deriv(x);</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>            <span class="comment">// Extrapolation for x &lt; x_0</span></div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>[0].deriv(x);</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>        }</div>
 </div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span> </div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
-<div class="foldopen" id="foldopen00449" data-start="{" data-end="}">
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">  449</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">begin</a>() {</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.begin();</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>        }</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
+<div class="foldopen" id="foldopen00451" data-start="{" data-end="}">
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">  451</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">begin</a>() {</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.begin();</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>        }</div>
 </div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
-<div class="foldopen" id="foldopen00455" data-start="{" data-end="}">
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">  455</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">end</a>() {</div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.end();</div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>        }</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span> </div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="foldopen" id="foldopen00457" data-start="{" data-end="}">
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno"><a class="line" href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">  457</a></span>        <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">end</a>() {</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">nodes</a>.end();</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>        }</div>
 </div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    };</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>    };</div>
 </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>    </div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>}</div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span> </div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html"><div class="ttname"><a href="classtheoretica_1_1spline.html">theoretica::spline</a></div><div class="ttdoc">A natural cubic spline interpolation class.</div><div class="ttdef"><b>Definition</b> splines.h:391</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a263320fe86eef4ff2e709502e5607788"><div class="ttname"><a href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">theoretica::spline::spline</a></div><div class="ttdeci">spline(const Dataset1 &amp;X, const Dataset2 &amp;Y)</div><div class="ttdoc">Construct the natural cubic spline interpolation from the sets of X and Y data points.</div><div class="ttdef"><b>Definition</b> splines.h:410</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a320da037cfe9c556a8c3e47bc729e91d"><div class="ttname"><a href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">theoretica::spline::operator()</a></div><div class="ttdeci">real operator()(real x) const</div><div class="ttdoc">Evaluate the natural cubic spline interpolation at a given point.</div><div class="ttdef"><b>Definition</b> splines.h:424</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a40bc58e77bf7683c731786dc9071b206"><div class="ttname"><a href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">theoretica::spline::deriv</a></div><div class="ttdeci">real deriv(real x) const</div><div class="ttdoc">Evaluate the derivative of the natural cubic spline interpolation at a given point.</div><div class="ttdef"><b>Definition</b> splines.h:437</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a424ad671599093fd8724eea12f79ef5e"><div class="ttname"><a href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">theoretica::spline::end</a></div><div class="ttdeci">auto end()</div><div class="ttdoc">Get an iterator to one plus the last spline element.</div><div class="ttdef"><b>Definition</b> splines.h:455</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a720be0ec428891b7336aff253904f28c"><div class="ttname"><a href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">theoretica::spline::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdoc">Get an iterator to the first spline element.</div><div class="ttdef"><b>Definition</b> splines.h:449</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a73737dc18f49fd83ed4d0096abeddec5"><div class="ttname"><a href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">theoretica::spline::spline</a></div><div class="ttdeci">spline(const DataPoints &amp;p)</div><div class="ttdoc">Construct the natural cubic spline interpolation from a vector of coordinate pairs.</div><div class="ttdef"><b>Definition</b> splines.h:402</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a7af2528abf4b07f00cebbe84dbadcff6"><div class="ttname"><a href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">theoretica::spline::operator=</a></div><div class="ttdeci">spline &amp; operator=(const spline &amp;other)</div><div class="ttdoc">Copy from another spline.</div><div class="ttdef"><b>Definition</b> splines.h:416</div></div>
-<div class="ttc" id="aclasstheoretica_1_1spline_html_a91eb64255d24732be1451e546e71f4d8"><div class="ttname"><a href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">theoretica::spline::nodes</a></div><div class="ttdeci">std::vector&lt; spline_node &gt; nodes</div><div class="ttdoc">The computed nodes of the natural cubic spline interpolation over the points.</div><div class="ttdef"><b>Definition</b> splines.h:396</div></div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    </div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>}</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html"><div class="ttname"><a href="classtheoretica_1_1spline.html">theoretica::spline</a></div><div class="ttdoc">A natural cubic spline interpolation class.</div><div class="ttdef"><b>Definition</b> splines.h:393</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a263320fe86eef4ff2e709502e5607788"><div class="ttname"><a href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">theoretica::spline::spline</a></div><div class="ttdeci">spline(const Dataset1 &amp;X, const Dataset2 &amp;Y)</div><div class="ttdoc">Construct the natural cubic spline interpolation from the sets of X and Y data points.</div><div class="ttdef"><b>Definition</b> splines.h:412</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a320da037cfe9c556a8c3e47bc729e91d"><div class="ttname"><a href="classtheoretica_1_1spline.html#a320da037cfe9c556a8c3e47bc729e91d">theoretica::spline::operator()</a></div><div class="ttdeci">real operator()(real x) const</div><div class="ttdoc">Evaluate the natural cubic spline interpolation at a given point.</div><div class="ttdef"><b>Definition</b> splines.h:426</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a40bc58e77bf7683c731786dc9071b206"><div class="ttname"><a href="classtheoretica_1_1spline.html#a40bc58e77bf7683c731786dc9071b206">theoretica::spline::deriv</a></div><div class="ttdeci">real deriv(real x) const</div><div class="ttdoc">Evaluate the derivative of the natural cubic spline interpolation at a given point.</div><div class="ttdef"><b>Definition</b> splines.h:439</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a424ad671599093fd8724eea12f79ef5e"><div class="ttname"><a href="classtheoretica_1_1spline.html#a424ad671599093fd8724eea12f79ef5e">theoretica::spline::end</a></div><div class="ttdeci">auto end()</div><div class="ttdoc">Get an iterator to one plus the last spline element.</div><div class="ttdef"><b>Definition</b> splines.h:457</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a720be0ec428891b7336aff253904f28c"><div class="ttname"><a href="classtheoretica_1_1spline.html#a720be0ec428891b7336aff253904f28c">theoretica::spline::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdoc">Get an iterator to the first spline element.</div><div class="ttdef"><b>Definition</b> splines.h:451</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a73737dc18f49fd83ed4d0096abeddec5"><div class="ttname"><a href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">theoretica::spline::spline</a></div><div class="ttdeci">spline(const DataPoints &amp;p)</div><div class="ttdoc">Construct the natural cubic spline interpolation from a vector of coordinate pairs.</div><div class="ttdef"><b>Definition</b> splines.h:404</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a7af2528abf4b07f00cebbe84dbadcff6"><div class="ttname"><a href="classtheoretica_1_1spline.html#a7af2528abf4b07f00cebbe84dbadcff6">theoretica::spline::operator=</a></div><div class="ttdeci">spline &amp; operator=(const spline &amp;other)</div><div class="ttdoc">Copy from another spline.</div><div class="ttdef"><b>Definition</b> splines.h:418</div></div>
+<div class="ttc" id="aclasstheoretica_1_1spline_html_a91eb64255d24732be1451e546e71f4d8"><div class="ttname"><a href="classtheoretica_1_1spline.html#a91eb64255d24732be1451e546e71f4d8">theoretica::spline::nodes</a></div><div class="ttdeci">std::vector&lt; spline_node &gt; nodes</div><div class="ttdoc">The computed nodes of the natural cubic spline interpolation over the points.</div><div class="ttdef"><b>Definition</b> splines.h:398</div></div>
 <div class="ttc" id="aerror_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling opti...</div><div class="ttdef"><b>Definition</b> error.h:238</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition</b> constants.h:198</div></div>
@@ -586,7 +588,7 @@ $(document).ready(function(){initNavTree('splines_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_html_a75b8a327e65a2d21993a28009828faae"><div class="ttname"><a href="namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae">theoretica::smoothstep</a></div><div class="ttdeci">real smoothstep(real x1, real x2, real interp)</div><div class="ttdoc">Smoothstep interpolation.</div><div class="ttdef"><b>Definition</b> splines.h:118</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a7a854543c4d5334c61247aed920937c7"><div class="ttname"><a href="namespacetheoretica.html#a7a854543c4d5334c61247aed920937c7">theoretica::invlerp</a></div><div class="ttdeci">real invlerp(real x1, real x2, real value)</div><div class="ttdoc">Inverse linear interpolation.</div><div class="ttdef"><b>Definition</b> splines.h:32</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a88ee927450a4d29cb6318b2aede74fa6"><div class="ttname"><a href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">theoretica::nan</a></div><div class="ttdeci">TH_CONSTEXPR real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition</b> error.h:78</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a99316012fec5500c779ddf8d4114b643"><div class="ttname"><a href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">theoretica::cubic_splines</a></div><div class="ttdeci">std::vector&lt; spline_node &gt; cubic_splines(DataPoints p)</div><div class="ttdoc">Compute the cubic splines interpolation of a set of data points.</div><div class="ttdef"><b>Definition</b> splines.h:251</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a99316012fec5500c779ddf8d4114b643"><div class="ttname"><a href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">theoretica::cubic_splines</a></div><div class="ttdeci">std::vector&lt; spline_node &gt; cubic_splines(DataPoints p)</div><div class="ttdoc">Compute the cubic splines interpolation of a set of data points.</div><div class="ttdef"><b>Definition</b> splines.h:253</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b"><div class="ttname"><a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">theoretica::MathError::InvalidArgument</a></div><div class="ttdeci">@ InvalidArgument</div><div class="ttdoc">Invalid argument.</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd"><div class="ttname"><a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd">theoretica::MathError::OutOfDomain</a></div><div class="ttdeci">@ OutOfDomain</div><div class="ttdoc">Argument out of domain.</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a9ff1f49a0a30fe7c2e491d30de30d4b3a5eca8b3f94ffa150b1ba8f970c0bd59b"><div class="ttname"><a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a5eca8b3f94ffa150b1ba8f970c0bd59b">theoretica::MathError::ImpossibleOperation</a></div><div class="ttdeci">@ ImpossibleOperation</div><div class="ttdoc">Mathematically impossible operation.</div></div>
@@ -600,20 +602,20 @@ $(document).ready(function(){initNavTree('splines_8h_source.html',''); initResiz
 <div class="ttc" id="anamespacetheoretica_html_ad7a34ba6bb56c26ba50c1b2c21d2da7e"><div class="ttname"><a href="namespacetheoretica.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e">theoretica::sin</a></div><div class="ttdeci">dual2 sin(dual2 x)</div><div class="ttdoc">Compute the sine of a second order dual number.</div><div class="ttdef"><b>Definition</b> dual2_functions.h:72</div></div>
 <div class="ttc" id="anamespacetheoretica_html_af1a4ad4c5446986fe2d255a03be337a1"><div class="ttname"><a href="namespacetheoretica.html#af1a4ad4c5446986fe2d255a03be337a1">theoretica::clamp</a></div><div class="ttdeci">real clamp(real x, real a, real b)</div><div class="ttdoc">Clamp x between a and b.</div><div class="ttdef"><b>Definition</b> real_analysis.h:355</div></div>
 <div class="ttc" id="anamespacetheoretica_html_afb40a700a725235c37a4ceeb1e09c7f6"><div class="ttname"><a href="namespacetheoretica.html#afb40a700a725235c37a4ceeb1e09c7f6">theoretica::quadratic_bezier</a></div><div class="ttdeci">vec&lt; real, N &gt; quadratic_bezier(const vec&lt; real, N &gt; &amp;P0, const vec&lt; real, N &gt; &amp;P1, const vec&lt; real, N &gt; &amp;P2, real t)</div><div class="ttdoc">Quadratic Bezier curve.</div><div class="ttdef"><b>Definition</b> splines.h:154</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html"><div class="ttname"><a href="structtheoretica_1_1spline__node.html">theoretica::spline_node</a></div><div class="ttdoc">A cubic splines node for a given x interval.</div><div class="ttdef"><b>Definition</b> splines.h:213</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_a2a7f1105fe014299e1fd678b5f2ab6c0"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">theoretica::spline_node::spline_node</a></div><div class="ttdeci">spline_node()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition</b> splines.h:223</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_a54792ea7f98fdb01a016af44c7789ff1"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">theoretica::spline_node::operator()</a></div><div class="ttdeci">real operator()(real X) const</div><div class="ttdoc">Evaluate the interpolating cubic spline (no check on the input value is performed!...</div><div class="ttdef"><b>Definition</b> splines.h:232</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_a6a4a6bc5f1563d26adda6181e67d046e"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">theoretica::spline_node::deriv</a></div><div class="ttdeci">real deriv(real X) const</div><div class="ttdoc">Evaluate the derivative of the interpolating cubic spline (no check on the input value is performed)</div><div class="ttdef"><b>Definition</b> splines.h:240</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_aa97b91dcd2678e738cb22fdeec6e2206"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">theoretica::spline_node::x</a></div><div class="ttdeci">real x</div><div class="ttdoc">Upper extreme of the interpolation interval .</div><div class="ttdef"><b>Definition</b> splines.h:216</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_acc3153b72c7bc307681e6f2ca5b6fa9c"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">theoretica::spline_node::a</a></div><div class="ttdeci">real a</div><div class="ttdoc">Coefficients of the interpolating cubic spline .</div><div class="ttdef"><b>Definition</b> splines.h:220</div></div>
-<div class="ttc" id="astructtheoretica_1_1spline__node_html_af30948760e6dd5bc79c5bc1cb2cefd15"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">theoretica::spline_node::spline_node</a></div><div class="ttdeci">spline_node(real x, real a, real b, real c, real d)</div><div class="ttdoc">Construct from  and polynomial coefficients.</div><div class="ttdef"><b>Definition</b> splines.h:226</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html"><div class="ttname"><a href="structtheoretica_1_1spline__node.html">theoretica::spline_node</a></div><div class="ttdoc">A cubic splines node for a given x interval.</div><div class="ttdef"><b>Definition</b> splines.h:215</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_a2a7f1105fe014299e1fd678b5f2ab6c0"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0">theoretica::spline_node::spline_node</a></div><div class="ttdeci">spline_node()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition</b> splines.h:225</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_a54792ea7f98fdb01a016af44c7789ff1"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a54792ea7f98fdb01a016af44c7789ff1">theoretica::spline_node::operator()</a></div><div class="ttdeci">real operator()(real X) const</div><div class="ttdoc">Evaluate the interpolating cubic spline (no check on the input value is performed!...</div><div class="ttdef"><b>Definition</b> splines.h:234</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_a6a4a6bc5f1563d26adda6181e67d046e"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#a6a4a6bc5f1563d26adda6181e67d046e">theoretica::spline_node::deriv</a></div><div class="ttdeci">real deriv(real X) const</div><div class="ttdoc">Evaluate the derivative of the interpolating cubic spline (no check on the input value is performed)</div><div class="ttdef"><b>Definition</b> splines.h:242</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_aa97b91dcd2678e738cb22fdeec6e2206"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#aa97b91dcd2678e738cb22fdeec6e2206">theoretica::spline_node::x</a></div><div class="ttdeci">real x</div><div class="ttdoc">Upper extreme of the interpolation interval .</div><div class="ttdef"><b>Definition</b> splines.h:218</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_acc3153b72c7bc307681e6f2ca5b6fa9c"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#acc3153b72c7bc307681e6f2ca5b6fa9c">theoretica::spline_node::a</a></div><div class="ttdeci">real a</div><div class="ttdoc">Coefficients of the interpolating cubic spline .</div><div class="ttdef"><b>Definition</b> splines.h:222</div></div>
+<div class="ttc" id="astructtheoretica_1_1spline__node_html_af30948760e6dd5bc79c5bc1cb2cefd15"><div class="ttname"><a href="structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15">theoretica::spline_node::spline_node</a></div><div class="ttdeci">spline_node(real x, real a, real b, real c, real d)</div><div class="ttdoc">Construct from  and polynomial coefficients.</div><div class="ttdef"><b>Definition</b> splines.h:228</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5596f951296b42de5afea2209fd56ea2.html">interpolation</a></li><li class="navelem"><a class="el" href="splines_8h.html">splines.h</a></li>
-    <li class="footer">Generated on Wed Feb 11 2026 12:10:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Feb 11 2026 19:54:33 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

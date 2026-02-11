@@ -30,7 +30,7 @@ var searchData=
   ['solve_5ftriangular_27',['solve_triangular',['../namespacetheoretica_1_1algebra.html#a6fc85f89aafd490490d0a7b36bed8e15',1,'theoretica::algebra']]],
   ['solve_5ftriangular_5flower_28',['solve_triangular_lower',['../namespacetheoretica_1_1algebra.html#a9b7074a581766dad1465f4ea1264c229',1,'theoretica::algebra']]],
   ['solve_5ftriangular_5fupper_29',['solve_triangular_upper',['../namespacetheoretica_1_1algebra.html#ab64a6205ec3c0bbddcdd3aee26aec6dd',1,'theoretica::algebra']]],
-  ['sparsity_30',['sparsity',['../namespacetheoretica_1_1algebra.html#a6ec388888fe8bed059d86349d80aa5f0',1,'theoretica::algebra']]],
+  ['sparsity_30',['sparsity',['../namespacetheoretica_1_1algebra.html#af7246e0a68ff672551ade6856a9be0b2',1,'theoretica::algebra']]],
   ['sphere_5finversion_31',['sphere_inversion',['../namespacetheoretica_1_1algebra.html#a517bdd1d7ac545a5f3ccfab6e627caca',1,'theoretica::algebra']]],
   ['spline_32',['spline',['../classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5',1,'theoretica::spline::spline(const DataPoints &amp;p)'],['../classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788',1,'theoretica::spline::spline(const Dataset1 &amp;X, const Dataset2 &amp;Y)']]],
   ['spline_5fnode_33',['spline_node',['../structtheoretica_1_1spline__node.html#a2a7f1105fe014299e1fd678b5f2ab6c0',1,'theoretica::spline_node::spline_node()'],['../structtheoretica_1_1spline__node.html#af30948760e6dd5bc79c5bc1cb2cefd15',1,'theoretica::spline_node::spline_node(real x, real a, real b, real c, real d)']]],

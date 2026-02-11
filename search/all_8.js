@@ -42,7 +42,7 @@ var searchData=
   ['invpi_39',['INVPI',['../namespacetheoretica.html#a4d6916417c8d2b817cfc48b8e2a1abb5',1,'theoretica']]],
   ['invsqr2_40',['INVSQR2',['../namespacetheoretica.html#a42c1ffb22a0191558cafdaec71c3b81d',1,'theoretica']]],
   ['ipow_41',['ipow',['../namespacetheoretica.html#a52e31c328bc34c0d2fca2aad3bf78ca7',1,'theoretica']]],
-  ['is_5fdiagonal_42',['is_diagonal',['../namespacetheoretica_1_1algebra.html#a58f3fc72c395411ca964ef50dc6c8303',1,'theoretica::algebra']]],
+  ['is_5fdiagonal_42',['is_diagonal',['../namespacetheoretica_1_1algebra.html#ae72414f302d26626b36e4ac9de5b332d',1,'theoretica::algebra']]],
   ['is_5finf_43',['is_inf',['../namespacetheoretica.html#aa0e2748628e6c133de6a7e843c02c7d7',1,'theoretica']]],
   ['is_5flower_5ftriangular_44',['is_lower_triangular',['../namespacetheoretica_1_1algebra.html#a01182d050ae939b2fb0647806478882c',1,'theoretica::algebra']]],
   ['is_5fnan_45',['is_nan',['../namespacetheoretica.html#a22e311a811c0c7e23c30e4496cfbe63d',1,'theoretica']]],

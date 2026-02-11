@@ -36,7 +36,7 @@ var classtheoretica_1_1mat =
     [ "operator/=", "classtheoretica_1_1mat.html#a6569a9d0133f834012ed4a2700d5a78a", null ],
     [ "operator=", "classtheoretica_1_1mat.html#a0b2007b60b46e7ff490dd4a9871e2ebd", null ],
     [ "operator==", "classtheoretica_1_1mat.html#ac6ad78766c6cd68411c7ad24cc16ffe9", null ],
-    [ "resize", "classtheoretica_1_1mat.html#a6904396138fdd64894a0993471be4b44", null ],
+    [ "resize", "classtheoretica_1_1mat.html#ad3c6b4fe30d74b1fa86a7220d3c88875", null ],
     [ "rows", "classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc", null ],
     [ "size", "classtheoretica_1_1mat.html#a7e2a8ff234c060593ad7d32c316954bc", null ],
     [ "to_string", "classtheoretica_1_1mat.html#a0eb0011722e5d3936f50a43df5d8b6bf", null ],

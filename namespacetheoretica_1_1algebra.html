@@ -282,10 +282,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aa5409959842e07390e2834cc99139a5d"><td class="memTemplItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa5409959842e07390e2834cc99139a5d">mat_mul_transpose</a> (const Matrix1 &amp;A, const Matrix2 &amp;B)</td></tr>
 <tr class="memdesc:aa5409959842e07390e2834cc99139a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply a matrix by the transpose of another matrix, equivalent to the operation \(R = A B^T\).  <br /></td></tr>
 <tr class="separator:aa5409959842e07390e2834cc99139a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ae546299bfa1f1e9c01af80ba48f43" id="r_a48ae546299bfa1f1e9c01af80ba48f43"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 &gt; </td></tr>
-<tr class="memitem:a48ae546299bfa1f1e9c01af80ba48f43"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a48ae546299bfa1f1e9c01af80ba48f43">mat_equals</a> (const Matrix1 &amp;A, const Matrix2 &amp;B, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=10 *<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>)</td></tr>
-<tr class="memdesc:a48ae546299bfa1f1e9c01af80ba48f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether two matrices are equal.  <br /></td></tr>
-<tr class="separator:a48ae546299bfa1f1e9c01af80ba48f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4da6b8de5771e4d44d30b330396b57" id="r_aeb4da6b8de5771e4d44d30b330396b57"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 &gt; </td></tr>
+<tr class="memitem:aeb4da6b8de5771e4d44d30b330396b57"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aeb4da6b8de5771e4d44d30b330396b57">mat_equals</a> (const Matrix1 &amp;A, const Matrix2 &amp;B, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
+<tr class="memdesc:aeb4da6b8de5771e4d44d30b330396b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether two matrices are equal.  <br /></td></tr>
+<tr class="separator:aeb4da6b8de5771e4d44d30b330396b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3dfff35041d5071c7c44b10b3f00716" id="r_aa3dfff35041d5071c7c44b10b3f00716"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2 &gt; </td></tr>
 <tr class="memitem:aa3dfff35041d5071c7c44b10b3f00716"><td class="memTemplItemLeft" align="right" valign="top">Vector2 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa3dfff35041d5071c7c44b10b3f00716">vec_sum</a> (Vector1 &amp;v1, const Vector2 &amp;v2)</td></tr>
 <tr class="memdesc:aa3dfff35041d5071c7c44b10b3f00716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum two vectors and store the result in the first vector.  <br /></td></tr>
@@ -306,10 +306,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a1ab552f2067f23dfab8473ff098810d1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1">is_square</a> (const Matrix &amp;m)</td></tr>
 <tr class="memdesc:a1ab552f2067f23dfab8473ff098810d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is square.  <br /></td></tr>
 <tr class="separator:a1ab552f2067f23dfab8473ff098810d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f3fc72c395411ca964ef50dc6c8303" id="r_a58f3fc72c395411ca964ef50dc6c8303"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
-<tr class="memitem:a58f3fc72c395411ca964ef50dc6c8303"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a58f3fc72c395411ca964ef50dc6c8303">is_diagonal</a> (const Matrix &amp;m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=10 *<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>)</td></tr>
-<tr class="memdesc:a58f3fc72c395411ca964ef50dc6c8303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is diagonal.  <br /></td></tr>
-<tr class="separator:a58f3fc72c395411ca964ef50dc6c8303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72414f302d26626b36e4ac9de5b332d" id="r_ae72414f302d26626b36e4ac9de5b332d"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
+<tr class="memitem:ae72414f302d26626b36e4ac9de5b332d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ae72414f302d26626b36e4ac9de5b332d">is_diagonal</a> (const Matrix &amp;m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
+<tr class="memdesc:ae72414f302d26626b36e4ac9de5b332d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is diagonal.  <br /></td></tr>
+<tr class="separator:ae72414f302d26626b36e4ac9de5b332d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4752e001d3198f3be8ae8f05f4fb06bf" id="r_a4752e001d3198f3be8ae8f05f4fb06bf"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a4752e001d3198f3be8ae8f05f4fb06bf"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a4752e001d3198f3be8ae8f05f4fb06bf">is_symmetric</a> (const Matrix &amp;m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
 <tr class="memdesc:a4752e001d3198f3be8ae8f05f4fb06bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is symmetric.  <br /></td></tr>
@@ -322,14 +322,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a580a1460c4ab6eb87cd12d461e0ff675"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a580a1460c4ab6eb87cd12d461e0ff675">is_upper_triangular</a> (const Matrix &amp;m, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
 <tr class="memdesc:a580a1460c4ab6eb87cd12d461e0ff675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the matrix is upper triangular.  <br /></td></tr>
 <tr class="separator:a580a1460c4ab6eb87cd12d461e0ff675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60e560ebb9321de24c7c29f568c5182b" id="r_a60e560ebb9321de24c7c29f568c5182b"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </td></tr>
-<tr class="memitem:a60e560ebb9321de24c7c29f568c5182b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a60e560ebb9321de24c7c29f568c5182b">density</a> (const Matrix &amp;A, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12)</td></tr>
-<tr class="memdesc:a60e560ebb9321de24c7c29f568c5182b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the density of a matrix, counting the proportion of non-zero (bigger in module than the given tolerance) elements with respect to the total number of elements.  <br /></td></tr>
-<tr class="separator:a60e560ebb9321de24c7c29f568c5182b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ec388888fe8bed059d86349d80aa5f0" id="r_a6ec388888fe8bed059d86349d80aa5f0"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </td></tr>
-<tr class="memitem:a6ec388888fe8bed059d86349d80aa5f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a6ec388888fe8bed059d86349d80aa5f0">sparsity</a> (const Matrix &amp;A, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12)</td></tr>
-<tr class="memdesc:a6ec388888fe8bed059d86349d80aa5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sparsity of a matrix, counting the proportion of zero (smaller in module than the given tolerance) elements with respect to the total number of elements.  <br /></td></tr>
-<tr class="separator:a6ec388888fe8bed059d86349d80aa5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ad7d884a6c04efee1d7dba630f3e34" id="r_ad0ad7d884a6c04efee1d7dba630f3e34"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </td></tr>
+<tr class="memitem:ad0ad7d884a6c04efee1d7dba630f3e34"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#ad0ad7d884a6c04efee1d7dba630f3e34">density</a> (const Matrix &amp;A, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
+<tr class="memdesc:ad0ad7d884a6c04efee1d7dba630f3e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the density of a matrix, counting the proportion of non-zero (bigger in module than the given tolerance) elements with respect to the total number of elements.  <br /></td></tr>
+<tr class="separator:ad0ad7d884a6c04efee1d7dba630f3e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7246e0a68ff672551ade6856a9be0b2" id="r_af7246e0a68ff672551ade6856a9be0b2"><td class="memTemplParams" colspan="2">template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </td></tr>
+<tr class="memitem:af7246e0a68ff672551ade6856a9be0b2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#af7246e0a68ff672551ade6856a9be0b2">sparsity</a> (const Matrix &amp;A, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a>)</td></tr>
+<tr class="memdesc:af7246e0a68ff672551ade6856a9be0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sparsity of a matrix, counting the proportion of zero (smaller in module than the given tolerance) elements with respect to the total number of elements.  <br /></td></tr>
+<tr class="separator:af7246e0a68ff672551ade6856a9be0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66aafc0be7602bcdbf7b09dd130ebc38" id="r_a66aafc0be7602bcdbf7b09dd130ebc38"><td class="memTemplParams" colspan="2">template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </td></tr>
 <tr class="memitem:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a66aafc0be7602bcdbf7b09dd130ebc38">decompose_lu</a> (const Matrix1 &amp;A, Matrix2 &amp;L, Matrix3 &amp;U)</td></tr>
 <tr class="memdesc:a66aafc0be7602bcdbf7b09dd130ebc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose a square matrix to two triangular matrices, L and U where L is lower and U is upper, so that \(A = LU\).  <br /></td></tr>
@@ -977,8 +977,8 @@ template&lt;typename Matrix &gt; </div>
 
 </div>
 </div>
-<a id="a60e560ebb9321de24c7c29f568c5182b" name="a60e560ebb9321de24c7c29f568c5182b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60e560ebb9321de24c7c29f568c5182b">&#9670;&#160;</a></span>density()</h2>
+<a id="ad0ad7d884a6c04efee1d7dba630f3e34" name="ad0ad7d884a6c04efee1d7dba630f3e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ad7d884a6c04efee1d7dba630f3e34">&#9670;&#160;</a></span>density()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -998,7 +998,7 @@ template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12</code>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code><a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2412,8 +2412,8 @@ template&lt;typename Matrix &gt; </div>
 
 </div>
 </div>
-<a id="a58f3fc72c395411ca964ef50dc6c8303" name="a58f3fc72c395411ca964ef50dc6c8303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58f3fc72c395411ca964ef50dc6c8303">&#9670;&#160;</a></span>is_diagonal()</h2>
+<a id="ae72414f302d26626b36e4ac9de5b332d" name="ae72414f302d26626b36e4ac9de5b332d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72414f302d26626b36e4ac9de5b332d">&#9670;&#160;</a></span>is_diagonal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2433,7 +2433,7 @@ template&lt;typename Matrix &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>10&#160;*&#160;<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a></code>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code><a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2452,7 +2452,7 @@ template&lt;typename Matrix &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">m</td><td>The matrix to consider </td></tr>
-    <tr><td class="paramname">tolerance</td><td>The tolerance to allow for in the comparison, defaults to 10 * MACH_EPSILON </td></tr>
+    <tr><td class="paramname">tolerance</td><td>The tolerance to allow for in the comparison, defaults to ALGEBRA_ELEMENT_TOL </td></tr>
   </table>
   </dd>
 </dl>
@@ -3147,8 +3147,8 @@ template&lt;typename Matrix1 , typename Matrix2 , typename Matrix3 &gt; </div>
 
 </div>
 </div>
-<a id="a48ae546299bfa1f1e9c01af80ba48f43" name="a48ae546299bfa1f1e9c01af80ba48f43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ae546299bfa1f1e9c01af80ba48f43">&#9670;&#160;</a></span>mat_equals()</h2>
+<a id="aeb4da6b8de5771e4d44d30b330396b57" name="aeb4da6b8de5771e4d44d30b330396b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4da6b8de5771e4d44d30b330396b57">&#9670;&#160;</a></span>mat_equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3174,7 +3174,7 @@ template&lt;typename Matrix1 , typename Matrix2 &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>10&#160;*&#160;<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a></code>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code><a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3194,7 +3194,7 @@ template&lt;typename Matrix1 , typename Matrix2 &gt; </div>
   <table class="params">
     <tr><td class="paramname">A</td><td>The first matrix </td></tr>
     <tr><td class="paramname">B</td><td>The second matrix </td></tr>
-    <tr><td class="paramname">tolerance</td><td>The tolerance to allow for in the comparison, defaults to 10 * MACH_EPSILON </td></tr>
+    <tr><td class="paramname">tolerance</td><td>The tolerance to allow for in the comparison, defaults to ALGEBRA_ELEMENT_TOL </td></tr>
   </table>
   </dd>
 </dl>
@@ -4907,7 +4907,7 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 </div><div class="memdoc">
 
 <p>Solve the linear system \(A \vec x = \vec b\), finding \(\vec x\). </p>
-<p>In-place LU decomposition is used on A, followed by forward and backward elimination.</p>
+<p>In-place LU decomposition is used on a copy of A, followed by forward and backward elimination.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>The matrix of the linear system </td></tr>
@@ -5112,8 +5112,8 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 
 </div>
 </div>
-<a id="a6ec388888fe8bed059d86349d80aa5f0" name="a6ec388888fe8bed059d86349d80aa5f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ec388888fe8bed059d86349d80aa5f0">&#9670;&#160;</a></span>sparsity()</h2>
+<a id="af7246e0a68ff672551ade6856a9be0b2" name="af7246e0a68ff672551ade6856a9be0b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7246e0a68ff672551ade6856a9be0b2">&#9670;&#160;</a></span>sparsity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5133,7 +5133,7 @@ template&lt;typename Matrix , enable_matrix&lt; Matrix &gt;  = true&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>1<a class="el" href="namespacetheoretica.html#aa3c0a5082e6b4428b15b7b02d16eafc7">E</a>-12</code>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code><a class="el" href="namespacetheoretica.html#a431f69ddc5ada0242f703284a54726f9">ALGEBRA_ELEMENT_TOL</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -5964,7 +5964,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Wed Feb 11 2026 12:10:02 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Feb 11 2026 19:54:34 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

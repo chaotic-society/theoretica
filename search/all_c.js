@@ -20,7 +20,7 @@ var searchData=
   ['mat_3c_20type_2c_200_2c_200_20_3e_17',['mat&lt; Type, 0, 0 &gt;',['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html',1,'theoretica']]],
   ['mat_5fcopy_18',['mat_copy',['../namespacetheoretica_1_1algebra.html#aa7340e67961ded04bd80d80771f353f4',1,'theoretica::algebra']]],
   ['mat_5fdiff_19',['mat_diff',['../namespacetheoretica_1_1algebra.html#a33ec73f2d73bc746501ed0b5a6ed377b',1,'theoretica::algebra::mat_diff(Matrix1 &amp;A, const Matrix2 &amp;B)'],['../namespacetheoretica_1_1algebra.html#af995b3382cb47c72000b14755d3eba76',1,'theoretica::algebra::mat_diff(Matrix1 &amp;res, const Matrix2 &amp;A, const Matrix3 &amp;B)']]],
-  ['mat_5fequals_20',['mat_equals',['../namespacetheoretica_1_1algebra.html#a48ae546299bfa1f1e9c01af80ba48f43',1,'theoretica::algebra']]],
+  ['mat_5fequals_20',['mat_equals',['../namespacetheoretica_1_1algebra.html#aeb4da6b8de5771e4d44d30b330396b57',1,'theoretica::algebra']]],
   ['mat_5ferror_21',['mat_error',['../namespacetheoretica_1_1algebra.html#a70f8a0fa365f11722ac6ca9d0086d8ba',1,'theoretica::algebra']]],
   ['mat_5fiterator_22',['mat_iterator',['../classtheoretica_1_1mat__iterator.html',1,'theoretica::mat_iterator&lt; Matrix, ReturnType &gt;'],['../classtheoretica_1_1mat__iterator.html#ac0479ca89e5910e1b73a6ea6b76490f9',1,'theoretica::mat_iterator::mat_iterator()']]],
   ['mat_5flincomb_23',['mat_lincomb',['../namespacetheoretica_1_1algebra.html#a9da43216b89e292e7e09248a5a64bbc7',1,'theoretica::algebra::mat_lincomb(Field1 alpha, Matrix1 &amp;A, Field2 beta, const Matrix2 &amp;B)'],['../namespacetheoretica_1_1algebra.html#ac341a35e84e0817e9996cb1f68dc1d92',1,'theoretica::algebra::mat_lincomb(Matrix1 &amp;res, Field1 alpha, const Matrix2 &amp;A, Field2 beta, const Matrix3 &amp;B)']]],

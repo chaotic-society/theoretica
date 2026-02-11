@@ -60,7 +60,7 @@ var NAVTREEINDEX =
 [
 "algebra_8h.html",
 "classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
-"classtheoretica_1_1mat.html#a756d27a1a20e7b3f10a86f2efb4e0fdc",
+"classtheoretica_1_1mat.html#a7636d12345cdbe82eb4e6cb7dde1b984",
 "classtheoretica_1_1phasor.html#a0050a34aad1452bce49f55421f3683ae",
 "classtheoretica_1_1ratio.html#aa211f37a8b80a1ffcd468034573cf312",
 "deriv_8h.html#a989e6f0a6fd6fe05664b6d5de8aaaaf5",
