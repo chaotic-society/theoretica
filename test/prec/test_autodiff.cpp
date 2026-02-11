@@ -60,18 +60,15 @@ int main(int argc, char const *argv[]) {
 	g.discard(1000);
 
 
-	prec::settings.outputFiles = { "test/prec/prec_autodiff.h" };
-	prec::settings.defaultIterations = 1000;
-	
-	prec::setup("autodiff");
+	auto ctx = prec::make_context("autodiff");
+	ctx.settings.outputFiles = { "test/prec/prec_autodiff.h" };
+	ctx.settings.defaultIterations = 1000;
 
-		// autodiff.h
+	// autodiff.h
 
-		// dual.h
+	// dual.h
 
-		// dual2.h
+	// dual2.h
 
-		// multidual.h
-
-	prec::terminate();
+	// multidual.h
 }

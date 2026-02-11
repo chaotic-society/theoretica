@@ -29,7 +29,7 @@ namespace theoretica {
 	inline auto product(const Vector& X) {
 
 		if(!X.size()) {
-			TH_MATH_ERROR("product", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product", X.size(), MathError::InvalidArgument);
 			return vector_element_t<Vector>(nan());
 		}
 
@@ -46,7 +46,7 @@ namespace theoretica {
 	inline auto product_sum(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size() || !X.size()) {
-			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum", X.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -63,7 +63,7 @@ namespace theoretica {
 	inline auto product_sum_squares(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size() || !X.size()) {
-			TH_MATH_ERROR("product_sum_squares", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum_squares", X.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -81,7 +81,7 @@ namespace theoretica {
 	inline auto product_sum(const Vector& X, const Vector& Y, const Vector& Z) {
 
 		if(X.size() != Y.size() || X.size() != Z.size() || !X.size()) {
-			TH_MATH_ERROR("product_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("product_sum", X.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -98,12 +98,12 @@ namespace theoretica {
 	inline auto quotient_sum(const Vector& X, const Vector& Y) {
 
 		if(X.size() != Y.size()) {
-			TH_MATH_ERROR("quotient_sum", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("quotient_sum", X.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
 		if(abs(Y[0]) < MACH_EPSILON) {
-			TH_MATH_ERROR("quotient_sum", Y[0], DIV_BY_ZERO);
+			TH_MATH_ERROR("quotient_sum", Y[0], MathError::DivByZero);
 			return nan();
 		}
 
@@ -111,7 +111,7 @@ namespace theoretica {
 		for(unsigned int i = 1; i < X.size(); i++) {
 
 			if(abs(Y[i]) < MACH_EPSILON) {
-				TH_MATH_ERROR("quotient_sum", Y[i], DIV_BY_ZERO);
+				TH_MATH_ERROR("quotient_sum", Y[i], MathError::DivByZero);
 				return nan();
 			}
 
@@ -127,7 +127,7 @@ namespace theoretica {
 	inline auto sum_squares(const Vector& X) {
 
 		if(!X.size()) {
-			TH_MATH_ERROR("sum_squares", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("sum_squares", X.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
@@ -266,7 +266,7 @@ namespace theoretica {
 	inline Vector2& map(Function f, const Vector1& src, Vector2& dest) {
 
 		if(src.size() != dest.size()) {
-			TH_MATH_ERROR("th::map", dest.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("th::map", dest.size(), MathError::InvalidArgument);
 			dest = Vector2(nan());
 			return dest;
 		}
@@ -332,7 +332,7 @@ namespace theoretica {
 		using Type = vector_element_t<Vector>;
 
 		if(!X.size()) {
-			TH_MATH_ERROR("max", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("max", X.size(), MathError::InvalidArgument);
 			return Type(nan());
 		}
 
@@ -353,7 +353,7 @@ namespace theoretica {
 		using Type = vector_element_t<Vector>;
 
 		if(!X.size()) {
-			TH_MATH_ERROR("min", X.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("min", X.size(), MathError::InvalidArgument);
 			return Type(nan());
 		}
 
@@ -375,7 +375,7 @@ namespace theoretica {
 	inline real arithmetic_mean(const Dataset& data) {
 
 		if(!data.size()) {
-			TH_MATH_ERROR("arithmetic_mean", data.size(), DIV_BY_ZERO);
+			TH_MATH_ERROR("arithmetic_mean", data.size(), MathError::DivByZero);
 			return nan();
 		}
 
@@ -389,7 +389,7 @@ namespace theoretica {
 	inline real harmonic_mean(const Dataset& data) {
 
 		if(!data.size()) {
-			TH_MATH_ERROR("harmonic_mean", data.size(), DIV_BY_ZERO);
+			TH_MATH_ERROR("harmonic_mean", data.size(), MathError::DivByZero);
 			return nan();
 		}
 
@@ -398,7 +398,7 @@ namespace theoretica {
 		for (unsigned int i = 0; i < data.size(); ++i) {
 
 			if(data[i] == 0) {
-				TH_MATH_ERROR("harmonic_mean", data[i], DIV_BY_ZERO);
+				TH_MATH_ERROR("harmonic_mean", data[i], MathError::DivByZero);
 				return nan();
 			}
 
@@ -433,7 +433,7 @@ namespace theoretica {
 	inline real quadratic_mean(const Dataset& data) {
 
 		if(!data.size()) {
-			TH_MATH_ERROR("quadratic_mean", data.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("quadratic_mean", data.size(), MathError::InvalidArgument);
 			return nan();
 		}
 

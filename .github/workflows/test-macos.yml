@@ -12,5 +12,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Build and test
       run: make DISABLE_OPENMP=1 all

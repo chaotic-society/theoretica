@@ -57,19 +57,21 @@ int main() {
 	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << stats::error_propagation(f, datasets) << std::endl;
+	std::cout << stats::propagerr(f, datasets) << std::endl;
 
 	// Propagate using only the standard deviation
-	std::cout << stats::error_propagation(f,
-		vec<>({
-			stats::mean(datasets[0]),
-			stats::mean(datasets[1]),
-			stats::mean(datasets[2])}
-		),
-		vec<>({
-			stats::stdev(datasets[0]),
-			stats::stdev(datasets[1]),
-			stats::stdev(datasets[2])}
-		)
-	) << std::endl;
+
+	vec<real> means = {
+		stats::mean(datasets[0]),
+		stats::mean(datasets[1]),
+		stats::mean(datasets[2])
+	};
+
+	vec<real> stdevs = {
+		stats::stdev(datasets[0]),
+		stats::stdev(datasets[1]),
+		stats::stdev(datasets[2])
+	};
+
+	std::cout << stats::propagerr(f, means, stdevs) << std::endl;
 }

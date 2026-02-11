@@ -1,6 +1,6 @@
 
 ///
-/// @file derivation.h Derivative approximation
+/// @file deriv.h Derivative approximation
 ///
 
 #ifndef DERIVATION_THEORETICA_H
@@ -21,7 +21,7 @@ namespace theoretica {
 	inline polynomial<Field> deriv(const polynomial<Field>& p) {
 
 		if (p.coeff.size() == 0) {
-			TH_MATH_ERROR("deriv", p.coeff.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("deriv", p.coeff.size(), MathError::InvalidArgument);
 			return polynomial<Field>({ static_cast<Field>(nan()) });
 		}
 
@@ -35,6 +35,27 @@ namespace theoretica {
 			Dp.coeff[i - 1] = p[i] * i;
 
 		return Dp;
+	}
+
+
+	/// Compute the exact derivative of a polynomial function at the given point.
+	/// In-place calculation with Horner's evaluation scheme is used,
+	/// with linear complexity in the coefficients \f$O(n)\f$.
+	///
+	/// @param p The polynomial to differentiate
+	/// @param x The point to compute the derivative at
+	/// @return The derivative of the polynomial at the given point
+	inline real deriv(const polynomial<real>& p, real x) {
+
+		real dp = 0.0;
+
+		for (unsigned int i = 0; i + 1 < p.size(); ++i) {
+
+			const unsigned int pos = p.size() - i - 1;
+			dp = pos * p[pos] + x * dp;
+		}
+
+		return dp;
 	}
 
 

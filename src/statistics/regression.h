@@ -25,7 +25,7 @@ namespace theoretica {
 
 			// Check that the two data sets have the same size
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("regression::ols_linear", X.size(), MathError::InvalidArgument);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -39,7 +39,7 @@ namespace theoretica {
 			const real sum_y = sum(Y);
 
 			if(abs(Delta) < MACH_EPSILON) {
-				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				TH_MATH_ERROR("ols_linear", Delta, MathError::DivByZero);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -61,7 +61,7 @@ namespace theoretica {
 
 			// Check that the two data sets have the same size
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("regression::ols_linear", X.size(), MathError::InvalidArgument);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -75,7 +75,7 @@ namespace theoretica {
 			const real sum_y = sum(Y);
 
 			if(abs(Delta) < MACH_EPSILON) {
-				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				TH_MATH_ERROR("ols_linear", Delta, MathError::DivByZero);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -100,7 +100,7 @@ namespace theoretica {
 
 			// Check that the two data sets have the same size
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("regression::ols_linear", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("regression::ols_linear", X.size(), MathError::InvalidArgument);
 				intercept = nan();
 				slope = nan();
 				return;
@@ -115,7 +115,7 @@ namespace theoretica {
 			const real sum_y = sum(Y);
 
 			if(abs(Delta) < MACH_EPSILON) {
-				TH_MATH_ERROR("ols_linear", Delta, DIV_BY_ZERO);
+				TH_MATH_ERROR("ols_linear", Delta, MathError::DivByZero);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -141,7 +141,7 @@ namespace theoretica {
 			real& intercept, real& slope, mat2& covar_mat) {
 
 			if(X.size() != Y.size() || X.size() != W.size()) {
-				TH_MATH_ERROR("wls_linear", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("wls_linear", X.size(), MathError::InvalidArgument);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -155,7 +155,7 @@ namespace theoretica {
 			const real Delta = sum_w * sum_xxw - square(sum_xw);
 
 			if(abs(Delta) < MACH_EPSILON) {
-				TH_MATH_ERROR("wls_linear", Delta, DIV_BY_ZERO);
+				TH_MATH_ERROR("wls_linear", Delta, MathError::DivByZero);
 				intercept = nan(); slope = nan();
 				return;
 			}
@@ -181,7 +181,7 @@ namespace theoretica {
 			mat2& covar_mat) {
 
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("wls_linear", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("wls_linear", X.size(), MathError::InvalidArgument);
 				intercept = nan();
 				slope = nan();
 				return;
@@ -213,7 +213,7 @@ namespace theoretica {
 			real& B, real& sigma_B) {
 
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("ols_linear_orig", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("ols_linear_orig", X.size(), MathError::InvalidArgument);
 				B = nan();
 				return;
 			}
@@ -222,7 +222,7 @@ namespace theoretica {
 			const real sum_y = sum(Y);
 
 			if(abs(sum_y) < MACH_EPSILON) {
-				TH_MATH_ERROR("ols_linear_orig", sum_y, DIV_BY_ZERO);
+				TH_MATH_ERROR("ols_linear_orig", sum_y, MathError::DivByZero);
 				B = nan();
 				return;
 			}
@@ -239,7 +239,7 @@ namespace theoretica {
 			const Dataset3& W, real& B, real& sigma_B) {
 
 			if(X.size() != Y.size() || X.size() != W.size()) {
-				TH_MATH_ERROR("wls_linear_orig", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("wls_linear_orig", X.size(), MathError::InvalidArgument);
 				B = nan();
 				return;
 			}
@@ -248,7 +248,7 @@ namespace theoretica {
 			const real sum_yw = product_sum(Y, W);
 
 			if(abs(sum_yw) < MACH_EPSILON) {
-				TH_MATH_ERROR("ols_linear_orig", sum_yw, DIV_BY_ZERO);
+				TH_MATH_ERROR("ols_linear_orig", sum_yw, MathError::DivByZero);
 				B = nan();
 				return;
 			}
@@ -266,7 +266,7 @@ namespace theoretica {
 			real intercept, real slope) {
 
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("ols_linear_error", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("ols_linear_error", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -364,13 +364,13 @@ namespace theoretica {
 			inline void fit(const Dataset1& X, const Dataset2& Y) {
 
 				if(X.size() != Y.size()) {
-					TH_MATH_ERROR("linear_model::fit", X.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", X.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
 
 				if(Y.size() <= 2) {
-					TH_MATH_ERROR("linear_model::fit", Y.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", Y.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
@@ -401,19 +401,19 @@ namespace theoretica {
 				const Dataset1& X, const Dataset2& Y, real sigma_Y) {
 
 				if(X.size() != Y.size()) {
-					TH_MATH_ERROR("linear_model::fit", X.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", X.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
 
 				if(Y.size() <= 2) {
-					TH_MATH_ERROR("linear_model::fit", Y.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", Y.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
 
 				if(abs(sigma_Y) <= MACH_EPSILON) {
-					TH_MATH_ERROR("linear_model::fit", sigma_Y, DIV_BY_ZERO);
+					TH_MATH_ERROR("linear_model::fit", sigma_Y, MathError::DivByZero);
 					A = nan(); B = nan();
 					return;
 				}
@@ -444,13 +444,13 @@ namespace theoretica {
 				const Dataset1& X, const Dataset2& Y, const Dataset3& sigma) {
 
 				if(X.size() != Y.size()) {
-					TH_MATH_ERROR("linear_model::fit", X.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", X.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
 
 				if(Y.size() < 2) {
-					TH_MATH_ERROR("linear_model::fit", Y.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", Y.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
@@ -470,7 +470,7 @@ namespace theoretica {
 				sigma_B = sqrt(this->covar_mat(1, 1));
 
 				err = ols_linear_error(X, Y, A, B);
-				chi_squared = stats::chi_square_linearization(X, Y, sigma, A, B);
+				chi_squared = stats::chi_square_linear(X, Y, sigma, A, B);
 				ndf = Y.size() - 2;
 				p_value = stats::pvalue_chi_squared(chi_squared, ndf);
 			}
@@ -487,13 +487,13 @@ namespace theoretica {
 				const Dataset1& X, const Dataset2& Y, real sigma_X, real sigma_Y) {
 
 				if(X.size() != Y.size()) {
-					TH_MATH_ERROR("linear_model::fit", X.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", X.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
 
 				if(Y.size() < 2) {
-					TH_MATH_ERROR("linear_model::fit", Y.size(), INVALID_ARGUMENT);
+					TH_MATH_ERROR("linear_model::fit", Y.size(), MathError::InvalidArgument);
 					A = nan(); B = nan();
 					return;
 				}
@@ -579,7 +579,7 @@ namespace theoretica {
 			const Dataset1& X, const Dataset2& Y) {
 
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("ols_linear_intercept", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("ols_linear_intercept", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -607,7 +607,7 @@ namespace theoretica {
 		inline real ols_linear_slope(const Dataset1& X, const Dataset2& Y) {
 
 			if(X.size() != Y.size()) {
-				TH_MATH_ERROR("ols_linear_slope", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("ols_linear_slope", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -638,7 +638,7 @@ namespace theoretica {
 			if(X.size() != Y.size() || X.size() != W.size()) {
 				TH_MATH_ERROR(
 					"wls_linear_intercept",
-					X.size(), INVALID_ARGUMENT);
+					X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -661,7 +661,7 @@ namespace theoretica {
 			if(X.size() != Y.size() || X.size() != W.size()) {
 				TH_MATH_ERROR(
 					"wls_linear_slope",
-					X.size(), INVALID_ARGUMENT);
+					X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 

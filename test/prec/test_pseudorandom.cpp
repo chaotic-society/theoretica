@@ -10,17 +10,14 @@ using namespace theoretica;
 
 int main(int argc, char const *argv[]) {
 	
-	prec::setup("pseudorandom");
+	auto ctx = prec::make_context("pseudorandom", argc, argv);
+	ctx.settings.outputFiles = { "test/prec/prec_pseudorandom.csv" };
+	
+	// pseudorandom.h
 
-		prec::settings.outputFiles = { "test/prec/prec_pseudorandom.csv" };
-		
-		// pseudorandom.h
+	// prng.h
 
-		// prng.h
+	// montecarlo.h
 
-		// montecarlo.h
-
-		// sampling.h
-
-	prec::terminate();
+	// sampling.h
 }

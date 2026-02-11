@@ -44,7 +44,8 @@ namespace theoretica {
 
 	/// Compute the n-th power of a dual number
 	inline dual pow(dual x, int n) {
-		real pow_n_1_x = pow(x.Re(), n - 1);
+
+		const real pow_n_1_x = pow(x.Re(), n - 1);
 		return dual(pow_n_1_x * x.Re(), pow_n_1_x * n * x.Dual());
 	}
 
@@ -52,10 +53,10 @@ namespace theoretica {
 	/// Compute the square root of a dual number
 	inline dual sqrt(dual x) {
 
-		real sqrt_x = sqrt(x.Re());
+		const real sqrt_x = sqrt(x.Re());
 
 		if(sqrt_x == 0) {
-			TH_MATH_ERROR("sqrt(dual)", sqrt_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("sqrt(dual)", sqrt_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -78,10 +79,10 @@ namespace theoretica {
 	/// Compute the tangent of a dual number
 	inline dual tan(dual x) {
 
-		real cos_x = cos(x.Re());
+		const real cos_x = cos(x.Re());
 
 		if(cos_x == 0) {
-			TH_MATH_ERROR("tan(dual)", cos_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("tan(dual)", cos_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -92,10 +93,10 @@ namespace theoretica {
 	/// Compute the cotangent of a dual number
 	inline dual cot(dual x) {
 
-		real sin_x = sin(x.Re());
+		const real sin_x = sin(x.Re());
 
 		if(sin_x == 0) {
-			TH_MATH_ERROR("cot(dual)", sin_x, DIV_BY_ZERO);
+			TH_MATH_ERROR("cot(dual)", sin_x, MathError::DivByZero);
 			return dual(nan(), nan());
 		}
 
@@ -105,7 +106,8 @@ namespace theoretica {
 
 	/// Compute the exponential of a dual number
 	inline dual exp(dual x) {
-		real exp_x = exp(x.Re());
+
+		const real exp_x = exp(x.Re());
 		return dual(exp_x, x.Dual() * exp_x);
 	}
 
@@ -114,7 +116,7 @@ namespace theoretica {
 	inline dual ln(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("ln(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("ln(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -126,7 +128,7 @@ namespace theoretica {
 	inline dual log2(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("log2(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log2(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -138,7 +140,7 @@ namespace theoretica {
 	inline dual log10(dual x) {
 
 		if(x.Re() <= 0) {
-			TH_MATH_ERROR("log10(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("log10(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -156,7 +158,7 @@ namespace theoretica {
 	inline dual asin(dual x) {
 
 		if(x.Re() >= 1) {
-			TH_MATH_ERROR("asin(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("asin(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
@@ -168,43 +170,56 @@ namespace theoretica {
 	inline dual acos(dual x) {
 
 		if(x.Re() >= 1) {
-			TH_MATH_ERROR("acos(dual)", x.Re(), OUT_OF_DOMAIN);
+			TH_MATH_ERROR("acos(dual)", x.Re(), MathError::OutOfDomain);
 			return dual(nan(), nan());
 		}
 
-		return dual(acos(x.Re()), -x.Dual() / sqrt(1 - square(x.Re())));
+		return dual(
+			acos(x.Re()),
+			-x.Dual() / sqrt(1 - square(x.Re()))
+		);
 	}
 
 
 	/// Compute the arctangent of a dual number
 	inline dual atan(dual x) {
-		return dual(atan(x.Re()), x.Dual() / (1 + square(x.Re())));
+		return dual(
+			atan(x.Re()),
+			x.Dual() / (1 + square(x.Re()))
+		);
 	}
 
 
 	/// Compute the hyperbolic sine of a dual number
 	inline dual sinh(dual x) {
 
-		real exp_x = exp(x.Re());
-		return dual((exp_x - 1.0 / exp_x) / 2.0, x.Dual() * (exp_x + 1.0 / exp_x) / 2.0);
+		const real exp_x = exp(x.Re());
+		return dual(
+			(exp_x - 1.0 / exp_x) / 2.0,
+			x.Dual() * (exp_x + 1.0 / exp_x) / 2.0
+		);
 	}
 
 
 	/// Compute the hyperbolic cosine of a dual number
 	inline dual cosh(dual x) {
 
-		real exp_x = exp(x.Re());
-		return dual((exp_x + 1.0 / exp_x) / 2.0, x.Dual() * (exp_x - 1.0 / exp_x) / 2.0);
+		const real exp_x = exp(x.Re());
+		return dual(
+			(exp_x + 1.0 / exp_x) / 2.0,
+			x.Dual() * (exp_x - 1.0 / exp_x) / 2.0
+		);
 	}
 
 
 	/// Compute the hyperbolic tangent of a dual number
 	inline dual tanh(dual x) {
 
-		real exp_x = exp(x.Re());
+		const real exp_x = exp(x.Re());
 		return dual(
 			(exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),
-			x.Dual() / square(exp_x + 1.0 / exp_x));
+			x.Dual() / square(exp_x + 1.0 / exp_x)
+		);
 	}
 
 }

@@ -115,16 +115,15 @@ long double distance_polyn(const polynomial<real>& p1, const polynomial<real>& p
 
 int main(int argc, char const *argv[]) {
 	
-	prec::setup("calculus");
+	auto ctx = prec::make_context("calculus", argc, argv);
+	ctx.output->settings.outputFiles = { "test/prec/prec_calculus.csv" };
+	ctx.settings.estimateColumns = {
+		"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
+	};
 
-		output::settings.outputFiles = { "test/prec/prec_calculus.csv" };
-		prec::settings.estimateColumns = {
-			"name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed"
-		};
 
-
-		// derivation.h
-		// Compare the numerical derivative to the analytical derivative
+	// deriv.h
+	// Compare the numerical derivative to the analytical derivative
 
 
 	{
@@ -135,130 +134,78 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> p = {1.0, 1.0, 1.0};
 		polynomial<real> expected = {1.0, 2.0};
 
-		prec::equals(
+		ctx.equals(
 			"deriv(P)",
 			deriv(p), expected, opt
 		);
 
-		prec::equals(
+		ctx.equals(
 			"deriv(0)",
 			deriv(polynomial<real>({0.0})),
 			polynomial<real>({0.0}),
 			opt
 		);
 
-		prec::equals(
+		ctx.equals(
 			"deriv(P{})",
 			deriv(polynomial<real>()) == polynomial<real>(),
 			true
 		);
 	}
 
+
+	{
+		polynomial<real> P = {};
+		ctx.equals("deriv(P{}, x)", deriv(P, 1.0), 0.0);
+
+		P = {1.0};
+		ctx.equals("deriv(P{const.}, x)", deriv(P, 1.0), 0.0);
+
+		P = {1.0, 1.0, 1.0, 1.0};
+		ctx.equals("deriv(P, x)", deriv(P, 1.0), 6.0);
+
+		P = {+1.4, -3.2, 12.7, 7.5, 11,7};
+		ctx.equals("deriv(P, x)", deriv(P, 1.0), deriv(P)(1.0));
+	}
+
+
 	{
 		auto deriv_opt = prec::estimate_options<real, real>(
 			prec::interval(0.001, 0.5),
 			prec::estimator::quadrature1D(),
-			10E-04
+			10E-04, 1000
 		);
 
 
-		prec::estimate("deriv_forward",
+		ctx.estimate("deriv_forward",
 			[](real x) { return deriv_forward(f, x, 10E-8); },
 			Df, deriv_opt);
 
 
-		prec::estimate("deriv_backward",
+		ctx.estimate("deriv_backward",
 			[](real x) { return deriv_backward(f, x, 10E-8); },
 			Df, deriv_opt);
 
 
-		prec::estimate("deriv_central",
+		ctx.estimate("deriv_central",
 			[](real x) { return deriv_central(f, x, 10E-8); },
 			Df, deriv_opt);
 
 
-		prec::estimate("deriv_ridders2",
+		ctx.estimate("deriv_ridders2",
 			[](real x) { return deriv_ridders2(f, x, 10E-6); },
 			Df, deriv_opt);
 
 
-		prec::estimate("deriv_ridders",
+		ctx.estimate("deriv_ridders",
 			[](real x) { return deriv_ridders(f, x, 10E-6, 3); },
 			Df, deriv_opt);
 	}
 
 
-		// integration.h
+		// integral.h
 		// Compare integral quadrature to primitives
 
-
-	{
-		auto integ_opt = prec::estimate_options<real, real>(
-			prec::interval(0.1, 3.0),
-			prec::estimator::quadrature1D()
-		);
-
-
-		prec::estimate("integral_midpoint",
-			[](real x) { return integral_midpoint(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			{ prec::interval(0.1, 3.0) },
-			1E-04, 1'000, prec::fail::fail_on_max_err(),
-			prec::estimator::quadrature1D()
-		);
-
-
-		prec::estimate("integral_trapezoid",
-			[](real x) { return integral_trapezoid(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			{ prec::interval(0.1, 3.0) },
-			1E-04, 1'000, prec::fail::fail_on_max_err(),
-			prec::estimator::quadrature1D()
-		);
-
-
-		prec::estimate<real, real>(
-			"integral_simpson",
-			[](real x) { return integral_simpson(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			integ_opt
-		);
-
-
-		prec::estimate("integral_romberg",
-			[](real x) { return integral_romberg(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			integ_opt
-		);
-
-
-		prec::estimate("integral_romberg_tol",
-			[](real x) { return integral_romberg_tol(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			integ_opt
-		);
-
-
-		prec::estimate("integral_legendre",
-			[](real x) { return integral_legendre(g, 1, x, 16); },
-			[](real x) { return G(x) - G(1); },
-			integ_opt
-		);
-
-
-		prec::equals(
-			"integral_hermite",
-			integral_hermite(GaussI),
-			0.8497596421214707431181
-		);
-
-
-		prec::equals(
-			"integral_laguerre",
-			integral_laguerre(ExpI),
-			0.5
-		);
-	}
 
 	{
 		auto opt = prec::equation_options<polynomial<real>>(
@@ -268,24 +215,109 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> p = {1, 1};
 		polynomial<real> expected = {0, 1, 0.5};
 
-		prec::equals(
+		ctx.equals(
 			"integral(P)",
 			integral(p),
 			expected,
 			opt
 		);
 
-		prec::equals(
+		ctx.equals(
 			"integral(0)",
 			integral(polynomial<real>({0.0})),
 			polynomial<real>({0.0}),
 			opt
 		);
 
-		prec::equals(
+		ctx.equals(
 			"integral(P{})",
 			integral(polynomial<real>({})) == polynomial<real>({}),
 			true
+		);
+	}
+
+
+	{
+		polynomial<real> P = {};
+		ctx.equals("integral(P{}, x)", integral(P, 0.0, 1.0), 0.0);
+
+		P = {1.0};
+		ctx.equals("integral(P{const.}, x)", integral(P, 0.0, 1.0), 1.0);
+
+		P = {1.0, 2.0, 3.0, 4.0};
+		ctx.equals("integral(P, x)", integral(P, 0.0, 1.0), 4.0);
+
+		P = {1.2, 4.5, -8.8, 11.3, -9.6};
+		auto I_P = integral(P);
+		ctx.equals("integral(P, x)", integral(P, -7.0, 5.0), I_P(5.0) - I_P(-7.0));
+	}
+
+
+	{
+		auto integ_opt = prec::estimate_options<real, real>(
+			prec::interval(0.1, 3.0),
+			prec::estimator::quadrature1D()
+		);
+
+
+		ctx.estimate("integral_midpoint",
+			[](real x) { return integral_midpoint(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			{ prec::interval(0.1, 3.0) },
+			1E-04, 1'000, prec::fail::fail_on_max_err(),
+			prec::estimator::quadrature1D()
+		);
+
+
+		ctx.estimate("integral_trapezoid",
+			[](real x) { return integral_trapezoid(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			{ prec::interval(0.1, 3.0) },
+			1E-04, 1'000, prec::fail::fail_on_max_err(),
+			prec::estimator::quadrature1D()
+		);
+
+
+		ctx.estimate(
+			"integral_simpson",
+			[](real x) { return integral_simpson(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
+
+
+		ctx.estimate("integral_romberg",
+			[](real x) { return integral_romberg(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
+
+
+		ctx.estimate("integral_romberg_tol",
+			[](real x) { return integral_romberg_tol(g, 1, x); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
+
+
+		ctx.estimate("integral_legendre",
+			[](real x) { return integral_legendre(g, 1, x, 16); },
+			[](real x) { return G(x) - G(1); },
+			integ_opt
+		);
+
+
+		ctx.equals(
+			"integral_hermite",
+			integral_hermite(GaussI),
+			0.8497596421214707431181
+		);
+
+
+		ctx.equals(
+			"integral_laguerre",
+			integral_laguerre(ExpI),
+			0.5
 		);
 	}
 
@@ -310,7 +342,7 @@ int main(int argc, char const *argv[]) {
 		opt.estimator = ode_estimator(
 			ode::solve_euler(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_euler", emptyf, sho, opt);
+		ctx.estimate("ode::solve_euler", emptyf, sho, opt);
 
 
 		// Higher order methods
@@ -319,30 +351,30 @@ int main(int argc, char const *argv[]) {
 		opt.estimator = ode_estimator(
 			ode::solve_midpoint(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_midpoint", emptyf, sho, opt);
+		ctx.estimate("ode::solve_midpoint", emptyf, sho, opt);
 
 
 		opt.estimator = ode_estimator(
 			ode::solve_heun(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_heun", emptyf, sho, opt);
+		ctx.estimate("ode::solve_heun", emptyf, sho, opt);
 
 		opt.estimator = ode_estimator(
 			ode::solve_rk2(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_rk2", emptyf, sho, opt);
+		ctx.estimate("ode::solve_rk2", emptyf, sho, opt);
 
 
 		opt.estimator = ode_estimator(
 			ode::solve_rk4(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_rk4", emptyf, sho, opt);
+		ctx.estimate("ode::solve_rk4", emptyf, sho, opt);
 
 
 		opt.estimator = ode_estimator(
 			ode::solve_k38(diff_eq, x0, 0.0, tf)
 		);
-		prec::estimate("ode::solve_k38", emptyf, sho, opt);
+		ctx.estimate("ode::solve_k38", emptyf, sho, opt);
 	}
 
 
@@ -357,7 +389,7 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> evaluated = taylor::expand_linear(h<dual>);
 		polynomial<real> expected = {-1, 0};
 
-		prec::equals(
+		ctx.equals(
 			"taylor::expand_linear",
 			evaluated, expected, taylor_opt
 		);
@@ -367,11 +399,9 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> evaluated = taylor::expand_quadratic(h<dual2>);
 		polynomial<real> expected = {-1, 0, 1.5};
 
-		prec::equals(
+		ctx.equals(
 			"taylor::expand_quadratic",
 			evaluated, expected, taylor_opt
 		);
 	}
-
-	prec::terminate();
 }

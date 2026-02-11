@@ -9,7 +9,7 @@
 #include "../core/constants.h"
 #include "../core/real_analysis.h"
 #include "../core/special.h"
-#include "../calculus/integration.h"
+#include "../calculus/integral.h"
 #include "../calculus/gauss.h"
 #include "../core/dataset.h"
 
@@ -23,6 +23,7 @@ namespace theoretica {
 
 		/// Compute the mean of a dataset
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The mean of the dataset
 		template<typename Dataset>
@@ -33,6 +34,7 @@ namespace theoretica {
 
 		/// Computes the range of a data set, defined as \f$x_{max} - {x_min}\f$
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The range of the values of the dataset
 		template<typename Dataset>
@@ -45,6 +47,7 @@ namespace theoretica {
 		/// Computes the maximum semidispersion of a data set
 		/// defined as \f$(x_{max} - {x_min}) / 2\f$.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The maximum semidispersion of the dataset
 		template<typename Dataset>
@@ -74,6 +77,8 @@ namespace theoretica {
 		/// The random variables are assumed to be statistically independent and the
 		/// result is the relative error over the product.
 		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
 		/// @param sigma The vector of standard deviations
 		/// @param mean The vector of the mean values
 		/// @return The propagated relative error over the product
@@ -81,7 +86,7 @@ namespace theoretica {
 		inline real propagate_product(const Dataset1& sigma, const Dataset2& mean) {
 
 			if(sigma.size() != mean.size()) {
-				TH_MATH_ERROR("propagate_product", sigma.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("propagate_product", sigma.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -90,7 +95,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < sigma.size(); ++i) {
 
 				if(mean[i] == 0) {
-					TH_MATH_ERROR("propagate_product", mean[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("propagate_product", mean[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -104,13 +109,14 @@ namespace theoretica {
 		/// Compute the total sum of squares (TSS) of a given dataset
 		/// as \f$sum(square(x_i - x_{mean}))\f$ using Welford's one-pass method.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset to compute the TSS of
 		/// @return The total sum of squares of the given dataset
 		template<typename Dataset>
 		inline real total_sum_squares(const Dataset& X) {
 
 			if(!X.size()) {
-				TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("total_sum_squares", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -137,6 +143,7 @@ namespace theoretica {
 		/// of constraints defaults to 1, applying Bessel's correction.
 		/// A value of 0 may be used to compute the population variance.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @param constraints The number of constraints, defaults to 1
 		/// @return The variance of the dataset
@@ -144,7 +151,7 @@ namespace theoretica {
 		inline real variance(const Dataset& X, unsigned int constraints = 1) {
 
 			if(X.size() <= constraints) {
-				TH_MATH_ERROR("variance", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("variance", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -156,6 +163,7 @@ namespace theoretica {
 		/// in a single pass, using Welford's method, with the given number of constraints
 		/// (defaults to 1 for Bessel's correction).
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @param out_mean A reference to overwrite with the computed mean
 		/// @param out_variance A reference to overwrite with the computed variance
@@ -166,7 +174,7 @@ namespace theoretica {
 			real& out_variance, unsigned int constraints = 1) {
 
 			if(X.size() <= constraints) {
-				TH_MATH_ERROR("total_sum_squares", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("total_sum_squares", X.size(), MathError::InvalidArgument);
 				out_mean = nan();
 				out_variance = nan();
 				return;
@@ -196,6 +204,7 @@ namespace theoretica {
 		/// of constraints defaults to 1, applying Bessel's correction.
 		/// A value of 0 may be used to compute the population standard deviation.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @param constraints The number of constraints, defaults to 1
 		/// @return The standard deviation of the dataset
@@ -208,6 +217,7 @@ namespace theoretica {
 		/// Compute the standard deviation of the mean given a dataset.
 		/// Welford's one-pass method is used and Bessel's correction is applied.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The standard deviation of the mean
 		template<typename Dataset>
@@ -221,6 +231,7 @@ namespace theoretica {
 		/// (defaults to 1 for Bessel's correction). The relative error is computed as
 		/// \f$\epsilon_{rel} = \frac{\sigma}{\mu}\f$ and is not multiplied by 100.
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @param constraints The number of constraints for the estimators (defaults to 1)
 		/// @return The standard relative error on the dataset
@@ -230,7 +241,7 @@ namespace theoretica {
 			real x_mean = mean(X);
 
 			if(abs(x_mean) < MACH_EPSILON) {
-				TH_MATH_ERROR("standard_relative_error", x_mean, DIV_BY_ZERO);
+				TH_MATH_ERROR("standard_relative_error", x_mean, MathError::DivByZero);
 				return nan();
 			}
 
@@ -241,6 +252,8 @@ namespace theoretica {
 		/// Compute the covariance between two datasets with the given number of constraints.
 		/// The two datasets must have the same size.
 		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
 		/// @param X The first dataset
 		/// @param Y The second dataset
 		/// @param constraints The number of constraints (defaults to 1 for Bessel's correction).
@@ -250,7 +263,7 @@ namespace theoretica {
 			const Dataset1& X, const Dataset2& Y, unsigned int constraints = 1) {
 
 			if(X.size() != Y.size() || X.size() <= constraints) {
-				TH_MATH_ERROR("covariance", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("covariance", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -268,6 +281,8 @@ namespace theoretica {
 		/// Compute Pearson's correlation coefficient R between two datasets.
 		/// The two datasets must have the same size.
 		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
 		/// @param X The first dataset
 		/// @param Y The second dataset
 		/// @return The correlation coefficient computed using Pearson's formula
@@ -282,6 +297,7 @@ namespace theoretica {
 		/// Compute the lag-n autocorrelation of a dataset as
 		/// \f$\f$
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @param n The lag (defaults to lag-1)
 		/// @return The lag-n autocorrelation of the given dataset
@@ -289,7 +305,7 @@ namespace theoretica {
 		inline real autocorrelation(const Dataset& X, unsigned int n = 1) {
 
 			if(X.size() < n) {
-				TH_MATH_ERROR("autocorrelation", X.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("autocorrelation", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -311,6 +327,7 @@ namespace theoretica {
 		/// Compute the mean absolute deviation of a dataset as
 		/// \f$\frac{\sum_{i = 1}^n |x_i - \hat \mu|}{n}\f$
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The mean absolute deviation of the dataset
 		template<typename Dataset>
@@ -329,6 +346,7 @@ namespace theoretica {
 		/// Compute the skewness of a dataset as
 		/// \f$\frac{\sum_{i=1}^n (\frac{x_i - \hat \mu}{\hat \sigma})^3}{n}\f$
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The skewness of the dataset
 		template<typename Dataset>
@@ -350,6 +368,7 @@ namespace theoretica {
 		/// Compute the normalized kurtosis of a dataset as
 		/// \f$\frac{\sum_{i=1}^n (\frac{x_i - \hat \mu}{\hat \sigma})^4}{n} - 3\f$
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
 		/// @return The normalized kurtosis of the dataset
 		template<typename Dataset>
@@ -373,6 +392,7 @@ namespace theoretica {
 		/// This function uses Gauss-Hermite quadrature to compute
 		/// the integral \f$\int_{-\infty}^{+\infty} g(x) e^{-x^2} dx\f$
 		///
+		/// @tparam RealFunction A function or lambda representing a univariate real function
 		/// @param mean The mean of the Gaussian distribution
 		/// @param sigma The standard deviation of the Gaussian distribution
 		/// @param g The function to compute the expectation of
@@ -404,6 +424,7 @@ namespace theoretica {
 
 		/// Normalize a data set using Z-score normalization
 		///
+		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param The data set to normalize
 		/// @return The normalized data set
 		template<typename Dataset>
@@ -421,6 +442,9 @@ namespace theoretica {
 		/// quantities, expected quantities and errors.
 		/// The provided sets should all have the same size.
 		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
+		/// @tparam Dataset3 Any type representing a dataset as a vector of values
 		/// @param O The set of observed values
 		/// @param E The set of expected values
 		/// @param sigma The set of standard deviations on the observations
@@ -430,7 +454,7 @@ namespace theoretica {
 			const Dataset1& O, const Dataset2& E, const Dataset3& sigma) {
 
 			if(O.size() != E.size() || E.size() != sigma.size()) {
-				TH_MATH_ERROR("chi_square", E.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("chi_square", E.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -439,7 +463,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < O.size(); ++i) {
 
 				if(abs(sigma[i]) < MACH_EPSILON) {
-					TH_MATH_ERROR("chi_square", sigma[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("chi_square", sigma[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -465,7 +489,7 @@ namespace theoretica {
 		inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
 
 			if(ndf == 0) {
-				TH_MATH_ERROR("pvalue_chi_squared", ndf, INVALID_ARGUMENT);
+				TH_MATH_ERROR("pvalue_chi_squared", ndf, MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -526,16 +550,27 @@ namespace theoretica {
 		}
 	  
 
-		/// Compute the chi-square on a linear regression
+		/// Compute the chi-square on a linear regression, as the sum of the squares
+		/// of the residuals divided by the standard deviation.
+		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
+		/// @tparam Dataset3 Any type representing a dataset as a vector of values
+		///
+		/// @param X A vector of the X values of the sample
+		/// @param Y A vector of the Y values of the sample
+		/// @param sigma The standard deviations of each point of the sample
+		/// @param intercept The intercept of the linear model
+		/// @param slope The slope of the linear model
 		template<typename Dataset1, typename Dataset2, typename Dataset3>
-		inline real chi_square_linearization(
+		inline real chi_square_linear(
 			const Dataset1& X, const Dataset2& Y,
 			const Dataset3& sigma, real intercept, real slope) {
 
 			if(X.size() != Y.size() || X.size() != sigma.size()) {
 				TH_MATH_ERROR(
-					"chi_square_linearization",
-					X.size(), INVALID_ARGUMENT);
+					"chi_square_linear",
+					X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -543,7 +578,7 @@ namespace theoretica {
 			for (unsigned int i = 0; i < X.size(); ++i) {
 
 				if(abs(sigma[i]) <= MACH_EPSILON) {
-					TH_MATH_ERROR("chi_square_linearization", sigma[i], DIV_BY_ZERO);
+					TH_MATH_ERROR("chi_square_linear", sigma[i], MathError::DivByZero);
 					return nan();
 				}
 
@@ -554,20 +589,32 @@ namespace theoretica {
 		}
 
 
-		/// Compute the reduced chi-squared on a linearization
+		/// Compute the reduced chi-squared on a linear regression, computed as the usual
+		/// chi-square (computed by chi_square_linear) divided by the number of degrees
+		/// of freedom of the model (\f$N - 2\f$).
+		///
+		/// @tparam Dataset1 Any type representing a dataset as a vector of values
+		/// @tparam Dataset2 Any type representing a dataset as a vector of values
+		/// @tparam Dataset3 Any type representing a dataset as a vector of values
+		///
+		/// @param X A vector of the X values of the sample
+		/// @param Y A vector of the Y values of the sample
+		/// @param sigma The standard deviations of each point of the sample
+		/// @param intercept The intercept of the linear model
+		/// @param slope The slope of the linear model
 		template<typename Dataset1, typename Dataset2, typename Dataset3>
-		inline real reduced_chi_square_linearization(
+		inline real reduced_chi_square_linear(
 			const Dataset1& X, const Dataset2& Y,
 			const Dataset3& sigma, real intercept, real slope) {
 
 			if(Y.size() <= 2) {
-				TH_MATH_ERROR("reduced_chi_square_linearization",
-					Y.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("reduced_chi_square_linear",
+					Y.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
 			// Divide by degrees of freedom (N - 2)
-			return chi_square_linearization(X, Y, sigma, intercept, slope)
+			return chi_square_linear(X, Y, sigma, intercept, slope)
 				/ (real) (Y.size() - 2);
 		}
 	}

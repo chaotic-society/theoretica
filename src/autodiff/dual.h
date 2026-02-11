@@ -122,7 +122,7 @@ namespace theoretica {
 			inline dual inverse() const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("dual::inverse", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::inverse", 0, MathError::DivByZero);
 					return dual(nan(), nan());
 				}
 
@@ -181,6 +181,15 @@ namespace theoretica {
 			}
 
 
+			/// Add a dual number to this one 
+			inline dual& operator+=(const dual& other) {
+
+				a += other.a;
+				b += other.b;
+				return *this;
+			}
+
+
 			/// Sum a real number to this dual number
 			inline dual& operator+=(real r) {
 
@@ -231,7 +240,7 @@ namespace theoretica {
 			inline dual& operator/=(real r) {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::operator/=", 0, MathError::DivByZero);
 					a = nan();
 					b = nan();
 					return *this;
@@ -270,10 +279,10 @@ namespace theoretica {
 			inline mat2 to_mat() const {
 
 				mat2 m;
-				m.at(0, 0) = a;
-				m.at(1, 0) = 0;
-				m.at(0, 1) = b;
-				m.at(1, 1) = a;
+				m(0, 0) = a;
+				m(1, 0) = 0;
+				m(0, 1) = b;
+				m(1, 1) = a;
 				return m;
 			}
 

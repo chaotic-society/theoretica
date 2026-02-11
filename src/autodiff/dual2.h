@@ -52,16 +52,16 @@ namespace theoretica {
 		
 			/// Initialize from a vec3
 			dual2(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 			}
 
 			/// Initialize a dual number from a vec3
 			inline dual2& operator=(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 				return *this;
 			}
 
@@ -105,7 +105,7 @@ namespace theoretica {
 			inline dual2 inverse() const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("dual2::inverse", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual2::inverse", 0, MathError::DivByZero);
 					return dual2(nan(), nan(), nan());
 				}
 
@@ -163,11 +163,21 @@ namespace theoretica {
 			inline dual2 operator/(real r) const {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual2::operator/", r, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual2::operator/", r, MathError::DivByZero);
 					return dual2(nan(), nan(), nan());
 				}
 
 				return dual2(a / r, b / r, c / r);
+			}
+
+
+			/// Add a dual2 number from this one
+			inline dual2& operator+=(const dual2& other) {
+
+				a += other.a;
+				b += other.b;
+				c += other.c;
+				return *this;
 			}
 
 
@@ -221,7 +231,7 @@ namespace theoretica {
 			inline dual2& operator/=(real r) {
 
 				if(r == 0) {
-					TH_MATH_ERROR("dual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("dual::operator/=", 0, MathError::DivByZero);
 					a = nan();
 					b = nan();
 					c = nan();
@@ -246,17 +256,17 @@ namespace theoretica {
 			/// Convert a dual number to a vector
 			inline vec3 to_vec() const {
 				vec3 res;
-				res.at(0) = a;
-				res.at(1) = b;
-				res.at(2) = c;
+				res[0] = a;
+				res[1] = b;
+				res[2] = c;
 				return res;
 			}
 
 			/// Initialize from a vector
 			inline void from_vec(const vec3& v) {
-				a = v.get(0);
-				b = v.get(1);
-				c = v.get(2);
+				a = v[0];
+				b = v[1];
+				c = v[2];
 			}
 
 

@@ -24,12 +24,12 @@ namespace theoretica {
 		/// Norms
 
 
-		/// Compute the Lp norm of a vector:
-		/// \f$L_p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
+		/// Compute the lp norm of a vector:
+		/// \f$\mathcal{l}^p(\vec v) = (\Sigma_i \ |v_i|^p)^{1/p}\f$
 		///
 		/// @param v The vector to compute the norm of
 		/// @param p The power of the Lp norm
-		/// @return The Lp norm of v
+		/// @return The lp norm of v
 		template<typename Vector>
 		inline real lp_norm(const Vector& v, unsigned int p) {
 
@@ -42,11 +42,11 @@ namespace theoretica {
 		}
 
 
-		/// Compute the L1 norm of a vector:
-		/// \f$L_1(\vec v) = \Sigma_i \ |v_i|\f$
+		/// Compute the l1 norm of a vector:
+		/// \f$\mathcal{l}^1(\vec v) = \Sigma_i \ |v_i|\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The L1 norm of v
+		/// @return The l1 norm of v
 		template<typename Vector>
 		inline real l1_norm(const Vector& v) {
 
@@ -58,11 +58,11 @@ namespace theoretica {
 			return sum;
 		}
 
-		/// Compute the L2 norm of a vector:
-		/// \f$L_2(\vec v) = \sqrt{\Sigma_i \ v_i^2}\f$
+		/// Compute the l2 norm of a vector:
+		/// \f$\mathcal{l}^2(\vec v) = \sqrt{\Sigma_i \ v_i^2}\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The L2 norm of v
+		/// @return The l2 norm of v
 		template<typename Vector>
 		inline real l2_norm(const Vector& v) {
 
@@ -75,11 +75,11 @@ namespace theoretica {
 		}
 
 
-		/// Compute the Linf norm of a vector:
-		/// \f$L_{\infty}(\vec v) = max(|v_i|)\f$
+		/// Compute the linf norm of a vector:
+		/// \f$\mathcal{l}^{\infty}(\vec v) = max(|v_i|)\f$
 		///
 		/// @param v The vector to compute the norm of
-		/// @return The Linf norm of v
+		/// @return The linf norm of v
 		template<typename Vector>
 		inline real linf_norm(const Vector& v) {
 
@@ -96,7 +96,7 @@ namespace theoretica {
 
 
 		/// Compute the Euclidean distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_2(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^2(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -105,7 +105,7 @@ namespace theoretica {
 		inline real euclidean_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("euclidean_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("euclidean_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -114,13 +114,13 @@ namespace theoretica {
 
 
 		/// Compute the Euclidean distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_2(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^2(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
 		/// @return The Euclidean distance between v1 and v2
-		template<unsigned int N>
-		inline real distance(const vec<real, N>& v1, const vec<real, N>& v2) {
+		template<typename Vector>
+		inline real distance(const Vector& v1, const Vector& v2) {
 			return euclidean_distance(v1, v2);
 		}
 
@@ -133,6 +133,18 @@ namespace theoretica {
 		/// @return The Euclidean distance between a and b
 		inline real euclidean_distance(real a, real b) {
 			return abs(a - b);
+		}
+		
+		
+		/// Compute the Euclidean distance between two complex numbers:
+		/// \f$d(z_1, z_2) = |z_1 - z_2|\f$
+		///
+		/// @param z1 The first complex value
+		/// @param z2 The second complex value
+		/// @return The distance between z1 and z2
+		template<typename T>
+		inline real euclidean_distance(complex<T> z1, complex<T> z2) {
+			return abs(z1 - z2);
 		}
 
 
@@ -147,20 +159,20 @@ namespace theoretica {
 		}
 
 
-		/// Compute the distance between two complex numbers:
+		/// Compute the Euclidean distance between two complex numbers:
 		/// \f$d(z_1, z_2) = |z_1 - z_2|\f$
 		///
 		/// @param z1 The first complex value
 		/// @param z2 The second complex value
 		/// @return The distance between z1 and z2
 		template<typename T>
-		inline complex<T> distance(complex<T> z1, complex<T> z2) {
-			return (z1 - z2).norm();
+		inline real distance(complex<T> z1, complex<T> z2) {
+			return euclidean_distance(z1, z2);
 		}
 
 
 		/// Compute the Minkowski distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_p(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^p(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -170,7 +182,7 @@ namespace theoretica {
 		inline real minkowski_distance(const Vector& v1, const Vector& v2, unsigned int p) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("minkowski_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("minkowski_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -178,8 +190,8 @@ namespace theoretica {
 		}
 
 
-		/// Compute the Minkowski distance between two values:
-		/// \f$d(a, b) = L_p(a - b)\f$
+		/// Compute the Minkowski distance between two real values:
+		/// \f$d(a, b) = \mathcal{l}^p(a - b)\f$
 		///
 		/// @param a The first real value
 		/// @param b The second real value
@@ -188,49 +200,23 @@ namespace theoretica {
 		inline real minkowski_distance(real a, real b, unsigned int p) {
 			return root(pow(abs(b - a), p), p);
 		}
-
-
-		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\f$
-		/// 
-		/// @param v1 The first vector
-		/// @param v2 The second vector
-		/// @return The Hermitian distance between v1 and v2
-		template<typename Vector, typename T = real>
-		inline auto hermitian_distance(const Vector& v1, const Vector& v2) {
-
-			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("hermitian_distance", v1.size(), INVALID_ARGUMENT);
-				return complex<T>(nan());
-			}
-
-			complex<T> sum = 0;
-
-			for (size_t i = 0; i < v1.size(); ++i) {
-				const complex<T> diff = v1[i] - conjugate(v2[i]);
-				sum += diff * diff.conjugate();
-			}
-
-			return sqrt(sum);
-		}
-
-
-		/// Compute the Hermitian distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = (\vec v_1 - \vec v_2) \cdot (\vec v_1 - \vec v_2)^*\f$
-		/// 
-		/// @param v1 The first vector
-		/// @param v2 The second vector
-		/// @return The Hermitian distance between v1 and v2
-		template<unsigned int N, typename T>
-		inline complex<T> distance(
-			const vec<complex<T>, N>& v1, const vec<complex<T>, N>& v2) {
-
-			return hermitian_distance<vec<complex<T>, N>, T>(v1, v2);
+		
+		
+		/// Compute the Minkowski distance between two complex values:
+		/// \f$d(z_1, z_2) = \mathcal{l}^p(z_1 - z_2)\f$
+		///
+		/// @param z1 The first complex value
+		/// @param z2 The second complex value
+		/// @param p The power of the distance
+		/// @return The Minkowski distance of power p between z1 and z2
+		template<typename T>
+		inline real minkowski_distance(complex<T> z1, complex<T> z2, unsigned int p) {
+			return root(pow(abs(z2 - z1), p), p);
 		}
 
 
 		/// Compute the Manhattan distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_1(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^1(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -239,7 +225,7 @@ namespace theoretica {
 		inline real manhattan_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("manhattan_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("manhattan_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -248,7 +234,7 @@ namespace theoretica {
 
 
 		/// Compute the Chebyshev distance between two vectors:
-		/// \f$d(\vec v_1, \vec v_2) = L_{\infty}(\vec v_1 - \vec v_2)\f$
+		/// \f$d(\vec v_1, \vec v_2) = \mathcal{l}^{\infty}(\vec v_1 - \vec v_2)\f$
 		///
 		/// @param v1 The first vector
 		/// @param v2 The second vector
@@ -257,7 +243,7 @@ namespace theoretica {
 		inline real chebyshev_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("chebyshev_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("chebyshev_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -277,7 +263,7 @@ namespace theoretica {
 			const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("discrete_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("discrete_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -306,7 +292,7 @@ namespace theoretica {
 		inline real canberra_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("canberra_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("canberra_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -328,7 +314,7 @@ namespace theoretica {
 		inline real cosine_distance(const Vector& v1, const Vector& v2) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("cosine_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("cosine_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
@@ -358,7 +344,7 @@ namespace theoretica {
 			const Vector& v1, const Vector& v2, real tolerance = MACH_EPSILON) {
 
 			if(v1.size() != v2.size()) {
-				TH_MATH_ERROR("hamming_distance", v1.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("hamming_distance", v1.size(), MathError::InvalidArgument);
 				return nan();
 			}
 

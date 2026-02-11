@@ -126,10 +126,10 @@ namespace theoretica {
 
 
 			/// Compute the inverse of the complex number
-			inline Type inverse() const {
+			inline phasor inverse() const {
 
 				if(modulus < MACH_EPSILON) {
-					TH_MATH_ERROR("phasor::inverse", modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::inverse", modulus, MathError::DivByZero);
 					return (Type) nan();
 				}
 
@@ -144,7 +144,7 @@ namespace theoretica {
 			inline phasor& invert() {
 
 				if(modulus < MACH_EPSILON) {
-					TH_MATH_ERROR("phasor::invert", modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::invert", modulus, MathError::DivByZero);
 					modulus = (Type) nan();
 					phase = (Type) nan();
 					return *this;
@@ -196,8 +196,7 @@ namespace theoretica {
 			}
 
 
-			/// Multiply a complex number in algebraic form
-			/// and a phasor
+			/// Multiply a complex number in algebraic form and a phasor
 			template<typename T>
 			inline phasor operator*(const complex<T>& other) const {
 				return phasor(
@@ -206,8 +205,7 @@ namespace theoretica {
 			}
 
 
-			/// Multiply a complex number in algebraic form
-			/// and a phasor
+			/// Multiply a complex number in algebraic form and a phasor
 			template<typename T>
 			inline friend phasor operator*(const complex<T>& z, const phasor& w) {
 				return phasor(
@@ -221,7 +219,7 @@ namespace theoretica {
 			inline phasor operator/(const phasor& other) const {
 
 				if(abs(other.modulus) < MACH_EPSILON) {
-					TH_MATH_ERROR("phasor::operator/", other.modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::operator/", other.modulus, MathError::DivByZero);
 					return phasor(nan(), nan());
 				}
 					
@@ -271,7 +269,7 @@ namespace theoretica {
 			inline phasor& operator/=(const phasor& other) {
 
 				if(abs(other.modulus) < MACH_EPSILON) {
-					TH_MATH_ERROR("phasor::operator/=", other.modulus, DIV_BY_ZERO);
+					TH_MATH_ERROR("phasor::operator/=", other.modulus, MathError::DivByZero);
 					modulus = nan();
 					phase = nan();
 					return *this;

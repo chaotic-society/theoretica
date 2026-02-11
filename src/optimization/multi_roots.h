@@ -52,12 +52,12 @@ namespace theoretica {
 			);
 
 			// Update the current best guess
-			x = x - J.inverse() * f_x;
+			x -= algebra::solve(J, f_x);
 			iter++;
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_root_newton", iter, NO_ALGO_CONVERGENCE);
+			TH_MATH_ERROR("multi_root_newton", iter, MathError::NoConvergence);
 			return vec<real, N>(nan());
 		}
 

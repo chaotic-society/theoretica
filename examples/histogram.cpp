@@ -1,56 +1,69 @@
 
 ///
-/// @file histogram.cpp Histogram usage example.
-/// This example may be compiled using 'make histogram'.
+/// @file histogram.cpp Read data points from the given file and construct an histogram
+/// which is then saved to file (appending .hist to the filename),
+/// also printing histogram statistics.
 ///
-/// The resulting histogram file can be easily be visualized
-/// using the gnuplot command:
-/// plot "examples/histogram.dat" with boxes
+/// The resulting histogram file can be easily be visualized using gnuplot:
+/// plot "filename.hist" with boxes
 ///
 
 #include "theoretica.h"
 using namespace th;
 
-#include <ctime>
 #include <fstream>
 #include <iostream>
 
 
-// Sample a certain probability distribution
-real sample_dist(PRNG& g) {
+int main(int argc, const char** argv) {
 
-    return rand_exponential(1, g);
-}
+    if (argc < 2) {
+        std::cout << "Usage: histogram <filename>" << std::endl;
+        return 1;
+    }
 
+    std::string filename = argv[1];
+    std::ifstream infile (filename);
 
-int main() {
+    if (!infile.is_open()) {
+        std::cout << "Unable to open input file." << std::endl;
+        return 2;
+    }
 
-    // Sample size
-    const unsigned int N = 1E+06;
+    // Construct histogram while reading from file
+    std::vector<real> data;
+    std::string line;
 
-    // Create a PRNG with a seed
-    PRNG g = PRNG::xoshiro(time(nullptr));
-            
-    // Initialize a p.d.f. sampler with a Gaussian distribution
-    pdf_sampler p = pdf_sampler::gaussian(0, 1, g);
+    std::cout << "Reading data points from file..." << std::endl;
 
-    // Fill a vector with N samples
-    vec<real> data(N);
-    for (real& x : data)
-        x = sample_dist(g);
+    while(std::getline(infile, line)) {
 
-    // Initialize the histogram from data
-    histogram h = histogram(data);
+        if(line == "")
+            continue;
 
-    // If no additional options are passed,
-    // the histogram class uses default parameters
-    // which work for most use cases.
+        data.push_back(std::stod(line));
+    }
 
-    // Print the histogram to file
-    std::ofstream file("examples/histogram.dat");
-    file << h;
+    std::ofstream outfile (filename + ".hist");
 
-    // Print fundamental statistics of the sample
+    if (!outfile.is_open()) {
+        std::cout << "Unable to open output file." << std::endl;
+        return 3; 
+    }
+
+    std::cout << "Constructing histogram from data..." << std::endl;
+
+    unsigned int bins = int(sqrt(data.size()));
+    if (argc > 2)
+        bins = std::stoi(argv[2]);
+
+    histogram h (data, bins);
+    outfile << h;
+
+    std::cout << "Wrote histogram to file" << std::endl;
+
+    // Print to standard output some useful statistics
+    std::cout << "Statistics:" << std::endl;
     std::cout << "N = " << h.number() << std::endl; 
     std::cout << "Mean: " << stats::mean(h) << std::endl; 
     std::cout << "Variance: " << stats::variance(h) << std::endl; 

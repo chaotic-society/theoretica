@@ -1,6 +1,6 @@
 
 ///
-/// @file prng.h Pseudorandom number generator class
+/// @file prng.h Pseudorandom number generation.
 ///
 
 #ifndef THEORETICA_PRNG_H
@@ -12,6 +12,7 @@
 
 
 namespace theoretica {
+
 
 	/// @class PRNG
 	/// A pseudorandom number generator
@@ -35,14 +36,6 @@ namespace theoretica {
 			PRNG(pseudorandom_function p,
 				uint64_t seed,
 				const std::vector<uint64_t>& s) : f(p), x(seed), param(s) {}
-
-
-			/// Construct a PRNG with the given
-			/// generating algorithm p and parameters s
-			///
-			/// The seed will be set to 1.
-			PRNG(pseudorandom_function p,
-				const std::vector<uint64_t>& s) : f(p), x(1), param(s) {}
 
 
 			/// Construct a PRNG with the given
@@ -132,7 +125,10 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 
-				return PRNG(rand_congruential, seed, {48271, 0, ((uint64_t) 1 << 31) - 1});
+				return PRNG(
+					randgen_congruential, seed,
+					{48271, 0, ((uint64_t) 1 << 31) - 1}
+				);
 			}
 
 
@@ -140,7 +136,7 @@ namespace theoretica {
 			/// @param p The four state parameters
 			/// @return A Xoshiro256++ pseudorandom number generator
 			inline static PRNG xoshiro(const std::vector<uint64_t>& p) {
-				return PRNG(rand_xoshiro, 0, p);
+				return PRNG(randgen_xoshiro, 0, p);
 			}
 
 
@@ -155,12 +151,12 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 				
-				const uint64_t n1 = rand_splitmix64(seed);
-				const uint64_t n2 = rand_splitmix64(n1);
-				const uint64_t n3 = rand_splitmix64(n2);
-				const uint64_t n4 = rand_splitmix64(n3);
+				const uint64_t n1 = randgen_splitmix64(seed);
+				const uint64_t n2 = randgen_splitmix64(n1);
+				const uint64_t n3 = randgen_splitmix64(n2);
+				const uint64_t n4 = randgen_splitmix64(n3);
 
-				return PRNG(rand_xoshiro, 0, {n1, n2, n3, n4});
+				return PRNG(randgen_xoshiro, 0, {n1, n2, n3, n4});
 			}
 
 
@@ -172,7 +168,7 @@ namespace theoretica {
 				if(seed == 0)
 					seed = 1;
 
-				return PRNG(rand_splitmix64, seed);
+				return PRNG(randgen_splitmix64, seed);
 			}
 
 
@@ -184,9 +180,9 @@ namespace theoretica {
 					seed = 1;
 
 				if(p2 == 0)
-					p2 = rand_splitmix64(seed);
+					p2 = randgen_splitmix64(seed);
 
-				return PRNG(rand_wyrand, 0, {seed, p1, p2});
+				return PRNG(randgen_wyrand, 0, {seed, p1, p2});
 			}
 
 
@@ -195,12 +191,12 @@ namespace theoretica {
 				uint64_t seed, uint64_t offset = 765872292751861) {
 
 				if(seed == 0)
-					seed = rand_splitmix64(765872292751861);
+					seed = randgen_splitmix64(765872292751861);
 
 				if(offset == 0)
 					offset = 765872292751861;
 
-				return PRNG(rand_middlesquare, seed, {offset});
+				return PRNG(randgen_middlesquare, seed, {offset});
 			}
 		
 	};
@@ -210,28 +206,37 @@ namespace theoretica {
 	/// 
 	/// @param v The set to shuffle (as a Vector with [] and .size() methods)
 	/// @param g An already initialized PRNG
-	/// @param rounds The number of pairs to exchange (defaults to (N - 1)^2)
+	/// @param rounds The number of pairs to exchange.
+	/// @return A reference to the shuffled vector
 	template<typename Vector>
-	inline void shuffle(Vector& v, PRNG& g, unsigned int rounds = 0) {
+	inline Vector& shuffle(Vector& v, PRNG& g, unsigned int rounds) {
 
 		if(v.size() == 0)
-			TH_MATH_ERROR("shuffle", v.size(), INVALID_ARGUMENT);
-
-		// The number of rounds defaults to (N - 1)^2
-		if(rounds == 0)
-			rounds = square(v.size() - 1);
+			TH_MATH_ERROR("shuffle", v.size(), MathError::InvalidArgument);
 
 		for (unsigned int i = 0; i < rounds; ++i) {
 			
 			// Generate two random indices
-			size_t index1 = g() % v.size();
-			size_t index2 = g() % v.size();
+			const size_t index1 = g() % v.size();
+			const size_t index2 = g() % v.size();
 
 			// Exchange the two values at the random indices
 			const auto x1 = v[index1];
 			v[index1] = v[index2];
 			v[index2] = x1;
 		}
+	}
+
+
+	/// Shuffle a set by exchanging random couples of elements.
+	/// The number of rounds used is \f$(N - 1)^2\f$.
+	/// 
+	/// @param v The set to shuffle (as a Vector with [] and .size() methods)
+	/// @param g An already initialized PRNG
+	/// @return A reference to the shuffled vector
+	template<typename Vector>
+	inline Vector& shuffle(Vector& v, PRNG& g) {
+		return shuffle(v, g, square(v.size() - 1));
 	}
 
 }

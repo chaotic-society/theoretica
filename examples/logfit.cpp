@@ -49,7 +49,7 @@ int main(int argc, char const *argv[]) {
 
     // Construct the linear model regression and
     // print the regression information
-    std::cout << regression::linear_model(X, Y, 1.0) << std::endl;
+    std::cout << regression::linear_model(X, Y) << std::endl;
 
     return 0;
 }

@@ -19,8 +19,12 @@
 
 namespace theoretica {
 
-
-	/// @class vec_iterator Sequential iterator for vectors.
+	
+	/// @class vec_iterator
+	/// A sequential iterator for traversing vector-like containers.
+	///
+	/// @tparam Vector The type of vector being iterated over.
+	/// @tparam ReturnType The type returned when dereferencing the iterator, defaults to a reference to the vector's element type.
 	template<typename Vector, typename ReturnType = vector_element_t<Vector>&>
 	class vec_iterator {
 
@@ -141,10 +145,8 @@ namespace theoretica {
 		vec(std::initializer_list<Type> l) {
 
 			if(l.size() != N) {
-				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(),
-					INVALID_ARGUMENT);
-				// Set all elements to NaN
-				*this = vec<Type, N>(Type(nan()));
+				TH_MATH_ERROR("vec::vec(initializer_list<Type>)", l.size(), MathError::InvalidArgument);
+				algebra::vec_error(*this);
 				return;
 			}
 
@@ -230,12 +232,6 @@ namespace theoretica {
 		/// Cross product between vectors
 		template<typename Vector>
 		inline vec<Type, N> cross(const Vector& other) const {
-		
-			if(other.size() != 3) {
-				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type, N>(Type(nan()));
-			}
-
 			return algebra::cross(*this, other);
 		}
 
@@ -276,8 +272,8 @@ namespace theoretica {
 		inline vec<Type, N>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
-				vec_error(*this);
+				TH_MATH_ERROR("vec::operator/=", scalar, MathError::DivByZero);
+				algebra::vec_error(*this);
 				return *this;
 			}
 
@@ -300,33 +296,47 @@ namespace theoretica {
 		}
 
 
-		/// Access i-th component
+		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
 			return data[i];
 		}
 
 
-		/// Get the i-th component
+		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
 			return data[i];
 		}
 
 
-		/// Access i-th element
+		/// Access i-th element by reference, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
 		inline Type& at(unsigned int i) {
+
+			if (i >= N) {
+				throw std::out_of_range(
+					"The element index in vec::at() is out of bounds"
+				);
+			}
+
 			return data[i];
 		}
 
 
-		/// Getters and setters
-		inline Type get(unsigned int i) const {
+		/// Get the i-th element by value, with bound checking.
+		///
+		/// If the given index is out of range, an std::out_of_range
+		/// exception is thrown.
+		inline Type at(unsigned int i) const {
+
+			if (i >= N) {
+				throw std::out_of_range(
+					"The element index in vec::at() is out of bounds"
+				);
+			}
+
 			return data[i];
-		}
-
-
-		/// Set the i-th element
-		inline void set(unsigned int i, Type x) {
-			data[i] = x;
 		}
 
 
@@ -412,7 +422,7 @@ namespace theoretica {
 		inline void resize(size_t n) const {
 			
 			if(N != n) {
-				TH_MATH_ERROR("vec::resize", N, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::resize", N, MathError::InvalidArgument);
 			}
 		}
 
@@ -423,7 +433,7 @@ namespace theoretica {
 			unsigned int i, unsigned int n = N) {
 
 			if(i >= n) {
-				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::euclidean_base", i, MathError::InvalidArgument);
 				return vec<Type, N>(Type(nan()));
 			}
 
@@ -624,12 +634,6 @@ namespace theoretica {
 		/// Cross product between vectors
 		template<typename Vector>
 		inline vec<Type> cross(const Vector& other) const {
-		
-			if(other.size() != 3) {
-				TH_MATH_ERROR("vec::cross", other.size(), INVALID_ARGUMENT);
-				return vec<Type>(3, nan());
-			}
-
 			return algebra::cross(*this, other);
 		}
 
@@ -645,7 +649,7 @@ namespace theoretica {
 				resize(other.size());
 
 			if(size() != other.size()) {
-				TH_MATH_ERROR("vec::operator+=", size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::operator+=", size(), MathError::InvalidArgument);
 				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
@@ -661,7 +665,7 @@ namespace theoretica {
 		inline vec<Type>& operator-=(const Vector& other) {
 
 			if(size() != other.size()) {
-				TH_MATH_ERROR("vec::operator-=", size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::operator-=", size(), MathError::InvalidArgument);
 				return (*this = vec<Type>(max(size(), 1), nan()));
 			}
 
@@ -686,7 +690,7 @@ namespace theoretica {
 		inline vec<Type>& operator/=(Type scalar) {
 
 			if(abs(scalar) < MACH_EPSILON) {
-				TH_MATH_ERROR("vec::operator/=", scalar, DIV_BY_ZERO);
+				TH_MATH_ERROR("vec::operator/=", scalar, MathError::DivByZero);
 				*this = vec<Type>(max(size(), 1), nan());
 				return *this;
 			}
@@ -710,33 +714,33 @@ namespace theoretica {
 		}
 
 
-		/// Access i-th component
+		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
 			return data[i];
 		}
 
 
-		/// Get the i-th component
+		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
 			return data[i];
 		}
 
 
-		/// Access i-th element
+		/// Access i-th element by reference, with bound checking.
+		///
+		/// If the given index is out of range, an std::MathError::OutOfRange
+		/// exception is thrown.
 		inline Type& at(unsigned int i) {
-			return data[i];
+			return data.at(i);
 		}
 
 
-		/// Getters and setters
-		inline Type get(unsigned int i) const {
-			return data[i];
-		}
-
-
-		/// Set the i-th element
-		inline void set(unsigned int i, Type x) {
-			data[i] = x;
+		/// Get the i-th element by value, with bound checking.
+		///
+		/// If the given index is out of range, an std::MathError::OutOfRange
+		/// exception is thrown.
+		inline Type at(unsigned int i) const {
+			return data.at(i);
 		}
 
 
@@ -837,7 +841,7 @@ namespace theoretica {
 			unsigned int i, unsigned int n) {
 
 			if(i >= n) {
-				TH_MATH_ERROR("vec::euclidean_base", i, INVALID_ARGUMENT);
+				TH_MATH_ERROR("vec::euclidean_base", i, MathError::InvalidArgument);
 				return vec<Type>(n, nan());
 			}
 
@@ -897,11 +901,26 @@ namespace theoretica {
 	};
 
 
+	/// Populates a vector with a single element at the specified index.
+	/// This function is the base case for recursive population.
+	///
+	/// @param v Reference to the vector being populated.
+	/// @param index The current index to populate in the vector.
+	/// @param last The last element to assign to the vector at the specified index.
 	template<typename ElementType, typename Type, typename ...Args>
 	void make_vec(vec<ElementType>& v, size_t index, Type last) {
 		v[index] = last;
 	}
 
+
+	/// Populates a vector with multiple elements using variadic arguments.
+	/// This function assigns the first element to the specified index, then
+	/// recursively populates subsequent indices with remaining elements.
+	///
+	/// @param v Reference to the vector being populated.
+	/// @param index The current index to populate in the vector.
+	/// @param first The first element to assign to the vector at the specified index.
+	/// @param elements Remaining elements to populate in the vector.
 	template<typename ElementType, typename Type, typename ...Args>
 	void make_vec(vec<ElementType>& v, size_t index, Type first, Args... elements) {
 

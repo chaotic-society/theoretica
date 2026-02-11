@@ -42,25 +42,24 @@ namespace theoretica {
 			~polynomial() {}
 
 
-			/// Access i-th coefficient
-			inline Type& at(int i) {
-				return coeff[i];
+			/// Get i-th coefficient by constant reference, with bound checking.
+			inline const Type& at(unsigned int i) const {
+				return coeff.at(i);
+			}
+
+			/// Access i-th coefficient by reference, with bound checking.
+			inline Type& at(unsigned int i) {
+				return coeff.at(i);
 			}
 
 
-			/// Get the i-th by value
-			inline Type get(int i) const {
-				return coeff[i];
-			}
-
-
-			/// Return the nth order coefficient
+			/// Get the n-th order coefficient by constant reference.
 			inline const Type& operator[](unsigned int i) const {
 				return coeff[i];
 			}
 
 
-			/// Return the nth order coefficient
+			/// Get the n-th order coefficient by reference.
 			inline Type& operator[](unsigned int i) {
 				return coeff[i];
 			}
@@ -70,17 +69,11 @@ namespace theoretica {
 			template<typename EvalType = Type>
 			inline EvalType eval(EvalType x) const {
 
-				if(!coeff.size())
-					return 0;
-
-				EvalType sum = 0;
+				EvalType sum = EvalType(0.0);
 
 				// Evaluate using Horner's method
 				for (unsigned int i = 0; i < coeff.size(); ++i)
 					sum = coeff[coeff.size() - i - 1] + x * sum;
-
-				// TO-DO Compare performance using fma x86 Assembly instruction
-				// sum = fma(x, sum, coeff[coeff.size() - i - 1]);
 
 				return sum;
 			}
@@ -155,7 +148,7 @@ namespace theoretica {
 				unsigned int i = 0;
 
 				for (; i < min(r.size(), p.size()); ++i)
-					r[i] = coeff[i] - p.get(i);
+					r[i] = coeff[i] - p[i];
 
 				if (coeff.size() > p.size())
 					for (; i < coeff.size(); ++i)
@@ -176,7 +169,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < size(); ++i) {
 					for (unsigned int j = 0; j < p.size(); ++j) {
-						r[i + j] += coeff[i] * p.get(j);
+						r[i + j] += coeff[i] * p[j];
 					}
 				}
 
@@ -190,8 +183,8 @@ namespace theoretica {
 				const unsigned int d_order = d.find_order();
 				const unsigned int this_order = find_order();
 
-				if(d_order == 0 && d.get(0) == 0) {
-					TH_MATH_ERROR("polynomial::operator/", d.get(0), DIV_BY_ZERO);
+				if(d_order == 0 && d[0] == 0) {
+					TH_MATH_ERROR("polynomial::operator/", d[0], MathError::DivByZero);
 					return polynomial(nan());
 				}
 
@@ -209,12 +202,12 @@ namespace theoretica {
 
 					// Stop execution if the division is complete
 					// (when the remainder is 0 or has lower degree)
-					if((r_order == 0 && (abs(r.get(0)) < MACH_EPSILON)) || r_order < d_order)
+					if((r_order == 0 && (abs(r[0]) < MACH_EPSILON)) || r_order < d_order)
 						break;
 
 					// Simple division between highest degree terms
 					const polynomial t = polynomial<Type>::monomial(
-						r.get(r_order) / d.get(d_order),
+						r[r_order] / d[d_order],
 						r_order - d_order);
 
 					// Add monomial to quotient and subtract the
@@ -228,7 +221,7 @@ namespace theoretica {
 				// The algorithm has stopped iterating after a number
 				// of the dividend's degree counts
 				if(i == this_order) {
-					TH_MATH_ERROR("polynomial::operator/", i, NO_ALGO_CONVERGENCE);
+					TH_MATH_ERROR("polynomial::operator/", i, MathError::NoConvergence);
 					return polynomial(nan());
 				}
 
@@ -252,7 +245,7 @@ namespace theoretica {
 			inline polynomial operator/(Type a) const {
 
 				if(abs(a) < MACH_EPSILON) {
-					TH_MATH_ERROR("polynomial::operator/", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/", a, MathError::DivByZero);
 				}
 
 				polynomial r = polynomial(*this);
@@ -272,7 +265,7 @@ namespace theoretica {
 					coeff.resize(p.size(), Type(0));
 
 				for (unsigned int i = 0; i < min(size(), p.size()); ++i)
-					coeff[i] += p.get(i);
+					coeff[i] += p[i];
 
 				return *this;
 			}
@@ -286,7 +279,7 @@ namespace theoretica {
 					coeff.resize(p.size(), Type(0));
 
 				for (unsigned int i = 0; i < min(coeff.size(), p.size()); ++i)
-					coeff[i] -= p.get(i);
+					coeff[i] -= p[i];
 
 				return *this;
 			}
@@ -300,7 +293,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < coeff.size(); ++i)
 					for (unsigned int j = 0; j < p.size(); ++j)
-						r[i + j] += coeff[i] * p.get(j);
+						r[i + j] += coeff[i] * p[j];
 
 				*this = r;
 				return *this;
@@ -327,7 +320,7 @@ namespace theoretica {
 			inline polynomial& operator/=(Type a) {
 
 				if(abs(a) < MACH_EPSILON) {
-					TH_MATH_ERROR("polynomial::operator/=", a, DIV_BY_ZERO);
+					TH_MATH_ERROR("polynomial::operator/=", a, MathError::DivByZero);
 					return *this;
 				}
 
@@ -398,7 +391,7 @@ namespace theoretica {
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
-					TH_MATH_ERROR("quadratic_roots", order, IMPOSSIBLE_OPERATION);
+					TH_MATH_ERROR("quadratic_roots", order, MathError::ImpossibleOperation);
 					return vec<complex<>, 2>({nan(), nan()});
 				}
 

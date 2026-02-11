@@ -14,6 +14,7 @@ namespace theoretica {
 
 	namespace algebra {
 
+
 		/// Returns the identity matrix. Size parameters are used
 		/// only for dynamically allocated matrix types.
 		/// @return The identity matrix of the given type
@@ -39,13 +40,13 @@ namespace theoretica {
 		inline Matrix& diagonal(Matrix& res, const Vector& v) {
 
 			if(v.size() != res.cols()) {
-				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
 
 			if(v.size() != res.rows()) {
-				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::mat_diagonal", v.size(), MathError::InvalidArgument);
 				mat_error(res);
 				return res;
 			}
@@ -93,7 +94,7 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(v.size() != (m.rows() - 1)) {
-				TH_MATH_ERROR("algebra::translation", v.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::translation", v.size(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -123,13 +124,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 2) {
-				TH_MATH_ERROR("algebra::rotation_2d", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_2d", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 2) {
-				TH_MATH_ERROR("algebra::rotation_2d", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_2d", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -164,19 +165,19 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(axis.size() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", axis.size(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", axis.size(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -195,7 +196,7 @@ namespace theoretica {
 
 			m(0, 0) = c + Rx * Rx * cm1;
 			m(0, 1) = Rx * Ry * cm1 - Rz * s;
-			m(0, 2) = Rx * Rz * cm1 - Ry * s;
+			m(0, 2) = Rx * Rz * cm1 + Ry * s;
 
 			m(1, 0) = Ry * Rx * cm1 + Rz * s;
 			m(1, 1) = c + Ry * Ry * cm1;
@@ -223,13 +224,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_xaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -237,8 +238,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = 1;
 			m(1, 1) = c;
@@ -265,13 +266,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_yaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -279,8 +280,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = c;
 			m(1, 1) = 1;
@@ -308,13 +309,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 3) {
-				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::rotation_3d_zaxis", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -322,8 +323,8 @@ namespace theoretica {
 			if(m.rows() > 3 || m.cols() > 3)
 				make_identity(m);
 
-			const real s = theoretica::sin(theta);
-			const real c = theoretica::cos(theta);
+			const real s = sin(theta);
+			const real c = cos(theta);
 
 			m(0, 0) = c;
 			m(1, 1) = c;
@@ -337,7 +338,22 @@ namespace theoretica {
 		}
 
 
-		/// Returns a perspective projection matrix
+		/// Returns a perspective projection matrix with adjustable view volume boundaries.
+		/// @tparam Matrix The type of matrix to be returned.
+		/// @param left The left boundary of the view volume.
+		/// @param right The right boundary of the view volume.
+		/// @param bottom The bottom boundary of the view volume.
+		/// @param top The top boundary of the view volume.
+		/// @param near The near clipping plane distance.
+		/// @param far The far clipping plane distance.
+		/// @param rows Optional number of rows to set for the matrix (default is 0).
+		/// @param cols Optional number of columns to set for the matrix (default is 0).
+		/// @return A perspective projection matrix with dimensions at least 4x4.
+		///
+		/// This function creates a perspective projection matrix that maps a 3D frustum 
+		/// into a 2D plane. If the matrix dimensions are smaller than 4x4, an error is 
+		/// triggered. The matrix is initialized to zero, with values set to define the 
+		/// specified perspective projection parameters.
 		template<typename Matrix>
 		inline Matrix perspective(
 			real left, real right, real bottom,
@@ -349,13 +365,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::perspective", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::perspective", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -387,13 +403,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::perspective_fov", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective_fov", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::perspective_fov", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::perspective_fov", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -417,13 +433,13 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(m.rows() < 4) {
-				TH_MATH_ERROR("algebra::ortho", m.rows(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::ortho", m.rows(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
 
 			if(m.cols() < 4) {
-				TH_MATH_ERROR("algebra::ortho", m.cols(), INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::ortho", m.cols(), MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}
@@ -506,7 +522,7 @@ namespace theoretica {
 				m.resize(rows, cols);
 
 			if(rows != cols || (rows % 2 != 0)) {
-				TH_MATH_ERROR("algebra::symplectic", rows, INVALID_ARGUMENT);
+				TH_MATH_ERROR("algebra::symplectic", rows, MathError::InvalidArgument);
 				mat_error(m);
 				return m;
 			}

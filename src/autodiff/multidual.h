@@ -87,6 +87,22 @@ namespace theoretica {
 			}
 
 
+			/// Get the i-th element of the multidual part,
+			/// corresponding to the i-th independent variable
+			/// in automatic differentiation.
+			inline real Dual(unsigned int i) const {
+				return v[i];
+			}
+
+
+			/// Access the i-th element of the multidual part,
+			/// corresponding to the i-th independent variable
+			/// in automatic differentiation.
+			inline real& Dual(unsigned int i) {
+				return v[i];
+			}
+
+
 			/// Get the multidual conjugate
 			inline multidual conjugate() const {
 				return multidual(a, -v);
@@ -97,8 +113,8 @@ namespace theoretica {
 			inline multidual inverse() const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("multidual::inverse", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan(), N));
+					TH_MATH_ERROR("multidual::inverse", 0, MathError::DivByZero);
+					return multidual(nan(), vec<real, N>(N, nan()));
 				}
 
 				return multidual(1.0 / a, v * (-1 / (a * a)));
@@ -157,8 +173,8 @@ namespace theoretica {
 			inline multidual operator/(const multidual& other) const {
 
 				if(a == 0) {
-					TH_MATH_ERROR("multidual::operator/", 0, DIV_BY_ZERO);
-					return multidual(nan(), vec<real, N>(nan(), N));
+					TH_MATH_ERROR("multidual::operator/", 0, MathError::DivByZero);
+					return multidual(nan(), vec<real, N>(N, nan()));
 				}
 
 				return multidual(a / other.a,
@@ -230,9 +246,9 @@ namespace theoretica {
 			inline multidual& operator/=(real r) {
 
 				if(r == 0) {
-					TH_MATH_ERROR("multidual::operator/=", 0, DIV_BY_ZERO);
+					TH_MATH_ERROR("multidual::operator/=", 0, MathError::DivByZero);
 					a = nan();
-					v = vec<real, N>(nan(), N);
+					v = vec<real, N>(N, nan());
 					return *this;
 				}
 
@@ -277,7 +293,7 @@ namespace theoretica {
 				x.resize(v.size());
 
 				for (unsigned int i = 0; i < N; ++i)
-					x[i] = v.get(i).Re();
+					x[i] = v[i].Re();
 
 				return x;
 			}
@@ -294,7 +310,7 @@ namespace theoretica {
 
 				for (unsigned int i = 0; i < N; ++i)
 					for (unsigned int j = 0; j < N; ++j)
-						J.at(j, i) = v.get(j).Dual().get(i);
+						J(j, i) = v[j].Dual(i);
 				
 				return J;
 			}
@@ -311,9 +327,9 @@ namespace theoretica {
 				for (unsigned int i = 0; i < N; ++i) {
 					
 					for (unsigned int j = 0; j < N; ++j)
-						J.at(j, i) = v.get(j).Dual().get(i);
+						J(j, i) = v[j].Dual(i);
 					
-					x[i] = v.get(i).Re();
+					x[i] = v[i].Re();
 				}
 			}
 

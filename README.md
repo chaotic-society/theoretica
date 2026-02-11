@@ -6,18 +6,26 @@
 
 > A C++ math library for scientific computing with a simple and elegant interface.
 
-Theoretica provides methods for **scientific computing**, statistical analysis of experimental data and numerical approximations. The aim of the project is to give simple and immediate access to powerful algorithms for scientific and engineering software and graphical applications. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
+Theoretica provides access to numerical methods with applications in science and engineering, is easy to setup and use, and is completely open source.  Applications include **scientific computing**, statistical analysis of data and numerical approximation. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
-## Table of Contents
-- [Features](#features)
-- [Setup](#setup)
-- [Examples](#examples)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Workflow](#workflow)
-- [License](#license)
+## A short example
 
----
+The following code solves a differential equation, such as the Lorenz attractor, and writes the result to file:
+
+```cpp
+int main() {
+
+    // Initial conditions
+    vec3 x0 = {0.0, 0.1, 0.0};
+
+    // Use Runge-Kutta between t=0 and t=50
+    auto solution = ode::solve_rk4(f, x0, 0.0, 50.0);
+
+    std::ofstream file ("solution.dat");
+    file << solution;
+}
+
+```
 
 ## Features
 
@@ -29,6 +37,7 @@ Some features of the library include:
 - Complex numbers (algebraic & exponential form) and **quaternions**
 - Numerical calculus, from integrals to ODEs
 - Multivariate **Automatic Differentiation** with differential operators
+- Univariate and multivariate optimization and root-finding
 - Descriptive and inferential statistics and **Monte Carlo** methods
 - Bezier curves and spline interpolation
 
@@ -36,7 +45,7 @@ Theoretica is constantly developed and improved with new ideas!
 
 ## Setup
 
-Theoretica is a header-only library and has **no dependencies**, so you can include it in your projects straight-away! You can build all tests and example programs by running `make all` in the main folder, ensuring that it works on your machine. When using the library, you can include single headers or use `theoretica.h` which includes all library headers (you can define `THEORETICA_INCLUDE_BASE` to make it include only fundamental headers).
+Theoretica is a header-only library and has **no dependencies**, so you can include it in your projects straight-away! You can build all tests and example programs by running `make all` in the main folder, ensuring that it works on your machine. To use the library, you can include single headers or use `theoretica.h` which includes all modules, or alternatively include `theoretica_mini.h` which includes only common use modules.
 
 ### Quickstart
 
@@ -52,7 +61,7 @@ int main() {
     vec3 v = {1, 2, 3};
 
     // Create a 3x3 identity matrix
-    mat3 A = mat3::identity();
+    mat3 A = mat3(1.0);
 
     // Transform v by A
     vec3 w = A * v;
@@ -75,11 +84,40 @@ The `examples` folder contains simple programs that showcase usage of the librar
 
 ## Documentation
 
-The documentation for the project is available at this [link](https://chaotic-society.github.io/theoretica). The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the `gh-pages` branch. The bibliography used during research for the library is listed in [BIBLIOGRAPHY.md](https://github.com/chaotic-society/theoretica/blob/master/BIBLIOGRAPHY.md). You may learn more about the design choices behind the library reading the [Software Specification](https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf).
+The documentation for the project is available at this [link](https://chaotic-society.github.io/theoretica). The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the `gh-pages` branch. The bibliography used during research for the library is listed in [BIBLIOGRAPHY.md](https://github.com/chaotic-society/theoretica/blob/master/txt/BIBLIOGRAPHY.md). You may learn more about the design choices behind the library reading the [Software Specification](https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf).
+
+## Build
+
+The source distribution includes example programs, test units and benchmarks, which may be
+compiled using different tools, but are not needed to use the library itself.
+Run the following commands in the root directory of the project, depending on your toolchain:
+
+### Make
+
+```
+# Build all binaries
+make all
+
+# Build and run test units
+make test
+```
+
+### CMake
+
+```
+cd build
+cmake ..
+
+# Build all binaries
+make all
+
+# Run test units
+make test
+```
 
 ## Contributing
 
-Contributions are welcome and appreciated! Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/CONTRIBUTING.md) to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.
+Contributions are welcome and appreciated! Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md) to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.
 
 ## Workflow
 

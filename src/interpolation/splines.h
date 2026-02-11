@@ -47,7 +47,7 @@ namespace theoretica {
 			real t_new = invlerp(P1.get(i), P2.get(i), value);
 
 			if(t != t_new) {
-				TH_MATH_ERROR("invlerp", t_new, OUT_OF_DOMAIN);
+				TH_MATH_ERROR("invlerp", t_new, MathError::OutOfDomain);
 				return nan();
 			}
 		}
@@ -93,7 +93,7 @@ namespace theoretica {
 		// Check whether one of the vectors is null,
 		// which would make the computation impossible
 		if(P1_l == 0 || P2_l == 0) {
-			TH_MATH_ERROR("slerp", P1_l ? P2_l : P1_l, IMPOSSIBLE_OPERATION);
+			TH_MATH_ERROR("slerp", P1_l ? P2_l : P1_l, MathError::ImpossibleOperation);
 			return vec<real, N>(nan());
 		}
 
@@ -103,7 +103,7 @@ namespace theoretica {
 
 		// Check that the sine of the angle is not zero
 		if(s == 0) {
-			TH_MATH_ERROR("slerp", s, DIV_BY_ZERO);
+			TH_MATH_ERROR("slerp", s, MathError::DivByZero);
 			return vec<real, N>(nan());
 		}
 
@@ -118,7 +118,7 @@ namespace theoretica {
 	inline real smoothstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
-			TH_MATH_ERROR("smoothstep", x1, DIV_BY_ZERO);
+			TH_MATH_ERROR("smoothstep", x1, MathError::DivByZero);
 			return nan();
 		}
 
@@ -134,7 +134,7 @@ namespace theoretica {
 	inline real smootherstep(real x1, real x2, real interp) {
 
 		if(x1 == x2) {
-			TH_MATH_ERROR("smootherstep", x1, DIV_BY_ZERO);
+			TH_MATH_ERROR("smootherstep", x1, MathError::DivByZero);
 			return nan();
 		}
 
@@ -190,12 +190,12 @@ namespace theoretica {
 	inline vec<real, N> bezier(const std::vector<vec<real, N>>& points, real t) {
 		
 		if(points.size() < 2) {
-			TH_MATH_ERROR("bezier", points.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("bezier", points.size(), MathError::InvalidArgument);
 			return vec<real, N>(nan());
 		}
 
 		if(t < 0 || t > 1) {
-			TH_MATH_ERROR("bezier", t, INVALID_ARGUMENT);
+			TH_MATH_ERROR("bezier", t, MathError::InvalidArgument);
 			return vec<real, N>(nan());
 		}
 
@@ -251,7 +251,7 @@ namespace theoretica {
 	inline std::vector<spline_node> cubic_splines(DataPoints p) {
 
 		if(p.size() < 2) {
-			TH_MATH_ERROR("cubic_splines", p.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("cubic_splines", p.size(), MathError::InvalidArgument);
 			return {spline_node(nan(), nan(), nan(), nan(), nan())};
 		}
 
@@ -320,12 +320,12 @@ namespace theoretica {
 		const Dataset1& x, const Dataset2& y) {
 
 		if(x.size() < 2) {
-			TH_MATH_ERROR("cubic_splines", x.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("cubic_splines", x.size(), MathError::InvalidArgument);
 			return {spline_node(nan(), nan(), nan(), nan(), nan())};
 		}
 
 		if(x.size() != y.size()) {
-			TH_MATH_ERROR("cubic_splines", x.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("cubic_splines", x.size(), MathError::InvalidArgument);
 			return {spline_node(nan(), nan(), nan(), nan(), nan())};
 		}
 

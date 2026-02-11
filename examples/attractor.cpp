@@ -54,7 +54,7 @@ vec3 f(real t, vec3 v) {
 int main() {
 
     // Solve the system of differential equations using Runge-Kutta's method
-    ode::ode_solution3d solution = ode::solve_euler(
+    auto solution = ode::solve_rk4(
         f, x0, t0, tf, timestep
     );
 

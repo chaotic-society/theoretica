@@ -90,7 +90,7 @@ namespace theoretica {
 	inline void swap_bit_reverse(Vector& x, unsigned int m) {
 
 		if (x.size() < (uint64_t(1) << m)) {
-			TH_MATH_ERROR("swap_bit_reverse", x.size(), INVALID_ARGUMENT);
+			TH_MATH_ERROR("swap_bit_reverse", x.size(), MathError::InvalidArgument);
 			return;
 		}
 
