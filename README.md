@@ -8,6 +8,8 @@
 
 Theoretica provides access to numerical methods with applications in science and engineering, is easy to setup and use, and is completely open source.  Applications include **scientific computing**, statistical analysis of data and numerical approximation. The library is tested using [Chebyshev](https://github.com/chaotic-society/chebyshev), a unit testing framework specifically developed for scientific and numerical software.
 
+If you want to join the project and bring your expertise, make sure to read the [Onboarding Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/ONBOARDING.md) and the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md). Your help is valuable!
+
 ## A short example
 
 The following code solves a differential equation, such as the Lorenz attractor, and writes the result to file:
