@@ -199,13 +199,15 @@ namespace theoretica {
 			return vec<real, N>(nan());
 		}
 
-		for (int index = points.size(); index > 1; --index) {
+		std::vector<vec<real, N>> p = points;
+
+		for (int index = p.size(); index > 1; --index) {
 
 			for (int i = 0; i < index - 1; ++i)
-				points[i] = lerp(points[i], points[i + 1], t);
+				p[i] = lerp(p[i], p[i + 1], t);
 		}
 
-		return points[0];
+		return p[0];
 	}
 
 
@@ -271,7 +273,7 @@ namespace theoretica {
 		gamma[0] = 0;
 
 		std::vector<real> b(n);
-		std::vector<real> c(n);
+		std::vector<real> c(n + 1);
 		std::vector<real> d(n);
 
 		for (unsigned int i = 0; i < n; ++i)
@@ -345,7 +347,7 @@ namespace theoretica {
 		gamma[0] = 0;
 
 		std::vector<real> b(n);
-		std::vector<real> c(n);
+		std::vector<real> c(n + 1);
 		std::vector<real> d(n);
 
 		for (unsigned int i = 0; i < n; ++i)
