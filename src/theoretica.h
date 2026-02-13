@@ -17,7 +17,6 @@
 
 // IO module
 #include "io/io.h"
-#include "io/strings.h"
 #include "io/format_csv.h"
 
 // Real functions

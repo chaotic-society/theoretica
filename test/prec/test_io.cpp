@@ -16,8 +16,33 @@ template<unsigned int N>
 real absmax(const vec<real, N>& v) {
 
 	real max = 0.0;
-	for (real x : v)
-		max = std::max(max, std::abs(x));
+	for (real x : v) {
+
+		const real abs_x = std::abs(x);
+		
+		// Check for NaN
+		if (abs_x != abs_x)
+			max = inf();
+
+		max = std::max(max, abs_x);
+	}
+
+	return max;
+}
+
+template<unsigned int N, unsigned int K>
+real absmax(const mat<real, N, K>& v) {
+
+	real max = 0.0;
+	for (real x : v) {
+
+		const real abs_x = std::abs(x);
+		
+		if (abs_x != abs_x)
+			max = inf();
+
+		max = std::max(max, abs_x);
+	}
 
 	return max;
 }
@@ -30,6 +55,12 @@ int main(int argc, char const *argv[]) {
 	random::random_source rnd = ctx.random->get_rnd();
 	
 	io::println("If you see this, everything is going as intended.");
+
+
+	auto str_opt = prec::equation_options<std::string>(
+		0, prec::distance::hamming
+	);
+
 
 	// Vector to CSV without header
 	{
@@ -90,5 +121,39 @@ int main(int argc, char const *argv[]) {
 		io::read_csv("./test/prec/test.csv", w);
 
 		ctx.equals("write_csv/read_csv(vec<real>, header)", absmax(v - w), 0.0, 1E-07);
+	}
+
+
+	// Matrix to CSV without header
+	{
+
+		// Generate a random matrix
+		mat<real, 100, 100> A;
+		for (size_t i = 0; i < A.rows(); i++)
+			for (size_t j = 0; j < A.cols(); j++)
+				A(i, j) = rnd.gaussian(0, 1);
+		
+		// Back-and-forth write and reading test
+		io::write_csv("./test/prec/test.csv", A);
+
+		mat<real> B;
+		io::read_csv("./test/prec/test.csv", B);
+
+		ctx.equals("write_csv/read_csv(mat<real, N, M>)", absmax(A - B), 0.0, 1E-07);
+	}
+
+	// Test CSV tokenization and parsing
+	{
+
+		std::string line = "  1.2,  \"3151,	 726\", 	  \"135.153161,135136\"   	";
+		std::vector<std::string> tokens = io::parse_csv(line);
+
+		ctx.equals("parse_csv", tokens.size(), 3, 0);
+
+		if (tokens.size() >= 3) {
+			ctx.equals("parse_csv", tokens[0], std::string("1.2"), str_opt);
+			ctx.equals("parse_csv", tokens[1], std::string("3151,	 726"), str_opt);
+			ctx.equals("parse_csv", tokens[2], std::string("135.153161,135136"), str_opt);
+		}
 	}
 }
