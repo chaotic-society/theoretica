@@ -87,8 +87,18 @@ namespace io {
 				col.emplace_back(nan());
 			}
 		}
-		
-		v = col;
+
+		// Handle mismatched sizes with empty values (NaN)
+		if (v.size() > col.size()) {
+
+			for (size_t i = 0; i < col.size(); i++)
+				v[i] = col[i];
+
+			for (size_t i = col.size(); i < v.size(); i++)
+				v[i] = nan();
+		} else {
+			v = col;
+		}
 	}
 
 

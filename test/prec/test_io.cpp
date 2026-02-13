@@ -11,6 +11,7 @@
 using namespace chebyshev;
 using namespace theoretica;
 
+
 template<unsigned int N>
 real absmax(const vec<real, N>& v) {
 
@@ -20,6 +21,7 @@ real absmax(const vec<real, N>& v) {
 
 	return max;
 }
+
 
 int main(int argc, char const *argv[]) {
 	
@@ -45,6 +47,30 @@ int main(int argc, char const *argv[]) {
 		io::read_csv("./test/prec/test.csv", w);
 
 		ctx.equals("write_csv/read_csv(vec<real>)", absmax(v - w), 0.0, 1E-07);
+	}
+
+	// Vector to CSV without header
+	{
+
+		// Generate a random vector
+		vec<real, 1000> v;
+		for (size_t i = 0; i < v.size(); i++)
+			v[i] = rnd.gaussian(0, 1);
+		
+		// Back-and-forth write and reading test
+		io::write_csv("./test/prec/test.csv", v);
+
+		vec<real, 1000> w;
+		io::read_csv("./test/prec/test.csv", w);
+
+		ctx.equals("write_csv/read_csv(vec<real, N>)", absmax(v - w), 0.0, 1E-07);
+
+
+		// Check that, for mismatched sizes, the remaining empty elements are filled with NaN
+		vec<real, 1001> z;
+		io::read_csv("./test/prec/test.csv", z);
+
+		ctx.equals("read_csv(vec<real, N>) (NaN)", is_nan(z[1000]), true, 0);
 	}
 
 
