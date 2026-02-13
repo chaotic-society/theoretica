@@ -156,7 +156,7 @@ namespace theoretica {
 		/// @param m The matrix to copy.
 		///
 		/// Copies all elements from the given matrix `m` into this matrix.
-		template<typename Matrix>
+		template<typename Matrix, enable_matrix<Matrix> = true>
 		mat(const Matrix& m) {
 			algebra::mat_copy(*this, m);
 		}
@@ -216,6 +216,34 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m; ++i)
 				get(i, i) = diagonal;
+		}
+
+
+		/// Constructor that initializes a matrix from a vector in row-major order.
+		///
+		/// @tparam Vector The vector type containing the elements.
+		/// @param v The vector to pack into the matrix.
+		/// @param row_size The number of rows in the matrix.
+		/// @param col_size The number of columns in the matrix.
+		/// The size of the vector must match the total number of elements in the matrix (rows * columns).
+		template<typename Vector, enable_vector<Vector> = true>
+		mat(const Vector& v, unsigned int row_size = N, unsigned int col_size = K) {
+
+			if(row_size != N || col_size != K) {
+				TH_MATH_ERROR("mat::mat", row_size * col_size, MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			if(v.size() != size()) {
+				TH_MATH_ERROR("mat::mat", v.size(), MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					get(i, j) = v[i * cols() + j];
 		}
 
 
@@ -619,6 +647,11 @@ namespace theoretica {
 			Vector res;
 			res.resize(size());
 
+			if (res.size() != size()) {
+				TH_MATH_ERROR("mat::unpack", res.size(), MathError::InvalidArgument);
+				return algebra::vec_error(res);
+			}
+
 			for (size_t i = 0; i < rows(); i++)
 				for (size_t j = 0; j < cols(); j++)
 					res[i * cols() + j] = get(i, j);
@@ -765,11 +798,8 @@ namespace theoretica {
 		/// Copy constructor for creating a matrix from another matrix.
 		/// @tparam Matrix A compatible matrix type.
 		/// @param m The matrix to copy from.
-		template <
-			typename Matrix, enable_matrix<Matrix>
-		>
+		template <typename Matrix, enable_matrix<Matrix>>
 		mat(const Matrix& m) {
-			resize(m.rows(), m.cols());
 			algebra::mat_copy(*this, m);
 		}
 
@@ -827,6 +857,30 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m; ++i)
 				get(i, i) = diagonal;
+		}
+
+
+		/// Constructor that initializes a matrix from a vector in row-major order.
+		///
+		/// @tparam Vector The vector type containing the elements.
+		/// @param v The vector to pack into the matrix.
+		/// @param row_size The number of rows in the matrix.
+		/// @param col_size The number of columns in the matrix.
+		/// The size of the vector must match the total number of elements in the matrix (rows * columns).
+		template<typename Vector, enable_vector<Vector> = true>
+		mat(const Vector& v, unsigned int row_size, unsigned int col_size) {
+			
+			resize(row_size, col_size);
+
+			if(v.size() != size()) {
+				TH_MATH_ERROR("mat::mat", v.size(), MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					get(i, j) = v[i * cols() + j];
 		}
 
 
@@ -1272,6 +1326,29 @@ namespace theoretica {
 		/// @return The total number of elements in the matrix.
 		inline unsigned int size() const {
 			return rows() * cols();
+		}
+
+
+		/// Unpack the matrix elements into a vector.
+		///
+		/// @tparam Vector The type of the vector to unpack into (default is vec<Type>).
+		/// @return A vector containing all elements of the matrix in row-major order.
+		template<typename Vector = vec<Type>>
+		inline Vector unpack() const {
+			
+			Vector res;
+			res.resize(size());
+
+			if (res.size() != size()) {
+				TH_MATH_ERROR("mat::unpack", res.size(), MathError::InvalidArgument);
+				return algebra::vec_error(res);
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					res[i * cols() + j] = get(i, j);
+
+			return res;
 		}
 
 

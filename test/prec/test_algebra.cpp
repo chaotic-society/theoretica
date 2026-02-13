@@ -23,8 +23,15 @@ real linf_norm(const Structure& A) {
 
 	real m = 0.0;
 
-	for (const auto& x : A)
-		m = std::max(m, std::abs(x));
+	for (const auto& x : A) {
+
+		const auto abs_x = std::abs(x);
+
+		if (abs_x != abs_x)
+			return inf();
+
+		m = std::max(m, abs_x);
+	}
 
 	return m;
 }
@@ -168,10 +175,9 @@ int main(int argc, char const *argv[]) {
 
 	auto ctx = prec::make_context("algebra", argc, argv);
 	ctx.settings.outputFiles = { "test/prec/test_algebra.csv" };
-
-	// algebra.h
-
 	rnd = ctx.random->get_rnd();
+	
+	// algebra.h
 
 	const unsigned int N = 100;
 
@@ -293,6 +299,24 @@ int main(int argc, char const *argv[]) {
 
 
 	// mat.h
+
+	test_residual(ctx, "mat::unpack", [&]() {
+
+		mat<real> A = rand_mat(0.0, 1.0, N, N);
+		vec<real> v = A.unpack();
+		mat<real> B (v, A.rows(), A.cols());
+
+		return linf_norm(A - B);
+	});
+
+	test_residual(ctx, "mat<N, K>::unpack", [&]() {
+
+		mat<real, 4, 4> A = rand_mat(0.0, 1.0, 4, 4);
+		vec<real, 16> v = A.unpack();
+		mat<real, 4, 4> B (v, A.rows(), A.cols());
+
+		return linf_norm(A - B);
+	});
 
 	// vec.h
 
