@@ -6,8 +6,6 @@
 #include "theoretica.h"
 #include "chebyshev.h"
 
-#include "io/format_csv.h"
-
 using namespace chebyshev;
 using namespace theoretica;
 
@@ -53,14 +51,27 @@ int main(int argc, char const *argv[]) {
 	auto ctx = prec::make_context("io");
 	ctx.settings.outputFiles = { "test/prec/prec_io.csv" };
 	random::random_source rnd = ctx.random->get_rnd();
+
+	// io.h
 	
 	io::println("If you see this, everything is going as intended.");
 
 
+	// strings.h
+
 	auto str_opt = prec::equation_options<std::string>(
-		0, prec::distance::hamming
+		0.0, prec::distance::hamming
 	);
 
+	{
+		ctx.equals("trim", io::trim("  \"Hello, World!\"  "), std::string("\"Hello, World!\""), str_opt);
+		ctx.equals("trim", io::trim(" 	   many words here  !!!   	 "), std::string("many words here  !!!"), str_opt);
+		ctx.equals("unquote", io::unquote("\"Hello, World!\""), std::string("Hello, World!"), str_opt);
+		ctx.equals("unquote", io::unquote("\"this quote is open"), std::string("\"this quote is open"), str_opt);
+	}
+
+
+	// format_csv.h
 
 	// Vector to CSV without header
 	{
@@ -152,5 +163,20 @@ int main(int argc, char const *argv[]) {
 			ctx.equals("parse_csv", tokens[1], std::string("3151,	 726"), str_opt);
 			ctx.equals("parse_csv", tokens[2], std::string("135.153161,135136"), str_opt);
 		}
+	}
+
+
+	// data_table.h
+
+	{
+		data_table table;
+
+		table.insert("A", {1, 2, 3});
+		table.insert("B", {4, 5});
+		table.insert("C", {6, 7, 8, 9});
+
+		ctx.equals("data_table.columns()", table.cols(), 3, 0);
+		ctx.equals("data_table.rows()", table.rows(), 4, 0);
+		ctx.equals("data_table[\"A\"][1]", table["A"][1], 2.0, 0);
 	}
 }

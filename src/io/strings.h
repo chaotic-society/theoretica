@@ -18,7 +18,7 @@ namespace io {
 		if (str.empty())
 			return false;
 
-		const std::string allowed = "1234567890.,Ee+-";
+		const std::string allowed = "1234567890.,Ee+-naif";
 
 		for (char c : str)
 			if (allowed.find(c) == std::string::npos)
@@ -47,7 +47,7 @@ namespace io {
 	}
 
 
-	/// Remove leading and trailing double quotes from a string, if present.
+	/// Remove leading and trailing double quotes from a string, if both are present.
 	///
 	/// @param str The input string
 	/// @return The string with quotes removed

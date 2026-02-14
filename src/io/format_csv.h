@@ -12,6 +12,7 @@
 
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
+#include "./data_table.h"
 #include "./strings.h"
 
 
@@ -48,6 +49,29 @@ namespace io {
 
 		fields.emplace_back(field);
 		return fields;
+	}
+
+
+	/// Given a string entry, sanitize it for printing to a CSV file.
+	/// If it contains commas or whitespace, quotes are added before and after the string.
+	///
+	/// @param str The string to check for relevant characters.
+	/// @return The sanitized string, ready for printing to CSV.
+	inline std::string quote_csv(const std::string& str) {
+
+		bool has_whitespace = false;
+		for (char c : str) {
+
+			if (std::isspace(c)) {
+				has_whitespace = true;
+				break;
+			}
+		}
+
+		if (str.find(',') != std::string::npos || has_whitespace)
+			return "\"" + str + "\"";
+		else
+			return str;
 	}
 
 	
@@ -202,13 +226,13 @@ namespace io {
 
 		std::vector<std::string> first_row = parse_csv(line);
 
-		// Check if first line is a header (all entries are not numbers)
-		bool has_header = true;
+		// Check if first line is a header
+		bool has_header = false;
 
 		for (const auto& cell : first_row) {
 
-			if (io::is_number(cell)) {
-				has_header = false;
+			if (!io::is_number(cell)) {
+				has_header = true;
 				break;
 			}
 		}
@@ -282,6 +306,154 @@ namespace io {
 		for (size_t i = rows.size(); i < A.rows(); ++i)
 			for (size_t j = 0; j < A.cols(); ++j)
 				A(i, j) = nan();
+	}
+
+
+	/// Write a data_table to file in the CSV format.
+	///
+	/// @param filename The name of the file
+	/// @param table The data_table to write
+	inline void write_csv(
+		const std::string& filename, const data_table& table,
+		const std::string& delimiter = ", ", unsigned int precision = 8) {
+
+		std::ofstream file (filename);
+
+		if (!file.is_open()) {
+			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			return;
+		}
+
+		// Write header
+		bool first = true;
+		for (const std::string& name : table.header()) {
+
+			if (!first)
+				file << delimiter;
+
+			file << quote_csv(name);
+			first = false;
+		}
+		file << std::endl;
+
+		// Write data rows
+		size_t max_rows = table.rows();
+		for (size_t i = 0; i < max_rows; ++i) {
+
+			first = true;
+			for (const auto& col : table.data()) {
+
+				if (!first)
+					file << delimiter;
+
+				if (i < col.size())
+					file << std::setprecision(precision) << col[i];
+				else
+					file << nan();
+
+				first = false;
+			}
+			file << std::endl;
+		}
+
+	}
+
+
+	/// Read a data_table from a file in the CSV format.
+	///
+	/// @param filename The name of the file
+	/// @param table A reference to the data_table to overwrite
+	/// If present, the header is read as column names. If the file has fewer rows than the data_table,
+	/// the remaining rows are filled with NaN.
+	inline void read_csv(const std::string& filename, data_table& table) {
+
+		std::ifstream file (filename);
+		std::string line;
+
+		if (!file.is_open()) {
+			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			return;
+		}
+
+		// Read header
+		if (!std::getline(file, line))
+			return;
+
+		std::vector<std::string> first_row = parse_csv(line);
+		
+		if (first_row.empty())
+			return;
+		
+		std::vector<std::string> column_names;
+		size_t num_cols = first_row.size();
+		std::vector<vec<real>> columns (num_cols);
+
+		// Check if first line is a header
+		bool has_header = false;
+
+		for (const auto& cell : first_row) {
+
+			if (!io::is_number(cell)) {
+				has_header = true;
+				break;
+			}
+		}
+
+		// If first line is not a header, process it as data
+		if (!has_header) {
+
+			for (size_t j = 0; j < first_row.size(); ++j) {
+
+				std::string cell = first_row[j];
+				std::replace(cell.begin(), cell.end(), ',', '.');
+
+				try {
+					columns[j].append(std::stod(cell));
+				} catch (const std::invalid_argument& e) {
+					columns[j].append(nan());
+				}
+			}
+		
+			// Generate default column names
+			for (size_t j = 0; j < num_cols; ++j) {
+				column_names.emplace_back("col" + std::to_string(j));
+			}
+		
+		} else {
+		
+			for (const auto& name : first_row)
+				column_names.emplace_back(io::unquote(io::trim(name)));
+		}
+		first_row.clear();
+
+		// Read data rows
+		while (std::getline(file, line)) {
+
+			if (line.empty())
+				continue;
+
+			std::vector<std::string> cells = parse_csv(line);
+
+			for (size_t j = 0; j < num_cols; ++j) {
+
+				if (j < cells.size()) {
+					std::string cell = cells[j];
+					std::replace(cell.begin(), cell.end(), ',', '.');
+
+					try {
+						real val = std::stod(cell);
+						columns[j].append(val);
+					} catch (const std::invalid_argument& e) {
+						columns[j].append(nan());
+					}
+				} else {
+					columns[j].append(nan());
+				}
+			}
+		}
+		
+		for (size_t j = 0; j < num_cols; ++j)
+			table.insert(column_names[j], columns[j]);
 	}
 
 

@@ -17,6 +17,7 @@
 
 // IO module
 #include "io/io.h"
+#include "io/data_table.h"
 #include "io/format_csv.h"
 
 // Real functions
