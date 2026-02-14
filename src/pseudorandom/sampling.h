@@ -498,6 +498,18 @@ namespace theoretica {
 		template<typename Vector>
 		inline void fill(Vector& x, size_t N) {
 
+			// Make sure that the buffer has enough space
+			if (x.size() < N) {
+
+				x.resize(N);
+
+				if (x.size() < N) {
+					TH_MATH_ERROR("pdf_sampler::fill", N, MathError::InvalidArgument);
+					algebra::vec_error(x);
+					return;
+				}
+			}
+
 			for (size_t i = 0; i < N; ++i)
 				x[i] = next();
 		}
@@ -507,8 +519,8 @@ namespace theoretica {
 		template<typename Vector>
 		inline void fill(Vector& x) {
 
-			for (size_t i = 0; i < x.size(); ++i)
-				x[i] = next();
+			for (auto& x_i : x)
+				x_i = next();
 		}
 
 
