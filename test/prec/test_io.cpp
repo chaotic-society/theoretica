@@ -68,8 +68,7 @@ int main(int argc, char const *argv[]) {
 
 		// Generate a random vector
 		vec<real> v (N);
-		for (size_t i = 0; i < N; i++)
-			v[i] = rnd.gaussian(0, 1);
+		rnd.gaussian(v, 0, 1);
 		
 		// Back-and-forth write and reading test
 		io::write_csv("./test/prec/test.csv", v);
@@ -85,8 +84,7 @@ int main(int argc, char const *argv[]) {
 
 		// Generate a random vector
 		vec<real, 1000> v;
-		for (size_t i = 0; i < v.size(); i++)
-			v[i] = rnd.gaussian(0, 1);
+		rnd.gaussian(v, 0, 1);
 		
 		// Back-and-forth write and reading test
 		io::write_csv("./test/prec/test.csv", v);
@@ -111,8 +109,7 @@ int main(int argc, char const *argv[]) {
 
 		// Generate a random vector
 		vec<real> v (N);
-		for (size_t i = 0; i < N; i++)
-			v[i] = rnd.gaussian(0, 1);
+		rnd.gaussian(v, 0, 1);
 		
 		// Back-and-forth write and reading test
 		io::write_csv("./test/prec/test.csv", v, "Vector");
@@ -129,17 +126,17 @@ int main(int argc, char const *argv[]) {
 
 		// Generate a random matrix
 		mat<real, 100, 100> A;
-		for (size_t i = 0; i < A.rows(); i++)
-			for (size_t j = 0; j < A.cols(); j++)
-				A(i, j) = rnd.gaussian(0, 1);
-		
+		rnd.gaussian(A, 0, 1);
+
 		// Back-and-forth write and reading test
 		io::write_csv("./test/prec/test.csv", A);
 
 		mat<real> B;
 		io::read_csv("./test/prec/test.csv", B);
-
 		ctx.equals("write_csv/read_csv(mat<real, N, M>)", absmax(A - B), 0.0, 1E-07);
+
+		mat<real> C = io::read_csv<mat<real>>("./test/prec/test.csv");
+		ctx.equals("write_csv/read_csv<mat<real>>()", absmax(A - C), 0.0, 1E-07);
 	}
 
 	// Test CSV tokenization and parsing

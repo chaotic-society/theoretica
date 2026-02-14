@@ -8,6 +8,7 @@
 
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
@@ -107,14 +108,17 @@ namespace io {
 
 		if (io::is_number(line)) {
 			try {
+				std::replace(line.begin(), line.end(), ',', '.');
 				real first = std::stod(line);
 				col.emplace_back(first);
 			} catch (const std::invalid_argument& e) {}
 		}
 
+		// All remaining lines are data
 		while (std::getline(file, line)) {
 
 			line = io::unquote(io::trim(line));
+			std::replace(line.begin(), line.end(), ',', '.');
 
 			try {
 				real val = std::stod(line);
@@ -214,7 +218,9 @@ namespace io {
 
 			std::vector<real> row;
 
-			for (const auto& cell : first_row) {
+			for (auto cell : first_row) {
+
+				std::replace(cell.begin(), cell.end(), ',', '.');
 
 				try {
 					row.emplace_back(std::stod(cell));
@@ -237,7 +243,9 @@ namespace io {
 			std::vector<std::string> cells = parse_csv(line);
 			std::vector<real> row;
 
-			for (const auto& cell : cells) {
+			for (auto cell : cells) {
+
+				std::replace(cell.begin(), cell.end(), ',', '.');
 
 				try {
 					row.emplace_back(std::stod(cell));
@@ -260,9 +268,9 @@ namespace io {
 		}
 
 		// Fill matrix with parsed data
-		for (size_t i = 0; i < rows.size() && i < A.rows(); ++i) {
+		for (size_t i = 0; i < min(rows.size(), A.rows()); ++i) {
 
-			for (size_t j = 0; j < rows[i].size() && j < A.cols(); ++j)
+			for (size_t j = 0; j < min(rows[i].size(), A.cols()); ++j)
 				A(i, j) = rows[i][j];
 
 			// Pad remaining columns with NaN
@@ -271,9 +279,26 @@ namespace io {
 		}
 
 		// Pad remaining rows with NaN
-		for (size_t i = rows.size(); i < N; ++i)
+		for (size_t i = rows.size(); i < A.rows(); ++i)
 			for (size_t j = 0; j < A.cols(); ++j)
 				A(i, j) = nan();
+	}
+
+
+	/// Read a generic data structure from a file in the CSV format,
+	/// specifying the target type. Supported types include vec<> and mat<>.
+	///
+	/// @param filename The name of the file
+	/// @tparam Type The type of the data structure to read
+	/// @return The data structure read from the file
+	/// The template parameter Type should specify
+	/// a valid supported type, e.g. mat<real>, mat3, vec<real> and so on:
+	/// auto A = read_csv<mat3>("myfile.csv");
+	template<typename Type>
+	inline Type read_csv(const std::string& filename) {
+		Type A;
+		read_csv(filename, A);
+		return A;
 	}
 
 }}
