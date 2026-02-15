@@ -167,6 +167,108 @@ namespace io {
 	}
 
 
+	/// Read a specific column of a CSV file as a vector.
+	/// Enables reading a single column from a CSV file which may contain multiple.
+	/// The file is expected to have a header row, and the column is identified by its header name.
+	/// If the column is not found, the vector is filled with NaN.
+	///
+	/// @param filename The name of the file
+	/// @param v A reference to the vector to overwrite
+	/// @param col_name The header name of the column
+	/// @param trim_nan If true, trailing NaN values are trimmed from the vector (default is true). In a larger dataset,
+	/// it may happen that other columns are longer than the picked one, and so its missing values are filled with NaN.
+	template<typename Type, unsigned int N>
+	inline void read_csv(const std::string& filename, const std::string& col_name, vec<Type, N>& v, bool trim_nan = true) {
+
+		std::ifstream file (filename);
+		std::string line;
+
+		if (!file.is_open()) {
+			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			algebra::vec_error(v);
+			return;
+		}
+
+		// Read header
+		if (!std::getline(file, line))
+			return;
+
+		// Find the index of the specified column
+		std::vector<std::string> headers = parse_csv(line);
+		int col_index = -1;
+		for (size_t i = 0; i < headers.size(); ++i) {
+
+			if (headers[i] == col_name) {
+				col_index = i;
+				break;
+			}
+		}
+
+		// No column was found
+		if (col_index == -1) {
+			TH_MATH_ERROR("io::read_csv", col_name, MathError::InvalidArgument);
+
+			if (!v.size())
+				v.resize(1);
+
+			for (size_t i = 0; i < v.size(); ++i)
+				v[i] = nan();
+
+			return;
+		}
+
+		// Read data from the specified column
+		std::vector<real> data;
+		std::vector<std::string> cells;
+
+		while (std::getline(file, line)) {
+
+			cells = parse_csv(line);
+
+			if (size_t(col_index) < cells.size()) {
+
+				std::string cell = cells[col_index];
+				std::replace(cell.begin(), cell.end(), ',', '.');
+
+				try {
+					const real val = std::stod(cell);
+					data.emplace_back(val);
+				} catch (const std::invalid_argument& e) {
+					data.emplace_back(nan());
+				}
+			} else {
+				data.emplace_back(nan());
+			}
+		}
+
+		// Trim trailing NaN values if enabled
+		size_t actual_size = data.size();
+
+		if (trim_nan)
+			while (actual_size > 0 && is_nan(data[actual_size - 1]))
+				actual_size--;
+
+		// Need to allocate space
+		if (v.size() < actual_size) {
+
+			v.resize(actual_size);
+
+			if (v.size() < actual_size) {
+				TH_MATH_ERROR("io::read_csv", col_name, MathError::ImpossibleOperation);
+				algebra::vec_error(v);
+				return;
+			}
+		}
+
+		for (size_t i = 0; i < actual_size; i++)
+			v[i] = data[i];
+
+		for (size_t i = actual_size; i < v.size(); i++)
+			v[i] = nan();
+
+	}
+
+
 	/// Write a matrix to file in the CSV format.
 	///
 	/// @param filename The name of the file

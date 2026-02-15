@@ -128,7 +128,11 @@ int main(int argc, char const *argv[]) {
 		vec<real> w;
 		io::read_csv("./test/prec/test.csv", w);
 
+		vec<real> z;
+		io::read_csv("./test/prec/test.csv", "Vector", z);
+
 		ctx.equals("write_csv/read_csv(vec<real>, header)", absmax(v - w), 0.0, 1E-07);
+		ctx.equals("read_csv(vec<real>, col_name)", absmax(v - z), 0.0, 1E-07);
 	}
 
 
