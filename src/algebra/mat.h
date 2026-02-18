@@ -662,12 +662,14 @@ namespace theoretica {
 		/// allocated matrices cannot change size, this function
 		/// only checks whether the target size is the same
 		/// as the matrix's.
-		inline mat<Type, N, K> resize(unsigned int n, unsigned int k) const {
+		inline mat<Type, N, K> resize(unsigned int n, unsigned int k) {
 
 			if(rows() != n) {
 				TH_MATH_ERROR("mat::resize", n, MathError::InvalidArgument);
+				algebra::mat_error(*this);
 			} else if(cols() != k) {
 				TH_MATH_ERROR("mat::resize", k, MathError::InvalidArgument);
+				algebra::mat_error(*this);
 			}
 
 			return *this;

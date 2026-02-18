@@ -27,7 +27,7 @@
 namespace theoretica {
 
 
-	/// @namespace theoretica::algebra Linear algebra routines
+	/// @namespace theoretica::algebra Linear algebra routines.
 	namespace algebra {
 
 
@@ -1103,11 +1103,11 @@ namespace theoretica {
 		/// @param A The first matrix
 		/// @param B The second matrix
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to 10 * MACH_EPSILON
+		/// in the comparison, defaults to ALGEBRA_ELEMENT_TOL
 		/// @return A boolean value
 		template<typename Matrix1, typename Matrix2>
 		inline bool mat_equals(
-			const Matrix1& A, const Matrix2& B, real tolerance = 10 * MACH_EPSILON) {
+			const Matrix1& A, const Matrix2& B, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			if(A.rows() != B.rows() || A.cols() != B.cols())
 				return false;
@@ -1237,10 +1237,10 @@ namespace theoretica {
 		/// Returns whether the matrix is diagonal
 		/// @param m The matrix to consider
 		/// @param tolerance The tolerance to allow for
-		/// in the comparison, defaults to 10 * MACH_EPSILON
+		/// in the comparison, defaults to ALGEBRA_ELEMENT_TOL
 		/// @return A boolean value
 		template<typename Matrix>
-		inline bool is_diagonal(const Matrix& m, real tolerance = 10 * MACH_EPSILON) {
+		inline bool is_diagonal(const Matrix& m, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
@@ -1320,7 +1320,7 @@ namespace theoretica {
 		/// @return A real number between 0 and 1 representing the
 		/// proportion of non-zero elements of the matrix.
 		template<typename Matrix, enable_matrix<Matrix> = true>
-		inline real density(const Matrix& A, real tolerance = 1E-12) {
+		inline real density(const Matrix& A, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			long unsigned int n = 0;
 
@@ -1343,7 +1343,7 @@ namespace theoretica {
 		/// @return A real number between 0 and 1 representing the
 		/// proportion of zero elements of the matrix.
 		template<typename Matrix, enable_matrix<Matrix> = true>
-		inline real sparsity(const Matrix& A, real tolerance = 1E-12) {
+		inline real sparsity(const Matrix& A, real tolerance = ALGEBRA_ELEMENT_TOL) {
 
 			return 1.0 - density(A, tolerance);
 		}
@@ -1719,7 +1719,7 @@ namespace theoretica {
 
 
 		/// Solve the linear system \f$A \vec x = \vec b\f$, finding \f$\vec x\f$.
-		/// In-place LU decomposition is used on A, followed by forward and backward
+		/// In-place LU decomposition is used on a copy of A, followed by forward and backward
 		/// elimination.
 		/// 
 		/// @param A The matrix of the linear system
