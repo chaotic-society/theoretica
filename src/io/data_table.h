@@ -228,16 +228,6 @@ namespace theoretica {
 		}
 
 
-		/// Access a column by index, returning a const reference to the column vector.
-		/// Does not perform bounds checking, so the behavior is undefined if the index is out of range,
-		/// for safer access consider using the at() method instead, which performs bounds checking.
-		/// @param idx The index of the column to access.
-		/// @return A const reference to the column vector at the given index.
-		inline const vec<real>& column(size_t idx) const {
-			return columns[idx];
-		}
-
-
 		/// Select a subset of columns from the table, returning a new table containing only the selected columns.
 		/// If a column name in the selection list is not found in the data table, it is ignored.
 		///

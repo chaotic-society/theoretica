@@ -18,7 +18,7 @@ namespace io {
 		if (str.empty())
 			return false;
 
-		const std::string allowed = "1234567890.,Ee+-naif";
+		const std::string allowed = "1234567890.,Ee+-Nnaif";
 
 		for (char c : str)
 			if (allowed.find(c) == std::string::npos)

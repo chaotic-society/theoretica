@@ -701,7 +701,7 @@ namespace theoretica {
 		unsigned int steps = 0) {
 
 		// Effective order of the polynomial
-		const unsigned int n = p.find_order();
+		const unsigned int n = p.degree();
 		p /= p.coeff[n];
 
 		// Absolute value of the highest coefficient

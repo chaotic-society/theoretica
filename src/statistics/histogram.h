@@ -32,27 +32,33 @@ namespace theoretica {
 			size_t N {0};
 
 			/// Bins
-			std::vector<unsigned int> bin_counts;
+			std::vector<unsigned int> bin_counts {};
 
-			/// Upper extreme of the interval to consider
-			real range_max;
+			/// Upper extreme of the histogram interval
+			real range_max {nan()};
 
-			/// Lower extreme of the interval to consider
-			real range_min;
+			/// Lower extreme of the histogram interval
+			real range_min {nan()};
 			
 			/// Maximum value of the data
-			real value_max;
+			real value_max {nan()};
 
 			/// Minimum value of the data
-			real value_min;
+			real value_min {nan()};
 
 			/// Running average
-			real run_average;
+			real run_average {0};
 
 			/// Running total sum of squares
-			real run_tss;
+			real run_tss {0};
 
 		public:
+
+			/// Default constructor, creates an empty histogram with no bins and NaN range.
+			///
+			/// Make sure to set the range and bins before inserting any data point,
+			/// otherwise the histogram will not work as intended.
+			histogram() = default;
 
 			/// Construct the histogram from the number of bins and the range.
 			///
@@ -144,6 +150,16 @@ namespace theoretica {
 			}
 
 
+			/// Get the histogram range as a vector of two elements,
+			/// containing the lower and upper extremes.
+			///
+			/// @return A vector containing the lower extreme of the histogram range
+			/// as first element and the upper extreme as second element (accessible with [0] and [1]).
+			inline vec2 range() const {
+				return vec2({range_min, range_max});
+			}
+
+
 			// Statistical functions
 
 
@@ -197,6 +213,24 @@ namespace theoretica {
 			/// @return The total sum of squares of all elements of the histogram.
 			inline real tss() const {
 				return run_tss;
+			}
+
+
+			/// Rebuild the histogram from its parameters, including the bin counts
+			/// and the running statistics (used for file IO).
+			inline void rebuild(
+				const std::vector<unsigned int>& bin_counts,
+				const vec2& range, size_t N, real run_average, real run_tss,
+				real value_min, real value_max) {
+
+				this->bin_counts = bin_counts;
+				this->range_min = range[0];
+				this->range_max = range[1];
+				this->N = N;
+				this->run_average = run_average;
+				this->run_tss = run_tss;
+				this->value_min = value_min;
+				this->value_max = value_max;
 			}
 
 

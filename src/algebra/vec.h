@@ -435,6 +435,21 @@ namespace theoretica {
 		}
 
 
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		///
+		/// The value argument is ignored since the size cannot be changed.
+		inline void resize(size_t n, const Type& value) const {
+			
+			if(N != n) {
+				TH_MATH_ERROR("vec::resize", N, MathError::InvalidArgument);
+			}
+		}
+
+
 		/// Returns an N-dimensional euclidean base unit vector
 		/// with the i-th element set to 1.
 		inline static vec<Type, N> euclidean_base(
@@ -556,11 +571,7 @@ namespace theoretica {
 
 
 		/// Initialize from a list, e.g. {1, 2, 3}
-		vec(std::initializer_list<Type> l) {
-
-			resize(l.size());
-			std::copy(l.begin(), l.end(), &data[0]);
-		}
+		vec(std::initializer_list<Type> l) : data(l) {}
 
 		~vec() = default;
 
@@ -826,6 +837,12 @@ namespace theoretica {
 		/// Change the size of the vector
 		inline void resize(size_t n) {
 			data.resize(n);
+		}
+
+
+		/// Change the size of the vector, filling new elements with the given value
+		inline void resize(size_t n, const Type& value) {
+			data.resize(n, value);
 		}
 
 

@@ -12,6 +12,7 @@
 
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
+#include "../statistics/histogram.h"
 #include "./data_table.h"
 #include "./strings.h"
 
@@ -82,21 +83,38 @@ namespace io {
 	/// @param header An optional header to add for the vector column
 	template<typename Type, unsigned int N>
 	inline void write_csv(
-		const std::string& filename, const vec<Type, N>& v,
-		const std::string& header = "", unsigned int precision = 8) {
+		const std::string& filename, const vec<Type, N>& v, unsigned int precision = 8) {
 
 		std::ofstream file (filename);
-
 		if (!file.is_open()) {
-			
 			// TODO: throw another exception ?
 			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
 			return;
 		}
 
-		if (header != "")
-			file << "\"" << header << "\"" << std::endl;
+		for (size_t i = 0; i < v.size(); ++i)
+			file << std::setprecision(precision) << v[i] << std::endl;
+	}
 
+
+	/// Write a vector to file in the CSV format, with a column header.
+	///
+	/// @param filename The name of the file
+	/// @param v The vector to write
+	/// @param header The header to add for the vector column
+	template<typename Type, unsigned int N>
+	inline void write_csv(
+		const std::string& filename, const std::string& header,
+		const vec<Type, N>& v, unsigned int precision = 8) {
+
+		std::ofstream file (filename);
+		if (!file.is_open()) {
+			// TODO: throw another exception ?
+			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			return;
+		}
+
+		file << "\"" << header << "\"" << std::endl;
 		for (size_t i = 0; i < v.size(); ++i)
 			file << std::setprecision(precision) << v[i] << std::endl;
 	}
@@ -106,10 +124,11 @@ namespace io {
 	///
 	/// @param filename The name of the file
 	/// @param v A reference to the vector to overwrite
+	///
 	/// If present, the header is ignored. If the file has fewer elements than the vector,
 	/// the remaining elements are filled with NaN.
-	template<unsigned int N>
-	inline void read_csv(const std::string& filename, vec<real, N>& v) {
+	template<typename Type, unsigned int N, enable_real<Type> = true>
+	inline void read_csv(const std::string& filename, vec<Type, N>& v) {
 
 		std::ifstream file (filename);
 		std::string line;
@@ -177,8 +196,10 @@ namespace io {
 	/// @param col_name The header name of the column
 	/// @param trim_nan If true, trailing NaN values are trimmed from the vector (default is true). In a larger dataset,
 	/// it may happen that other columns are longer than the picked one, and so its missing values are filled with NaN.
-	template<typename Type, unsigned int N>
-	inline void read_csv(const std::string& filename, const std::string& col_name, vec<Type, N>& v, bool trim_nan = true) {
+	template<typename Type, unsigned int N, enable_real<Type> = true>
+	inline void read_csv(
+		const std::string& filename, const std::string& col_name,
+		vec<Type, N>& v, bool trim_nan = true) {
 
 		std::ifstream file (filename);
 		std::string line;
@@ -206,7 +227,7 @@ namespace io {
 
 		// No column was found
 		if (col_index == -1) {
-			TH_MATH_ERROR("io::read_csv", col_name, MathError::InvalidArgument);
+			TH_MATH_ERROR("io::read_csv", col_index, MathError::InvalidArgument);
 
 			if (!v.size())
 				v.resize(1);
@@ -254,7 +275,7 @@ namespace io {
 			v.resize(actual_size);
 
 			if (v.size() < actual_size) {
-				TH_MATH_ERROR("io::read_csv", col_name, MathError::ImpossibleOperation);
+				TH_MATH_ERROR("io::read_csv", v.size(), MathError::ImpossibleOperation);
 				algebra::vec_error(v);
 				return;
 			}
@@ -265,7 +286,6 @@ namespace io {
 
 		for (size_t i = actual_size; i < v.size(); i++)
 			v[i] = nan();
-
 	}
 
 
@@ -558,6 +578,200 @@ namespace io {
 			table.insert(column_names[j], columns[j]);
 	}
 
+
+	/// Write histogram data to file in the CSV format.
+	///
+	/// @param filename The name of the file
+	/// @param histogram The histogram to save
+	/// @param normalized Whether to write bin counts as frequency (defaults to false)
+	/// @param lower_extreme Whether to write the lower extreme of each bin
+	/// instead of the midpoint (defaults to false).
+	///
+	/// The CSV file will contain a column "bins" containing the midpoint coordinate of each bin
+	/// (or the lower extreme, if lower_extreme is true), a column "counts" containing
+	/// the corresponding bin counts (or frequency, if normalized is true) and additional columns
+	/// with the histogram statistics: "number", "average", "tss", "min" and "max".
+	inline void write_csv(
+		const std::string& filename, const histogram& hist,
+		bool normalized = false, bool lower_extreme = false,
+		const std::string& delimiter = ", ", unsigned int precision = 8) {
+		
+		std::ofstream file (filename);
+		if (!file.is_open()) {
+			TH_MATH_ERROR("io::write_csv", file.is_open(), MathError::ImpossibleOperation);
+			return;
+		}
+
+		const auto bin_counts = hist.bins();
+		const real bin_dx = (hist.range()[1] - hist.range()[0]) / bin_counts.size();
+		real norm_factor = normalized ? hist.number() * bin_dx : 1.0;
+
+		// Keep track of the coordinate of the current bin, starting from the lowest bin edge or center.
+		real bin_value = lower_extreme ? hist.range()[0] : (hist.range()[0] + 0.5 * bin_dx);
+
+		// Write header with histogram statistics
+		file << "bins, counts, number, average, tss, min, max" << std::endl;
+		if (!bin_counts.size())
+			return;
+		
+		file << std::setprecision(precision) << bin_value << delimiter;
+		file << std::setprecision(precision) << (bin_counts[0] / norm_factor) << delimiter;
+		file << hist.number() << delimiter;
+		file << hist.mean() << delimiter;
+		file << hist.tss() << delimiter;
+		file << hist.min() << delimiter;
+		file << hist.max() << std::endl;
+
+		for (size_t i = 1; i < bin_counts.size(); i++) {
+		
+			bin_value += bin_dx;
+			file << std::setprecision(precision) << bin_value << delimiter;
+			file << std::setprecision(precision) << (bin_counts[i] / norm_factor) << std::endl;
+		}
+	}
+
+
+	/// Read a histogram from file, expecting a CSV format with
+	/// columns "bins", "counts", "number", "average", "tss", "min" and "max",
+	/// as written by write_csv(histogram).
+	///
+	/// @param filename 
+	/// @param hist 
+	inline void read_csv(const std::string& filename, histogram& hist, bool lower_extreme = false) {
+
+		std::ifstream file (filename);
+		if (!file.is_open()) {
+			TH_MATH_ERROR("io::read_csv", file.is_open(), MathError::ImpossibleOperation);
+			return;
+		}
+
+		std::string line;
+		std::vector<std::string> cells;
+
+		// Read header
+		std::getline(file, line);
+		cells = parse_csv(line);
+
+		int bin_index = -1, count_index = -1, number_index = -1, average_index = -1;
+		int tss_index = -1, min_index = -1, max_index = -1;
+
+		// Find column indices for the expected headers
+		for (size_t i = 0; i < cells.size(); i++) {
+
+			if (cells[i] == "bins") bin_index = i;
+			else if (cells[i] == "counts") count_index = i;
+			else if (cells[i] == "number") number_index = i;
+			else if (cells[i] == "average") average_index = i;
+			else if (cells[i] == "tss") tss_index = i;
+			else if (cells[i] == "min") min_index = i;
+			else if (cells[i] == "max") max_index = i;
+		}
+
+		if (bin_index == -1 || count_index == -1 || number_index == -1 ||
+			average_index == -1 || tss_index == -1 || min_index == -1 || max_index == -1) {
+
+			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			return;
+		}
+
+		// Find the maximum required column index
+		int min_size = bin_index;
+		if (min_size < count_index) min_size = count_index;
+		if (min_size < number_index) min_size = number_index;
+		if (min_size < average_index) min_size = average_index;
+		if (min_size < tss_index) min_size = tss_index;
+		if (min_size < min_index) min_size = min_index;
+		if (min_size < max_index) min_size = max_index;
+		min_size++;
+
+		// Read first data line for statistics
+		std::getline(file, line);
+		cells = parse_csv(line);
+
+		if (cells.size() < size_t(min_size)) {
+			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			return;
+		}
+
+		vec<real> counts, bins;
+		size_t N;
+		real run_average, run_tss, value_min, value_max;
+
+		try {
+
+			counts = {std::stod(cells[count_index])};
+			bins = {std::stod(cells[bin_index])};
+
+			N = std::stod(cells[number_index]);
+			run_average = std::stod(cells[average_index]);
+			run_tss = std::stod(cells[tss_index]);
+			value_min = std::stod(cells[min_index]);
+			value_max = std::stod(cells[max_index]);
+
+		} catch (const std::invalid_argument& e) {
+			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			return;
+		}
+
+		int bins_max_index = (bin_index > count_index ? bin_index : count_index) + 1;
+
+		// Read remaining data lines
+		while (std::getline(file, line)) {
+			
+			cells = parse_csv(line);
+
+			if (cells.size() < size_t(bins_max_index)) {
+				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				return;
+			}
+
+			try {
+				counts.append(cells[count_index] != "" ? std::stod(cells[count_index]) : nan());
+				bins.append(cells[bin_index] != "" ? std::stod(cells[bin_index]) : nan());
+			} catch (const std::invalid_argument& e) {
+				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				return;
+			}
+			
+		}
+
+		real range_min;
+		real range_max;
+
+		bool is_normalized = false;
+		for (size_t i = 0; i < counts.size(); i++) {
+
+			// Check if any bin counts are not integers
+			if (counts[i] != floor(counts[i])) {
+				is_normalized = true;
+				break;
+			}
+		}
+
+		std::vector<unsigned int> bin_counts (counts.size());
+		for (size_t i = 0; i < counts.size(); i++) {
+			bin_counts[i] = (unsigned int) (is_normalized ? (counts[i] * N) : counts[i]);
+		}
+
+		const real bin_dx = bins.size() > 1 ? (bins[1] - bins[0]) : 0;
+		range_min = lower_extreme ? bins[0] : (bins[0] - 0.5 * bin_dx);
+		range_max = lower_extreme ? bins[bins.size() - 1] + bin_dx : bins[bins.size() - 1] + 0.5 * bin_dx;
+
+		// Check constant bin spacing
+		for (size_t i = 1; i < bins.size(); i++) {
+			if (abs((bins[i] - bins[i - 1]) - bin_dx) > 1e-6) {
+				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				return;
+			}
+		}
+
+		hist.rebuild(
+			bin_counts, vec2({range_min, range_max}),
+			N, run_average, run_tss,
+			value_min, value_max
+		);
+
+	}
 
 	/// Read a generic data structure from a file in the CSV format,
 	/// specifying the target type. Supported types include vec<> and mat<>.

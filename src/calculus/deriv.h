@@ -20,19 +20,17 @@ namespace theoretica {
 	template<typename Field = real>
 	inline polynomial<Field> deriv(const polynomial<Field>& p) {
 
-		if (p.coeff.size() == 0) {
-			TH_MATH_ERROR("deriv", p.coeff.size(), MathError::InvalidArgument);
-			return polynomial<Field>({ static_cast<Field>(nan()) });
-		}
+		if (p.size() == 0)
+			return polynomial<Field>();
 
-		if (p.coeff.size() == 1)
+		if (p.size() == 1)
 			return polynomial<Field>({static_cast<Field>(0.0)});
 
 		polynomial<Field> Dp;
-		Dp.coeff.resize(p.coeff.size() - 1);
+		Dp.resize(p.size() - 1);
 
 		for (unsigned int i = 1; i < p.size(); ++i)
-			Dp.coeff[i - 1] = p[i] * i;
+			Dp[i - 1] = p[i] * i;
 
 		return Dp;
 	}

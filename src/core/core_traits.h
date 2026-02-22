@@ -149,6 +149,13 @@ namespace theoretica {
 
 
 	// Enable a function overload if the template typename
+	// is a real number type. The std::enable_if structure is used,
+	// with type T which defaults to bool.
+	template<typename Type, typename T = bool>
+	using enable_real = std::enable_if_t<is_real_type<Type>::value, T>;
+
+
+	// Enable a function overload if the template typename
 	// is considerable a matrix. The std::enable_if structure
 	// is used, with type T which defaults to bool.
 	template<typename Structure, typename T = bool>

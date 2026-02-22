@@ -63,7 +63,21 @@ int main(int argc, char const *argv[]) {
 		0.0, prec::distance::hamming
 	);
 
+	auto vec_opt = prec::equation_options<vec<real>>(
+		1E-08, prec::distance::euclidean<vec<real>>
+	);
+
 	{
+		ctx.equals("is_number", io::is_number("3.1415"), true);
+		ctx.equals("is_number", io::is_number("1,414"), true);
+		ctx.equals("is_number", io::is_number("123"), true);
+		ctx.equals("is_number", io::is_number("NaN"), true);
+		ctx.equals("is_number", io::is_number("nan"), true);
+		ctx.equals("is_number", io::is_number("+inf"), true);
+		ctx.equals("is_number", io::is_number("-1.0E+99"), true);
+		ctx.equals("is_number", io::is_number(""), false);
+		ctx.equals("is_number", io::is_number("Hello, World!"), false);
+		ctx.equals("is_number", io::is_number("Clearly not a number, but not a Not a Number"), false);
 		ctx.equals("trim", io::trim("  \"Hello, World!\"  "), std::string("\"Hello, World!\""), str_opt);
 		ctx.equals("trim", io::trim(" 	   many words here  !!!   	 "), std::string("many words here  !!!"), str_opt);
 		ctx.equals("unquote", io::unquote("\"Hello, World!\""), std::string("Hello, World!"), str_opt);
@@ -123,7 +137,7 @@ int main(int argc, char const *argv[]) {
 		rnd.gaussian(v, 0, 1);
 		
 		// Back-and-forth write and reading test
-		io::write_csv("./test/prec/test.csv", v, "Vector");
+		io::write_csv("./test/prec/test.csv", "Vector", v);
 
 		vec<real> w;
 		io::read_csv("./test/prec/test.csv", w);
@@ -136,7 +150,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 
-	// Matrix to CSV without header
+	// Matrix to CSV
 	{
 
 		// Generate a random matrix
@@ -152,6 +166,24 @@ int main(int argc, char const *argv[]) {
 
 		mat<real> C = io::read_csv<mat<real>>("./test/prec/test.csv");
 		ctx.equals("write_csv/read_csv<mat<real>>()", absmax(A - C), 0.0, 1E-07);
+	}
+
+	// Histogram to CSV
+	{
+		vec<real> v (1000);
+		rnd.gaussian(v, 0, 1);
+
+		histogram hist (v);
+		io::write_csv("./test/prec/test.csv", hist);
+		
+		histogram hist2;
+		io::read_csv("./test/prec/test.csv", hist2);
+
+		auto bin_opt = prec::equation_options<std::vector<unsigned int>>(
+			1E-08, prec::distance::euclidean<std::vector<unsigned int>>
+		);
+		
+		ctx.equals("write_csv/read_csv(histogram)", hist.bins(), hist2.bins(), bin_opt);
 	}
 
 	// Test CSV tokenization and parsing
@@ -172,8 +204,11 @@ int main(int argc, char const *argv[]) {
 
 	// data_table.h
 
+	// Table creation and insertion
 	{
 		data_table table;
+
+		ctx.equals("data_table.empty()", table.empty(), true);
 
 		table.insert("A", {1, 2, 3});
 		table.insert("B", {4, 5});
@@ -182,5 +217,23 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("data_table.columns()", table.cols(), 3, 0);
 		ctx.equals("data_table.rows()", table.rows(), 4, 0);
 		ctx.equals("data_table[\"A\"][1]", table["A"][1], 2.0, 0);
+	}
+
+	// Table creation from a hashmap
+	{
+		vec<real> v = {1, 2, 3};
+		vec<real> w = {th::PI, th::E};
+
+		std::map<std::string, vec<real>> m;
+		m["v"] = v;
+		m["w"] = w;
+
+		data_table table1 (m);
+		ctx.equals("data_table(map)", table1["v"], v, vec_opt);
+		ctx.equals("data_table(map)", table1["w"], w, vec_opt);
+
+		data_table table2 = data_table(3, {"v1", "v2"});
+		ctx.equals("data_table(n_rows, col_name)", table2["v1"].size(), 3);
+		ctx.equals("data_table(n_rows, col_name)", table2["v2"].size(), 3);
 	}
 }
