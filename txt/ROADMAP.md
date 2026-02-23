@@ -1,6 +1,6 @@
 # Theoretica Development Roadmap
 
-> **Last Updated:** 2026-01-28
+> **Last Updated:** 2026-02-23
 > **Author:** M. Isgrò
 > 
 > This document outlines the strategic direction and major initiatives for the Theoretica project.
@@ -13,9 +13,9 @@ The Theoretica project is an attempt to make powerful numerical methods availabl
 ## 2026 Major Initiatives
 
 ### 🚀 Priority 1: Dual C++20 Adoption
-**Status:** 🔴 Planning
+**Status:** 🟡 **In Progress**
 **Target:** Q1 2026  
-**RFC:** Under development
+**RFC:** [RFC002-CPP20-ADOPTION](https://github.com/chaotic-society/documents/blob/main/specification/theoretica/rfc/RFC-CPP20-ADOPTION.md)
 
 **Brief Description:**
 Considering the use cases of the library and its current strengths, Theoretica should strive to support both **high-performance hardware** and **embedded systems**. At the same time, Theoretica needs to modernize and adopt the C++20 standard, which is becoming the industry standard in scientific computing, to stay current and competitive.
@@ -29,14 +29,14 @@ The `autodiff` module will particularly benefit from this change, as C++20 conce
 
 
 **Key Milestones:**
-- [ ] Define C++ standard separation strategy between core and advanced modules (Target: January 2026)
+- [x] Define C++ standard separation strategy between core and advanced modules (Target: January 2026)
 - [ ] Upgrade advanced modules to C++20 (`autodiff`, `optimization`) (Target: February 2026)
 - [ ] Ensure and test C++14 compatibility of core modules (`algebra`, `complex`, `core`, `calculus`) (Target: February 2026)
-- [ ] Document compiler requirements per module (Target: March 2026)
+- [ ] Document compiler requirements per module/header (Target: March 2026)
 - [ ] Add embedded systems-specific features and testing (Target: March 2026)
 
 **Technical Considerations:**
-- Use preprocessor directives to detect C++ standard version (`__cplusplus`)
+- Use preprocessor directives to detect C++ standard version
 - Provide C++20 concept-based APIs alongside C++14 SFINAE when possible
 - Maintain single codebase with conditional compilation for dual support
 
@@ -48,7 +48,7 @@ The `autodiff` module will particularly benefit from this change, as C++20 conce
 
 ### 🚀 Priority 2: Key missing features
 
-**Status:** 🔴 Planning
+**Status:** 🟡 **In Progress**
 **Target:** Q1 2026
 **RFC:** [RFC001-IO-MODULE](https://github.com/chaotic-society/documents/blob/main/specification/theoretica/rfc/RFC001-IO-MODULE.md)
 
@@ -69,7 +69,7 @@ Some key features are currently missing from Theoretica that limit its usability
 
 **Key Milestones:**
 - [ ] Write missing test units for untested modules (Target: February 2026)
-- [ ] Implement CSV IO functionality in new `io` module (Target: February 2026)
+- [x] Implement CSV IO functionality in new `io` module (Target: February 2026)
 - [ ] Implement HDF5 IO support (with optional build flag) (Target: March 2026)
 - [ ] Document IO module with examples (Target: March 2026)
 
@@ -80,7 +80,7 @@ Some key features are currently missing from Theoretica that limit its usability
 - Integration with existing data structures such as `mat<>` and `vec<>`
 
 **Dependencies:**
-- **Chebyshev framework**: ✅ Feature-complete with context-based runtime and multi-threading support
+- **Chebyshev framework**: Feature-complete with context-based runtime and multi-threading support
 - **HDF5 library**: External dependency for HDF5 support
 - **Test data sets**: Sample CSV/HDF5 files for testing
 
