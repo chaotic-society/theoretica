@@ -278,53 +278,36 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("smootherstep(clamp>1)", smootherstep(0.0, 1.0, 1.5), 1.0);
 	}
 
-	// Test quadratic_bezier endpoints
+	// Test bezier_quadratic endpoints
 	{
 		vec2 p0 = {0.0, 0.0};
 		vec2 p1 = {0.5, 1.0};
 		vec2 p2 = {1.0, 0.0};
 		
-		ctx.equals("quadratic_bezier(t = 0)", quadratic_bezier(p0, p1, p2, 0.0), p0, vec2_opt);
-		ctx.equals("quadratic_bezier(t = 1)", quadratic_bezier(p0, p1, p2, 1.0), p2, vec2_opt);
+		ctx.equals("bezier_quadratic(t = 0)", bezier_quadratic(p0, p1, p2, 0.0), p0, vec2_opt);
+		ctx.equals("bezier_quadratic(t = 1)", bezier_quadratic(p0, p1, p2, 1.0), p2, vec2_opt);
 	}
 
-	// Test quadratic_bezier midpoint
+	// Test bezier_quadratic midpoint
 	{
 		vec2 p0 = {0.0, 0.0};
 		vec2 p1 = {1.0, 2.0};
 		vec2 p2 = {2.0, 0.0};
-		vec2 mid = quadratic_bezier(p0, p1, p2, 0.5);
+		vec2 mid = bezier_quadratic(p0, p1, p2, 0.5);
 		
 		vec2 expected = {1.0, 1.0};
-		ctx.equals("quadratic_bezier(t = 0.5)", mid, expected, vec2_opt);
+		ctx.equals("bezier_quadratic(t = 0.5)", mid, expected, vec2_opt);
 	}
 
-	// Test cubic_bezier endpoints
+	// Test bezier_cubic endpoints
 	{
 		vec2 p0 = {0.0, 0.0};
 		vec2 p1 = {0.33, 1.0};
 		vec2 p2 = {0.66, 1.0};
 		vec2 p3 = {1.0, 0.0};
 		
-		ctx.equals("cubic_bezier(t = 0)", cubic_bezier(p0, p1, p2, p3, 0.0), p0, vec2_opt);
-		ctx.equals("cubic_bezier(t = 1)", cubic_bezier(p0, p1, p2, p3, 1.0), p3, vec2_opt);
-	}
-
-	// Test generic bezier with 2 points (should be lerp)
-	{
-		std::vector<vec2> points = {{0.0, 0.0}, {1.0, 1.0}};
-		vec2 result = bezier(points, 0.5);
-		vec2 expected = lerp(points[0], points[1], 0.5);
-		
-		ctx.equals("bezier(2 points)", result, expected, vec2_opt);
-	}
-
-	// Test generic bezier endpoints
-	{
-		std::vector<vec2> points = {{0.0, 0.0}, {0.5, 1.0}, {1.0, 0.0}};
-		
-		ctx.equals("bezier(t = 0)", bezier(points, 0.0), points[0], vec2_opt);
-		ctx.equals("bezier(t = 1)", bezier(points, 1.0), points.back(), vec2_opt);
+		ctx.equals("bezier_cubic(t = 0)", bezier_cubic(p0, p1, p2, p3, 0.0), p0, vec2_opt);
+		ctx.equals("bezier_cubic(t = 1)", bezier_cubic(p0, p1, p2, p3, 1.0), p3, vec2_opt);
 	}
 
 	// Test splines_cubic interpolates points

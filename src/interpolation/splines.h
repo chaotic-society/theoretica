@@ -151,7 +151,7 @@ namespace theoretica {
 
 	/// Quadratic Bezier curve
 	template<unsigned int N>
-	inline vec<real, N> quadratic_bezier(
+	inline vec<real, N> bezier_quadratic(
 		const vec<real, N>& P0, const vec<real, N>& P1,
 		const vec<real, N>& P2, real t) {
 
@@ -161,7 +161,7 @@ namespace theoretica {
 
 	/// Cubic Bezier curve
 	template<unsigned int N>
-	inline vec<real, N> cubic_bezier(
+	inline vec<real, N> bezier_cubic(
 		const vec<real, N>& P0, const vec<real, N>& P1,
 		const vec<real, N>& P2, vec<real, N> P3, real t) {
 
@@ -173,41 +173,6 @@ namespace theoretica {
 		const vec<real, N> E = lerp(B, C, t);
 
 		return lerp(D, E, t);
-	}
-
-
-	/// Generic Bezier curve in N dimensions
-	/// @param points The control points
-	/// @param t The curve parameter between 0 and 1
-	///
-	/// The generic Bezier curve is computed by
-	/// successive linear interpolations.
-	/// For cubic and quadratic Bezier curves the
-	/// related functions should be preferred.
-	/// \see quadratic_bezier
-	/// \see cubic_bezier
-	template<unsigned int N>
-	inline vec<real, N> bezier(const std::vector<vec<real, N>>& points, real t) {
-		
-		if(points.size() < 2) {
-			TH_MATH_ERROR("bezier", points.size(), MathError::InvalidArgument);
-			return vec<real, N>(nan());
-		}
-
-		if(t < 0 || t > 1) {
-			TH_MATH_ERROR("bezier", t, MathError::InvalidArgument);
-			return vec<real, N>(nan());
-		}
-
-		std::vector<vec<real, N>> p = points;
-
-		for (int index = p.size(); index > 1; --index) {
-
-			for (int i = 0; i < index - 1; ++i)
-				p[i] = lerp(p[i], p[i + 1], t);
-		}
-
-		return p[0];
 	}
 
 
