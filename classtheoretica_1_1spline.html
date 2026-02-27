@@ -114,15 +114,13 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1spline.html',''); i
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5" id="r_a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplParams" colspan="2"><a id="a73737dc18f49fd83ed4d0096abeddec5" name="a73737dc18f49fd83ed4d0096abeddec5"></a>
-template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </td></tr>
-<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (const DataPoints &amp;p)</td></tr>
-<tr class="memdesc:a73737dc18f49fd83ed4d0096abeddec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from a vector of coordinate pairs. <br /></td></tr>
+<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5" id="r_a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplParams" colspan="2">template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </td></tr>
+<tr class="memitem:a73737dc18f49fd83ed4d0096abeddec5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1spline.html#a73737dc18f49fd83ed4d0096abeddec5">spline</a> (const DataPoints &amp;p)</td></tr>
+<tr class="memdesc:a73737dc18f49fd83ed4d0096abeddec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from a vector of coordinate pairs.  <br /></td></tr>
 <tr class="separator:a73737dc18f49fd83ed4d0096abeddec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263320fe86eef4ff2e709502e5607788" id="r_a263320fe86eef4ff2e709502e5607788"><td class="memTemplParams" colspan="2"><a id="a263320fe86eef4ff2e709502e5607788" name="a263320fe86eef4ff2e709502e5607788"></a>
-template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
-<tr class="memitem:a263320fe86eef4ff2e709502e5607788"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>spline</b> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
-<tr class="memdesc:a263320fe86eef4ff2e709502e5607788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from the sets of X and Y data points. <br /></td></tr>
+<tr class="memitem:a263320fe86eef4ff2e709502e5607788" id="r_a263320fe86eef4ff2e709502e5607788"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:a263320fe86eef4ff2e709502e5607788"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1spline.html#a263320fe86eef4ff2e709502e5607788">spline</a> (const Dataset1 &amp;X, const Dataset2 &amp;Y)</td></tr>
+<tr class="memdesc:a263320fe86eef4ff2e709502e5607788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the natural cubic spline interpolation from the sets of x[i] and y[i] data points.  <br /></td></tr>
 <tr class="separator:a263320fe86eef4ff2e709502e5607788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af2528abf4b07f00cebbe84dbadcff6" id="r_a7af2528abf4b07f00cebbe84dbadcff6"><td class="memItemLeft" align="right" valign="top"><a id="a7af2528abf4b07f00cebbe84dbadcff6" name="a7af2528abf4b07f00cebbe84dbadcff6"></a>
 <a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtheoretica_1_1spline.html">spline</a> &amp;other)</td></tr>
@@ -154,7 +152,80 @@ std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">splin
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A natural cubic spline interpolation class. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a73737dc18f49fd83ed4d0096abeddec5" name="a73737dc18f49fd83ed4d0096abeddec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73737dc18f49fd83ed4d0096abeddec5">&#9670;&#160;</a></span>spline() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">theoretica::spline::spline </td>
+          <td>(</td>
+          <td class="paramtype">const DataPoints &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the natural cubic spline interpolation from a vector of coordinate pairs. </p>
+<p>The x[i] values must be strictly increasing, an error is raised otherwise. </p>
+
+</div>
+</div>
+<a id="a263320fe86eef4ff2e709502e5607788" name="a263320fe86eef4ff2e709502e5607788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a263320fe86eef4ff2e709502e5607788">&#9670;&#160;</a></span>spline() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Dataset1 , typename Dataset2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">theoretica::spline::spline </td>
+          <td>(</td>
+          <td class="paramtype">const Dataset1 &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Dataset2 &amp;&#160;</td>
+          <td class="paramname"><em>Y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the natural cubic spline interpolation from the sets of x[i] and y[i] data points. </p>
+<p>The x[i] values must be strictly increasing, an error is raised otherwise. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>interpolation/<a class="el" href="splines_8h_source.html">splines.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -163,7 +234,7 @@ std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">splin
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1spline.html">spline</a></li>
-    <li class="footer">Generated on Mon Feb 23 2026 20:27:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Feb 27 2026 14:23:59 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

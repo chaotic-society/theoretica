@@ -190,14 +190,14 @@ template&lt;unsigned int N&gt; </td></tr>
 <tr class="memitem:ac9bfc7cddd25fd7dd7eb774e9ea1bef4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac9bfc7cddd25fd7dd7eb774e9ea1bef4">theoretica::bezier</a> (const std::vector&lt; <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &gt; &amp;points, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t)</td></tr>
 <tr class="memdesc:ac9bfc7cddd25fd7dd7eb774e9ea1bef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Bezier curve in N dimensions.  <br /></td></tr>
 <tr class="separator:ac9bfc7cddd25fd7dd7eb774e9ea1bef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99316012fec5500c779ddf8d4114b643" id="r_a99316012fec5500c779ddf8d4114b643"><td class="memTemplParams" colspan="2">template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </td></tr>
-<tr class="memitem:a99316012fec5500c779ddf8d4114b643"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">spline_node</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a99316012fec5500c779ddf8d4114b643">theoretica::cubic_splines</a> (DataPoints p)</td></tr>
-<tr class="memdesc:a99316012fec5500c779ddf8d4114b643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cubic splines interpolation of a set of data points.  <br /></td></tr>
-<tr class="separator:a99316012fec5500c779ddf8d4114b643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7bf96b1e850f0901d249adbfea8f382" id="r_ae7bf96b1e850f0901d249adbfea8f382"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
-<tr class="memitem:ae7bf96b1e850f0901d249adbfea8f382"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">spline_node</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae7bf96b1e850f0901d249adbfea8f382">theoretica::cubic_splines</a> (const Dataset1 &amp;x, const Dataset2 &amp;y)</td></tr>
-<tr class="memdesc:ae7bf96b1e850f0901d249adbfea8f382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cubic splines interpolation of the sets of X and Y data points.  <br /></td></tr>
-<tr class="separator:ae7bf96b1e850f0901d249adbfea8f382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4377cc4fef460684fa34287dc39413" id="r_ade4377cc4fef460684fa34287dc39413"><td class="memTemplParams" colspan="2">template&lt;typename Dataset1 , typename Dataset2 &gt; </td></tr>
+<tr class="memitem:ade4377cc4fef460684fa34287dc39413"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">spline_node</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ade4377cc4fef460684fa34287dc39413">theoretica::splines_cubic</a> (const Dataset1 &amp;x, const Dataset2 &amp;y)</td></tr>
+<tr class="memdesc:ade4377cc4fef460684fa34287dc39413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cubic splines interpolation of a set of data points using an optimized Thomas algorithm, with O(n) complexity.  <br /></td></tr>
+<tr class="separator:ade4377cc4fef460684fa34287dc39413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60fe877040b2f8a88fa5501091d8740f" id="r_a60fe877040b2f8a88fa5501091d8740f"><td class="memTemplParams" colspan="2">template&lt;typename DataPoints  = std::vector&lt;vec2&gt;&gt; </td></tr>
+<tr class="memitem:a60fe877040b2f8a88fa5501091d8740f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtheoretica_1_1spline__node.html">spline_node</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a60fe877040b2f8a88fa5501091d8740f">theoretica::splines_cubic</a> (DataPoints p)</td></tr>
+<tr class="memdesc:a60fe877040b2f8a88fa5501091d8740f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cubic splines interpolation of a set of data points using an optimized Thomas algorithm, with O(n) complexity.  <br /></td></tr>
+<tr class="separator:a60fe877040b2f8a88fa5501091d8740f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Spline interpolation. </p>
@@ -207,7 +207,7 @@ template&lt;unsigned int N&gt; </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5596f951296b42de5afea2209fd56ea2.html">interpolation</a></li><li class="navelem"><a class="el" href="splines_8h.html">splines.h</a></li>
-    <li class="footer">Generated on Mon Feb 23 2026 20:27:03 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Feb 27 2026 14:23:59 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
