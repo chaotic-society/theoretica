@@ -67,8 +67,8 @@ var NAVTREEINDEX =
 "integral_8h.html#ad2038787a4650a9610cdf4639901677a",
 "namespacetheoretica.html#a5fd61484f6f7bc8b474037d866a4b110",
 "namespacetheoretica.html#af1444ff9faf0b4b247468462d7b7cb01",
-"namespacetheoretica_1_1regression.html#a43911fac741333de75b825268f9f7cf5",
-"roots_8h.html#aa3de94cffc4e11a1a0fbaaa11db16d65"
+"namespacetheoretica_1_1regression.html#a78275eef04237b944d31cd21bc9a2e6e",
+"roots_8h.html#aafa127bcc16e700cfee3ae2105df3307"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

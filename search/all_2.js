@@ -45,10 +45,9 @@ var searchData=
   ['covariance_42',['covariance',['../namespacetheoretica_1_1stats.html#a50a7f8cd0bd1fd66c09eaa2d414b2f8b',1,'theoretica::stats']]],
   ['cross_43',['cross',['../namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581',1,'theoretica::algebra::cross()'],['../classtheoretica_1_1vec.html#a098b5dd4de0455c4a54f8fd72819f7b3',1,'theoretica::vec::cross(const vec&lt; Type, N &gt; &amp;other) const'],['../classtheoretica_1_1vec.html#a884c8fd8043bed1aa2b1c8b7781d444a',1,'theoretica::vec::cross(const Vector &amp;other) const']]],
   ['cube_44',['cube',['../namespacetheoretica_1_1parallel.html#a9cc414c6ef029d11e75b017ce589c751',1,'theoretica::parallel::cube()'],['../namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988',1,'theoretica::cube(dual2 x)'],['../namespacetheoretica.html#aab28b5c479cfd017f81b9806aa27838e',1,'theoretica::cube(dual x)'],['../namespacetheoretica.html#ae356adeb60d93c78bd5d27ddf49a6c66',1,'theoretica::cube(multidual&lt; N &gt; x)'],['../namespacetheoretica.html#a9cc94802c6760bba16d0eaf5795dced7',1,'theoretica::cube(complex&lt; T &gt; z)'],['../namespacetheoretica.html#a6bfa8d12242c241b6f56cebc9cdc60ed',1,'theoretica::cube(real x)']]],
-  ['cubic_5fbezier_45',['cubic_bezier',['../namespacetheoretica.html#acc018b01eb3df4f133863741a5ed343b',1,'theoretica']]],
-  ['curl_46',['curl',['../namespacetheoretica_1_1autodiff.html#a28f3319ac64bde3462395369acd10e28',1,'theoretica::autodiff::curl(vec&lt; multidual&lt; N &gt;, N &gt;(*f)(vec&lt; multidual&lt; N &gt;, N &gt;), const vec&lt; real, N &gt; &amp;x)'],['../namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1',1,'theoretica::autodiff::curl(vec&lt; multidual&lt; N &gt;, N &gt;(*f)(vec&lt; multidual&lt; N &gt;, N &gt;))']]],
-  ['cvec_47',['cvec',['../namespacetheoretica.html#a83cf1314a448f23b10e74302550ed77f',1,'theoretica']]],
-  ['cvec2_48',['cvec2',['../namespacetheoretica.html#a429fe8925be98f943d69ad693e24c1bb',1,'theoretica']]],
-  ['cvec3_49',['cvec3',['../namespacetheoretica.html#a9bfc48b27b17470d8ac001a9f2008c4a',1,'theoretica']]],
-  ['cvec4_50',['cvec4',['../namespacetheoretica.html#a0a30c2b68e61ebe0ede42b20f3354145',1,'theoretica']]]
+  ['curl_45',['curl',['../namespacetheoretica_1_1autodiff.html#a28f3319ac64bde3462395369acd10e28',1,'theoretica::autodiff::curl(vec&lt; multidual&lt; N &gt;, N &gt;(*f)(vec&lt; multidual&lt; N &gt;, N &gt;), const vec&lt; real, N &gt; &amp;x)'],['../namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1',1,'theoretica::autodiff::curl(vec&lt; multidual&lt; N &gt;, N &gt;(*f)(vec&lt; multidual&lt; N &gt;, N &gt;))']]],
+  ['cvec_46',['cvec',['../namespacetheoretica.html#a83cf1314a448f23b10e74302550ed77f',1,'theoretica']]],
+  ['cvec2_47',['cvec2',['../namespacetheoretica.html#a429fe8925be98f943d69ad693e24c1bb',1,'theoretica']]],
+  ['cvec3_48',['cvec3',['../namespacetheoretica.html#a9bfc48b27b17470d8ac001a9f2008c4a',1,'theoretica']]],
+  ['cvec4_49',['cvec4',['../namespacetheoretica.html#a0a30c2b68e61ebe0ede42b20f3354145',1,'theoretica']]]
 ];
