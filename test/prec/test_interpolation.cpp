@@ -327,26 +327,26 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("bezier(t = 1)", bezier(points, 1.0), points.back(), vec2_opt);
 	}
 
-	// Test cubic_splines interpolates points
+	// Test splines_cubic interpolates points
 	{
 		std::vector<vec2> points = {{0, 0}, {1, 1}, {2, 4}, {3, 9}};
-		std::vector<theoretica::spline_node> nodes = cubic_splines(points);
+		std::vector<theoretica::spline_node> nodes = splines_cubic(points);
 
 		// Check interpolation at data points
 		for (size_t i = 0; i < points.size() - 1; ++i) {
-			ctx.equals("cubic_splines(points)", nodes[i](points[i][0]), points[i][1], 1E-10);
+			ctx.equals("splines_cubic(points)", nodes[i](points[i][0]), points[i][1], 1E-10);
 		}
 	}
 
-	// Test cubic_splines with separate X and Y
+	// Test splines_cubic with separate X and Y
 	{
 		std::vector<real> x = {0, 1, 2, 3};
 		std::vector<real> y = {0, 1, 4, 9};
-		auto nodes = cubic_splines(x, y);
+		auto nodes = splines_cubic(x, y);
 		
 		// Check interpolation
 		for (size_t i = 0; i < x.size() - 1; ++i) {
-			ctx.equals("cubic_splines(X, Y)", nodes[i](x[i]), y[i], 1E-10);
+			ctx.equals("splines_cubic(X, Y)", nodes[i](x[i]), y[i], 1E-10);
 		}
 	}
 
