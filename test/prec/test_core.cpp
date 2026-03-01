@@ -604,6 +604,28 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("special::beta symmetry (2.5, 4)", special::beta(2.5, 4.0), special::beta(4.0, 2.5), 1E-8);
 
 	}
+	
+	{
+		auto beta_mc_opt = prec::estimate_options<real, std::vector<real>>(
+			{ prec::interval(1, 10), prec::interval(1, 10) },
+			prec::estimator::montecarlo<real>(ctx.random, 2)
+		);
+
+		ctx.homogeneous(
+			"special::beta(real, real)",
+			[](std::vector<real> v) {
+				const real x = v[0];
+				const real y = v[1];
+
+				const real eval = special::beta(x, y);
+				const real expected =
+					real(std::exp(std::lgamma(x) + std::lgamma(y) - std::lgamma(x + y)));
+
+				return th::abs(eval - expected);
+			},
+			beta_mc_opt
+		);
+	}
 
 
 	// Test bit_op.h
