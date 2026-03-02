@@ -188,8 +188,7 @@ int main(int argc, char const *argv[]) {
 		CAST_LAMBDA(std::log2, real),
 		log_opt
 	);
-
-
+	
 	ctx.estimate(
 		"th::log10(real)",
 		CAST_LAMBDA(th::log10, real),
@@ -501,45 +500,132 @@ int main(int argc, char const *argv[]) {
 
 	// Test special.h
 
-
 	// Special functions
 	auto special_opt = prec::estimate_options<real, real>(
-		prec::interval(1, 20),
+		prec::interval(0.1, 20),
 		prec::estimator::quadrature1D()
 	);
 
 	special_opt.fail = prec::fail::fail_on_rel_err();
 
+	{
+		ctx.equals("special::gamma(uint) gamma(1)", special::gamma(1u), real(1), 0);
+		ctx.equals("special::gamma(uint) gamma(2)", special::gamma(2u), real(1), 0);
+		ctx.equals("special::gamma(uint) gamma(3)", special::gamma(3u), real(2), 0);
+		ctx.equals("special::gamma(uint) gamma(6)", special::gamma(6u), real(120), 0);
+		ctx.equals("special::gamma(uint) gamma(0) is NaN", th::is_nan(special::gamma(0u)), true, 0);
+	}
 
-	// Check translation identity
+	{	
+		ctx.equals("special::half_gamma(2)", special::half_gamma(2u), real(1), 1E-12);
+		ctx.equals("special::half_gamma(4)", special::half_gamma(4u), real(1), 1E-12);
+		ctx.equals("special::half_gamma(6)", special::half_gamma(6u), real(2), 1E-12);
+
+		ctx.equals("special::half_gamma(1)", special::half_gamma(1u), SQRTPI, 1E-8);
+		ctx.equals("special::half_gamma(3)", special::half_gamma(3u), SQRTPI / 2.0, 1E-8);
+		ctx.equals("special::half_gamma(5)", special::half_gamma(5u), 3.0 * SQRTPI / 4.0, 1E-8);
+
+		ctx.equals("special::half_gamma(0) is NaN", th::is_nan(special::half_gamma(0u)), true, 0);
+	}
+
 	ctx.estimate(
-		"special::gamma (1)",
+		"special::lngamma(real) vs std::lgamma",
+		CAST_LAMBDA(special::lngamma, real),
+		CAST_LAMBDA(std::lgamma, real),
+		special_opt
+	);
+
+	{
+		ctx.equals(
+			"special::lngamma(0.5)",
+			special::lngamma(0.5),
+			th::ln(SQRTPI),
+			1E-8
+		);
+
+		ctx.equals(
+			"special::lngamma(-1.5)",
+			special::lngamma(-1.5),
+			real(std::lgamma(-1.5)),
+			1E-8
+		);
+
+		ctx.equals(
+			"special::lngamma(-0.5) is NaN",
+			th::is_nan(special::lngamma(-0.5)),
+			true,
+			0
+		);
+	}
+
+	ctx.estimate(
+		"special::gamma(real) vs std::tgamma",
 		CAST_LAMBDA(special::gamma, real),
-		[](real x) { return special::gamma(x + 1) / x; },
+		CAST_LAMBDA(std::tgamma, real),
 		special_opt
 	);
 
+	{
+		ctx.equals("special::gamma(0.5)", special::gamma(0.5), SQRTPI, 1E-8);
+		ctx.equals("special::gamma(1.0)", special::gamma(1.0), real(1), 1E-12);
+		ctx.equals("special::gamma(1.5)", special::gamma(1.5), SQRTPI / 2.0, 1E-8);
+		ctx.equals("special::gamma(2.5)", special::gamma(2.5), 3.0 * SQRTPI / 4.0, 1E-8);
+		ctx.equals("special::gamma(-0.5)", special::gamma(-0.5), -2.0 * SQRTPI, 1E-8);
 
-	// Check identity with factorial
-	ctx.estimate(
-		"special::gamma (2)",
-		[](real x) { return special::gamma((real) th::floor(x)); },
-		[](real x) { return (real) fact<uint64_t>((unsigned int) (th::floor(x) - 1)); },
-		special_opt
-	);
+		ctx.equals("special::gamma(0.0) is inf", th::is_inf(special::gamma(0.0)), true, 0);
+		ctx.equals("special::gamma(-1.0) is inf", th::is_inf(special::gamma(-1.0)), true, 0);
+		ctx.equals("special::gamma(-2.0) is inf", th::is_inf(special::gamma(-2.0)), true, 0);
+	}
 
+	{
+		// Integer identity: Pi(n) = n!
+		ctx.equals("special::pi(0)", special::pi(0.0), real(1), 1E-12);
+		ctx.equals("special::pi(1)", special::pi(1.0), real(1), 1E-12);
+		ctx.equals("special::pi(2)", special::pi(2.0), real(2), 1E-12);
+		ctx.equals("special::pi(5)", special::pi(5.0), real(120), 1E-8);
 
-	// Check identity with factorial
-	ctx.estimate(
-		"special::pi",
-		[](real x) {
-			return special::pi((real) th::floor(x));
-		},
-		[](real x) {
-			return (real) fact<uint64_t>((unsigned int) (th::floor(x)));
-		},
-		special_opt
-	);
+		// Relation Pi(x) = Gamma(x + 1)
+		ctx.equals(
+			"special::pi(0.5) = gamma(1.5)",
+			special::pi(0.5),
+			special::gamma(1.5),
+			1E-8
+		);
+	}
+
+	{
+		ctx.equals("special::beta(1,1)", special::beta(1.0, 1.0), real(1), 1E-12);
+		ctx.equals("special::beta(1,2)", special::beta(1.0, 2.0), real(0.5), 1E-10);
+		ctx.equals("special::beta(2,3)", special::beta(2.0, 3.0), real(1.0 / 12.0), 1E-10);
+		ctx.equals("special::beta(0.5,0.5)", special::beta(0.5, 0.5), PI, 1E-7);
+
+		ctx.equals("special::beta symmetry (0.5, 1.5)", special::beta(0.5, 1.5), special::beta(1.5, 0.5), 1E-8);
+		ctx.equals("special::beta symmetry (1, 3)", special::beta(1.0, 3.0), special::beta(3.0, 1.0), 1E-8);
+		ctx.equals("special::beta symmetry (2.5, 4)", special::beta(2.5, 4.0), special::beta(4.0, 2.5), 1E-8);
+
+	}
+	
+	{
+		auto beta_mc_opt = prec::estimate_options<real, std::vector<real>>(
+			{ prec::interval(1, 10), prec::interval(1, 10) },
+			prec::estimator::montecarlo<real>(ctx.random, 2)
+		);
+
+		ctx.homogeneous(
+			"special::beta(real, real)",
+			[](std::vector<real> v) {
+				const real x = v[0];
+				const real y = v[1];
+
+				const real eval = special::beta(x, y);
+				const real expected =
+					real(std::exp(std::lgamma(x) + std::lgamma(y) - std::lgamma(x + y)));
+
+				return th::abs(eval - expected);
+			},
+			beta_mc_opt
+		);
+	}
 
 
 	// Test bit_op.h
