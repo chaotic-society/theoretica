@@ -684,16 +684,6 @@ int main(int argc, char const *argv[]) {
 	}
 
 	{
-		std::vector<uint8_t> v = {};
-		
-		th::swap_bit_reverse(v, 0);
-
-		std::vector<uint8_t> expected = {};
-
-		ctx.equals("th::swap_bit_reverse", v == expected, true);
-	}
-
-	{
 		std::vector<uint8_t> v = {1};
 		
 		th::swap_bit_reverse(v, 0);

@@ -11,7 +11,7 @@
 
 namespace theoretica {
 
-/// @namespace Reproducibility features.
+/// @namespace reprod Reproducibility features.
 namespace reprod {
 
     

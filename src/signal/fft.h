@@ -28,6 +28,9 @@ namespace theoretica {
 		template<typename ReturnVector = cvec, typename InputVector = cvec>
 		inline ReturnVector fft(const InputVector& x, bool inverse = false) {
 
+			if (x.size() == 0)
+				return ReturnVector({});
+
 			// Resulting vector in the frequency domain
 			ReturnVector k = x;
 			const unsigned int N = x.size();
@@ -43,7 +46,6 @@ namespace theoretica {
 
 			// Bit reverse
 			swap_bit_reverse(k, log2N);
-
 
 			for (unsigned int p = 1; p <= log2N; p++) {
 

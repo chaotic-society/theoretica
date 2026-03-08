@@ -81,8 +81,8 @@ namespace theoretica {
 			template<typename Dataset, enable_vector<Dataset> = true>
 			histogram(const Dataset& data, unsigned int bin_count = 0) {
 
-				range_max = theoretica::max(data);
-				range_min = theoretica::min(data);
+				range_max = max(data);
+				range_min = min(data);
 				value_max = range_max;
 				value_min = range_min;
 				N = data.size();
