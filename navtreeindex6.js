@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"integral_8h.html#abd783739794f700157cc7f7d6f9d9632":[2,0,2,2,8],
+"integral_8h.html#acc1c46c8f4022243fe207b05518c2740":[2,0,2,2,20],
 "integral_8h.html#ad2038787a4650a9610cdf4639901677a":[2,0,2,2,15],
 "integral_8h.html#ad3f79a7b3f80ff901eba3340d1ba14a5":[2,0,2,2,13],
 "integral_8h.html#ae095e7eee4b03eddc3b035b2bde14a7e":[2,0,2,2,2],
@@ -63,8 +65,8 @@ var NAVTREEINDEX6 =
 "multidual__functions_8h.html#af1444ff9faf0b4b247468462d7b7cb01":[2,0,1,7,14],
 "multidual__functions_8h.html#afcf0ac356621f93c30fc6bdd9a1977a3":[2,0,1,7,1],
 "multidual__functions_8h_source.html":[2,0,1,7],
-"namespacemembers.html":[0,1,0],
 "namespacemembers.html":[0,1,0,0],
+"namespacemembers.html":[0,1,0],
 "namespacemembers_b.html":[0,1,0,1],
 "namespacemembers_c.html":[0,1,0,2],
 "namespacemembers_d.html":[0,1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0":[0,0,2,405],
 "namespacetheoretica.html#a5adf7d2f3094d32dd9d4059ec86247db":[0,0,2,140],
 "namespacetheoretica.html#a5b9fac1b91317d696fc2b4ea479b30b9":[0,0,2,68],
-"namespacetheoretica.html#a5d7403a0756ef5ec70b2a821373def40":[0,0,2,255],
-"namespacetheoretica.html#a5e295404d1712fb17851fe105715766e":[0,0,2,232],
-"namespacetheoretica.html#a5effdda5848839bedf4a3aace62edc09":[0,0,2,409]
+"namespacetheoretica.html#a5d7403a0756ef5ec70b2a821373def40":[0,0,2,255]
 };

@@ -48,6 +48,8 @@ var namespacetheoretica =
       [ "linf_norm", "namespacetheoretica_1_1algebra.html#abb07bbcc3f136d05ab51d06dc46052d9", null ],
       [ "look_at", "namespacetheoretica_1_1algebra.html#a2796454efe36f2b64f6f813113ff4830", null ],
       [ "lp_norm", "namespacetheoretica_1_1algebra.html#add67a433fe0cbfca717f7556afaabdbf", null ],
+      [ "make_error", "namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35", null ],
+      [ "make_error", "namespacetheoretica_1_1algebra.html#aa5cd5ab4de746b72e76af2c781fe35f6", null ],
       [ "make_hermitian", "namespacetheoretica_1_1algebra.html#afc5ae85e773f42a3d4dca948067f5324", null ],
       [ "make_identity", "namespacetheoretica_1_1algebra.html#a2fdbfbad332a15de0037edb0116b6023", null ],
       [ "make_normalized", "namespacetheoretica_1_1algebra.html#a3b62d14e94e493460b4eb6b9c9b716ae", null ],

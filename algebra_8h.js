@@ -27,6 +27,8 @@ var algebra_8h =
     [ "is_square", "algebra_8h.html#a1ab552f2067f23dfab8473ff098810d1", null ],
     [ "is_symmetric", "algebra_8h.html#a4752e001d3198f3be8ae8f05f4fb06bf", null ],
     [ "is_upper_triangular", "algebra_8h.html#a580a1460c4ab6eb87cd12d461e0ff675", null ],
+    [ "make_error", "algebra_8h.html#a20846061e22ad06e981fad94a5f88f35", null ],
+    [ "make_error", "algebra_8h.html#aa5cd5ab4de746b72e76af2c781fe35f6", null ],
     [ "make_hermitian", "algebra_8h.html#afc5ae85e773f42a3d4dca948067f5324", null ],
     [ "make_identity", "algebra_8h.html#a2fdbfbad332a15de0037edb0116b6023", null ],
     [ "make_normalized", "algebra_8h.html#a3b62d14e94e493460b4eb6b9c9b716ae", null ],

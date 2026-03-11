@@ -1,5 +1,9 @@
 var NAVTREEINDEX9 =
 {
+"namespacetheoretica_1_1regression.html":[0,0,2,5],
+"namespacetheoretica_1_1regression.html#a256f8d4fa5431e922a7f872b00689a96":[0,0,2,5,10],
+"namespacetheoretica_1_1regression.html#a42740205ba00a0e35364c7d486cc835f":[0,0,2,5,6],
+"namespacetheoretica_1_1regression.html#a43911fac741333de75b825268f9f7cf5":[0,0,2,5,9],
 "namespacetheoretica_1_1regression.html#a78275eef04237b944d31cd21bc9a2e6e":[0,0,2,5,2],
 "namespacetheoretica_1_1regression.html#a83abb2c03a092fb7b1123c200c092ebd":[0,0,2,5,11],
 "namespacetheoretica_1_1regression.html#a8bd8c2804e6d0decea07c321eac58322":[0,0,2,5,8],
@@ -245,9 +249,5 @@ var NAVTREEINDEX9 =
 "roots_8h.html#a1bdea1fd73b49016d4d7bec2e829eb7e":[2,0,6,3,4],
 "roots_8h.html#a1feafa93b8400245b1004281f75ed39f":[2,0,6,3,5],
 "roots_8h.html#a33ab9446feae0a1abf496061fae55d99":[2,0,6,3,8],
-"roots_8h.html#a3e9e164e51e8ed01e633dfa36633e439":[2,0,6,3,2],
-"roots_8h.html#a587130155867c6e054e3668a0aed581e":[2,0,6,3,0],
-"roots_8h.html#a602a45107ab7d777486a587e8f032ed0":[2,0,6,3,14],
-"roots_8h.html#aa0649a3f31e025510b86dc7031c35f08":[2,0,6,3,1],
-"roots_8h.html#aa3de94cffc4e11a1a0fbaaa11db16d65":[2,0,6,3,6]
+"roots_8h.html#a3e9e164e51e8ed01e633dfa36633e439":[2,0,6,3,2]
 };

@@ -118,6 +118,14 @@ Functions</h2></td></tr>
 <tr class="memitem:acedb7a30970499d5e6a1f7f6137b6451"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#acedb7a30970499d5e6a1f7f6137b6451">vec_error</a> (Vector &amp;v)</td></tr>
 <tr class="memdesc:acedb7a30970499d5e6a1f7f6137b6451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite the given vector with the error vector with NaN values.  <br /></td></tr>
 <tr class="separator:acedb7a30970499d5e6a1f7f6137b6451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20846061e22ad06e981fad94a5f88f35" id="r_a20846061e22ad06e981fad94a5f88f35"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
+<tr class="memitem:a20846061e22ad06e981fad94a5f88f35"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35">make_error</a> (unsigned int n)</td></tr>
+<tr class="memdesc:a20846061e22ad06e981fad94a5f88f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a vector representing an error state, with all NaN values.  <br /></td></tr>
+<tr class="separator:a20846061e22ad06e981fad94a5f88f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5cd5ab4de746b72e76af2c781fe35f6" id="r_aa5cd5ab4de746b72e76af2c781fe35f6"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
+<tr class="memitem:aa5cd5ab4de746b72e76af2c781fe35f6"><td class="memTemplItemLeft" align="right" valign="top">Matrix&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#aa5cd5ab4de746b72e76af2c781fe35f6">make_error</a> (unsigned int rows, unsigned int cols)</td></tr>
+<tr class="memdesc:aa5cd5ab4de746b72e76af2c781fe35f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a matrix representing an error state, with all NaN values.  <br /></td></tr>
+<tr class="separator:aa5cd5ab4de746b72e76af2c781fe35f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fdbfbad332a15de0037edb0116b6023" id="r_a2fdbfbad332a15de0037edb0116b6023"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a2fdbfbad332a15de0037edb0116b6023"><td class="memTemplItemLeft" align="right" valign="top">Matrix &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1algebra.html#a2fdbfbad332a15de0037edb0116b6023">make_identity</a> (Matrix &amp;m)</td></tr>
 <tr class="memdesc:a2fdbfbad332a15de0037edb0116b6023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a matrix with the identity matrix.  <br /></td></tr>
@@ -2798,6 +2806,103 @@ template&lt;typename Vector &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The lp norm of v </dd></dl>
+
+</div>
+</div>
+<a id="a20846061e22ad06e981fad94a5f88f35" name="a20846061e22ad06e981fad94a5f88f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20846061e22ad06e981fad94a5f88f35">&#9670;&#160;</a></span>make_error() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector theoretica::algebra::make_error </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a vector representing an error state, with all NaN values. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Vector</td><td>The type of the vector to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The size of the vector to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector representing an error state </dd></dl>
+
+</div>
+</div>
+<a id="aa5cd5ab4de746b72e76af2c781fe35f6" name="aa5cd5ab4de746b72e76af2c781fe35f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5cd5ab4de746b72e76af2c781fe35f6">&#9670;&#160;</a></span>make_error() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix theoretica::algebra::make_error </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a matrix representing an error state, with all NaN values. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Matrix</td><td>The type of the matrix to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>The number of rows of the matrix to create </td></tr>
+    <tr><td class="paramname">cols</td><td>The number of columns of the matrix to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix representing an error state </dd></dl>
 
 </div>
 </div>
@@ -5964,7 +6069,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Wed Mar 11 2026 11:35:00 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Mar 11 2026 12:06:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
