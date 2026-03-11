@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
 		try {
 			result = signal::fft(x);
 		} catch (std::exception& e) {
-			result = cvec({nan()});
+			result = {nan()};
 		}
 
 		ctx.equals(
@@ -38,11 +38,11 @@ int main(int argc, char const *argv[]) {
 		try {
 			result = signal::ifft(x);
 		} catch (std::exception& e) {
-			result = cvec({nan()});
+			result = {nan()};
 		}
 
 		ctx.equals(
-			"fft({})",
+			"ifft({})",
 			result.size() == 1 && is_nan(result[0]),
 			true, 0
 		);
