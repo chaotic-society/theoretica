@@ -51,6 +51,8 @@ int main(int argc, char const *argv[]) {
 	
 	auto ctx = prec::make_context("interpolation", argc, argv);
 	ctx.output->settings.outputFiles = { "test/prec/prec_interpolation.csv" };
+	ctx.output->settings.logLevel = output::LogLevel::DEBUG;
+	
 	random::random_source rnd = ctx.random->get_rnd();
 
 	auto polyn_opt = prec::equation_options<polynomial<real>>(
