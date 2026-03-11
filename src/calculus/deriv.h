@@ -137,7 +137,13 @@ namespace theoretica {
 	>
 	inline real deriv_ridders(RealFunction f, real x, real h = 0.01, unsigned int degree = 3) {
 
-		real A[degree][degree];
+		const unsigned int MAX_RIDDERS_DEGREE = 16;
+		real A[MAX_RIDDERS_DEGREE][MAX_RIDDERS_DEGREE];
+
+		if (degree == 0 || degree > MAX_RIDDERS_DEGREE) {
+			TH_MATH_ERROR("deriv_ridders", degree, MathError::InvalidArgument);
+			return nan();
+		}
 
 		for (unsigned int i = 0; i < degree; ++i) {
 			

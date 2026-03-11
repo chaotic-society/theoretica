@@ -152,11 +152,12 @@ namespace theoretica {
 
 	/// Approximate the definite integral of an arbitrary function
 	/// using Romberg's method accurate to the given order.
+	/// The maximum number of iterations is 16.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
-	/// @param order The order of accuracy
+	/// @param iter The maximum number of iterations (accuracy order)
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral_romberg(
@@ -164,7 +165,13 @@ namespace theoretica {
 		real a, real b,
 		unsigned int iter = 8) {
 
-		real T[iter][iter];
+		const unsigned int MAX_ROMBERG_ITER = 16;
+		real T[MAX_ROMBERG_ITER][MAX_ROMBERG_ITER];
+
+		if (iter > MAX_ROMBERG_ITER) {
+			TH_MATH_ERROR("integral_romberg", iter, MathError::InvalidArgument);
+			return nan();
+		}
 
 		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
 
@@ -204,7 +211,7 @@ namespace theoretica {
 
 		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
 
-		for (unsigned int j = 1; j < 16; ++j) {
+		for (unsigned int j = 1; j < MAX_ROMBERG_ITER; ++j) {
 			
 			// Composite Trapezoidal Rule
 			T[j][0] = integral_trapezoid(f, a, b, 1 << j);
@@ -357,7 +364,9 @@ namespace theoretica {
 
 	/// Use Gauss-Legendre quadrature of degree 2, 4, 8 or 16,
 	/// using pre-computed values, to approximate
-	/// an integral over [a, b].
+	/// an integral over [a, b]. If the given degree is not tabulated,
+	/// the roots will be computed automatically (expensive).
+	/// For degrees higher than 32, the computation may not be numerically stable.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
