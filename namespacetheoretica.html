@@ -5224,6 +5224,7 @@ template&lt;typename RealFunction &gt; </div>
 </div><div class="memdoc">
 
 <p>Use Gauss-Legendre quadrature of degree 2, 4, 8 or 16, using pre-computed values, to approximate an integral over [a, b]. </p>
+<p>If the given degree is not tabulated, the roots will be computed automatically (expensive). For degrees higher than 32, the computation may not be numerically stable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to integrate </td></tr>
@@ -5727,12 +5728,13 @@ template&lt;typename RealFunction &gt; </div>
 </div><div class="memdoc">
 
 <p>Approximate the definite integral of an arbitrary function using Romberg's method accurate to the given order. </p>
+<p>The maximum number of iterations is 16.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to integrate </td></tr>
     <tr><td class="paramname">a</td><td>The lower extreme of integration </td></tr>
     <tr><td class="paramname">b</td><td>The upper extreme of integration </td></tr>
-    <tr><td class="paramname">order</td><td>The order of accuracy </td></tr>
+    <tr><td class="paramname">iter</td><td>The maximum number of iterations (accuracy order) </td></tr>
   </table>
   </dd>
 </dl>
@@ -11719,7 +11721,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Wed Mar 11 2026 12:06:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Mar 11 2026 12:14:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
