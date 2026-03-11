@@ -1,3 +1,4 @@
 [submodule "test/chebyshev"]
 	path = test/chebyshev
 	url = https://github.com/chaotic-society/chebyshev
+	branch = main
