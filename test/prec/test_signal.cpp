@@ -13,24 +13,37 @@ int main(int argc, char const *argv[]) {
 
 	// Test fft.h
 
+	// On empty vector, return { NaN }
 	{
-		cvec x = {};
-		cvec empty = {};
+		cvec x;
+		cvec result;
+
+		try {
+			result = signal::fft(x);
+		} catch (std::exception& e) {
+			result = cvec({nan()});
+		}
 
 		ctx.equals(
 			"fft({})",
-			signal::fft(x) == empty,
+			result.size() == 1 && is_nan(result[0]),
 			true, 0
 		);
 	}
 
 	{
-		cvec x = {};
-		cvec empty = {};
+		cvec x;
+		cvec result;
+
+		try {
+			result = signal::ifft(x);
+		} catch (std::exception& e) {
+			result = cvec({nan()});
+		}
 
 		ctx.equals(
-			"ifft({})",
-			signal::ifft(x) == empty,
+			"fft({})",
+			result.size() == 1 && is_nan(result[0]),
 			true, 0
 		);
 	}

@@ -28,8 +28,10 @@ namespace theoretica {
 		template<typename ReturnVector = cvec, typename InputVector = cvec>
 		inline ReturnVector fft(const InputVector& x, bool inverse = false) {
 
-			if (x.size() == 0)
-				return ReturnVector({});
+			if (x.size() == 0) {
+				TH_MATH_ERROR("fft", x.size(), MathError::InvalidArgument);
+				return ReturnVector({nan()});
+			}
 
 			// Resulting vector in the frequency domain
 			ReturnVector k = x;
