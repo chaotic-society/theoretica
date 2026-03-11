@@ -402,7 +402,7 @@ int main(int argc, char const *argv[]) {
 		);
 		
 		ctx.estimate("spline(sin)",
-			[&s](real x) { return s(x); },
+			[s](real x) { return s(x); },
 			[](real x) { return std::sin(x); },
 			opt
 		);
@@ -425,7 +425,7 @@ int main(int argc, char const *argv[]) {
 		}, -1.0, 1.0, 12);
 		
 		ctx.estimate("interpolate_grid(cos, 12)",
-			[&p](real x) { return p(x); },
+			[p](real x) { return p(x); },
 			CAST_LAMBDA(std::cos, real),
 			opt
 		);
@@ -444,7 +444,7 @@ int main(int argc, char const *argv[]) {
 		}, -1.0, 1.0, 12);
 		
 		ctx.estimate("interpolate_chebyshev(cos, 12)",
-			[&p](real x) { return p(x); },
+			[p](real x) { return p(x); },
 			CAST_LAMBDA(std::cos, real),
 			opt
 		);
@@ -461,7 +461,7 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> p = interpolate_chebyshev(runge, -1.0, 1.0, 16);
 		
 		ctx.estimate("interpolate_chebyshev(runge, 12)",
-			[&p](real x) { return p(x); },
+			[p](real x) { return p(x); },
 			runge,
 			opt
 		);
