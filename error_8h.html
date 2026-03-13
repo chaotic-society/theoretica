@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('error_8h.html',''); initResizable(); }
 </div><!--header-->
 <div class="contents">
 
-<p>Error handling.  
+<p>Error handling with errno and exceptions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;cerrno&gt;</code><br />
@@ -127,7 +127,7 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a3cb22530e3e3a835f4af97e985e6a32e" id="r_a3cb22530e3e3a835f4af97e985e6a32e"><td class="memItemLeft" align="right" valign="top"><a id="a3cb22530e3e3a835f4af97e985e6a32e" name="a3cb22530e3e3a835f4af97e985e6a32e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TH_MATH_ERROR</b>(F_NAME,  VALUE,  EXCEPTION)&#160;&#160;&#160;	{ errno = <a class="el" href="namespacetheoretica.html#a9d486a0a16a9979c6b86fe8695e1543e">theoretica::to_errno</a>(EXCEPTION); }</td></tr>
-<tr class="memdesc:a3cb22530e3e3a835f4af97e985e6a32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compiling options are defined) <br /></td></tr>
+<tr class="memdesc:a3cb22530e3e3a835f4af97e985e6a32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compilation options are defined) <br /></td></tr>
 <tr class="separator:a3cb22530e3e3a835f4af97e985e6a32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -178,14 +178,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::is_inf</b
 <tr class="separator:aa0e2748628e6c133de6a7e843c02c7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Error handling. </p>
+<div class="textblock"><p>Error handling with errno and exceptions. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="error_8h.html">error.h</a></li>
-    <li class="footer">Generated on Wed Mar 11 2026 14:00:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Mar 13 2026 14:18:55 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

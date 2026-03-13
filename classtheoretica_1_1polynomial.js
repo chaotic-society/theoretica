@@ -1,10 +1,9 @@
 var classtheoretica_1_1polynomial =
 [
-    [ "polynomial", "classtheoretica_1_1polynomial.html#aa53cb1b63ce5d45939ca14460f95edff", null ],
+    [ "polynomial", "classtheoretica_1_1polynomial.html#a0bd2d5ce3251d18c448d432191895b4e", null ],
     [ "polynomial", "classtheoretica_1_1polynomial.html#a666756c93b22485b7efd8df9170d533e", null ],
-    [ "polynomial", "classtheoretica_1_1polynomial.html#a444ac733f2db65a00e30108616ee2ffa", null ],
+    [ "polynomial", "classtheoretica_1_1polynomial.html#a458b7b1541b439b9aa3f76965b87834a", null ],
     [ "polynomial", "classtheoretica_1_1polynomial.html#a39ca809050b1b06451459ced7d6e436e", null ],
-    [ "~polynomial", "classtheoretica_1_1polynomial.html#a16539515c87865ce88dfd71661482759", null ],
     [ "at", "classtheoretica_1_1polynomial.html#a5de8b9e241895cba0803042fc6d9cc83", null ],
     [ "at", "classtheoretica_1_1polynomial.html#a99cf2e5c7342ba2e3c44e4cb80146872", null ],
     [ "begin", "classtheoretica_1_1polynomial.html#a20d9c4e379abcaf3211c889f1d6c2997", null ],
@@ -34,5 +33,6 @@ var classtheoretica_1_1polynomial =
     [ "size", "classtheoretica_1_1polynomial.html#ac09795f30bdbf0f19e596a86788a4299", null ],
     [ "to_string", "classtheoretica_1_1polynomial.html#ad191a99b6dfc6f0564e8e954818b8853", null ],
     [ "trim", "classtheoretica_1_1polynomial.html#a5077f2fccc1b634155c98b0139a6c41e", null ],
-    [ "operator<<", "classtheoretica_1_1polynomial.html#a7f48b5553255324ebabd62d3b504f871", null ]
+    [ "operator<<", "classtheoretica_1_1polynomial.html#a7f48b5553255324ebabd62d3b504f871", null ],
+    [ "coeff", "classtheoretica_1_1polynomial.html#ae7d2d6c3cd826e83f4f1918705e3ff57", null ]
 ];

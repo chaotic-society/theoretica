@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1polynomial.html',''
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classtheoretica_1_1polynomial-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">theoretica::polynomial&lt; Type &gt; Class Template Reference</div></div>
@@ -115,26 +116,22 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1polynomial.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa53cb1b63ce5d45939ca14460f95edff" id="r_aa53cb1b63ce5d45939ca14460f95edff"><td class="memItemLeft" align="right" valign="top"><a id="aa53cb1b63ce5d45939ca14460f95edff" name="aa53cb1b63ce5d45939ca14460f95edff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> ()</td></tr>
-<tr class="memdesc:aa53cb1b63ce5d45939ca14460f95edff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize as an empty polynomial. <br /></td></tr>
-<tr class="separator:aa53cb1b63ce5d45939ca14460f95edff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd2d5ce3251d18c448d432191895b4e" id="r_a0bd2d5ce3251d18c448d432191895b4e"><td class="memItemLeft" align="right" valign="top"><a id="a0bd2d5ce3251d18c448d432191895b4e" name="a0bd2d5ce3251d18c448d432191895b4e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> ()=default</td></tr>
+<tr class="memdesc:a0bd2d5ce3251d18c448d432191895b4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:a0bd2d5ce3251d18c448d432191895b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a666756c93b22485b7efd8df9170d533e" id="r_a666756c93b22485b7efd8df9170d533e"><td class="memItemLeft" align="right" valign="top"><a id="a666756c93b22485b7efd8df9170d533e" name="a666756c93b22485b7efd8df9170d533e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> (Type a)</td></tr>
 <tr class="memdesc:a666756c93b22485b7efd8df9170d533e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize as a constant. <br /></td></tr>
 <tr class="separator:a666756c93b22485b7efd8df9170d533e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a444ac733f2db65a00e30108616ee2ffa" id="r_a444ac733f2db65a00e30108616ee2ffa"><td class="memItemLeft" align="right" valign="top"><a id="a444ac733f2db65a00e30108616ee2ffa" name="a444ac733f2db65a00e30108616ee2ffa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> (const std::vector&lt; Type &gt; &amp;c)</td></tr>
-<tr class="memdesc:a444ac733f2db65a00e30108616ee2ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from an std::vector. <br /></td></tr>
-<tr class="separator:a444ac733f2db65a00e30108616ee2ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458b7b1541b439b9aa3f76965b87834a" id="r_a458b7b1541b439b9aa3f76965b87834a"><td class="memTemplParams" colspan="2">template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:a458b7b1541b439b9aa3f76965b87834a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a458b7b1541b439b9aa3f76965b87834a">polynomial</a> (const Vector &amp;c)</td></tr>
+<tr class="memdesc:a458b7b1541b439b9aa3f76965b87834a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from a vector of coefficients where the n-th order coefficient is given by the n-th element of the vector.  <br /></td></tr>
+<tr class="separator:a458b7b1541b439b9aa3f76965b87834a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ca809050b1b06451459ced7d6e436e" id="r_a39ca809050b1b06451459ced7d6e436e"><td class="memItemLeft" align="right" valign="top"><a id="a39ca809050b1b06451459ced7d6e436e" name="a39ca809050b1b06451459ced7d6e436e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>polynomial</b> (std::initializer_list&lt; Type &gt; l)</td></tr>
 <tr class="memdesc:a39ca809050b1b06451459ced7d6e436e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from an std::initializer_list. <br /></td></tr>
 <tr class="separator:a39ca809050b1b06451459ced7d6e436e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16539515c87865ce88dfd71661482759" id="r_a16539515c87865ce88dfd71661482759"><td class="memItemLeft" align="right" valign="top"><a id="a16539515c87865ce88dfd71661482759" name="a16539515c87865ce88dfd71661482759"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~polynomial</b> ()</td></tr>
-<tr class="memdesc:a16539515c87865ce88dfd71661482759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
-<tr class="separator:a16539515c87865ce88dfd71661482759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99cf2e5c7342ba2e3c44e4cb80146872" id="r_a99cf2e5c7342ba2e3c44e4cb80146872"><td class="memItemLeft" align="right" valign="top"><a id="a99cf2e5c7342ba2e3c44e4cb80146872" name="a99cf2e5c7342ba2e3c44e4cb80146872"></a>
 const Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>at</b> (unsigned int i) const</td></tr>
 <tr class="memdesc:a99cf2e5c7342ba2e3c44e4cb80146872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get i-th coefficient by constant reference, with bound checking. <br /></td></tr>
@@ -265,6 +262,13 @@ static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt
 <tr class="memdesc:a8382050beec5ef17a645639e4afc57b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a monomial of the given degree and coefficient. <br /></td></tr>
 <tr class="separator:a8382050beec5ef17a645639e4afc57b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae7d2d6c3cd826e83f4f1918705e3ff57" id="r_ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="memItemLeft" align="right" valign="top"><a id="ae7d2d6c3cd826e83f4f1918705e3ff57" name="ae7d2d6c3cd826e83f4f1918705e3ff57"></a>
+std::vector&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>coeff</b></td></tr>
+<tr class="memdesc:ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficients of the polynomial, coeff[n] is the n-th order coefficient. <br /></td></tr>
+<tr class="separator:ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a7f48b5553255324ebabd62d3b504f871" id="r_a7f48b5553255324ebabd62d3b504f871"><td class="memItemLeft" align="right" valign="top"><a id="a7f48b5553255324ebabd62d3b504f871" name="a7f48b5553255324ebabd62d3b504f871"></a>
@@ -275,7 +279,41 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Type = real&gt;<br />
 class theoretica::polynomial&lt; Type &gt;</div><p>A polynomial of arbitrary order. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a458b7b1541b439b9aa3f76965b87834a" name="a458b7b1541b439b9aa3f76965b87834a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458b7b1541b439b9aa3f76965b87834a">&#9670;&#160;</a></span>polynomial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real&gt; </div>
+<div class="memtemplate">
+template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1polynomial.html">theoretica::polynomial</a>&lt; Type &gt;::polynomial </td>
+          <td>(</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize from a vector of coefficients where the n-th order coefficient is given by the n-th element of the vector. </p>
+<p>The constructor may be used explicitly, as polynomial(v). </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>polynomial/<a class="el" href="polynomial_2polynomial_8h_source.html">polynomial.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -284,7 +322,7 @@ class theoretica::polynomial&lt; Type &gt;</div><p>A polynomial of arbitrary ord
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a></li>
-    <li class="footer">Generated on Wed Mar 11 2026 14:00:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Mar 13 2026 14:18:55 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

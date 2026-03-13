@@ -4908,6 +4908,7 @@ template&lt;typename Matrix , typename Vector &gt; </div>
 </div><div class="memdoc">
 
 <p>Solve a linear system \(A \vec x = \vec b\) defined by a symmetric positive definite matrix, using the Cholesky decomposition \(L\) constructed so that \(A = LL^T\). </p>
+<dl class="section note"><dt>Note</dt><dd>Cholesky decomposition has to be computed beforehand using decompose_cholesky or decompose_cholesky_inplace on the matrix.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">L</td><td>The already computed Cholesky decomposition of the symmetric positive definite matrix describing the system. </td></tr>
@@ -4962,7 +4963,7 @@ template&lt;typename Matrix1 , typename Matrix2 , typename Vector &gt; </div>
 </div><div class="memdoc">
 
 <p>Use the LU decomposition of a matrix to solve its associated linear system, solving \(A \vec x = \vec b\) for \(\vec b\). </p>
-<p>When solving the same linear system over and over, it is advantageous to compute its LU decomposition using decompose_lu and then use the decomposition to solve the system for different known vectors, reducing the overall computational cost.</p>
+<p>When solving the same linear system over and over, it is advantageous to compute its LU decomposition using decompose_lu or decompose_lu_inplace and then use it to solve the system for different known vectors, reducing the overall computational cost.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">L</td><td>The lower triangular matrix </td></tr>
@@ -6069,7 +6070,7 @@ template&lt;typename Vector &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1algebra.html">algebra</a></li>
-    <li class="footer">Generated on Wed Mar 11 2026 14:00:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Mar 13 2026 14:18:55 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
