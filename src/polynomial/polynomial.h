@@ -24,22 +24,31 @@ namespace theoretica {
 	template<typename Type = real>
 	class polynomial {
 		public:
+
+			/// Coefficients of the polynomial, coeff[n] is the n-th order coefficient.
 			std::vector<Type> coeff;
 
-			/// Initialize as an empty polynomial
-			polynomial() : coeff() {}
+			/// Default constructor
+			polynomial() = default;
 
 			/// Initialize as a constant
 			polynomial(Type a) : coeff({a}) {}
 
-			/// Initialize from an std::vector
-			polynomial(const std::vector<Type>& c) : coeff(c) {}
-					
+			/// Initialize from a vector of coefficients where the n-th order coefficient
+			/// is given by the n-th element of the vector.
+			///
+			/// The constructor may be used explicitly, as polynomial(v).
+			template <typename Vector, enable_vector<Vector> = true>
+			explicit polynomial(const Vector& c) {
+				
+				coeff.resize(c.size());
+
+				for (size_t i = 0; i < c.size(); ++i)
+					coeff[i] = c[i];
+			}
+			
 			/// Initialize from an std::initializer_list
 			polynomial(std::initializer_list<Type> l) : coeff(l) {}
-
-			/// Default destructor
-			~polynomial() {}
 
 
 			/// Get i-th coefficient by constant reference, with bound checking.
@@ -476,10 +485,19 @@ namespace theoretica {
 				const std::string& exponentiation = "^") const {
 
 				std::stringstream res;
-				bool flag = false;
 				const int sz = coeff.size();
 
-				for (int i = sz - 1; i >= 0; --i) {
+				if (size() == 0) {
+					res << Type(0.0);
+					return res.str();
+				}
+
+				res << coeff[sz - 1];
+				
+				if (size() > 1)
+					res << "*" << unknown << exponentiation << (sz - 1) << " ";
+
+				for (int i = sz - 2; i >= 0; --i) {
 
 					if(abs(coeff[i]) < MACH_EPSILON)
 						continue;
@@ -491,12 +509,7 @@ namespace theoretica {
 						res << "*" << unknown << exponentiation << i;
 						res << " ";
 					}
-
-					flag = true;
 				}
-
-				if(!flag)
-					res << "0";
 
 				return res.str();
 			}

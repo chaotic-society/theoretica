@@ -1723,7 +1723,7 @@ namespace theoretica {
 		/// Use the LU decomposition of a matrix to solve its associated linear system,
 		/// solving \f$A \vec x = \vec b\f$ for \f$\vec b\f$. When solving the same linear
 		/// system over and over, it is advantageous to compute its LU decomposition
-		/// using decompose_lu and then use the decomposition to solve the system for
+		/// using decompose_lu or decompose_lu_inplace and then use it to solve the system for
 		/// different known vectors, reducing the overall computational cost.
 		///
 		/// @param L The lower triangular matrix
@@ -1793,6 +1793,9 @@ namespace theoretica {
 		/// Solve a linear system \f$A \vec x = \vec b\f$ defined by a symmetric
 		/// positive definite matrix, using the Cholesky decomposition \f$L\f$ constructed
 		/// so that \f$A = LL^T\f$.
+		///
+		/// @note Cholesky decomposition has to be computed beforehand
+		/// using decompose_cholesky or decompose_cholesky_inplace on the matrix.
 		///
 		/// @param L The already computed Cholesky decomposition of the symmetric
 		/// positive definite matrix describing the system.

@@ -1,6 +1,6 @@
 
 ///
-/// @file core/error.h Error handling
+/// @file core/error.h Error handling with errno and exceptions.
 ///
 
 #ifndef THEORETICA_ERROR_H
@@ -212,10 +212,10 @@ namespace theoretica {
 
 
 /// TH_MATH_ERROR is a macro which throws exceptions
-/// or modifies errno (depending on which compiling options
+/// or modifies errno (depending on which compilation options
 /// are defined)
 
-	
+
 // Only throw exceptions, without modifying errno
 #ifdef THEORETICA_ONLY_EXCEPTIONS
 
