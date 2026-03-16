@@ -1,6 +1,6 @@
 # Theoretica Development Roadmap
 
-> **Last Updated:** 2026-02-23
+> **Last Updated:** 2026-03-16
 > **Author:** M. Isgrò
 > 
 > This document outlines the strategic direction and major initiatives for the Theoretica project.
@@ -15,7 +15,7 @@ The Theoretica project is an attempt to make powerful numerical methods availabl
 ### 🚀 Priority 1: Dual C++20 Adoption
 **Status:** 🟡 **In Progress**
 **Target:** Q1 2026  
-**RFC:** [RFC002-CPP20-ADOPTION](https://github.com/chaotic-society/documents/blob/main/specification/theoretica/rfc/RFC-CPP20-ADOPTION.md)
+**RFC:** [RFC002-CPP20-ADOPTION](https://github.com/chaotic-society/documents/blob/main/specification/theoretica/rfc/RFC002-CPP20-ADOPTION.md)
 
 **Brief Description:**
 Considering the use cases of the library and its current strengths, Theoretica should strive to support both **high-performance hardware** and **embedded systems**. At the same time, Theoretica needs to modernize and adopt the C++20 standard, which is becoming the industry standard in scientific computing, to stay current and competitive.
@@ -30,8 +30,8 @@ The `autodiff` module will particularly benefit from this change, as C++20 conce
 
 **Key Milestones:**
 - [x] Define C++ standard separation strategy between core and advanced modules (Target: January 2026)
-- [ ] Upgrade advanced modules to C++20 (`autodiff`, `optimization`) (Target: February 2026)
-- [ ] Ensure and test C++14 compatibility of core modules (`algebra`, `complex`, `core`, `calculus`) (Target: February 2026)
+- [ ] Upgrade advanced modules to C++20 (`autodiff`, `optimization`) (Target: March 2026)
+- [ ] Ensure and test C++14 compatibility of core modules (`algebra`, `complex`, `core`, `calculus`) (Target: March 2026)
 - [ ] Document compiler requirements per module/header (Target: March 2026)
 - [ ] Add embedded systems-specific features and testing (Target: March 2026)
 
@@ -68,7 +68,7 @@ Some key features are currently missing from Theoretica that limit its usability
    - Create new `io` module with functions for reading and writing data structures to and from file
 
 **Key Milestones:**
-- [ ] Write missing test units for untested modules (Target: February 2026)
+- [ ] Write missing test units for untested modules (Target: March 2026)
 - [x] Implement CSV IO functionality in new `io` module (Target: February 2026)
 - [ ] Implement HDF5 IO support (with optional build flag) (Target: March 2026)
 - [ ] Document IO module with examples (Target: March 2026)
