@@ -100,7 +100,7 @@ namespace theoretica {
 			inline unsigned int find_order() const {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
-					if(abs(coeff[i]) < MACH_EPSILON)
+					if(abs(coeff[i]) > MACH_EPSILON)
 						return i;
 				}
 

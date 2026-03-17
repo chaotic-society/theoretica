@@ -29,11 +29,11 @@ namespace theoretica {
 		template<typename DualFunction>
 		inline polynomial<real> expand_linear(DualFunction f, real x0 = 0) {
 
-			dual d = f(dual(x0, 1));
-			real fx = d.Re();
-			real dfx = d.Dual();
+			const dual d = f(dual(x0, 1));
+			const real fx = d.Re();
+			const real dfx = d.Dual();
 
-			polynomial<real> P = {fx};
+			polynomial<real> P = {fx, 0.0};
 			P += polynomial<>({-x0, 1}) * dfx;
 			
 			return P;
@@ -52,12 +52,12 @@ namespace theoretica {
 		template<typename Dual2Function>
 		inline polynomial<real> expand_quadratic(Dual2Function f, real x0 = 0) {
 
-			dual2 d = f(dual2(x0, 1, 0));
-			real fx = d.Re();
-			real dfx = d.Dual1();
-			real d2fx = d.Dual2();
+			const dual2 d = f(dual2(x0, 1, 0));
+			const real fx = d.Re();
+			const real dfx = d.Dual1();
+			const real d2fx = d.Dual2();
 
-			polynomial<real> P = {fx};
+			polynomial<real> P = {fx, 0.0, 0.0};
 			P += polynomial<>({-x0, 1}) * dfx;
 			P += polynomial<>({square(x0), -2 * x0, 1}) * (d2fx / 2.0);
 
