@@ -31,10 +31,7 @@ namespace theoretica {
 		InvalidInput,   
 		
 		/// Algorithm diverged
-		Diverged,
-
-		/// User terminated early
-		UserInterrupt
+		Diverged
 	};
 
 
@@ -125,8 +122,6 @@ namespace theoretica {
 					return "Invalid input provided";
 				case ConvergenceStatus::Diverged:
 					return "Algorithm diverged";
-				case ConvergenceStatus::UserInterrupt: 
-					return "User interrupt";
 				default:
 					return "Unknown status";
 			}
