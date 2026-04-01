@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"integral_8h.html#aa8715f45961d756064be2c06ba4784d4":[2,0,2,2,19],
+"integral_8h.html#aaf3ddf8709dd260dcaee46719dc7f648":[2,0,2,2,0],
+"integral_8h.html#ab15d3b8d15def86bb228a46811100bca":[2,0,2,2,12],
+"integral_8h.html#abbe2540b2ff381a14b61588280cb9016":[2,0,2,2,7],
 "integral_8h.html#abd783739794f700157cc7f7d6f9d9632":[2,0,2,2,8],
 "integral_8h.html#acc1c46c8f4022243fe207b05518c2740":[2,0,2,2,20],
 "integral_8h.html#ad2038787a4650a9610cdf4639901677a":[2,0,2,2,15],
@@ -65,16 +69,16 @@ var NAVTREEINDEX6 =
 "multidual__functions_8h.html#af1444ff9faf0b4b247468462d7b7cb01":[2,0,1,7,14],
 "multidual__functions_8h.html#afcf0ac356621f93c30fc6bdd9a1977a3":[2,0,1,7,1],
 "multidual__functions_8h_source.html":[2,0,1,7],
-"namespacemembers.html":[0,1,0,0],
 "namespacemembers.html":[0,1,0],
+"namespacemembers.html":[0,1,0,0],
 "namespacemembers_b.html":[0,1,0,1],
 "namespacemembers_c.html":[0,1,0,2],
 "namespacemembers_d.html":[0,1,0,3],
 "namespacemembers_e.html":[0,1,0,4],
 "namespacemembers_enum.html":[0,1,4],
 "namespacemembers_f.html":[0,1,0,5],
-"namespacemembers_func.html":[0,1,1,0],
 "namespacemembers_func.html":[0,1,1],
+"namespacemembers_func.html":[0,1,1,0],
 "namespacemembers_func_b.html":[0,1,1,1],
 "namespacemembers_func_c.html":[0,1,1,2],
 "namespacemembers_func_d.html":[0,1,1,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "namespacetheoretica.html#a5703b4f09d1f4a018d2cca9e8aeaa3c2":[0,0,2,247],
 "namespacetheoretica.html#a579b4ccc4078b67b7ec795b744e436d5":[0,0,2,302],
 "namespacetheoretica.html#a5822f6ae7c03a023f79361f9dbb3118b":[0,0,2,223],
-"namespacetheoretica.html#a587130155867c6e054e3668a0aed581e":[0,0,2,133],
-"namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0":[0,0,2,405],
-"namespacetheoretica.html#a5adf7d2f3094d32dd9d4059ec86247db":[0,0,2,140],
-"namespacetheoretica.html#a5b9fac1b91317d696fc2b4ea479b30b9":[0,0,2,68],
-"namespacetheoretica.html#a5d7403a0756ef5ec70b2a821373def40":[0,0,2,255]
+"namespacetheoretica.html#a587130155867c6e054e3668a0aed581e":[0,0,2,133]
 };
