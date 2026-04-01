@@ -167,6 +167,18 @@ namespace theoretica {
 			}
 
 
+			/// Return the lower extreme of the histogram range. 
+			inline real range_lower() const {
+				return range_min;
+			}
+
+
+			/// Return the upper extreme of the histogram range.
+			inline real range_upper() const {
+				return range_max;
+			}
+
+
 			/// Get the biggest data point of the histogram.
 			///
 			/// @return The maximum value of all elements.
