@@ -165,7 +165,7 @@ namespace theoretica {
 
 			// Maximize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = maximize_goldensection(
+			real gamma = maximize_golden(
 				[f, x, grad](real gamma){
 					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
 				}, -1, 0);

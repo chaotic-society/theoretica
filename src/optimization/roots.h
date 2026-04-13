@@ -14,7 +14,6 @@
 #include "../complex/complex.h"
 #include "../core/iter_result.h"
 
-#include <iostream>
 
 namespace theoretica {
 
@@ -26,12 +25,14 @@ namespace theoretica {
 	/// @param a The lower extreme of the interval
 	/// @param b The upper extreme of the interval
 	/// @param steps The number of sub-intervals to check (defaults to 10)
+	/// @return A vector of pairs of real numbers, where each pair (x1, x2)
+	/// represents a bracketing interval potentially containing a root.
 	template<typename RealFunction, typename Bracket = vec2>
-	inline std::vector<Bracket> find_root_intervals(
+	inline std::vector<Bracket> find_root_brackets(
 		RealFunction f, real a, real b, unsigned int steps = 10) {
 
 		std::vector<Bracket> res;
-		const real dx = (b - a) / (real) steps;
+		const real dx = (b - a) / steps;
 
 		for (unsigned int i = 0; i < steps; ++i) {
 			
@@ -667,10 +668,10 @@ namespace theoretica {
 		}
 
 		// Find candidate intervals
-		auto intervals = find_root_intervals(f, a, b, steps);
+		auto intervals = find_root_brackets(f, a, b, steps);
 
 		Vector res;
-		res.resize(intervals.size());
+		res.resize(intervals.size(), nan());
 		size_t idx = 0;
 
 		// Iterate through all candidate intervals and refine the results
@@ -699,8 +700,6 @@ namespace theoretica {
 			}
 		}
 
-		// Remove extra elements
-		//res.resize(idx);
 		return res;
 	}
 
