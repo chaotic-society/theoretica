@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['outofdomain_0',['OutOfDomain',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a25a8b5a3bacbe24817a2f49103291bfd',1,'theoretica']]],
-  ['outofrange_1',['OutOfRange',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a365b2699d38b61ef4b4c8a1066c8468f',1,'theoretica']]]
+  ['noconvergence_0',['NoConvergence',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a5fe13b7cc103e583443ad01e542c4c91',1,'theoretica']]],
+  ['none_1',['None',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a6adf97f83acf6453d4a6a4b1070f3754',1,'theoretica']]]
 ];

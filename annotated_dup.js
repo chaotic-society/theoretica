@@ -14,6 +14,7 @@ var annotated_dup =
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
       [ "dual2", "classtheoretica_1_1dual2.html", "classtheoretica_1_1dual2" ],
       [ "histogram", "classtheoretica_1_1histogram.html", "classtheoretica_1_1histogram" ],
+      [ "iter_result", "structtheoretica_1_1iter__result.html", "structtheoretica_1_1iter__result" ],
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ],
       [ "mat_iterator", "classtheoretica_1_1mat__iterator.html", "classtheoretica_1_1mat__iterator" ],

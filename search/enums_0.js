@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matherror_0',['MathError',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3',1,'theoretica']]]
+  ['convergencestatus_0',['ConvergenceStatus',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178',1,'theoretica']]]
 ];

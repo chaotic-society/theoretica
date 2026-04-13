@@ -7,5 +7,6 @@ var searchData=
   ['sqrtpi_4',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]],
   ['statistics_5fmetropolis_5fdepth_5',['STATISTICS_METROPOLIS_DEPTH',['../namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83',1,'theoretica']]],
   ['statistics_5frand_5fprec_6',['STATISTICS_RAND_PREC',['../namespacetheoretica.html#a2ab0dc413ccb1d809e2269de05dbf48d',1,'theoretica']]],
-  ['statistics_5ftryandcatch_5fiter_7',['STATISTICS_TRYANDCATCH_ITER',['../namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde',1,'theoretica']]]
+  ['statistics_5ftryandcatch_5fiter_7',['STATISTICS_TRYANDCATCH_ITER',['../namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde',1,'theoretica']]],
+  ['status_8',['status',['../structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb',1,'theoretica::iter_result']]]
 ];
