@@ -44,11 +44,8 @@ namespace theoretica {
 	template<typename Type = real>
 	struct iter_result {
 
-		/// The computed result value
+		/// Best estimate of the result
 		Type value;
-
-		/// Whether the algorithm converged within the specified criteria
-		bool converged = false;
 
 		/// Status code indicating reason for termination
 		ConvergenceStatus status = ConvergenceStatus::Success;
@@ -60,51 +57,57 @@ namespace theoretica {
 		real residual = inf();
 
 
-		/// Constructor with default values
+		/// Construct with default values
 		iter_result() : value(Type(nan())) {}
 
 
-		/// Constructor with value for reporting success
+		/// Construct with final result for reporting success
 		iter_result(const Type& val) : value(val) {
-			converged = true;
 			status = ConvergenceStatus::Success;
 		}
 		
+		/// Construct with final result for reporting success
 		iter_result(const Type& value, unsigned int iterations)
 		: value(value), iterations(iterations) {
-			converged = true;
+
 			status = ConvergenceStatus::Success;
 		}
 
+		/// Construct with final result for reporting success
 		iter_result(const Type& value, unsigned int iterations, real residual)
 		: value(value), iterations(iterations), residual(residual) {
-			converged = true;
+
 			status = ConvergenceStatus::Success;
 		}
 
 
-		/// Constructor with convergence status for reporting failure
+		/// Construct with convergence status for reporting failure
 		iter_result(ConvergenceStatus status, unsigned int iterations = 0)
 		: status(status), iterations(iterations) {
 			value = Type(nan());
-			converged = false;
 		}
 
+		/// Construct with convergence status for reporting failure
 		iter_result(ConvergenceStatus status, unsigned int iterations, real residual)
 		: status(status), iterations(iterations), residual(residual) {
 			value = Type(nan());
-			converged = false;
 		}
 
 
-		/// Implicit conversion to result type, allows code like: Type res = algorithm();
+		/// Implicit conversion to result type, allows code like:
+		/// Type res = algorithm();
 		operator Type() const {
 			return value;
 		}
 
+		/// Check if the algorithm converged successfully
+		inline bool converged() const {
+			return status == ConvergenceStatus::Success;
+		}
+
 		/// Explicit conversion to boolean (converged status), allows code like: if (result) { ... }
 		explicit operator bool() const {
-			return converged;
+			return converged();
 		}
 
 
