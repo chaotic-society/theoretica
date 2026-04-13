@@ -105,7 +105,8 @@ namespace theoretica {
 			return status == ConvergenceStatus::Success;
 		}
 
-		/// Explicit conversion to boolean (converged status), allows code like: if (result) { ... }
+		/// Explicit conversion to boolean (converged status), allows code like:
+		/// if (result) { ... }
 		explicit operator bool() const {
 			return converged();
 		}
@@ -139,10 +140,6 @@ namespace theoretica {
 			std::stringstream res;
 
 			res << "Value = " << value << "\n";
-
-			if (!converged)
-				res << "Converged = " << (converged ? "true" : "false") << "\n";
-
 			res << "Status: " << status_string() << "\n";
 			res << "Iterations = " << iterations << "\n";
 			res << "Residual = " << residual;
