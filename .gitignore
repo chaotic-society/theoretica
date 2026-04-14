@@ -25,3 +25,10 @@ theoretica-cppcheck-build-dir/*
 **/sampling_distributions
 test/chebyshev/build/doxygen-awesome.css
 test/chebyshev/build/Doxyfile
+
+build/CMakeFiles/*
+build/_deps/*
+build/CMakeCache.txt
+build/cmake_install.cmake
+build/examples/*
+build/test/*
