@@ -1,19 +1,33 @@
 default_target: all
 all: examples test
 
-# Compiler flag for OpenMP
+
+# HDF5 support
+# Change the paths below to match your HDF5 installation.
+# If empty, HDF5 support will be disabled.
+HDF5_INCLUDE = 
+HDF5_LIB = 
+HDF5_FLAGS = 
+
+ifneq ($(strip $(HDF5_INCLUDE))$(strip $(HDF5_LIB)),)
+HDF5_FLAGS = -I${HDF5_INCLUDE} -L${HDF5_LIB} -DTHEORETICA_HAS_HDF5 -lhdf5 -lzlib -lsz
+else
+$(info HDF5 support is disabled. To enable it, set HDF5_INCLUDE and HDF5_LIB in the Makefile.)
+endif
+
+
+# OpenMP support
+# Define DISABLE_OPENMP to disable OpenMP support.
 OPENMP = -fopenmp
 
-# Disable OpenMP if DISABLE_OPENMP is defined
 ifdef DISABLE_OPENMP
-	OPENMP = -DTHEORETICA_DISABLE_OPENMP
+OPENMP = -DTHEORETICA_DISABLE_OPENMP
 endif
 
 
 # Compiler flags
-CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
+CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP} ${HDF5_FLAGS}
 CHEBYSHEV_SRC = ./test/chebyshev/src
-
 
 # Test programs
 TEST_SOURCES := $(wildcard test/prec/test_*.cpp)

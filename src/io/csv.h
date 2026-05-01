@@ -1,10 +1,10 @@
 
 ///
-/// @file format_csv.h CSV file format support.
+/// @file csv.h CSV file format support.
 ///
 
-#ifndef THEORETICA_FORMAT_CSV_H
-#define THEORETICA_FORMAT_CSV_H
+#ifndef THEORETICA_IO_FORMAT_CSV_H
+#define THEORETICA_IO_FORMAT_CSV_H
 
 #include <fstream>
 #include <iomanip>

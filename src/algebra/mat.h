@@ -137,9 +137,9 @@ namespace theoretica {
 		public:
 
 #ifdef THEORETICA_ROW_FIRST
-		Type data[N][K];
+		Type elements[N][K];
 #else
-		Type data[K][N];
+		Type elements[K][N];
 #endif
 
 
@@ -494,9 +494,9 @@ namespace theoretica {
 		inline Type& get(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return elements[i][j];
 #else
-			return data[j][i];
+			return elements[j][i];
 #endif
 		}
 
@@ -509,9 +509,9 @@ namespace theoretica {
 		inline const Type& get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return elements[i][j];
 #else
-			return data[j][i];
+			return elements[j][i];
 #endif
 		}
 
@@ -634,6 +634,18 @@ namespace theoretica {
 		/// @return The total number of elements (rows * columns).
 		inline unsigned int size() const {
 			return N * K;
+		}
+
+
+		/// Get a raw pointer to the underlying elements in memory.
+		inline Type* data() {
+			return (Type*) elements;
+		}
+
+
+		/// Get a raw pointer to the underlying elements in memory.
+		inline const Type* data() const {
+			return (const Type*) elements;
 		}
 
 
@@ -773,7 +785,7 @@ namespace theoretica {
 		public:
 
 		/// Dynamically allocated array of the elements
-		std::vector<Type> data;
+		std::vector<Type> elements;
 
 		/// Number of rows
 		size_t row_sz {0};
@@ -1165,9 +1177,9 @@ namespace theoretica {
 		inline Type& get(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
+			return elements[j + i * row_sz];
 #else
-			return data[i + j * col_sz];
+			return elements[i + j * col_sz];
 #endif
 		}
 
@@ -1180,9 +1192,9 @@ namespace theoretica {
 		inline const Type& get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
+			return elements[j + i * row_sz];
 #else
-			return data[i + j * col_sz];
+			return elements[i + j * col_sz];
 #endif
 		}
 
@@ -1329,6 +1341,18 @@ namespace theoretica {
 		}
 
 
+		/// Get a raw pointer to the underlying elements in memory.
+		inline Type* data() {
+			return elements.data();
+		}
+
+
+		/// Get a raw pointer to the underlying elements in memory.
+		inline const Type* data() const {
+			return elements.data();
+		}
+
+
 		/// Unpack the matrix elements into a vector.
 		///
 		/// @tparam Vector The type of the vector to unpack into (default is vec<Type>).
@@ -1396,16 +1420,16 @@ namespace theoretica {
 
 			std::vector<Type> new_data (rows * cols);
 
-			if (data.size()) {
+			if (elements.size()) {
 
 				size_t min_elements = min(rows, row_sz) * min(cols, col_sz);
 
 				// Copy the overlapping elements
 				for (unsigned int i = 0; i < min_elements; ++i)
-					new_data[i] = data[i];
+					new_data[i] = elements[i];
 			}
 
-			data = new_data;
+			elements = new_data;
 			row_sz = rows;
 			col_sz = cols;
 
