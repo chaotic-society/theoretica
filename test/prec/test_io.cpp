@@ -14,6 +14,7 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
+// Compute the maximum absolute value of the elements of a vector
 template<unsigned int N>
 real absmax(const vec<real, N>& v) {
 
@@ -32,6 +33,8 @@ real absmax(const vec<real, N>& v) {
 	return max;
 }
 
+
+// Compute the maximum absolute value of the elements of a matrix
 template<unsigned int N, unsigned int K>
 real absmax(const mat<real, N, K>& v) {
 
@@ -47,6 +50,19 @@ real absmax(const mat<real, N, K>& v) {
 	}
 
 	return max;
+}
+
+
+// Check that a function does not throw an exception
+void check_hdf5(prec::prec_context& ctx, const std::string& name, std::function<void()> func) {
+
+	bool thrown = false;
+	try {
+		func();
+	} catch (const std::exception& e) {
+		thrown = true;
+	}
+	ctx.equals(name, thrown, false);
 }
 
 
@@ -317,46 +333,96 @@ int main(int argc, char const *argv[]) {
 
 #ifdef THEORETICA_HAS_HDF5
 
+	// Random data
 	vec<real> v (1000);
 	rnd.gaussian(v, 0, 1E+09);
 
 	mat<real> A (1000, 1000);
 	rnd.gaussian(A, 0, 1E+09);
 
-	io::println("Writing to HDF5 file...");
-	// Write to file
-	{	
-		io::hdf5_file file ("./test/prec/test.h5", true);
 
-		try {
-			file.create_group("/group");
-		} catch (const std::exception& e) {
-			ctx.equals("hdf5_file.create_group()", false, true);
-		}
+	// Writing to file using hdf5_handle
+	{
 
-		try {
-			file.write_vec("/group/vec", v);
-		} catch (const std::exception& e) {
-			ctx.equals("hdf5_file.write_vec()", false, true);
-		}
+		io::hdf5_handle id = io::hdf5_open("./test/prec/test1.h5", true);
 
-		try {
-			file.write_mat("/group/mat", A);
-		} catch (const std::exception& e) {
-			ctx.equals("hdf5_file.write_mat()", false, true);
-		}
+		check_hdf5(ctx, "hdf5_create_group()", [&]() {
+			io::hdf5_create_group(id, "/group");
+		});
 
-		try {
-			file.write_attribute("/group/vec", "author", "Albert Einstein");
-		} catch (const std::exception& e) {
-			ctx.equals("hdf5_file.write_attribute()", false, true);
-		}
+		check_hdf5(ctx, "hdf5_create_group()", [&]() {
+			io::hdf5_create_group(id, "/group2");
+		});
+
+		check_hdf5(ctx, "hdf5_delete_group()", [&]() {
+			io::hdf5_delete_group(id, "/group2");
+		});
+
+		check_hdf5(ctx, "hdf5_write_vec()", [&]() {
+			io::hdf5_write_vec(id, "/group/vec", v);
+		});
+
+		check_hdf5(ctx, "hdf5_write_mat()", [&]() {
+			io::hdf5_write_mat(id, "/group/mat", A);
+		});
+
+		check_hdf5(ctx, "hdf5_write_attribute()", [&]() {
+			io::hdf5_write_attribute(id, "/group/vec", "author", "Albert Einstein");
+		});
 	}
 
-	io::println("Reading from HDF5 file...");
+
+	// Read from file using hdf5_handle
+	{
+		io::hdf5_handle id = io::hdf5_open("./test/prec/test1.h5", false);
+
+		vec<real> v_read = io::hdf5_read_vec(id, "/group/vec");
+		ctx.equals("hdf5_read_vec()", absmax(v - v_read), 0.0);
+
+		mat<real> A_read = io::hdf5_read_mat(id, "/group/mat");
+		ctx.equals("hdf5_read_mat()", absmax(A - A_read), 0.0);
+
+		std::string author = io::hdf5_read_attribute<std::string>(id, "/group/vec", "author");
+		ctx.equals("hdf5_read_attribute()", author, std::string("Albert Einstein"), str_opt);
+	}
+
+
+	// Load file structure as hdf5_node and check properties
+	{
+		io::hdf5_handle id = io::hdf5_open("./test/prec/test1.h5", false);
+		io::hdf5_node nodes = io::hdf5_load(id);
+
+		ctx.equals("hdf5_node.is_group()", nodes["group"].is_group(), true);
+		ctx.equals("hdf5_node.is_dataset()", nodes["group"]["vec"].is_dataset(), true);
+		ctx.equals("hdf5_node.attributes", nodes["group"]["vec"].attributes == std::vector<std::string>({"author"}), true);
+	}
+
+
+	// Write to file
+	{	
+		io::hdf5_file file ("./test/prec/test2.h5", true);
+
+		check_hdf5(ctx, "hdf5_file.create_group()", [&]() {
+			file.create_group("/group");
+		});
+
+		check_hdf5(ctx, "hdf5_file.write_vec()", [&]() {
+			file.write_vec("/group/vec", v);
+		});
+
+		check_hdf5(ctx, "hdf5_file.write_mat()", [&]() {
+			file.write_mat("/group/mat", A);
+		});
+
+		check_hdf5(ctx, "hdf5_file.write_attribute()", [&]() {
+			file.write_attribute("/group/vec", "author", "Albert Einstein");
+		});
+	}
+
+
 	// Read from file
 	{
-		io::hdf5_file file ("./test/prec/test.h5", false);
+		io::hdf5_file file ("./test/prec/test2.h5", false);
 
 		vec<real> v_read = file.read_vec("/group/vec");
 		ctx.equals("hdf5_file.read_vec()", absmax(v - v_read), 0.0);

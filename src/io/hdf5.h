@@ -116,8 +116,17 @@ namespace io {
 		/// Safely decrements reference count and closes the handle if valid
 		~hdf5_handle() {
 
-			if (id >= 0 && H5Iis_valid(id))
-				H5Idec_ref(id);
+			if (id == H5I_INVALID_HID || !H5Iis_valid(id)) return;
+			switch (H5Iget_type(id)) {
+				case H5I_FILE:			H5Fclose(id); break;
+				case H5I_GROUP:			H5Gclose(id); break;
+				case H5I_DATASET:		H5Dclose(id); break;
+				case H5I_DATATYPE:		H5Tclose(id); break;
+				case H5I_DATASPACE:		H5Sclose(id); break;
+				case H5I_ATTR:			H5Aclose(id); break;
+				case H5I_GENPROP_LST:	H5Pclose(id); break;
+				default:				H5Idec_ref(id); break;
+			}
 		}
 		
 
