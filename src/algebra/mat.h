@@ -1177,9 +1177,9 @@ namespace theoretica {
 		inline Type& get(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return elements[j + i * row_sz];
+			return elements[j + i * col_sz];
 #else
-			return elements[i + j * col_sz];
+			return elements[i + j * row_sz];
 #endif
 		}
 
@@ -1192,9 +1192,9 @@ namespace theoretica {
 		inline const Type& get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return elements[j + i * row_sz];
+			return elements[j + i * col_sz];
 #else
-			return elements[i + j * col_sz];
+			return elements[i + j * row_sz];
 #endif
 		}
 

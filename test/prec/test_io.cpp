@@ -215,17 +215,27 @@ int main(int argc, char const *argv[]) {
 		data_table table;
 
 		ctx.equals("data_table.empty()", table.empty(), true);
+		ctx.equals("data_table.size()", table.size(), 0, 0);
 
 		table.insert("A", {1, 2, 3});
 		table.insert("B", {4, 5});
 		table.insert("C", {6, 7, 8, 9});
 
-		ctx.equals("data_table.columns()", table.cols(), 3, 0);
+		ctx.equals("data_table.header()", table.header() == std::vector<std::string>({"A", "B", "C"}), true);
+		ctx.equals("data_table.has_column()", table.has_column("A"), true);
+		ctx.equals("data_table.has_column()", table.has_column("D"), false);
+
+		ctx.equals("data_table.cols()", table.cols(), 3, 0);
 		ctx.equals("data_table.rows()", table.rows(), 4, 0);
-		ctx.equals("data_table[\"A\"][1]", table["A"][1], 2.0, 0);
+		ctx.equals("data_table.size()", table.size(), 9, 0);
+		ctx.equals("data_table[\"column\"][1]", table["A"][1], 2.0, 0);
+
+		ctx.equals("data_table.at(string, idx)", table.at("B", 0), 4.0, 0);
+		ctx.equals("data_table.row(idx)", table.row(2)["C"], 8.0, 0);
+		ctx.equals("data_table.row(idx)", is_nan(table.row(2)["B"]), true, 0);
 	}
 
-	// Table creation from a hashmap
+	// Table creation from hashmap
 	{
 		vec<real> v = {1, 2, 3};
 		vec<real> w = {th::PI, th::E};
@@ -241,6 +251,65 @@ int main(int argc, char const *argv[]) {
 		data_table table2 = data_table(3, {"v1", "v2"});
 		ctx.equals("data_table(n_rows, col_name)", table2["v1"].size(), 3);
 		ctx.equals("data_table(n_rows, col_name)", table2["v2"].size(), 3);
+	}
+
+	// Table manipulation
+	{
+		data_table table = data_table(4, {"length", "value", "count"});
+		table["length"] = {1, 2, 3, 4};
+		table["value"] = {11, 22, 31, 45};
+		table["count"] = {1, 3, 5, 3};
+
+		table.rename("count", "number");
+		ctx.equals("data_table.rename()", table["number"], vec<real>({1, 3, 5, 3}), vec_opt);
+		ctx.equals("data_table.rename()", table.has_column("count"), false);
+
+		auto new_table = table.select({"length", "value"});
+		ctx.equals("data_table.select()", new_table.header() == std::vector<std::string>({"length", "value"}), true);
+		ctx.equals("data_table.select()", new_table["length"], vec<real>({1, 2, 3, 4}), vec_opt);
+
+		table.drop_column("v");
+		ctx.equals("data_table.drop_column()", table.has_column("v"), false);
+
+		table.insert("v", vec<real>({7, 8, 9}));
+		table.drop_columns({"v", "w"});
+		ctx.equals("data_table.drop_columns()", table.has_column("v"), false);
+		ctx.equals("data_table.drop_columns()", table.has_column("w"), false);
+
+		table.clear();
+		ctx.equals("data_table.clear()", table.empty(), true);
+	}
+
+	// Table data handling
+	{
+		data_table table;
+		vec<real> v = vec<real>({3, 4, 5});
+		table.insert("v", v);
+
+		ctx.equals("data_table.data()", table.data().size(), 1);
+		ctx.equals("data_table.data()", table.data()[0], v, vec_opt);
+		ctx.equals("data_table[0]", table[0], v, vec_opt);
+
+		table.insert("w", vec<real>({1, 2, 3}));
+
+		auto table_head = table.head(2);
+		ctx.equals("data_table.head()", table_head.rows(), 2);
+		ctx.equals("data_table.head()", table_head["v"], vec<real>({3, 4}), vec_opt);
+		ctx.equals("data_table.head()", table_head["w"], vec<real>({1, 2}), vec_opt);
+
+		auto table_tail = table.tail(1);
+		ctx.equals("data_table.tail()", table_tail.rows(), 1);
+		ctx.equals("data_table.tail()", table_tail["v"], vec<real>({5}), vec_opt);
+		ctx.equals("data_table.tail()", table_tail["w"], vec<real>({3}), vec_opt);
+
+		mat<real> A = table.to_matrix();
+		mat<real> A_expected = {{3, 1}, {4, 2}, {5, 3}};
+		ctx.equals("data_table.to_matrix()", absmax(A - A_expected), 0);
+
+		mat<real> B = {{1, -1}, {2, -2}, {3, -3}};
+		table.from_matrix(B, {"v", "w"});
+		ctx.equals("data_table.from_matrix()", table["v"], vec<real>({1, 2, 3}), vec_opt);
+		ctx.equals("data_table.from_matrix()", table["w"], vec<real>({-1, -2, -3}), vec_opt);
 	}
 
 

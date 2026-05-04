@@ -480,12 +480,13 @@ namespace theoretica {
 		///
 		/// @return A matrix representation of the data table.
 		inline mat<real> to_matrix() const {
-			
-			mat<real> result (columns.empty() ? 0 : columns[0].size(), columns.size());
+
+			const size_t row_size = rows();
+			mat<real> result (row_size, columns.size());
 
 			for (size_t i = 0; i < columns.size(); ++i) {
 
-				for (size_t j = 0; j < result.rows(); ++j)
+				for (size_t j = 0; j < row_size; ++j)
 					result(j, i) = j < columns[i].size() ? columns[i][j] : nan();
 			}
 
@@ -503,13 +504,11 @@ namespace theoretica {
 		/// @param col_names Names of the columns in the resulting data table.
 		inline data_table& from_matrix(const mat<real>& m, const std::vector<std::string>& col_names) {
 
-			columns.clear();
-			column_names.clear();
-			indices.clear();
+			clear();
 
 			for (size_t i = 0; i < m.cols(); ++i) {
 
-				vec<real> column(m.rows());
+				vec<real> column (m.rows());
 
 				for (size_t j = 0; j < m.rows(); ++j)
 					column[j] = m(j, i);
