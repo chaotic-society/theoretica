@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <algorithm>
 
+#include "./error.h"
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
 #include "../statistics/histogram.h"
@@ -87,8 +88,7 @@ namespace io {
 
 		std::ofstream file (filename);
 		if (!file.is_open()) {
-			// TODO: throw another exception ?
-			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -110,7 +110,7 @@ namespace io {
 		std::ofstream file (filename);
 		if (!file.is_open()) {
 			// TODO: throw another exception ?
-			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -134,9 +134,7 @@ namespace io {
 		std::string line;
 
 		if (!file.is_open()) {
-			
-			// TODO: throw another exception ?
-			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::ReadError);
 			return;
 		}
 
@@ -205,7 +203,7 @@ namespace io {
 		std::string line;
 
 		if (!file.is_open()) {
-			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::ReadError);
 			algebra::vec_error(v);
 			return;
 		}
@@ -227,7 +225,8 @@ namespace io {
 
 		// No column was found
 		if (col_index == -1) {
-			TH_MATH_ERROR("io::read_csv", col_index, MathError::InvalidArgument);
+
+			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 
 			if (!v.size())
 				v.resize(1);
@@ -275,7 +274,7 @@ namespace io {
 			v.resize(actual_size);
 
 			if (v.size() < actual_size) {
-				TH_MATH_ERROR("io::read_csv", v.size(), MathError::ImpossibleOperation);
+				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 				algebra::vec_error(v);
 				return;
 			}
@@ -301,9 +300,7 @@ namespace io {
 		std::ofstream file (filename);
 
 		if (!file.is_open()) {
-			
-			// TODO: throw another exception ?
-			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -334,9 +331,7 @@ namespace io {
 		std::string line;
 
 		if (!file.is_open()) {
-			
-			// TODO: throw another exception ?
-			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -408,7 +403,7 @@ namespace io {
 		A.resize(rows[0].size(), rows.size());
 
 		if (A.rows() < rows[0].size() || A.cols() < rows.size()) {
-			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 			algebra::mat_error(A);
 			return;
 		}
@@ -442,7 +437,7 @@ namespace io {
 		std::ofstream file (filename);
 
 		if (!file.is_open()) {
-			TH_MATH_ERROR("io::write_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -493,7 +488,7 @@ namespace io {
 		std::string line;
 
 		if (!file.is_open()) {
-			TH_MATH_ERROR("io::read_csv", false, MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -598,7 +593,7 @@ namespace io {
 		
 		std::ofstream file (filename);
 		if (!file.is_open()) {
-			TH_MATH_ERROR("io::write_csv", file.is_open(), MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -641,7 +636,7 @@ namespace io {
 
 		std::ifstream file (filename);
 		if (!file.is_open()) {
-			TH_MATH_ERROR("io::read_csv", file.is_open(), MathError::ImpossibleOperation);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FileNotFound);
 			return;
 		}
 
@@ -670,7 +665,7 @@ namespace io {
 		if (bin_index == -1 || count_index == -1 || number_index == -1 ||
 			average_index == -1 || tss_index == -1 || min_index == -1 || max_index == -1) {
 
-			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 			return;
 		}
 
@@ -689,7 +684,7 @@ namespace io {
 		cells = parse_csv(line);
 
 		if (cells.size() < size_t(min_size)) {
-			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 			return;
 		}
 
@@ -709,7 +704,7 @@ namespace io {
 			value_max = std::stod(cells[max_index]);
 
 		} catch (const std::invalid_argument& e) {
-			TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 			return;
 		}
 
@@ -721,7 +716,7 @@ namespace io {
 			cells = parse_csv(line);
 
 			if (cells.size() < size_t(bins_max_index)) {
-				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 				return;
 			}
 
@@ -729,7 +724,7 @@ namespace io {
 				counts.append(cells[count_index] != "" ? std::stod(cells[count_index]) : nan());
 				bins.append(cells[bin_index] != "" ? std::stod(cells[bin_index]) : nan());
 			} catch (const std::invalid_argument& e) {
-				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 				return;
 			}
 			
@@ -760,7 +755,7 @@ namespace io {
 		// Check constant bin spacing
 		for (size_t i = 1; i < bins.size(); i++) {
 			if (abs((bins[i] - bins[i - 1]) - bin_dx) > 1e-6) {
-				TH_MATH_ERROR("io::read_csv", false, MathError::InvalidArgument);
+				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 				return;
 			}
 		}

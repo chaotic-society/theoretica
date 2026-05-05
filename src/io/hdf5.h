@@ -18,6 +18,7 @@
 #include <sstream>
 #include <algorithm>
 
+#include "./error.h"
 #include "../core/constants.h"
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
@@ -171,7 +172,8 @@ namespace io {
         /// @return The equivalent HDF5 hid_t native type
         template<typename Type>
         inline hid_t hdf5_type() {
-            throw std::invalid_argument("Unsupported type for HDF5 IO");
+			TH_IO_ERROR("io::_internal::hdf5_type", "hdf5_type<Type>", IoError::FormatError);
+			return H5I_INVALID_HID;
         }
 
         template<> inline hid_t hdf5_type<double>() { return H5T_NATIVE_DOUBLE; }
@@ -220,8 +222,10 @@ namespace io {
 		template<typename Type>
 		inline void read_attribute(hid_t attr_id, Type& value) {
 
-			if (H5Aread(attr_id, hdf5_type<Type>(), &value) < 0)
-				throw std::runtime_error("Failed to read attribute");
+			if (H5Aread(attr_id, hdf5_type<Type>(), &value) < 0) {
+				TH_IO_ERROR("io::read_attribute", "attribute_id", IoError::FormatError);
+				value = Type();
+			}
 		}
 
 
@@ -229,8 +233,11 @@ namespace io {
 		inline void read_attribute(hid_t attr_id, std::string& value) {
 
 			hdf5_handle type_id = H5Aget_type(attr_id);
-			if (H5Tget_class(type_id) != H5T_STRING)
-				throw std::runtime_error("Attribute is not a string");
+			if (H5Tget_class(type_id) != H5T_STRING) {
+				TH_IO_ERROR("io::read_attribute", "attribute_id", IoError::FormatError);
+				value = std::string();
+				return;
+			}
 			
 			const int is_varstring = H5Tis_variable_str(type_id);
 			if (is_varstring > 0) {
@@ -239,8 +246,11 @@ namespace io {
 				hdf5_handle mem_type = H5Tcopy(H5T_C_S1);
 				H5Tset_size(mem_type, H5T_VARIABLE);
 
-				if (H5Aread(attr_id, mem_type, &buf) < 0)
-					throw std::runtime_error("Failed to read var-string attribute");
+				if (H5Aread(attr_id, mem_type, &buf) < 0) {
+					TH_IO_ERROR("io::read_attribute", "attribute_id", IoError::ReadError);
+					value = std::string();
+					return;
+				}
 				
 				value = buf ? std::string(buf) : std::string();
 				if (buf)
@@ -253,13 +263,18 @@ namespace io {
 
 				hdf5_handle mem_type = H5Tcopy(H5T_C_S1);
 				H5Tset_size(mem_type, size);
-				if (H5Aread(attr_id, mem_type, buf.data()) < 0)
-					throw std::runtime_error("Failed to read string attribute");
+				if (H5Aread(attr_id, mem_type, buf.data()) < 0) {
+					TH_IO_ERROR("io::read_attribute", "attribute_id", IoError::ReadError);
+					value = std::string();
+					return;
+				}
 				
 				value = std::string(buf.data());
 
 			} else {
-				throw std::runtime_error("Failed to determine string attribute type");
+				TH_IO_ERROR("io::read_attribute", "attribute_id", IoError::FormatError);
+				value = std::string();
+				return;
 			}
 		}
 
@@ -271,11 +286,13 @@ namespace io {
 			hdf5_handle space_id = H5Screate(H5S_SCALAR);
 			hdf5_handle attr_id = H5Acreate2(obj_id, name.c_str(), hdf5_type<Type>(), space_id, H5P_DEFAULT, H5P_DEFAULT);
 
-			if (attr_id < 0)
-				throw std::runtime_error("Failed to create attribute");
+			if (attr_id < 0) {
+				TH_IO_ERROR("io::write_attribute", "attribute_id", IoError::WriteError);
+				return;
+			}
 
 			if (H5Awrite(attr_id, hdf5_type<Type>(), &value) < 0)
-				throw std::runtime_error("Failed to write attribute");
+				TH_IO_ERROR("io::write_attribute", "attribute_id", IoError::WriteError);
 		}
 
 
@@ -288,11 +305,14 @@ namespace io {
 			H5Tset_strpad(type_id, H5T_STR_NULLTERM);
 			
 			hdf5_handle attr_id = H5Acreate2(obj_id, name.c_str(), type_id, space_id, H5P_DEFAULT, H5P_DEFAULT);
-			if (attr_id < 0)
-				throw std::runtime_error("Failed to create string attribute");
+			if (attr_id < 0) {
+				TH_IO_ERROR("io::write_attribute", "attribute_id", IoError::WriteError);
+				return;
+			}
 
-			if (H5Awrite(attr_id, type_id, value.c_str()) < 0)
-				throw std::runtime_error("Failed to write string attribute");
+			if (H5Awrite(attr_id, type_id, value.c_str()) < 0) {
+				TH_IO_ERROR("io::write_attribute", "attribute_id", IoError::WriteError);
+			}
 		}
 
 
@@ -464,8 +484,10 @@ namespace io {
 
                 file_id = H5Fcreate(filename.c_str(), H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
 
-                if (file_id < 0)
-                    throw std::runtime_error("Could not open or create HDF5 file: " + filename);
+                if (file_id < 0) {
+					TH_IO_ERROR("io::hdf5_open", filename, IoError::WriteError);
+					return H5I_INVALID_HID;
+				}
             }
 
         } else {
@@ -473,12 +495,23 @@ namespace io {
 			// Open with read-only access.
             file_id = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
 
-            if (file_id < 0)
-                throw std::runtime_error("Could not open HDF5 file: " + filename);
+            if (file_id < 0) {
+				TH_IO_ERROR("io::hdf5_open", filename, IoError::FileNotFound);
+				return H5I_INVALID_HID;
+			}
         }
 
         return hdf5_handle(file_id);
     }
+
+
+	/// Check whether a given HDF5 handle is valid.
+	///
+	/// @param handle The HDF5 handle to check
+	/// @return True if the handle is valid, false otherwise
+	inline bool hdf5_is_valid(const hdf5_handle& handle) {
+		return H5Iis_valid(handle.id);
+	}
 
 
 	/// Recursively loads the structure of an active HDF5 group or file
@@ -517,8 +550,10 @@ namespace io {
 			return;
 
 		hid_t gid = H5Gcreate2(id, path.c_str(), H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-		if (gid < 0)
-			throw std::runtime_error("Failed to create group: " + path);
+		if (gid < 0) {
+			TH_IO_ERROR("io::hdf5_create_group", path, IoError::WriteError);
+			return;
+		}
 
 		hdf5_handle h_group(gid);
 	}
@@ -536,8 +571,9 @@ namespace io {
 		if (H5Lexists(id, path.c_str(), H5P_DEFAULT) <= 0)
 			return;
 
-		if (H5Ldelete(id, path.c_str(), H5P_DEFAULT) < 0)
-			throw std::runtime_error("Failed to delete group: " + path);
+		if (H5Ldelete(id, path.c_str(), H5P_DEFAULT) < 0) {
+			TH_IO_ERROR("io::hdf5_delete_group", path, IoError::WriteError);
+		}
 	}
 
 
@@ -556,13 +592,17 @@ namespace io {
 		_internal::suppress_errors();
 
 		hid_t obj_id = H5Oopen(id, path.c_str(), H5P_DEFAULT);
-		if (obj_id < 0)
-			throw std::runtime_error("Cannot open node: " + path);
+		if (obj_id < 0) {
+			TH_IO_ERROR("io::read_attribute", path, IoError::FileNotFound);
+			return Type();
+		}
 
 		hdf5_handle h_obj (obj_id);
 		hid_t attr_id = H5Aopen(obj_id, attr_name.c_str(), H5P_DEFAULT);
-		if (attr_id < 0)
-			throw std::runtime_error("Cannot open attribute: " + attr_name);
+		if (attr_id < 0) {
+			TH_IO_ERROR("io::read_attribute", path + "@" + attr_name, IoError::FileNotFound);
+			return Type();
+		}
 		hdf5_handle h_attr (attr_id);
 		
 		Type value;
@@ -581,14 +621,17 @@ namespace io {
 		_internal::suppress_errors();
 
 		hid_t obj_id = H5Oopen(id, path.c_str(), H5P_DEFAULT);
-		if (obj_id < 0)
-			throw std::runtime_error("Cannot open node: " + path);
+		if (obj_id < 0) {
+			TH_IO_ERROR("io::delete_attribute", path, IoError::FileNotFound);
+			return;
+		}
 
 		hdf5_handle h_obj (obj_id);
 
 		if (H5Aexists(obj_id, attr_name.c_str()) > 0) {
-			if (H5Adelete(obj_id, attr_name.c_str()) < 0)
-				throw std::runtime_error("Failed to delete attribute: " + attr_name);
+			if (H5Adelete(obj_id, attr_name.c_str()) < 0) {
+				TH_IO_ERROR("io::delete_attribute", path + "@" + attr_name, IoError::WriteError);
+			}
 		}
 	}
 
@@ -605,8 +648,10 @@ namespace io {
 
 		_internal::suppress_errors();
 		hid_t obj_id = H5Oopen(id, path.c_str(), H5P_DEFAULT);
-		if (obj_id < 0)
-			throw std::runtime_error("Cannot open node for metadata: " + path);
+		if (obj_id < 0) {
+			TH_IO_ERROR("io::write_attribute", path, IoError::FileNotFound);
+			return;
+		}
 
 		hdf5_handle h_obj (obj_id);
 		if (H5Aexists(obj_id, attr_name.c_str()) > 0)
@@ -618,6 +663,52 @@ namespace io {
 
 	// Dataset IO for vectors and matrices
 
+
+	/// Loads a 1D dataset array into a vector
+	///
+	/// @tparam Vector The vector container type (defaults to vec<real>).
+	/// @param id The active file handle
+	/// @param path Internal path to the dataset
+	/// @return The populated vector
+	template<typename Vector = vec<real>>
+	inline Vector& hdf5_read_vec(const hdf5_handle& id, const std::string& path, Vector& v) {
+
+		using Type = vector_element_t<Vector>;
+		
+		_internal::suppress_errors();
+		hid_t data_id = H5Dopen2(id, path.c_str(), H5P_DEFAULT);
+		if (data_id < 0) {
+			TH_IO_ERROR("io::hdf5_read_vec", path, IoError::FileNotFound);
+			return algebra::vec_error(v);
+		}
+		hdf5_handle h_dset (data_id);
+		
+		hdf5_handle h_space = H5Dget_space(data_id);
+
+		// Dataset must be 1D to read into a vector
+		if (H5Sget_simple_extent_ndims(h_space) != 1) {
+			TH_IO_ERROR("io::hdf5_read_vec", path, IoError::FormatError);
+			return algebra::vec_error(v);
+		}
+		
+		hsize_t dims[1];
+		H5Sget_simple_extent_dims(h_space, dims, NULL);
+		
+		v.resize(dims[0], nan());
+		if (v.size() != dims[0]) {
+			TH_IO_ERROR("io::hdf5_read_vec", path, IoError::FormatError);
+			return algebra::vec_error(v);
+		}
+
+		if (H5Dread(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, v.data()) < 0) {
+			TH_IO_ERROR("io::hdf5_read_vec", path, IoError::ReadError);
+			return algebra::vec_error(v);
+		}
+
+		return v;
+	}
+
+
 	/// Loads a 1D dataset array into a vector
 	///
 	/// @tparam Vector The vector container type (defaults to vec<real>).
@@ -626,27 +717,8 @@ namespace io {
 	/// @return The populated vector
 	template<typename Vector = vec<real>>
 	inline Vector hdf5_read_vec(const hdf5_handle& id, const std::string& path) {
-
-		using Type = vector_element_t<Vector>;
-		
-		_internal::suppress_errors();
-		hid_t data_id = H5Dopen2(id, path.c_str(), H5P_DEFAULT);
-		if (data_id < 0)
-			throw std::runtime_error("Cannot open dataset: " + path);
-		hdf5_handle h_dset (data_id);
-		
-		hdf5_handle h_space = H5Dget_space(data_id);
-		if (H5Sget_simple_extent_ndims(h_space) != 1) 
-			throw std::runtime_error("HDF5 Error: Node '" + path + "' is not a 1D dataset");
-			
-		hsize_t dims[1];
-		H5Sget_simple_extent_dims(h_space, dims, NULL);
-		
-		Vector v (dims[0]);
-		if (H5Dread(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, v.data()) < 0)
-			throw std::runtime_error("Failed to read vector dataset");
-
-		return v;
+		Vector v;
+		return hdf5_read_vec(id, path, v);
 	}
 
 
@@ -666,12 +738,15 @@ namespace io {
 		hdf5_handle h_space = H5Screate_simple(1, dims, NULL);
 		
 		hid_t data_id = H5Dcreate2(id, path.c_str(), _internal::hdf5_type<Type>(), h_space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-		if (data_id < 0)
-			throw std::runtime_error("Failed to create dataset: " + path);
+		if (data_id < 0) {
+			TH_IO_ERROR("io::hdf5_write_vec", path, IoError::WriteError);
+			return;
+		}
 		hdf5_handle h_dset(data_id);
 		
-		if (H5Dwrite(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, v.data()) < 0)
-			throw std::runtime_error("Failed to write vector dataset");
+		if (H5Dwrite(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, v.data()) < 0) {
+			TH_IO_ERROR("io::hdf5_write_vec", path, IoError::WriteError);
+		}
 	}
 
 
@@ -684,8 +759,9 @@ namespace io {
 		_internal::suppress_errors();
 
 		if (H5Lexists(id, path.c_str(), H5P_DEFAULT) > 0) {
-			if (H5Ldelete(id, path.c_str(), H5P_DEFAULT) < 0)
-				throw std::runtime_error("Failed to delete dataset: " + path);
+			if (H5Ldelete(id, path.c_str(), H5P_DEFAULT) < 0) {
+				TH_IO_ERROR("io::hdf5_delete_dataset", path, IoError::WriteError);
+			}
 		}
 	}
 
@@ -697,28 +773,52 @@ namespace io {
 	/// @param path Internal path to the dataset
 	/// @return The populated matrix
 	template<typename Matrix = mat<real>>
-	inline Matrix hdf5_read_mat(const hdf5_handle& id, const std::string& path) {
+	inline Matrix hdf5_read_mat(const hdf5_handle& id, const std::string& path, Matrix& m) {
 
 		using Type = matrix_element_t<Matrix>;
 		_internal::suppress_errors();
 
 		hid_t data_id = H5Dopen2(id, path.c_str(), H5P_DEFAULT);
-		if (data_id < 0)
-			throw std::runtime_error("Cannot open dataset: " + path);
+		if (data_id < 0) {
+			TH_IO_ERROR("io::hdf5_read_mat", path, IoError::FileNotFound);
+			return algebra::mat_error(m);
+		}
 		hdf5_handle h_dset(data_id);
 		
 		hdf5_handle h_space = H5Dget_space(data_id);
-		if (H5Sget_simple_extent_ndims(h_space) != 2) 
-			throw std::runtime_error("HDF5 Error: Node '" + path + "' is not a 2D dataset");
-			
+		if (H5Sget_simple_extent_ndims(h_space) != 2) {
+			TH_IO_ERROR("io::hdf5_read_mat", path, IoError::FormatError);
+			return algebra::mat_error(m);
+		}
+		
 		hsize_t dims[2];
 		H5Sget_simple_extent_dims(h_space, dims, NULL);
 		
-		Matrix m (dims[0], dims[1]);
-		if (H5Dread(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, m.data()) < 0)
-			throw std::runtime_error("Failed to read matrix dataset");
+		m.resize(dims[0], dims[1]);
+		if (m.rows() != dims[0] || m.cols() != dims[1]) {
+			TH_IO_ERROR("io::hdf5_read_mat", path, IoError::FormatError);
+			return algebra::mat_error(m);
+		}
+
+		if (H5Dread(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, m.data()) < 0) {
+			TH_IO_ERROR("io::hdf5_read_mat", path, IoError::ReadError);
+			return algebra::mat_error(m);
+		}
 
 		return m;
+	}
+
+
+	/// Loads a 2D dataset array into a matrix
+	///
+	/// @tparam Matrix The matrix container type (defaults to mat<real>).
+	/// @param id The active file handle
+	/// @param path Internal path to the dataset
+	/// @return The populated matrix
+	template<typename Matrix = mat<real>>
+	inline Matrix hdf5_read_mat(const hdf5_handle& id, const std::string& path) {
+		Matrix m;
+		return hdf5_read_mat(id, path, m);
 	}
 
 
@@ -738,13 +838,14 @@ namespace io {
 		hdf5_handle h_space = H5Screate_simple(2, dims, NULL);
 		
 		hid_t data_id = H5Dcreate2(id, path.c_str(), _internal::hdf5_type<Type>(), h_space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-		if (data_id < 0)
-			throw std::runtime_error("Failed to create dataset: " + path);
+		if (data_id < 0) {
+			TH_IO_ERROR("io::hdf5_write_mat", "dataset_path", IoError::FormatError);
+			return;
+		}
 		
 		hdf5_handle h_dset (data_id);
-		
 		if (H5Dwrite(data_id, _internal::hdf5_type<Type>(), H5S_ALL, H5S_ALL, H5P_DEFAULT, m.data()) < 0) {
-			throw std::runtime_error("Failed to write matrix dataset");
+			TH_IO_ERROR("io::hdf5_write_mat", "dataset_path", IoError::WriteError);
 		}
 	}
 
@@ -807,7 +908,6 @@ namespace io {
 
 
 		/// Get the name of the file
-		/// @return String reference of the path
 		const std::string& filename() const {
 			return m_filename;
 		}

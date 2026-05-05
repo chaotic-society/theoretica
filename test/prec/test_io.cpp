@@ -436,6 +436,7 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("hdf5_node.is_group()", file["group"].is_group(), true);
 		ctx.equals("hdf5_node.is_dataset()", file["group"]["vec"].is_dataset(), true);
 
+		io::println(file);
 	}
 
 #endif
