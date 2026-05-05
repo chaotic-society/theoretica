@@ -726,9 +726,9 @@ namespace theoretica {
 			return {nan()};
 		}
 
-		// Normalize the polynomial by the leading coefficient to apply Cauchy's bound
-		polynomial<Field> p_norm = p / p.coeff[p_order];
-		Field a_max = 0;
+		// Effective order of the polynomial
+		const unsigned int n = p.degree();
+		p /= p.coeff[n];
 
 		// Find the maximum absolute coefficient
 		for (unsigned int i = 0; i < p_order - 1; ++i)

@@ -23,8 +23,11 @@ namespace theoretica {
 	template<typename Field = real>
 	inline polynomial<Field> integral(const polynomial<Field>& p) {
 
+		if (p.size() == 0)
+			return polynomial<Field>();
+
 		polynomial<Field> P;
-		P.coeff.resize(p.size() + 1);
+		P.resize(p.size() + 1);
 		P[0] = Field(0.0);
 
 		for (unsigned int i = 0; i < p.size(); ++i)

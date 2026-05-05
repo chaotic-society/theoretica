@@ -753,7 +753,7 @@ for (size_t i = 0; i < n; ++i) {
 // Avoid
 vec<real> result;
 for (size_t i = 0; i < n; ++i) {
-	result.push(compute(i));	// Repeated reallocations
+	result.append(compute(i));	// Repeated reallocations
 }
 ```
 

@@ -15,6 +15,11 @@
 #include "core/core_traits.h"
 #include "core/reprod.h"
 
+// IO module
+#include "io/io.h"
+#include "io/data_table.h"
+#include "io/csv.h"
+
 // Real functions
 #include "core/real_analysis.h"
 

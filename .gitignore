@@ -3,6 +3,7 @@ theoretica-cppcheck-build-dir/*
 *.cppcheck
 *.csv
 *.bat
+*.h5
 
 # Compiled tests and scripts on UNIX systems.
 **/test_algebra
@@ -25,3 +26,10 @@ theoretica-cppcheck-build-dir/*
 **/sampling_distributions
 test/chebyshev/build/doxygen-awesome.css
 test/chebyshev/build/Doxyfile
+
+build/CMakeFiles/*
+build/_deps/*
+build/CMakeCache.txt
+build/cmake_install.cmake
+build/examples/*
+build/test/*

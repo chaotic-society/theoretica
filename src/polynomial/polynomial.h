@@ -20,13 +20,19 @@
 namespace theoretica {
 
 	/// @class polynomial
-	/// A polynomial of arbitrary order
+	/// A polynomial of arbitrary order with coefficients of a specified type.
+	///
+	/// The n-th order coefficient is accessed with p[n]
+	/// and corresponds to the term \f$x^n\f$.
 	template<typename Type = real>
 	class polynomial {
-		public:
 
-			/// Coefficients of the polynomial, coeff[n] is the n-th order coefficient.
-			std::vector<Type> coeff;
+		private:
+
+			/// Coefficients of the polynomial, where coeff[n] is the n-th order coefficient
+			vec<Type> coeff {Type(0.0)};
+
+		public:
 
 			/// Default constructor
 			polynomial() = default;
@@ -74,7 +80,8 @@ namespace theoretica {
 			}
 
 
-			/// Evaluate the polynomial using x as variable
+			/// Evaluate the polynomial for a given value.
+			/// Horner's method is used for efficient evaluation.
 			template<typename EvalType = Type>
 			inline EvalType eval(EvalType x) const {
 
@@ -88,7 +95,8 @@ namespace theoretica {
 			}
 
 
-			/// Evaluate the polynomial using x as variable
+			/// Evaluate the polynomial for a given value.
+			/// Horner's method is used for efficient evaluation.
 			template<typename EvalType = Type>
 			inline EvalType operator()(EvalType x) const {
 				return eval(x);
@@ -97,7 +105,7 @@ namespace theoretica {
 
 			/// Find the true order of the polynomial
 			/// (ignoring trailing null coefficients)
-			inline unsigned int find_order() const {
+			inline unsigned int degree(real tolerance = MACH_EPSILON) const {
 
 				for (int i = coeff.size() - 1; i >= 0; --i) {
 					if(abs(coeff[i]) > MACH_EPSILON)
@@ -109,20 +117,49 @@ namespace theoretica {
 
 
 			/// Remove trailing zero coefficients
-			inline void trim() {
+			inline void trim(real tolerance = MACH_EPSILON) {
 
-				for (unsigned int i = coeff.size() - 1; i >= 0; --i) {
-					if(abs(coeff[i]) > MACH_EPSILON)
+				size_t new_size = coeff.size();
+				for (size_t i = coeff.size() - 1; i > 0; --i) {
+
+					if(abs(coeff[i]) > tolerance)
 						break;
 
-					coeff.pop_back();
+					new_size--;
 				}
+
+				if (new_size == 0) {
+					coeff.resize(1);
+					coeff[0] = Type(0.0);
+					return;
+				}
+
+				if (new_size < coeff.size())
+					coeff.resize(new_size);
+			}
+
+
+			/// Get the coefficients of the polynomial as const reference.
+			inline const vec<Type>& coeffs() const {
+				return coeff;
+			}
+
+
+			/// Get the coefficients of the polynomial as reference.
+			inline vec<Type>& coeffs() {
+				return coeff;
 			}
 
 
 			/// Get the number of coefficients
 			inline size_t size() const {
 				return coeff.size();
+			}
+
+
+			/// Change the number of coefficients of the polynomial.
+			inline void resize(size_t sz) {
+				coeff.resize(sz);
 			}
 
 
@@ -189,8 +226,8 @@ namespace theoretica {
 			/// Polynomial division
 			inline polynomial operator/(const polynomial& d) const {
 
-				const unsigned int d_order = d.find_order();
-				const unsigned int this_order = find_order();
+				const unsigned int d_order = d.degree();
+				const unsigned int this_order = degree();
 
 				if(d_order == 0 && d[0] == 0) {
 					TH_MATH_ERROR("polynomial::operator/", d[0], MathError::DivByZero);
@@ -207,7 +244,7 @@ namespace theoretica {
 				while(i < this_order) {
 
 					// Compute only once the degree of the polynomial
-					const unsigned int r_order = r.find_order();
+					const unsigned int r_order = r.degree();
 
 					// Stop execution if the division is complete
 					// (when the remainder is 0 or has lower degree)
@@ -240,13 +277,7 @@ namespace theoretica {
 
 			/// Multiply a polynomial by a scalar
 			inline polynomial operator*(Type a) const {
-
-				polynomial r = polynomial(*this);
-
-				for (unsigned int i = 0; i < size(); ++i)
-					r.coeff[i] *= a;
-
-				return r;
+				return polynomial(coeff * a);
 			}
 
 
@@ -381,14 +412,14 @@ namespace theoretica {
 
 			/// Get a const iterator for the first coefficient
 			/// of the polynomial.
-			inline auto cbegin() {
+			inline auto cbegin() const {
 				return coeff.cbegin();
 			}
 
 
 			/// Get a const iterator for the one plus last coefficient
 			/// of the polynomial.
-			inline auto cend() {
+			inline auto cend() const {
 				return coeff.cend();
 			}
 
@@ -396,7 +427,7 @@ namespace theoretica {
 			/// Compute the roots of a quadratic polynomial
 			inline vec<complex<>, 2> quadratic_roots() const {
 
-				const int order = find_order();
+				const int order = degree();
 
 				// Check that the polynomial is quadratic
 				if(order != 2) {
@@ -432,8 +463,8 @@ namespace theoretica {
 
 
 			/// Construct a polynomial from its roots
-			inline static polynomial<Type> from_roots(
-				const std::vector<Type>& roots) {
+			template<typename Vector, enable_vector<Vector> = true>
+			inline static polynomial<Type> from_roots(const Vector& roots) {
 
 				polynomial<Type> P = {1};
 

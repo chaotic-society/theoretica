@@ -137,9 +137,9 @@ namespace theoretica {
 		public:
 
 #ifdef THEORETICA_ROW_FIRST
-		Type data[N][K];
+		Type elements[N][K];
 #else
-		Type data[K][N];
+		Type elements[K][N];
 #endif
 
 
@@ -156,7 +156,7 @@ namespace theoretica {
 		/// @param m The matrix to copy.
 		///
 		/// Copies all elements from the given matrix `m` into this matrix.
-		template<typename Matrix>
+		template<typename Matrix, enable_matrix<Matrix> = true>
 		mat(const Matrix& m) {
 			algebra::mat_copy(*this, m);
 		}
@@ -234,6 +234,34 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m; ++i)
 				get(i, i) = diagonal;
+		}
+
+
+		/// Constructor that initializes a matrix from a vector in row-major order.
+		///
+		/// @tparam Vector The vector type containing the elements.
+		/// @param v The vector to pack into the matrix.
+		/// @param row_size The number of rows in the matrix.
+		/// @param col_size The number of columns in the matrix.
+		/// The size of the vector must match the total number of elements in the matrix (rows * columns).
+		template<typename Vector, enable_vector<Vector> = true>
+		mat(const Vector& v, unsigned int row_size = N, unsigned int col_size = K) {
+
+			if(row_size != N || col_size != K) {
+				TH_MATH_ERROR("mat::mat", row_size * col_size, MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			if(v.size() != size()) {
+				TH_MATH_ERROR("mat::mat", v.size(), MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					get(i, j) = v[i * cols() + j];
 		}
 
 
@@ -484,9 +512,9 @@ namespace theoretica {
 		inline Type& get(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return elements[i][j];
 #else
-			return data[j][i];
+			return elements[j][i];
 #endif
 		}
 
@@ -499,9 +527,9 @@ namespace theoretica {
 		inline const Type& get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[i][j];
+			return elements[i][j];
 #else
-			return data[j][i];
+			return elements[j][i];
 #endif
 		}
 
@@ -627,6 +655,41 @@ namespace theoretica {
 		}
 
 
+		/// Get a raw pointer to the underlying elements in memory.
+		inline Type* data() {
+			return (Type*) elements;
+		}
+
+
+		/// Get a raw pointer to the underlying elements in memory.
+		inline const Type* data() const {
+			return (const Type*) elements;
+		}
+
+
+		/// Unpack the matrix elements into a vector.
+		///
+		/// @tparam Vector The type of the vector to unpack into (default is vec<Type, N * M>).
+		/// @return A vector containing all elements of the matrix in row-major order.
+		template<typename Vector = vec<Type, N * K>>
+		inline Vector unpack() const {
+			
+			Vector res;
+			res.resize(size());
+
+			if (res.size() != size()) {
+				TH_MATH_ERROR("mat::unpack", res.size(), MathError::InvalidArgument);
+				return algebra::vec_error(res);
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					res[i * cols() + j] = get(i, j);
+
+			return res;
+		}
+
+
 		/// Checks whether this matrix is equal to another matrix element-wise.
 		/// @tparam Matrix The type of the other matrix.
 		/// @param other The matrix to compare with.
@@ -742,7 +805,7 @@ namespace theoretica {
 		public:
 
 		/// Dynamically allocated array of the elements
-		std::vector<Type> data;
+		std::vector<Type> elements;
 
 		/// Number of rows
 		size_t row_sz {0};
@@ -767,11 +830,8 @@ namespace theoretica {
 		/// Copy constructor for creating a matrix from another matrix.
 		/// @tparam Matrix A compatible matrix type.
 		/// @param m The matrix to copy from.
-		template <
-			typename Matrix, enable_matrix<Matrix>
-		>
+		template <typename Matrix, enable_matrix<Matrix>>
 		mat(const Matrix& m) {
-			resize(m.rows(), m.cols());
 			algebra::mat_copy(*this, m);
 		}
 
@@ -829,6 +889,30 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m; ++i)
 				get(i, i) = diagonal;
+		}
+
+
+		/// Constructor that initializes a matrix from a vector in row-major order.
+		///
+		/// @tparam Vector The vector type containing the elements.
+		/// @param v The vector to pack into the matrix.
+		/// @param row_size The number of rows in the matrix.
+		/// @param col_size The number of columns in the matrix.
+		/// The size of the vector must match the total number of elements in the matrix (rows * columns).
+		template<typename Vector, enable_vector<Vector> = true>
+		mat(const Vector& v, unsigned int row_size, unsigned int col_size) {
+			
+			resize(row_size, col_size);
+
+			if(v.size() != size()) {
+				TH_MATH_ERROR("mat::mat", v.size(), MathError::InvalidArgument);
+				algebra::mat_error(*this);
+				return;
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					get(i, j) = v[i * cols() + j];
 		}
 
 
@@ -1113,9 +1197,9 @@ namespace theoretica {
 		inline Type& get(unsigned int i, unsigned int j) {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
+			return elements[j + i * col_sz];
 #else
-			return data[i + j * col_sz];
+			return elements[i + j * row_sz];
 #endif
 		}
 
@@ -1128,9 +1212,9 @@ namespace theoretica {
 		inline const Type& get(unsigned int i, unsigned int j) const {
 
 #ifdef THEORETICA_ROW_FIRST
-			return data[j + i * row_sz];
+			return elements[j + i * col_sz];
 #else
-			return data[i + j * col_sz];
+			return elements[i + j * row_sz];
 #endif
 		}
 
@@ -1277,6 +1361,41 @@ namespace theoretica {
 		}
 
 
+		/// Get a raw pointer to the underlying elements in memory.
+		inline Type* data() {
+			return elements.data();
+		}
+
+
+		/// Get a raw pointer to the underlying elements in memory.
+		inline const Type* data() const {
+			return elements.data();
+		}
+
+
+		/// Unpack the matrix elements into a vector.
+		///
+		/// @tparam Vector The type of the vector to unpack into (default is vec<Type>).
+		/// @return A vector containing all elements of the matrix in row-major order.
+		template<typename Vector = vec<Type>>
+		inline Vector unpack() const {
+			
+			Vector res;
+			res.resize(size());
+
+			if (res.size() != size()) {
+				TH_MATH_ERROR("mat::unpack", res.size(), MathError::InvalidArgument);
+				return algebra::vec_error(res);
+			}
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					res[i * cols() + j] = get(i, j);
+
+			return res;
+		}
+
+
 		/// Check if two matrices are equal element by element.
 		/// @param other The matrix to compare with.
 		/// @return True if the matrices are equal, otherwise false.
@@ -1321,16 +1440,16 @@ namespace theoretica {
 
 			std::vector<Type> new_data (rows * cols);
 
-			if (data.size()) {
+			if (elements.size()) {
 
 				size_t min_elements = min(rows, row_sz) * min(cols, col_sz);
 
 				// Copy the overlapping elements
 				for (unsigned int i = 0; i < min_elements; ++i)
-					new_data[i] = data[i];
+					new_data[i] = elements[i];
 			}
 
-			data = new_data;
+			elements = new_data;
 			row_sz = rows;
 			col_sz = cols;
 

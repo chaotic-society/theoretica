@@ -92,7 +92,7 @@ namespace theoretica {
 	class vec {
 		
 		private:
-			Type data[N];
+			Type elements[N];
 
 		public:
 
@@ -111,7 +111,7 @@ namespace theoretica {
 		vec(Type val) {
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] = val;
+				elements[i] = val;
 		}
 
 
@@ -123,21 +123,29 @@ namespace theoretica {
 			resize(size);
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] = val;
+				elements[i] = val;
 		}
 
 
 		/// Copy constructor
 		template<unsigned int M>
 		vec(const vec<Type, M>& other) {
-			algebra::vec_copy(*this, other);
+
+			if (N == other.size())
+				algebra::vec_copy(*this, other);
+			else
+				algebra::vec_error(*this);
 		}
 
 
 		/// Copy from other
 		template<typename Vector>
 		vec<Type, N>& operator=(const Vector& other) {
-			return algebra::vec_copy(*this, other);
+
+			if (N == other.size())
+				return algebra::vec_copy(*this, other);
+			else
+				return algebra::vec_error(*this);
 		}
 
 
@@ -150,7 +158,7 @@ namespace theoretica {
 				return;
 			}
 
-			std::copy(l.begin(), l.end(), &data[0]);
+			std::copy(l.begin(), l.end(), &elements[0]);
 		}
 
 		~vec() = default;
@@ -191,7 +199,7 @@ namespace theoretica {
 			vec<Type, N> result;
 
 			for (unsigned int i = 0; i < N; ++i)
-				result.data[i] = scalar * data[i];
+				result.elements[i] = scalar * elements[i];
 
 			return result;
 		}
@@ -202,7 +210,7 @@ namespace theoretica {
 			vec<Type, N> result;
 
 			for (unsigned int i = 0; i < N; ++i)
-				result.data[i] = data[i] / scalar;
+				result.elements[i] = elements[i] / scalar;
 
 			return result;
 		}
@@ -241,7 +249,7 @@ namespace theoretica {
 		inline vec<Type, N>& operator+=(const Vector& other) {
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] += other.data[i];
+				elements[i] += other.elements[i];
 		
 			return *this;
 		}
@@ -252,7 +260,7 @@ namespace theoretica {
 		inline vec<Type, N>& operator-=(const Vector& other) {
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] -= other.data[i];
+				elements[i] -= other.elements[i];
 		
 			return *this;
 		}
@@ -262,7 +270,7 @@ namespace theoretica {
 		inline vec<Type, N>& operator*=(Type scalar) {
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] *= scalar;
+				elements[i] *= scalar;
 		
 			return *this;
 		}
@@ -278,7 +286,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < N; ++i)
-				data[i] /= scalar;
+				elements[i] /= scalar;
 		
 			return *this;
 		}
@@ -298,13 +306,13 @@ namespace theoretica {
 
 		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
-			return data[i];
+			return elements[i];
 		}
 
 
 		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
-			return data[i];
+			return elements[i];
 		}
 
 
@@ -320,7 +328,7 @@ namespace theoretica {
 				);
 			}
 
-			return data[i];
+			return elements[i];
 		}
 
 
@@ -336,7 +344,7 @@ namespace theoretica {
 				);
 			}
 
-			return data[i];
+			return elements[i];
 		}
 
 
@@ -374,6 +382,18 @@ namespace theoretica {
 		}
 
 
+		/// Get a raw pointer to the elements of the vector.
+		inline Type* data() {
+			return elements;
+		}
+
+
+		/// Get a raw pointer to the elements of the vector.
+		inline const Type* data() const {
+			return elements;
+		}
+
+
 		/// Vector normalization (v / |v|)
 		inline void normalize() {
 			algebra::make_normalized(*this);
@@ -394,7 +414,7 @@ namespace theoretica {
 				return false;
 
 			for (unsigned int i = 0; i < N; ++i)
-				if(data[i] != other[i])
+				if(elements[i] != other[i])
 					return false;
 
 			return true;
@@ -420,6 +440,21 @@ namespace theoretica {
 		/// only checks whether the target size is the same
 		/// as the vector's.
 		inline void resize(size_t n) const {
+			
+			if(N != n) {
+				TH_MATH_ERROR("vec::resize", N, MathError::InvalidArgument);
+			}
+		}
+
+
+		/// Compatibility function to allow for allocation
+		/// or resizing of dynamic vectors. Since statically
+		/// allocated vectors cannot change size, this function
+		/// only checks whether the target size is the same
+		/// as the vector's.
+		///
+		/// The value argument is ignored since the size cannot be changed.
+		inline void resize(size_t n, const Type& value) const {
 			
 			if(N != n) {
 				TH_MATH_ERROR("vec::resize", N, MathError::InvalidArgument);
@@ -465,7 +500,7 @@ namespace theoretica {
 				res << "(";
 			
 			for (unsigned int i = 0; i < N; ++i) {
-				res << data[i];
+				res << elements[i];
 				if(i != N - 1)
 					res << separator;
 			}
@@ -507,7 +542,7 @@ namespace theoretica {
 		using Container = std::vector<T>;
 
 	private:
-			Container<Type> data;
+			Container<Type> elements;
 
 	public:
 
@@ -529,7 +564,7 @@ namespace theoretica {
 		/// Construct a vector with the given size
 		/// and all elements equal to the given value
 		vec(unsigned int n, Type a) {
-			data = std::vector<Type>(n, a);
+			elements = std::vector<Type>(n, a);
 		}
 
 
@@ -548,11 +583,7 @@ namespace theoretica {
 
 
 		/// Initialize from a list, e.g. {1, 2, 3}
-		vec(std::initializer_list<Type> l) {
-
-			resize(l.size());
-			std::copy(l.begin(), l.end(), &data[0]);
-		}
+		vec(std::initializer_list<Type> l) : elements(l) {}
 
 		~vec() = default;
 
@@ -598,7 +629,7 @@ namespace theoretica {
 			result.resize(size());
 
 			for (unsigned int i = 0; i < size(); ++i)
-				result.data[i] = scalar * data[i];
+				result.elements[i] = scalar * elements[i];
 
 			return result;
 		}
@@ -611,7 +642,7 @@ namespace theoretica {
 			result.resize(size());
 
 			for (unsigned int i = 0; i < size(); ++i)
-				result.data[i] = data[i] / scalar;
+				result.elements[i] = elements[i] / scalar;
 
 			return result;
 		}
@@ -654,7 +685,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
-				data[i] += other.data[i];
+				elements[i] += other.elements[i];
 		
 			return *this;
 		}
@@ -670,7 +701,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
-				data[i] -= other.data[i];
+				elements[i] -= other.elements[i];
 		
 			return *this;
 		}
@@ -680,7 +711,7 @@ namespace theoretica {
 		inline vec<Type>& operator*=(Type scalar) {
 
 			for (unsigned int i = 0; i < size(); ++i)
-				data[i] *= scalar;
+				elements[i] *= scalar;
 		
 			return *this;
 		}
@@ -696,7 +727,7 @@ namespace theoretica {
 			}
 
 			for (unsigned int i = 0; i < size(); ++i)
-				data[i] /= scalar;
+				elements[i] /= scalar;
 		
 			return *this;
 		}
@@ -716,13 +747,13 @@ namespace theoretica {
 
 		/// Access i-th component by reference.
 		inline Type& operator[](unsigned int i) {
-			return data[i];
+			return elements[i];
 		}
 
 
 		/// Get the i-th component by value.
 		inline const Type& operator[](unsigned int i) const {
-			return data[i];
+			return elements[i];
 		}
 
 
@@ -731,7 +762,7 @@ namespace theoretica {
 		/// If the given index is out of range, an std::MathError::OutOfRange
 		/// exception is thrown.
 		inline Type& at(unsigned int i) {
-			return data.at(i);
+			return elements.at(i);
 		}
 
 
@@ -740,7 +771,7 @@ namespace theoretica {
 		/// If the given index is out of range, an std::MathError::OutOfRange
 		/// exception is thrown.
 		inline Type at(unsigned int i) const {
-			return data.at(i);
+			return elements.at(i);
 		}
 
 
@@ -750,28 +781,40 @@ namespace theoretica {
 		/// Get an iterator to the first element
 		/// of the vector.
 		inline auto begin() {
-			return data.begin();
+			return elements.begin();
 		}
 
 
 		/// Get a const iterator to the first element
 		/// of the vector.
 		inline auto begin() const {
-			return data.cbegin();
+			return elements.cbegin();
 		}
 
 
 		/// Get an iterator to one plus the last element
 		/// of the vector.
 		inline auto end() {
-			return data.end();
+			return elements.end();
 		}
 
 
 		/// Get a const iterator to one plus the last element
 		/// of the vector.
 		inline auto end() const {
-			return data.cend();
+			return elements.cend();
+		}
+
+
+		/// Get a raw pointer to the elements of the vector.
+		inline Type* data() {
+			return elements.data();
+		}
+
+
+		/// Get a raw pointer to the elements of the vector.
+		inline const Type* data() const {
+			return elements.data();
 		}
 
 
@@ -795,7 +838,7 @@ namespace theoretica {
 				return false;
 
 			for (unsigned int i = 0; i < size(); ++i)
-				if(data[i] != other[i])
+				if(elements[i] != other[i])
 					return false;
 
 			return true;
@@ -811,27 +854,33 @@ namespace theoretica {
 
 		/// Returns the size of the vector
 		inline TH_CONSTEXPR unsigned int size() const {
-			return data.size();
+			return elements.size();
 		}
 
 
 		/// Change the size of the vector
 		inline void resize(size_t n) {
-			data.resize(n);
+			elements.resize(n);
+		}
+
+
+		/// Change the size of the vector, filling new elements with the given value
+		inline void resize(size_t n, const Type& value) {
+			elements.resize(n, value);
 		}
 
 
 		/// Add a value at the end of the vector
 		/// (only for dynamically allocated vectors).
-		inline void push(const Type& x) {
-			data.push_back(x);
+		inline void append(const Type& x) {
+			elements.push_back(x);
 		}
 
 
 		/// Add a value at the end of the vector
 		/// (only for dynamically allocated vectors).
-		inline void push(Type&& x) {
-			data.push_back(x);
+		inline void append(Type&& x) {
+			elements.push_back(x);
 		}
 
 
@@ -873,7 +922,7 @@ namespace theoretica {
 				res << "(";
 			
 			for (unsigned int i = 0; i < size(); ++i) {
-				res << data[i];
+				res << elements[i];
 				if(i != size() - 1)
 					res << separator;
 			}
