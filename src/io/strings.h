@@ -1,6 +1,6 @@
 
-#ifndef THEORETICA_STRINGS_H
-#define THEORETICA_STRINGS_H
+#ifndef THEORETICA_IO_STRINGS_H
+#define THEORETICA_IO_STRINGS_H
 
 #include <string>
 

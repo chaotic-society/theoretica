@@ -3,8 +3,8 @@
 /// @file data_table.h Data table structure for holding labeled columns of data.
 ///
 
-#ifndef THEORETICA_DATA_TABLE_H
-#define THEORETICA_DATA_TABLE_H
+#ifndef THEORETICA_IO_DATA_TABLE_H
+#define THEORETICA_IO_DATA_TABLE_H
 
 #include <map>
 #include <vector>

@@ -5,8 +5,8 @@
 /// this module is not included automatically in the 'theoretica.h' header.
 ///
 
-#ifndef THEORETICA_IO_FORMAT_HDF5_H
-#define THEORETICA_IO_FORMAT_HDF5_H
+#ifndef THEORETICA_IO_HDF5_H
+#define THEORETICA_IO_HDF5_H
 
 #include <hdf5.h>
 
@@ -872,7 +872,9 @@ namespace io {
 		/// @param write If true, opens the file with write permissions (creating it if it doesn't exist)
 		explicit hdf5_file(const std::string& filename, bool write = false) : m_filename(filename) {
 			m_file_id = hdf5_open(m_filename, write);
-			refresh();
+			
+			if (hdf5_is_valid(m_file_id))
+				refresh();
 		}
 
 

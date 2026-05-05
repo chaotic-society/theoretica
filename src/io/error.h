@@ -102,13 +102,7 @@ namespace io {
         ~io_exception() = default;
 
         inline const char* what() const noexcept override {
-
-            std::string str = code_file_name
-                + "(" + std::to_string(code_line) + "):"
-                + func_name + "(\"" + resource + "\"): "
-                + to_cstring(err);
-
-            return str.c_str();
+            return to_cstring(err);
         }
 
 

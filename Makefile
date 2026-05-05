@@ -27,7 +27,7 @@ endif
 
 
 # Compiler flags
-CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP} ${HDF5_FLAGS}
+CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
 CHEBYSHEV_SRC = ./test/chebyshev/src
 
 # Test programs
@@ -36,7 +36,7 @@ TEST_BINARIES := $(TEST_SOURCES:.cpp=)
 
 test_%: test/prec/test_%.cpp
 	@echo Compiling $(subst test_,,$@) module test unit...
-	@g++ $< ${CXXFLAGS} -I${CHEBYSHEV_SRC} -o test/prec/$@
+	@g++ $< ${CXXFLAGS} -I${CHEBYSHEV_SRC} $(if $(filter test_io,$@),$(HDF5_FLAGS),) -o test/prec/$@
 	@./test/prec/$@
 
 test: $(subst test/prec/,,$(TEST_BINARIES))
@@ -55,7 +55,7 @@ example:
 
 example_%: examples/%.cpp
 	@echo Compiling $(subst example_,,$@) example program...
-	@g++ $< ${CXXFLAGS} -o ./examples/$(subst example_,,$@)
+	@g++ $< ${CXXFLAGS} $(if $(filter example_hdf5_io,$@),$(HDF5_FLAGS),) -o ./examples/$(subst example_,,$@)
 
 examples: example $(subst examples/,example_,$(EXAMPLE_BINARIES))
 	@echo All example programs have been compiled.

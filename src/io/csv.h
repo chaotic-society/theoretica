@@ -3,8 +3,8 @@
 /// @file csv.h CSV file format support.
 ///
 
-#ifndef THEORETICA_IO_FORMAT_CSV_H
-#define THEORETICA_IO_FORMAT_CSV_H
+#ifndef THEORETICA_IO_CSV_H
+#define THEORETICA_IO_CSV_H
 
 #include <fstream>
 #include <iomanip>
@@ -152,7 +152,11 @@ namespace io {
 				std::replace(line.begin(), line.end(), ',', '.');
 				real first = std::stod(line);
 				col.emplace_back(first);
-			} catch (const std::invalid_argument& e) {}
+			} catch (const std::invalid_argument& e) {
+				// Do nothing, the entry is not a number
+			} catch(const std::out_of_range& e) {
+				TH_MATH_ERROR("io::read_csv", filename, MathError::OutOfRange);
+			}
 		}
 
 		// All remaining lines are data
@@ -164,7 +168,7 @@ namespace io {
 			try {
 				real val = std::stod(line);
 				col.emplace_back(val);
-			} catch (const std::invalid_argument& e) {
+			} catch (const std::exception& e) {
 				col.emplace_back(nan());
 			}
 		}
@@ -253,7 +257,7 @@ namespace io {
 				try {
 					const real val = std::stod(cell);
 					data.emplace_back(val);
-				} catch (const std::invalid_argument& e) {
+				} catch (const std::exception& e) {
 					data.emplace_back(nan());
 				}
 			} else {
@@ -365,7 +369,7 @@ namespace io {
 
 				try {
 					row.emplace_back(std::stod(cell));
-				} catch (const std::invalid_argument& e) {
+				} catch (const std::exception& e) {
 					row.emplace_back(nan());
 				}
 			}
@@ -390,7 +394,7 @@ namespace io {
 
 				try {
 					row.emplace_back(std::stod(cell));
-				} catch (const std::invalid_argument& e) {
+				} catch (const std::exception& e) {
 					row.emplace_back(nan());
 				}
 			}
@@ -400,7 +404,7 @@ namespace io {
 			}
 		}
 
-		A.resize(rows[0].size(), rows.size());
+		A.resize(rows.size(), rows[0].size());
 
 		if (A.rows() < rows[0].size() || A.cols() < rows.size()) {
 			TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
@@ -526,7 +530,7 @@ namespace io {
 
 				try {
 					columns[j].append(std::stod(cell));
-				} catch (const std::invalid_argument& e) {
+				} catch (const std::exception& e) {
 					columns[j].append(nan());
 				}
 			}
@@ -560,7 +564,7 @@ namespace io {
 					try {
 						real val = std::stod(cell);
 						columns[j].append(val);
-					} catch (const std::invalid_argument& e) {
+					} catch (const std::exception& e) {
 						columns[j].append(nan());
 					}
 				} else {
@@ -598,8 +602,17 @@ namespace io {
 		}
 
 		const auto bin_counts = hist.bins();
+
+		// Can't write histogram without bins
+		if (!bin_counts.size()) {
+			TH_IO_ERROR("io::write_csv", filename, IoError::FormatError);
+			return;
+		}
+
 		const real bin_dx = (hist.range()[1] - hist.range()[0]) / bin_counts.size();
 		real norm_factor = normalized ? hist.number() * bin_dx : 1.0;
+		if (abs(norm_factor) <= MACH_EPSILON)
+			norm_factor = 1.0;
 
 		// Keep track of the coordinate of the current bin, starting from the lowest bin edge or center.
 		real bin_value = lower_extreme ? hist.range()[0] : (hist.range()[0] + 0.5 * bin_dx);
@@ -723,7 +736,7 @@ namespace io {
 			try {
 				counts.append(cells[count_index] != "" ? std::stod(cells[count_index]) : nan());
 				bins.append(cells[bin_index] != "" ? std::stod(cells[bin_index]) : nan());
-			} catch (const std::invalid_argument& e) {
+			} catch (const std::exception& e) {
 				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
 				return;
 			}
