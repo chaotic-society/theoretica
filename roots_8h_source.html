@@ -662,9 +662,9 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>            <span class="keywordflow">return</span> {<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>()};</div>
 <div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        }</div>
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span> </div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>        <span class="comment">// Effective order of the polynomial</span></div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = p.degree();</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        p /= p.coeff[n];</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>        <span class="comment">// Normalize the polynomial by the leading coefficient to apply Cauchy&#39;s bound</span></div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        polynomial&lt;Field&gt; p_norm = p / p.coeff[p_order];</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        Field a_max = 0;</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span> </div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        <span class="comment">// Find the maximum absolute coefficient</span></div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; p_order - 1; ++i)</div>
@@ -710,7 +710,7 @@ $(document).ready(function(){initNavTree('roots_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_c08f73a4d66ba0417946990fd98fd29f.html">optimization</a></li><li class="navelem"><a class="el" href="roots_8h.html">roots.h</a></li>
-    <li class="footer">Generated on Tue May 5 2026 16:23:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 5 2026 16:24:34 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
