@@ -102,14 +102,13 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1polynomial.html',''
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classtheoretica_1_1polynomial-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">theoretica::polynomial&lt; Type &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A polynomial of arbitrary order.  
+<p>A polynomial of arbitrary order with coefficients of a specified type.  
  <a href="classtheoretica_1_1polynomial.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="polynomial_2polynomial_8h_source.html">polynomial.h</a>&gt;</code></p>
@@ -148,28 +147,38 @@ const Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[
 Type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (unsigned int i)</td></tr>
 <tr class="memdesc:aa04326a06ea9f066e70c7f4876d8cdd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the n-th order coefficient by reference. <br /></td></tr>
 <tr class="separator:aa04326a06ea9f066e70c7f4876d8cdd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d19d35cd720c5c538a424bd4c20a18f" id="r_a4d19d35cd720c5c538a424bd4c20a18f"><td class="memTemplParams" colspan="2"><a id="a4d19d35cd720c5c538a424bd4c20a18f" name="a4d19d35cd720c5c538a424bd4c20a18f"></a>
-template&lt;typename EvalType  = Type&gt; </td></tr>
-<tr class="memitem:a4d19d35cd720c5c538a424bd4c20a18f"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>eval</b> (EvalType x) const</td></tr>
-<tr class="memdesc:a4d19d35cd720c5c538a424bd4c20a18f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
+<tr class="memitem:a4d19d35cd720c5c538a424bd4c20a18f" id="r_a4d19d35cd720c5c538a424bd4c20a18f"><td class="memTemplParams" colspan="2">template&lt;typename EvalType  = Type&gt; </td></tr>
+<tr class="memitem:a4d19d35cd720c5c538a424bd4c20a18f"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f">eval</a> (EvalType x) const</td></tr>
+<tr class="memdesc:a4d19d35cd720c5c538a424bd4c20a18f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial for a given value.  <br /></td></tr>
 <tr class="separator:a4d19d35cd720c5c538a424bd4c20a18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52af3b9462261c4827e639dffdb5424d" id="r_a52af3b9462261c4827e639dffdb5424d"><td class="memTemplParams" colspan="2"><a id="a52af3b9462261c4827e639dffdb5424d" name="a52af3b9462261c4827e639dffdb5424d"></a>
-template&lt;typename EvalType  = Type&gt; </td></tr>
-<tr class="memitem:a52af3b9462261c4827e639dffdb5424d"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (EvalType x) const</td></tr>
-<tr class="memdesc:a52af3b9462261c4827e639dffdb5424d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial using x as variable. <br /></td></tr>
+<tr class="memitem:a52af3b9462261c4827e639dffdb5424d" id="r_a52af3b9462261c4827e639dffdb5424d"><td class="memTemplParams" colspan="2">template&lt;typename EvalType  = Type&gt; </td></tr>
+<tr class="memitem:a52af3b9462261c4827e639dffdb5424d"><td class="memTemplItemLeft" align="right" valign="top">EvalType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d">operator()</a> (EvalType x) const</td></tr>
+<tr class="memdesc:a52af3b9462261c4827e639dffdb5424d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the polynomial for a given value.  <br /></td></tr>
 <tr class="separator:a52af3b9462261c4827e639dffdb5424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36273a6c8e82eb0b6fc6a9a441c5d3e" id="r_ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="memItemLeft" align="right" valign="top"><a id="ab36273a6c8e82eb0b6fc6a9a441c5d3e" name="ab36273a6c8e82eb0b6fc6a9a441c5d3e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>find_order</b> () const</td></tr>
-<tr class="memdesc:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring trailing null coefficients) <br /></td></tr>
-<tr class="separator:ab36273a6c8e82eb0b6fc6a9a441c5d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5077f2fccc1b634155c98b0139a6c41e" id="r_a5077f2fccc1b634155c98b0139a6c41e"><td class="memItemLeft" align="right" valign="top"><a id="a5077f2fccc1b634155c98b0139a6c41e" name="a5077f2fccc1b634155c98b0139a6c41e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>trim</b> ()</td></tr>
-<tr class="memdesc:a5077f2fccc1b634155c98b0139a6c41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove trailing zero coefficients. <br /></td></tr>
-<tr class="separator:a5077f2fccc1b634155c98b0139a6c41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a610796cd72e0ecab5463e83b482f6d49" id="r_a610796cd72e0ecab5463e83b482f6d49"><td class="memItemLeft" align="right" valign="top"><a id="a610796cd72e0ecab5463e83b482f6d49" name="a610796cd72e0ecab5463e83b482f6d49"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>degree</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) const</td></tr>
+<tr class="memdesc:a610796cd72e0ecab5463e83b482f6d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the true order of the polynomial (ignoring trailing null coefficients) <br /></td></tr>
+<tr class="separator:a610796cd72e0ecab5463e83b482f6d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3beb8d82d57d5c0e3424e8bb35fed467" id="r_a3beb8d82d57d5c0e3424e8bb35fed467"><td class="memItemLeft" align="right" valign="top"><a id="a3beb8d82d57d5c0e3424e8bb35fed467" name="a3beb8d82d57d5c0e3424e8bb35fed467"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>trim</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>)</td></tr>
+<tr class="memdesc:a3beb8d82d57d5c0e3424e8bb35fed467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove trailing zero coefficients. <br /></td></tr>
+<tr class="separator:a3beb8d82d57d5c0e3424e8bb35fed467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf8fe033780f86ac60b4246c77cf0f9" id="r_a5bf8fe033780f86ac60b4246c77cf0f9"><td class="memItemLeft" align="right" valign="top"><a id="a5bf8fe033780f86ac60b4246c77cf0f9" name="a5bf8fe033780f86ac60b4246c77cf0f9"></a>
+const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>coeffs</b> () const</td></tr>
+<tr class="memdesc:a5bf8fe033780f86ac60b4246c77cf0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the coefficients of the polynomial as const reference. <br /></td></tr>
+<tr class="separator:a5bf8fe033780f86ac60b4246c77cf0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7d5d39229045b4c2c56a72e09adf65" id="r_a5a7d5d39229045b4c2c56a72e09adf65"><td class="memItemLeft" align="right" valign="top"><a id="a5a7d5d39229045b4c2c56a72e09adf65" name="a5a7d5d39229045b4c2c56a72e09adf65"></a>
+<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>coeffs</b> ()</td></tr>
+<tr class="memdesc:a5a7d5d39229045b4c2c56a72e09adf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the coefficients of the polynomial as reference. <br /></td></tr>
+<tr class="separator:a5a7d5d39229045b4c2c56a72e09adf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09795f30bdbf0f19e596a86788a4299" id="r_ac09795f30bdbf0f19e596a86788a4299"><td class="memItemLeft" align="right" valign="top"><a id="ac09795f30bdbf0f19e596a86788a4299" name="ac09795f30bdbf0f19e596a86788a4299"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
 <tr class="memdesc:ac09795f30bdbf0f19e596a86788a4299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of coefficients. <br /></td></tr>
 <tr class="separator:ac09795f30bdbf0f19e596a86788a4299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d43b4f87b9846cc7182b41a5f5e896" id="r_a53d43b4f87b9846cc7182b41a5f5e896"><td class="memItemLeft" align="right" valign="top"><a id="a53d43b4f87b9846cc7182b41a5f5e896" name="a53d43b4f87b9846cc7182b41a5f5e896"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (size_t sz)</td></tr>
+<tr class="memdesc:a53d43b4f87b9846cc7182b41a5f5e896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the number of coefficients of the polynomial. <br /></td></tr>
+<tr class="separator:a53d43b4f87b9846cc7182b41a5f5e896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9dccfcb692575bd92377a15743e7020" id="r_ac9dccfcb692575bd92377a15743e7020"><td class="memItemLeft" align="right" valign="top"><a id="ac9dccfcb692575bd92377a15743e7020" name="ac9dccfcb692575bd92377a15743e7020"></a>
 <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a> &amp;p) const</td></tr>
 <tr class="memdesc:ac9dccfcb692575bd92377a15743e7020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum two polynomials. <br /></td></tr>
@@ -230,14 +239,14 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="memdesc:a6d963d4f40a6922b45c3ee79ea2f9fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an iterator for the one plus last coefficient of the polynomial. <br /></td></tr>
 <tr class="separator:a6d963d4f40a6922b45c3ee79ea2f9fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4484fac8d10519a8ef975ae27c3f7590" id="r_a4484fac8d10519a8ef975ae27c3f7590"><td class="memItemLeft" align="right" valign="top"><a id="a4484fac8d10519a8ef975ae27c3f7590" name="a4484fac8d10519a8ef975ae27c3f7590"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>cbegin</b> ()</td></tr>
-<tr class="memdesc:a4484fac8d10519a8ef975ae27c3f7590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the first coefficient of the polynomial. <br /></td></tr>
-<tr class="separator:a4484fac8d10519a8ef975ae27c3f7590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd6e54c75c7dfda3fc8ff96d1470f6b3" id="r_abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="memItemLeft" align="right" valign="top"><a id="abd6e54c75c7dfda3fc8ff96d1470f6b3" name="abd6e54c75c7dfda3fc8ff96d1470f6b3"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>cend</b> ()</td></tr>
-<tr class="memdesc:abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the one plus last coefficient of the polynomial. <br /></td></tr>
-<tr class="separator:abd6e54c75c7dfda3fc8ff96d1470f6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad79f599cea5547ded46a05eb5373e304" id="r_ad79f599cea5547ded46a05eb5373e304"><td class="memItemLeft" align="right" valign="top"><a id="ad79f599cea5547ded46a05eb5373e304" name="ad79f599cea5547ded46a05eb5373e304"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>cbegin</b> () const</td></tr>
+<tr class="memdesc:ad79f599cea5547ded46a05eb5373e304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the first coefficient of the polynomial. <br /></td></tr>
+<tr class="separator:ad79f599cea5547ded46a05eb5373e304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7151432c320b36c5be887e4ff0a45ef" id="r_ac7151432c320b36c5be887e4ff0a45ef"><td class="memItemLeft" align="right" valign="top"><a id="ac7151432c320b36c5be887e4ff0a45ef" name="ac7151432c320b36c5be887e4ff0a45ef"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>cend</b> () const</td></tr>
+<tr class="memdesc:ac7151432c320b36c5be887e4ff0a45ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator for the one plus last coefficient of the polynomial. <br /></td></tr>
+<tr class="separator:ac7151432c320b36c5be887e4ff0a45ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7636acb7334bd18085b33461bcda7fab" id="r_a7636acb7334bd18085b33461bcda7fab"><td class="memItemLeft" align="right" valign="top"><a id="a7636acb7334bd18085b33461bcda7fab" name="a7636acb7334bd18085b33461bcda7fab"></a>
 <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1complex.html">complex</a>&lt;&gt;, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>quadratic_roots</b> () const</td></tr>
 <tr class="memdesc:a7636acb7334bd18085b33461bcda7fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the roots of a quadratic polynomial. <br /></td></tr>
@@ -253,21 +262,15 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af8a6e013349ae2f4b55e74c81dbc0854" id="r_af8a6e013349ae2f4b55e74c81dbc0854"><td class="memItemLeft" align="right" valign="top"><a id="af8a6e013349ae2f4b55e74c81dbc0854" name="af8a6e013349ae2f4b55e74c81dbc0854"></a>
-static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>from_roots</b> (const std::vector&lt; Type &gt; &amp;<a class="el" href="namespacetheoretica.html#a80c42c9641cb542a5eb6db45899f1487">roots</a>)</td></tr>
-<tr class="memdesc:af8a6e013349ae2f4b55e74c81dbc0854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a polynomial from its roots. <br /></td></tr>
-<tr class="separator:af8a6e013349ae2f4b55e74c81dbc0854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79bd93173faa9f6ed38817d74851e42" id="r_ac79bd93173faa9f6ed38817d74851e42"><td class="memTemplParams" colspan="2"><a id="ac79bd93173faa9f6ed38817d74851e42" name="ac79bd93173faa9f6ed38817d74851e42"></a>
+template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:ac79bd93173faa9f6ed38817d74851e42"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_roots</b> (const Vector &amp;<a class="el" href="namespacetheoretica.html#a80c42c9641cb542a5eb6db45899f1487">roots</a>)</td></tr>
+<tr class="memdesc:ac79bd93173faa9f6ed38817d74851e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a polynomial from its roots. <br /></td></tr>
+<tr class="separator:ac79bd93173faa9f6ed38817d74851e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8382050beec5ef17a645639e4afc57b7" id="r_a8382050beec5ef17a645639e4afc57b7"><td class="memItemLeft" align="right" valign="top"><a id="a8382050beec5ef17a645639e4afc57b7" name="a8382050beec5ef17a645639e4afc57b7"></a>
 static <a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a>&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>monomial</b> (Type c, unsigned int order)</td></tr>
 <tr class="memdesc:a8382050beec5ef17a645639e4afc57b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a monomial of the given degree and coefficient. <br /></td></tr>
 <tr class="separator:a8382050beec5ef17a645639e4afc57b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ae7d2d6c3cd826e83f4f1918705e3ff57" id="r_ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="memItemLeft" align="right" valign="top"><a id="ae7d2d6c3cd826e83f4f1918705e3ff57" name="ae7d2d6c3cd826e83f4f1918705e3ff57"></a>
-std::vector&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>coeff</b></td></tr>
-<tr class="memdesc:ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficients of the polynomial, coeff[n] is the n-th order coefficient. <br /></td></tr>
-<tr class="separator:ae7d2d6c3cd826e83f4f1918705e3ff57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -278,7 +281,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Type = real&gt;<br />
-class theoretica::polynomial&lt; Type &gt;</div><p>A polynomial of arbitrary order. </p>
+class theoretica::polynomial&lt; Type &gt;</div><p>A polynomial of arbitrary order with coefficients of a specified type. </p>
+<p>The n-th order coefficient is accessed with p[n] and corresponds to the term \(x^n\). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a458b7b1541b439b9aa3f76965b87834a" name="a458b7b1541b439b9aa3f76965b87834a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a458b7b1541b439b9aa3f76965b87834a">&#9670;&#160;</a></span>polynomial()</h2>
@@ -313,6 +317,73 @@ template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4d19d35cd720c5c538a424bd4c20a18f" name="a4d19d35cd720c5c538a424bd4c20a18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d19d35cd720c5c538a424bd4c20a18f">&#9670;&#160;</a></span>eval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real&gt; </div>
+<div class="memtemplate">
+template&lt;typename EvalType  = Type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EvalType <a class="el" href="classtheoretica_1_1polynomial.html">theoretica::polynomial</a>&lt; Type &gt;::eval </td>
+          <td>(</td>
+          <td class="paramtype">EvalType&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluate the polynomial for a given value. </p>
+<p>Horner's method is used for efficient evaluation. </p>
+
+</div>
+</div>
+<a id="a52af3b9462261c4827e639dffdb5424d" name="a52af3b9462261c4827e639dffdb5424d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52af3b9462261c4827e639dffdb5424d">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real&gt; </div>
+<div class="memtemplate">
+template&lt;typename EvalType  = Type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EvalType <a class="el" href="classtheoretica_1_1polynomial.html">theoretica::polynomial</a>&lt; Type &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">EvalType&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluate the polynomial for a given value. </p>
+<p>Horner's method is used for efficient evaluation. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>polynomial/<a class="el" href="polynomial_2polynomial_8h_source.html">polynomial.h</a></li>
 </ul>
@@ -322,7 +393,7 @@ template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1polynomial.html">polynomial</a></li>
-    <li class="footer">Generated on Mon Apr 13 2026 20:00:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 5 2026 16:23:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

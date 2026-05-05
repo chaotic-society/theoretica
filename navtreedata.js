@@ -60,16 +60,17 @@ var NAVTREEINDEX =
 [
 "algebra_8h.html",
 "classtheoretica_1_1complex.html#adfa6e110991e7e538da117386d6d70ef",
-"classtheoretica_1_1mat.html#a711519bea8b87181455f5661ad62efd0",
-"classtheoretica_1_1multidual.html#afd167e6aeffefc56d83429671fa8c031",
-"classtheoretica_1_1ratio.html#a8cc5f2f9ec1c0d8f5c9117fbbab5c53b",
-"dataset_8h.html#aec4e70500501fc48d6ad18f8abfc1896",
-"integral_8h.html#aa8715f45961d756064be2c06ba4784d4",
-"namespacetheoretica.html#a56a0989004608c56e6dd4bcc2bd148c7",
-"namespacetheoretica.html#aeb44d63172d0c372a63c8b3b2a1477c1",
-"namespacetheoretica_1_1parallel.html#a552aac6d38bd3b42269c0d2e18407185",
-"regression_8h.html#aa9b4df37d74ed77d0d8f2fc38856c893",
-"transform_8h.html#a02e77b387067938a20b4da8bdf642718"
+"classtheoretica_1_1histogram.html#a238be6d7b8c804d31b89fbc43fef5c34",
+"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2",
+"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f",
+"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562",
+"distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511",
+"multi__extrema_8h.html#a006aae49f3c2e2d8a91c13d3485c902a",
+"namespacetheoretica.html#a7659e1b121c8c96e884b95bb4ae45ebc",
+"namespacetheoretica_1_1algebra.html#a2796454efe36f2b64f6f813113ff4830",
+"namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5",
+"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd",
+"structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

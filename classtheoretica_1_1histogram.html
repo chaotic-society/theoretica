@@ -114,6 +114,9 @@ $(document).ready(function(){initNavTree('classtheoretica_1_1histogram.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a7733a4e2b279bf84cc7e295050fca980" id="r_a7733a4e2b279bf84cc7e295050fca980"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a7733a4e2b279bf84cc7e295050fca980">histogram</a> ()=default</td></tr>
+<tr class="memdesc:a7733a4e2b279bf84cc7e295050fca980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, creates an empty histogram with no bins and NaN range.  <br /></td></tr>
+<tr class="separator:a7733a4e2b279bf84cc7e295050fca980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a431d33c103be287afbd66f5d91e1d615" id="r_a431d33c103be287afbd66f5d91e1d615"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615">histogram</a> (unsigned int bin_count, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> range_min, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> range_max)</td></tr>
 <tr class="memdesc:a431d33c103be287afbd66f5d91e1d615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the histogram from the number of bins and the range.  <br /></td></tr>
 <tr class="separator:a431d33c103be287afbd66f5d91e1d615"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c6e96deec4f677ac8cdec9f63149910" id="r_a4c6e96deec4f677ac8cdec9f63149910"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a4c6e96deec4f677ac8cdec9f63149910">index</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x) const</td></tr>
 <tr class="memdesc:a4c6e96deec4f677ac8cdec9f63149910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the bin index corresponding to a given data point.  <br /></td></tr>
 <tr class="separator:a4c6e96deec4f677ac8cdec9f63149910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97eb7ce4f9276d506db326a311beacd5" id="r_a97eb7ce4f9276d506db326a311beacd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a97eb7ce4f9276d506db326a311beacd5">range</a> () const</td></tr>
+<tr class="memdesc:a97eb7ce4f9276d506db326a311beacd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the histogram range as a vector of two elements, containing the lower and upper extremes.  <br /></td></tr>
+<tr class="separator:a97eb7ce4f9276d506db326a311beacd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4a205d9b4a8342b9a4cee6183415b14" id="r_ac4a205d9b4a8342b9a4cee6183415b14"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#ac4a205d9b4a8342b9a4cee6183415b14">number</a> () const</td></tr>
 <tr class="memdesc:ac4a205d9b4a8342b9a4cee6183415b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of data points inside the histogram.  <br /></td></tr>
 <tr class="separator:ac4a205d9b4a8342b9a4cee6183415b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +159,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e2e5e2761facadb13b41a7b753d57dd" id="r_a9e2e5e2761facadb13b41a7b753d57dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a9e2e5e2761facadb13b41a7b753d57dd">tss</a> () const</td></tr>
 <tr class="memdesc:a9e2e5e2761facadb13b41a7b753d57dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total sum of squares (TSS) computed using Welford's one-pass method.  <br /></td></tr>
 <tr class="separator:a9e2e5e2761facadb13b41a7b753d57dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cef106441fd1a131e8a824382439507" id="r_a3cef106441fd1a131e8a824382439507"><td class="memItemLeft" align="right" valign="top"><a id="a3cef106441fd1a131e8a824382439507" name="a3cef106441fd1a131e8a824382439507"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>rebuild</b> (const std::vector&lt; unsigned int &gt; &amp;bin_counts, const <a class="el" href="namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d">vec2</a> &amp;<a class="el" href="classtheoretica_1_1histogram.html#a97eb7ce4f9276d506db326a311beacd5">range</a>, size_t N, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> run_average, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> run_tss, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> value_min, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> value_max)</td></tr>
+<tr class="memdesc:a3cef106441fd1a131e8a824382439507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild the histogram from its parameters, including the bin counts and the running statistics (used for file IO). <br /></td></tr>
+<tr class="separator:a3cef106441fd1a131e8a824382439507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dac1e0e08f2cf4c99b8c151ca5f6232" id="r_a7dac1e0e08f2cf4c99b8c151ca5f6232"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1histogram.html#a7dac1e0e08f2cf4c99b8c151ca5f6232">operator()</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> x)</td></tr>
 <tr class="memdesc:a7dac1e0e08f2cf4c99b8c151ca5f6232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the histogram like a step function which is zero outside the range of the histogram.  <br /></td></tr>
 <tr class="separator:a7dac1e0e08f2cf4c99b8c151ca5f6232"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,8 +188,36 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <div class="textblock"><p>Histogram class with running statistics, can be constructed from the parameters of the bins or from a dataset. </p>
 <p>Elements are inserted one by one, updating the running statistics for the TSS, mean, maximum and minimum on each step. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7733a4e2b279bf84cc7e295050fca980" name="a7733a4e2b279bf84cc7e295050fca980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7733a4e2b279bf84cc7e295050fca980">&#9670;&#160;</a></span>histogram() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">theoretica::histogram::histogram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor, creates an empty histogram with no bins and NaN range. </p>
+<p>Make sure to set the range and bins before inserting any data point, otherwise the histogram will not work as intended. </p>
+
+</div>
+</div>
 <a id="a431d33c103be287afbd66f5d91e1d615" name="a431d33c103be287afbd66f5d91e1d615"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a431d33c103be287afbd66f5d91e1d615">&#9670;&#160;</a></span>histogram() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a431d33c103be287afbd66f5d91e1d615">&#9670;&#160;</a></span>histogram() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +270,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div>
 </div>
 <a id="acc5edfcda71029bf5185cbb12188705b" name="acc5edfcda71029bf5185cbb12188705b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5edfcda71029bf5185cbb12188705b">&#9670;&#160;</a></span>histogram() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5edfcda71029bf5185cbb12188705b">&#9670;&#160;</a></span>histogram() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -560,6 +598,34 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 
 </div>
 </div>
+<a id="a97eb7ce4f9276d506db326a311beacd5" name="a97eb7ce4f9276d506db326a311beacd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97eb7ce4f9276d506db326a311beacd5">&#9670;&#160;</a></span>range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetheoretica.html#a1f21bd68ba64b172c29d9fce15c8712d">vec2</a> theoretica::histogram::range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the histogram range as a vector of two elements, containing the lower and upper extremes. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing the lower extreme of the histogram range as first element and the upper extreme as second element (accessible with [0] and [1]). </dd></dl>
+
+</div>
+</div>
 <a id="ab5ffed309334094979bfc3aecb6f7424" name="ab5ffed309334094979bfc3aecb6f7424"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5ffed309334094979bfc3aecb6f7424">&#9670;&#160;</a></span>to_string()</h2>
 
@@ -650,7 +716,7 @@ template&lt;typename Dataset , enable_vector&lt; Dataset &gt;  = true&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1histogram.html">histogram</a></li>
-    <li class="footer">Generated on Mon Apr 13 2026 20:00:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 5 2026 16:23:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

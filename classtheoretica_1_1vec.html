@@ -252,6 +252,14 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</t
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
 <tr class="memdesc:ad58291ce29bbe29925a4f6c9e3259807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const iterator to one plus the last element of the vector. <br /></td></tr>
 <tr class="separator:ad58291ce29bbe29925a4f6c9e3259807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af59e087f657f21ba22a0d5477d331663" id="r_af59e087f657f21ba22a0d5477d331663"><td class="memItemLeft" align="right" valign="top"><a id="af59e087f657f21ba22a0d5477d331663" name="af59e087f657f21ba22a0d5477d331663"></a>
+Type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> ()</td></tr>
+<tr class="memdesc:af59e087f657f21ba22a0d5477d331663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the elements of the vector. <br /></td></tr>
+<tr class="separator:af59e087f657f21ba22a0d5477d331663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32ec4e25b23ef8657757e4e1f4735be7" id="r_a32ec4e25b23ef8657757e4e1f4735be7"><td class="memItemLeft" align="right" valign="top"><a id="a32ec4e25b23ef8657757e4e1f4735be7" name="a32ec4e25b23ef8657757e4e1f4735be7"></a>
+const Type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const</td></tr>
+<tr class="memdesc:a32ec4e25b23ef8657757e4e1f4735be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the elements of the vector. <br /></td></tr>
+<tr class="separator:a32ec4e25b23ef8657757e4e1f4735be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e6e85694fd8cbe05fd8269940de1830" id="r_a9e6e85694fd8cbe05fd8269940de1830"><td class="memItemLeft" align="right" valign="top"><a id="a9e6e85694fd8cbe05fd8269940de1830" name="a9e6e85694fd8cbe05fd8269940de1830"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
 <tr class="memdesc:a9e6e85694fd8cbe05fd8269940de1830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector normalization (v / |v|) <br /></td></tr>
@@ -277,6 +285,9 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a264d21a42c6b5187327b691e49917f80" id="r_a264d21a42c6b5187327b691e49917f80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a264d21a42c6b5187327b691e49917f80">resize</a> (size_t n) const</td></tr>
 <tr class="memdesc:a264d21a42c6b5187327b691e49917f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compatibility function to allow for allocation or resizing of dynamic vectors.  <br /></td></tr>
 <tr class="separator:a264d21a42c6b5187327b691e49917f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f3ddd987fdea5ea38fd4c210cc0478d" id="r_a4f3ddd987fdea5ea38fd4c210cc0478d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1vec.html#a4f3ddd987fdea5ea38fd4c210cc0478d">resize</a> (size_t n, const Type &amp;value) const</td></tr>
+<tr class="memdesc:a4f3ddd987fdea5ea38fd4c210cc0478d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compatibility function to allow for allocation or resizing of dynamic vectors.  <br /></td></tr>
+<tr class="separator:a4f3ddd987fdea5ea38fd4c210cc0478d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ebbe9283470061fbf2e201dd9f6e64" id="r_a61ebbe9283470061fbf2e201dd9f6e64"><td class="memItemLeft" align="right" valign="top"><a id="a61ebbe9283470061fbf2e201dd9f6e64" name="a61ebbe9283470061fbf2e201dd9f6e64"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (const std::string &amp;separator=&quot;, &quot;, bool parenthesis=true) const</td></tr>
 <tr class="memdesc:a61ebbe9283470061fbf2e201dd9f6e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the vector to string representation. <br /></td></tr>
@@ -372,7 +383,7 @@ template&lt;typename Type  = real, unsigned int N = 0&gt; </div>
 </div>
 </div>
 <a id="a264d21a42c6b5187327b691e49917f80" name="a264d21a42c6b5187327b691e49917f80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a264d21a42c6b5187327b691e49917f80">&#9670;&#160;</a></span>resize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a264d21a42c6b5187327b691e49917f80">&#9670;&#160;</a></span>resize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,6 +413,48 @@ template&lt;typename Type  = real, unsigned int N = 0&gt; </div>
 
 </div>
 </div>
+<a id="a4f3ddd987fdea5ea38fd4c210cc0478d" name="a4f3ddd987fdea5ea38fd4c210cc0478d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f3ddd987fdea5ea38fd4c210cc0478d">&#9670;&#160;</a></span>resize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type  = real, unsigned int N = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classtheoretica_1_1vec.html">theoretica::vec</a>&lt; Type, N &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compatibility function to allow for allocation or resizing of dynamic vectors. </p>
+<p>Since statically allocated vectors cannot change size, this function only checks whether the target size is the same as the vector's.</p>
+<p>The value argument is ignored since the size cannot be changed. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>algebra/<a class="el" href="vec_8h_source.html">vec.h</a></li>
 </ul>
@@ -411,7 +464,7 @@ template&lt;typename Type  = real, unsigned int N = 0&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1vec.html">vec</a></li>
-    <li class="footer">Generated on Mon Apr 13 2026 20:00:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 5 2026 16:23:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -149,6 +149,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ed9b14787df86a37c363033f1f5ea8e" id="r_a3ed9b14787df86a37c363033f1f5ea8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a3ed9b14787df86a37c363033f1f5ea8e">mat</a> (Type diagonal, unsigned int n, unsigned int k)</td></tr>
 <tr class="memdesc:a3ed9b14787df86a37c363033f1f5ea8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes a diagonal matrix with equal entries on the diagonal.  <br /></td></tr>
 <tr class="separator:a3ed9b14787df86a37c363033f1f5ea8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7185d42e39d3fadf2d81f32c02cd31" id="r_a2e7185d42e39d3fadf2d81f32c02cd31"><td class="memTemplParams" colspan="2">template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:a2e7185d42e39d3fadf2d81f32c02cd31"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a2e7185d42e39d3fadf2d81f32c02cd31">mat</a> (const Vector &amp;v, unsigned int row_size, unsigned int col_size)</td></tr>
+<tr class="memdesc:a2e7185d42e39d3fadf2d81f32c02cd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes a matrix from a vector in row-major order.  <br /></td></tr>
+<tr class="separator:a2e7185d42e39d3fadf2d81f32c02cd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14211fff68f9f6325fdefaa27d7db38" id="r_af14211fff68f9f6325fdefaa27d7db38"><td class="memItemLeft" align="right" valign="top"><a id="af14211fff68f9f6325fdefaa27d7db38" name="af14211fff68f9f6325fdefaa27d7db38"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~mat</b> ()</td></tr>
 <tr class="memdesc:af14211fff68f9f6325fdefaa27d7db38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that resets the matrix size. <br /></td></tr>
@@ -254,6 +258,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>make_zeroes</b> ()</t
 <tr class="memitem:a9c5415b4be78a475aea49d373e6c028e" id="r_a9c5415b4be78a475aea49d373e6c028e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a9c5415b4be78a475aea49d373e6c028e">size</a> () const</td></tr>
 <tr class="memdesc:a9c5415b4be78a475aea49d373e6c028e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of elements of the matrix, equal to (rows * columns).  <br /></td></tr>
 <tr class="separator:a9c5415b4be78a475aea49d373e6c028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41411423efac454efb4dd683b9ccf1d5" id="r_a41411423efac454efb4dd683b9ccf1d5"><td class="memItemLeft" align="right" valign="top"><a id="a41411423efac454efb4dd683b9ccf1d5" name="a41411423efac454efb4dd683b9ccf1d5"></a>
+Type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> ()</td></tr>
+<tr class="memdesc:a41411423efac454efb4dd683b9ccf1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the underlying elements in memory. <br /></td></tr>
+<tr class="separator:a41411423efac454efb4dd683b9ccf1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8354a29fb8022373adb2bd6bb7ce956" id="r_ac8354a29fb8022373adb2bd6bb7ce956"><td class="memItemLeft" align="right" valign="top"><a id="ac8354a29fb8022373adb2bd6bb7ce956" name="ac8354a29fb8022373adb2bd6bb7ce956"></a>
+const Type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const</td></tr>
+<tr class="memdesc:ac8354a29fb8022373adb2bd6bb7ce956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the underlying elements in memory. <br /></td></tr>
+<tr class="separator:ac8354a29fb8022373adb2bd6bb7ce956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5cdc87c70cb06e5ddcf5bdcdab829f" id="r_a1e5cdc87c70cb06e5ddcf5bdcdab829f"><td class="memTemplParams" colspan="2">template&lt;typename Vector  = vec&lt;Type&gt;&gt; </td></tr>
+<tr class="memitem:a1e5cdc87c70cb06e5ddcf5bdcdab829f"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a1e5cdc87c70cb06e5ddcf5bdcdab829f">unpack</a> () const</td></tr>
+<tr class="memdesc:a1e5cdc87c70cb06e5ddcf5bdcdab829f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpack the matrix elements into a vector.  <br /></td></tr>
+<tr class="separator:a1e5cdc87c70cb06e5ddcf5bdcdab829f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3978714493a31ce867ae11cd1ffbf3f4" id="r_a3978714493a31ce867ae11cd1ffbf3f4"><td class="memTemplParams" colspan="2">template&lt;typename Matrix &gt; </td></tr>
 <tr class="memitem:a3978714493a31ce867ae11cd1ffbf3f4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a3978714493a31ce867ae11cd1ffbf3f4">operator==</a> (const Matrix &amp;other) const</td></tr>
 <tr class="memdesc:a3978714493a31ce867ae11cd1ffbf3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two matrices are equal element by element.  <br /></td></tr>
@@ -279,10 +295,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae0baab98e8373b6a3880d210cc2ac6ae" id="r_ae0baab98e8373b6a3880d210cc2ac6ae"><td class="memItemLeft" align="right" valign="top"><a id="ae0baab98e8373b6a3880d210cc2ac6ae" name="ae0baab98e8373b6a3880d210cc2ac6ae"></a>
-std::vector&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="memdesc:ae0baab98e8373b6a3880d210cc2ac6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamically allocated array of the elements. <br /></td></tr>
-<tr class="separator:ae0baab98e8373b6a3880d210cc2ac6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7765a1694d53c7c6116f4c1a659f4aa6" id="r_a7765a1694d53c7c6116f4c1a659f4aa6"><td class="memItemLeft" align="right" valign="top"><a id="a7765a1694d53c7c6116f4c1a659f4aa6" name="a7765a1694d53c7c6116f4c1a659f4aa6"></a>
+std::vector&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>elements</b></td></tr>
+<tr class="memdesc:a7765a1694d53c7c6116f4c1a659f4aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamically allocated array of the elements. <br /></td></tr>
+<tr class="separator:a7765a1694d53c7c6116f4c1a659f4aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a312223a6269ac9b612d96911b39a8567" id="r_a312223a6269ac9b612d96911b39a8567"><td class="memItemLeft" align="right" valign="top"><a id="a312223a6269ac9b612d96911b39a8567" name="a312223a6269ac9b612d96911b39a8567"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>row_sz</b> {0}</td></tr>
 <tr class="memdesc:a312223a6269ac9b612d96911b39a8567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows. <br /></td></tr>
@@ -317,7 +333,7 @@ class theoretica::mat&lt; Type, 0, 0 &gt;</div><p>A generic matrix with a variab
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2ae0a0c986694de52fdd3e6d04d14965" name="a2ae0a0c986694de52fdd3e6d04d14965"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ae0a0c986694de52fdd3e6d04d14965">&#9670;&#160;</a></span>mat() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae0a0c986694de52fdd3e6d04d14965">&#9670;&#160;</a></span>mat() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +380,7 @@ template&lt;typename Type &gt; </div>
 </div>
 </div>
 <a id="a64279fe87c9a49c55f0860bb983fff89" name="a64279fe87c9a49c55f0860bb983fff89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64279fe87c9a49c55f0860bb983fff89">&#9670;&#160;</a></span>mat() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a64279fe87c9a49c55f0860bb983fff89">&#9670;&#160;</a></span>mat() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -408,7 +424,7 @@ template&lt;typename Matrix , enable_matrix&lt; Matrix &gt; &gt; </div>
 </div>
 </div>
 <a id="a633391fc4b04ec8de3a389be4f2e66f2" name="a633391fc4b04ec8de3a389be4f2e66f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a633391fc4b04ec8de3a389be4f2e66f2">&#9670;&#160;</a></span>mat() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a633391fc4b04ec8de3a389be4f2e66f2">&#9670;&#160;</a></span>mat() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,7 +468,7 @@ template&lt;typename T  = Type&gt; </div>
 </div>
 </div>
 <a id="a3ed9b14787df86a37c363033f1f5ea8e" name="a3ed9b14787df86a37c363033f1f5ea8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ed9b14787df86a37c363033f1f5ea8e">&#9670;&#160;</a></span>mat() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ed9b14787df86a37c363033f1f5ea8e">&#9670;&#160;</a></span>mat() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,6 +515,68 @@ template&lt;typename Type &gt; </div>
     <tr><td class="paramname">diagonal</td><td>The value for the diagonal entries. </td></tr>
     <tr><td class="paramname">n</td><td>Number of rows. </td></tr>
     <tr><td class="paramname">k</td><td>Number of columns. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2e7185d42e39d3fadf2d81f32c02cd31" name="a2e7185d42e39d3fadf2d81f32c02cd31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e7185d42e39d3fadf2d81f32c02cd31">&#9670;&#160;</a></span>mat() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<div class="memtemplate">
+template&lt;typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, 0, 0 &gt;::mat </td>
+          <td>(</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>row_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>col_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor that initializes a matrix from a vector in row-major order. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Vector</td><td>The vector type containing the elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The vector to pack into the matrix. </td></tr>
+    <tr><td class="paramname">row_size</td><td>The number of rows in the matrix. </td></tr>
+    <tr><td class="paramname">col_size</td><td>The number of columns in the matrix. The size of the vector must match the total number of elements in the matrix (rows * columns). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1866,6 +1944,44 @@ template&lt;typename Type &gt; </div>
 
 </div>
 </div>
+<a id="a1e5cdc87c70cb06e5ddcf5bdcdab829f" name="a1e5cdc87c70cb06e5ddcf5bdcdab829f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5cdc87c70cb06e5ddcf5bdcdab829f">&#9670;&#160;</a></span>unpack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<div class="memtemplate">
+template&lt;typename Vector  = vec&lt;Type&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector <a class="el" href="classtheoretica_1_1mat.html">theoretica::mat</a>&lt; Type, 0, 0 &gt;::unpack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unpack the matrix elements into a vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Vector</td><td>The type of the vector to unpack into (default is vec&lt;Type&gt;). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing all elements of the matrix in row-major order. </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Symbol Documentation</h2>
 <a id="a8259fdfd1fc6bcd302d0e05736a92a42" name="a8259fdfd1fc6bcd302d0e05736a92a42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8259fdfd1fc6bcd302d0e05736a92a42">&#9670;&#160;</a></span>operator* <span class="overload">[1/2]</span></h2>
@@ -1980,7 +2096,7 @@ template&lt;typename Type &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html">mat&lt; Type, 0, 0 &gt;</a></li>
-    <li class="footer">Generated on Mon Apr 13 2026 20:00:06 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 5 2026 16:23:39 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

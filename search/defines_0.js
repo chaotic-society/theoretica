@@ -2,7 +2,7 @@ var searchData=
 [
   ['th_5fconstexpr_0',['TH_CONSTEXPR',['../constants_8h.html#aa0d72dcb7db38b3577234c144089a71a',1,'constants.h']]],
   ['th_5fconstif_1',['TH_CONSTIF',['../constants_8h.html#a98714486a3e652c5b04dbd34146d069d',1,'constants.h']]],
-  ['th_5fmath_5ferror_2',['TH_MATH_ERROR',['../error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e',1,'error.h']]],
+  ['th_5fmath_5ferror_2',['TH_MATH_ERROR',['../core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e',1,'error.h']]],
   ['theoretica_5falgebra_5feigen_5fiter_3',['THEORETICA_ALGEBRA_EIGEN_ITER',['../constants_8h.html#a212f03078a80c3c28be85caad4b0487f',1,'constants.h']]],
   ['theoretica_5falgebra_5feigen_5ftol_4',['THEORETICA_ALGEBRA_EIGEN_TOL',['../constants_8h.html#a3ee1447e26f6359f2f7508fba28581b9',1,'constants.h']]],
   ['theoretica_5falgebra_5felement_5ftol_5',['THEORETICA_ALGEBRA_ELEMENT_TOL',['../constants_8h.html#ab9a6a14e083f6b0e58bcfb3d48de806d',1,'constants.h']]],

@@ -13,5 +13,6 @@ var searchData=
   ['get_5fenv_10',['get_env',['../reprod_8h.html#ab8ee4a2120378f7a3a2b64c160a30754',1,'theoretica::reprod']]],
   ['get_5ffunction_11',['get_function',['../classtheoretica_1_1_p_r_n_g.html#a7d01f6b18b60c6da308d2fe00a996107',1,'theoretica::PRNG']]],
   ['get_5fparam_12',['get_param',['../classtheoretica_1_1_p_r_n_g.html#aa3b18fb2b64a3080d1c1874214887a83',1,'theoretica::PRNG']]],
-  ['gradient_13',['gradient',['../namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58',1,'theoretica::autodiff::gradient(Function f, const Vector &amp;x)'],['../namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973',1,'theoretica::autodiff::gradient(Function f)']]]
+  ['gradient_13',['gradient',['../namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58',1,'theoretica::autodiff::gradient(Function f, const Vector &amp;x)'],['../namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973',1,'theoretica::autodiff::gradient(Function f)']]],
+  ['group_14',['GROUP',['../namespacetheoretica_1_1io.html#ab6a241960c2df26c00a071344ac6d3c7a720909a4b948fc9e33633b61960d6b3c',1,'theoretica::io']]]
 ];

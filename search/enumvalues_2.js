@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['maxiterations_0',['MaxIterations',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178a89d18cc81de326d8fc836491777795e0',1,'theoretica']]]
+  ['filenotfound_0',['FileNotFound',['../namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa2767828026039e8ba7b38973cbb701f2',1,'theoretica::io']]],
+  ['formaterror_1',['FormatError',['../namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa736928ea9daf503d4221856170bfe48c',1,'theoretica::io']]]
 ];

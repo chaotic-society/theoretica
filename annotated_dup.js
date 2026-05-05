@@ -1,6 +1,11 @@
 var annotated_dup =
 [
     [ "theoretica", "namespacetheoretica.html", [
+      [ "io", "namespacetheoretica_1_1io.html", [
+        [ "hdf5_file", "classtheoretica_1_1io_1_1hdf5__file.html", "classtheoretica_1_1io_1_1hdf5__file" ],
+        [ "hdf5_handle", "structtheoretica_1_1io_1_1hdf5__handle.html", "structtheoretica_1_1io_1_1hdf5__handle" ],
+        [ "hdf5_node", "structtheoretica_1_1io_1_1hdf5__node.html", "structtheoretica_1_1io_1_1hdf5__node" ]
+      ] ],
       [ "ode", "namespacetheoretica_1_1ode.html", [
         [ "ode_solution_t", "structtheoretica_1_1ode_1_1ode__solution__t.html", "structtheoretica_1_1ode_1_1ode__solution__t" ]
       ] ],
@@ -11,6 +16,7 @@ var annotated_dup =
         [ "environment", "structtheoretica_1_1reprod_1_1environment.html", "structtheoretica_1_1reprod_1_1environment" ]
       ] ],
       [ "complex", "classtheoretica_1_1complex.html", "classtheoretica_1_1complex" ],
+      [ "data_table", "classtheoretica_1_1data__table.html", "classtheoretica_1_1data__table" ],
       [ "dual", "classtheoretica_1_1dual.html", "classtheoretica_1_1dual" ],
       [ "dual2", "classtheoretica_1_1dual2.html", "classtheoretica_1_1dual2" ],
       [ "histogram", "classtheoretica_1_1histogram.html", "classtheoretica_1_1histogram" ],
