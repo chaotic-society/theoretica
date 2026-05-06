@@ -24,12 +24,17 @@ namespace theoretica {
 	inline polynomial<Field> integral(const polynomial<Field>& p) {
 
 		if (p.size() == 0)
-			return polynomial<Field>();
+			return polynomial<Field>({});
 
 		polynomial<Field> P;
 		P.resize(p.size() + 1);
-		P[0] = Field(0.0);
 
+		if (P.size() != p.size() + 1) {
+			TH_MATH_ERROR("integral(polynomial)", P.size(), MathError::ImpossibleOperation);
+			return polynomial<Field>(nan());
+		}
+
+		P[0] = Field(0.0);
 		for (unsigned int i = 0; i < p.size(); ++i)
 			P[i + 1] = p[i] / Field(i + 1);
 

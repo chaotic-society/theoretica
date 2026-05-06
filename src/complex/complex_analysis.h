@@ -144,9 +144,13 @@ namespace theoretica {
 		if(abs(z.a) < MACH_EPSILON && abs(z.b) < MACH_EPSILON)
 			return complex<T>(0);
 
+
+		// Left-sided sign function for continuity along the negative real axis
+		const T imag_sign = (z.Im() < 0) ? T(-1.0) : T(1.0);
+
 		return complex<T>(
 			INVSQR2 * sqrt((z.norm() + z.Re())),
-			INVSQR2 * sqrt((z.norm() - z.Re()))  * sgn(z.b));
+			INVSQR2 * sqrt((z.norm() - z.Re())) * imag_sign);
 	}
 
 

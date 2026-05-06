@@ -728,7 +728,7 @@ int main(int argc, char const *argv[]) {
 
 	{
 		auto opt = prec::estimate_options<real, std::vector<real>>(
-			{ prec::interval(-1E+07, 1E+07), prec::interval(-1E+07, +1E+07) },
+			{ prec::interval(-1E+07, 1E+07), prec::interval(-1E+05, +1E+05) },
 			prec::estimator::montecarlo<real>(ctx.random, 2)
 		);
 

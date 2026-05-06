@@ -15,7 +15,7 @@ using namespace th;
 
 
 // Output data filename
-const std::string filename = "examples/attractor.dat";
+const std::string filename = "examples/attractor.csv";
 
 // Initial conditions of the system
 const vec3 x0 = {0.1, 0, 0};
@@ -30,9 +30,9 @@ const real tf = 50.0;
 const real timestep = 0.001;
 
 // System parameters
-const real a = 13;
-const real b = 20;
-const real c = 8./3.;
+const real a = 10.0;
+const real b = 28.0;
+const real c = 8.0 / 3.0;
 
 
 // System of differential equations
@@ -44,8 +44,8 @@ vec3 f(real t, vec3 v) {
 
     // Vector of time derivatives
     return {
-        a * y - a * x,
-        x * b - x * z,
+        a * (y - x),
+        x * (b - z) - y,
         x * y - c * z
     };
 }
