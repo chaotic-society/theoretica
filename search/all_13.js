@@ -10,7 +10,7 @@ var searchData=
   ['th_5fconstexpr_7',['TH_CONSTEXPR',['../constants_8h.html#aa0d72dcb7db38b3577234c144089a71a',1,'constants.h']]],
   ['th_5fconstif_8',['TH_CONSTIF',['../constants_8h.html#a98714486a3e652c5b04dbd34146d069d',1,'constants.h']]],
   ['th_5fmath_5ferror_9',['TH_MATH_ERROR',['../core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e',1,'error.h']]],
-  ['theoretica_10',['theoretica',['../namespacetheoretica.html',1,'theoretica'],['../index.html',1,'Theoretica']]],
+  ['theoretica_10',['theoretica',['../index.html',1,'⚛️ Theoretica'],['../namespacetheoretica.html',1,'theoretica']]],
   ['theoretica_2eh_11',['theoretica.h',['../theoretica_8h.html',1,'']]],
   ['theoretica_3a_3aalgebra_12',['algebra',['../namespacetheoretica_1_1algebra.html',1,'theoretica']]],
   ['theoretica_3a_3aautodiff_13',['autodiff',['../namespacetheoretica_1_1autodiff.html',1,'theoretica']]],

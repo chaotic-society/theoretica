@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: Theoretica</title>
+<title>Theoretica: ⚛️ Theoretica</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,108 +99,93 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Theoretica </div></div>
+  <div class="headertitle"><div class="title">⚛️ Theoretica </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_theoretica_2_r_e_a_d_m_e"></a></p>
-<p><img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <img src="https://img.shields.io/github/actions/workflow/status/chaotic-society/theoretica/test-windows.yml" alt="GitHub Workflow Status" class="inline"/> <a href="https://app.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <a href="https://chaotic-society.github.io/theoretica"><img src="https://img.shields.io/badge/Doxygen-docs-blue?style=flat&amp;cacheSeconds=https%3A%2F%2Fchaotic-society.github.io%2Ftheoretica%2F&amp;link=https%3A%2F%2Fchaotic-society.github.io%2Ftheoretica%2F" alt="Documentation" class="inline"/></a> <a href="https://choosealicense.com/licenses/lgpl-3.0/"><img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></a></p>
+<p><img src="https://img.shields.io/github/last-commit/chaotic-society/theoretica" alt="GitHub last commit" class="inline"/> <a href="https://app.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35" alt="Codacy Badge" class="inline"/></a> <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/C%2B%2B-20-blue.svg" alt="C++20" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/fork"><img src="https://img.shields.io/badge/PRs-welcome-orange.svg" alt="PRs Welcome" style="pointer-events: none;" class="inline"/></a></p>
 <blockquote class="doxtable">
-<p>&zwj;A C++ math library for scientific computing with a simple and elegant interface. </p>
+<p>&zwj;<b>A C++ math library for scientific computing with a simple and elegant interface.</b> </p>
 </blockquote>
-<p>Theoretica provides access to numerical methods with applications in science and engineering, is easy to setup and use, and is completely open source. Applications include <b>scientific computing</b>, statistical analysis of data and numerical approximation. The library is tested using <a href="https://github.com/chaotic-society/chebyshev">Chebyshev</a>, a unit testing framework specifically developed for scientific and numerical software.</p>
-<p>If you want to join the project and bring your expertise, make sure to read the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/ONBOARDING.md">Onboarding Guide</a> and the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md">Contributing Guide</a>. Your help is valuable!</p>
-<h1>A short example</h1>
-<p>The following code solves a differential equation, such as the Lorenz attractor, and writes the result to file:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Initial conditions</span></div>
-<div class="line">    vec3 x0 = {0.0, 0.1, 0.0};</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Use Runge-Kutta between t=0 and t=50</span></div>
-<div class="line">    <span class="keyword">auto</span> solution = ode::solve_rk4(f, x0, 0.0, 50.0);</div>
-<div class="line"> </div>
-<div class="line">    std::ofstream file (<span class="stringliteral">&quot;solution.dat&quot;</span>);</div>
-<div class="line">    file &lt;&lt; solution;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h1>Features</h1>
-<p>Some features of the library include:</p>
+<p>Written in modern C++, Theoretica provides a comprenhensive suite of numerical methods designed for <b>high-performance scientific computing</b>, without the complexity and steep learning curve typically associated with numerical and performance-critical software.</p>
+<p>From simulating complex physical systems, to building machine learning models from scratch, Theoretica offers the speed of C++ with the readability of Python.</p>
+<p>If you'd like to join us, to learn or to bring your expertise, make sure to read the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/ONBOARDING.md">Onboarding Guide</a> and the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md">Contributing Guide</a>. Your help is valuable!</p>
+<h1>✨ Why Theoretica?</h1>
 <ul>
-<li>Cross-platform with x86 and OpenMP enhancements</li>
-<li>Common real and complex functions</li>
-<li>Numerical Linear Algebra</li>
-<li>Complex numbers (algebraic &amp; exponential form) and <b>quaternions</b></li>
-<li>Numerical calculus, from integrals to ODEs</li>
-<li>Multivariate <b>Automatic Differentiation</b> with differential operators</li>
-<li>Univariate and multivariate optimization and root-finding</li>
-<li>Descriptive and inferential statistics and <b>Monte Carlo</b> methods</li>
-<li>Bezier curves and spline interpolation</li>
+<li><b>🧠 Elegant &amp; Intuitive API</b>: Mathematical expressions should look like math, not like machine code.</li>
+<li><b>⚡ Blazing Fast</b>: Built with zero-overhead abstractions to squeeze out every drop of performance from your CPU.</li>
+<li><b>🔋 Batteries Included</b>: Out-of-the-box support for advanced numerical methods, without any dependencies.</li>
+<li><b>🖥️ HPC Support</b>: Growing support for hardware accelleration, making your simulations even faster.</li>
+<li><b>🎚️ Embedded Friendly</b>: Runs anywhere, even with low resources, making it a great choice for embedded systems.</li>
 </ul>
 <p>Theoretica is constantly developed and improved with new ideas!</p>
-<h1>Setup</h1>
-<p>Theoretica is a header-only library and has <b>no dependencies</b>, so you can include it in your projects straight-away! You can build all tests and example programs by running <code>make all</code> in the main folder, ensuring that it works on your machine. To use the library, you can include single headers or use <code>theoretica.h</code> which includes all modules, or alternatively include <code><a class="el" href="theoretica__mini_8h.html" title="Include file for fundamental modules, like linear algebra and real functions.">theoretica_mini.h</a></code> which includes only common use modules.</p>
-<h2>Quickstart</h2>
-<p>You can compile this simple code to check your setup:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">th</a>;</div>
+<h1>🚀 Capabilities</h1>
+<p><a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg" alt="Test on Linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg" alt="Test on Windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg" alt="Test on MacOS" style="pointer-events: none;" class="inline"/></a></p>
+<p>Theoretica handles the heavy lifting across multiple scientific domains:</p><ul>
+<li><b>Simulation &amp; Physics</b>: Differential equation solvers, Monte Carlo methods, integral quadratures.</li>
+<li><b>Numerical Linear Algebra</b>: Standalone linear algebra algorithms for dense matrices.</li>
+<li><b>Automatic Differentiation</b>: Evaluate exact derivatives without manual analytical calculations or numerical approximations.</li>
+<li><b>Optimization &amp; Root Finding</b>: Built-in routines for finding function extrema and roots, in arbitrary dimensions.</li>
+<li><b>Statistics &amp; Error Propagation</b>: Methods for regression, fits, histograms, data sampling, and built-in error propagation mechanics.</li>
+<li><b>Signal Processing</b>: Standalone Fast Fourier Transform support.</li>
+<li><b>File I/O</b>: First-class support for storing large-scale data sets using CSV and HDF5 file formats, as well as Data Frames.</li>
+</ul>
+<p>On each commit, tests are run and documentation is built and deployed online. This ensures that the library works correctly and the documentation is always up-to-date.</p>
+<h1>🦋 Showcase: Simulating Chaos</h1>
+<p>The following code solves a differential equation, such as the <a href="https://en.wikipedia.org/wiki/Lorenz_system">Lorenz attractor</a>:</p>
+<div class="fragment"><div class="line">vec3 f(real t, vec3 v) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> real a = 13, b = 20, c = 8/3.0;</div>
+<div class="line">    <span class="keyword">const</span> real x = v[0], y = v[1], z = v[2];</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> {</div>
+<div class="line">        a * (y - x),</div>
+<div class="line">        x * (b - z) - y,</div>
+<div class="line">        x * y - c * z</div>
+<div class="line">    };</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// Declare a 3D vector</span></div>
-<div class="line">    vec3 v = {1, 2, 3};</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create a 3x3 identity matrix</span></div>
-<div class="line">    mat3 A = mat3(1.0);</div>
+<div class="line">    <span class="comment">// Solve the system using Runge-Kutta&#39;s method</span></div>
+<div class="line">    <a class="code hl_typedef" href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">vec3</a> v0 = {0.1, 0, 0};</div>
+<div class="line">    <span class="keyword">auto</span> solution = ode::solve_rk4(f, v, 0.0, 50.0);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Transform v by A</span></div>
-<div class="line">    vec3 w = A * v;</div>
+<div class="line">    <span class="comment">// Write the solution directly to file</span></div>
+<div class="line">    std::ofstream file (<span class="stringliteral">&quot;attractor.csv&quot;</span>);</div>
+<div class="line">    file &lt;&lt; solution;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
-<div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">Include file for all modules of the library.</div></div>
-</div><!-- fragment --><h1>Examples</h1>
-<p>The <code>examples</code> folder contains simple programs that showcase usage of the library:</p>
-<ul>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/statistics.cpp">Statistics</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/attractor.cpp">Chaotic Attractors</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/autodiff.cpp">Automatic differentiation</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/sampling.cpp">Sampling distributions</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/montecarlo_integral.cpp">Monte Carlo integration</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/logfit.cpp">Fitting data</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/error_propagation.cpp">Automatic error propagation</a></li>
-<li><a href="https://github.com/chaotic-society/theoretica/blob/master/examples/histogram.cpp">Histogram usage</a></li>
-</ul>
-<h1>Documentation</h1>
-<p>The documentation for the project is available at this <a href="https://chaotic-society.github.io/theoretica">link</a>. The documentation is written using Doxygen syntax alongside the source code and the website is automatically updated on each commit. The HTML documentation is also available for download in the <code>gh-pages</code> branch. The bibliography used during research for the library is listed in <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/BIBLIOGRAPHY.md">BIBLIOGRAPHY.md</a>. You may learn more about the design choices behind the library reading the <a href="https://github.com/chaotic-society/Theoretica-Lab/blob/main/specification/Theoretica_Software_Structure_Specification.pdf">Software Specification</a>.</p>
-<h1>Build</h1>
-<p>The source distribution includes example programs, test units and benchmarks, which may be compiled using different tools, but are not needed to use the library itself. Run the following commands in the root directory of the project, depending on your toolchain:</p>
-<h2>Make</h2>
-<div class="fragment"><div class="line"># Build all binaries</div>
-<div class="line">make all</div>
-<div class="line"> </div>
-<div class="line"># Build and run test units</div>
-<div class="line">make test</div>
-</div><!-- fragment --><h2>CMake</h2>
+<div class="ttc" id="anamespacetheoretica_html_ac512b7e62a96d6b2a94a64e642a34910"><div class="ttname"><a href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">theoretica::vec3</a></div><div class="ttdeci">vec&lt; real, 3 &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition</b> algebra_types.h:42</div></div>
+</div><!-- fragment --><p>You can find many more examples in the <a href="https://github.com/chaotic-society/theoretica/tree/master/examples">examples</a> folder.</p>
+<h1>🛠️ Setup</h1>
+<p><b>Theoretica is a header-only library and has no dependencies, so you can include it in your projects straight-away!</b> To use the library, you can include single headers or use <code>theoretica.h</code> which includes all modules, or alternatively include <code><a class="el" href="theoretica__mini_8h.html" title="Include file for fundamental modules, like linear algebra and real functions.">theoretica_mini.h</a></code> which includes only base modules.</p>
+<p>You can also compile tests and example programs using Make (<code>make test</code> and <code>make examples</code>) or using CMake:</p>
 <div class="fragment"><div class="line">cd build</div>
 <div class="line">cmake ..</div>
-<div class="line"> </div>
-<div class="line"># Build all binaries</div>
-<div class="line">make all</div>
-<div class="line"> </div>
-<div class="line"># Run test units</div>
-<div class="line">make test</div>
-</div><!-- fragment --><h1>Contributing</h1>
-<p>Contributions are welcome and appreciated! Have a look at the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md">Contributing Guide</a> to learn more about how you can help. Contributions include writing code and documentation, testing and researching algorithms.</p>
-<h1>Workflow</h1>
-<p><a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-linux.yml/badge.svg" alt="Test on Linux" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-windows.yml/badge.svg" alt="Test on Windows" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml"><img src="https://github.com/chaotic-society/theoretica/actions/workflows/test-macos.yml/badge.svg" alt="Test on MacOS" style="pointer-events: none;" class="inline"/></a></p>
-<p>Theoretica uses automated workflows for recurring tasks. On each commit to <code>master</code>, tests are run on Linux, Windows and MacOS, benchmarks are launched and documentation is built and deployed to the online website. This ensures that the library works correctly and the documentation is always up-to-date.</p>
-<h1>License</h1>
-<p>The project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>. You may learn more about it <a href="https://choosealicense.com/licenses/lgpl-3.0/">here</a>. </p>
-</div></div><!-- PageDoc -->
+<div class="line"># Use your chosen compiler</div>
+</div><!-- fragment --><h1>📖 Documentation</h1>
+<p><a href="https://chaotic-society.github.io/theoretica"><img src="https://img.shields.io/badge/Doxygen-docs-blue?style=flat&amp;cacheSeconds=https%3A%2F%2Fchaotic-society.github.io%2Ftheoretica%2F&amp;link=https%3A%2F%2Fchaotic-society.github.io%2Ftheoretica%2F" alt="Documentation" class="inline"/></a></p>
+<p>The documentation for the project is available <a href="https://chaotic-society.github.io/theoretica">here</a>. The documentation is written using Doxygen syntax alongside the source code and the online version is automatically updated on each commit. The bibliography used during research for the library is listed in the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/BIBLIOGRAPHY.md">Bibliography</a>. To learn more about the design choices behind the library, you can read the RFC documents in this <a href="https://github.com/chaotic-society/documents/tree/main/specification/theoretica/rfc">folder</a>.</p>
+<h1>🤝 Join Us!</h1>
+<p>We believe that the best scientific software is built by communities. Whether you are a mathematician, programmer, physicist or student, there is a place for you here.</p>
+<p><b>How you can make an impact:</b></p><ul>
+<li>🐛 <b>Report Bugs</b>: Found an edge case in a solver? Open an issue!</li>
+<li>💡 <b>Suggest Features</b>: Need a specific mathematical distribution or integrator? Let us know.</li>
+<li>⌨️ <b>Write Code</b>: Check out our <code>good first issue</code> labels. We are always looking for new solvers, optimizations and features.</li>
+<li>📖 <b>Improve Docs</b>: Help us make Theoretica accessible to scientists and students worldwide.</li>
+</ul>
+<p>Have a look at the <a href="https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md">Contributing Guide</a> to learn more!</p>
+<h1>📑 License</h1>
+<p><a href="https://choosealicense.com/licenses/lgpl-3.0/"><img src="https://img.shields.io/github/license/chaotic-society/theoretica" alt="License" class="inline"/></a></p>
+<p>The project is currently under the <a href="https://github.com/chaotic-society/theoretica/blob/master/LICENSE">GNU Lesser General Public License 3.0</a>. You may learn more about it <a href="https://choosealicense.com/licenses/lgpl-3.0/">here</a>.</p>
+<hr  />
+ </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 6 2026 16:39:34 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 7 2026 13:57:28 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

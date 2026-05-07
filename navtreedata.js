@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
+    [ "⚛️ Theoretica", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,11 +66,11 @@ var NAVTREEINDEX =
 "classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f",
 "classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562",
 "distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511",
-"multi__extrema_8h.html#a006aae49f3c2e2d8a91c13d3485c902a",
-"namespacetheoretica.html#a7659e1b121c8c96e884b95bb4ae45ebc",
-"namespacetheoretica_1_1algebra.html#a2796454efe36f2b64f6f813113ff4830",
-"namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5",
-"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd",
+"multi__extrema_8h.html",
+"namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae",
+"namespacetheoretica_1_1algebra.html#a26d05776d64b85e0b2de6a6e3939c701",
+"namespacetheoretica_1_1parallel.html#a03b2a9424ef9a0638f5c53175208b48f",
+"regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e",
 "structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6"
 ];
 

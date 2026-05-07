@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['theoretica_0',['Theoretica',['../index.html',1,'']]]
+  ['theoretica_0',['⚛️ Theoretica',['../index.html',1,'']]]
 ];
