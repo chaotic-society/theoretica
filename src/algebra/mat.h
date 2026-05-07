@@ -1438,7 +1438,7 @@ namespace theoretica {
 			if (row_sz == rows && col_sz == cols)
 				return *this;
 
-			std::vector<Type> new_data (rows * cols);
+			std::vector<Type> new_data (uint64_t(rows) * cols);
 
 			if (elements.size()) {
 
