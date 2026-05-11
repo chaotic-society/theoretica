@@ -341,7 +341,7 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, <span class="keyword">typename</span> Function&gt;</div>
 <div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ac0a76a59d0419eb65ee9d89e7bd6c1db">  250</a></span>    <span class="keyword">inline</span> Vector&amp; <a class="code hl_function" href="namespacetheoretica.html#ac0a76a59d0419eb65ee9d89e7bd6c1db">apply</a>(Function f, Vector&amp; X) {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a0845668bb72e9d24d0e694271c1ad967">  250</a></span>    <span class="keyword">inline</span> Vector&amp; <a class="code hl_function" href="namespacetheoretica.html#a0845668bb72e9d24d0e694271c1ad967">transform</a>(Function f, Vector&amp; X) {</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            X[i] = f(X[i]);</div>
@@ -351,187 +351,187 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 </div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
-<div class="foldopen" id="foldopen00266" data-start="{" data-end="}">
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">  266</a></span>    <span class="keyword">inline</span> Vector2&amp; <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; src, Vector2&amp; dest) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keywordflow">if</span>(src.size() != dest.size()) {</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;th::map&quot;</span>, dest.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            dest = Vector2(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            <span class="keywordflow">return</span> dest;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        }</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; src.size(); i++)</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            dest[i] = f(src[i]);</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">return</span> dest;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2 = Vector1, <span class="keyword">typename</span> Function&gt;</div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">  267</a></span>    <span class="keyword">inline</span> Vector2&amp; <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; src, Vector2&amp; dest) {</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">if</span>(src.size() != dest.size()) {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;th::map&quot;</span>, dest.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            dest = Vector2(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span> dest;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; src.size(); i++)</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            dest[i] = f(src[i]);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordflow">return</span> dest;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    }</div>
 </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Function&gt;</div>
-<div class="foldopen" id="foldopen00287" data-start="{" data-end="}">
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ac43890de03a7e2c959fdabe4f7452042">  287</a></span>    <span class="keyword">inline</span> Vector2 <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; X) {</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        Vector2 res;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        res.resize(X.size());</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            res[i] = f(X[i]);</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    }</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Function&gt;</div>
+<div class="foldopen" id="foldopen00288" data-start="{" data-end="}">
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#ac43890de03a7e2c959fdabe4f7452042">  288</a></span>    <span class="keyword">inline</span> Vector2 <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector1&amp; X) {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        Vector2 res;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        res.resize(X.size());</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; X.size(); i++)</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            res[i] = f(X[i]);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    }</div>
 </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, <span class="keyword">typename</span> Function&gt;</div>
-<div class="foldopen" id="foldopen00305" data-start="{" data-end="}">
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1bd4dbfccbb88413ccb29c93ae7254da">  305</a></span>    <span class="keyword">inline</span> Vector <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector&amp; X) {</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="keywordflow">return</span> map&lt;Vector, Vector, Function&gt;(f, X);</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    }</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector, <span class="keyword">typename</span> Function&gt;</div>
+<div class="foldopen" id="foldopen00306" data-start="{" data-end="}">
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1bd4dbfccbb88413ccb29c93ae7254da">  306</a></span>    <span class="keyword">inline</span> Vector <a class="code hl_function" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a>(Function f, <span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="keywordflow">return</span> map&lt;Vector, Vector, Function&gt;(f, X);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    }</div>
 </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector3 = Vector1&gt;</div>
-<div class="foldopen" id="foldopen00312" data-start="{" data-end="}">
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">  312</a></span>    <span class="keyword">inline</span> Vector3 <a class="code hl_function" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">concatenate</a>(<span class="keyword">const</span> Vector1&amp; v1, <span class="keyword">const</span> Vector2&amp; v2) {</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        Vector3 res;</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        res.resize(v1.size() + v2.size());</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = v1.size();</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; offset; ++i)</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            res[i] = v1[i];</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v2.size(); ++i)</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>            res[i + offset] = v2[i];</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector1, <span class="keyword">typename</span> Vector2, <span class="keyword">typename</span> Vector3 = Vector1&gt;</div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">  313</a></span>    <span class="keyword">inline</span> Vector3 <a class="code hl_function" href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">concatenate</a>(<span class="keyword">const</span> Vector1&amp; v1, <span class="keyword">const</span> Vector2&amp; v2) {</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        Vector3 res;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        res.resize(v1.size() + v2.size());</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = v1.size();</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; offset; ++i)</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            res[i] = v1[i];</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v2.size(); ++i)</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            res[i + offset] = v2[i];</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    }</div>
 </div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00330" data-start="{" data-end="}">
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">  330</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keyword">using </span>Type = vector_element_t&lt;Vector&gt;;</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            <span class="keywordflow">return</span> Type(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        }</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keyword">auto</span> curr = X[0];</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>                curr = X[i];</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    }</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="foldopen" id="foldopen00331" data-start="{" data-end="}">
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">  331</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">max</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keyword">using </span>Type = vector_element_t&lt;Vector&gt;;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;max&quot;</span>, X.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <span class="keywordflow">return</span> Type(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        }</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keyword">auto</span> curr = X[0];</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <span class="keywordflow">if</span>(X[i] &gt; curr)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>                curr = X[i];</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    }</div>
 </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
-<div class="foldopen" id="foldopen00351" data-start="{" data-end="}">
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">  351</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">min</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keyword">using </span>Type = vector_element_t&lt;Vector&gt;;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <span class="keywordflow">return</span> Type(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        }</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        <span class="keyword">auto</span> curr = X[0];</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>                curr = X[i];</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">return</span> curr;</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    }</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Vector&gt;</div>
+<div class="foldopen" id="foldopen00352" data-start="{" data-end="}">
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">  352</a></span>    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">min</a>(<span class="keyword">const</span> Vector&amp; X) {</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="keyword">using </span>Type = vector_element_t&lt;Vector&gt;;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordflow">if</span>(!X.size()) {</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;min&quot;</span>, X.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            <span class="keywordflow">return</span> Type(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        }</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        <span class="keyword">auto</span> curr = X[0];</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; X.size(); ++i)</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>            <span class="keywordflow">if</span>(X[i] &lt; curr)</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>                curr = X[i];</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        <span class="keywordflow">return</span> curr;</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    }</div>
 </div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="comment">// Different types of means</span></div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="comment">// Different types of means</span></div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
-<div class="foldopen" id="foldopen00375" data-start="{" data-end="}">
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">  375</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">arithmetic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;arithmetic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        }</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="comment">// Sum of x_i / N</span></div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>(data) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) data.size();</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    }</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
+<div class="foldopen" id="foldopen00376" data-start="{" data-end="}">
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">  376</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">arithmetic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;arithmetic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        }</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        <span class="comment">// Sum of x_i / N</span></div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>(data) / (<a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>) data.size();</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    }</div>
 </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span> </div>
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
-<div class="foldopen" id="foldopen00389" data-start="{" data-end="}">
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">  389</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">harmonic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;harmonic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>        }</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; data.size(); ++i) {</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            <span class="keywordflow">if</span>(data[i] == 0) {</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>                <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;harmonic_mean&quot;</span>, data[i], <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            }</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            res += 1.0 / data[i];</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        }</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a><span class="keyword">&gt;</span>(data.size()) / res;</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    }</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
+<div class="foldopen" id="foldopen00390" data-start="{" data-end="}">
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">  390</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">harmonic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;harmonic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        }</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> res = 0;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; data.size(); ++i) {</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordflow">if</span>(data[i] == 0) {</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>                <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;harmonic_mean&quot;</span>, data[i], <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">MathError::DivByZero</a>);</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            }</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            res += 1.0 / data[i];</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        }</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a><span class="keyword">&gt;</span>(data.size()) / res;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    }</div>
 </div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
-<div class="foldopen" id="foldopen00415" data-start="{" data-end="}">
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">  415</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">geometric_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#acf52f04c3a1cefbb9dabab21cac0abbb">root</a>(<a class="code hl_function" href="namespacetheoretica.html#adf08c69e546c822b60b2185156b04360">product</a>(data), data.size());</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    }</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
+<div class="foldopen" id="foldopen00416" data-start="{" data-end="}">
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">  416</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">geometric_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#acf52f04c3a1cefbb9dabab21cac0abbb">root</a>(<a class="code hl_function" href="namespacetheoretica.html#adf08c69e546c822b60b2185156b04360">product</a>(data), data.size());</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    }</div>
 </div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
 <div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
-<div class="foldopen" id="foldopen00423" data-start="{" data-end="}">
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">  423</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">weighted_mean</a>(<span class="keyword">const</span> Dataset1&amp; data, <span class="keyword">const</span> Dataset2&amp; weights) {</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        <span class="comment">// Sum of x_i * w_i / Sum of w_i</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">product_sum</a>(data, weights) / <a class="code hl_function" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>(weights);</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    }</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset1, <span class="keyword">typename</span> Dataset2&gt;</div>
+<div class="foldopen" id="foldopen00424" data-start="{" data-end="}">
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">  424</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">weighted_mean</a>(<span class="keyword">const</span> Dataset1&amp; data, <span class="keyword">const</span> Dataset2&amp; weights) {</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <span class="comment">// Sum of x_i * w_i / Sum of w_i</span></div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">product_sum</a>(data, weights) / <a class="code hl_function" href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">sum</a>(weights);</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    }</div>
 </div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
-<div class="foldopen" id="foldopen00433" data-start="{" data-end="}">
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">  433</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">quadratic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quadratic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        }</div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">sqrt</a>(<a class="code hl_function" href="namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896">sum_squares</a>(data) / data.size());</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    }</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Dataset&gt;</div>
+<div class="foldopen" id="foldopen00434" data-start="{" data-end="}">
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">  434</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="code hl_function" href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">quadratic_mean</a>(<span class="keyword">const</span> Dataset&amp; data) {</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>        <span class="keywordflow">if</span>(!data.size()) {</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;quadratic_mean&quot;</span>, data.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>        }</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span> </div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">sqrt</a>(<a class="code hl_function" href="namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896">sum_squares</a>(data) / data.size());</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    }</div>
 </div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>}</div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span> </div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>}</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div><div class="ttdoc">Mathematical constants and default algorithm parameters.</div></div>
 <div class="ttc" id="aconstants_8h_html_a98714486a3e652c5b04dbd34146d069d"><div class="ttname"><a href="constants_8h.html#a98714486a3e652c5b04dbd34146d069d">TH_CONSTIF</a></div><div class="ttdeci">#define TH_CONSTIF</div><div class="ttdoc">Enable constexpr in if statements if C++17 is supported.</div><div class="ttdef"><b>Definition</b> constants.h:178</div></div>
 <div class="ttc" id="acore_2error_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compilation op...</div><div class="ttdef"><b>Definition</b> error.h:225</div></div>
@@ -539,28 +539,28 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div class="ttc" id="aio_2error_8h_html"><div class="ttname"><a href="io_2error_8h.html">error.h</a></div><div class="ttdoc">Error handling for IO operations.</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a049966946220f1f7e5eae57293703066"><div class="ttname"><a href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">theoretica::real</a></div><div class="ttdeci">double real</div><div class="ttdoc">A real number, defined as a floating point type.</div><div class="ttdef"><b>Definition</b> constants.h:207</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a0e8a4b7178a8558fc4ba3ab3b9b3f926"><div class="ttname"><a href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">theoretica::weighted_mean</a></div><div class="ttdeci">real weighted_mean(const Dataset1 &amp;data, const Dataset2 &amp;weights)</div><div class="ttdoc">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size.</div><div class="ttdef"><b>Definition</b> dataset.h:423</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a1191a32286f176c367f648431b1444ac"><div class="ttname"><a href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">theoretica::arithmetic_mean</a></div><div class="ttdeci">real arithmetic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the arithmetic mean of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:375</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition</b> dataset.h:351</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a1638fb86d8cb03965ff398d41f7b00fb"><div class="ttname"><a href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">theoretica::harmonic_mean</a></div><div class="ttdeci">real harmonic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the harmonic mean of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:389</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a0845668bb72e9d24d0e694271c1ad967"><div class="ttname"><a href="namespacetheoretica.html#a0845668bb72e9d24d0e694271c1ad967">theoretica::transform</a></div><div class="ttdeci">Vector &amp; transform(Function f, Vector &amp;X)</div><div class="ttdoc">Transform a vector by applying a function to each of its elements.</div><div class="ttdef"><b>Definition</b> dataset.h:250</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a0e8a4b7178a8558fc4ba3ab3b9b3f926"><div class="ttname"><a href="namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926">theoretica::weighted_mean</a></div><div class="ttdeci">real weighted_mean(const Dataset1 &amp;data, const Dataset2 &amp;weights)</div><div class="ttdoc">Compute the weighted mean of a set of values &lt;data&gt; and &lt;weights&gt; must have the same size.</div><div class="ttdef"><b>Definition</b> dataset.h:424</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1191a32286f176c367f648431b1444ac"><div class="ttname"><a href="namespacetheoretica.html#a1191a32286f176c367f648431b1444ac">theoretica::arithmetic_mean</a></div><div class="ttdeci">real arithmetic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the arithmetic mean of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:376</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a133ae02c952df7352cfb3830a1616bc1"><div class="ttname"><a href="namespacetheoretica.html#a133ae02c952df7352cfb3830a1616bc1">theoretica::min</a></div><div class="ttdeci">auto min(const Vector &amp;X)</div><div class="ttdoc">Finds the minimum value inside a dataset.</div><div class="ttdef"><b>Definition</b> dataset.h:352</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1638fb86d8cb03965ff398d41f7b00fb"><div class="ttname"><a href="namespacetheoretica.html#a1638fb86d8cb03965ff398d41f7b00fb">theoretica::harmonic_mean</a></div><div class="ttdeci">real harmonic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the harmonic mean of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:390</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a173a64c4f73cb7abd476b739005d94e7"><div class="ttname"><a href="namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7">theoretica::sum_compensated</a></div><div class="ttdeci">real sum_compensated(const Vector &amp;X)</div><div class="ttdoc">Compute the sum of a set of values using the compensated Neumaier-Kahan-Babushka summation algorithm ...</div><div class="ttdef"><b>Definition</b> dataset.h:148</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a19dd33456cffdbba3f29d85061779e7c"><div class="ttname"><a href="namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c">theoretica::sqrt</a></div><div class="ttdeci">dual2 sqrt(dual2 x)</div><div class="ttdoc">Compute the square root of a second order dual number.</div><div class="ttdef"><b>Definition</b> dual2_functions.h:54</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a1a85d4034e2edc73c0175f1d3b6d1382"><div class="ttname"><a href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">theoretica::concatenate</a></div><div class="ttdeci">Vector3 concatenate(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Concatenate two datasets to form a single one.</div><div class="ttdef"><b>Definition</b> dataset.h:312</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a1b898a8449d723a807854f805f8be23e"><div class="ttname"><a href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">theoretica::map</a></div><div class="ttdeci">Vector2 &amp; map(Function f, const Vector1 &amp;src, Vector2 &amp;dest)</div><div class="ttdoc">Get a new vector obtained by applying the function element-wise.</div><div class="ttdef"><b>Definition</b> dataset.h:266</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1a85d4034e2edc73c0175f1d3b6d1382"><div class="ttname"><a href="namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382">theoretica::concatenate</a></div><div class="ttdeci">Vector3 concatenate(const Vector1 &amp;v1, const Vector2 &amp;v2)</div><div class="ttdoc">Concatenate two datasets to form a single one.</div><div class="ttdef"><b>Definition</b> dataset.h:313</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a1b898a8449d723a807854f805f8be23e"><div class="ttname"><a href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">theoretica::map</a></div><div class="ttdeci">Vector2 &amp; map(Function f, const Vector1 &amp;src, Vector2 &amp;dest)</div><div class="ttdoc">Overwrite a vector by applying a function to the elements of another vector.</div><div class="ttdef"><b>Definition</b> dataset.h:267</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a29720d3e71b280bb3ea048aa71bc3655"><div class="ttname"><a href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">theoretica::abs</a></div><div class="ttdeci">dual2 abs(dual2 x)</div><div class="ttdoc">Compute the absolute value of a second order dual number.</div><div class="ttdef"><b>Definition</b> dual2_functions.h:198</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a2a97cfad96b9bb73d76b8f5cc20f2896"><div class="ttname"><a href="namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896">theoretica::sum_pairwise</a></div><div class="ttdeci">real sum_pairwise(const Vector &amp;X, size_t begin=0, size_t end=0, size_t base_size=128)</div><div class="ttdoc">Compute the sum of a set of values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition</b> dataset.h:182</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a551e6c640e2580e8756526e015f2ad04"><div class="ttname"><a href="namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04">theoretica::sum</a></div><div class="ttdeci">auto sum(const Vector &amp;X)</div><div class="ttdoc">Compute the sum of a vector of real values using pairwise summation to reduce round-off error.</div><div class="ttdef"><b>Definition</b> dataset.h:219</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a73c73eaa2f2276a66b309426cc308d1b"><div class="ttname"><a href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">theoretica::geometric_mean</a></div><div class="ttdeci">real geometric_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the geometric mean of a set of values as .</div><div class="ttdef"><b>Definition</b> dataset.h:415</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition</b> dataset.h:330</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a73c73eaa2f2276a66b309426cc308d1b"><div class="ttname"><a href="namespacetheoretica.html#a73c73eaa2f2276a66b309426cc308d1b">theoretica::geometric_mean</a></div><div class="ttdeci">real geometric_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the geometric mean of a set of values as .</div><div class="ttdef"><b>Definition</b> dataset.h:416</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a79c3cffe1db6b2cb178d41bfc98b1c41"><div class="ttname"><a href="namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41">theoretica::max</a></div><div class="ttdeci">auto max(const Vector &amp;X)</div><div class="ttdoc">Finds the maximum value inside a dataset.</div><div class="ttdef"><b>Definition</b> dataset.h:331</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a8298cbf34bf300bc2c84d14264484ffd"><div class="ttname"><a href="namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd">theoretica::product_sum</a></div><div class="ttdeci">auto product_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of two sets of values.</div><div class="ttdef"><b>Definition</b> dataset.h:46</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a8799cd7d7645f496d0d2c9683688050b"><div class="ttname"><a href="namespacetheoretica.html#a8799cd7d7645f496d0d2c9683688050b">theoretica::product_sum_squares</a></div><div class="ttdeci">auto product_sum_squares(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the products of the squares of two sets of data.</div><div class="ttdef"><b>Definition</b> dataset.h:63</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a88ee927450a4d29cb6318b2aede74fa6"><div class="ttname"><a href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">theoretica::nan</a></div><div class="ttdeci">TH_CONSTEXPR real nan()</div><div class="ttdoc">Return a quiet NaN number in floating point representation.</div><div class="ttdef"><b>Definition</b> error.h:78</div></div>
-<div class="ttc" id="anamespacetheoretica_html_a9473c3dfdbe71e408fb3241d458254c0"><div class="ttname"><a href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">theoretica::quadratic_mean</a></div><div class="ttdeci">real quadratic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the quadratic mean (Root Mean Square) of a set of values .</div><div class="ttdef"><b>Definition</b> dataset.h:433</div></div>
+<div class="ttc" id="anamespacetheoretica_html_a9473c3dfdbe71e408fb3241d458254c0"><div class="ttname"><a href="namespacetheoretica.html#a9473c3dfdbe71e408fb3241d458254c0">theoretica::quadratic_mean</a></div><div class="ttdeci">real quadratic_mean(const Dataset &amp;data)</div><div class="ttdoc">Compute the quadratic mean (Root Mean Square) of a set of values .</div><div class="ttdef"><b>Definition</b> dataset.h:434</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b"><div class="ttname"><a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">theoretica::MathError::InvalidArgument</a></div><div class="ttdeci">@ InvalidArgument</div><div class="ttdoc">Invalid argument.</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518"><div class="ttname"><a href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518">theoretica::MathError::DivByZero</a></div><div class="ttdeci">@ DivByZero</div><div class="ttdoc">Division by zero.</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa14178d5680aaca3da91f2f0dc8a86d4"><div class="ttname"><a href="namespacetheoretica.html#aa14178d5680aaca3da91f2f0dc8a86d4">theoretica::quotient_sum</a></div><div class="ttdeci">auto quotient_sum(const Vector &amp;X, const Vector &amp;Y)</div><div class="ttdoc">Sum the quotients of two sets of values.</div><div class="ttdef"><b>Definition</b> dataset.h:98</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aa34d8798921a9b3b78e885a455ff4211"><div class="ttname"><a href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">theoretica::MACH_EPSILON</a></div><div class="ttdeci">constexpr real MACH_EPSILON</div><div class="ttdoc">Machine epsilon for the real type.</div><div class="ttdef"><b>Definition</b> constants.h:216</div></div>
-<div class="ttc" id="anamespacetheoretica_html_ac0a76a59d0419eb65ee9d89e7bd6c1db"><div class="ttname"><a href="namespacetheoretica.html#ac0a76a59d0419eb65ee9d89e7bd6c1db">theoretica::apply</a></div><div class="ttdeci">Vector &amp; apply(Function f, Vector &amp;X)</div><div class="ttdoc">Apply a function to a set of values element-wise.</div><div class="ttdef"><b>Definition</b> dataset.h:250</div></div>
 <div class="ttc" id="anamespacetheoretica_html_acf52f04c3a1cefbb9dabab21cac0abbb"><div class="ttname"><a href="namespacetheoretica.html#acf52f04c3a1cefbb9dabab21cac0abbb">theoretica::root</a></div><div class="ttdeci">real root(real x, int n)</div><div class="ttdoc">Compute the n-th root of x.</div><div class="ttdef"><b>Definition</b> real_analysis.h:812</div></div>
 <div class="ttc" id="anamespacetheoretica_html_adf08c69e546c822b60b2185156b04360"><div class="ttname"><a href="namespacetheoretica.html#adf08c69e546c822b60b2185156b04360">theoretica::product</a></div><div class="ttdeci">auto product(const Vector &amp;X)</div><div class="ttdoc">Compute the product of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:29</div></div>
 <div class="ttc" id="anamespacetheoretica_html_aec4e70500501fc48d6ad18f8abfc1896"><div class="ttname"><a href="namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896">theoretica::sum_squares</a></div><div class="ttdeci">auto sum_squares(const Vector &amp;X)</div><div class="ttdoc">Sum the squares of a set of values.</div><div class="ttdef"><b>Definition</b> dataset.h:127</div></div>
@@ -570,7 +570,7 @@ $(document).ready(function(){initNavTree('dataset_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dataset_8h.html">dataset.h</a></li>
-    <li class="footer">Generated on Mon May 11 2026 15:04:44 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon May 11 2026 15:58:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -2,7 +2,6 @@ var parallel_8h =
 [
     [ "abs", "parallel_8h.html#ac87cdef53cbda8b3f34c52eefd277de2", null ],
     [ "acos", "parallel_8h.html#aef1a21b94c3c0b26f2bc8de158d0e069", null ],
-    [ "apply_function", "parallel_8h.html#ab88c3aee2e540411f82a78cff2fbeb34", null ],
     [ "asin", "parallel_8h.html#ae7ed2a788fecfe7588124b8a3fe51124", null ],
     [ "atan", "parallel_8h.html#a552aac6d38bd3b42269c0d2e18407185", null ],
     [ "cbrt", "parallel_8h.html#a03b2a9424ef9a0638f5c53175208b48f", null ],
@@ -15,6 +14,7 @@ var parallel_8h =
     [ "ln", "parallel_8h.html#ac378a527f94a51ae90f53fea5d849fa0", null ],
     [ "log10", "parallel_8h.html#a7ffc9c8474883257f4d615b6e29fcf3f", null ],
     [ "log2", "parallel_8h.html#ae0acb4e4bbedaf1839ae0a33be8fe20b", null ],
+    [ "map", "parallel_8h.html#a7494d281685113f59dddfe560e1b4ed0", null ],
     [ "pow", "parallel_8h.html#ad8cf02c897cd4d341ecd0225cd7c9a45", null ],
     [ "powf", "parallel_8h.html#addb821cf3b79bb75b891aa201b437fe0", null ],
     [ "sin", "parallel_8h.html#adcdf1a9035d33e10195327dee95cb530", null ],
@@ -22,5 +22,6 @@ var parallel_8h =
     [ "sqrt", "parallel_8h.html#ad5ccd67e86d2b316218d9cdd245254c0", null ],
     [ "square", "parallel_8h.html#a8416adb293a3d0f770d405ed236aa551", null ],
     [ "tan", "parallel_8h.html#a169da83ac31d93fd6ec2598b1744b6d5", null ],
-    [ "tanh", "parallel_8h.html#a87ee75d0ac443c3c0b82d3c4995b9632", null ]
+    [ "tanh", "parallel_8h.html#a87ee75d0ac443c3c0b82d3c4995b9632", null ],
+    [ "transform", "parallel_8h.html#a5314e9e47aa7912528f838bb37341132", null ]
 ];

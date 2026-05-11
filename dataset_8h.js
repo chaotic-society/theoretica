@@ -1,6 +1,5 @@
 var dataset_8h =
 [
-    [ "apply", "dataset_8h.html#ac0a76a59d0419eb65ee9d89e7bd6c1db", null ],
     [ "arithmetic_mean", "dataset_8h.html#a1191a32286f176c367f648431b1444ac", null ],
     [ "concatenate", "dataset_8h.html#a1a85d4034e2edc73c0175f1d3b6d1382", null ],
     [ "geometric_mean", "dataset_8h.html#a73c73eaa2f2276a66b309426cc308d1b", null ],
@@ -21,5 +20,6 @@ var dataset_8h =
     [ "sum_compensated", "dataset_8h.html#a173a64c4f73cb7abd476b739005d94e7", null ],
     [ "sum_pairwise", "dataset_8h.html#a2a97cfad96b9bb73d76b8f5cc20f2896", null ],
     [ "sum_squares", "dataset_8h.html#aec4e70500501fc48d6ad18f8abfc1896", null ],
+    [ "transform", "dataset_8h.html#a0845668bb72e9d24d0e694271c1ad967", null ],
     [ "weighted_mean", "dataset_8h.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926", null ]
 ];

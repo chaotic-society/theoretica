@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72":[2,0,0,2,0,17],
+"structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72":[1,0,2,6,0,17],
 "structtheoretica_1_1regression_1_1linear__model.html#ad6b0247dfe2dc477f84b3d602bea6b52":[1,0,2,6,0,9],
 "structtheoretica_1_1regression_1_1linear__model.html#ad6b0247dfe2dc477f84b3d602bea6b52":[2,0,0,2,0,9],
 "structtheoretica_1_1regression_1_1linear__model.html#adf0da3aa06866126f4a1641b803df7cd":[2,0,0,2,0,11],

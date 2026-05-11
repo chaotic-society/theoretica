@@ -110,10 +110,14 @@ $(document).ready(function(){initNavTree('namespacetheoretica_1_1parallel.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab88c3aee2e540411f82a78cff2fbeb34" id="r_ab88c3aee2e540411f82a78cff2fbeb34"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector &gt; </td></tr>
-<tr class="memitem:ab88c3aee2e540411f82a78cff2fbeb34"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html#ab88c3aee2e540411f82a78cff2fbeb34">apply_function</a> (Function f, const Vector &amp;v)</td></tr>
-<tr class="memdesc:ab88c3aee2e540411f82a78cff2fbeb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel element-wise evaluation of a function, using OpenMP to speed up execution over a vector.  <br /></td></tr>
-<tr class="separator:ab88c3aee2e540411f82a78cff2fbeb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7494d281685113f59dddfe560e1b4ed0" id="r_a7494d281685113f59dddfe560e1b4ed0"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector &gt; </td></tr>
+<tr class="memitem:a7494d281685113f59dddfe560e1b4ed0"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html#a7494d281685113f59dddfe560e1b4ed0">map</a> (Function f, const Vector &amp;v)</td></tr>
+<tr class="memdesc:a7494d281685113f59dddfe560e1b4ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel element-wise evaluation of a function, using OpenMP to speed up execution over a vector.  <br /></td></tr>
+<tr class="separator:a7494d281685113f59dddfe560e1b4ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5314e9e47aa7912528f838bb37341132" id="r_a5314e9e47aa7912528f838bb37341132"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector &gt; </td></tr>
+<tr class="memitem:a5314e9e47aa7912528f838bb37341132"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html#a5314e9e47aa7912528f838bb37341132">transform</a> (Function f, Vector &amp;v)</td></tr>
+<tr class="memdesc:a5314e9e47aa7912528f838bb37341132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector by applying a given function to each of its elements, modifying the vector itself and using OpenMP to speed up execution.  <br /></td></tr>
+<tr class="separator:a5314e9e47aa7912528f838bb37341132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8416adb293a3d0f770d405ed236aa551" id="r_a8416adb293a3d0f770d405ed236aa551"><td class="memTemplParams" colspan="2">template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:a8416adb293a3d0f770d405ed236aa551"><td class="memTemplItemLeft" align="right" valign="top">Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1parallel.html#a8416adb293a3d0f770d405ed236aa551">square</a> (const Vector &amp;v)</td></tr>
 <tr class="memdesc:a8416adb293a3d0f770d405ed236aa551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel element-wise evaluation of the square function.  <br /></td></tr>
@@ -272,54 +276,6 @@ template&lt;typename Vector &gt; </div>
 <p>Vectorized (element-wise evaluation) of the acos function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>The vector of inputs </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The transformed vector </dd></dl>
-
-</div>
-</div>
-<a id="ab88c3aee2e540411f82a78cff2fbeb34" name="ab88c3aee2e540411f82a78cff2fbeb34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab88c3aee2e540411f82a78cff2fbeb34">&#9670;&#160;</a></span>apply_function()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Function , typename Vector &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Vector theoretica::parallel::apply_function </td>
-          <td>(</td>
-          <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Vector &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Parallel element-wise evaluation of a function, using OpenMP to speed up execution over a vector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to evaluate </td></tr>
     <tr><td class="paramname">v</td><td>The vector of inputs </td></tr>
   </table>
   </dd>
@@ -772,6 +728,54 @@ template&lt;typename Vector &gt; </div>
 
 </div>
 </div>
+<a id="a7494d281685113f59dddfe560e1b4ed0" name="a7494d281685113f59dddfe560e1b4ed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7494d281685113f59dddfe560e1b4ed0">&#9670;&#160;</a></span>map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector theoretica::parallel::map </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parallel element-wise evaluation of a function, using OpenMP to speed up execution over a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to evaluate </td></tr>
+    <tr><td class="paramname">v</td><td>The vector of inputs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The transformed vector </dd></dl>
+
+</div>
+</div>
 <a id="ad8cf02c897cd4d341ecd0225cd7c9a45" name="ad8cf02c897cd4d341ecd0225cd7c9a45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8cf02c897cd4d341ecd0225cd7c9a45">&#9670;&#160;</a></span>pow()</h2>
 
@@ -1090,13 +1094,61 @@ template&lt;typename Vector &gt; </div>
 
 </div>
 </div>
+<a id="a5314e9e47aa7912528f838bb37341132" name="a5314e9e47aa7912528f838bb37341132"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5314e9e47aa7912528f838bb37341132">&#9670;&#160;</a></span>transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function , typename Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector &amp; theoretica::parallel::transform </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transform a vector by applying a given function to each of its elements, modifying the vector itself and using OpenMP to speed up execution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to evaluate </td></tr>
+    <tr><td class="paramname">v</td><td>The vector of inputs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the input vector which has been modified </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1parallel.html">parallel</a></li>
-    <li class="footer">Generated on Mon May 11 2026 15:04:44 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon May 11 2026 15:58:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

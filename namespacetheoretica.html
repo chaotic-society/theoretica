@@ -841,13 +841,13 @@ template&lt;typename Vector &gt; </td></tr>
 <tr class="memitem:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0">sum</a> (const Vector &amp;X)</td></tr>
 <tr class="memdesc:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the sum of a set of values.  <br /></td></tr>
 <tr class="separator:aec3305c4f7617c88a3e8ee4deb5b7ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a76a59d0419eb65ee9d89e7bd6c1db" id="r_ac0a76a59d0419eb65ee9d89e7bd6c1db"><td class="memTemplParams" colspan="2">template&lt;typename Vector , typename Function &gt; </td></tr>
-<tr class="memitem:ac0a76a59d0419eb65ee9d89e7bd6c1db"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac0a76a59d0419eb65ee9d89e7bd6c1db">apply</a> (Function f, Vector &amp;X)</td></tr>
-<tr class="memdesc:ac0a76a59d0419eb65ee9d89e7bd6c1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a function to a set of values element-wise.  <br /></td></tr>
-<tr class="separator:ac0a76a59d0419eb65ee9d89e7bd6c1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0845668bb72e9d24d0e694271c1ad967" id="r_a0845668bb72e9d24d0e694271c1ad967"><td class="memTemplParams" colspan="2">template&lt;typename Vector , typename Function &gt; </td></tr>
+<tr class="memitem:a0845668bb72e9d24d0e694271c1ad967"><td class="memTemplItemLeft" align="right" valign="top">Vector &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a0845668bb72e9d24d0e694271c1ad967">transform</a> (Function f, Vector &amp;X)</td></tr>
+<tr class="memdesc:a0845668bb72e9d24d0e694271c1ad967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector by applying a function to each of its elements.  <br /></td></tr>
+<tr class="separator:a0845668bb72e9d24d0e694271c1ad967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b898a8449d723a807854f805f8be23e" id="r_a1b898a8449d723a807854f805f8be23e"><td class="memTemplParams" colspan="2">template&lt;typename Vector1 , typename Vector2  = Vector1, typename Function &gt; </td></tr>
 <tr class="memitem:a1b898a8449d723a807854f805f8be23e"><td class="memTemplItemLeft" align="right" valign="top">Vector2 &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e">map</a> (Function f, const Vector1 &amp;src, Vector2 &amp;dest)</td></tr>
-<tr class="memdesc:a1b898a8449d723a807854f805f8be23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a new vector obtained by applying the function element-wise.  <br /></td></tr>
+<tr class="memdesc:a1b898a8449d723a807854f805f8be23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite a vector by applying a function to the elements of another vector.  <br /></td></tr>
 <tr class="separator:a1b898a8449d723a807854f805f8be23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac43890de03a7e2c959fdabe4f7452042" id="r_ac43890de03a7e2c959fdabe4f7452042"><td class="memTemplParams" colspan="2">template&lt;typename Vector2 , typename Vector1 , typename Function &gt; </td></tr>
 <tr class="memitem:ac43890de03a7e2c959fdabe4f7452042"><td class="memTemplItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac43890de03a7e2c959fdabe4f7452042">map</a> (Function f, const Vector1 &amp;X)</td></tr>
@@ -1984,55 +1984,6 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The arccosine of x</dd></dl>
 <p>Domain: [-1, 1]. The identities \(acos(x) = atan(\frac{sqrt{1 - x^2}}{x})\) and \(acos(x) = atan(\frac{\sqrt{1 - x^2}}{x}) + \pi\) are used. </p>
-
-</div>
-</div>
-<a id="ac0a76a59d0419eb65ee9d89e7bd6c1db" name="ac0a76a59d0419eb65ee9d89e7bd6c1db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a76a59d0419eb65ee9d89e7bd6c1db">&#9670;&#160;</a></span>apply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Vector , typename Function &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Vector &amp; theoretica::apply </td>
-          <td>(</td>
-          <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Vector &amp;&#160;</td>
-          <td class="paramname"><em>X</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Apply a function to a set of values element-wise. </p>
-<dl class="section note"><dt>Note</dt><dd>Unlike functions in the parallel namespace, this routine is not parallelized.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to apply </td></tr>
-    <tr><td class="paramname">X</td><td>The vector to modify the elements of </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the modified vector </dd></dl>
 
 </div>
 </div>
@@ -6774,7 +6725,8 @@ template&lt;typename Vector1 , typename Vector2  = Vector1, typename Function &g
 </table>
 </div><div class="memdoc">
 
-<p>Get a new vector obtained by applying the function element-wise. </p>
+<p>Overwrite a vector by applying a function to the elements of another vector. </p>
+<p>The two vectors must have the same size.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>The function to apply </td></tr>
@@ -11788,13 +11740,62 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a0845668bb72e9d24d0e694271c1ad967" name="a0845668bb72e9d24d0e694271c1ad967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0845668bb72e9d24d0e694271c1ad967">&#9670;&#160;</a></span>transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Vector , typename Function &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector &amp; theoretica::transform </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector &amp;&#160;</td>
+          <td class="paramname"><em>X</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transform a vector by applying a function to each of its elements. </p>
+<dl class="section note"><dt>Note</dt><dd>Unlike functions in the parallel namespace, this routine is not parallelized.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The function to apply </td></tr>
+    <tr><td class="paramname">X</td><td>The vector to modify the elements of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the modified vector </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Mon May 11 2026 15:04:44 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon May 11 2026 15:58:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

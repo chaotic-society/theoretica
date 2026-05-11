@@ -187,7 +187,6 @@ var namespacetheoretica =
     [ "parallel", "namespacetheoretica_1_1parallel.html", [
       [ "abs", "namespacetheoretica_1_1parallel.html#ac87cdef53cbda8b3f34c52eefd277de2", null ],
       [ "acos", "namespacetheoretica_1_1parallel.html#aef1a21b94c3c0b26f2bc8de158d0e069", null ],
-      [ "apply_function", "namespacetheoretica_1_1parallel.html#ab88c3aee2e540411f82a78cff2fbeb34", null ],
       [ "asin", "namespacetheoretica_1_1parallel.html#ae7ed2a788fecfe7588124b8a3fe51124", null ],
       [ "atan", "namespacetheoretica_1_1parallel.html#a552aac6d38bd3b42269c0d2e18407185", null ],
       [ "cbrt", "namespacetheoretica_1_1parallel.html#a03b2a9424ef9a0638f5c53175208b48f", null ],
@@ -200,6 +199,7 @@ var namespacetheoretica =
       [ "ln", "namespacetheoretica_1_1parallel.html#ac378a527f94a51ae90f53fea5d849fa0", null ],
       [ "log10", "namespacetheoretica_1_1parallel.html#a7ffc9c8474883257f4d615b6e29fcf3f", null ],
       [ "log2", "namespacetheoretica_1_1parallel.html#ae0acb4e4bbedaf1839ae0a33be8fe20b", null ],
+      [ "map", "namespacetheoretica_1_1parallel.html#a7494d281685113f59dddfe560e1b4ed0", null ],
       [ "pow", "namespacetheoretica_1_1parallel.html#ad8cf02c897cd4d341ecd0225cd7c9a45", null ],
       [ "powf", "namespacetheoretica_1_1parallel.html#addb821cf3b79bb75b891aa201b437fe0", null ],
       [ "sin", "namespacetheoretica_1_1parallel.html#adcdf1a9035d33e10195327dee95cb530", null ],
@@ -207,7 +207,8 @@ var namespacetheoretica =
       [ "sqrt", "namespacetheoretica_1_1parallel.html#ad5ccd67e86d2b316218d9cdd245254c0", null ],
       [ "square", "namespacetheoretica_1_1parallel.html#a8416adb293a3d0f770d405ed236aa551", null ],
       [ "tan", "namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5", null ],
-      [ "tanh", "namespacetheoretica_1_1parallel.html#a87ee75d0ac443c3c0b82d3c4995b9632", null ]
+      [ "tanh", "namespacetheoretica_1_1parallel.html#a87ee75d0ac443c3c0b82d3c4995b9632", null ],
+      [ "transform", "namespacetheoretica_1_1parallel.html#a5314e9e47aa7912528f838bb37341132", null ]
     ] ],
     [ "regression", "namespacetheoretica_1_1regression.html", "namespacetheoretica_1_1regression" ],
     [ "signal", "namespacetheoretica_1_1signal.html", [
@@ -333,7 +334,6 @@ var namespacetheoretica =
     [ "acos", "namespacetheoretica.html#afcf0ac356621f93c30fc6bdd9a1977a3", null ],
     [ "acos", "namespacetheoretica.html#a7f2d69e3a3387958a27d4a03ed478a99", null ],
     [ "acosh", "namespacetheoretica.html#a124297369ecba10c8516dc5a920aad1a", null ],
-    [ "apply", "namespacetheoretica.html#ac0a76a59d0419eb65ee9d89e7bd6c1db", null ],
     [ "arithmetic_mean", "namespacetheoretica.html#a1191a32286f176c367f648431b1444ac", null ],
     [ "asin", "namespacetheoretica.html#af336feea10e3a8928f2d2723578d3704", null ],
     [ "asin", "namespacetheoretica.html#a892e7542b82c516e65023555a0e30f6b", null ],
@@ -638,6 +638,7 @@ var namespacetheoretica =
     [ "to_cstring", "namespacetheoretica.html#ae19c71c27d5eafa9d80fc6db30888e90", null ],
     [ "to_errno", "namespacetheoretica.html#a9d486a0a16a9979c6b86fe8695e1543e", null ],
     [ "to_string", "namespacetheoretica.html#a9e722f782cf762730875f3c7a9568ecb", null ],
+    [ "transform", "namespacetheoretica.html#a0845668bb72e9d24d0e694271c1ad967", null ],
     [ "weighted_mean", "namespacetheoretica.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926", null ],
     [ "ALGEBRA_EIGEN_ITER", "namespacetheoretica.html#ae203c518f0274c29d78167c457cac65b", null ],
     [ "ALGEBRA_EIGEN_TOL", "namespacetheoretica.html#af8b9679476be607282a44a7f7f8b38c4", null ],
