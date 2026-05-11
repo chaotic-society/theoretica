@@ -34,7 +34,7 @@ var classtheoretica_1_1multidual =
     [ "Re", "classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3", null ],
     [ "resize", "classtheoretica_1_1multidual.html#aee3b3b06ee0491a6fdd91a543ab07ea1", null ],
     [ "size", "classtheoretica_1_1multidual.html#a3ef596a91554f0ea02b26b7e84c28404", null ],
-    [ "to_string", "classtheoretica_1_1multidual.html#ab743ed53a4df22caed47a851f32bdaa9", null ],
+    [ "to_string", "classtheoretica_1_1multidual.html#a78bf6d038257c0816cd2c296dd5f9e1e", null ],
     [ "operator<<", "classtheoretica_1_1multidual.html#a3b18acb574b44db20dc8913748da7940", null ],
     [ "a", "classtheoretica_1_1multidual.html#a6da4f77bb81fb5c2e6d3a1f9a976786e", null ],
     [ "v", "classtheoretica_1_1multidual.html#a3722bfcd6dd69d4c01d544cafc532bd4", null ]

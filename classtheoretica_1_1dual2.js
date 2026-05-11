@@ -34,7 +34,7 @@ var classtheoretica_1_1dual2 =
     [ "operator=", "classtheoretica_1_1dual2.html#abaf4d9497e60d25c9cba4ed87bfee24a", null ],
     [ "operator==", "classtheoretica_1_1dual2.html#af9d89ee16618a779a22e398d3d191734", null ],
     [ "Re", "classtheoretica_1_1dual2.html#aeaee2d59b757e5de60b4ee55c2eec235", null ],
-    [ "to_string", "classtheoretica_1_1dual2.html#a62ade6b5234980b6d6c037bf9502d18d", null ],
+    [ "to_string", "classtheoretica_1_1dual2.html#af3729a3dacafd455ce708b3a2e4504a1", null ],
     [ "to_vec", "classtheoretica_1_1dual2.html#a5c7bc61b58afa5dcf92b15f81c02146f", null ],
     [ "operator<<", "classtheoretica_1_1dual2.html#a7884162e445edb1aa5ce05f0e0c3d11f", null ]
 ];
