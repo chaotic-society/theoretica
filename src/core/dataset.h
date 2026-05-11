@@ -239,7 +239,7 @@ namespace theoretica {
 	}
 
 
-	/// Apply a function to a set of values element-wise.
+	/// Transform a vector by applying a function to each of its elements.
 	/// @note Unlike functions in the parallel namespace,
 	/// this routine is not parallelized.
 	///
@@ -247,7 +247,7 @@ namespace theoretica {
 	/// @param X The vector to modify the elements of
 	/// @return A reference to the modified vector
 	template<typename Vector, typename Function>
-	inline Vector& apply(Function f, Vector& X) {
+	inline Vector& transform(Function f, Vector& X) {
 
 		for (unsigned int i = 0; i < X.size(); i++)
 			X[i] = f(X[i]);
@@ -256,7 +256,8 @@ namespace theoretica {
 	}
 
 
-	/// Get a new vector obtained by applying the function element-wise.
+	/// Overwrite a vector by applying a function to the elements
+	/// of another vector. The two vectors must have the same size.
 	///
 	/// @param f The function to apply
 	/// @param src The input vector

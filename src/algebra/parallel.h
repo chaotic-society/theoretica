@@ -32,7 +32,7 @@ namespace theoretica {
 		/// @param v The vector of inputs
 		/// @return The transformed vector
 		template<typename Function, typename Vector>
-		inline Vector apply_function(Function f, const Vector& v) {
+		inline Vector map(Function f, const Vector& v) {
 
 			Vector res;
 			res.resize(v.size());
@@ -42,6 +42,24 @@ namespace theoretica {
 				res[i] = f(v[i]);
 
 			return res;
+		}
+
+
+		/// Transform a vector by applying a given function
+		/// to each of its elements, modifying the vector itself
+		/// and using OpenMP to speed up execution.
+		///
+		/// @param f The function to evaluate
+		/// @param v The vector of inputs
+		/// @return A reference to the input vector which has been modified
+		template<typename Function, typename Vector>
+		inline Vector& transform(Function f, Vector& v) {
+
+			#pragma omp parallel for
+			for (unsigned int i = 0; i < v.size(); i++)
+				v[i] = f(v[i]);
+
+			return v;
 		}
 
 
