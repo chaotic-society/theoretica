@@ -229,7 +229,6 @@ namespace theoretica {
 		template <typename T>
 		struct func_helper : func_helper<decltype(&T::operator())> {};
 
-		};
 	}
 
 

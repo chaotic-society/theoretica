@@ -311,7 +311,7 @@ namespace theoretica {
 
 			/// Convert the dual number to string representation
 			/// @param epsilon The character to use to represent epsilon
-			inline std::string to_string(const std::string& epsilon = "e") const {
+			inline std::string to_string(const std::string& epsilon = "ε") const {
 
 				std::stringstream res;
 

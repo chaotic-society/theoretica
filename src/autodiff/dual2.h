@@ -295,8 +295,8 @@ namespace theoretica {
 			/// Convert the dual number to string representation
 			/// @param epsilon1 The character to use to represent epsilon1
 			/// @param epsilon2 The character to use to represent epsilon2
-			inline std::string to_string(const std::string& epsilon1 = "e1",
-				const std::string& epsilon2 = "e2") const {
+			inline std::string to_string(const std::string& epsilon1 = "ε",
+				const std::string& epsilon2 = "ε²") const {
 
 				std::stringstream res;
 
