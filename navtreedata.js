@@ -60,18 +60,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8h.html",
-"classtheoretica_1_1complex.html#adfa6e110991e7e538da117386d6d70ef",
-"classtheoretica_1_1histogram.html#a238be6d7b8c804d31b89fbc43fef5c34",
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2",
-"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f",
-"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562",
-"distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511",
-"multi__extrema_8h.html",
-"namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae",
-"namespacetheoretica_1_1algebra.html#a26d05776d64b85e0b2de6a6e3939c701",
-"namespacetheoretica_1_1parallel.html#a03b2a9424ef9a0638f5c53175208b48f",
-"regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e",
-"structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6"
+"classtheoretica_1_1complex.html#ae8f8b258b1bf09cc91d3b7fcf4b6c095",
+"classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615",
+"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0",
+"classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d",
+"classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830",
+"distributions_8h.html#a29239d9f6fa2ece48c655c977ec77561",
+"multi__extrema_8h.html#a7006f83864895393d90045a16a31bd04",
+"namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41",
+"namespacetheoretica_1_1algebra.html#a2f5fb558e9bab3673b71959bcf08aa6a",
+"namespacetheoretica_1_1parallel.html#a9cc414c6ef029d11e75b017ce589c751",
+"regression_8h.html#ac1638be4efe1daaffac9a797a44f0ec9",
+"structtheoretica_1_1regression_1_1linear__model.html#ad6b0247dfe2dc477f84b3d602bea6b52"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

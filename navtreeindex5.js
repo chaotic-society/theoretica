@@ -1,9 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562":[1,0,2,30,18],
-"classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d":[1,0,2,30,43],
-"classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d":[2,0,0,22,43],
-"classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830":[2,0,0,22,19],
 "classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830":[1,0,2,30,19],
 "classtheoretica_1_1vec.html#aa8b19f2ff5f58b6ebcbcc3ef5374e882":[1,0,2,30,6],
 "classtheoretica_1_1vec.html#aa8b19f2ff5f58b6ebcbcc3ef5374e882":[2,0,0,22,6],
@@ -249,5 +245,9 @@ var NAVTREEINDEX5 =
 "distance_8h_source.html":[3,0,0,2],
 "distributions_8h.html":[3,0,11,0],
 "distributions_8h.html#a02b341a54737fbbc4201362784bf63ec":[3,0,11,0,28],
-"distributions_8h.html#a05a9c35d2cc3431dc4441029cb3c2cea":[3,0,11,0,5]
+"distributions_8h.html#a05a9c35d2cc3431dc4441029cb3c2cea":[3,0,11,0,5],
+"distributions_8h.html#a08a806f46c9f29aa7c9fea59e5327511":[3,0,11,0,16],
+"distributions_8h.html#a1787fdadca79a1cf48d4935567ac4fb4":[3,0,11,0,0],
+"distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13":[3,0,11,0,33],
+"distributions_8h.html#a23208b6184144c832d689295442599de":[3,0,11,0,10]
 };

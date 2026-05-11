@@ -1,9 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2":[1,0,2,19,5],
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a64279fe87c9a49c55f0860bb983fff89":[2,0,0,11,4],
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a64279fe87c9a49c55f0860bb983fff89":[1,0,2,19,4],
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0":[2,0,0,11,52],
 "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0":[1,0,2,19,52],
 "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a70ec6442894eb9f5e182ef11a05f0018":[2,0,0,11,24],
 "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a70ec6442894eb9f5e182ef11a05f0018":[1,0,2,19,24],
@@ -249,5 +245,9 @@ var NAVTREEINDEX3 =
 "classtheoretica_1_1polynomial.html#a3beb8d82d57d5c0e3424e8bb35fed467":[1,0,2,24,35],
 "classtheoretica_1_1polynomial.html#a458b7b1541b439b9aa3f76965b87834a":[2,0,0,16,2],
 "classtheoretica_1_1polynomial.html#a458b7b1541b439b9aa3f76965b87834a":[1,0,2,24,2],
-"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f":[1,0,2,24,13]
+"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f":[1,0,2,24,13],
+"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f":[2,0,0,16,13],
+"classtheoretica_1_1polynomial.html#a4e5e3f32da503ae5c48a4c092a4c8dd6":[2,0,0,16,24],
+"classtheoretica_1_1polynomial.html#a4e5e3f32da503ae5c48a4c092a4c8dd6":[1,0,2,24,24],
+"classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d":[1,0,2,24,15]
 };

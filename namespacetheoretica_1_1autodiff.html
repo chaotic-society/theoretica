@@ -172,10 +172,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ac5e387871c7f089a66593fad243c974f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ac5e387871c7f089a66593fad243c974f">deriv2</a> (Dual2Function f)</td></tr>
 <tr class="memdesc:ac5e387871c7f089a66593fad243c974f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the second derivative of the given function at the given point, using automatic differentiation.  <br /></td></tr>
 <tr class="separator:ac5e387871c7f089a66593fad243c974f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0" id="r_abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplParams" colspan="2">template&lt;typename MultidualType , typename Vector  = vec&lt;real&gt;&gt; </td></tr>
-<tr class="memitem:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#abcc6e5c42e04cfddabb3486b30fa9af0">make_autodiff_arg</a> (const Vector &amp;x)</td></tr>
-<tr class="memdesc:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare a vector of multidual numbers in "canonical" form, where the i-th element of the vector has a dual part which is the i-th canonical vector.  <br /></td></tr>
-<tr class="separator:abcc6e5c42e04cfddabb3486b30fa9af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf379aee57f596b7880992f394364d58" id="r_aaf379aee57f596b7880992f394364d58"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
 <tr class="memitem:aaf379aee57f596b7880992f394364d58"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aaf379aee57f596b7880992f394364d58">gradient</a> (Function f, const Vector &amp;x)</td></tr>
 <tr class="memdesc:aaf379aee57f596b7880992f394364d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gradient \(\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\) for a given \(\vec x\) of a scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <br /></td></tr>
@@ -192,53 +188,41 @@ Functions</h2></td></tr>
 <tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a3b264676bfd450cb5887a706f6b19f5e">divergence</a> (Function f)</td></tr>
 <tr class="memdesc:a3b264676bfd450cb5887a706f6b19f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the divergence of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:a3b264676bfd450cb5887a706f6b19f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a" id="r_ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, unsigned int M = 0&gt; </td></tr>
-<tr class="memitem:ad7686ca48ff9eba424f77154da3d509a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ad7686ca48ff9eba424f77154da3d509a">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
-<tr class="memdesc:ad7686ca48ff9eba424f77154da3d509a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the jacobian of a vector field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\).  <br /></td></tr>
-<tr class="separator:ad7686ca48ff9eba424f77154da3d509a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535" id="r_a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0, unsigned int M = 0&gt; </td></tr>
-<tr class="memitem:a42ec261a909d2db46560e1a29eb9e535"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a42ec261a909d2db46560e1a29eb9e535">jacobian</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
-<tr class="memdesc:a42ec261a909d2db46560e1a29eb9e535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the jacobian of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\) for a given $\vec x$.  <br /></td></tr>
-<tr class="separator:a42ec261a909d2db46560e1a29eb9e535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f3319ac64bde3462395369acd10e28" id="r_a28f3319ac64bde3462395369acd10e28"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a28f3319ac64bde3462395369acd10e28"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a28f3319ac64bde3462395369acd10e28">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
-<tr class="memdesc:a28f3319ac64bde3462395369acd10e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
-<tr class="separator:a28f3319ac64bde3462395369acd10e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1" id="r_ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:ab9683ba266b85535eebe0fd3319c7da1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ab9683ba266b85535eebe0fd3319c7da1">curl</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;))</td></tr>
-<tr class="memdesc:ab9683ba266b85535eebe0fd3319c7da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
-<tr class="separator:ab9683ba266b85535eebe0fd3319c7da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1" id="r_a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a8277dab871d580c39d3bf7bad69f38a1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a8277dab871d580c39d3bf7bad69f38a1">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x, const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
-<tr class="memdesc:a8277dab871d580c39d3bf7bad69f38a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <br /></td></tr>
-<tr class="separator:a8277dab871d580c39d3bf7bad69f38a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf" id="r_a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a0125dcd72238d5284fefe2f7dd0bfddf">directional_derivative</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;v)</td></tr>
-<tr class="memdesc:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\).  <br /></td></tr>
-<tr class="separator:a0125dcd72238d5284fefe2f7dd0bfddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee" id="r_a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a889bd5fc09e6e1f6ebb81a6b3fd79bee">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;), const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
-<tr class="memdesc:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
-<tr class="separator:a889bd5fc09e6e1f6ebb81a6b3fd79bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23" id="r_a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a93a3f53e75aa368e0001da36d441cb23"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a93a3f53e75aa368e0001da36d441cb23">laplacian</a> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;))</td></tr>
-<tr class="memdesc:a93a3f53e75aa368e0001da36d441cb23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
-<tr class="separator:a93a3f53e75aa368e0001da36d441cb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527" id="r_a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplParams" colspan="2">template&lt;unsigned int N = 0&gt; </td></tr>
-<tr class="memitem:a5a73fffe1203263616b44d8a9b00b527"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a5a73fffe1203263616b44d8a9b00b527">sturm_liouville</a> (<a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*f)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*H)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;), <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; eta)</td></tr>
-<tr class="memdesc:a5a73fffe1203263616b44d8a9b00b527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Sturm-Liouville operator on a generic function of the form \(f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) with respect to a given Hamiltonian function of the form \(H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) where the first N arguments are the coordinates in phase space and the last N arguments are the conjugate momenta, for a given point in phase space.  <br /></td></tr>
-<tr class="separator:a5a73fffe1203263616b44d8a9b00b527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a500baa8a39da37abe21248e58c7d1deb" id="r_a500baa8a39da37abe21248e58c7d1deb"><td class="memTemplParams" colspan="2">template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vector &gt;  = true, enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a500baa8a39da37abe21248e58c7d1deb"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a500baa8a39da37abe21248e58c7d1deb">jacobian</a> (MultidualFunction f, const Vector &amp;x)</td></tr>
+<tr class="memdesc:a500baa8a39da37abe21248e58c7d1deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the jacobian of a vector field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\).  <br /></td></tr>
+<tr class="separator:a500baa8a39da37abe21248e58c7d1deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46b51becda5fe5ce6342f08e0a721f4" id="r_ab46b51becda5fe5ce6342f08e0a721f4"><td class="memTemplParams" colspan="2">template&lt;typename MultidualFunction , enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:ab46b51becda5fe5ce6342f08e0a721f4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ab46b51becda5fe5ce6342f08e0a721f4">jacobian</a> (MultidualFunction f)</td></tr>
+<tr class="memdesc:ab46b51becda5fe5ce6342f08e0a721f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the jacobian of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\) for a given $\vec x$.  <br /></td></tr>
+<tr class="separator:ab46b51becda5fe5ce6342f08e0a721f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89619f30b7cc21857537dba0a2fc2d3e" id="r_a89619f30b7cc21857537dba0a2fc2d3e"><td class="memTemplParams" colspan="2">template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vector &gt;  = true, enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a89619f30b7cc21857537dba0a2fc2d3e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a89619f30b7cc21857537dba0a2fc2d3e">curl</a> (MultidualFunction f, const Vector &amp;x)</td></tr>
+<tr class="memdesc:a89619f30b7cc21857537dba0a2fc2d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
+<tr class="separator:a89619f30b7cc21857537dba0a2fc2d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e0d5dd48171ec624344430c1a1cb9bf" id="r_a6e0d5dd48171ec624344430c1a1cb9bf"><td class="memTemplParams" colspan="2">template&lt;typename MultidualFunction , enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a6e0d5dd48171ec624344430c1a1cb9bf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a6e0d5dd48171ec624344430c1a1cb9bf">curl</a> (MultidualFunction f)</td></tr>
+<tr class="memdesc:a6e0d5dd48171ec624344430c1a1cb9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the curl for a given \(\vec x\) of a vector field defined by \(f: \mathbb{R}^3 \rightarrow \mathbb{R}^3\) using automatic differentiation.  <br /></td></tr>
+<tr class="separator:a6e0d5dd48171ec624344430c1a1cb9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302715218e43e30f40a14c677bcb2950" id="r_a302715218e43e30f40a14c677bcb2950"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function , typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:a302715218e43e30f40a14c677bcb2950"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a302715218e43e30f40a14c677bcb2950">laplacian</a> (Dual2Function f, const Vector &amp;x)</td></tr>
+<tr class="memdesc:a302715218e43e30f40a14c677bcb2950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
+<tr class="separator:a302715218e43e30f40a14c677bcb2950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9961390f059c340335f5517c3abef5c" id="r_aa9961390f059c340335f5517c3abef5c"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function , enable_scalar_field&lt; Dual2Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:aa9961390f059c340335f5517c3abef5c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aa9961390f059c340335f5517c3abef5c">laplacian</a> (Dual2Function f)</td></tr>
+<tr class="memdesc:aa9961390f059c340335f5517c3abef5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
+<tr class="separator:aa9961390f059c340335f5517c3abef5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Differential operators with automatic differentiation. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab9683ba266b85535eebe0fd3319c7da1" name="ab9683ba266b85535eebe0fd3319c7da1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9683ba266b85535eebe0fd3319c7da1">&#9670;&#160;</a></span>curl() <span class="overload">[1/2]</span></h2>
+<a id="a6e0d5dd48171ec624344430c1a1cb9bf" name="a6e0d5dd48171ec624344430c1a1cb9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e0d5dd48171ec624344430c1a1cb9bf">&#9670;&#160;</a></span>curl() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
+template&lt;typename MultidualFunction , enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -246,7 +230,7 @@ template&lt;unsigned int N = 0&gt; </div>
         <tr>
           <td class="memname">auto theoretica::autodiff::curl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype">MultidualFunction&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -269,27 +253,27 @@ template&lt;unsigned int N = 0&gt; </div>
 
 </div>
 </div>
-<a id="a28f3319ac64bde3462395369acd10e28" name="a28f3319ac64bde3462395369acd10e28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28f3319ac64bde3462395369acd10e28">&#9670;&#160;</a></span>curl() <span class="overload">[2/2]</span></h2>
+<a id="a89619f30b7cc21857537dba0a2fc2d3e" name="a89619f30b7cc21857537dba0a2fc2d3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89619f30b7cc21857537dba0a2fc2d3e">&#9670;&#160;</a></span>curl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
+template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vector &gt;  = true, enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; theoretica::autodiff::curl </td>
+          <td class="memname">auto theoretica::autodiff::curl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype">MultidualFunction&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -487,127 +471,6 @@ template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_
 
 </div>
 </div>
-<a id="a0125dcd72238d5284fefe2f7dd0bfddf" name="a0125dcd72238d5284fefe2f7dd0bfddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0125dcd72238d5284fefe2f7dd0bfddf">&#9670;&#160;</a></span>directional_derivative() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto theoretica::autodiff::directional_derivative </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a lambda function which computes the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to partially differentiate </td></tr>
-    <tr><td class="paramname">x</td><td>The point to compute the derivative at </td></tr>
-    <tr><td class="paramname">v</td><td>The direction to compute the derivative on</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>In most applications, the vector v should be a unit vector, but the function does not control whether the vector has unit length or not.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
-    <tr><td class="paramname">v</td><td>The direction of the derivative. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A lambda function which computes the directional derivative over v of f. </dd></dl>
-
-</div>
-</div>
-<a id="a8277dab871d580c39d3bf7bad69f38a1" name="a8277dab871d580c39d3bf7bad69f38a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8277dab871d580c39d3bf7bad69f38a1">&#9670;&#160;</a></span>directional_derivative() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; theoretica::autodiff::directional_derivative </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the directional derivative of a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>The function to partially differentiate </td></tr>
-    <tr><td class="paramname">x</td><td>The point to compute the derivative at </td></tr>
-    <tr><td class="paramname">v</td><td>The direction to compute the derivative on</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>In most applications, the vector v should be a unit vector, but the function does not control whether the vector has unit length or not.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
-    <tr><td class="paramname">x</td><td>The point to compute the directional derivative at. </td></tr>
-    <tr><td class="paramname">v</td><td>The direction of the derivative. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The directional derivative over v of f at x. </dd></dl>
-
-</div>
-</div>
 <a id="a3b264676bfd450cb5887a706f6b19f5e" name="a3b264676bfd450cb5887a706f6b19f5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b264676bfd450cb5887a706f6b19f5e">&#9670;&#160;</a></span>divergence() <span class="overload">[1/2]</span></h2>
 
@@ -782,13 +645,13 @@ template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scala
 
 </div>
 </div>
-<a id="a42ec261a909d2db46560e1a29eb9e535" name="a42ec261a909d2db46560e1a29eb9e535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42ec261a909d2db46560e1a29eb9e535">&#9670;&#160;</a></span>jacobian() <span class="overload">[1/2]</span></h2>
+<a id="ab46b51becda5fe5ce6342f08e0a721f4" name="ab46b51becda5fe5ce6342f08e0a721f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46b51becda5fe5ce6342f08e0a721f4">&#9670;&#160;</a></span>jacobian() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
+template&lt;typename MultidualFunction , enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -796,7 +659,7 @@ template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
         <tr>
           <td class="memname">auto theoretica::autodiff::jacobian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype">MultidualFunction&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -819,27 +682,27 @@ template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
 
 </div>
 </div>
-<a id="ad7686ca48ff9eba424f77154da3d509a" name="ad7686ca48ff9eba424f77154da3d509a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7686ca48ff9eba424f77154da3d509a">&#9670;&#160;</a></span>jacobian() <span class="overload">[2/2]</span></h2>
+<a id="a500baa8a39da37abe21248e58c7d1deb" name="a500baa8a39da37abe21248e58c7d1deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500baa8a39da37abe21248e58c7d1deb">&#9670;&#160;</a></span>jacobian() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
+template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vector &gt;  = true, enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtheoretica_1_1mat.html">mat</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, M, N &gt; theoretica::autodiff::jacobian </td>
+          <td class="memname">auto theoretica::autodiff::jacobian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, M &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
+          <td class="paramtype">MultidualFunction&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -867,13 +730,13 @@ template&lt;unsigned int N = 0, unsigned int M = 0&gt; </div>
 
 </div>
 </div>
-<a id="a93a3f53e75aa368e0001da36d441cb23" name="a93a3f53e75aa368e0001da36d441cb23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93a3f53e75aa368e0001da36d441cb23">&#9670;&#160;</a></span>laplacian() <span class="overload">[1/2]</span></h2>
+<a id="aa9961390f059c340335f5517c3abef5c" name="aa9961390f059c340335f5517c3abef5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9961390f059c340335f5517c3abef5c">&#9670;&#160;</a></span>laplacian() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
+template&lt;typename Dual2Function , enable_scalar_field&lt; Dual2Function &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -881,7 +744,7 @@ template&lt;unsigned int N = 0&gt; </div>
         <tr>
           <td class="memname">auto theoretica::autodiff::laplacian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;)&#160;</td>
+          <td class="paramtype">Dual2Function&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -904,13 +767,13 @@ template&lt;unsigned int N = 0&gt; </div>
 
 </div>
 </div>
-<a id="a889bd5fc09e6e1f6ebb81a6b3fd79bee" name="a889bd5fc09e6e1f6ebb81a6b3fd79bee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a889bd5fc09e6e1f6ebb81a6b3fd79bee">&#9670;&#160;</a></span>laplacian() <span class="overload">[2/2]</span></h2>
+<a id="a302715218e43e30f40a14c677bcb2950" name="a302715218e43e30f40a14c677bcb2950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302715218e43e30f40a14c677bcb2950">&#9670;&#160;</a></span>laplacian() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
+template&lt;typename Dual2Function , typename Vector , enable_vector&lt; Vector &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -918,13 +781,13 @@ template&lt;unsigned int N = 0&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::laplacian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1dual2.html">dual2</a>(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>, N &gt;)&#160;</td>
+          <td class="paramtype">Dual2Function&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -952,98 +815,13 @@ template&lt;unsigned int N = 0&gt; </div>
 
 </div>
 </div>
-<a id="abcc6e5c42e04cfddabb3486b30fa9af0" name="abcc6e5c42e04cfddabb3486b30fa9af0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcc6e5c42e04cfddabb3486b30fa9af0">&#9670;&#160;</a></span>make_autodiff_arg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename MultidualType , typename Vector  = vec&lt;real&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto theoretica::autodiff::make_autodiff_arg </td>
-          <td>(</td>
-          <td class="paramtype">const Vector &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prepare a vector of multidual numbers in "canonical" form, where the i-th element of the vector has a dual part which is the i-th canonical vector. </p>
-<p>This form is used to evaluate a multidual function for automatic differentiation. </p>
-
-</div>
-</div>
-<a id="a5a73fffe1203263616b44d8a9b00b527" name="a5a73fffe1203263616b44d8a9b00b527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a73fffe1203263616b44d8a9b00b527">&#9670;&#160;</a></span>sturm_liouville()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int N = 0&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::sturm_liouville </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;(*)(<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;)&#160;</td>
-          <td class="paramname"><em>H</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td>
-          <td class="paramname"><em>eta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the Sturm-Liouville operator on a generic function of the form \(f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) with respect to a given Hamiltonian function of the form \(H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\) where the first N arguments are the coordinates in phase space and the last N arguments are the conjugate momenta, for a given point in phase space. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>A function taking a vector of multidual numbers and returning a multidual number. </td></tr>
-    <tr><td class="paramname">H</td><td>The Hamiltonian of the system. </td></tr>
-    <tr><td class="paramname">eta</td><td>A vector containing N = 2K elements, where the first K elements are the coordinates and the last K elements are the conjugate momenta. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1autodiff.html">autodiff</a></li>
-    <li class="footer">Generated on Thu May 7 2026 15:58:00 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon May 11 2026 15:04:44 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

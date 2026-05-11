@@ -270,7 +270,7 @@ $(document).ready(function(){initNavTree('csv_8h_source.html',''); initResizable
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                v[i] = <a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>();</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            v = col;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <a class="code hl_function" href="namespacetheoretica_1_1algebra.html#a425738669ab6decff8d928400d19c82f">algebra::vec_copy</a>(v, col);</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
 </div>
@@ -858,6 +858,7 @@ $(document).ready(function(){initNavTree('csv_8h_source.html',''); initResizable
 <div class="ttc" id="acore_2error_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compilation op...</div><div class="ttdef"><b>Definition</b> error.h:225</div></div>
 <div class="ttc" id="adata__table_8h_html"><div class="ttname"><a href="data__table_8h.html">data_table.h</a></div><div class="ttdoc">Data table structure for holding labeled columns of data.</div></div>
 <div class="ttc" id="aio_2error_8h_html"><div class="ttname"><a href="io_2error_8h.html">error.h</a></div><div class="ttdoc">Error handling for IO operations.</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1algebra_html_a425738669ab6decff8d928400d19c82f"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a425738669ab6decff8d928400d19c82f">theoretica::algebra::vec_copy</a></div><div class="ttdeci">Vector1 &amp; vec_copy(Vector1 &amp;dest, const Vector2 &amp;src)</div><div class="ttdoc">Copy a vector by overwriting another.</div><div class="ttdef"><b>Definition</b> algebra.h:170</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_a70f8a0fa365f11722ac6ca9d0086d8ba"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#a70f8a0fa365f11722ac6ca9d0086d8ba">theoretica::algebra::mat_error</a></div><div class="ttdeci">Matrix &amp; mat_error(Matrix &amp;m)</div><div class="ttdoc">Overwrite the given matrix with the error matrix with NaN values on the diagonal and zeroes everywher...</div><div class="ttdef"><b>Definition</b> algebra.h:44</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1algebra_html_acedb7a30970499d5e6a1f7f6137b6451"><div class="ttname"><a href="namespacetheoretica_1_1algebra.html#acedb7a30970499d5e6a1f7f6137b6451">theoretica::algebra::vec_error</a></div><div class="ttdeci">Vector &amp; vec_error(Vector &amp;v)</div><div class="ttdoc">Overwrite the given vector with the error vector with NaN values.</div><div class="ttdef"><b>Definition</b> algebra.h:62</div></div>
 <div class="ttc" id="anamespacetheoretica_1_1io_html_a3f01af6b910857d7e8d6091d6a21f4d2"><div class="ttname"><a href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">theoretica::io::is_number</a></div><div class="ttdeci">bool is_number(const std::string &amp;str)</div><div class="ttdoc">Check if a given string could be correctly interpreted as a number.</div><div class="ttdef"><b>Definition</b> strings.h:16</div></div>
@@ -886,7 +887,7 @@ $(document).ready(function(){initNavTree('csv_8h_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_bc161955dc3a3d2485839eba21420d01.html">io</a></li><li class="navelem"><a class="el" href="csv_8h.html">csv.h</a></li>
-    <li class="footer">Generated on Thu May 7 2026 15:58:00 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon May 11 2026 15:04:44 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

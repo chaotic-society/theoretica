@@ -68,12 +68,11 @@ var searchData=
   ['step_5frk2_65',['step_rk2',['../namespacetheoretica_1_1ode.html#a481cfcc3722d1f7baf29d6d15ca4b83c',1,'theoretica::ode']]],
   ['step_5frk4_66',['step_rk4',['../namespacetheoretica_1_1ode.html#aa4fbd453238d0ee5a285fba1b45d959a',1,'theoretica::ode']]],
   ['student_67',['student',['../namespacetheoretica_1_1distribution.html#a7e4cfceccf2f9ea7113ab121320a76bc',1,'theoretica::distribution::student(real x, unsigned int nu)'],['../namespacetheoretica_1_1distribution.html#aed6b0ab0d694d26d530f64a1056e60b6',1,'theoretica::distribution::student(real x, const vec&lt; real &gt; &amp;theta)']]],
-  ['sturm_5fliouville_68',['sturm_liouville',['../namespacetheoretica_1_1autodiff.html#a5a73fffe1203263616b44d8a9b00b527',1,'theoretica::autodiff']]],
-  ['success_69',['Success',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178a505a83f220c02df2f85c3810cd9ceb38',1,'theoretica']]],
-  ['sum_70',['sum',['../namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04',1,'theoretica::sum(const Vector &amp;X)'],['../namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0',1,'theoretica::sum(const Vector &amp;X)']]],
-  ['sum_5fcompensated_71',['sum_compensated',['../namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7',1,'theoretica']]],
-  ['sum_5fpairwise_72',['sum_pairwise',['../namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896',1,'theoretica']]],
-  ['sum_5fsquares_73',['sum_squares',['../namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896',1,'theoretica']]],
-  ['swap_5fbit_5freverse_74',['swap_bit_reverse',['../namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb',1,'theoretica']]],
-  ['symplectic_75',['symplectic',['../namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718',1,'theoretica::algebra']]]
+  ['success_68',['Success',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178a505a83f220c02df2f85c3810cd9ceb38',1,'theoretica']]],
+  ['sum_69',['sum',['../namespacetheoretica.html#a551e6c640e2580e8756526e015f2ad04',1,'theoretica::sum(const Vector &amp;X)'],['../namespacetheoretica.html#aec3305c4f7617c88a3e8ee4deb5b7ef0',1,'theoretica::sum(const Vector &amp;X)']]],
+  ['sum_5fcompensated_70',['sum_compensated',['../namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7',1,'theoretica']]],
+  ['sum_5fpairwise_71',['sum_pairwise',['../namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896',1,'theoretica']]],
+  ['sum_5fsquares_72',['sum_squares',['../namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896',1,'theoretica']]],
+  ['swap_5fbit_5freverse_73',['swap_bit_reverse',['../namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb',1,'theoretica']]],
+  ['symplectic_74',['symplectic',['../namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718',1,'theoretica::algebra']]]
 ];

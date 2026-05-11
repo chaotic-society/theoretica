@@ -1,9 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"classtheoretica_1_1polynomial.html#a4d19d35cd720c5c538a424bd4c20a18f":[2,0,0,16,13],
-"classtheoretica_1_1polynomial.html#a4e5e3f32da503ae5c48a4c092a4c8dd6":[2,0,0,16,24],
-"classtheoretica_1_1polynomial.html#a4e5e3f32da503ae5c48a4c092a4c8dd6":[1,0,2,24,24],
-"classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d":[1,0,2,24,15],
 "classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d":[2,0,0,16,15],
 "classtheoretica_1_1polynomial.html#a53d43b4f87b9846cc7182b41a5f5e896":[2,0,0,16,32],
 "classtheoretica_1_1polynomial.html#a53d43b4f87b9846cc7182b41a5f5e896":[1,0,2,24,32],
@@ -249,5 +245,9 @@ var NAVTREEINDEX4 =
 "classtheoretica_1_1vec.html#a90c3d2cbdef09a4ae7f4d38bca6a7566":[2,0,0,22,34],
 "classtheoretica_1_1vec.html#a956f68fcae429e0be6dc66185db9886f":[1,0,2,30,21],
 "classtheoretica_1_1vec.html#a956f68fcae429e0be6dc66185db9886f":[2,0,0,22,21],
-"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562":[2,0,0,22,18]
+"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562":[2,0,0,22,18],
+"classtheoretica_1_1vec.html#a9c312cb2a4078baaeb0fa7c3f5c2b562":[1,0,2,30,18],
+"classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d":[1,0,2,30,43],
+"classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d":[2,0,0,22,43],
+"classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830":[2,0,0,22,19]
 };
