@@ -183,7 +183,7 @@ namespace io {
 				v[i] = nan();
 
 		} else {
-			v = col;
+			algebra::vec_copy(v, col);
 		}
 	}
 

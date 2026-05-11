@@ -102,32 +102,6 @@ namespace theoretica {
 		// Differential operators
 
 
-		/// Prepare a vector of multidual numbers in "canonical" form,
-		/// where the i-th element of the vector has a dual part which
-		/// is the i-th canonical vector. This form is used to evaluate
-		/// a multidual function for automatic differentiation.
-		template <
-			typename MultidualType,
-			typename Vector = vec<real>
-		>
-		inline auto make_autodiff_arg(const Vector& x) {
-
-			constexpr size_t N = MultidualType::vector_argument;
-			vec<MultidualType, N> arg;
-			arg.resize(x.size());
-
-			// Iterate over each element, setting the dual part to
-			// the i-th element of the canonical base
-			for (unsigned int i = 0; i < x.size(); ++i) {
-				arg[i] = MultidualType(
-					x[i], vec<real, N>::euclidean_base(i, x.size())
-				);
-			}
-
-			return arg;
-		}
-
-
 		/// Compute the gradient
 		/// \f$\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\f$
 		/// for a given \f$\vec x\f$ of a scalar field of the form
@@ -148,9 +122,21 @@ namespace theoretica {
 		inline auto gradient(Function f, const Vector& x) {
 
 			// Extract the return type of the function
-			using R = return_type_t<Function>;
+			using MultidualType = return_type_t<Function>;
 
-			return f(make_autodiff_arg<R>(x)).Dual();
+			constexpr size_t N = MultidualType::size_argument;
+			vec<MultidualType, N> arg;
+			arg.resize(x.size());
+
+			// Iterate over each element, setting the dual part to
+			// the i-th element of the canonical base
+			for (unsigned int i = 0; i < x.size(); ++i) {
+				arg[i] = MultidualType(
+					x[i], vec<real, N>::euclidean_base(i, x.size())
+				);
+			}
+
+			return f(arg).Dual();
 		}
 
 
@@ -171,9 +157,9 @@ namespace theoretica {
 		>
 		inline auto gradient(Function f) {
 
-			constexpr size_t N = return_type_t<Function>::vector_argument;
+			constexpr size_t N = return_type_t<Function>::size_argument;
 
-			return [f](vec<real, N> x) {
+			return [f](const vec<real, N>& x) {
 				return gradient(f, x);
 			};
 		}
@@ -224,9 +210,10 @@ namespace theoretica {
 		>
 		inline auto divergence(Function f) {
 
-			constexpr size_t N = return_type_t<Function>::vector_argument;
+			constexpr size_t N = return_type_t<Function>::size_argument;
+			using Vector = vec<real, N>;
 
-			return [f](vec<real, N> x) {
+			return [f](const Vector& x) {
 				return divergence(f, x);
 			};
 		}
@@ -239,11 +226,17 @@ namespace theoretica {
 		/// and a vector of multidual numbers as output.
 		/// @param x The point to compute the Jacobian at.
 		/// @return The Jacobian matrix of f at x.
-		template<unsigned int N = 0, unsigned int M = 0>
-		inline mat<real, M, N> jacobian(
-			vec<multidual<N>, M>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+		template <
+			typename MultidualFunction, typename Vector,
+			enable_vector<Vector> = true,
+			enable_vector_field<MultidualFunction> = true
+		>
+		inline auto jacobian(MultidualFunction f, const Vector& x) {
 
-			vec<multidual<N>, M> res = f(multidual<N>::make_argument(x));
+			constexpr size_t M = return_type_t<MultidualFunction>::size_argument;
+			constexpr size_t N = _internal::func_helper<MultidualFunction>::first_arg_type::size_argument;
+
+			const vec<multidual<N>, N> res = f(multidual<N>::make_argument(x));
 			
 			// Construct the jacobian matrix
 			mat<real, M, N> J;
@@ -264,11 +257,16 @@ namespace theoretica {
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the Jacobian matrix of f.
-		template<unsigned int N = 0, unsigned int M = 0>
-		inline auto jacobian(
-			vec<multidual<N>, M>(*f)(vec<multidual<N>, N>)) {
+		template<
+			typename MultidualFunction,
+			enable_vector_field<MultidualFunction> = true
+		>
+		inline auto jacobian(MultidualFunction f) {
 
-			return [f](vec<real, N> x) {
+			constexpr size_t N = return_type_t<MultidualFunction>::size_argument;
+			using Vector = vec<real, N>;
+
+			return [f](const Vector& x) {
 				return jacobian(f, x);
 			};
 		}
@@ -282,20 +280,23 @@ namespace theoretica {
 		/// input and a vector of multidual numbers as output.
 		/// @param x The point to compute the curl at.
 		/// @return The curl of f at x.
-		template<unsigned int N = 0>
-		inline vec<real, N> curl(
-			vec<multidual<N>, N>(*f)(vec<multidual<N>, N>), const vec<real, N>& x) {
+		template <
+			typename MultidualFunction, typename Vector,
+			enable_vector<Vector> = true,
+			enable_vector_field<MultidualFunction> = true
+		>
+		inline auto curl(MultidualFunction f, const Vector& x) {
+
+			Vector res;
+			res.resize(3);
 
 			if(x.size() != 3) {
 				TH_MATH_ERROR("th::curl", x.size(), MathError::InvalidArgument);
-				return vec<real, N>(nan(), x.size());
+				return algebra::vec_error(res);
 			}
 
-			mat<real, N, N> J = jacobian<N, N>(f, x);
-			J.resize(3, 3);
-
-			vec<real, N> res;
-			res.resize(3);
+			constexpr size_t N = return_type_t<MultidualFunction>::size_argument;
+			const mat<real, N, N> J = jacobian(f, x);
 
 			res[0] = J(2, 1) - J(1, 2);
 			res[1] = J(0, 2) - J(2, 0);
@@ -313,60 +314,17 @@ namespace theoretica {
 		/// @param f A function with a vector of multidual numbers as
 		/// input and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the curl of f.
-		template<unsigned int N = 0>
-		inline auto curl(vec<multidual<N>, N>(*f)(vec<multidual<N>, N>)) {
+		template<
+			typename MultidualFunction,
+			enable_vector_field<MultidualFunction> = true
+		>
+		inline auto curl(MultidualFunction f) {
 
-			return [f](vec<real, N> x) {
+			constexpr size_t N = return_type_t<MultidualFunction>::size_argument;
+			using Vector = vec<real, N>;
+
+			return [f](const Vector& x) {
 				return curl(f, x);
-			};
-		}
-
-
-		/// Compute the directional derivative of a generic function
-		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
-		/// @param f The function to partially differentiate
-		/// @param x The point to compute the derivative at
-		/// @param v The direction to compute the derivative on
-		///
-		/// \note In most applications, the vector v should be a unit vector,
-		/// but the function does not control whether the vector has
-		/// unit length or not.
-		///
-		/// @param f A function with a vector of multidual numbers as
-		/// input and a vector of multidual numbers as output.
-		/// @param x The point to compute the directional derivative at.
-		/// @param v The direction of the derivative.
-		/// @return The directional derivative over v of f at x.
-		template<unsigned int N = 0>
-		inline vec<real, N> directional_derivative(multidual<N>(*f)(vec<multidual<N>, N>),
-			const vec<real, N>& x, const vec<real, N>& v) {
-
-			return v * dot(v, gradient(f, x));
-		}
-
-
-		/// Get a lambda function which computes the directional derivative
-		/// of a generic function of the form
-		/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
-		/// @param f The function to partially differentiate
-		/// @param x The point to compute the derivative at
-		/// @param v The direction to compute the derivative on
-		///
-		/// \note In most applications, the vector v should be a unit vector,
-		/// but the function does not control whether the vector has
-		/// unit length or not.
-		///
-		/// @param f A function with a vector of multidual numbers as
-		/// input and a vector of multidual numbers as output.
-		/// @param v The direction of the derivative.
-		/// @return A lambda function which computes the directional
-		/// derivative over v of f.
-		template<unsigned int N = 0>
-		inline auto directional_derivative(
-			multidual<N>(*f)(vec<multidual<N>, N>), const vec<real, N>& v) {
-
-			return [f, v](vec<real, N> x) {
-				return directional_derivative(f, x, v);
 			};
 		}
 
@@ -379,17 +337,25 @@ namespace theoretica {
 		/// returning a dual2 number.
 		/// @param x The point to compute the Laplacian at.
 		/// @return The Laplacian of f at x.
-		template<unsigned int N = 0>
-		inline real laplacian(dual2(*f)(vec<dual2, N>), const vec<real, N>& x) {
+		template <
+			typename Dual2Function, typename Vector,
+			enable_vector<Vector> = true
+		>
+		inline real laplacian(Dual2Function f, const Vector& x) {
 
-			real res = 0;
+			// Extract size template argument of the input vector
+			constexpr size_t N = _internal::func_helper<Dual2Function>
+				::first_arg_type::size_argument;
+
 			vec<dual2, N> d;
 			d.resize(x.size());
 
-			for (unsigned int i = 0; i < x.size(); ++i)
+			for (unsigned int i = 0; i < d.size(); ++i)
 				d[i].a = x[i];
 
-			for (unsigned int i = 0; i < x.size(); ++i) {
+			// Accumulate second derivatives
+			real res = 0;
+			for (unsigned int i = 0; i < d.size(); ++i) {
 				d[i].b = 1;
 				res += f(d).Dual2();
 				d[i].b = 0;
@@ -407,38 +373,17 @@ namespace theoretica {
 		/// @param f A function taking a vector of dual2 numbers and
 		/// returning a dual2 number.
 		/// @return A lambda function which computes the Laplacian of f at x.
-		template<unsigned int N = 0>
-		inline auto laplacian(dual2(*f)(vec<dual2, N>)) {
+		template <
+			typename Dual2Function,
+			enable_scalar_field<Dual2Function> = true
+		>
+		inline auto laplacian(Dual2Function f) {
 
-			return [f](vec<real, N> x) {
+			using Vector = vec<real, return_type_t<Dual2Function>::size_argument>;
+
+			return [f](const Vector& x) {
 				return laplacian(f, x);
 			};
-		}
-
-
-		/// Compute the Sturm-Liouville operator on a generic function
-		/// of the form \f$f: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$
-		/// with respect to a given Hamiltonian function of the form
-		/// \f$H: \mathbb{R}^{2N} \rightarrow \mathbb{R}\f$ where
-		/// the first N arguments are the coordinates in phase space
-		/// and the last N arguments are the conjugate momenta,
-		/// for a given point in phase space.
-		///
-		/// @param f A function taking a vector of multidual numbers and
-		/// returning a multidual number.
-		/// @param H The Hamiltonian of the system.
-		/// @param eta A vector containing N = 2K elements, where the first
-		/// K elements are the coordinates and the last K elements are the
-		/// conjugate momenta.
-		template<unsigned int N = 0>
-		inline real sturm_liouville(
-			multidual<N>(*f)(vec<multidual<N>, N>),
-			multidual<N>(*H)(vec<multidual<N>, N>),
-			vec<real, N> eta) {
-
-			return gradient(f, eta)
-				 * mat<real, N, N>::symplectic(eta.size(), eta.size())
-				 * gradient(H, eta);
 		}
 
 	}

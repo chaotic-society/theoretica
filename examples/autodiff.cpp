@@ -26,11 +26,10 @@ NumType f(vec<NumType, 2> v) {
 
 
 // A function from R^2 to R^2
-template<typename NumType>
-vec<NumType, 2> g(vec<NumType, 2> v) {
+autodiff::dvec2 g(autodiff::dvec2 v) {
 
-	const NumType x = v[0];
-	const NumType y = v[1];
+	const auto x = v[0];
+	const auto y = v[1];
 
 	return {
 		th::sqrt(x * y),
@@ -46,27 +45,23 @@ int main() {
 	// Compute common differential operators on f(x, y)
 
 	// You can call the function as usual
-	std::cout << "f(v) = " << f(v) << std::endl;
+	io::println("f(v) =", f(v));
 
+
+	// Use dreal2 (vector of dual2 numbers) for first-order autodiff
 	auto df = f<autodiff::dreal2>;
+	io::println("grad(f) =", autodiff::gradient(df, v));
+	io::println("div(f) =", autodiff::divergence(df, v));
 
-	// And also automatically compute differential operators
-	std::cout << "grad(f) = " << autodiff::gradient(df, v) << std::endl;
-	std::cout << "div(f) = " << autodiff::divergence(df, v) << "\n" << std::endl;
-	std::cout << "laplacian(f) = " << autodiff::laplacian<2>(f, v) << "\n" << std::endl;
 
-	// When you apply differential operators, the function is cast to
-	// accept dual, multidual or dual2 arguments and is then evaluated
-	// at the given point.
+	// Use dual2 numbers for second-order autodiff
+	auto d2f = f<dual2>;
+	io::println("laplacian(f) =", autodiff::laplacian(d2f, v));
 
-	// You can also apply the operators without specifying the point,
-	// in which case the function returns a lambda function that
-	// uses the same method to compute the operators when called.
 
 	// Compute the Jacobian matrix of g(x, y)
-	// Note that you may need to specify the input and output size
-	// for template deduction, when using fixed size containers.
-	std::cout << "jacobian(g):\n" << autodiff::jacobian<2, 2>(g, v) << std::endl;
+	io::println("jacobian(g):");
+	io::println(autodiff::jacobian(g, v));
 
 	return 0;
 }

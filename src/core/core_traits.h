@@ -188,7 +188,6 @@ namespace theoretica {
 		};
 
 		// Helper structure for is_real_func and related traits
-		
 		template<typename Function, typename T, typename = void>
 		struct return_type_or_void {
 			using type = void;
@@ -203,32 +202,33 @@ namespace theoretica {
 
 
 		// Helper structure for extracting information from Callables
-		template<typename T>
-		struct func_helper : public func_helper<decltype(&T::operator())> {};
+		template <typename T> struct func_helper;
 
-		
-		template<typename ReturnType, typename ...Args>
-		struct func_helper<ReturnType(Args...)> {
+		template <typename R, typename... Args>
+		struct func_helper<R(Args...)> {
 
-			using return_type = ReturnType;
-			using args_type = std::tuple<Args...>;
+			// Return type of the function
+			using return_type = R;
+
+			// Tuple of argument types
+			using args_tuple = std::tuple<Args...>;
+
+			// Type of the first argument
 			using first_arg_type = typename get_first<Args...>::type;
-		};
-		
-		template<typename ReturnType, typename ...Args>
-		struct func_helper<ReturnType(*)(Args...)> {
 
-			using return_type = ReturnType;
-			using args_type = std::tuple<Args...>;
-			using first_arg_type = typename get_first<Args...>::type;
+			// Arity of the function (number of arguments)
+			static constexpr std::size_t arity = sizeof...(Args);
 		};
 
-		template<typename Class, typename ReturnType, typename ...Args>
-		struct func_helper<ReturnType(Class::*)(Args...) const> {
+		template <typename R, typename... Args>
+		struct func_helper<R(*)(Args...)> : func_helper<R(Args...)> {};
 
-			using return_type = ReturnType;
-			using args_type = std::tuple<Args...>;
-			using first_arg_type = typename get_first<Args...>::type;
+		template <typename C, typename R, typename... Args>
+		struct func_helper<R(C::*)(Args...) const> : func_helper<R(Args...)> {};
+
+		template <typename T>
+		struct func_helper : func_helper<decltype(&T::operator())> {};
+
 		};
 	}
 

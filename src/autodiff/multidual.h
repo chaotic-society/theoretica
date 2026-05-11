@@ -35,7 +35,7 @@ namespace theoretica {
 			vec<real, N> v;
 
 			// The template argument of the vector type used
-			static constexpr size_t vector_argument = N;
+			static constexpr size_t size_argument = N;
 
 
 			/// Construct a multidual number

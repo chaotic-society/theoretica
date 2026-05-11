@@ -32,10 +32,10 @@
 
 /// THEORETICA_DISABLE_CPP20 Define this macro to disable C++20 features.
 #ifndef THEORETICA_DISABLE_CPP20
-#ifndef THEORETICA_USE_CPP20
+#ifndef THEORETICA_HAS_CPP20
 #if (__cplusplus >= 202002L)
-/// THEORETICA_USE_CPP20 This macro is automatically defined if the compiler supports C++20 features.
-#define THEORETICA_USE_CPP20
+/// THEORETICA_HAS_CPP20 This macro is automatically defined if the compiler supports C++20 features.
+#define THEORETICA_HAS_CPP20
 #endif
 #endif
 #endif
