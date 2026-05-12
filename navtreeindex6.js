@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13":[3,0,11,0,33],
+"distributions_8h.html#a23208b6184144c832d689295442599de":[3,0,11,0,10],
 "distributions_8h.html#a29239d9f6fa2ece48c655c977ec77561":[3,0,11,0,31],
 "distributions_8h.html#a29639993aeb2b247b8bd37d041211940":[3,0,11,0,6],
 "distributions_8h.html#a2e1d320249b8efb3dfb78d7ae3a08aa9":[3,0,11,0,1],
@@ -113,8 +115,8 @@ var NAVTREEINDEX6 =
 "functions_d.html":[2,2,0,3],
 "functions_e.html":[2,2,0,4],
 "functions_f.html":[2,2,0,5],
-"functions_func.html":[2,2,1],
 "functions_func.html":[2,2,1,0],
+"functions_func.html":[2,2,1],
 "functions_func_b.html":[2,2,1,1],
 "functions_func_c.html":[2,2,1,2],
 "functions_func_d.html":[2,2,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "montecarlo_8h.html#a4ed022df42e2b7152fc916433acbfbcc":[3,0,9,0,7],
 "montecarlo_8h.html#a891845bdf03e80b72925c16db545606f":[3,0,9,0,12],
 "montecarlo_8h.html#abad6a42bf9fd0176e622e01e0f7446a9":[3,0,9,0,6],
-"montecarlo_8h.html#afd8b0a1c223e7bc79b04046d4e8502da":[3,0,9,0,3],
-"montecarlo_8h_source.html":[3,0,9,0],
-"multi__extrema_8h.html":[3,0,7,1]
+"montecarlo_8h.html#afd8b0a1c223e7bc79b04046d4e8502da":[3,0,9,0,3]
 };

@@ -64,13 +64,13 @@ var NAVTREEINDEX =
 "classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615",
 "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0",
 "classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d",
-"classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830",
-"distributions_8h.html#a29239d9f6fa2ece48c655c977ec77561",
-"multi__extrema_8h.html#a006aae49f3c2e2d8a91c13d3485c902a",
-"namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae",
-"namespacetheoretica_1_1algebra.html#a1d8e7f8039577df122fd34d187792787",
-"namespacetheoretica_1_1parallel.html#a2a5926e5955512a57dc470b746313d3a",
-"regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e",
+"classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d",
+"distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13",
+"montecarlo_8h_source.html",
+"namespacetheoretica.html#a748eca731a8c05226332e5723b7a9d91",
+"namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35",
+"namespacetheoretica_1_1parallel.html#a2fb63423ac4180dfc5de9743a864b6fc",
+"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd",
 "structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6"
 ];
 

@@ -334,19 +334,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8fe375758727a9f9a510a0898d69aaf4" id="r_a8fe375758727a9f9a510a0898d69aaf4"><td class="memTemplParams" colspan="2">template&lt;typename ElementType , typename Type , typename ... Args&gt; </td></tr>
-<tr class="memitem:a8fe375758727a9f9a510a0898d69aaf4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8fe375758727a9f9a510a0898d69aaf4">make_vec</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; ElementType &gt; &amp;v, size_t index, Type last)</td></tr>
-<tr class="memdesc:a8fe375758727a9f9a510a0898d69aaf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates a vector with a single element at the specified index.  <br /></td></tr>
-<tr class="separator:a8fe375758727a9f9a510a0898d69aaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaac93661f565556c9740402f262e9a80" id="r_aaac93661f565556c9740402f262e9a80"><td class="memTemplParams" colspan="2">template&lt;typename ElementType , typename Type , typename ... Args&gt; </td></tr>
-<tr class="memitem:aaac93661f565556c9740402f262e9a80"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aaac93661f565556c9740402f262e9a80">make_vec</a> (<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; ElementType &gt; &amp;v, size_t index, Type first, Args... elements)</td></tr>
-<tr class="memdesc:aaac93661f565556c9740402f262e9a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates a vector with multiple elements using variadic arguments.  <br /></td></tr>
-<tr class="separator:aaac93661f565556c9740402f262e9a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5822f6ae7c03a023f79361f9dbb3118b" id="r_a5822f6ae7c03a023f79361f9dbb3118b"><td class="memTemplParams" colspan="2"><a id="a5822f6ae7c03a023f79361f9dbb3118b" name="a5822f6ae7c03a023f79361f9dbb3118b"></a>
-template&lt;typename Type , typename ... Args&gt; </td></tr>
-<tr class="memitem:a5822f6ae7c03a023f79361f9dbb3118b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>make_vec</b> (Type first, Args... elements)</td></tr>
-<tr class="memdesc:a5822f6ae7c03a023f79361f9dbb3118b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a dynamically allocated vector of type vec&lt;Type&gt; using variadic templates. <br /></td></tr>
-<tr class="separator:a5822f6ae7c03a023f79361f9dbb3118b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6629ddaf5a84d7a8f3159b749ef4db0" id="r_ae6629ddaf5a84d7a8f3159b749ef4db0"><td class="memItemLeft" align="right" valign="top"><a id="ae6629ddaf5a84d7a8f3159b749ef4db0" name="ae6629ddaf5a84d7a8f3159b749ef4db0"></a>
 <a class="el" href="classtheoretica_1_1dual2.html">dual2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>square</b> (<a class="el" href="classtheoretica_1_1dual2.html">dual2</a> x)</td></tr>
 <tr class="memdesc:ae6629ddaf5a84d7a8f3159b749ef4db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the square of a second order dual number. <br /></td></tr>
@@ -6546,107 +6533,6 @@ On x86 architectures, if <code>THEORETICA_X86</code> is defined, the <code>fyl2x
 
 </div>
 </div>
-<a id="aaac93661f565556c9740402f262e9a80" name="aaac93661f565556c9740402f262e9a80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaac93661f565556c9740402f262e9a80">&#9670;&#160;</a></span>make_vec() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ElementType , typename Type , typename ... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void theoretica::make_vec </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; ElementType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Type&#160;</td>
-          <td class="paramname"><em>first</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args...&#160;</td>
-          <td class="paramname"><em>elements</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Populates a vector with multiple elements using variadic arguments. </p>
-<p>This function assigns the first element to the specified index, then recursively populates subsequent indices with remaining elements.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>Reference to the vector being populated. </td></tr>
-    <tr><td class="paramname">index</td><td>The current index to populate in the vector. </td></tr>
-    <tr><td class="paramname">first</td><td>The first element to assign to the vector at the specified index. </td></tr>
-    <tr><td class="paramname">elements</td><td>Remaining elements to populate in the vector. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8fe375758727a9f9a510a0898d69aaf4" name="a8fe375758727a9f9a510a0898d69aaf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fe375758727a9f9a510a0898d69aaf4">&#9670;&#160;</a></span>make_vec() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ElementType , typename Type , typename ... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void theoretica::make_vec </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; ElementType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Type&#160;</td>
-          <td class="paramname"><em>last</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Populates a vector with a single element at the specified index. </p>
-<p>This function is the base case for recursive population.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>Reference to the vector being populated. </td></tr>
-    <tr><td class="paramname">index</td><td>The current index to populate in the vector. </td></tr>
-    <tr><td class="paramname">last</td><td>The last element to assign to the vector at the specified index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a1bd4dbfccbb88413ccb29c93ae7254da" name="a1bd4dbfccbb88413ccb29c93ae7254da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bd4dbfccbb88413ccb29c93ae7254da">&#9670;&#160;</a></span>map() <span class="overload">[1/3]</span></h2>
 
@@ -11807,7 +11693,7 @@ template&lt;typename Vector , typename Function &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li>
-    <li class="footer">Generated on Tue May 12 2026 16:57:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 12 2026 16:59:32 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"namespacetheoretica_1_1algebra.html#a1d8e7f8039577df122fd34d187792787":[1,0,2,0,36],
 "namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35":[1,0,2,0,47],
 "namespacetheoretica_1_1algebra.html#a26d05776d64b85e0b2de6a6e3939c701":[1,0,2,0,113],
 "namespacetheoretica_1_1algebra.html#a2796454efe36f2b64f6f813113ff4830":[1,0,2,0,45],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "namespacetheoretica_1_1parallel.html":[1,0,2,5],
 "namespacetheoretica_1_1parallel.html#a036eb22e3d111a4b8a6b483a21811d30":[1,0,2,5,10],
 "namespacetheoretica_1_1parallel.html#a03b2a9424ef9a0638f5c53175208b48f":[1,0,2,5,4],
-"namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5":[1,0,2,5,21]
+"namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5":[1,0,2,5,21],
+"namespacetheoretica_1_1parallel.html#a2a5926e5955512a57dc470b746313d3a":[1,0,2,5,5]
 };

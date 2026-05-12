@@ -6,6 +6,7 @@ var classtheoretica_1_1vec =
     [ "vec", "classtheoretica_1_1vec.html#ae22ed79cba4956cfe1a2be5ad0e82555", null ],
     [ "vec", "classtheoretica_1_1vec.html#a4c4500ce6f106043422b3d41b59d1edd", null ],
     [ "vec", "classtheoretica_1_1vec.html#a429c84234898b354e04e4b0fc847c8cc", null ],
+    [ "vec", "classtheoretica_1_1vec.html#a65c1d8ddcedf862f3628e13e52b11c89", null ],
     [ "vec", "classtheoretica_1_1vec.html#aa8b19f2ff5f58b6ebcbcc3ef5374e882", null ],
     [ "at", "classtheoretica_1_1vec.html#abb8b956f15af860a89025ac36a491d2f", null ],
     [ "at", "classtheoretica_1_1vec.html#adf574e5f2935e39a45fd8593dce3d13a", null ],
