@@ -353,7 +353,7 @@ namespace theoretica {
 		///
 		/// This function multiplies the given vector `v` by the matrix. It checks
 		/// if the size of `v` matches the number of columns in the matrix.
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Vector transform(const Vector& v) const {
 
 			if(v.size() != cols()) {
@@ -402,7 +402,7 @@ namespace theoretica {
 		///
 		/// This function multiplies this matrix with another matrix `B`. It checks if
 		/// the number of rows in `B` matches the number of columns in this matrix.
-		template<typename Matrix>
+		template<typename Matrix, enable_matrix<Matrix> = true>
 		inline Matrix mul(const Matrix& B) const {
 
 			Matrix res;
@@ -422,7 +422,7 @@ namespace theoretica {
    		/// @tparam Matrix The type of the matrix to multiply with.
    		/// @param B The matrix to multiply with.
    		/// @return The resulting matrix.
-		template<typename Matrix>
+		template<typename Matrix, enable_matrix<Matrix> = true>
 		inline auto operator*(const Matrix& B) const {
 
 			Matrix res;
@@ -1006,7 +1006,7 @@ namespace theoretica {
 		/// @tparam Vector The vector type.
 		/// @param v The vector to transform.
 		/// @return The transformed vector.
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Vector transform(const Vector& v) const {
 
 			if(v.size() != rows()) {
@@ -1083,7 +1083,7 @@ namespace theoretica {
 		///
 		/// If the number of rows in `B` does not match the number of columns in the
 		/// current matrix, an error is raised and an error matrix is returned.
-		template<typename Matrix>
+		template<typename Matrix, enable_matrix<Matrix> = true>
 		inline Matrix mul(const Matrix& B) const {
 
 			Matrix res;

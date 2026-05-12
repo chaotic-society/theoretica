@@ -120,7 +120,11 @@ namespace theoretica {
 		/// the given size matches that of the vector type.
 		vec(unsigned int size, Type val) {
 
-			resize(size);
+			if (N != size) {
+				TH_MATH_ERROR("vec::vec(size, val)", size, MathError::InvalidArgument);
+				algebra::vec_error(*this);
+				return;
+			}
 
 			for (unsigned int i = 0; i < N; ++i)
 				elements[i] = val;
@@ -135,6 +139,20 @@ namespace theoretica {
 				algebra::vec_copy(*this, other);
 			else
 				algebra::vec_error(*this);
+		}
+
+
+		/// Construct a vector from its elements, provided they are more than two
+		/// (to avoid conflict with other constructors).
+		template<typename... Args>
+		vec(Type x1, Type x2, Args... args) {
+
+			static_assert(
+				2 + sizeof...(args) == N,
+				"Number of arguments must match vector size"
+			);
+
+			*this = {x1, x2, args...};
 		}
 
 
@@ -550,8 +568,7 @@ namespace theoretica {
 		static constexpr size_t size_argument = 0;
 
 		/// Construct an empty vector.
-		vec() {}
-
+		vec() = default;
 
 		/// Construct a vector with the given size
 		/// and all elements equal to zero.
@@ -560,13 +577,11 @@ namespace theoretica {
 			algebra::vec_zeroes(*this);
 		}
 
-
 		/// Construct a vector with the given size
 		/// and all elements equal to the given value
 		vec(unsigned int n, Type a) {
 			elements = std::vector<Type>(n, a);
 		}
-
 
 		/// Copy constructor
 		template<unsigned int M>
@@ -574,18 +589,17 @@ namespace theoretica {
 			algebra::vec_copy(*this, other);
 		}
 
+		/// Construct a vector from its elements, provided they are more than two
+		/// (to avoid conflict with other constructors).
+		template<typename... Args>
+		vec(Type x1, Type x2, Args... args) {
 
-		/// Copy from other
-		template<typename Vector>
-		vec<Type>& operator=(const Vector& other) {
-			return algebra::vec_copy(*this, other);
+			elements = {x1, x2, args...};
 		}
 
-
+		
 		/// Initialize from a list, e.g. {1, 2, 3}
 		vec(std::initializer_list<Type> l) : elements(l) {}
-
-		~vec() = default;
 
 
 		/// Identity
@@ -948,49 +962,6 @@ namespace theoretica {
 #endif
 
 	};
-
-
-	/// Populates a vector with a single element at the specified index.
-	/// This function is the base case for recursive population.
-	///
-	/// @param v Reference to the vector being populated.
-	/// @param index The current index to populate in the vector.
-	/// @param last The last element to assign to the vector at the specified index.
-	template<typename ElementType, typename Type, typename ...Args>
-	void make_vec(vec<ElementType>& v, size_t index, Type last) {
-		v[index] = last;
-	}
-
-
-	/// Populates a vector with multiple elements using variadic arguments.
-	/// This function assigns the first element to the specified index, then
-	/// recursively populates subsequent indices with remaining elements.
-	///
-	/// @param v Reference to the vector being populated.
-	/// @param index The current index to populate in the vector.
-	/// @param first The first element to assign to the vector at the specified index.
-	/// @param elements Remaining elements to populate in the vector.
-	template<typename ElementType, typename Type, typename ...Args>
-	void make_vec(vec<ElementType>& v, size_t index, Type first, Args... elements) {
-
-		v[index] = first;
-		make_vec<ElementType>(v, index + 1, elements...);
-	}
-
-
-	/// Construct a dynamically allocated vector of type
-	/// vec<Type> using variadic templates.
-	template<typename Type, typename ...Args>
-	vec<Type> make_vec(Type first, Args... elements) {
-
-		vec<Type> v;
-		v.resize(sizeof...(elements) + 1);
-
-		v[0] = first;
-		make_vec<Type>(v, 1, elements...);
-
-		return v;
-	}
 
 }
 
