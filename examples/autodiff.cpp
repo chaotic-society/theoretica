@@ -51,7 +51,6 @@ int main() {
 	// Use dreal2 (vector of dual2 numbers) for first-order autodiff
 	auto df = f<autodiff::dreal2>;
 	io::println("grad(f) =", autodiff::gradient(df, v));
-	io::println("div(f) =", autodiff::divergence(df, v));
 
 
 	// Use dual2 numbers for second-order autodiff
@@ -62,6 +61,8 @@ int main() {
 	// Compute the Jacobian matrix of g(x, y)
 	io::println("jacobian(g):");
 	io::println(autodiff::jacobian(g, v));
+	
+	io::println("div(g) =", autodiff::divergence(g, v));
 
 	return 0;
 }

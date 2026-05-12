@@ -235,14 +235,14 @@ namespace theoretica {
 
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Type dot(const Vector& other) const {
 			return algebra::dot(*this, other);
 		}
 
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Type operator*(const Vector& other) const {
 			return dot(other);
 		}
@@ -663,14 +663,14 @@ namespace theoretica {
 
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Type dot(const Vector& other) const {
 			return algebra::dot(*this, other);
 		}
 
 
 		/// Dot product between vectors (v * w = v.x * w.x + ...)
-		template<typename Vector>
+		template<typename Vector, enable_vector<Vector> = true>
 		inline Type operator*(const Vector& other) const {
 			return dot(other);
 		}
