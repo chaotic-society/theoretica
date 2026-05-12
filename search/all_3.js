@@ -37,7 +37,7 @@ var searchData=
   ['divbyzero_34',['DivByZero',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3aaf7faafd138de944e8e15550280a9518',1,'theoretica']]],
   ['diverged_35',['Diverged',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178a531b4ea128144242345020b6115538ce',1,'theoretica']]],
   ['divergence_36',['divergence',['../namespacetheoretica_1_1autodiff.html#a9df91da769c2701d9314282c8f987d5f',1,'theoretica::autodiff::divergence(Function V, const Vector &amp;x)'],['../namespacetheoretica_1_1autodiff.html#a135f044425f55454f75dfede05c79a00',1,'theoretica::autodiff::divergence(Function V)']]],
-  ['dot_37',['dot',['../namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c',1,'theoretica::algebra::dot()'],['../classtheoretica_1_1vec.html#ab8231b80c7506360999d9777d9d4a9c3',1,'theoretica::vec::dot()']]],
+  ['dot_37',['dot',['../namespacetheoretica_1_1algebra.html#a78eaf414de804da51ccf4ee4dc20d31c',1,'theoretica::algebra::dot()'],['../classtheoretica_1_1vec.html#a142f06687d9afc226fe6e3df4068bb82',1,'theoretica::vec::dot()']]],
   ['double_5ffact_38',['double_fact',['../namespacetheoretica.html#a56a0989004608c56e6dd4bcc2bd148c7',1,'theoretica']]],
   ['dreal_39',['dreal',['../namespacetheoretica_1_1autodiff.html#a6c0d26bc5791e79fd708e6a5cbf6386f',1,'theoretica::autodiff']]],
   ['dreal2_40',['dreal2',['../namespacetheoretica_1_1autodiff.html#ab727178b4600275224052e5945d70923',1,'theoretica::autodiff']]],
