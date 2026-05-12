@@ -166,55 +166,63 @@ namespace theoretica {
 
 
 		/// Compute the divergence
-		/// \f$\sum_i^n \frac{\partial}{\partial x_i} f(\vec x)\f$
-		/// for a given \f$\vec x\f$ of a scalar field of the form
-		/// \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$ using automatic differentiation.
+		/// \f$\sum_i^n \frac{\partial}{\partial x_i} V_i(\vec x)\f$
+		/// for a given \f$\vec x\f$ of a vector field of the form
+		/// \f$V: \mathbb{R}^N \rightarrow \mathbb{R}^N\f$ using automatic differentiation.
 		/// The argument function may be a function pointer or lambda function,
-		/// with the type dvec_t as first argument and dreal_t return type.
+		/// with the type dvec_t as first argument and return type.
 		///
-		/// @param f A function with a vector of multidual numbers as input
+		/// @param V A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @param x The point to compute the divergence at.
-		/// @return The divergence of f at x.
+		/// @return The divergence of V at x.
 		template <
 			typename Function, typename Vector = vec<real>,
-			enable_scalar_field<Function> = true,
+			enable_vector_field<Function> = true,
 			enable_vector<Vector> = true
 		>
-		inline real divergence(Function f, const Vector& x) {
+		inline real divergence(Function V, const Vector& x) {
 
 			using MultidualT = return_type_t<Function>;
-			MultidualT d = f(MultidualT::make_argument(x));
+			const size_t N = MultidualT::size_argument;
 
-			real div = 0;
-			for (unsigned int i = 0; i < d.v.size(); ++i)
-				div += d.v[i];
+			// Sum the diagonal elements of the jacobian
+			const vec<multidual<N>, N> res = V(multidual<N>::make_argument(x));
+
+			real div = 0.0;
+			for (unsigned int i = 0; i < res.size(); ++i) {
+				
+				// dreal numbers initialized to a scalar
+				// have an empty dual part, check the size before summing
+				if (res[i].v.size() > i)
+					div += res[i].Dual()[i];
+			}
 
 			return div;
 		}
 
 
 		/// Get a lambda function which computes the divergence of a given function
-		/// of the form \f$f: \mathbb{R}^N \rightarrow \mathbb{R}\f$
+		/// of the form \f$V: \mathbb{R}^N \rightarrow \mathbb{R}^N\f$
 		/// at a given \f$\vec x\f$ using automatic differentiation.
 		/// The returned lambda function accepts a vec<real, N> argument.
 		/// The argument function may be a function pointer or lambda function,
 		/// with the type dvec_t as first argument and dreal_t return type.
 		///
-		/// @param f A function with a vector of multidual numbers as input
+		/// @param V A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
-		/// @return A lambda function which computes the divergence of f at x.
+		/// @return A lambda function which computes the divergence of V at x.
 		template <
 			typename Function,
 			enable_scalar_field<Function> = true
 		>
-		inline auto divergence(Function f) {
+		inline auto divergence(Function V) {
 
 			constexpr size_t N = return_type_t<Function>::size_argument;
 			using Vector = vec<real, N>;
 
-			return [f](const Vector& x) {
-				return divergence(f, x);
+			return [V](const Vector& x) {
+				return divergence(V, x);
 			};
 		}
 
@@ -373,15 +381,13 @@ namespace theoretica {
 		/// @param f A function taking a vector of dual2 numbers and
 		/// returning a dual2 number.
 		/// @return A lambda function which computes the Laplacian of f at x.
-		template <
-			typename Dual2Function,
-			enable_scalar_field<Dual2Function> = true
-		>
+		template <typename Dual2Function>
 		inline auto laplacian(Dual2Function f) {
 
-			using Vector = vec<real, return_type_t<Dual2Function>::size_argument>;
+			constexpr size_t N = _internal::func_helper<Dual2Function>
+				::first_arg_type::size_argument;
 
-			return [f](const Vector& x) {
+			return [f](const vec<real, N>& x) {
 				return laplacian(f, x);
 			};
 		}

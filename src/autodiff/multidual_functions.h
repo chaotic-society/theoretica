@@ -38,6 +38,7 @@ namespace theoretica {
 	/// Compute the n-th power of a multidual number
 	template<unsigned int N>
 	multidual<N> pow(multidual<N> x, int n) {
+		
 		real pow_n_1_x = pow(x.Re(), n - 1);
 		return multidual<N>(pow_n_1_x * x.Re(), x.Dual() * pow_n_1_x * n);
 	}

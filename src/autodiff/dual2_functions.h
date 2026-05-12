@@ -147,6 +147,50 @@ namespace theoretica {
 	}
 
 
+	/// Compute the hyperbolic sine of a second order dual number
+	inline dual2 sinh(dual2 x) {
+
+		const real sinh_x = sinh(x.Re());
+		const real cosh_x = cosh(x.Re());
+
+		return dual2(
+			sinh_x,
+			cosh_x * x.Dual1(),
+			cosh_x * square(x.Dual1()) + sinh_x * x.Dual2()
+		);
+	}
+
+
+	/// Compute the hyperbolic cosine of a second order dual number
+	inline dual2 cosh(dual2 x) {
+
+		const real sinh_x = sinh(x.Re());
+		const real cosh_x = cosh(x.Re());
+
+		return dual2(
+			cosh_x,
+			sinh_x * x.Dual1(),
+			sinh_x * square(x.Dual1()) + cosh_x * x.Dual2()
+		);
+	}
+
+
+	/// Compute the hyperbolic tangent of a second order dual number
+	inline dual2 tanh(dual2 x) {
+		
+		const real sinh_x = sinh(x.Re());
+		const real cosh_x = cosh(x.Re());
+
+		const real tanh_x = sinh_x / cosh_x;
+
+		return dual2(
+			tanh_x,
+			x.Dual1() / square(cosh_x),
+			2.0 * sinh_x / cube(cosh_x) * square(x.Dual1()) + x.Dual2() / square(cosh_x)
+		);
+	}
+
+
 	/// Compute the natural logarithm of a second order dual number
 	inline dual2 ln(dual2 x) {
 
