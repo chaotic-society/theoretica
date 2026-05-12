@@ -6,6 +6,7 @@ var dual2__functions_8h =
     [ "atan", "dual2__functions_8h.html#af0493013e208bb00505abbc4ca37f292", null ],
     [ "conjugate", "dual2__functions_8h.html#a60d712fc2f7470e40f65fd470cbb6982", null ],
     [ "cos", "dual2__functions_8h.html#a97cec74fe963806729cbdd0d43de5cd3", null ],
+    [ "cosh", "dual2__functions_8h.html#acbd89fef23f36fc8cf4b16dfe8b11c38", null ],
     [ "cot", "dual2__functions_8h.html#a9d5fed4cfa9af5d148c59a6005422edc", null ],
     [ "cube", "dual2__functions_8h.html#afd6bc324bd8ae6bbd91b89c7491fe988", null ],
     [ "exp", "dual2__functions_8h.html#a3def790003197bb019f5933b4db45c44", null ],
@@ -14,7 +15,9 @@ var dual2__functions_8h =
     [ "log2", "dual2__functions_8h.html#a29e46804be47f0c4865014a4a763cf76", null ],
     [ "pow", "dual2__functions_8h.html#afce493c565b387c0496eff49e137edb6", null ],
     [ "sin", "dual2__functions_8h.html#ad7a34ba6bb56c26ba50c1b2c21d2da7e", null ],
+    [ "sinh", "dual2__functions_8h.html#a89855caeb7f65661301235eb84152c10", null ],
     [ "sqrt", "dual2__functions_8h.html#a19dd33456cffdbba3f29d85061779e7c", null ],
     [ "square", "dual2__functions_8h.html#ae6629ddaf5a84d7a8f3159b749ef4db0", null ],
-    [ "tan", "dual2__functions_8h.html#ac81dcde719b69b4d63ecd3127cb289d9", null ]
+    [ "tan", "dual2__functions_8h.html#ac81dcde719b69b4d63ecd3127cb289d9", null ],
+    [ "tanh", "dual2__functions_8h.html#a82d54f264cfb1a5150a1a9e30151ea03", null ]
 ];

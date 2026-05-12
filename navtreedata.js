@@ -66,12 +66,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1polynomial.html#a52af3b9462261c4827e639dffdb5424d",
 "classtheoretica_1_1vec.html#a9e6e85694fd8cbe05fd8269940de1830",
 "distributions_8h.html#a29239d9f6fa2ece48c655c977ec77561",
-"multi__extrema_8h.html#a7006f83864895393d90045a16a31bd04",
-"namespacetheoretica.html#a79b06e5bf997c4447c10f2fa96649347",
-"namespacetheoretica_1_1algebra.html#a2f5fb558e9bab3673b71959bcf08aa6a",
-"namespacetheoretica_1_1parallel.html#a8416adb293a3d0f770d405ed236aa551",
-"regression_8h.html#ab3310b8c7b4730cfed2089fc3e4f76d0",
-"structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72"
+"multi__extrema_8h.html#a006aae49f3c2e2d8a91c13d3485c902a",
+"namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae",
+"namespacetheoretica_1_1algebra.html#a1d8e7f8039577df122fd34d187792787",
+"namespacetheoretica_1_1parallel.html#a2a5926e5955512a57dc470b746313d3a",
+"regression_8h.html#a78275eef04237b944d31cd21bc9a2e6e",
+"structtheoretica_1_1regression_1_1linear__model.html#ab71f4a00c47c35209a2bbbd8af63cce6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

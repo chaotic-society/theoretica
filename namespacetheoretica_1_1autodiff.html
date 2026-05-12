@@ -180,14 +180,14 @@ Functions</h2></td></tr>
 <tr class="memitem:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af8a28a9e5d6bfa90c60bb7e7bda11973">gradient</a> (Function f)</td></tr>
 <tr class="memdesc:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the gradient \(\nabla f = \sum_i^n \vec e_i \frac{\partial}{\partial x_i} f(\vec x)\) of a given scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at \(\vec x\) using automatic differentiation.  <br /></td></tr>
 <tr class="separator:af8a28a9e5d6bfa90c60bb7e7bda11973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2" id="r_af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
-<tr class="memitem:af30b57b1eece89b60a2a7ba334d935b2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#af30b57b1eece89b60a2a7ba334d935b2">divergence</a> (Function f, const Vector &amp;x)</td></tr>
-<tr class="memdesc:af30b57b1eece89b60a2a7ba334d935b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence \(\sum_i^n \frac{\partial}{\partial x_i} f(\vec x)\) for a given \(\vec x\) of a scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation.  <br /></td></tr>
-<tr class="separator:af30b57b1eece89b60a2a7ba334d935b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e" id="r_a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplParams" colspan="2">template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </td></tr>
-<tr class="memitem:a3b264676bfd450cb5887a706f6b19f5e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a3b264676bfd450cb5887a706f6b19f5e">divergence</a> (Function f)</td></tr>
-<tr class="memdesc:a3b264676bfd450cb5887a706f6b19f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the divergence of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation.  <br /></td></tr>
-<tr class="separator:a3b264676bfd450cb5887a706f6b19f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df91da769c2701d9314282c8f987d5f" id="r_a9df91da769c2701d9314282c8f987d5f"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_vector_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:a9df91da769c2701d9314282c8f987d5f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a9df91da769c2701d9314282c8f987d5f">divergence</a> (Function V, const Vector &amp;x)</td></tr>
+<tr class="memdesc:a9df91da769c2701d9314282c8f987d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the divergence \(\sum_i^n \frac{\partial}{\partial x_i} V_i(\vec x)\) for a given \(\vec x\) of a vector field of the form \(V: \mathbb{R}^N \rightarrow \mathbb{R}^N\) using automatic differentiation.  <br /></td></tr>
+<tr class="separator:a9df91da769c2701d9314282c8f987d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135f044425f55454f75dfede05c79a00" id="r_a135f044425f55454f75dfede05c79a00"><td class="memTemplParams" colspan="2">template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt; </td></tr>
+<tr class="memitem:a135f044425f55454f75dfede05c79a00"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a135f044425f55454f75dfede05c79a00">divergence</a> (Function V)</td></tr>
+<tr class="memdesc:a135f044425f55454f75dfede05c79a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the divergence of a given function of the form \(V: \mathbb{R}^N \rightarrow \mathbb{R}^N\) at a given \(\vec x\) using automatic differentiation.  <br /></td></tr>
+<tr class="separator:a135f044425f55454f75dfede05c79a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a500baa8a39da37abe21248e58c7d1deb" id="r_a500baa8a39da37abe21248e58c7d1deb"><td class="memTemplParams" colspan="2">template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vector &gt;  = true, enable_vector_field&lt; MultidualFunction &gt;  = true&gt; </td></tr>
 <tr class="memitem:a500baa8a39da37abe21248e58c7d1deb"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a500baa8a39da37abe21248e58c7d1deb">jacobian</a> (MultidualFunction f, const Vector &amp;x)</td></tr>
 <tr class="memdesc:a500baa8a39da37abe21248e58c7d1deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the jacobian of a vector field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}^M\).  <br /></td></tr>
@@ -208,10 +208,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a302715218e43e30f40a14c677bcb2950"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#a302715218e43e30f40a14c677bcb2950">laplacian</a> (Dual2Function f, const Vector &amp;x)</td></tr>
 <tr class="memdesc:a302715218e43e30f40a14c677bcb2950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
 <tr class="separator:a302715218e43e30f40a14c677bcb2950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9961390f059c340335f5517c3abef5c" id="r_aa9961390f059c340335f5517c3abef5c"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function , enable_scalar_field&lt; Dual2Function &gt;  = true&gt; </td></tr>
-<tr class="memitem:aa9961390f059c340335f5517c3abef5c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#aa9961390f059c340335f5517c3abef5c">laplacian</a> (Dual2Function f)</td></tr>
-<tr class="memdesc:aa9961390f059c340335f5517c3abef5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
-<tr class="separator:aa9961390f059c340335f5517c3abef5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5978082af08abe843fef3f589a8dfdf" id="r_ac5978082af08abe843fef3f589a8dfdf"><td class="memTemplParams" colspan="2">template&lt;typename Dual2Function &gt; </td></tr>
+<tr class="memitem:ac5978082af08abe843fef3f589a8dfdf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica_1_1autodiff.html#ac5978082af08abe843fef3f589a8dfdf">laplacian</a> (Dual2Function f)</td></tr>
+<tr class="memdesc:ac5978082af08abe843fef3f589a8dfdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a lambda function which computes the Laplacian differential operator for a generic function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given $\vec x$.  <br /></td></tr>
+<tr class="separator:ac5978082af08abe843fef3f589a8dfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Differential operators with automatic differentiation. </p>
@@ -471,8 +471,8 @@ template&lt;typename Dual2Function  = std::function&lt;dual2(dual2)&gt;, enable_
 
 </div>
 </div>
-<a id="a3b264676bfd450cb5887a706f6b19f5e" name="a3b264676bfd450cb5887a706f6b19f5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b264676bfd450cb5887a706f6b19f5e">&#9670;&#160;</a></span>divergence() <span class="overload">[1/2]</span></h2>
+<a id="a135f044425f55454f75dfede05c79a00" name="a135f044425f55454f75dfede05c79a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135f044425f55454f75dfede05c79a00">&#9670;&#160;</a></span>divergence() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -486,7 +486,7 @@ template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt
           <td class="memname">auto theoretica::autodiff::divergence </td>
           <td>(</td>
           <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>V</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -497,25 +497,25 @@ template&lt;typename Function , enable_scalar_field&lt; Function &gt;  = true&gt
 </table>
 </div><div class="memdoc">
 
-<p>Get a lambda function which computes the divergence of a given function of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) at a given \(\vec x\) using automatic differentiation. </p>
+<p>Get a lambda function which computes the divergence of a given function of the form \(V: \mathbb{R}^N \rightarrow \mathbb{R}^N\) at a given \(\vec x\) using automatic differentiation. </p>
 <p>The returned lambda function accepts a vec&lt;real, N&gt; argument. The argument function may be a function pointer or lambda function, with the type dvec_t as first argument and dreal_t return type.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
+    <tr><td class="paramname">V</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A lambda function which computes the divergence of f at x. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A lambda function which computes the divergence of V at x. </dd></dl>
 
 </div>
 </div>
-<a id="af30b57b1eece89b60a2a7ba334d935b2" name="af30b57b1eece89b60a2a7ba334d935b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af30b57b1eece89b60a2a7ba334d935b2">&#9670;&#160;</a></span>divergence() <span class="overload">[2/2]</span></h2>
+<a id="a9df91da769c2701d9314282c8f987d5f" name="a9df91da769c2701d9314282c8f987d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9df91da769c2701d9314282c8f987d5f">&#9670;&#160;</a></span>divergence() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scalar_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </div>
+template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_vector_field&lt; Function &gt;  = true, enable_vector&lt; Vector &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -524,7 +524,7 @@ template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scala
           <td class="memname"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> theoretica::autodiff::divergence </td>
           <td>(</td>
           <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
+          <td class="paramname"><em>V</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -545,16 +545,16 @@ template&lt;typename Function , typename Vector  = vec&lt;real&gt;, enable_scala
 </table>
 </div><div class="memdoc">
 
-<p>Compute the divergence \(\sum_i^n \frac{\partial}{\partial x_i} f(\vec x)\) for a given \(\vec x\) of a scalar field of the form \(f: \mathbb{R}^N \rightarrow \mathbb{R}\) using automatic differentiation. </p>
-<p>The argument function may be a function pointer or lambda function, with the type dvec_t as first argument and dreal_t return type.</p>
+<p>Compute the divergence \(\sum_i^n \frac{\partial}{\partial x_i} V_i(\vec x)\) for a given \(\vec x\) of a vector field of the form \(V: \mathbb{R}^N \rightarrow \mathbb{R}^N\) using automatic differentiation. </p>
+<p>The argument function may be a function pointer or lambda function, with the type dvec_t as first argument and return type.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
+    <tr><td class="paramname">V</td><td>A function with a vector of multidual numbers as input and a vector of multidual numbers as output. </td></tr>
     <tr><td class="paramname">x</td><td>The point to compute the divergence at. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The divergence of f at x. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The divergence of V at x. </dd></dl>
 
 </div>
 </div>
@@ -730,13 +730,13 @@ template&lt;typename MultidualFunction , typename Vector , enable_vector&lt; Vec
 
 </div>
 </div>
-<a id="aa9961390f059c340335f5517c3abef5c" name="aa9961390f059c340335f5517c3abef5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9961390f059c340335f5517c3abef5c">&#9670;&#160;</a></span>laplacian() <span class="overload">[1/2]</span></h2>
+<a id="ac5978082af08abe843fef3f589a8dfdf" name="ac5978082af08abe843fef3f589a8dfdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5978082af08abe843fef3f589a8dfdf">&#9670;&#160;</a></span>laplacian() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Dual2Function , enable_scalar_field&lt; Dual2Function &gt;  = true&gt; </div>
+template&lt;typename Dual2Function &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -821,7 +821,7 @@ template&lt;typename Dual2Function , typename Vector , enable_vector&lt; Vector 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="namespacetheoretica_1_1autodiff.html">autodiff</a></li>
-    <li class="footer">Generated on Mon May 11 2026 16:03:11 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue May 12 2026 16:57:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
