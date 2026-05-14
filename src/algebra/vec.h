@@ -132,13 +132,12 @@ namespace theoretica {
 
 
 		/// Copy constructor
-		template<unsigned int M>
-		vec(const vec<Type, M>& other) {
-
-			if (N == other.size())
-				algebra::vec_copy(*this, other);
-			else
-				algebra::vec_error(*this);
+		template <
+			typename Vector,
+			enable_vector<Vector> = true
+		>
+		vec(const Vector& other) {
+			algebra::vec_copy(*this, other);
 		}
 
 
@@ -584,8 +583,11 @@ namespace theoretica {
 		}
 
 		/// Copy constructor
-		template<unsigned int M>
-		vec(const vec<Type, M>& other) {
+		template <
+			typename Vector,
+			enable_vector<Vector> = true
+		>
+		vec(const Vector& other) {
 			algebra::vec_copy(*this, other);
 		}
 

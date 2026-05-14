@@ -210,11 +210,18 @@ namespace theoretica {
 	/// Compute the hyperbolic tangent of a multidual number
 	template<unsigned int N>
 	multidual<N> tanh(multidual<N> x) {
+		
+		const real exp_2x = exp(-2.0 * abs(x.Re()));
 
-		real exp_x = exp(x.Re());
-		return multidual<N>(
-			(exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),
-			x.Dual() / square(exp_x + 1.0 / exp_x));
+		real t;
+		if (x.Re() >= 0.0)
+			t = (1.0 - exp_2x) / (1.0 + exp_2x);
+		else
+			t = (exp_2x - 1.0) / (1.0 + exp_2x);
+
+		const real dt = (4.0 * exp_2x) / square(1.0 + exp_2x);
+
+		return multidual<N>(t, x.Dual() * dt);
 	}
 
 }

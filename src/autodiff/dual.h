@@ -215,8 +215,9 @@ namespace theoretica {
 			/// Multiply this dual number by another one
 			inline dual& operator*=(const dual& other) {
 
-				a = (a * other.a);
-				b = (a * other.b) + (b * other.a);
+				const real a_old = a;
+				a = a * other.a;
+				b = (a_old * other.b) + (b * other.a);
 				return *this;
 			}
 
@@ -230,9 +231,10 @@ namespace theoretica {
 
 			/// Divide this dual number by another one
 			inline dual& operator/=(const dual& other) {
-
-				a = (a / other.a);
-				b = (b * other.a - a * other.b) / square(other.a);
+				
+				const real a_old = a;
+				a = a / other.a;
+				b = (b * other.a - a_old * other.b) / square(other.a);
 				return *this;
 			}
 
@@ -255,7 +257,7 @@ namespace theoretica {
 
 			/// Check whether two dual numbers have the same
 			/// real and dual parts
-			inline bool operator==(const dual& other) {
+			inline bool operator==(const dual& other) const {
 				return (a == other.a) && (b == other.b);
 			}
 

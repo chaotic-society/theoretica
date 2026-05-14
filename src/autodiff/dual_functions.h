@@ -215,11 +215,17 @@ namespace theoretica {
 	/// Compute the hyperbolic tangent of a dual number
 	inline dual tanh(dual x) {
 
-		const real exp_x = exp(x.Re());
-		return dual(
-			(exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),
-			x.Dual() / square(exp_x + 1.0 / exp_x)
-		);
+		const real exp_2x = exp(-2.0 * abs(x.Re()));
+
+		real t;
+		if (x.Re() >= 0.0)
+			t = (1.0 - exp_2x) / (1.0 + exp_2x);
+		else
+			t = (exp_2x - 1.0) / (1.0 + exp_2x);
+
+		const real dt = (4.0 * exp_2x) / square(1.0 + exp_2x);
+
+		return dual(t, x.Dual() * dt);
 	}
 
 }

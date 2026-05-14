@@ -250,9 +250,22 @@ namespace theoretica {
 			mat<real, M, N> J;
 			J.resize(res.size(), x.size());
 
-			for (unsigned int j = 0; j < J.rows(); ++j)
-				for (unsigned int i = 0; i < res[j].v.size(); ++i)
+			for (unsigned int j = 0; j < J.rows(); ++j) {
+
+				const unsigned int dual_size = res[j].v.size();
+
+				if (dual_size > J.cols()) {
+					TH_MATH_ERROR("autodiff::jacobian", dual_size, MathError::InvalidArgument);
+					return algebra::mat_error(J);
+				}
+
+				unsigned int i = 0;
+				for (; i < dual_size; ++i)
 					J(j, i) = res[j].v[i];
+
+				for (; i < J.cols(); ++i)
+					J(j, i) = 0.0;
+			}
 
 			return J;
 		}

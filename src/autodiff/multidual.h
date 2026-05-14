@@ -159,7 +159,33 @@ namespace theoretica {
 
 			/// Multiply two multidual numbers
 			inline multidual operator*(const multidual& other) const {
-				return multidual(a * other.a, other.v * a + v * other.a);
+
+				// Equal sizes
+				if (v.size() == other.v.size()) {
+					return multidual(a * other.a, other.v * a + v * other.a);
+				}
+
+				// Trivial scalar cases
+				if (v.size() == 0) {
+					return multidual(a * other.a, other.v * a);
+				}
+
+				if (other.v.size() == 0) {
+					return multidual(a * other.a, v * other.a);
+				}
+
+				// Treat missing entries as zero
+				const unsigned int new_size = th::max(v.size(), other.v.size());
+				vec<real, N> res_v;
+				res_v.resize(new_size);
+
+				for (unsigned int i = 0; i < res_v.size(); ++i) {
+					real lhs = (i < other.v.size()) ? other.v[i] : 0.0;
+					real rhs = (i < v.size()) ? v[i] : 0.0;
+					res_v[i] = lhs * a + rhs * other.a;
+				}
+
+				return multidual(a * other.a, res_v);
 			}
 
 
@@ -172,13 +198,42 @@ namespace theoretica {
 			/// Dual division
 			inline multidual operator/(const multidual& other) const {
 
-				if(a == 0) {
+				if(abs(a) < MACH_EPSILON) {
 					TH_MATH_ERROR("multidual::operator/", 0, MathError::DivByZero);
 					return multidual(nan(), vec<real, N>(N, nan()));
 				}
 
-				return multidual(a / other.a,
-					(v * other.a - other.v * a) / (other.a * other.a));
+				const real res_a = a / other.a;
+				const real denom = other.a * other.a;
+
+				// Equal sizes
+				if (v.size() == other.v.size()) {
+					return multidual(res_a, (v * other.a - other.v * a) / denom);
+				}
+
+				// Trivial scalar cases
+				if (v.size() == 0) {
+					return multidual(res_a, other.v * (-a / denom));
+				}
+
+				if (other.v.size() == 0) {
+					return multidual(res_a, v / other.a);
+				}
+
+				// Treat missing entries as zero
+				const unsigned int new_size = th::max(v.size(), other.v.size());
+				vec<real, N> res_v;
+				res_v.resize(new_size);
+
+				for (unsigned int i = 0; i < res_v.size(); ++i) {
+
+					real lhs = (i < v.size()) ? v[i] : 0.0;
+					real rhs = (i < other.v.size()) ? other.v[i] : 0.0;
+
+					res_v[i] = (lhs * other.a - rhs * a) / denom;
+				}
+
+				return multidual(res_a, res_v);
 			}
 
 			/// Divide a multidual number by a real number
@@ -221,8 +276,44 @@ namespace theoretica {
 			/// Multiply this multidual number by another one
 			inline multidual& operator*=(const multidual& other) {
 
-				a = (a * other.a);
-				v = (other.v * a) + (v * other.a);
+				const real a_old = a;
+
+				// Equal sizes
+				if (v.size() == other.v.size()) {
+					a = a_old * other.a;
+					v = other.v * a_old + v * other.a;
+					return *this;
+				}
+
+				// Trivial scalar cases
+				if (v.size() == 0) {
+					a = a_old * other.a;
+					v = other.v * a_old;
+					return *this;
+				}
+
+				if (other.v.size() == 0) {
+					a = a_old * other.a;
+					v = v * other.a;
+					return *this;
+				}
+
+				// Treat missing entries as zero
+				const unsigned int new_size = th::max(v.size(), other.v.size());
+				vec<real, N> new_v;
+				new_v.resize(new_size);
+
+				for (unsigned int i = 0; i < new_v.size(); ++i) {
+
+					real lhs = (i < other.v.size()) ? other.v[i] : 0.0;
+					real rhs = (i < v.size()) ? v[i] : 0.0;
+
+					new_v[i] = lhs * a_old + rhs * other.a;
+				}
+
+				a = a_old * other.a;
+				v = new_v;
+
 				return *this;
 			}
 
@@ -237,8 +328,45 @@ namespace theoretica {
 			/// Divide this multidual number by another one
 			inline multidual& operator/=(const multidual& other) {
 
-				a = (a / other.a);
-				v = (v * other.a - other.v * a) / (other.a * other.a);
+				const real a_old = a;
+				const real denom = other.a * other.a;
+
+				// Equal sizes
+				if (v.size() == other.v.size()) {
+					a = a_old / other.a;
+					v = (v * other.a - other.v * a_old) / denom;
+					return *this;
+				}
+
+				// Trivial scalar cases
+				if (v.size() == 0) {
+					a = a_old / other.a;
+					v = other.v * (-a_old / denom);
+					return *this;
+				}
+
+				if (other.v.size() == 0) {
+					a = a_old / other.a;
+					v = v / other.a;
+					return *this;
+				}
+
+				// Treat missing entries as zero
+				const unsigned int new_size = th::max(v.size(), other.v.size());
+				vec<real, N> new_v;
+				new_v.resize(new_size);
+
+				for (unsigned int i = 0; i < new_v.size(); ++i) {
+
+					real lhs = (i < v.size()) ? v[i] : 0.0;
+					real rhs = (i < other.v.size()) ? other.v[i] : 0.0;
+
+					new_v[i] = (lhs * other.a - rhs * a_old) / denom;
+				}
+
+				a = a_old / other.a;
+				v = new_v;
+
 				return *this;
 			}
 
@@ -269,8 +397,8 @@ namespace theoretica {
 			/// Construct an N-dimensional vector of multidual numbers
 			/// to be passed as argument to a multidual function
 			/// @param x A vector of real numbers containing the variables to pass
-			inline static vec<multidual<N>, N> make_argument(
-				const vec<real, N>& x) {
+			template<typename Vector = vec<real, N>, enable_vector<Vector> = true>
+			inline static vec<multidual<N>, N> make_argument(const Vector& x) {
 
 				vec<multidual<N>, N> arg;
 				arg.resize(x.size());

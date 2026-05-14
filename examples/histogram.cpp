@@ -53,7 +53,7 @@ int main(int argc, const char** argv) {
 
     std::cout << "Constructing histogram from data..." << std::endl;
 
-    unsigned int bins = int(sqrt(data.size()));
+    unsigned int bins = int(th::sqrt(data.size()));
     if (argc > 2)
         bins = std::stoi(argv[2]);
 
