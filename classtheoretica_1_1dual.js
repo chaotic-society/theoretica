@@ -31,7 +31,7 @@ var classtheoretica_1_1dual =
     [ "operator=", "classtheoretica_1_1dual.html#a6f884b4955e82e2038a195653f86ae65", null ],
     [ "operator=", "classtheoretica_1_1dual.html#ad0cfbeebe13cd79f01b5b6ef62f4f4a4", null ],
     [ "operator=", "classtheoretica_1_1dual.html#a9767deee0ca5518dc93c1b8eb71cb923", null ],
-    [ "operator==", "classtheoretica_1_1dual.html#aab215e9feefaf03495cdfd3ea3fcbecf", null ],
+    [ "operator==", "classtheoretica_1_1dual.html#a0d530b20ed427169bd75d39eee98080d", null ],
     [ "Re", "classtheoretica_1_1dual.html#a58e93589f139d940ac86a96346d196b5", null ],
     [ "Re", "classtheoretica_1_1dual.html#a468d902cfcd807c2f2593890341c868d", null ],
     [ "to_mat", "classtheoretica_1_1dual.html#a6998d2b449df122d6dac20a8bebe7dc5", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['make_5fargument_0',['make_argument',['../classtheoretica_1_1multidual.html#a8ccbe4c071cbce8aa27491fb71df4ef8',1,'theoretica::multidual']]],
+  ['make_5fargument_0',['make_argument',['../classtheoretica_1_1multidual.html#ab4588cefcaea31cc72265436c9d036e9',1,'theoretica::multidual']]],
   ['make_5ferror_1',['make_error',['../namespacetheoretica_1_1algebra.html#aa5cd5ab4de746b72e76af2c781fe35f6',1,'theoretica::algebra::make_error(unsigned int rows, unsigned int cols)'],['../namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35',1,'theoretica::algebra::make_error(unsigned int n)']]],
   ['make_5fhermitian_2',['make_hermitian',['../namespacetheoretica_1_1algebra.html#afc5ae85e773f42a3d4dca948067f5324',1,'theoretica::algebra']]],
   ['make_5fidentity_3',['make_identity',['../namespacetheoretica_1_1algebra.html#a2fdbfbad332a15de0037edb0116b6023',1,'theoretica::algebra']]],

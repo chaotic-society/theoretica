@@ -335,18 +335,25 @@ $(document).ready(function(){initNavTree('multidual__functions_8h_source.html','
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N&gt;</div>
 <div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#aa990eeebdd5fb8e93c96c4ed6ff91317">  212</a></span>    multidual&lt;N&gt; <a class="code hl_function" href="namespacetheoretica.html#a82d54f264cfb1a5150a1a9e30151ea03">tanh</a>(multidual&lt;N&gt; x) {</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> exp_x = <a class="code hl_function" href="namespacetheoretica.html#a3def790003197bb019f5933b4db45c44">exp</a>(x.<a class="code hl_function" href="classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3">Re</a>());</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">return</span> multidual&lt;N&gt;(</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            (exp_x - 1.0 / exp_x) / (exp_x + 1.0 / exp_x),</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            x.<a class="code hl_function" href="classtheoretica_1_1multidual.html#a9fd0e82025184b4a165b483b9bf64cb6">Dual</a>() / <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(exp_x + 1.0 / exp_x));</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
-</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> exp_2x = <a class="code hl_function" href="namespacetheoretica.html#a3def790003197bb019f5933b4db45c44">exp</a>(-2.0 * <a class="code hl_function" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(x.<a class="code hl_function" href="classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3">Re</a>()));</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> t;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">if</span> (x.<a class="code hl_function" href="classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3">Re</a>() &gt;= 0.0)</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            t = (1.0 - exp_2x) / (1.0 + exp_2x);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            t = (exp_2x - 1.0) / (1.0 + exp_2x);</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">const</span> <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> dt = (4.0 * exp_2x) / <a class="code hl_function" href="namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0">square</a>(1.0 + exp_2x);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">return</span> multidual&lt;N&gt;(t, x.<a class="code hl_function" href="classtheoretica_1_1multidual.html#a9fd0e82025184b4a165b483b9bf64cb6">Dual</a>() * dt);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasstheoretica_1_1multidual_html_a9fd0e82025184b4a165b483b9bf64cb6"><div class="ttname"><a href="classtheoretica_1_1multidual.html#a9fd0e82025184b4a165b483b9bf64cb6">theoretica::multidual::Dual</a></div><div class="ttdeci">vec&lt; real, N &gt; Dual() const</div><div class="ttdoc">Get the multidual part.</div><div class="ttdef"><b>Definition</b> multidual.h:79</div></div>
 <div class="ttc" id="aclasstheoretica_1_1multidual_html_ab620a554bf49b5c62a5d98f4672b70a3"><div class="ttname"><a href="classtheoretica_1_1multidual.html#ab620a554bf49b5c62a5d98f4672b70a3">theoretica::multidual::Re</a></div><div class="ttdeci">real Re() const</div><div class="ttdoc">Get the real part.</div><div class="ttdef"><b>Definition</b> multidual.h:67</div></div>
 <div class="ttc" id="aclasstheoretica_1_1multidual_html_aeebcdca3f57a9f6f15f31b6638dbf55c"><div class="ttname"><a href="classtheoretica_1_1multidual.html#aeebcdca3f57a9f6f15f31b6638dbf55c">theoretica::multidual::conjugate</a></div><div class="ttdeci">multidual conjugate() const</div><div class="ttdoc">Get the multidual conjugate.</div><div class="ttdef"><b>Definition</b> multidual.h:107</div></div>
@@ -386,7 +393,7 @@ $(document).ready(function(){initNavTree('multidual__functions_8h_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f14c1ec6b1b681afe4f813df7a6aad99.html">autodiff</a></li><li class="navelem"><a class="el" href="multidual__functions_8h.html">multidual_functions.h</a></li>
-    <li class="footer">Generated on Tue May 12 2026 17:34:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 14 2026 13:59:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

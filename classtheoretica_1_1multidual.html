@@ -258,9 +258,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (unsigned 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8ccbe4c071cbce8aa27491fb71df4ef8" id="r_a8ccbe4c071cbce8aa27491fb71df4ef8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1multidual.html#a8ccbe4c071cbce8aa27491fb71df4ef8">make_argument</a> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;x)</td></tr>
-<tr class="memdesc:a8ccbe4c071cbce8aa27491fb71df4ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an N-dimensional vector of multidual numbers to be passed as argument to a multidual function.  <br /></td></tr>
-<tr class="separator:a8ccbe4c071cbce8aa27491fb71df4ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4588cefcaea31cc72265436c9d036e9" id="r_ab4588cefcaea31cc72265436c9d036e9"><td class="memTemplParams" colspan="2">template&lt;typename Vector  = vec&lt;real, N&gt;, enable_vector&lt; Vector &gt;  = true&gt; </td></tr>
+<tr class="memitem:ab4588cefcaea31cc72265436c9d036e9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtheoretica_1_1multidual.html#ab4588cefcaea31cc72265436c9d036e9">make_argument</a> (const Vector &amp;x)</td></tr>
+<tr class="memdesc:ab4588cefcaea31cc72265436c9d036e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an N-dimensional vector of multidual numbers to be passed as argument to a multidual function.  <br /></td></tr>
+<tr class="separator:ab4588cefcaea31cc72265436c9d036e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89007bf46d8870d1789d5012b6bb81fb" id="r_a89007bf46d8870d1789d5012b6bb81fb"><td class="memItemLeft" align="right" valign="top"><a id="a89007bf46d8870d1789d5012b6bb81fb" name="a89007bf46d8870d1789d5012b6bb81fb"></a>
 static <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>extract_real</b> (const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt; &amp;<a class="el" href="classtheoretica_1_1multidual.html#a3722bfcd6dd69d4c01d544cafc532bd4">v</a>)</td></tr>
 <tr class="memdesc:a89007bf46d8870d1789d5012b6bb81fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the real vector from a vector of multidual numbers as a vec&lt;real, N&gt; <br /></td></tr>
@@ -296,13 +297,15 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <div class="textblock"><div class="compoundTemplParams">template&lt;unsigned int N = 0&gt;<br />
 class theoretica::multidual&lt; N &gt;</div><p>Multidual number algebra for functions of the form \(f: \mathbb{R}^n \rightarrow \mathbb{R}\). </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8ccbe4c071cbce8aa27491fb71df4ef8" name="a8ccbe4c071cbce8aa27491fb71df4ef8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ccbe4c071cbce8aa27491fb71df4ef8">&#9670;&#160;</a></span>make_argument()</h2>
+<a id="ab4588cefcaea31cc72265436c9d036e9" name="ab4588cefcaea31cc72265436c9d036e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4588cefcaea31cc72265436c9d036e9">&#9670;&#160;</a></span>make_argument()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;unsigned int N = 0&gt; </div>
+<div class="memtemplate">
+template&lt;typename Vector  = vec&lt;real, N&gt;, enable_vector&lt; Vector &gt;  = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -310,7 +313,7 @@ template&lt;unsigned int N = 0&gt; </div>
         <tr>
           <td class="memname">static <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="classtheoretica_1_1multidual.html">multidual</a>&lt; N &gt;, N &gt; <a class="el" href="classtheoretica_1_1multidual.html">theoretica::multidual</a>&lt; N &gt;::make_argument </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; &amp;&#160;</td>
+          <td class="paramtype">const Vector &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
@@ -377,7 +380,7 @@ template&lt;unsigned int N = 0&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetheoretica.html">theoretica</a></li><li class="navelem"><a class="el" href="classtheoretica_1_1multidual.html">multidual</a></li>
-    <li class="footer">Generated on Tue May 12 2026 17:34:24 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu May 14 2026 13:59:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
