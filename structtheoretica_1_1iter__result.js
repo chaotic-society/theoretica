@@ -6,6 +6,7 @@ var structtheoretica_1_1iter__result =
     [ "iter_result", "structtheoretica_1_1iter__result.html#a5a2c6024578c09f702fc02d1d7adb01e", null ],
     [ "iter_result", "structtheoretica_1_1iter__result.html#abf5df9fe8413201c0051da6493882349", null ],
     [ "iter_result", "structtheoretica_1_1iter__result.html#a775e025019daee857a16a4c26adc7e5b", null ],
+    [ "iter_result", "structtheoretica_1_1iter__result.html#a7a61c5ff6c021f7f2ac047ff2968c9de", null ],
     [ "converged", "structtheoretica_1_1iter__result.html#af00a5398c76bb61b2a52b0d8e851fe6e", null ],
     [ "operator bool", "structtheoretica_1_1iter__result.html#a0bdd3c4b0309f8463365fe5834117e8c", null ],
     [ "operator Type", "structtheoretica_1_1iter__result.html#a531ca6ebd1295f340fb342fffabd8848", null ],

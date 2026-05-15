@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('multi__roots_8h.html',''); initResizab
 <p>Numerical methods for multivariate root finding.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="autodiff_8h_source.html">../autodiff/autodiff.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iter__result_8h_source.html">../core/iter_result.h</a>&quot;</code><br />
 </div>
 <p><a href="multi__roots_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -120,10 +121,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a266e22e5ea430f0524e91f2cc377387f" id="r_a266e22e5ea430f0524e91f2cc377387f"><td class="memTemplParams" colspan="2">template&lt;unsigned int N&gt; </td></tr>
-<tr class="memitem:a266e22e5ea430f0524e91f2cc377387f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a266e22e5ea430f0524e91f2cc377387f">theoretica::multiroot_newton</a> (<a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">autodiff::dvec_t</a>&lt; N &gt;(*f)(<a class="el" href="namespacetheoretica_1_1autodiff.html#abdc7bdd230700601e24de68a05d7ec08">autodiff::dvec_t</a>&lt; N &gt;), <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt; guess=<a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>, N &gt;(0), <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0">OPTIMIZATION_MINGRAD_TOLERANCE</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#a86e5dd300ac007074bcf54bfc9e59c6d">OPTIMIZATION_MINGRAD_ITER</a>)</td></tr>
-<tr class="memdesc:a266e22e5ea430f0524e91f2cc377387f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the root of a multivariate function using Newton's method with pure Jacobian.  <br /></td></tr>
-<tr class="separator:a266e22e5ea430f0524e91f2cc377387f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583688f890df5c836afac4ff23279530" id="r_a583688f890df5c836afac4ff23279530"><td class="memTemplParams" colspan="2">template&lt;typename Vector  = vec&lt;real&gt;, typename ReturnVector  = Vector, typename DualObjectiveFunction , autodiff::enable_vector_field&lt; DualObjectiveFunction &gt;  = true&gt; </td></tr>
+<tr class="memitem:a583688f890df5c836afac4ff23279530"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structtheoretica_1_1iter__result.html">iter_result</a>&lt; ReturnVector &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a583688f890df5c836afac4ff23279530">theoretica::multiroot_newton</a> (DualObjectiveFunction f, Vector guess, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> tolerance=<a class="el" href="namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0">OPTIMIZATION_MINGRAD_TOLERANCE</a>, unsigned int max_iter=<a class="el" href="namespacetheoretica.html#a86e5dd300ac007074bcf54bfc9e59c6d">OPTIMIZATION_MINGRAD_ITER</a>)</td></tr>
+<tr class="memdesc:a583688f890df5c836afac4ff23279530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate the root of a multivariate function using Newton's method with pure Jacobian.  <br /></td></tr>
+<tr class="separator:a583688f890df5c836afac4ff23279530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Numerical methods for multivariate root finding. </p>
@@ -133,7 +134,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_c08f73a4d66ba0417946990fd98fd29f.html">optimization</a></li><li class="navelem"><a class="el" href="multi__roots_8h.html">multi_roots.h</a></li>
-    <li class="footer">Generated on Thu May 14 2026 13:59:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri May 15 2026 11:14:17 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -55,16 +55,16 @@ var searchData=
   ['mul_52',['mul',['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#abf8f72f7f266d50eaaaebddd6ff3dd5f',1,'theoretica::mat&lt; Type, 0, 0 &gt;::mul()'],['../classtheoretica_1_1mat.html#a0d4c50e3b957378e03fbf54d8ace87a9',1,'theoretica::mat::mul(const mat&lt; Type, K, M &gt; &amp;B) const'],['../classtheoretica_1_1mat.html#a532d0b492e83be68f8ee29f51b66d469',1,'theoretica::mat::mul(const Matrix &amp;B) const'],['../classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ae3d08441b74dc3f9e261d4c0872d67ac',1,'theoretica::mat&lt; Type, 0, 0 &gt;::mul()']]],
   ['mul_5fuint128_53',['mul_uint128',['../namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed',1,'theoretica']]],
   ['multi_5fextrema_2eh_54',['multi_extrema.h',['../multi__extrema_8h.html',1,'']]],
-  ['multi_5fmaximize_55',['multi_maximize',['../namespacetheoretica.html#a5703b4f09d1f4a018d2cca9e8aeaa3c2',1,'theoretica']]],
-  ['multi_5fmaximize_5fgrad_56',['multi_maximize_grad',['../namespacetheoretica.html#a9f1e891bf9ed955c5d05a1a41c01d832',1,'theoretica']]],
-  ['multi_5fmaximize_5flingrad_57',['multi_maximize_lingrad',['../namespacetheoretica.html#a7006f83864895393d90045a16a31bd04',1,'theoretica']]],
-  ['multi_5fminimize_58',['multi_minimize',['../namespacetheoretica.html#a1448b081afb964641757cc81cee35d7d',1,'theoretica']]],
-  ['multi_5fminimize_5fgrad_59',['multi_minimize_grad',['../namespacetheoretica.html#aaf55462e13265d39fef3afe0cc375c92',1,'theoretica']]],
-  ['multi_5fminimize_5flingrad_60',['multi_minimize_lingrad',['../namespacetheoretica.html#a006aae49f3c2e2d8a91c13d3485c902a',1,'theoretica']]],
+  ['multi_5fmaximize_55',['multi_maximize',['../namespacetheoretica.html#af8503d01da58faad497a7ea1b116b695',1,'theoretica']]],
+  ['multi_5fmaximize_5fgrad_56',['multi_maximize_grad',['../namespacetheoretica.html#aced8b56a23a4a3b00f18ad86ec5edb56',1,'theoretica']]],
+  ['multi_5fmaximize_5flingrad_57',['multi_maximize_lingrad',['../namespacetheoretica.html#a762cf6fb683014e8c1498dce0b974f3c',1,'theoretica']]],
+  ['multi_5fminimize_58',['multi_minimize',['../namespacetheoretica.html#a4e787053c052f1908081607ac5c5ebce',1,'theoretica']]],
+  ['multi_5fminimize_5fgrad_59',['multi_minimize_grad',['../namespacetheoretica.html#ad2d1f264b5aad6d1599b9eacd631cde5',1,'theoretica']]],
+  ['multi_5fminimize_5flingrad_60',['multi_minimize_lingrad',['../namespacetheoretica.html#add6168942eb5a4beb7e6d698119c3fb3',1,'theoretica']]],
   ['multi_5froots_2eh_61',['multi_roots.h',['../multi__roots_8h.html',1,'']]],
   ['multidual_62',['multidual',['../classtheoretica_1_1multidual.html#a6a9fd6e046ccc0225207d53219e3ab17',1,'theoretica::multidual::multidual(real r, vec&lt; real, N &gt; u)'],['../classtheoretica_1_1multidual.html#af9e0465d651001b25de2872d5e6d8e3a',1,'theoretica::multidual::multidual()'],['../classtheoretica_1_1multidual.html#ab189d796f9f13a25d89e0e6fb41e38ef',1,'theoretica::multidual::multidual(real r)'],['../classtheoretica_1_1multidual.html',1,'theoretica::multidual&lt; N &gt;']]],
   ['multidual_2eh_63',['multidual.h',['../multidual_8h.html',1,'']]],
   ['multidual_5ffunctions_2eh_64',['multidual_functions.h',['../multidual__functions_8h.html',1,'']]],
   ['multinomial_65',['multinomial',['../namespacetheoretica_1_1distribution.html#ab9067fb31cfb790810ee224686a3f08c',1,'theoretica::distribution']]],
-  ['multiroot_5fnewton_66',['multiroot_newton',['../namespacetheoretica.html#a266e22e5ea430f0524e91f2cc377387f',1,'theoretica']]]
+  ['multiroot_5fnewton_66',['multiroot_newton',['../namespacetheoretica.html#a583688f890df5c836afac4ff23279530',1,'theoretica']]]
 ];
