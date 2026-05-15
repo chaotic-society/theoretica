@@ -29,11 +29,11 @@ int main() {
     // a minimum of the function starting from
     // a guess of x = 1 and y = 1.
 
-    vec2 x = multi_minimize<2>(f, {1, 1});
+    vec2 x = multi_minimize(f<autodiff::dreal2>, vec2({1, 1}));
 
     // When using fixed-size containers, you may need to
     // specify the size by template argument.
 
-    std::cout << "min at x = " << x << std::endl;
-    std::cout << "f(x) = " << f(x) << std::endl;
+    io::println("min at x =", x);
+    io::println("f(x) =", f(x));
 }

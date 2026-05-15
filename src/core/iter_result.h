@@ -93,6 +93,10 @@ namespace theoretica {
 			value = Type(nan());
 		}
 
+		/// Construct with all fields specified
+		iter_result(const Type& value, ConvergenceStatus status, unsigned int iterations, real residual)
+		: value(value), status(status), iterations(iterations), residual(residual) {}
+
 
 		/// Implicit conversion to result type, allows code like:
 		/// Type res = algorithm();

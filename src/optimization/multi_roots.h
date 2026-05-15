@@ -7,6 +7,7 @@
 #define THEORETICA_MULTI_ROOTS_H
 
 #include "../autodiff/autodiff.h"
+#include "../core/iter_result.h"
 
 
 namespace theoretica {
@@ -15,6 +16,9 @@ namespace theoretica {
 	/// Approximate the root of a multivariate function
 	/// using Newton's method with pure Jacobian.
 	///
+	/// @note For automatic differentiation, only vec<> types are supported
+	/// for vectors (either fixed or dynamic size).
+	///
 	/// @param f The function to find the root of
 	/// @param guess The first guess (defaults to the origin)
 	/// @param tolerance The tolerance over the final result
@@ -22,21 +26,30 @@ namespace theoretica {
 	/// @param max_iter The maximum number of iterations before
 	/// stopping the algorithm
 	/// @result The computed vector at which f is approximately zero
-	template<unsigned int N>
-	inline vec<real, N> multiroot_newton(
-		autodiff::dvec_t<N>(*f)(autodiff::dvec_t<N>),
-		vec<real, N> guess = vec<real, N>(0),
+	template <
+		typename Vector = vec<real>,
+		typename ReturnVector = Vector,
+		typename DualObjectiveFunction,
+		autodiff::enable_vector_field<DualObjectiveFunction> = true
+	>
+	inline iter_result<ReturnVector> multiroot_newton(
+		DualObjectiveFunction f,
+		Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
-		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
+		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER
+	) {
 
 		// Current position
-		vec<real, N> x = guess;
+		ReturnVector x = guess;
 
 		// Number of iterations
 		unsigned int iter = 0;
 
+		// Extract the size of the vector type
+		constexpr size_t N = ReturnVector::size_argument;
+
 		// The current value of f(x)
-		vec<real, N> f_x = multidual<N>::extract_real(
+		ReturnVector f_x = multidual<N>::extract_real(
 			f(multidual<N>::make_argument(x))
 		);
 
@@ -57,11 +70,15 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("multi_root_newton", iter, MathError::NoConvergence);
-			return vec<real, N>(nan());
+
+			TH_MATH_ERROR("multiroot_newton", iter, MathError::NoConvergence);
+			algebra::vec_error(x);
+			return iter_result<ReturnVector>(
+				x, ConvergenceStatus::MaxIterations, iter, algebra::norm(f_x)
+			);
 		}
 
-		return x;
+		return iter_result<ReturnVector>(x, iter, algebra::norm(f_x));
 	}
 
 }

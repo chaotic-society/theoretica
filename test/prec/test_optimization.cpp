@@ -173,15 +173,15 @@ int main(int argc, char const *argv[]) {
 
 
 	{
-		const auto res = multiroot_newton<2>(f2, {1, 1}, 10E-10);
-		const auto residual = res - vec2({1, E});
+		vec2 res = multiroot_newton(f2, vec2({1, 1}), 10E-10);
+		auto residual = res - vec2({1, E});
 		ctx.equals("multiroot_newton (1)", algebra::norm(residual), 0.0);
 	}
 
 
 	{
-		const auto res = multiroot_newton<2>(g2, {1, 1}, 10E-10);
-		const auto residual = res - vec2({-1.49730038909589, -1.49730038909589});
+		vec2 res = multiroot_newton(g2, vec2({1, 1}), 10E-10);
+		auto residual = res - vec2({-1.49730038909589, -1.49730038909589});
 		ctx.equals("multiroot_newton (2)", algebra::norm(residual), 0.0);
 	}
 }
