@@ -1309,6 +1309,20 @@ namespace theoretica {
 		return binomial_coeff(2 * n, n) / (n + 1);
 	}
 
+
+	/// Create a number representing an error state,
+	/// constructed from a NaN value.
+	///
+	/// This is a valid way to build real, complex,
+	/// dual and quaternion numbers representing NaNs.
+	///
+	/// @tparam Type The type of the number to create
+	/// @return A number representing an error state
+	template<typename Type = real>
+	TH_CONSTEXPR inline Type make_error() {
+		return Type(nan());
+	}
+
 }
 
 #endif

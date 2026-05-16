@@ -120,7 +120,7 @@ namespace theoretica {
 	/// @return The coordinate of the root of the function,
 	/// or NaN if the algorithm did not converge.
 	template<typename RealFunction>
-	inline real root_itp(
+	inline iter_result<real> root_itp(
 		RealFunction f, real a, real b, real tol = OPTIMIZATION_TOL,
 		unsigned int n0 = 1, real k1 = 0.0) {
 
@@ -305,7 +305,7 @@ namespace theoretica {
 		typename ComplexFunction = std::function<complex<Type>(complex<Type>)>
 	>
 	inline iter_result<complex<Type>> root_newton(
-		ComplexFunction f, ComplexFunction Df, complex<Type> guess,
+		ComplexFunction f, ComplexFunction df, complex<Type> guess,
 		real tol = OPTIMIZATION_TOL,
 		unsigned int max_iter = OPTIMIZATION_NEWTON_ITER) {
 
@@ -313,7 +313,7 @@ namespace theoretica {
 		complex<Type> f_z = Type(inf());
 		unsigned int iter = 0;
 
-		while(f_z * f_z.conjugate() > tol * tol && iter <= max_iter) {
+		while(f_z * f_z.conjugate() > (tol * tol) && iter <= max_iter) {
 
 			f_z = f(z);
 			z = z - (f_z / df(z));
@@ -471,7 +471,7 @@ namespace theoretica {
 	/// when the derivatives of the function are easy to compute, especially
 	/// when using automatic differentiation.
 	template<typename RealFunction>
-	inline real root_chebyshev(
+	inline iter_result<real> root_chebyshev(
 		RealFunction f, RealFunction Df,
 		RealFunction D2f, real guess = 0,
 		real tol = OPTIMIZATION_TOL,

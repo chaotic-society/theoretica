@@ -30,7 +30,7 @@ namespace theoretica {
 
 			if (x.size() == 0) {
 				TH_MATH_ERROR("fft", x.size(), MathError::InvalidArgument);
-				return algebra::make_error<ReturnVector>(1);
+				return make_error<ReturnVector>(1);
 			}
 
 			// Resulting vector in the frequency domain

@@ -486,7 +486,7 @@ namespace theoretica {
 
 			if(i >= n) {
 				TH_MATH_ERROR("vec::euclidean_base", i, MathError::InvalidArgument);
-				return vec<Type, N>(Type(nan()));
+				return make_error<vec<Type, N>>(n);
 			}
 
 			vec<Type, N> e_i = vec<Type, N>(n, Type(0.0));

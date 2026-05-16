@@ -58,7 +58,9 @@ namespace theoretica {
 
 
 		/// Construct with default values
-		iter_result() : value(Type(nan())) {}
+		iter_result() {
+			value = make_error<Type>();
+		}
 
 
 		/// Construct with final result for reporting success
@@ -84,13 +86,13 @@ namespace theoretica {
 		/// Construct with convergence status for reporting failure
 		iter_result(ConvergenceStatus status, unsigned int iterations = 0)
 		: status(status), iterations(iterations) {
-			value = Type(nan());
+			value = make_error<Type>();
 		}
 
 		/// Construct with convergence status for reporting failure
 		iter_result(ConvergenceStatus status, unsigned int iterations, real residual)
 		: status(status), iterations(iterations), residual(residual) {
-			value = Type(nan());
+			value = make_error<Type>();
 		}
 
 		/// Construct with all fields specified

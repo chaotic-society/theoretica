@@ -58,7 +58,7 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > tolerance && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_minimize_grad", iter, MathError::NoConvergence);
@@ -134,7 +134,7 @@ namespace theoretica {
 
 			// Minimize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = minimize_goldensection(
+			real gamma = minimize_golden(
 				[f, x, grad](real gamma){
 					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
 				}, -1, 0);
@@ -146,7 +146,7 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > tolerance && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_minimize_lingrad", iter, MathError::NoConvergence);
@@ -176,7 +176,7 @@ namespace theoretica {
 	>
 	inline ReturnVector multi_maximize_lingrad(
 		DualObjectiveFunction f,
-		Vector guess = Vector(0),
+		Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
 
@@ -204,7 +204,7 @@ namespace theoretica {
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.norm() > OPTIMIZATION_MINGRAD_TOLERANCE && iter <= max_iter);
+		} while(grad.norm() > tolerance && iter <= max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_maximize_lingrad", iter, MathError::NoConvergence);

@@ -26,13 +26,9 @@
 
 namespace theoretica {
 
-
-	/// @namespace theoretica::algebra Linear algebra routines.
 	namespace algebra {
 
-
-		// Operations involving one matrix or vector
-
+		// Error states for linear algebra types
 
 		/// Overwrite the given matrix with the error
 		/// matrix with NaN values on the diagonal and
@@ -47,7 +43,7 @@ namespace theoretica {
 
 			for (unsigned int i = 0; i < m.rows(); ++i)
 				for (unsigned int j = 0; j < m.cols(); ++j)
-					m(i, j) = (Type) (i == j ? nan() : 0);
+					m(i, j) = make_error<Type>();
 
 			return m;
 		}
@@ -64,37 +60,56 @@ namespace theoretica {
 			using Type = vector_element_t<Vector>;
 
 			for (unsigned int i = 0; i < v.size(); ++i)
-				v[i] = Type(nan());
+				v[i] = make_error<Type>();
 
 			return v;
 		}
+	}
 
 
-		/// Create a vector representing an error state, with all NaN values.
-		///
-		/// @tparam Vector The type of the vector to create
-		/// @param n The size of the vector to create
-		/// @return A vector representing an error state
-		template<typename Vector>
-		inline Vector make_error(unsigned int n) {
-			Vector result;
-			result.resize(n);
-			return vec_error(result);
-		}
+	// These functions are outside the algebra namespace
+	// for compatibility with the generic make_error() function,
+	// defined in real_analysis.h
 
 
-		/// Create a matrix representing an error state, with all NaN values.
-		///
-		/// @tparam Matrix The type of the matrix to create
-		/// @param rows The number of rows of the matrix to create
-		/// @param cols The number of columns of the matrix to create
-		/// @return A matrix representing an error state
-		template<typename Matrix>
-		inline Matrix make_error(unsigned int rows, unsigned int cols) {
-			Matrix result;
-			result.resize(rows, cols);
-			return mat_error(result);
-		}
+	/// Create a vector representing an error state, with all NaN values.
+	///
+	/// @tparam Vector The type of the vector to create
+	/// @param n The size of the vector to create
+	/// @return A vector representing an error state
+	template <
+		typename Vector,
+		enable_vector<Vector> = true
+	>
+	inline Vector make_error(unsigned int n = 1) {
+		Vector result;
+		result.resize(n);
+		return algebra::vec_error(result);
+	}
+
+
+	/// Create a matrix representing an error state, with all NaN values.
+	///
+	/// @tparam Matrix The type of the matrix to create
+	/// @param rows The number of rows of the matrix to create
+	/// @param cols The number of columns of the matrix to create
+	/// @return A matrix representing an error state
+	template <
+		typename Matrix,
+		enable_matrix<Matrix> = true
+	>
+	inline Matrix make_error(unsigned int rows = 1, unsigned int cols = 1) {
+		Matrix result;
+		result.resize(rows, cols);
+		return algebra::mat_error(result);
+	}
+
+
+	/// @namespace theoretica::algebra Linear algebra routines.
+	namespace algebra {
+
+
+		// Operations involving one matrix or vector
 
 
 		/// Overwrite a matrix with the identity matrix
@@ -153,6 +168,16 @@ namespace theoretica {
 
 			dest.resize(src.rows(), src.cols());
 
+			if (dest.rows() != src.rows()) {
+				TH_MATH_ERROR("algebra::mat_copy", dest.rows(), MathError::InvalidArgument);
+				return mat_error(dest);
+			}
+
+			if (dest.cols() != src.cols()) {
+				TH_MATH_ERROR("algebra::mat_copy", dest.cols(), MathError::InvalidArgument);
+				return mat_error(dest);
+			}
+			
 			for (unsigned int i = 0; i < src.rows(); ++i)
 				for (unsigned int j = 0; j < src.cols(); ++j)
 					dest(i, j) = src(i, j);
@@ -171,7 +196,12 @@ namespace theoretica {
 
 			dest.resize(src.size());
 
-			for (unsigned int i = 0; i < src.size(); ++i)
+			if (dest.size() != src.size()) {
+				TH_MATH_ERROR("algebra::vec_copy", dest.size(), MathError::InvalidArgument);
+				return vec_error(dest);
+			}
+
+			for (unsigned int i = 0; i < dest.size(); ++i)
 				dest[i] = src[i];
 
 			return dest;
@@ -2059,12 +2089,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenvalue_power", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (x.size() != A.rows()) {
 				TH_MATH_ERROR("eigenvalue_power", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Apply a first iteration to initialize
@@ -2091,7 +2121,7 @@ namespace theoretica {
 			// The algorithm did not converge
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenvalue_power", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			return dot(x_curr, A * x_curr);
@@ -2120,17 +2150,17 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenpair_power", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (x.size() != A.rows()) {
 				TH_MATH_ERROR("eigenpair_power", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (v.size() != x.size()) {
 				TH_MATH_ERROR("eigenpair_power", v.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Apply a first iteration to initialize
@@ -2157,7 +2187,7 @@ namespace theoretica {
 			// The algorithm did not converge
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenpair_power", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Overwrite with the eigenvector
@@ -2188,12 +2218,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenvalue_inverse", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (A.rows() != x.size()) {
 				TH_MATH_ERROR("eigenvalue_inverse", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Compute the LU decomposition of A to speed up system solution
@@ -2224,7 +2254,7 @@ namespace theoretica {
 			// The algorithm did not converge
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenvalue_inverse", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// A and inverse(A) have the same eigenvectors
@@ -2254,12 +2284,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenpair_inverse", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (A.rows() != x.size()) {
 				TH_MATH_ERROR("eigenpair_inverse", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Compute the LU decomposition of A to speed up system solution
@@ -2290,7 +2320,7 @@ namespace theoretica {
 			// The algorithm did not converge
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenpair_inverse", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Overwrite with the eigenvector
@@ -2392,12 +2422,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenvalue_rayleigh", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (A.rows() != x.size()) {
 				TH_MATH_ERROR("eigenvalue_rayleigh", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Keep track of the shifted matrix
@@ -2437,7 +2467,7 @@ namespace theoretica {
 
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenvalue_rayleigh", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			return dot(x_curr, transform(A, x_curr));
@@ -2469,12 +2499,12 @@ namespace theoretica {
 
 			if (!is_square(A)) {
 				TH_MATH_ERROR("eigenpair_rayleigh", is_square(A), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			if (A.rows() != x.size()) {
 				TH_MATH_ERROR("eigenpair_rayleigh", x.size(), MathError::InvalidArgument);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Keep track of the shifted matrix
@@ -2514,7 +2544,7 @@ namespace theoretica {
 
 			if (i > max_iter) {
 				TH_MATH_ERROR("eigenpair_rayleigh", i, MathError::NoConvergence);
-				return Type(nan());
+				return make_error<Type>();
 			}
 
 			// Overwrite with the eigenvector

@@ -268,8 +268,7 @@ namespace theoretica {
 
 		if(src.size() != dest.size()) {
 			TH_MATH_ERROR("th::map", dest.size(), MathError::InvalidArgument);
-			dest = Vector2(nan());
-			return dest;
+			return algebra::vec_error(dest);
 		}
 
 		for (unsigned int i = 0; i < src.size(); i++)
@@ -334,7 +333,7 @@ namespace theoretica {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("max", X.size(), MathError::InvalidArgument);
-			return Type(nan());
+			return make_error<Type>();
 		}
 
 		auto curr = X[0];
@@ -355,7 +354,7 @@ namespace theoretica {
 
 		if(!X.size()) {
 			TH_MATH_ERROR("min", X.size(), MathError::InvalidArgument);
-			return Type(nan());
+			return make_error<Type>();
 		}
 
 		auto curr = X[0];

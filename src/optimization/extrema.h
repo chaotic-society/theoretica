@@ -71,13 +71,13 @@ namespace theoretica {
 	/// @param b The upper extreme of the search interval.
 	/// @return The coordinate of the local minimum.
 	template<typename RealFunction>
-	inline iter_result<real> minimize_goldensection(
+	inline iter_result<real> minimize_golden(
 		RealFunction f, real a, real b,
 		real tolerance = OPTIMIZATION_TOL,
 		unsigned int max_iter = OPTIMIZATION_GOLDENSECTION_ITER) {
 
 		if(a > b) {
-			TH_MATH_ERROR("minimize_goldensection", b, MathError::InvalidArgument);
+			TH_MATH_ERROR("minimize_golden", b, MathError::InvalidArgument);
 			return iter_result<real>(ConvergenceStatus::InvalidInput);
 		}
 
@@ -103,7 +103,7 @@ namespace theoretica {
 		}
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("minimize_goldensection", iter, MathError::NoConvergence);
+			TH_MATH_ERROR("minimize_golden", iter, MathError::NoConvergence);
 			return iter_result<real>(ConvergenceStatus::MaxIterations, iter, abs(x2 - x1) / 2.0);
 		}
 
