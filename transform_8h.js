@@ -13,7 +13,7 @@ var transform_8h =
     [ "rotation_3d_xaxis", "transform_8h.html#a7e41df03a4e0f1273b41aea2fc1dee3a", null ],
     [ "rotation_3d_yaxis", "transform_8h.html#ab5d11b57ca82a631907f4eb1b1d67438", null ],
     [ "rotation_3d_zaxis", "transform_8h.html#acfb980ed1301d1e78fc2232181d93b9a", null ],
-    [ "sphere_inversion", "transform_8h.html#a517bdd1d7ac545a5f3ccfab6e627caca", null ],
+    [ "sphere_inversion", "transform_8h.html#a2585a286c0da682fa6c6db82c22db470", null ],
     [ "symplectic", "transform_8h.html#a02e77b387067938a20b4da8bdf642718", null ],
     [ "translation", "transform_8h.html#aeea5d17fa90dc48629d2028208e4b8d1", null ]
 ];

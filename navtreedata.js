@@ -67,11 +67,11 @@ var NAVTREEINDEX =
 "classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d",
 "distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13",
 "montecarlo_8h_source.html",
-"namespacetheoretica.html#a7659e1b121c8c96e884b95bb4ae45ebc",
-"namespacetheoretica_1_1algebra.html#a20846061e22ad06e981fad94a5f88f35",
-"namespacetheoretica_1_1parallel.html#a2fb63423ac4180dfc5de9743a864b6fc",
-"regression_8h.html#a83abb2c03a092fb7b1123c200c092ebd",
-"structtheoretica_1_1regression_1_1linear__model.html#aae0126575d483517ce5ae8b5305dc585"
+"namespacetheoretica.html#a748eca731a8c05226332e5723b7a9d91",
+"namespacetheoretica_1_1algebra.html#a1757fff7a273fbebc8c10e658e36e747",
+"namespacetheoretica_1_1parallel.html#a2a5926e5955512a57dc470b746313d3a",
+"regression_8h.html#a43911fac741333de75b825268f9f7cf5",
+"structtheoretica_1_1regression_1_1linear__model.html#aa62f9b0eadb97799acecd111d90f9670"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

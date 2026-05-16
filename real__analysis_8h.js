@@ -37,6 +37,7 @@ var real__analysis_8h =
     [ "ln", "real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91", null ],
     [ "log10", "real__analysis_8h.html#adb04217fd0bd9dd23daaa186d3756d1e", null ],
     [ "log2", "real__analysis_8h.html#abbd0ef7aa0b136fbd1b4579cec14f369", null ],
+    [ "make_error", "real__analysis_8h.html#a7c15162e0a595ecd7fea0e11b7aa287e", null ],
     [ "max", "real__analysis_8h.html#a07569756dda099ecabf425371da6a31d", null ],
     [ "max", "real__analysis_8h.html#a5e295404d1712fb17851fe105715766e", null ],
     [ "min", "real__analysis_8h.html#ac673920f8956ebea402eac4271f551ba", null ],
