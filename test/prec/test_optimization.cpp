@@ -71,18 +71,27 @@ int main(int argc, char const *argv[]) {
 	auto ctx = prec::make_context("optimization", argc, argv);
 	ctx.settings.outputFiles = { "test/prec/prec_optimization.csv" };
 
+
+	// roots.h
+	
 	{
 		// root = 0.690389757422;
 
 		ctx.equals(
 			"root_bisect (1)",
-			root_bisect(f1<real>, 0.6, 0.7, 1E-12).residual,
+			root_bisect(f1<real>, 0.6, 0.7).residual,
 			0.0
 		);
 
 		ctx.equals(
 			"root_itp (1)",
-			root_itp(f1<real>, 0.6, 0.7, 1E-12).residual,
+			root_itp(f1<real>, 0.6, 0.7).residual,
+			0.0
+		);
+
+		ctx.equals(
+			"root (1)",
+			root(f1<real>, 0.6, 0.7).residual,
 			0.0
 		);
 		
@@ -180,10 +189,16 @@ int main(int argc, char const *argv[]) {
 			root_itp(noisy, -0.032, +0.034).residual,
 			0.0
 		);
+
+		ctx.equals(
+			"root (2)",
+			root(noisy, -0.032, +0.033).residual,
+			0.0
+		);
 	}
 
 
-	// multi_root.h
+	// multi_roots.h
 
 	{
 		ctx.equals(

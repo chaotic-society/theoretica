@@ -55,8 +55,9 @@ namespace theoretica {
 	/// @param b The upper extreme of the interval.
 	/// @param tol The minimum half-length of the bracketing interval to stop
 	/// the algorithm, so that \f$|x_r - x_l| \leq 2\epsilon\f$.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence. The residual
+	/// is defined as half the width of the final bracketing interval.
 	template<typename RealFunction>
 	inline iter_result<real> root_bisect(
 		RealFunction f, real a, real b,
@@ -117,8 +118,9 @@ namespace theoretica {
 	/// give more importance to the regula falsi estimate.
 	/// @param k1 A hyper-parameter of the algorithm, influences the truncation step
 	/// (defaults to \f$0.2 / (b - a)\f$, following the authors' results).
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence. The residual
+	/// is defined as half the width of the final bracketing interval.
 	template<typename RealFunction>
 	inline iter_result<real> root_itp(
 		RealFunction f, real a, real b, real tol = OPTIMIZATION_TOL,
@@ -215,8 +217,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	template<typename RealFunction>
 	inline iter_result<real> root_newton(
 		RealFunction f, RealFunction Df, real guess = 0.0,
@@ -261,8 +263,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	inline iter_result<real> root_newton(
 		dual(*f)(dual), real guess = 0,
 		real tol = OPTIMIZATION_TOL,
@@ -340,8 +342,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	template<typename RealFunction>
 	inline iter_result<real> root_halley(
 		RealFunction f, RealFunction Df,
@@ -382,8 +384,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| < \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	inline iter_result<real> root_halley(
 		dual2(*f)(dual2), real guess = 0,
 		real tol = OPTIMIZATION_TOL,
@@ -416,44 +418,6 @@ namespace theoretica {
 	}
 
 
-	/// Find a root of a univariate real function using Steffensen's method.
-	///
-	/// @param f The real function to search the root of.
-	/// @param guess The initial guess (defaults to 0).
-	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm
-	/// when \f$|f(x_n)| \leq \epsilon\f$.
-	/// @param max_iter The maximum number of iterations to perform, after which
-	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
-	template<typename RealFunction>
-	inline iter_result<real> root_steffensen(
-		RealFunction f, real guess = 0,
-		real tol = OPTIMIZATION_TOL,
-		unsigned int max_iter = OPTIMIZATION_STEFFENSEN_ITER) {
-
-		real x = guess;
-		real f_x = inf();
-		unsigned int iter = 0;
-
-		while(abs(f_x) > tol && iter <= max_iter) {
-
-			const real f_x = f(x);
-			const real g_x = (f(x + f_x) / f_x) - 1;
-
-			x = x - (f_x / g_x);
-			iter++;
-		}
-
-		if(iter > max_iter) {
-			TH_MATH_ERROR("root_steffensen", x, MathError::NoConvergence);
-			return iter_result<real>(ConvergenceStatus::MaxIterations, iter, abs(f_x));
-		}
-
-		return iter_result<real>(x, iter, abs(f_x));
-	}
-
-
 	/// Find a root of a univariate real function using Chebyshev's method.
 	///
 	/// @param f The real function to search the root of.
@@ -464,8 +428,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	///
 	/// Chebyshev's method can be derived by expanding the inverse of the function
 	/// around the zero and truncating the series. This method is particularly suited
@@ -512,8 +476,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	///
 	/// Chebyshev's method can be derived by expanding the inverse of the function
 	/// around the zero and truncating the series. This method is particularly suited
@@ -559,8 +523,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	///
 	/// Ostrowski's method is a 4-th order method using 2 function evaluations
 	/// and 1 function evaluation. It combines a Newton step with a
@@ -606,8 +570,8 @@ namespace theoretica {
 	/// when \f$|f(x_n)| \leq \epsilon\f$.
 	/// @param max_iter The maximum number of iterations to perform, after which
 	/// the algorithm is assumed to not have converged.
-	/// @return The coordinate of the root of the function,
-	/// or NaN if the algorithm did not converge.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
 	///
 	/// Jarrat's method is a 4-th order method which is particularly suited when
 	/// the derivative of the function is less computationally expensive than
@@ -641,6 +605,29 @@ namespace theoretica {
 		}
 
 		return iter_result<real>(x, iter, abs(f_x));
+	}
+
+
+	/// Use the best available algorithm to find a root of a univariate real function
+	/// inside a given bracketing interval, meaning that the interval is guaranteed
+	/// to have a single root inside it.
+	///
+	/// @param f The real function to search the root of.
+	/// @param a The lower extreme of the bracketing interval.
+	/// @param b The upper extreme of the bracketing interval.
+	/// @param tol The \f$\epsilon\f$ tolerance value to stop the algorithm
+	/// when \f$|f(x_n)| \leq \epsilon\f$.
+	/// @param max_iter The maximum number of iterations to perform, after which
+	/// the algorithm is assumed to not have converged.
+	/// @return An iter_result object containing the root (value field),
+	/// as well as information about algorithm convergence.
+	template<typename RealFunction>
+	inline iter_result<real> root(
+		RealFunction f, real a, real b,
+		real tol = OPTIMIZATION_TOL,
+		unsigned int max_iter = OPTIMIZATION_BISECTION_ITER) {
+		
+		return root_itp(f, a, b, tol, max_iter);
 	}
 
 
