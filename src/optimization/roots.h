@@ -93,10 +93,10 @@ namespace theoretica {
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("root_bisect", x_avg, MathError::NoConvergence);
-			return iter_result<real>(ConvergenceStatus::MaxIterations, iter, abs(b - a) / 2.0);
+			return iter_result<real>(ConvergenceStatus::MaxIterations, iter, abs(x_max - x_min) / 2.0);
 		}
 
-		return iter_result<real>(x_avg, iter, abs(b - a) / 2.0);
+		return iter_result<real>(x_avg, iter, abs(x_max - x_min) / 2.0);
 	}
 
 
@@ -189,7 +189,8 @@ namespace theoretica {
 				a = x_new;
 				y_a = y_new;
 			} else {
-				return x_new;
+				// Falls exactly on the zero
+				return iter_result<real>(x_new, iter, 0.0);
 			}
 
 			eps *= 0.5;

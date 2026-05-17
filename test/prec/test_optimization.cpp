@@ -61,6 +61,11 @@ dvec2 g2(dvec2 v) {
 }
 
 
+real noisy(real x) {
+    return x + th::sin(100 * x) / 10;
+}
+
+
 int main(int argc, char const *argv[]) {
 	
 	auto ctx = prec::make_context("optimization", argc, argv);
@@ -71,45 +76,47 @@ int main(int argc, char const *argv[]) {
 
 		ctx.equals(
 			"root_bisect (1)",
-			f1(root_bisect(f1<real>, 0.6, 0.7, 1E-12)),
+			root_bisect(f1<real>, 0.6, 0.7, 1E-12).residual,
 			0.0
 		);
 
 		ctx.equals(
 			"root_itp (1)",
-			f1(root_itp(f1<real>, 0.6, 0.7, 1E-12)),
+			root_itp(f1<real>, 0.6, 0.7, 1E-12).residual,
 			0.0
 		);
 		
 		ctx.equals(
 			"root_newton (1)",
-			f1(root_newton(f1<dual>, 0.5)), 0.0
+			root_newton(f1<dual>, 0.5).residual,
+			0.0
 		);
 
 		ctx.equals(
 			"root_newton (1)",
-			f1(root_newton(f1<real>, df1, 0.5)), 0.0
+			root_newton(f1<real>, df1, 0.5).residual,
+			0.0
 		);
 
 		ctx.equals(
 			"root_halley (1)",
-			f1(root_halley(f1<dual2>, 0.5)),
+			root_halley(f1<dual2>, 0.5).residual,
 			0.0
 		);
 
 		ctx.equals(
 			"root_chebyshev (1)",
-			f1(root_chebyshev(f1<dual2>, 0.7)), 0.0
+			root_chebyshev(f1<dual2>, 0.7).residual, 0.0
 		);
 
 		ctx.equals(
 			"root_ostrowski (1)",
-			f1(root_ostrowski(f1<real>, df1, 0.7)), 0.0
+			root_ostrowski(f1<real>, df1, 0.7).residual, 0.0
 		);
 
 		ctx.equals(
 			"root_jarrat (1)",
-			f1(root_jarrat(f1<real>, df1, 0.7)), 0.0
+			root_jarrat(f1<real>, df1, 0.7).residual, 0.0
 		);
 	}
 
@@ -118,70 +125,80 @@ int main(int argc, char const *argv[]) {
 		// root = 1.772453850906;
 
 		ctx.equals(
+			"root_newton (2)",
+			root_newton(g1<dual>, 1.5).residual, 0.0
+		);
+
+		ctx.equals(
+			"root_newton (2)",
+			root_newton(g1<real>, dg1, 1.5).residual, 0.0
+		);
+		
+		ctx.equals(
+			"root_halley (2)",
+			root_halley(g1<dual2>, 1.5).residual, 0.0
+		);
+
+		ctx.equals(
+			"root_halley (2)",
+			root_halley(g1<real>, dg1, d2g1, 1.5).residual, 0.0
+		);
+		
+		ctx.equals(
+			"root_chebyshev (2)",
+			root_chebyshev(g1, 1.5).residual, 0.0
+		);
+
+		ctx.equals(
+			"root_chebyshev (2)",
+			root_chebyshev(g1, dg1, d2g1, 1.5).residual, 0.0
+		);
+
+		ctx.equals(
+			"root_ostrowski (2)",
+			root_ostrowski(g1, dg1, 1.5).residual, 0.0
+		);
+
+		ctx.equals(
+			"root_jarrat (2)",
+			root_jarrat(g1, dg1, 1.5).residual, 0.0
+		);
+	}
+
+
+	{
+		// root = 0.0
+
+		ctx.equals(
 			"root_bisect (2)",
-			g1(root_bisect(g1<real>, 1.5, 2, 1E-12)),
+			root_bisect(noisy, -0.031, +0.034).residual,
 			0.0
 		);
 
 		ctx.equals(
 			"root_itp (2)",
-			g1(root_itp(g1<real>, 1.5, 2, 1E-12)),
+			root_itp(noisy, -0.032, +0.034).residual,
 			0.0
 		);
+	}
 
-		ctx.equals(
-			"root_newton (2)",
-			g1(root_newton(g1<dual>, 1.5)), 0.0
-		);
 
-		ctx.equals(
-			"root_newton (2)",
-			g1(root_newton(g1<real>, dg1, 1.5)), 0.0
-		);
-		
-		ctx.equals(
-			"root_halley (2)",
-			g1(root_halley(g1<dual2>, 1.5)), 0.0
-		);
+	// multi_root.h
 
+	{
 		ctx.equals(
-			"root_halley (2)",
-			g1(root_halley(g1<real>, dg1, d2g1, 1.5)), 0.0
-		);
-		
-		ctx.equals(
-			"root_chebyshev (2)",
-			g1(root_chebyshev(g1, 1.5)), 0.0
-		);
-
-		ctx.equals(
-			"root_chebyshev (2)",
-			g1(root_chebyshev(g1, dg1, d2g1, 1.5)), 0.0
-		);
-
-		ctx.equals(
-			"root_ostrowski (2)",
-			g1(root_ostrowski(g1, dg1, 1.5)), 0.0
-		);
-
-		ctx.equals(
-			"root_jarrat (2)",
-			g1(root_jarrat(g1, dg1, 1.5)), 0.0
+			"multiroot_newton (1)",
+			multiroot_newton(f2, vec2({1, 1}), 10E-10).residual,
+			0.0
 		);
 	}
 
 
-
 	{
-		vec2 res = multiroot_newton(f2, vec2({1, 1}), 10E-10);
-		auto residual = res - vec2({1, E});
-		ctx.equals("multiroot_newton (1)", algebra::norm(residual), 0.0);
-	}
-
-
-	{
-		vec2 res = multiroot_newton(g2, vec2({1, 1}), 10E-10);
-		auto residual = res - vec2({-1.49730038909589, -1.49730038909589});
-		ctx.equals("multiroot_newton (2)", algebra::norm(residual), 0.0);
+		ctx.equals(
+			"multiroot_newton (2)",
+			multiroot_newton(g2, vec2({1, 1}), 10E-10).residual,
+			0.0
+		);
 	}
 }
