@@ -67,7 +67,7 @@ var NAVTREEINDEX =
 "classtheoretica_1_1vec.html#a9cec09863bad7742ca0ad2283d779b2d",
 "distributions_8h.html#a207d9c3c111231ffa5ff27efb5a0be13",
 "montecarlo_8h_source.html",
-"namespacetheoretica.html#a748eca731a8c05226332e5723b7a9d91",
+"namespacetheoretica.html#a75b8a327e65a2d21993a28009828faae",
 "namespacetheoretica_1_1algebra.html#a1757fff7a273fbebc8c10e658e36e747",
 "namespacetheoretica_1_1parallel.html#a2a5926e5955512a57dc470b746313d3a",
 "regression_8h.html#a43911fac741333de75b825268f9f7cf5",
