@@ -31,7 +31,7 @@ var real__analysis_8h =
     [ "icbrt", "real__analysis_8h.html#ad830de3729f8f2bea38d60ef706cf968", null ],
     [ "identity", "real__analysis_8h.html#ac8e3b9080dde2e7542682cf79f0bbf50", null ],
     [ "ilog2", "real__analysis_8h.html#a50cd5107369678c27b30dbae079283c5", null ],
-    [ "ipow", "real__analysis_8h.html#a52e31c328bc34c0d2fca2aad3bf78ca7", null ],
+    [ "ipow", "real__analysis_8h.html#a9c294777af8fa0a24214e081167d39dc", null ],
     [ "isqrt", "real__analysis_8h.html#a68914a563241494dfe7ac42f0462920c", null ],
     [ "kronecker_delta", "real__analysis_8h.html#a321928d10b6606c1cba0232a613e6dfe", null ],
     [ "ln", "real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91", null ],

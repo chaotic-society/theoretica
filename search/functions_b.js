@@ -2,7 +2,7 @@ var searchData=
 [
   ['l1_5fnorm_0',['l1_norm',['../namespacetheoretica_1_1algebra.html#a517742cc82be888526f2e5c6f7836220',1,'theoretica::algebra']]],
   ['l2_5fnorm_1',['l2_norm',['../namespacetheoretica_1_1algebra.html#a0ec28ec5a0ac0dc055108a9d37fd5326',1,'theoretica::algebra']]],
-  ['lagrange_5fpolynomial_2',['lagrange_polynomial',['../namespacetheoretica.html#ab8b367e4460b8aec5f8c29282f671006',1,'theoretica']]],
+  ['lagrange_2',['lagrange',['../namespacetheoretica.html#a744c9f4e981959a9d7af7cdc9b3ee020',1,'theoretica']]],
   ['laguerre_5fpolyn_5frecurr_3',['laguerre_polyn_recurr',['../namespacetheoretica.html#a0b5a48283ac42a9362f25d977d066cf3',1,'theoretica']]],
   ['laguerre_5fpolynomial_4',['laguerre_polynomial',['../namespacetheoretica.html#af62665bb64745df12234614b05c2dfb3',1,'theoretica']]],
   ['laguerre_5fweights_5',['laguerre_weights',['../namespacetheoretica.html#a4b528fc8814c1dd197a21d49f1ad6c93',1,'theoretica']]],

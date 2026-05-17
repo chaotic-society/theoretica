@@ -1,5 +1,13 @@
 var NAVTREEINDEX12 =
 {
+"structtheoretica_1_1regression_1_1linear__model.html#a5c5d5b3e6ec294b66b2d094ac556f02b":[2,0,0,2,0,4],
+"structtheoretica_1_1regression_1_1linear__model.html#a68b30368f310f356354dc039b9aa096f":[1,0,2,6,0,20],
+"structtheoretica_1_1regression_1_1linear__model.html#a68b30368f310f356354dc039b9aa096f":[2,0,0,2,0,20],
+"structtheoretica_1_1regression_1_1linear__model.html#a86b4a72cd91b1839ad510932c6234c36":[2,0,0,2,0,21],
+"structtheoretica_1_1regression_1_1linear__model.html#a86b4a72cd91b1839ad510932c6234c36":[1,0,2,6,0,21],
+"structtheoretica_1_1regression_1_1linear__model.html#a95d716ebe0317fbfff449e52ed5169a7":[1,0,2,6,0,2],
+"structtheoretica_1_1regression_1_1linear__model.html#a95d716ebe0317fbfff449e52ed5169a7":[2,0,0,2,0,2],
+"structtheoretica_1_1regression_1_1linear__model.html#aa62f9b0eadb97799acecd111d90f9670":[2,0,0,2,0,19],
 "structtheoretica_1_1regression_1_1linear__model.html#aa62f9b0eadb97799acecd111d90f9670":[1,0,2,6,0,19],
 "structtheoretica_1_1regression_1_1linear__model.html#aae0126575d483517ce5ae8b5305dc585":[2,0,0,2,0,8],
 "structtheoretica_1_1regression_1_1linear__model.html#aae0126575d483517ce5ae8b5305dc585":[1,0,2,6,0,8],

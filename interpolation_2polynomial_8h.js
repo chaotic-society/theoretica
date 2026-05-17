@@ -1,7 +1,8 @@
 var interpolation_2polynomial_8h =
 [
-    [ "chebyshev_nodes", "interpolation_2polynomial_8h.html#a25e8ede5b63e3e928ba06999468f33ef", null ],
-    [ "interpolate_chebyshev", "interpolation_2polynomial_8h.html#a88f9a26f1ee40dea3fced3ee7e0c9aa9", null ],
-    [ "interpolate_grid", "interpolation_2polynomial_8h.html#a9dc2216d71f0d7147b5c0dacdeea80db", null ],
-    [ "lagrange_polynomial", "interpolation_2polynomial_8h.html#ab8b367e4460b8aec5f8c29282f671006", null ]
+    [ "chebyshev_nodes", "interpolation_2polynomial_8h.html#a348f61edeabdf1220a85a3747b26aee4", null ],
+    [ "interpolate", "interpolation_2polynomial_8h.html#a8df31319d218ab7c43c5f96943ff2539", null ],
+    [ "interpolate_chebyshev", "interpolation_2polynomial_8h.html#acb5a409d07ff575dd177b3962c5f3445", null ],
+    [ "interpolate_grid", "interpolation_2polynomial_8h.html#a742309223dae8bd01d1bcf46e02c6be2", null ],
+    [ "lagrange", "interpolation_2polynomial_8h.html#a744c9f4e981959a9d7af7cdc9b3ee020", null ]
 ];

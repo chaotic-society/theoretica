@@ -1,5 +1,13 @@
 var NAVTREEINDEX9 =
 {
+"namespacetheoretica_1_1algebra.html#a01182d050ae939b2fb0647806478882c":[1,0,2,0,38],
+"namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718":[1,0,2,0,98],
+"namespacetheoretica_1_1algebra.html#a038ef7f20afa9fbbdd052c020c90f581":[1,0,2,0,4],
+"namespacetheoretica_1_1algebra.html#a04d386e7bd52acd0ecea1a5923777254":[1,0,2,0,66],
+"namespacetheoretica_1_1algebra.html#a0e0fb9692dbe481cc96fc7dea38f5fc5":[1,0,2,0,65],
+"namespacetheoretica_1_1algebra.html#a0e8c8a9cfcb525db569989486105e324":[1,0,2,0,69],
+"namespacetheoretica_1_1algebra.html#a0ec28ec5a0ac0dc055108a9d37fd5326":[1,0,2,0,43],
+"namespacetheoretica_1_1algebra.html#a13b050141618e40f336c4ef549ac96a4":[1,0,2,0,20],
 "namespacetheoretica_1_1algebra.html#a1757fff7a273fbebc8c10e658e36e747":[1,0,2,0,62],
 "namespacetheoretica_1_1algebra.html#a1ab552f2067f23dfab8473ff098810d1":[1,0,2,0,39],
 "namespacetheoretica_1_1algebra.html#a1d8e7f8039577df122fd34d187792787":[1,0,2,0,36],
@@ -241,13 +249,5 @@ var NAVTREEINDEX9 =
 "namespacetheoretica_1_1ode.html#a90ae0dd93627e0a4b7c6643da5a27b91":[1,0,2,4,19],
 "namespacetheoretica_1_1ode.html#aa370948daed76bbc252016638d4613fa":[1,0,2,4,8],
 "namespacetheoretica_1_1ode.html#aa4fbd453238d0ee5a285fba1b45d959a":[1,0,2,4,21],
-"namespacetheoretica_1_1ode.html#aad0e2da0158475000c74daa519e727d4":[1,0,2,4,9],
-"namespacetheoretica_1_1ode.html#ae95941e3bd5dad298b11ca580d2fd091":[1,0,2,4,3],
-"namespacetheoretica_1_1ode.html#ae98c7c4e315852292b1be27c3f17b875":[1,0,2,4,17],
-"namespacetheoretica_1_1ode.html#af29a352c211c0b207fdbf7db64cf4a26":[1,0,2,4,12],
-"namespacetheoretica_1_1ode.html#afaef9e3aba11aed7cfeedfbce04fcc13":[1,0,2,4,7],
-"namespacetheoretica_1_1parallel.html":[1,0,2,5],
-"namespacetheoretica_1_1parallel.html#a036eb22e3d111a4b8a6b483a21811d30":[1,0,2,5,10],
-"namespacetheoretica_1_1parallel.html#a03b2a9424ef9a0638f5c53175208b48f":[1,0,2,5,4],
-"namespacetheoretica_1_1parallel.html#a169da83ac31d93fd6ec2598b1744b6d5":[1,0,2,5,21]
+"namespacetheoretica_1_1ode.html#aad0e2da0158475000c74daa519e727d4":[1,0,2,4,9]
 };

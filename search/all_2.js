@@ -11,7 +11,7 @@ var searchData=
   ['chebyshev1_5fpolynomial_8',['chebyshev1_polynomial',['../namespacetheoretica.html#a085e34f437a529b59778090e0cb122e5',1,'theoretica']]],
   ['chebyshev2_5fpolynomial_9',['chebyshev2_polynomial',['../namespacetheoretica.html#a3450aa75a960635e9f33a6dabb22752b',1,'theoretica']]],
   ['chebyshev_5fdistance_10',['chebyshev_distance',['../namespacetheoretica_1_1algebra.html#afda85103719a7a69d69670a8ae6dc13b',1,'theoretica::algebra']]],
-  ['chebyshev_5fnodes_11',['chebyshev_nodes',['../namespacetheoretica.html#a25e8ede5b63e3e928ba06999468f33ef',1,'theoretica']]],
+  ['chebyshev_5fnodes_11',['chebyshev_nodes',['../namespacetheoretica.html#a348f61edeabdf1220a85a3747b26aee4',1,'theoretica']]],
   ['chebyshev_5fpolyn_5frecurr_12',['chebyshev_polyn_recurr',['../namespacetheoretica.html#ac8e77e33cee4661bf1a52bec32fa434c',1,'theoretica']]],
   ['chi_5fsquare_13',['chi_square',['../namespacetheoretica_1_1stats.html#acdf648810b2ca72fbd08106f5a410f15',1,'theoretica::stats']]],
   ['chi_5fsquare_5flinear_14',['chi_square_linear',['../namespacetheoretica_1_1stats.html#a5339b599f3c4840887d36b3314ed79c5',1,'theoretica::stats']]],
