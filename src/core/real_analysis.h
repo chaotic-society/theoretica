@@ -640,7 +640,7 @@ namespace theoretica {
 	/// non-negative power of objects which are not strictly numbers
 	/// but have a multiplication operation.
 	template<typename T = real>
-	TH_CONSTEXPR inline T ipow(T x, unsigned int n, T neutral_element = T(1)) {
+	TH_CONSTEXPR inline T ipow(T x, unsigned int n, T neutral_element = T(1.0)) {
 
 		if(n == 0)
 			return neutral_element;
@@ -1315,6 +1315,8 @@ namespace theoretica {
 	///
 	/// This is a valid way to build real, complex,
 	/// dual and quaternion numbers representing NaNs.
+	/// For constructing NaN states for vector-like
+	/// types, the overload in algebra.h should be used.
 	///
 	/// @tparam Type The type of the number to create
 	/// @return A number representing an error state

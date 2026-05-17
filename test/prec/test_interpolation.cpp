@@ -11,6 +11,9 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
+const real VARIANCE = 1E+06;
+
+
 // Runge's function
 real runge(real x) {
 	return 1.0 / (1.0 + 25.0 * x * x);
@@ -25,7 +28,7 @@ real cubic(real x) {
 // Generate a random vector with gaussian elements
 vec2 rand_vec2(random::random_source& rnd) {
 	return vec2({
-		rnd.gaussian(0, 1E+08), rnd.gaussian(0, 1E+08)
+		rnd.gaussian(0, VARIANCE), rnd.gaussian(0, VARIANCE)
 	});
 }
 
@@ -68,46 +71,72 @@ int main(int argc, char const *argv[]) {
 	// polynomial.h
 
 
-	// Test lagrange_polynomial with simple points
+	// Test lagrange with simple points
 	{
-		std::vector<vec2> points = {{0, 1}, {1, 2}, {2, 5}};
-		polynomial<real> p = lagrange_polynomial(points);
+
+		vec<real> x = {0, 1, 2};
+		vec<real> y = {1, 2, 5};
+
+		polynomial<real> p = lagrange(x, y);
 		
 		// Polynomial should pass through all points
-		ctx.equals("lagrange_polynomial(point[0])", p(0.0), 1.0);
-		ctx.equals("lagrange_polynomial(point[1])", p(1.0), 2.0);
-		ctx.equals("lagrange_polynomial(point[2])", p(2.0), 5.0);
+		ctx.equals("lagrange(point[0])", p(0.0), 1.0);
+		ctx.equals("lagrange(point[1])", p(1.0), 2.0);
+		ctx.equals("lagrange(point[2])", p(2.0), 5.0);
 	}
 
-	// Test lagrange_polynomial with quadratic polynomial
+	// Test lagrange with quadratic polynomial
 	{
 		// y = x^2 + x + 1
-		std::vector<vec2> points = {{0, 1}, {1, 3}, {2, 7}};
-		polynomial<real> p = lagrange_polynomial(points);
+
+		vec<real> x = {0, 1, 2};
+		vec<real> y = {1, 3, 7};
+
+		polynomial<real> p = lagrange(x, y);
 		polynomial<real> expected = {1.0, 1.0, 1.0};  // 1 + x + x^2
 		
-		ctx.equals("lagrange_polynomial(quadratic)", p, expected, polyn_opt);
+		ctx.equals("lagrange(quadratic)", p, expected, polyn_opt);
 	}
 
-	// Test lagrange_polynomial with cubic polynomial
+	// Test lagrange with cubic polynomial
 	{
 		// y = x^3 - 2x + 1
-		std::vector<vec2> points = {{-1, 2}, {0, 1}, {1, 0}, {2, 5}};
-		polynomial<real> p = lagrange_polynomial(points);
+
+		vec<real> x = { -1.0, 0.0, 1.0, 2.0 };
+		vec<real> y = { 2.0, 1.0, 0.0, 5.0 };
+
+		polynomial<real> p = lagrange(x, y);
 		
-		ctx.equals("lagrange_polynomial(cubic[0])", p(-1.0), 2.0);
-		ctx.equals("lagrange_polynomial(cubic[1])", p(0.0), 1.0);
-		ctx.equals("lagrange_polynomial(cubic[2])", p(1.0), 0.0);
-		ctx.equals("lagrange_polynomial(cubic[3])", p(2.0), 5.0);
+		ctx.equals("lagrange(cubic[0])", p(-1.0), 2.0);
+		ctx.equals("lagrange(cubic[1])", p(0.0), 1.0);
+		ctx.equals("lagrange(cubic[2])", p(1.0), 0.0);
+		ctx.equals("lagrange(cubic[3])", p(2.0), 5.0);
 	}
 
-	// Test lagrange_polynomial interpolates exactly for polynomials
+	// Test lagrange interpolates exactly for polynomials
 	{
-		std::vector<vec2> points = {{0, 1}, {1, 2}, {2, 9}, {3, 28}};
-		polynomial<real> p = lagrange_polynomial(points);
+
+		vec<real> x = {0, 1, 2, 3};
+		vec<real> y = {1, 2, 9, 28};
+
+		polynomial<real> p = lagrange(x, y);
 		
 		// Should match x^3 + 1 at intermediate points
-		ctx.equals("lagrange_polynomial(interpolation)", p(1.5), 1.5 * 1.5 * 1.5 + 1.0, 1E-06);
+		ctx.equals("lagrange(real)", p(1.5), 1.5 * 1.5 * 1.5 + 1.0, 1E-06);
+	}
+
+	// Test lagrange with vector y points
+	{
+		vec<real> x = { 0.0, 1.0, 2.0 };
+		vec<vec2> y = {
+			{1, 2},
+			{3, 4},
+			{5, 6}
+		};
+
+		polynomial<vec2> p = lagrange(x, y);
+
+		ctx.equals("lagrange(vec2)", p(0.5), vec2({2.0, 3.0}), vec2_opt);
 	}
 
 	// Test chebyshev_nodes
@@ -460,6 +489,44 @@ int main(int argc, char const *argv[]) {
 		polynomial<real> p = interpolate_chebyshev(runge, -1.0, 1.0, 16);
 		
 		ctx.estimate("interpolate_chebyshev(runge, 12)",
+			[p](real x) { return p(x); },
+			runge,
+			opt
+		);
+	}
+
+
+	// Test generic interpolation
+	{
+		auto opt = prec::estimate_options<real, real>(
+			prec::interval(-0.8, 0.8),
+			prec::estimator::quadrature1D(),
+			1E-01, ctx.settings.defaultIterations
+		);
+		
+		polynomial<real> p = interpolate([](real x) {
+			return std::cos(x);
+		}, -1.0, 1.0, 12);
+		
+		ctx.estimate("interpolate(cos, 12)",
+			[p](real x) { return p(x); },
+			CAST_LAMBDA(std::cos, real),
+			opt
+		);
+	}
+
+
+	// Test generic interpolation
+	{
+		auto opt = prec::estimate_options<real, real>(
+			prec::interval(-0.8, 0.8),
+			prec::estimator::quadrature1D(),
+			1E-1, ctx.settings.defaultIterations
+		);
+		
+		polynomial<real> p = interpolate(runge, -1.0, 1.0, 16);
+		
+		ctx.estimate("interpolate(runge, 12)",
 			[p](real x) { return p(x); },
 			runge,
 			opt

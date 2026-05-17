@@ -44,7 +44,7 @@ namespace theoretica {
 		/// is given by the n-th element of the vector.
 		///
 		/// The constructor may be used explicitly, as polynomial(v).
-		template <typename Vector, enable_vector<Vector> = true>
+		template<typename Vector, enable_vector<Vector> = true>
 		explicit polynomial(const Vector& c) {
 			
 			coeff.resize(c.size());
@@ -53,8 +53,15 @@ namespace theoretica {
 				coeff[i] = c[i];
 		}
 		
+
 		/// Initialize from an std::initializer_list
 		polynomial(std::initializer_list<Type> l) : coeff(l) {}
+
+
+		/// Construct a polynomial from its coefficients,
+		/// where the n-th order coefficient is given by the n-th element of the vector.
+		template<typename ...Args>
+		polynomial(Args... args) : coeff({args...}) {}
 
 
 		/// Get i-th coefficient by constant reference, with bound checking.
@@ -82,14 +89,14 @@ namespace theoretica {
 
 		/// Evaluate the polynomial for a given value.
 		/// Horner's method is used for efficient evaluation.
-		template<typename EvalType = Type>
-		inline EvalType eval(EvalType x) const {
+		template<typename InputType = Type>
+		inline Type eval(InputType x) const {
 
-			EvalType sum = EvalType(0.0);
+			Type sum = Type(0.0);
 
 			// Evaluate using Horner's method
 			for (unsigned int i = 0; i < coeff.size(); ++i)
-				sum = coeff[coeff.size() - i - 1] + x * sum;
+				sum = coeff[coeff.size() - i - 1] + sum * x;
 
 			return sum;
 		}
@@ -97,8 +104,8 @@ namespace theoretica {
 
 		/// Evaluate the polynomial for a given value.
 		/// Horner's method is used for efficient evaluation.
-		template<typename EvalType = Type>
-		inline EvalType operator()(EvalType x) const {
+		template<typename InputType = Type>
+		inline Type operator()(InputType x) const {
 			return eval(x);
 		}
 
@@ -223,7 +230,7 @@ namespace theoretica {
 		}
 
 
-		/// Polynomial division
+		/// Polynomial division.
 		inline polynomial operator/(const polynomial& d) const {
 
 			const unsigned int d_order = d.degree();
@@ -275,13 +282,15 @@ namespace theoretica {
 
 
 		/// Multiply a polynomial by a scalar
-		inline polynomial operator*(Type a) const {
+		template<typename ScalarType, disable_vector<ScalarType> = true>
+		inline polynomial operator*(ScalarType a) const {
 			return polynomial(coeff * a);
 		}
 
 
-		/// Divide a polynomial by a scalar
-		inline polynomial operator/(Type a) const {
+		/// Divide a polynomial by a scalar, provided it has coefficients supporting division.
+		template<typename ScalarType, disable_vector<ScalarType> = true>
+		inline polynomial operator/(ScalarType a) const {
 
 			if(abs(a) < MACH_EPSILON) {
 				TH_MATH_ERROR("polynomial::operator/", a, MathError::DivByZero);
@@ -340,7 +349,8 @@ namespace theoretica {
 
 
 		/// Multiply a polynomial by a scalar value
-		inline polynomial& operator*=(Type a) {
+		template<typename ScalarType, disable_vector<ScalarType> = true>
+		inline polynomial& operator*=(ScalarType a) {
 
 			for (unsigned int i = 0; i < coeff.size(); ++i)
 				coeff[i] *= a;
@@ -349,14 +359,15 @@ namespace theoretica {
 		}
 
 
-		/// Multiply a polynomial by a scalar value
+		/// Divide a polynomial by a polynomial.
 		inline polynomial& operator/=(const polynomial& a) {
 			return (*this = (*this / a));
 		}
 
 
-		/// Divide a polynomial by a scalar value
-		inline polynomial& operator/=(Type a) {
+		/// Divide a polynomial by a scalar value, provided it has coefficients supporting division.
+		template<typename ScalarType, disable_vector<ScalarType> = true>
+		inline polynomial& operator/=(ScalarType a) {
 
 			if(abs(a) < MACH_EPSILON) {
 				TH_MATH_ERROR("polynomial::operator/=", a, MathError::DivByZero);
@@ -500,9 +511,8 @@ namespace theoretica {
 			return (z * -1) + polynomial(r);
 		}
 
-		inline friend polynomial<Type> operator*(
-			Type r, const polynomial<Type>& z) {
-
+		template<typename ScalarType, disable_vector<ScalarType> = true>
+		inline friend polynomial<Type> operator*(ScalarType r, const polynomial<Type>& z) {
 			return z * r;
 		}
 

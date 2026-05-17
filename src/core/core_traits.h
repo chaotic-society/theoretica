@@ -169,14 +169,11 @@ namespace theoretica {
 	using enable_vector = std::enable_if_t<is_vector<Structure>::value, T>;
 
 
-	// Extract the type of the arguments of a function.
-	template<typename Function>
-	struct extract_func_args;
-
-	template<typename Function, typename... Args>
-	struct extract_func_args<Function(Args...)> {
-		using type = std::tuple<Args...>;
-	};
+	// Disable a function overload if the template typename
+	// is considerable a vector. The std::enable_if structure
+	// is used, with type T which defaults to bool.
+	template<typename Structure, typename T = bool>
+	using disable_vector = std::enable_if_t<!is_vector<Structure>::value, T>;
 
 
 	namespace _internal {

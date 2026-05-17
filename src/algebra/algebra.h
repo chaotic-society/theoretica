@@ -72,7 +72,8 @@ namespace theoretica {
 	// defined in real_analysis.h
 
 
-	/// Create a vector representing an error state, with all NaN values.
+	/// Create a vector representing an error state, with all NaN values
+	/// and a fixed size.
 	///
 	/// @tparam Vector The type of the vector to create
 	/// @param n The size of the vector to create
@@ -81,14 +82,36 @@ namespace theoretica {
 		typename Vector,
 		enable_vector<Vector> = true
 	>
-	inline Vector make_error(unsigned int n = 1) {
+	inline Vector make_error(unsigned int n) {
 		Vector result;
 		result.resize(n);
 		return algebra::vec_error(result);
 	}
 
 
-	/// Create a matrix representing an error state, with all NaN values.
+	/// Create a vector representing an error state, with all NaN values.
+	/// If the vector is dynamically allocated, it is resized to have at
+	/// least one element.
+	///
+	/// @tparam Vector The type of the vector to create
+	/// @param n The size of the vector to create
+	/// @return A vector representing an error state
+	template <
+		typename Vector,
+		enable_vector<Vector> = true
+	>
+	inline Vector make_error() {
+
+		Vector result;
+		if (result.size() == 0)
+			result.resize(1);
+		
+		return algebra::vec_error(result);
+	}
+
+
+	/// Create a matrix representing an error state, with all NaN values
+	/// and a fixed size.
 	///
 	/// @tparam Matrix The type of the matrix to create
 	/// @param rows The number of rows of the matrix to create
@@ -98,9 +121,32 @@ namespace theoretica {
 		typename Matrix,
 		enable_matrix<Matrix> = true
 	>
-	inline Matrix make_error(unsigned int rows = 1, unsigned int cols = 1) {
+	inline Matrix make_error(unsigned int rows, unsigned int cols) {
 		Matrix result;
 		result.resize(rows, cols);
+		return algebra::mat_error(result);
+	}
+
+
+	/// Create a matrix representing an error state, with all NaN values.
+	/// If the matrix is dynamically allocated, it is resized to have at
+	/// least one row and one column.
+	///
+	/// @tparam Matrix The type of the matrix to create
+	/// @param rows The number of rows of the matrix to create
+	/// @param cols The number of columns of the matrix to create
+	/// @return A matrix representing an error state
+	template <
+		typename Matrix,
+		enable_matrix<Matrix> = true
+	>
+	inline Matrix make_error() {
+
+		Matrix result;
+
+		if (result.rows() == 0 || result.cols() == 0)
+			result.resize(1, 1);
+
 		return algebra::mat_error(result);
 	}
 
