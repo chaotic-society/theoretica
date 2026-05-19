@@ -107,6 +107,28 @@ namespace theoretica {
 			>::value, T
 		>::type;
 
+#ifdef THEORETICA_HAS_CPP20
+
+	// Callable concepts for scalar and vector multidual fields
+
+	// Concept of a scalar field for automatic differentiation,
+	// a callable taking in a vector of multidual numbers and returning
+	// a single multidual number.
+	template<typename Function>
+	concept ADScalarField =
+		is_multidual_type<return_type_t<Function>>::value &&
+		is_multidual_type<vector_element_t<first_arg_t<Function>>>::value;
+
+	
+	// Concept of a vector field for automatic differentiation,
+	// a callable taking in a vector of multidual numbers and
+	// returning a vector of multidual numbers.
+	template<typename Function>
+	concept ADVectorField =
+		is_multidual_type<vector_element_t<return_type_t<Function>>>::value &&
+		is_multidual_type<vector_element_t<first_arg_t<Function>>>::value;
+
+#endif
 
 		// Alias types for multivariate automatic differentiation
 

@@ -28,14 +28,22 @@ namespace theoretica {
 	/// stopping execution of the routine.
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_minimize_grad(
-		DualObjectiveFunction f,
+		ObjectiveFunction f,
 		Vector guess,
 		real gamma = OPTIMIZATION_MINGRAD_GAMMA,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
@@ -81,14 +89,22 @@ namespace theoretica {
 	/// stopping execution of the routine.
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_maximize_grad(
-		DualObjectiveFunction f,
+		ObjectiveFunction f,
 		Vector guess,
 		real gamma = OPTIMIZATION_MINGRAD_GAMMA,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
@@ -109,14 +125,22 @@ namespace theoretica {
 	/// stopping execution of the routine.
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_minimize_lingrad(
-		DualObjectiveFunction f,
+		ObjectiveFunction f,
 		Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER
@@ -168,14 +192,22 @@ namespace theoretica {
 	/// stopping execution of the routine.
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_maximize_lingrad(
-		DualObjectiveFunction f,
+		ObjectiveFunction f,
 		Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
@@ -224,14 +256,22 @@ namespace theoretica {
 	/// the algorithm at, defaults to OPTIMIZATION_MINGRAD_TOLERANCE.
 	/// @return The coordinates of the local minimum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_minimize(
-		DualObjectiveFunction f, Vector guess,
+		ObjectiveFunction f, Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE
 	) {
 		return multi_minimize_lingrad(f, guess, tolerance);
@@ -247,14 +287,22 @@ namespace theoretica {
 	/// the algorithm at, defaults to OPTIMIZATION_MINGRAD_TOLERANCE.
 	/// @return The coordinates of the local maximum, 
 	/// NaN if the algorithm did not converge.
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADScalarField ObjectiveFunction
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_scalar_field<DualObjectiveFunction> = true
+		typename ObjectiveFunction,
+		autodiff::enable_scalar_field<ObjectiveFunction> = true
 	>
+#endif
 	inline ReturnVector multi_maximize(
-		DualObjectiveFunction f, Vector guess,
+		ObjectiveFunction f, Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE
 	) {
 		return multi_maximize_lingrad(f, guess, tolerance);

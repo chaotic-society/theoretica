@@ -2,6 +2,12 @@ default_target: all
 all: examples test
 
 
+# Configuration
+
+# C++ Standard (c++14, c++17, c++20)
+CXX_STANDARD ?= c++20
+
+
 # OpenMP support
 # Define DISABLE_OPENMP to disable OpenMP support.
 OPENMP = -fopenmp
@@ -26,13 +32,18 @@ $(info HDF5 support is disabled. To enable it, set HDF5_ROOT in the Makefile.)
 endif
 
 
+# Flags
+
 # Compiler flags
-CXXFLAGS = -std=c++14 -I./src/ -Wall ${OPENMP}
+CXXFLAGS = -std=${CXX_STANDARD} -I./src/ -Wall ${OPENMP}
 CHEBYSHEV_SRC = ./test/chebyshev/src
 
 # Test programs
 TEST_SOURCES := $(wildcard test/prec/test_*.cpp)
 TEST_BINARIES := $(TEST_SOURCES:.cpp=)
+
+
+# Targets
 
 test_%: test/prec/test_%.cpp
 	@echo Compiling $(subst test_,,$@) module test unit...
