@@ -116,8 +116,8 @@ namespace theoretica {
 	// a single multidual number.
 	template<typename Function>
 	concept ADScalarField =
-		is_multidual_type<return_type_t<Function>>::value &&
-		is_multidual_type<vector_element_t<first_arg_t<Function>>>::value;
+		is_multidual_type<std::remove_cv_t<return_type_t<Function>>>::value &&
+		is_multidual_type<std::remove_cv_t<vector_element_t<first_arg_t<Function>>>>::value;
 
 	
 	// Concept of a vector field for automatic differentiation,
@@ -125,8 +125,8 @@ namespace theoretica {
 	// returning a vector of multidual numbers.
 	template<typename Function>
 	concept ADVectorField =
-		is_multidual_type<vector_element_t<return_type_t<Function>>>::value &&
-		is_multidual_type<vector_element_t<first_arg_t<Function>>>::value;
+		is_multidual_type<std::remove_cv_t<vector_element_t<return_type_t<Function>>>>::value &&
+		is_multidual_type<std::remove_cv_t<vector_element_t<first_arg_t<Function>>>>::value;
 
 #endif
 

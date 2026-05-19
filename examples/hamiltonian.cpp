@@ -11,7 +11,7 @@ using namespace th;
 using namespace autodiff;
 
 
-/// Given the Hamiltonian of a conservative system, computes its Hamiltonian flow of the system.
+/// Given the Hamiltonian of a conservative system, computes its Hamiltonian flow.
 template<unsigned int N>
 inline auto hamiltonian_flow(std::function<dreal_t<N>(const dvec_t<N>&)> H) {
 
