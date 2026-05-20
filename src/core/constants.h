@@ -136,7 +136,7 @@
 
 /// Default tolerance for gradient descent minimization
 #ifndef THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE
-#define THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE 1E-3
+#define THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE 1E-8
 #endif
 
 /// Maximum number of iterations for gradient descent minimization

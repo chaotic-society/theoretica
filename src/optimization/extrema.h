@@ -128,7 +128,7 @@ namespace theoretica {
 
 		iter_result<real> z = root_newton(Df, D2f, guess, tolerance, max_iter);
 
-		if(D2f(z) < 0) {
+		if(D2f(z) > 0) {
 			
 			TH_MATH_ERROR("maximize_newton", z, MathError::NoConvergence);
 
@@ -164,7 +164,7 @@ namespace theoretica {
 
 		iter_result<real> z = root_newton(Df, D2f, guess, tolerance, max_iter);
 
-		if(D2f(z) > 0) {
+		if(D2f(z) < 0) {
 
 			TH_MATH_ERROR("minimize_newton", z, MathError::NoConvergence);
 
@@ -201,7 +201,7 @@ namespace theoretica {
 		iter_result<real> z = root_bisect(Df, a, b, tolerance, max_iter);
 
 		// Approximate the function concavity
-		if(deriv_central(Df, z) < 0) {
+		if(deriv_central(Df, z) > 0) {
 
 			TH_MATH_ERROR("maximize_bisection", z, MathError::NoConvergence);
 
@@ -237,7 +237,7 @@ namespace theoretica {
 		iter_result<real> z = root_bisect(Df, a, b, tolerance, max_iter);
 
 		// Approximate the function concavity
-		if(deriv_central(Df, z) > 0) {
+		if(deriv_central(Df, z) < 0) {
 
 			TH_MATH_ERROR("minimize_bisect", z, MathError::NoConvergence);
 
