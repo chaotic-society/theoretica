@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['⚛️_20theoretica_0',['⚛️ Theoretica',['../index.html',1,'']]]
+  ['getting_20started_0',['Getting Started',['../tut_getting_started.html',1,'tutorials']]]
 ];
