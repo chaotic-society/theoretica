@@ -8,6 +8,12 @@ target_include_directories(theoretica
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/
 )
 
+# OpenMP support
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(theoretica PUBLIC OpenMP::OpenMP_CXX)
+endif()
+
 # Add examples
 add_subdirectory(examples)
 

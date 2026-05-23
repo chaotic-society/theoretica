@@ -1056,11 +1056,20 @@ namespace theoretica {
 			}
 
 			mat_zeroes(R);
-			
-			for (unsigned int i = 0; i < A.rows(); ++i)
-				for (unsigned int j = 0; j < B.cols(); ++j)
-					for (unsigned int k = 0; k < A.cols(); ++k)
-						R(i, j) += A(i, k) * B(k, j);
+
+			#pragma omp parallel for collapse(2) schedule(static)
+			for (unsigned int i = 0; i < A.rows(); ++i) {
+				for (unsigned int j = 0; j < B.cols(); ++j) {
+
+					auto sum = A(i, 0) * B(0, j);
+
+					#pragma omp simd reduction(+:sum)
+					for (unsigned int k = 1; k < A.cols(); ++k)
+						sum += A(i, k) * B(k, j);
+
+					R(i, j) = sum;
+				}
+			}
 
 			return R;
 		}

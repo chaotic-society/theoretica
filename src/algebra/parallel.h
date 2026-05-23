@@ -63,6 +63,24 @@ namespace theoretica {
 		}
 
 
+		/// Accumulate the elements of a vector in parallel, using OpenMP.
+		///
+		/// @param v The vector of values to accumulate
+		/// @return The sum of the elements of the vector
+		template<typename Vector>
+		inline auto sum(const Vector& v) {
+
+			typename Vector::value_type sum = v[0];
+
+			#pragma omp parallel for reduction(+:sum)
+			for (unsigned int i = 1; i < v.size(); i++)
+				sum += v[i];
+
+			return sum;
+		}
+
+
+
 		/// Parallel element-wise evaluation of the square function.
 		///
 		/// @param v The vector of inputs

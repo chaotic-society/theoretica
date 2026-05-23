@@ -1445,11 +1445,12 @@ namespace theoretica {
 				size_t min_elements = min(rows, row_sz) * min(cols, col_sz);
 
 				// Copy the overlapping elements
+				#pragma omp parallel for
 				for (unsigned int i = 0; i < min_elements; ++i)
 					new_data[i] = elements[i];
 			}
 
-			elements = new_data;
+			elements.swap(new_data);
 			row_sz = rows;
 			col_sz = cols;
 

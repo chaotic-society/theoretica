@@ -31,6 +31,8 @@ namespace theoretica {
 
 		public:
 
+			PRNG() = default;
+
 			/// Construct a PRNG with the given
 			/// generating algorithm p, seed x and parameters s
 			PRNG(pseudorandom_function p,

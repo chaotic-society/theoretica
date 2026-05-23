@@ -11,6 +11,9 @@
 #include "./sampling.h"
 #include "../algebra/algebra_types.h"
 
+#include <omp.h>
+
+
 
 namespace theoretica {
 
@@ -64,6 +67,59 @@ namespace theoretica {
 
 		return volume * sum_y / static_cast<real>(N);
 	}
+
+
+	/// Compute the integral of a multivariate real function
+	/// using parallelized Crude Monte Carlo integration
+	///
+	/// @param f The function to integrate
+	/// @param extremes A vector of the extremes of integration
+	/// @param g An already initialized PRNG
+	/// @param N The number of points to generate
+	template <
+		typename Function,
+		typename IntervalVector
+	>
+	inline real integral_mc(
+		Function f, IntervalVector extremes,
+		PRNG& g, uint64_t N = 1'000'000
+	) {
+
+		using Vector = typename _internal::func_helper<Function>::first_arg_type;
+		const size_t dim = extremes.size();
+		real sum = 0.0;
+
+		#pragma omp parallel reduction(+:sum)
+		{
+			// Initialize a local PRNG
+			PRNG g_loc;
+
+			#pragma omp critical
+			{
+				g_loc = PRNG::xoshiro(g());
+			}
+
+			Vector v;
+			v.resize(dim);
+
+			#pragma omp for schedule(static)
+			for (uint64_t i = 0; i < N; ++i) {
+
+				for (size_t j = 0; j < v.size(); ++j)
+					v[j] = rand_uniform(extremes[j][0], extremes[j][1], g_loc);
+
+				sum += f(v);
+			}
+		}
+
+		// Volume of the integral domain
+		real vol = 1.0;
+		for (const auto& x : extremes)
+			vol *= abs(x[1] - x[0]);
+
+		return vol * (sum / N);
+	}
+
 
 
 	/// Approximate an integral by using Crude
