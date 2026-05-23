@@ -12,7 +12,7 @@ var annotated_dup =
       [ "regression", "namespacetheoretica_1_1regression.html", [
         [ "linear_model", "structtheoretica_1_1regression_1_1linear__model.html", "structtheoretica_1_1regression_1_1linear__model" ]
       ] ],
-      [ "reprod", null, [
+      [ "reprod", "namespacetheoretica_1_1reprod.html", [
         [ "environment", "structtheoretica_1_1reprod_1_1environment.html", "structtheoretica_1_1reprod_1_1environment" ]
       ] ],
       [ "complex", "classtheoretica_1_1complex.html", "classtheoretica_1_1complex" ],

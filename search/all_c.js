@@ -34,7 +34,7 @@ var searchData=
   ['mat_5fzeroes_31',['mat_zeroes',['../namespacetheoretica_1_1algebra.html#a80a2f381c9e87d82b362982d910f2111',1,'theoretica::algebra']]],
   ['matherror_32',['MathError',['../namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3',1,'theoretica']]],
   ['max_33',['max',['../namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41',1,'theoretica::max(const Vector &amp;X)'],['../namespacetheoretica.html#a07569756dda099ecabf425371da6a31d',1,'theoretica::max(real x, real y)'],['../namespacetheoretica.html#a5e295404d1712fb17851fe105715766e',1,'theoretica::max(T x, T y)'],['../namespacetheoretica.html#a33f27a1f05cae98a0a9a55cce43c1e1b',1,'theoretica::max(const histogram &amp;h)'],['../classtheoretica_1_1histogram.html#a6bb629f097ef676e842d30fbb73b333f',1,'theoretica::histogram::max()']]],
-  ['maximize_5fbisection_34',['maximize_bisection',['../namespacetheoretica.html#af70523c25312549451f247e8dd56dde0',1,'theoretica']]],
+  ['maximize_5fbisect_34',['maximize_bisect',['../namespacetheoretica.html#a01030df947ec0d7b90bc10021fd4a213',1,'theoretica']]],
   ['maximize_5fgolden_35',['maximize_golden',['../namespacetheoretica.html#a0ebaf12e05ff57d33e4d3ff831d4e779',1,'theoretica']]],
   ['maximize_5fnewton_36',['maximize_newton',['../namespacetheoretica.html#a7f87bd6703f0f4b9d4df5de330ab13ee',1,'theoretica']]],
   ['maxiterations_37',['MaxIterations',['../namespacetheoretica.html#aef16039d729e0d421b3ca34d80fe0178a89d18cc81de326d8fc836491777795e0',1,'theoretica']]],

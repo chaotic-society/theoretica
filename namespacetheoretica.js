@@ -209,6 +209,7 @@ var namespacetheoretica =
       [ "transform", "namespacetheoretica_1_1parallel.html#a5314e9e47aa7912528f838bb37341132", null ]
     ] ],
     [ "regression", "namespacetheoretica_1_1regression.html", "namespacetheoretica_1_1regression" ],
+    [ "reprod", "namespacetheoretica_1_1reprod.html", "namespacetheoretica_1_1reprod" ],
     [ "signal", "namespacetheoretica_1_1signal.html", [
       [ "fft", "namespacetheoretica_1_1signal.html#a78e52487d0082e91ff0bf2be336980ec", null ],
       [ "ifft", "namespacetheoretica_1_1signal.html#a7abda6f973288b2f973ed0997d43f46f", null ]
@@ -501,7 +502,7 @@ var namespacetheoretica =
     [ "max", "namespacetheoretica.html#a79c3cffe1db6b2cb178d41bfc98b1c41", null ],
     [ "max", "namespacetheoretica.html#a07569756dda099ecabf425371da6a31d", null ],
     [ "max", "namespacetheoretica.html#a5e295404d1712fb17851fe105715766e", null ],
-    [ "maximize_bisection", "namespacetheoretica.html#af70523c25312549451f247e8dd56dde0", null ],
+    [ "maximize_bisect", "namespacetheoretica.html#a01030df947ec0d7b90bc10021fd4a213", null ],
     [ "maximize_golden", "namespacetheoretica.html#a0ebaf12e05ff57d33e4d3ff831d4e779", null ],
     [ "maximize_newton", "namespacetheoretica.html#a7f87bd6703f0f4b9d4df5de330ab13ee", null ],
     [ "metropolis", "namespacetheoretica.html#a66a8fc915915b6eff35dbf94c74b13bd", null ],

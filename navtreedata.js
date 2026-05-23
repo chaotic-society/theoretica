@@ -26,7 +26,14 @@ var NAVTREE =
 [
   [ "Theoretica", "index.html", [
     [ "Tutorials", "tutorials.html", [
-      [ "Getting Started", "tut_getting_started.html", null ]
+      [ "Getting Started", "tut_getting_started.html", null ],
+      [ "Linear Algebra", "tut_algebra.html", null ],
+      [ "Roots and Extrema", "tut_root_finding.html", null ],
+      [ "Statistics and Fits", "tut_statistics.html", null ],
+      [ "Automatic differentiation", "tut_autodiff.html", null ],
+      [ "Differential Equations", "tut_diffeq.html", null ],
+      [ "Integrals and Derivatives", "tut_calculus.html", null ],
+      [ "Polynomials and Interpolation", "tut_polynomials.html", null ]
     ] ],
     [ "Bibliography", "md_theoretica_2txt_2_b_i_b_l_i_o_g_r_a_p_h_y.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -71,9 +78,9 @@ var NAVTREEINDEX =
 "distributions_8h.html#a02b341a54737fbbc4201362784bf63ec",
 "montecarlo_8h.html#a3d1d65e5dba67ccf5199e5d5544e2484",
 "namespacetheoretica.html#a70f4122359c1f32ba0741d098a5fbe69",
-"namespacetheoretica_1_1algebra.html#a01182d050ae939b2fb0647806478882c",
-"namespacetheoretica_1_1ode.html#ae95941e3bd5dad298b11ca580d2fd091",
-"real__analysis_8h.html#aec6f43e74456bea35fb757f17db47da8",
+"namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718",
+"namespacetheoretica_1_1ode.html#ae98c7c4e315852292b1be27c3f17b875",
+"real__analysis_8h.html#ae57235e0b29cc687c5084e5f0aa2515c",
 "structtheoretica_1_1regression_1_1linear__model.html#a5c5d5b3e6ec294b66b2d094ac556f02b"
 ];
 
