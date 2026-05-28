@@ -52,12 +52,6 @@ namespace theoretica {
 			}
 
 
-			/// Seed the PRNG.
-			inline void seed(uint64_t seed) {
-				x = seed;
-			}
-
-
 			/// Generate a pseudorandom number.
 			inline uint64_t next() {
 				return x = f(x, param);

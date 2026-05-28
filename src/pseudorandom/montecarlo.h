@@ -11,9 +11,6 @@
 #include "./sampling.h"
 #include "../algebra/algebra_types.h"
 
-#include <omp.h>
-
-
 
 namespace theoretica {
 
@@ -43,50 +40,64 @@ namespace theoretica {
 	/// @param extremes A vector of the extremes of integration
 	/// @param g An already initialized PRNG
 	/// @param N The number of points to generate
-	template<unsigned int S>
-	inline real integral_crude(
-		real(*f)(vec<real, S>), vec<vec2, S> extremes,
-		PRNG& g, unsigned int N = 1000) {
-
-		real sum_y = 0;
-
-		// Sample the function at random points in the integration region
-		for (unsigned int i = 0; i < N; ++i) {
-		
-			vec<real, S> v;
-			for (unsigned int k = 0; k < S; ++k)
-				v[k] = rand_uniform(extremes[k][0], extremes[k][1], g);
-
-			sum_y += f(v);
-		}
-
-		// Volume of the integration region
-		real volume = 1;
-		for (unsigned int i = 0; i < S; ++i)
-			volume *= (extremes[i][1] - extremes[i][0]);
-
-		return volume * sum_y / static_cast<real>(N);
-	}
-
-
-	/// Compute the integral of a multivariate real function
-	/// using parallelized Crude Monte Carlo integration
-	///
-	/// @param f The function to integrate
-	/// @param extremes A vector of the extremes of integration
-	/// @param g An already initialized PRNG
-	/// @param N The number of points to generate
 	template <
 		typename Function,
-		typename IntervalVector
+		typename DomainVector
 	>
-	inline real integral_mc(
-		Function f, IntervalVector extremes,
-		PRNG& g, uint64_t N = 1'000'000
+	inline real integral_crude(
+		Function f, DomainVector extremes,
+		PRNG& g, unsigned int N = 1000
 	) {
 
 		using Vector = typename _internal::func_helper<Function>::first_arg_type;
 		const size_t dim = extremes.size();
+		real sum = 0.0;
+
+		Vector v;
+		v.resize(dim);
+
+		// Sample the function at random points in the integration region
+		for (unsigned int i = 0; i < N; ++i) {
+			
+			for (unsigned int k = 0; k < v.size(); ++k)
+				v[k] = rand_uniform(extremes[k][0], extremes[k][1], g);
+
+			sum += f(v);
+		}
+
+		// Volume of the integral domain
+		real volume = 1;
+		for (unsigned int i = 0; i < dim; ++i)
+			volume *= (extremes[i][1] - extremes[i][0]);
+
+		return volume * (sum / N);
+	}
+
+
+	/// Compute the integral of a multivariate real function
+	/// using parallelized Crude Monte Carlo integration.
+	///
+	/// @param f The function to integrate
+	/// @param domain The domain of integration, as a vector of pairs of
+	/// lower and upper extremes for each variable.
+	/// @param g An already initialized PRNG.
+	/// @param N The number of points to generate.
+	/// @param factory A factory function to create local PRNGs for each thread, given a seed.
+	/// Defaults to a simple factory that creates a PRNG with the default constructor and the given seed.
+	/// @return An estimate of the integral of the function in the given domain.
+	template <
+		typename Function,
+		typename DomainVector,
+		typename PRNGFactory = std::function<PRNG(uint64_t)>
+	>
+	inline real integral_mc(
+		Function f, const DomainVector& domain,
+		PRNG& g, uint64_t N = 1'000'000,
+		PRNGFactory factory = [](uint64_t seed) { return PRNG(seed); }
+	) {
+
+		using Vector = typename _internal::func_helper<Function>::first_arg_type;
+		const size_t dim = domain.size();
 		real sum = 0.0;
 
 		#pragma omp parallel reduction(+:sum)
@@ -96,7 +107,7 @@ namespace theoretica {
 
 			#pragma omp critical
 			{
-				g_loc = PRNG::xoshiro(g());
+				g_loc = factory(g());
 			}
 
 			Vector v;
@@ -106,7 +117,7 @@ namespace theoretica {
 			for (uint64_t i = 0; i < N; ++i) {
 
 				for (size_t j = 0; j < v.size(); ++j)
-					v[j] = rand_uniform(extremes[j][0], extremes[j][1], g_loc);
+					v[j] = rand_uniform(domain[j][0], domain[j][1], g_loc);
 
 				sum += f(v);
 			}
@@ -114,7 +125,7 @@ namespace theoretica {
 
 		// Volume of the integral domain
 		real vol = 1.0;
-		for (const auto& x : extremes)
+		for (const auto& x : domain)
 			vol *= abs(x[1] - x[0]);
 
 		return vol * (sum / N);
