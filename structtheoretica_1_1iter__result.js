@@ -10,6 +10,7 @@ var structtheoretica_1_1iter__result =
     [ "converged", "structtheoretica_1_1iter__result.html#af00a5398c76bb61b2a52b0d8e851fe6e", null ],
     [ "operator bool", "structtheoretica_1_1iter__result.html#a0bdd3c4b0309f8463365fe5834117e8c", null ],
     [ "operator Type", "structtheoretica_1_1iter__result.html#a531ca6ebd1295f340fb342fffabd8848", null ],
+    [ "safe", "structtheoretica_1_1iter__result.html#a5d058b8b6ced54dd7efa34f16bfc284c", null ],
     [ "status_string", "structtheoretica_1_1iter__result.html#a3cd4576707d01ba5162a7344ef58ec17", null ],
     [ "to_string", "structtheoretica_1_1iter__result.html#a6d698aeb32fc57fe4de894630f803e2a", null ],
     [ "operator<<", "structtheoretica_1_1iter__result.html#a1e2c94b87abec91b3bd62311f9b22625", null ],

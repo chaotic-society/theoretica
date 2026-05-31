@@ -24,6 +24,7 @@ var annotated_dup =
       [ "mat", "classtheoretica_1_1mat.html", "classtheoretica_1_1mat" ],
       [ "mat< Type, 0, 0 >", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4" ],
       [ "mat_iterator", "classtheoretica_1_1mat__iterator.html", "classtheoretica_1_1mat__iterator" ],
+      [ "math_exception", "classtheoretica_1_1math__exception.html", "classtheoretica_1_1math__exception" ],
       [ "multidual", "classtheoretica_1_1multidual.html", "classtheoretica_1_1multidual" ],
       [ "pdf_sampler", "structtheoretica_1_1pdf__sampler.html", "structtheoretica_1_1pdf__sampler" ],
       [ "phasor", "classtheoretica_1_1phasor.html", "classtheoretica_1_1phasor" ],

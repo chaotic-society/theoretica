@@ -1,5 +1,6 @@
 var core_2error_8h =
 [
+    [ "theoretica::math_exception", "classtheoretica_1_1math__exception.html", "classtheoretica_1_1math__exception" ],
     [ "TH_MATH_ERROR", "core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e", null ],
     [ "MathError", "core_2error_8h.html#a9ff1f49a0a30fe7c2e491d30de30d4b3", [
       [ "None", "core_2error_8h.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a6adf97f83acf6453d4a6a4b1070f3754", null ],

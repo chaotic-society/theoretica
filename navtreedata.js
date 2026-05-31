@@ -73,15 +73,15 @@ var NAVTREEINDEX =
 "classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
 "classtheoretica_1_1histogram.html#a3cef106441fd1a131e8a824382439507",
 "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a64279fe87c9a49c55f0860bb983fff89",
-"classtheoretica_1_1polynomial.html#a458b7b1541b439b9aa3f76965b87834a",
-"classtheoretica_1_1vec.html#a956f68fcae429e0be6dc66185db9886f",
-"distributions_8h.html#a02b341a54737fbbc4201362784bf63ec",
-"montecarlo_8h.html#a3d1d65e5dba67ccf5199e5d5544e2484",
-"namespacetheoretica.html#a70f4122359c1f32ba0741d098a5fbe69",
-"namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718",
-"namespacetheoretica_1_1ode.html#ae98c7c4e315852292b1be27c3f17b875",
-"real__analysis_8h.html#ae57235e0b29cc687c5084e5f0aa2515c",
-"structtheoretica_1_1regression_1_1linear__model.html#a5c5d5b3e6ec294b66b2d094ac556f02b"
+"classtheoretica_1_1phasor.html#af797c64969da562e8a490bb8db51560f",
+"classtheoretica_1_1vec.html#a5f1dd78b61893d838da2501db730835e",
+"distance_8h.html",
+"io_8h_source.html",
+"namespacetheoretica.html#a6500750eaa5ea09bf1a2fa8ca1c1d430",
+"namespacetheoretica.html#af1a4ad4c5446986fe2d255a03be337a1",
+"namespacetheoretica_1_1io.html#afe92e9507fc5ea82a2ae6fa4e1d07304",
+"real__analysis_8h.html#a7f2d69e3a3387958a27d4a03ed478a99",
+"structtheoretica_1_1pdf__sampler.html#aad9980e062c23e0cdebe4db321e4bf98"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

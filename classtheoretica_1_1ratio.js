@@ -12,6 +12,7 @@ var classtheoretica_1_1ratio =
     [ "operator-", "classtheoretica_1_1ratio.html#ac3ff41a5f452c7e402e72e960fb4699b", null ],
     [ "operator/", "classtheoretica_1_1ratio.html#a2b49241f06c0e0098885218fab85dcd5", null ],
     [ "operator/", "classtheoretica_1_1ratio.html#aa653b6aa2cdd9ba7a07e62f2b5b352ec", null ],
+    [ "reduce", "classtheoretica_1_1ratio.html#a0c13bde39dad85fa5865385ced2209d1", null ],
     [ "to_string", "classtheoretica_1_1ratio.html#aa0fd234ef38da6eba29da1c65299b3d3", null ],
     [ "operator<<", "classtheoretica_1_1ratio.html#a93e09648fadabcd8d6a723fb678ad5d8", null ],
     [ "den", "classtheoretica_1_1ratio.html#a0cd6002cbef8b23bba837eb620e066a4", null ],

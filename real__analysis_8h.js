@@ -27,6 +27,7 @@ var real__analysis_8h =
     [ "falling_fact", "real__analysis_8h.html#adb032626b2f25bf5c31026c1ee6e639d", null ],
     [ "floor", "real__analysis_8h.html#afad5c92586d6a0f841bfcd3759eff317", null ],
     [ "fract", "real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a", null ],
+    [ "gcd", "real__analysis_8h.html#a4d3300912dc31399fe10f77ef0be2e05", null ],
     [ "heaviside", "real__analysis_8h.html#a024554cae44fb42700e8f68d235f0f15", null ],
     [ "icbrt", "real__analysis_8h.html#ad830de3729f8f2bea38d60ef706cf968", null ],
     [ "identity", "real__analysis_8h.html#ac8e3b9080dde2e7542682cf79f0bbf50", null ],
