@@ -142,6 +142,12 @@ var namespacetheoretica =
       [ "laplacian", "namespacetheoretica_1_1autodiff.html#ac5978082af08abe843fef3f589a8dfdf", null ],
       [ "laplacian", "namespacetheoretica_1_1autodiff.html#a302715218e43e30f40a14c677bcb2950", null ]
     ] ],
+    [ "bits", "namespacetheoretica_1_1bits.html", [
+      [ "bit_rotate", "namespacetheoretica_1_1bits.html#aafdffa04f68cffad5d8bee3ee47258f7", null ],
+      [ "mix_mum", "namespacetheoretica_1_1bits.html#abe944dd9dd714045bfbec7ab74023db5", null ],
+      [ "mul_uint128", "namespacetheoretica_1_1bits.html#acba7d94c3ddb555fa0d97b118afda040", null ],
+      [ "swap_bit_reverse", "namespacetheoretica_1_1bits.html#a172973b704d4f5190343c25a57b7d0b3", null ]
+    ] ],
     [ "distribution", "namespacetheoretica_1_1distribution.html", [
       [ "bernoulli", "namespacetheoretica_1_1distribution.html#a1787fdadca79a1cf48d4935567ac4fb4", null ],
       [ "bernoulli", "namespacetheoretica_1_1distribution.html#a2e1d320249b8efb3dfb78d7ae3a08aa9", null ],
@@ -350,7 +356,6 @@ var namespacetheoretica =
     [ "bezier_cubic", "namespacetheoretica.html#aaaf44383d3f583ecb89a1c5eeb6565e4", null ],
     [ "bezier_quadratic", "namespacetheoretica.html#a7a3f2a269383601c599da33d81b1c74a", null ],
     [ "binomial_coeff", "namespacetheoretica.html#a129bf1f1085a76b92999e0faeb30e831", null ],
-    [ "bit_rotate", "namespacetheoretica.html#a4024f1ecd6e937492928965a417c2bc9", null ],
     [ "catalan", "namespacetheoretica.html#a30aae7ee5989d1ae26c670c757483176", null ],
     [ "cbrt", "namespacetheoretica.html#a61c3b797f94ec5bc22b4c22f85417c93", null ],
     [ "chebyshev1_polynomial", "namespacetheoretica.html#a085e34f437a529b59778090e0cb122e5", null ],
@@ -515,8 +520,6 @@ var namespacetheoretica =
     [ "minimize_bisect", "namespacetheoretica.html#afefab09121a082c2b8fb8594f632434e", null ],
     [ "minimize_golden", "namespacetheoretica.html#aea6adb91ddb979c887dc437e02254003", null ],
     [ "minimize_newton", "namespacetheoretica.html#a864f46d7bf594f06e58dc94017c7083b", null ],
-    [ "mix_mum", "namespacetheoretica.html#a672dbbc0ea824c71d7ca0dc26b346200", null ],
-    [ "mul_uint128", "namespacetheoretica.html#aca2b51694a7dd4ded3a140f92366aaed", null ],
     [ "multi_maximize", "namespacetheoretica.html#af8503d01da58faad497a7ea1b116b695", null ],
     [ "multi_maximize_grad", "namespacetheoretica.html#aced8b56a23a4a3b00f18ad86ec5edb56", null ],
     [ "multi_maximize_lingrad", "namespacetheoretica.html#a6fddc2038e18229a8556bd406404f006", null ],
@@ -631,7 +634,6 @@ var namespacetheoretica =
     [ "sum_compensated", "namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7", null ],
     [ "sum_pairwise", "namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896", null ],
     [ "sum_squares", "namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896", null ],
-    [ "swap_bit_reverse", "namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb", null ],
     [ "tan", "namespacetheoretica.html#a92971816c6dda74903738b66ff69fb9c", null ],
     [ "tan", "namespacetheoretica.html#afef33e5920ccf4cfe7f79c70ebc9dfbb", null ],
     [ "tan", "namespacetheoretica.html#ac81dcde719b69b4d63ecd3127cb289d9", null ],

@@ -1,6 +1,6 @@
 var dir_aebb8dcc11953d78e620bbef0b9e2183 =
 [
-    [ "bit_op.h", "bit__op_8h.html", "bit__op_8h" ],
+    [ "bits.h", "bits_8h.html", "bits_8h" ],
     [ "constants.h", "constants_8h.html", "constants_8h" ],
     [ "core_traits.h", "core__traits_8h.html", null ],
     [ "dataset.h", "dataset_8h.html", "dataset_8h" ],

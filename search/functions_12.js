@@ -58,6 +58,6 @@ var searchData=
   ['sum_5fcompensated_55',['sum_compensated',['../namespacetheoretica.html#a173a64c4f73cb7abd476b739005d94e7',1,'theoretica']]],
   ['sum_5fpairwise_56',['sum_pairwise',['../namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896',1,'theoretica']]],
   ['sum_5fsquares_57',['sum_squares',['../namespacetheoretica.html#aec4e70500501fc48d6ad18f8abfc1896',1,'theoretica']]],
-  ['swap_5fbit_5freverse_58',['swap_bit_reverse',['../namespacetheoretica.html#afc3702e8779681c1323f7a98f7f6a3cb',1,'theoretica']]],
+  ['swap_5fbit_5freverse_58',['swap_bit_reverse',['../namespacetheoretica_1_1bits.html#a172973b704d4f5190343c25a57b7d0b3',1,'theoretica::bits']]],
   ['symplectic_59',['symplectic',['../namespacetheoretica_1_1algebra.html#a02e77b387067938a20b4da8bdf642718',1,'theoretica::algebra']]]
 ];
