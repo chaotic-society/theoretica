@@ -49,7 +49,7 @@ var classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4 =
     [ "transform", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a97061e37ac446048b01fd3d3ad9dbdb8", null ],
     [ "transpose", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#ac9e1d517bb04b6916bc84922a3165f3c", null ],
     [ "unpack", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a1e5cdc87c70cb06e5ddcf5bdcdab829f", null ],
-    [ "operator*", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a8259fdfd1fc6bcd302d0e05736a92a42", null ],
+    [ "operator*", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a8a926141635644000fa2b845d1f1e2d7", null ],
     [ "operator*", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a47fc618dc330aad2a60c772b6641f29f", null ],
     [ "operator<<", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a0323c4612207376039df21df679538e1", null ],
     [ "col_sz", "classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0", null ],

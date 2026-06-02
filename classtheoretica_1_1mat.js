@@ -47,7 +47,7 @@ var classtheoretica_1_1mat =
     [ "transform", "classtheoretica_1_1mat.html#a5fa7cfebf02f4ceac6ac0bf705a3a7f1", null ],
     [ "transpose", "classtheoretica_1_1mat.html#a742b71e14e3af6ef2aecd4b9c0eb1d81", null ],
     [ "unpack", "classtheoretica_1_1mat.html#a1a908162703c45ca844c1b21eb9370fc", null ],
-    [ "operator*", "classtheoretica_1_1mat.html#a6aff3da31f69cc382a30da7f953e750c", null ],
+    [ "operator*", "classtheoretica_1_1mat.html#a2b91e9043cb5601b239db27193f82c0c", null ],
     [ "operator*", "classtheoretica_1_1mat.html#aa19b0ffc2b105c7ea9de2f62e8bf7947", null ],
     [ "operator<<", "classtheoretica_1_1mat.html#a32bd91387ea2f8f18a6c0bbcad34f6fb", null ]
 ];

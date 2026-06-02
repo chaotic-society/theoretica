@@ -78,6 +78,8 @@ var algebra_8h =
     [ "vec_diff", "algebra_8h.html#a6afcd5de93f3c5bb57f7a1964a768075", null ],
     [ "vec_diff", "algebra_8h.html#aad4487895be628508f067a215df9de0e", null ],
     [ "vec_error", "algebra_8h.html#acedb7a30970499d5e6a1f7f6137b6451", null ],
+    [ "vec_mat_mul", "algebra_8h.html#a52c14eaeede97bfc2f857c3aa7cf580d", null ],
+    [ "vec_mat_mul", "algebra_8h.html#a6bfd432539ff6953632e148bd19a91e6", null ],
     [ "vec_scalmul", "algebra_8h.html#afceadb5165f258a031449bc262f66f73", null ],
     [ "vec_scalmul", "algebra_8h.html#a60b3fdeb09b24462b60c7b15cfcc1e2b", null ],
     [ "vec_sum", "algebra_8h.html#a26d05776d64b85e0b2de6a6e3939c701", null ],

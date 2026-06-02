@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../core/real_analysis.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../polynomial/polynomial.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../algebra/algebra_types.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../algebra/algebra.h&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../core/function.h&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -134,12 +134,12 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span>(!x.size()) {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;lagrange&quot;</span>, x.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;polynomial&lt;Type&gt;</a>&gt;(1);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">polynomial&lt;Type&gt;</a>(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;Type&gt;</a>());</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">if</span>(x.size() != <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">y</a>.size()) {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;lagrange&quot;</span>, <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">y</a>.size(), <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;polynomial&lt;Type&gt;</a>&gt;(1);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">polynomial&lt;Type&gt;</a>(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;Type&gt;</a>());</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// Check that all x_i are different to prevent division by zero</span></div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655">abs</a>(x[i] - x[i + 1]) &lt; <a class="code hl_variable" href="namespacetheoretica.html#aa34d8798921a9b3b78e885a455ff4211">MACH_EPSILON</a>) {</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                <a class="code hl_define" href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a>(<span class="stringliteral">&quot;lagrange&quot;</span>, x[i], <a class="code hl_enumvalue" href="namespacetheoretica.html#a9ff1f49a0a30fe7c2e491d30de30d4b3a253ca7dd096ee0956cccee4d376cab8b">MathError::InvalidArgument</a>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;polynomial&lt;Type&gt;</a>&gt;(1);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">polynomial&lt;Type&gt;</a>(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error&lt;Type&gt;</a>());</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            }</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
@@ -277,7 +277,7 @@ $(document).ready(function(){initNavTree('interpolation_2polynomial_8h_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_264890e5c091f8c8d7fe1f842870c25e.html">interpolation</a></li><li class="navelem"><a class="el" href="interpolation_2polynomial_8h.html">polynomial.h</a></li>
-    <li class="footer">Generated on Tue Jun 2 2026 12:35:53 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Jun 2 2026 17:07:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

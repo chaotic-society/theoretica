@@ -1,5 +1,9 @@
 var NAVTREEINDEX11 =
 {
+"real__analysis_8h.html#a0650ea8e1435cc518e960bfcecf5b66e":[4,0,4,8,53],
+"real__analysis_8h.html#a07569756dda099ecabf425371da6a31d":[4,0,4,8,39],
+"real__analysis_8h.html#a124297369ecba10c8516dc5a920aad1a":[4,0,4,8,2],
+"real__analysis_8h.html#a129bf1f1085a76b92999e0faeb30e831":[4,0,4,8,8],
 "real__analysis_8h.html#a12fc03cbb1de8180e51183bb82c0bb28":[4,0,4,8,15],
 "real__analysis_8h.html#a13248f2e439afdb6f72e0f2c1e79cc55":[4,0,4,8,44],
 "real__analysis_8h.html#a1dd4867609a302e1846b9cbdb83f629f":[4,0,4,8,47],
@@ -25,12 +29,12 @@ var NAVTREEINDEX11 =
 "real__analysis_8h.html#a748eca731a8c05226332e5723b7a9d91":[4,0,4,8,35],
 "real__analysis_8h.html#a79b06e5bf997c4447c10f2fa96649347":[4,0,4,8,3],
 "real__analysis_8h.html#a7a76685197faa15403e24b836830cf5d":[4,0,4,8,50],
-"real__analysis_8h.html#a7c15162e0a595ecd7fea0e11b7aa287e":[4,0,4,8,38],
 "real__analysis_8h.html#a7f2d69e3a3387958a27d4a03ed478a99":[4,0,4,8,1],
 "real__analysis_8h.html#a840b8c27d0a8398f33858b1f8d55732d":[4,0,4,8,19],
 "real__analysis_8h.html#a85d079c3d95f2bc80c4619d13ff7263a":[4,0,4,8,26],
 "real__analysis_8h.html#a8b5b285f294e32d7e2a601152d67b4b2":[4,0,4,8,23],
 "real__analysis_8h.html#a96f957ad9b2354268f56ab1ca3843080":[4,0,4,8,17],
+"real__analysis_8h.html#a98e0befab3d92b44efb5909253a1ca71":[4,0,4,8,38],
 "real__analysis_8h.html#a9c294777af8fa0a24214e081167d39dc":[4,0,4,8,32],
 "real__analysis_8h.html#aa2e4cf02f9bcb4caf5371ee05d67df8d":[4,0,4,8,54],
 "real__analysis_8h.html#aa5177ff64d981840e149d1e282f1b27e":[4,0,4,8,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX11 =
 "structtheoretica_1_1iter__result.html#abd87dda327f3b6ed47e47ff67738a3c7":[3,0,0,9,17],
 "structtheoretica_1_1iter__result.html#abd87dda327f3b6ed47e47ff67738a3c7":[2,0,1,19,17],
 "structtheoretica_1_1iter__result.html#abf5df9fe8413201c0051da6493882349":[2,0,1,19,4],
-"structtheoretica_1_1iter__result.html#abf5df9fe8413201c0051da6493882349":[3,0,0,9,4],
-"structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb":[2,0,1,19,16],
-"structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb":[3,0,0,9,16],
-"structtheoretica_1_1iter__result.html#af00a5398c76bb61b2a52b0d8e851fe6e":[2,0,1,19,7],
-"structtheoretica_1_1iter__result.html#af00a5398c76bb61b2a52b0d8e851fe6e":[3,0,0,9,7]
+"structtheoretica_1_1iter__result.html#abf5df9fe8413201c0051da6493882349":[3,0,0,9,4]
 };

@@ -70,18 +70,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8h.html",
-"classtheoretica_1_1complex.html#ae80c4e79892adb73e3070d502c9876c5",
-"classtheoretica_1_1histogram.html#a3cef106441fd1a131e8a824382439507",
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a64279fe87c9a49c55f0860bb983fff89",
-"classtheoretica_1_1phasor.html#af797c64969da562e8a490bb8db51560f",
-"classtheoretica_1_1vec.html#a5f1dd78b61893d838da2501db730835e",
-"distance_8h.html",
-"interpolation_2polynomial_8h.html#a744c9f4e981959a9d7af7cdc9b3ee020",
-"namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3",
-"namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9",
-"namespacetheoretica_1_1io.html#a759bd549ef64c253059814e54e5176de",
-"real__analysis_8h.html#a12fc03cbb1de8180e51183bb82c0bb28",
-"structtheoretica_1_1ode_1_1ode__solution__t.html"
+"classtheoretica_1_1complex.html#adfa6e110991e7e538da117386d6d70ef",
+"classtheoretica_1_1histogram.html#a238be6d7b8c804d31b89fbc43fef5c34",
+"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2",
+"classtheoretica_1_1phasor.html#af4a77a861634e4efab52105080955f4a",
+"classtheoretica_1_1vec.html#a4f3ddd987fdea5ea38fd4c210cc0478d",
+"dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html",
+"interpolation_2polynomial_8h.html#a348f61edeabdf1220a85a3747b26aee4",
+"namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53",
+"namespacetheoretica.html#ae684a386b63be0bd1c1a042c8430ad1f",
+"namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa736928ea9daf503d4221856170bfe48c",
+"real__analysis_8h.html#a0650ea8e1435cc518e960bfcecf5b66e",
+"structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

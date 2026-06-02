@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53":[2,0,1,61],
+"namespacetheoretica.html#a4ed022df42e2b7152fc916433acbfbcc":[2,0,1,182],
 "namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3":[2,0,1,165],
 "namespacetheoretica.html#a50cd5107369678c27b30dbae079283c5":[2,0,1,155],
 "namespacetheoretica.html#a5101414a44ee9cfda63aea95ea40ef97":[2,0,1,219],
@@ -62,7 +64,6 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#a7a3f2a269383601c599da33d81b1c74a":[2,0,1,84],
 "namespacetheoretica.html#a7a76685197faa15403e24b836830cf5d":[2,0,1,333],
 "namespacetheoretica.html#a7a854543c4d5334c61247aed920937c7":[2,0,1,196],
-"namespacetheoretica.html#a7c15162e0a595ecd7fea0e11b7aa287e":[2,0,1,228],
 "namespacetheoretica.html#a7d4160ef942a7f710c85250f69e65def":[2,0,1,95],
 "namespacetheoretica.html#a7d4691051e74a09eb5e7285a6ee90e62":[2,0,1,397],
 "namespacetheoretica.html#a7e708ed0859828011f0d262c93274ec3":[2,0,1,297],
@@ -104,6 +105,7 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#a97cec74fe963806729cbdd0d43de5cd3":[2,0,1,102],
 "namespacetheoretica.html#a989e6f0a6fd6fe05664b6d5de8aaaaf5":[2,0,1,127],
 "namespacetheoretica.html#a98aafc63fe4127e81acdfd9c69ace2ae":[2,0,1,243],
+"namespacetheoretica.html#a98e0befab3d92b44efb5909253a1ca71":[2,0,1,228],
 "namespacetheoretica.html#a99ddd9fc13f4c8b28ea4025640cbadf4":[2,0,1,280],
 "namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5":[2,0,1,49],
 "namespacetheoretica.html#a9ab906f1a292b9290eaeb5b947b34561":[2,0,1,211],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#ae57235e0b29cc687c5084e5f0aa2515c":[2,0,1,135],
 "namespacetheoretica.html#ae648762992e4710d0d7d2c9d01c0e66d":[2,0,1,398],
 "namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0":[2,0,1,356],
-"namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b":[2,0,1,293],
-"namespacetheoretica.html#ae684a386b63be0bd1c1a042c8430ad1f":[2,0,1,325],
-"namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0":[2,0,1,412]
+"namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b":[2,0,1,293]
 };

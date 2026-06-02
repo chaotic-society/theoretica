@@ -1262,16 +1262,19 @@ $(document).ready(function(){initNavTree('real__analysis_8h_source.html',''); in
 </div>
 <div class="line"><a id="l01330" name="l01330"></a><span class="lineno"> 1330</span> </div>
 <div class="line"><a id="l01331" name="l01331"></a><span class="lineno"> 1331</span> </div>
-<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type = real&gt;</div>
-<div class="foldopen" id="foldopen01343" data-start="{" data-end="}">
-<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a7c15162e0a595ecd7fea0e11b7aa287e"> 1343</a></span>    <a class="code hl_define" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> <span class="keyword">inline</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">Type</a> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error</a>() {</div>
-<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">Type</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
-<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>    }</div>
+<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>        <span class="keyword">typename</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">Type</a> = <a class="code hl_typedef" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>,</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>        <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">disable_vector&lt;Type&gt;</a> = <span class="keyword">true</span></div>
+<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>    &gt;</div>
+<div class="foldopen" id="foldopen01346" data-start="{" data-end="}">
+<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"><a class="line" href="namespacetheoretica.html#a98e0befab3d92b44efb5909253a1ca71"> 1346</a></span>    <a class="code hl_define" href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a> <span class="keyword">inline</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">Type</a> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">make_error</a>() {</div>
+<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">Type</a>(<a class="code hl_function" href="namespacetheoretica.html#a88ee927450a4d29cb6318b2aede74fa6">nan</a>());</div>
+<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span>    }</div>
 </div>
-<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span> </div>
-<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>}</div>
-<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span> </div>
-<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span> </div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span>}</div>
+<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span> </div>
+<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconstants_8h_html"><div class="ttname"><a href="constants_8h.html">constants.h</a></div><div class="ttdoc">Mathematical constants and default algorithm parameters.</div></div>
 <div class="ttc" id="aconstants_8h_html_aa0d72dcb7db38b3577234c144089a71a"><div class="ttname"><a href="constants_8h.html#aa0d72dcb7db38b3577234c144089a71a">TH_CONSTEXPR</a></div><div class="ttdeci">#define TH_CONSTEXPR</div><div class="ttdoc">Enable constexpr in function declarations if C++14 is supported.</div><div class="ttdef"><b>Definition</b> constants.h:170</div></div>
 <div class="ttc" id="acore_2error_8h_html_a3cb22530e3e3a835f4af97e985e6a32e"><div class="ttname"><a href="core_2error_8h.html#a3cb22530e3e3a835f4af97e985e6a32e">TH_MATH_ERROR</a></div><div class="ttdeci">#define TH_MATH_ERROR(F_NAME, VALUE, EXCEPTION)</div><div class="ttdoc">TH_MATH_ERROR is a macro which throws exceptions or modifies errno (depending on which compilation op...</div><div class="ttdef"><b>Definition</b> error.h:219</div></div>
@@ -1361,7 +1364,7 @@ $(document).ready(function(){initNavTree('real__analysis_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="real__analysis_8h.html">real_analysis.h</a></li>
-    <li class="footer">Generated on Tue Jun 2 2026 12:35:53 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Jun 2 2026 17:07:56 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

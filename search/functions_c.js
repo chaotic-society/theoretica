@@ -1,7 +1,7 @@
 var searchData=
 [
   ['make_5fargument_0',['make_argument',['../classtheoretica_1_1multidual.html#ab4588cefcaea31cc72265436c9d036e9',1,'theoretica::multidual']]],
-  ['make_5ferror_1',['make_error',['../namespacetheoretica.html#a7c15162e0a595ecd7fea0e11b7aa287e',1,'theoretica::make_error()'],['../namespacetheoretica.html#a567ac5a1ec6dc4f7d1822fb126b13e6d',1,'theoretica::make_error()'],['../namespacetheoretica.html#a65fcdcce879cbb324e6c7f474e715211',1,'theoretica::make_error(unsigned int rows, unsigned int cols)'],['../namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360',1,'theoretica::make_error()'],['../namespacetheoretica.html#a718483d128705dd92a0576a87ed33471',1,'theoretica::make_error(unsigned int n)']]],
+  ['make_5ferror_1',['make_error',['../namespacetheoretica.html#a98e0befab3d92b44efb5909253a1ca71',1,'theoretica::make_error()'],['../namespacetheoretica.html#a567ac5a1ec6dc4f7d1822fb126b13e6d',1,'theoretica::make_error()'],['../namespacetheoretica.html#a65fcdcce879cbb324e6c7f474e715211',1,'theoretica::make_error(unsigned int rows, unsigned int cols)'],['../namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360',1,'theoretica::make_error()'],['../namespacetheoretica.html#a718483d128705dd92a0576a87ed33471',1,'theoretica::make_error(unsigned int n)']]],
   ['make_5fhermitian_2',['make_hermitian',['../namespacetheoretica_1_1algebra.html#afc5ae85e773f42a3d4dca948067f5324',1,'theoretica::algebra']]],
   ['make_5fidentity_3',['make_identity',['../namespacetheoretica_1_1algebra.html#a2fdbfbad332a15de0037edb0116b6023',1,'theoretica::algebra']]],
   ['make_5fnormalized_4',['make_normalized',['../namespacetheoretica_1_1algebra.html#a3b62d14e94e493460b4eb6b9c9b716ae',1,'theoretica::algebra']]],
