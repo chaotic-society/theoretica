@@ -108,67 +108,68 @@ $(document).ready(function(){initNavTree('strings_8h_source.html',''); initResiz
   <div class="headertitle"><div class="title">strings.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef THEORETICA_IO_STRINGS_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define THEORETICA_IO_STRINGS_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>io {</div>
+<a href="strings_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef THEORETICA_IO_STRINGS_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define THEORETICA_IO_STRINGS_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">   16</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">is_number</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.empty())</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">const</span> std::string <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">allowed</a> = <span class="stringliteral">&quot;1234567890.,Ee+-Nnaif&quot;</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">allowed</a>.find(c) == std::string::npos)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">theoretica</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>io {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">   20</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">is_number</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.empty())</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">const</span> std::string <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">allowed</a> = <span class="stringliteral">&quot;1234567890.,Ee+-Nnaif&quot;</span>;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">allowed</a>.find(c) == std::string::npos)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">   36</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">trim</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> = 0;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">while</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> &lt; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() &amp;&amp; std::isspace(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>[<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>]))</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            ++<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">   40</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">trim</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">size_t</span> end = <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">while</span> (end &gt; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> &amp;&amp; std::isspace(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>[end - 1]))</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            --end;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">while</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> &lt; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() &amp;&amp; std::isspace(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>[<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>]))</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            ++<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.substr(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>, end - <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">size_t</span> end = <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">while</span> (end &gt; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a> &amp;&amp; std::isspace(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>[end - 1]))</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            --end;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.substr(<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>, end - <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">start</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">   54</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">unquote</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() &gt;= 2 &amp;&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.front() == <span class="charliteral">&#39;&quot;&#39;</span> &amp;&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.back() == <span class="charliteral">&#39;&quot;&#39;</span>)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.substr(1, <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() - 2);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">   58</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">unquote</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() &gt;= 2 &amp;&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.front() == <span class="charliteral">&#39;&quot;&#39;</span> &amp;&amp; <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.back() == <span class="charliteral">&#39;&quot;&#39;</span>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.substr(1, <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>.length() - 2);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">str</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacetheoretica_1_1io_html_a3f01af6b910857d7e8d6091d6a21f4d2"><div class="ttname"><a href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">theoretica::io::is_number</a></div><div class="ttdeci">bool is_number(const std::string &amp;str)</div><div class="ttdoc">Check if a given string could be correctly interpreted as a number.</div><div class="ttdef"><b>Definition</b> strings.h:16</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1io_html_a453e3b843df0e268ace3e0fec455a07b"><div class="ttname"><a href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">theoretica::io::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;str)</div><div class="ttdoc">Remove all leading and trailing whitespace from a string, returning the resulting string.</div><div class="ttdef"><b>Definition</b> strings.h:36</div></div>
-<div class="ttc" id="anamespacetheoretica_1_1io_html_acd9b663e91b6529745ff4c0f311b3e21"><div class="ttname"><a href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">theoretica::io::unquote</a></div><div class="ttdeci">std::string unquote(const std::string &amp;str)</div><div class="ttdoc">Remove leading and trailing double quotes from a string, if both are present.</div><div class="ttdef"><b>Definition</b> strings.h:54</div></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacetheoretica_1_1io_html_a3f01af6b910857d7e8d6091d6a21f4d2"><div class="ttname"><a href="namespacetheoretica_1_1io.html#a3f01af6b910857d7e8d6091d6a21f4d2">theoretica::io::is_number</a></div><div class="ttdeci">bool is_number(const std::string &amp;str)</div><div class="ttdoc">Check if a given string could be correctly interpreted as a number.</div><div class="ttdef"><b>Definition</b> strings.h:20</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1io_html_a453e3b843df0e268ace3e0fec455a07b"><div class="ttname"><a href="namespacetheoretica_1_1io.html#a453e3b843df0e268ace3e0fec455a07b">theoretica::io::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;str)</div><div class="ttdoc">Remove all leading and trailing whitespace from a string, returning the resulting string.</div><div class="ttdef"><b>Definition</b> strings.h:40</div></div>
+<div class="ttc" id="anamespacetheoretica_1_1io_html_acd9b663e91b6529745ff4c0f311b3e21"><div class="ttname"><a href="namespacetheoretica_1_1io.html#acd9b663e91b6529745ff4c0f311b3e21">theoretica::io::unquote</a></div><div class="ttdeci">std::string unquote(const std::string &amp;str)</div><div class="ttdoc">Remove leading and trailing double quotes from a string, if both are present.</div><div class="ttdef"><b>Definition</b> strings.h:58</div></div>
 <div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
 <div class="ttc" id="anamespacetheoretica_html_a4a267bbfdf38e749e122a2b0cc0a4360"><div class="ttname"><a href="namespacetheoretica.html#a4a267bbfdf38e749e122a2b0cc0a4360">theoretica::make_error</a></div><div class="ttdeci">Vector make_error()</div><div class="ttdoc">Create a vector representing an error state, with all NaN values.</div><div class="ttdef"><b>Definition</b> algebra.h:103</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -176,8 +177,8 @@ $(document).ready(function(){initNavTree('strings_8h_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html">io</a></li><li class="navelem"><b>strings.h</b></li>
-    <li class="footer">Generated on Sun May 31 2026 17:54:09 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html">io</a></li><li class="navelem"><a class="el" href="strings_8h.html">strings.h</a></li>
+    <li class="footer">Generated on Tue Jun 2 2026 12:35:53 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

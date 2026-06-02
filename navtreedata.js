@@ -76,12 +76,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1phasor.html#af797c64969da562e8a490bb8db51560f",
 "classtheoretica_1_1vec.html#a5f1dd78b61893d838da2501db730835e",
 "distance_8h.html",
-"io_8h_source.html",
-"namespacetheoretica.html#a65fcdcce879cbb324e6c7f474e715211",
-"namespacetheoretica.html#af62665bb64745df12234614b05c2dfb3",
-"namespacetheoretica_1_1io.html#af67200d51829d92c22f2426b71057a92",
-"real__analysis_8h.html#a7c15162e0a595ecd7fea0e11b7aa287e",
-"structtheoretica_1_1pdf__sampler.html#a95faaf9e3d1914d735fc05204962bfcc"
+"interpolation_2polynomial_8h.html#a744c9f4e981959a9d7af7cdc9b3ee020",
+"namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3",
+"namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9",
+"namespacetheoretica_1_1io.html#a759bd549ef64c253059814e54e5176de",
+"real__analysis_8h.html#a12fc03cbb1de8180e51183bb82c0bb28",
+"structtheoretica_1_1ode_1_1ode__solution__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
