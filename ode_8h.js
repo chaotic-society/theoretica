@@ -14,8 +14,6 @@ var ode_8h =
     [ "solve_midpoint", "ode_8h.html#a5261827d337ed89d7c4f1365ea0d3b8c", null ],
     [ "solve_rk2", "ode_8h.html#af29a352c211c0b207fdbf7db64cf4a26", null ],
     [ "solve_rk4", "ode_8h.html#a7d4055c4e2921f0f1130df897cf85233", null ],
-    [ "step_adams2", "ode_8h.html#a55398515c698ad2631ef9e9540891120", null ],
-    [ "step_adams3", "ode_8h.html#a50d8ad34d325c3ac9dd2c7079b60f230", null ],
     [ "step_euler", "ode_8h.html#a1c9c3286f683a01e3a14b95ec0e5c894", null ],
     [ "step_heun", "ode_8h.html#ae98c7c4e315852292b1be27c3f17b875", null ],
     [ "step_k38", "ode_8h.html#a28b5293a1495555cd1c1d029d9860f21", null ],
