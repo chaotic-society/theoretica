@@ -1,7 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"structtheoretica_1_1ode_1_1ode__solution__t.html":[3,0,0,1,0],
-"structtheoretica_1_1ode_1_1ode__solution__t.html":[2,0,1,5,0],
 "structtheoretica_1_1ode_1_1ode__solution__t.html#a48a741fbf7a422a36456ea855125c95f":[2,0,1,5,0,4],
 "structtheoretica_1_1ode_1_1ode__solution__t.html#a48a741fbf7a422a36456ea855125c95f":[3,0,0,1,0,4],
 "structtheoretica_1_1ode_1_1ode__solution__t.html#a574696467cf1b1b31165b8c760fd8198":[2,0,1,5,0,2],

@@ -76,12 +76,12 @@ var NAVTREEINDEX =
 "classtheoretica_1_1phasor.html#af4a77a861634e4efab52105080955f4a",
 "classtheoretica_1_1vec.html#a4f3ddd987fdea5ea38fd4c210cc0478d",
 "dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html",
-"interpolation_2polynomial_8h.html#a348f61edeabdf1220a85a3747b26aee4",
-"namespacetheoretica.html#a4ed022df42e2b7152fc916433acbfbcc",
-"namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9",
-"namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa736928ea9daf503d4221856170bfe48c",
-"real__analysis_8h.html#a12fc03cbb1de8180e51183bb82c0bb28",
-"structtheoretica_1_1ode_1_1ode__solution__t.html"
+"interpolation_2polynomial_8h.html#a742309223dae8bd01d1bcf46e02c6be2",
+"namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3",
+"namespacetheoretica.html#aeaa4a4d5af15f371b28d87d35b504aae",
+"namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffadf9be6f7af7c3f7196c5c3e731de0a87",
+"real__analysis_8h.html#a1dd4867609a302e1846b9cbdb83f629f",
+"structtheoretica_1_1ode_1_1ode__solution__t.html#a48a741fbf7a422a36456ea855125c95f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

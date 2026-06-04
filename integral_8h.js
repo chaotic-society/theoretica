@@ -18,8 +18,7 @@ var integral_8h =
     [ "integral_legendre", "integral_8h.html#ad2038787a4650a9610cdf4639901677a", null ],
     [ "integral_legendre", "integral_8h.html#aa8406b9711bb256a289bb656c4c52e39", null ],
     [ "integral_midpoint", "integral_8h.html#ae48153156a44ef0245d23491aed11f81", null ],
-    [ "integral_romberg", "integral_8h.html#a8f6c51cd5ff6287130ab25a6efbbe2e5", null ],
-    [ "integral_romberg_tol", "integral_8h.html#aa8715f45961d756064be2c06ba4784d4", null ],
+    [ "integral_romberg", "integral_8h.html#ada155ac0a88b55c8c354e2f35acf8532", null ],
     [ "integral_simpson", "integral_8h.html#acc1c46c8f4022243fe207b05518c2740", null ],
     [ "integral_trapezoid", "integral_8h.html#aa4a89464c8faa686a7c8ade2df812493", null ]
 ];
