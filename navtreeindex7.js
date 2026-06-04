@@ -181,7 +181,7 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#a17bbce67e706f92d8cb33ced7a22f0c0":[2,0,1,324],
 "namespacetheoretica.html#a19dd33456cffdbba3f29d85061779e7c":[2,0,1,351],
 "namespacetheoretica.html#a1a85d4034e2edc73c0175f1d3b6d1382":[2,0,1,94],
-"namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83":[2,0,1,416],
+"namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83":[2,0,1,417],
 "namespacetheoretica.html#a1b898a8449d723a807854f805f8be23e":[2,0,1,232],
 "namespacetheoretica.html#a1b8d81973a127a1e66c180cba58d08ee":[2,0,1,105],
 "namespacetheoretica.html#a1bd4dbfccbb88413ccb29c93ae7254da":[2,0,1,231],
@@ -203,7 +203,6 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#a29720d3e71b280bb3ea048aa71bc3655":[2,0,1,60],
 "namespacetheoretica.html#a29e46804be47f0c4865014a4a763cf76":[2,0,1,223],
 "namespacetheoretica.html#a2a97cfad96b9bb73d76b8f5cc20f2896":[2,0,1,362],
-"namespacetheoretica.html#a2ab0dc413ccb1d809e2269de05dbf48d":[2,0,1,417],
 "namespacetheoretica.html#a2b34801047d52afccf3b4120c3d2d74e":[2,0,1,294],
 "namespacetheoretica.html#a2c2ea0b1258dfe34df321901707d1808":[2,0,1,338],
 "namespacetheoretica.html#a2da3a4e4195c5c77e99db62ae442fa19":[2,0,1,149],
@@ -223,7 +222,7 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#a369a64e60df5e45af0bb4581a9f213da":[2,0,1,168],
 "namespacetheoretica.html#a3761005d81ac85b7297426bfc3f62ea2":[2,0,1,72],
 "namespacetheoretica.html#a3796818092440b5f1745c67b1162ddcf":[2,0,1,59],
-"namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45":[2,0,1,415],
+"namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45":[2,0,1,416],
 "namespacetheoretica.html#a383ecbb074d735f5b5e8a2f45e5eb291":[2,0,1,126],
 "namespacetheoretica.html#a3901b8b9a442e4b71368650c2ce1ee31":[2,0,1,153],
 "namespacetheoretica.html#a39630b09f7294762464b1eb5301b508f":[2,0,1,101],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "namespacetheoretica.html#a4c9f34d374aba86cc459926c45825030":[2,0,1,55],
 "namespacetheoretica.html#a4d3300912dc31399fe10f77ef0be2e05":[2,0,1,141],
 "namespacetheoretica.html#a4d6916417c8d2b817cfc48b8e2a1abb5":[2,0,1,387],
-"namespacetheoretica.html#a4e787053c052f1908081607ac5c5ebce":[2,0,1,253]
+"namespacetheoretica.html#a4e787053c052f1908081607ac5c5ebce":[2,0,1,253],
+"namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53":[2,0,1,61]
 };

@@ -572,7 +572,7 @@ var namespacetheoretica =
     [ "rand_rejectsamp", "namespacetheoretica.html#a7e708ed0859828011f0d262c93274ec3", null ],
     [ "rand_trycatch", "namespacetheoretica.html#accbe6df09ae3883660614f02f70a2ade", null ],
     [ "rand_uniform", "namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2", null ],
-    [ "rand_uniform", "namespacetheoretica.html#a579b4ccc4078b67b7ec795b744e436d5", null ],
+    [ "rand_uniform", "namespacetheoretica.html#af96fa0c57e1c2f7513d53bc2ff3b4a2c", null ],
     [ "randgen_congruential", "namespacetheoretica.html#a01565fc76eac80418a68b0076f0e5c1d", null ],
     [ "randgen_congruential", "namespacetheoretica.html#aafab10ea5cdd0da85e7eca301936c0d0", null ],
     [ "randgen_middlesquare", "namespacetheoretica.html#aa8a82c81ffa9c26b29666bee9c4255a7", null ],
@@ -684,12 +684,12 @@ var namespacetheoretica =
     [ "PI2", "namespacetheoretica.html#a27b5dac597409564afdc448fbef23eae", null ],
     [ "PI4", "namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2", null ],
     [ "PIDOUBLE", "namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4", null ],
+    [ "PSEUDORANDOM_PREC", "namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2", null ],
     [ "RAD2DEG", "namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0", null ],
     [ "SQRT2", "namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8", null ],
     [ "SQRT3", "namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d", null ],
     [ "SQRTPI", "namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45", null ],
     [ "STATISTICS_METROPOLIS_DEPTH", "namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83", null ],
-    [ "STATISTICS_RAND_PREC", "namespacetheoretica.html#a2ab0dc413ccb1d809e2269de05dbf48d", null ],
     [ "STATISTICS_TRYANDCATCH_ITER", "namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde", null ],
     [ "TAU", "namespacetheoretica.html#aeb6a742ab030fe585063215a644f60df", null ]
 ];

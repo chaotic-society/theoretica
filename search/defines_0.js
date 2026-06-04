@@ -21,7 +21,7 @@ var searchData=
   ['theoretica_5foptimization_5fostrowski_5fiter_18',['THEORETICA_OPTIMIZATION_OSTROWSKI_ITER',['../constants_8h.html#a93ff0c9b628b71df6c6adf5368e08cb0',1,'constants.h']]],
   ['theoretica_5foptimization_5fsteffensen_5fiter_19',['THEORETICA_OPTIMIZATION_STEFFENSEN_ITER',['../constants_8h.html#a135a07c3f309f04137c003ded9b8cc16',1,'constants.h']]],
   ['theoretica_5foptimization_5ftol_20',['THEORETICA_OPTIMIZATION_TOL',['../constants_8h.html#a031daaf86110b420def2d679b7ca4840',1,'constants.h']]],
-  ['theoretica_5fstatistics_5fmetropolis_5fdepth_21',['THEORETICA_STATISTICS_METROPOLIS_DEPTH',['../constants_8h.html#a125c2adae715691abe202c3cb3423c84',1,'constants.h']]],
-  ['theoretica_5fstatistics_5frand_5fprec_22',['THEORETICA_STATISTICS_RAND_PREC',['../constants_8h.html#a3c3d063c9fcfc61332eab8c32b49a0bb',1,'constants.h']]],
+  ['theoretica_5fpseudorandom_5fprec_21',['THEORETICA_PSEUDORANDOM_PREC',['../constants_8h.html#a16170381e0c9fec9109a9babe469b68a',1,'constants.h']]],
+  ['theoretica_5fstatistics_5fmetropolis_5fdepth_22',['THEORETICA_STATISTICS_METROPOLIS_DEPTH',['../constants_8h.html#a125c2adae715691abe202c3cb3423c84',1,'constants.h']]],
   ['theoretica_5fstatistics_5ftryandcatch_5fiter_23',['THEORETICA_STATISTICS_TRYANDCATCH_ITER',['../constants_8h.html#a9df2dd49806e72c313d62bda3e61298e',1,'constants.h']]]
 ];

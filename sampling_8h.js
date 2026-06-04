@@ -27,5 +27,5 @@ var sampling_8h =
     [ "rand_rejectsamp", "sampling_8h.html#a7e708ed0859828011f0d262c93274ec3", null ],
     [ "rand_trycatch", "sampling_8h.html#accbe6df09ae3883660614f02f70a2ade", null ],
     [ "rand_uniform", "sampling_8h.html#ad7e77a1836e1b966cdbb0934d5ebbbf2", null ],
-    [ "rand_uniform", "sampling_8h.html#a579b4ccc4078b67b7ec795b744e436d5", null ]
+    [ "rand_uniform", "sampling_8h.html#af96fa0c57e1c2f7513d53bc2ff3b4a2c", null ]
 ];

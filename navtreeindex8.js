@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53":[2,0,1,61],
 "namespacetheoretica.html#a4ed022df42e2b7152fc916433acbfbcc":[2,0,1,182],
 "namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3":[2,0,1,165],
 "namespacetheoretica.html#a50cd5107369678c27b30dbae079283c5":[2,0,1,155],
@@ -10,7 +9,6 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#a55c93a1f60698d75caa21a305e2ba107":[2,0,1,296],
 "namespacetheoretica.html#a567ac5a1ec6dc4f7d1822fb126b13e6d":[2,0,1,227],
 "namespacetheoretica.html#a56a0989004608c56e6dd4bcc2bd148c7":[2,0,1,129],
-"namespacetheoretica.html#a579b4ccc4078b67b7ec795b744e436d5":[2,0,1,300],
 "namespacetheoretica.html#a583688f890df5c836afac4ff23279530":[2,0,1,256],
 "namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0":[2,0,1,402],
 "namespacetheoretica.html#a5adf7d2f3094d32dd9d4059ec86247db":[2,0,1,142],
@@ -226,7 +224,7 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#adab15c6d834d781bbe9fdc152cf5be1e":[2,0,1,156],
 "namespacetheoretica.html#adb032626b2f25bf5c31026c1ee6e639d":[2,0,1,137],
 "namespacetheoretica.html#adb04217fd0bd9dd23daaa186d3756d1e":[2,0,1,221],
-"namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d":[2,0,1,414],
+"namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d":[2,0,1,415],
 "namespacetheoretica.html#adcb53498374f76292a3da8bb8c785341":[2,0,1,48],
 "namespacetheoretica.html#add6168942eb5a4beb7e6d698119c3fb3":[2,0,1,255],
 "namespacetheoretica.html#ade4377cc4fef460684fa34287dc39413":[2,0,1,347],
@@ -244,10 +242,12 @@ var NAVTREEINDEX8 =
 "namespacetheoretica.html#ae2b0ad9b86faf6ab2d308f9f76d31010":[2,0,1,107],
 "namespacetheoretica.html#ae2c51bf8166e46f6fc6ccebe03685de5":[2,0,1,323],
 "namespacetheoretica.html#ae356adeb60d93c78bd5d27ddf49a6c66":[2,0,1,117],
-"namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8":[2,0,1,413],
+"namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8":[2,0,1,414],
 "namespacetheoretica.html#ae48153156a44ef0245d23491aed11f81":[2,0,1,180],
 "namespacetheoretica.html#ae57235e0b29cc687c5084e5f0aa2515c":[2,0,1,135],
 "namespacetheoretica.html#ae648762992e4710d0d7d2c9d01c0e66d":[2,0,1,398],
 "namespacetheoretica.html#ae6629ddaf5a84d7a8f3159b749ef4db0":[2,0,1,356],
-"namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b":[2,0,1,293]
+"namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b":[2,0,1,293],
+"namespacetheoretica.html#ae684a386b63be0bd1c1a042c8430ad1f":[2,0,1,325],
+"namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0":[2,0,1,413]
 };

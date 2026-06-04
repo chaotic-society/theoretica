@@ -8,5 +8,6 @@ var searchData=
   ['pi_5',['PI',['../namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9',1,'theoretica']]],
   ['pi2_6',['PI2',['../namespacetheoretica.html#a27b5dac597409564afdc448fbef23eae',1,'theoretica']]],
   ['pi4_7',['PI4',['../namespacetheoretica.html#ac7f9025deb90bc4fd64fb9260340e3f2',1,'theoretica']]],
-  ['pidouble_8',['PIDOUBLE',['../namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4',1,'theoretica']]]
+  ['pidouble_8',['PIDOUBLE',['../namespacetheoretica.html#a974f2fd34520034645cb5c96487c6ed4',1,'theoretica']]],
+  ['pseudorandom_5fprec_9',['PSEUDORANDOM_PREC',['../namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2',1,'theoretica']]]
 ];

@@ -1,7 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"namespacetheoretica.html#ae684a386b63be0bd1c1a042c8430ad1f":[2,0,1,325],
-"namespacetheoretica.html#ae75cd5d78670f968bac3fbcfee6660b0":[2,0,1,412],
 "namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9":[2,0,1,408],
 "namespacetheoretica.html#aea6adb91ddb979c887dc437e02254003":[2,0,1,248],
 "namespacetheoretica.html#aeaa4a4d5af15f371b28d87d35b504aae":[2,0,1,213],
@@ -32,6 +30,7 @@ var NAVTREEINDEX9 =
 "namespacetheoretica.html#af7e8506f391fba09c0819116a8abd806":[2,0,1,332],
 "namespacetheoretica.html#af8503d01da58faad497a7ea1b116b695":[2,0,1,250],
 "namespacetheoretica.html#af8b9679476be607282a44a7f7f8b38c4":[2,0,1,379],
+"namespacetheoretica.html#af96fa0c57e1c2f7513d53bc2ff3b4a2c":[2,0,1,300],
 "namespacetheoretica.html#afad5c92586d6a0f841bfcd3759eff317":[2,0,1,139],
 "namespacetheoretica.html#afb7eff567887e9025d2edd9870a31311":[2,0,1,45],
 "namespacetheoretica.html#afbf2c5dcfac28891e1e8a3accdf7dd21":[2,0,1,369],
@@ -40,6 +39,7 @@ var NAVTREEINDEX9 =
 "namespacetheoretica.html#afd6bc324bd8ae6bbd91b89c7491fe988":[2,0,1,116],
 "namespacetheoretica.html#afd8b0a1c223e7bc79b04046d4e8502da":[2,0,1,169],
 "namespacetheoretica.html#afd97a0d6d99915f065567958760164f4":[2,0,1,150],
+"namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2":[2,0,1,412],
 "namespacetheoretica.html#afef33e5920ccf4cfe7f79c70ebc9dfbb":[2,0,1,365],
 "namespacetheoretica.html#afefab09121a082c2b8fb8594f632434e":[2,0,1,247],
 "namespacetheoretica_1_1algebra.html":[2,0,1,0],

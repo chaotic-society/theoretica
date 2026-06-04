@@ -20,8 +20,8 @@ var constants_8h =
     [ "THEORETICA_OPTIMIZATION_OSTROWSKI_ITER", "constants_8h.html#a93ff0c9b628b71df6c6adf5368e08cb0", null ],
     [ "THEORETICA_OPTIMIZATION_STEFFENSEN_ITER", "constants_8h.html#a135a07c3f309f04137c003ded9b8cc16", null ],
     [ "THEORETICA_OPTIMIZATION_TOL", "constants_8h.html#a031daaf86110b420def2d679b7ca4840", null ],
+    [ "THEORETICA_PSEUDORANDOM_PREC", "constants_8h.html#a16170381e0c9fec9109a9babe469b68a", null ],
     [ "THEORETICA_STATISTICS_METROPOLIS_DEPTH", "constants_8h.html#a125c2adae715691abe202c3cb3423c84", null ],
-    [ "THEORETICA_STATISTICS_RAND_PREC", "constants_8h.html#a3c3d063c9fcfc61332eab8c32b49a0bb", null ],
     [ "THEORETICA_STATISTICS_TRYANDCATCH_ITER", "constants_8h.html#a9df2dd49806e72c313d62bda3e61298e", null ],
     [ "real", "constants_8h.html#a049966946220f1f7e5eae57293703066", null ],
     [ "ALGEBRA_EIGEN_ITER", "constants_8h.html#ae203c518f0274c29d78167c457cac65b", null ],
@@ -58,12 +58,12 @@ var constants_8h =
     [ "PI2", "constants_8h.html#a27b5dac597409564afdc448fbef23eae", null ],
     [ "PI4", "constants_8h.html#ac7f9025deb90bc4fd64fb9260340e3f2", null ],
     [ "PIDOUBLE", "constants_8h.html#a974f2fd34520034645cb5c96487c6ed4", null ],
+    [ "PSEUDORANDOM_PREC", "constants_8h.html#afeadfad8b6073194fc7a126464dcd3d2", null ],
     [ "RAD2DEG", "constants_8h.html#ae75cd5d78670f968bac3fbcfee6660b0", null ],
     [ "SQRT2", "constants_8h.html#ae3be7f003670e91509c8f2fac523fab8", null ],
     [ "SQRT3", "constants_8h.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d", null ],
     [ "SQRTPI", "constants_8h.html#a37fb7f2271fa0e9cd55b47cf4641ca45", null ],
     [ "STATISTICS_METROPOLIS_DEPTH", "constants_8h.html#a1a92480c95125647eabea5f15aa26f83", null ],
-    [ "STATISTICS_RAND_PREC", "constants_8h.html#a2ab0dc413ccb1d809e2269de05dbf48d", null ],
     [ "STATISTICS_TRYANDCATCH_ITER", "constants_8h.html#a69a848b21acb5341a013db4baa629bde", null ],
     [ "TAU", "constants_8h.html#aeb6a742ab030fe585063215a644f60df", null ]
 ];

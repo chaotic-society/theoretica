@@ -30,7 +30,7 @@ var searchData=
   ['powf_27',['powf',['../namespacetheoretica.html#a6f12dd8e0fc650fa75c9961e51d1406c',1,'theoretica::powf(real x, real a)'],['../namespacetheoretica.html#ad640eebf1ea572dbe9219eab63889762',1,'theoretica::powf(complex&lt; T &gt; z, real p)'],['../namespacetheoretica_1_1parallel.html#addb821cf3b79bb75b891aa201b437fe0',1,'theoretica::parallel::powf()']]],
   ['print_28',['print',['../namespacetheoretica_1_1io.html#a6579381000abaeeea729b76339882764',1,'theoretica::io::print(const Type &amp;curr)'],['../namespacetheoretica_1_1io.html#a37248b90f54457c2e6c02682d8674f6b',1,'theoretica::io::print(const Type &amp;curr, Args... args)']]],
   ['println_29',['println',['../namespacetheoretica_1_1io.html#ad8b8ab6a11fb8d85c1b7d698acf4d43b',1,'theoretica::io::println(const Type &amp;curr, Args... args)'],['../namespacetheoretica_1_1io.html#a6d408b636f33dd491e5a21a8d51756ad',1,'theoretica::io::println(const Type &amp;curr)'],['../namespacetheoretica_1_1io.html#a66f2d0f2348b96c9bb0a2b83fb2a2176',1,'theoretica::io::println()']]],
-  ['prng_30',['prng',['../classtheoretica_1_1_p_r_n_g.html#a571a60595e0891f8693da3431ada2d75',1,'theoretica::PRNG::PRNG()'],['../classtheoretica_1_1_p_r_n_g.html',1,'theoretica::PRNG'],['../classtheoretica_1_1_p_r_n_g.html#afa265889b02e3b9441c6357605a0510c',1,'theoretica::PRNG::PRNG(uint64_t seed)'],['../classtheoretica_1_1_p_r_n_g.html#afdc432e50bfa8c5c2e0dfef94e9102f3',1,'theoretica::PRNG::PRNG(pseudorandom_function p, uint64_t seed, const std::vector&lt; uint64_t &gt; &amp;s)']]],
+  ['prng_30',['prng',['../classtheoretica_1_1_p_r_n_g.html#a571a60595e0891f8693da3431ada2d75',1,'theoretica::PRNG::PRNG()'],['../classtheoretica_1_1_p_r_n_g.html',1,'theoretica::PRNG'],['../classtheoretica_1_1_p_r_n_g.html#afdc432e50bfa8c5c2e0dfef94e9102f3',1,'theoretica::PRNG::PRNG(pseudorandom_function p, uint64_t seed, const std::vector&lt; uint64_t &gt; &amp;s)'],['../classtheoretica_1_1_p_r_n_g.html#afa265889b02e3b9441c6357605a0510c',1,'theoretica::PRNG::PRNG(uint64_t seed)']]],
   ['prng_2eh_31',['prng.h',['../prng_8h.html',1,'']]],
   ['product_32',['product',['../namespacetheoretica.html#adf08c69e546c822b60b2185156b04360',1,'theoretica']]],
   ['product_5fsum_33',['product_sum',['../namespacetheoretica.html#a8298cbf34bf300bc2c84d14264484ffd',1,'theoretica::product_sum(const Vector &amp;X, const Vector &amp;Y)'],['../namespacetheoretica.html#abf60e1fdc60411ae615b952b7248b093',1,'theoretica::product_sum(const Vector &amp;X, const Vector &amp;Y, const Vector &amp;Z)']]],
@@ -41,5 +41,6 @@ var searchData=
   ['propagerr_5fmc_38',['propagerr_mc',['../namespacetheoretica_1_1stats.html#a4c22d1efa91769367afb5b9e9bd87152',1,'theoretica::stats']]],
   ['pseudorandom_2eh_39',['pseudorandom.h',['../pseudorandom_8h.html',1,'']]],
   ['pseudorandom_5ffunction_40',['pseudorandom_function',['../namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5',1,'theoretica']]],
-  ['pvalue_5fchi_5fsquared_41',['pvalue_chi_squared',['../namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d',1,'theoretica::stats']]]
+  ['pseudorandom_5fprec_41',['PSEUDORANDOM_PREC',['../namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2',1,'theoretica']]],
+  ['pvalue_5fchi_5fsquared_42',['pvalue_chi_squared',['../namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d',1,'theoretica::stats']]]
 ];
