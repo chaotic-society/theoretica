@@ -690,51 +690,51 @@ int main(int argc, char const *argv[]) {
 	{
 		uint64_t x = 0x12345678ABCDEF00;
 		unsigned int i = 8;
-		uint64_t rotated = th::bits::bit_rotate(x, i);
+		uint64_t rotated = th::bits::rotate(x, i);
 
 		uint64_t expected_rotated = 0x345678ABCDEF0012;
 
-		ctx.equals("th::bits::bit_rotate (64-bit)", rotated, expected_rotated);
+		ctx.equals("th::bits::rotate (64-bit)", rotated, expected_rotated);
 	}
 
 	{
 		uint32_t x = 0xABCDEF00;
 		unsigned int i = 4;
-		uint32_t rotated = th::bits::bit_rotate(x, i);
+		uint32_t rotated = th::bits::rotate(x, i);
 
 		uint32_t expected_rotated = 0xBCDEF00A;
 
-		ctx.equals("th::bits::bit_rotate (32-bit)", rotated, expected_rotated);
+		ctx.equals("th::bits::rotate (32-bit)", rotated, expected_rotated);
 	}
 
 	{
 		std::vector<uint8_t> v = {1};
 		
-		th::bits::swap_bit_reverse(v, 0);
+		th::bits::swap_reverse(v, 0);
 
 		std::vector<uint8_t> expected = {1};
 
-		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_reverse", v == expected, true);
 	}
 
 	{
 		std::vector<uint8_t> v = {1, 2, 3, 4};
 		
-		th::bits::swap_bit_reverse(v, 2);
+		th::bits::swap_reverse(v, 2);
 
 		std::vector<uint8_t> expected = {1, 3, 2, 4};
 
-		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_reverse", v == expected, true);
 	}
 
 	{
 		vec<uint8_t> v = {1, 2, 3, 4, 5, 6};
 		
-		th::bits::swap_bit_reverse(v, 2);
+		th::bits::swap_reverse(v, 2);
 
 		vec<uint8_t> expected = {1, 3, 2, 4, 5, 6};
 
-		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_reverse", v == expected, true);
 	}
 
 

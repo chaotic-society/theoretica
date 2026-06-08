@@ -47,7 +47,7 @@ namespace theoretica {
 			}
 
 			// Bit reverse
-			bits::swap_bit_reverse(k, log2N);
+			bits::swap_reverse(k, log2N);
 
 			for (unsigned int p = 1; p <= log2N; p++) {
 

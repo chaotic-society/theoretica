@@ -80,7 +80,7 @@ namespace bits {
 	/// @return The unsigned integer with the given bits rotated
 	template<typename UnsignedIntType>
 	inline constexpr UnsignedIntType
-	bit_rotate(UnsignedIntType x, unsigned int i) {
+	rotate(UnsignedIntType x, unsigned int i) {
 
 		return (x << i) | (x >> ((sizeof(UnsignedIntType) * 8) - i));
 	}
@@ -94,10 +94,10 @@ namespace bits {
 	template <
 		typename Vector, enable_vector<Vector> = true
 	>
-	inline constexpr void swap_bit_reverse(Vector& x, unsigned int m) {
+	inline constexpr void swap_reverse(Vector& x, unsigned int m) {
 
 		if (x.size() < (uint64_t(1) << m)) {
-			TH_MATH_ERROR("swap_bit_reverse", x.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("swap_reverse", x.size(), MathError::InvalidArgument);
 			return;
 		}
 
