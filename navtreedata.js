@@ -49,7 +49,6 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
@@ -70,19 +69,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"algebra_2vec__functions_8h.html",
-"classtheoretica_1_1complex.html#ae8f8b258b1bf09cc91d3b7fcf4b6c095",
-"classtheoretica_1_1histogram.html#a431d33c103be287afbd66f5d91e1d615",
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a6f52567a82d213924a7f74a47877f0d0",
-"classtheoretica_1_1polynomial.html",
-"classtheoretica_1_1vec.html#a1b84d9d179ba5d0591917dacffd63f26",
-"deriv_8h.html#acef217e4310f467330d0a18986f70d84",
-"integral_8h.html#a9f0e87bfeb1a4e484de143465a263465",
-"namespacetheoretica.html#a6041e735f753a4888a2eec14a79ebc09",
-"namespacetheoretica.html#afce493c565b387c0496eff49e137edb6",
-"namespacetheoretica_1_1ode.html#a28b5293a1495555cd1c1d029d9860f21",
-"roots_8h.html#a80c42c9641cb542a5eb6db45899f1487",
-"structtheoretica_1_1regression_1_1linear__model.html#acd8801cc18c99ca2b936f9e7f2135d72"
+"algebra_8h.html",
+"classtheoretica_1_1complex.html#adfa6e110991e7e538da117386d6d70ef",
+"classtheoretica_1_1histogram.html#a238be6d7b8c804d31b89fbc43fef5c34",
+"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2",
+"classtheoretica_1_1phasor.html#af4a77a861634e4efab52105080955f4a",
+"classtheoretica_1_1vec.html#a4f3ddd987fdea5ea38fd4c210cc0478d",
+"dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html",
+"interpolation_2polynomial_8h.html#a742309223dae8bd01d1bcf46e02c6be2",
+"namespacetheoretica.html#a500bb7c67e29e96e7f6c3655b8f7d3b3",
+"namespacetheoretica.html#aeaa4a4d5af15f371b28d87d35b504aae",
+"namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffadf9be6f7af7c3f7196c5c3e731de0a87",
+"real__analysis_8h.html#a1dd4867609a302e1846b9cbdb83f629f",
+"structtheoretica_1_1ode_1_1ode__solution__t.html#a48a741fbf7a422a36456ea855125c95f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

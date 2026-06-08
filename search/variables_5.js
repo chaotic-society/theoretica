@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generator_0',['generator',['../structtheoretica_1_1random_1_1_pdf_sampler.html#a59013360d9b95370a1e53919390e10a2',1,'theoretica::random::PdfSampler']]]
+  ['generator_0',['generator',['../structtheoretica_1_1pdf__sampler.html#a520652b6313a53c2d0d01de48b8d8551',1,'theoretica::pdf_sampler']]]
 ];

@@ -4,6 +4,9 @@ var dataset_8h =
     [ "concatenate", "dataset_8h.html#a1a85d4034e2edc73c0175f1d3b6d1382", null ],
     [ "geometric_mean", "dataset_8h.html#a73c73eaa2f2276a66b309426cc308d1b", null ],
     [ "harmonic_mean", "dataset_8h.html#a1638fb86d8cb03965ff398d41f7b00fb", null ],
+    [ "map", "dataset_8h.html#a1bd4dbfccbb88413ccb29c93ae7254da", null ],
+    [ "map", "dataset_8h.html#a1b898a8449d723a807854f805f8be23e", null ],
+    [ "map", "dataset_8h.html#ac43890de03a7e2c959fdabe4f7452042", null ],
     [ "max", "dataset_8h.html#a79c3cffe1db6b2cb178d41bfc98b1c41", null ],
     [ "min", "dataset_8h.html#a133ae02c952df7352cfb3830a1616bc1", null ],
     [ "product", "dataset_8h.html#adf08c69e546c822b60b2185156b04360", null ],
@@ -17,5 +20,6 @@ var dataset_8h =
     [ "sum_compensated", "dataset_8h.html#a173a64c4f73cb7abd476b739005d94e7", null ],
     [ "sum_pairwise", "dataset_8h.html#a2a97cfad96b9bb73d76b8f5cc20f2896", null ],
     [ "sum_squares", "dataset_8h.html#aec4e70500501fc48d6ad18f8abfc1896", null ],
+    [ "transform", "dataset_8h.html#a0845668bb72e9d24d0e694271c1ad967", null ],
     [ "weighted_mean", "dataset_8h.html#a0e8a4b7178a8558fc4ba3ab3b9b3f926", null ]
 ];

@@ -4,7 +4,7 @@ var dir_086a664662017844fa76bd8f66ac71cd =
     [ "algebra_types.h", "algebra__types_8h.html", "algebra__types_8h" ],
     [ "distance.h", "distance_8h.html", "distance_8h" ],
     [ "mat.h", "mat_8h.html", "mat_8h" ],
+    [ "parallel.h", "parallel_8h.html", "parallel_8h" ],
     [ "transform.h", "transform_8h.html", "transform_8h" ],
-    [ "vec.h", "vec_8h.html", "vec_8h" ],
-    [ "vec_functions.h", "algebra_2vec__functions_8h.html", "algebra_2vec__functions_8h" ]
+    [ "vec.h", "vec_8h.html", "vec_8h" ]
 ];
