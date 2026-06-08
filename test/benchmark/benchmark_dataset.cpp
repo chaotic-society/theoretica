@@ -17,8 +17,8 @@ int main(int argc, char const *argv[]) {
 	const size_t N = 1'000'000;
 	auto opt = benchmark::benchmark_options<real>(10, 10);
 
-	PRNG g = PRNG::xoshiro(time(nullptr));
-	pdf_sampler gauss = pdf_sampler::gaussian(0, 1'000'000, g);
+	th::random::XoshiroPrng g (time(nullptr));
+	auto gauss = th::random::PdfSampler<th::random::XoshiroPrng>::gaussian(0, 1'000'000, g);
 
 	// Generate a gaussian sample
 	vec<real> v = vec<real>(N);

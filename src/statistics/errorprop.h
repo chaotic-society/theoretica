@@ -10,14 +10,14 @@
 #include "../algebra/vec.h"
 #include "../autodiff/autodiff.h"
 #include "../statistics/statistics.h"
-#include "../pseudorandom/montecarlo.h"
-#include "../pseudorandom/sampling.h"
+#include "../random/montecarlo.h"
+#include "../random/sampling.h"
 
 
 namespace theoretica {
+namespace stats {
 
 
-	namespace stats {
 
 
 		/// Build the covariance matrix given a vector of datasets
@@ -87,10 +87,14 @@ namespace theoretica {
 		template <
 			unsigned int N = 0,
 			typename Matrix, enable_matrix<Matrix> = true,
-			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>)
+			typename MultiDualFunction,
+			autodiff::enable_scalar_field<MultiDualFunction> = true
 		>
 		inline real propagerr(
-			MultiDualFunction f, const vec<real, N>& x_best, const Matrix& cm) {
+			MultiDualFunction f,
+			const vec<real, N>& x_best,
+			const Matrix& cm
+		) {
 
 
 			if(cm.rows() != x_best.size()) {
@@ -121,13 +125,13 @@ namespace theoretica {
 		/// For this to work, the data sets should have the same size,
 		/// so as to estimate their covariance.
 		///
-		/// @param f The function to propagate error on
-		/// @param v A vector of different datasets of the
-		/// measures of the variables
+		/// @param f The function to propagate error on, as a dual scalar field.
+		/// @param v A vector of different datasets of the measures of the variables
 		/// @return The propagated error on the function
-		template<
+		template <
 			unsigned int N = 0,
-			typename MultiDualFunction = multidual<N>(*)(autodiff::dvec_t<N>),
+			typename MultiDualFunction = autodiff::dreal_t<N>(*)(autodiff::dvec_t<N>),
+			autodiff::enable_scalar_field<MultiDualFunction> = true,
 			typename Dataset = vec<real, N>
 		>
 		inline real propagerr(
@@ -150,24 +154,21 @@ namespace theoretica {
 		/// generating a sample following the probability
 		/// distribution of the function and computing
 		/// its standard deviation. N sample vectors of size M are generated
-		/// by sampling the M different pdf_sampler distributions which
+		/// by sampling the M different PdfSampler distributions which
 		/// correspond to the input variables of the function.
 		/// The resulting sample is used to estimate the standard deviation
 		/// over the result of the function.
 		/// 
 		///
+		/// @param N The number of sampled values to use
 		/// @param f The function to propagate error on
-		/// @param rv A list of distribution samplers
-		/// which sample from the probability distributions
-		/// of the random variables.
-		/// @param N The number of sampled values to use, defaults to
-		/// 1 million.
+		/// @param samplers A list of samplers for the input variables
+		/// of the function, as a variadic argument.
 		/// @return The standard deviation of the Monte Carlo sample
-		template<typename Function>
-		real propagerr_mc(
-			Function f, std::vector<pdf_sampler>& rv, unsigned int N = 1E+6) {
-
-			return stats::stdev(sample_mc(f, rv, N));
+		template<typename Function, typename ...PdfSamplers>
+		real propagerr_mc(unsigned int N, Function f, PdfSamplers... samplers) {
+		
+			return stats::stdev(sample_function(N, f, samplers...));
 		}
 	}
 }

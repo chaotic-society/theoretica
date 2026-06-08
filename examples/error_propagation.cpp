@@ -34,10 +34,10 @@ int main() {
 
 
 	// Random generators
-	PRNG g = PRNG::wyrand(time(nullptr));
-	pdf_sampler gauss1 = pdf_sampler::gaussian(mu1, stdev1, g);
-	pdf_sampler gauss2 = pdf_sampler::gaussian(mu2, stdev2, g);
-	pdf_sampler gauss3 = pdf_sampler::gaussian(mu3, stdev3, g);
+	random::XoshiroPrng g (time(nullptr));
+	auto gauss1 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu1, stdev1, g);
+	auto gauss2 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu2, stdev2, g);
+	auto gauss3 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu3, stdev3, g);
 
 
 	// Allocate space for 3 datasets of size N

@@ -10,55 +10,51 @@ using namespace th;
 
 #include <ctime>
 
+// A simple function to integrate
+real f(real x) {
+    return th::sin(x);
+}
+
+vec2 F(vec2 x) {
+    return {x[1] * th::sin(x[0]), x[0] * th::cos(x[1])};
+}
 
 int main() {
 
 
     // Initialize the pseudorandom number generator to be used
-    PRNG g = PRNG::xoshiro(time(nullptr));
+    random::XoshiroPrng g (time(nullptr));
 
     // Starting number of iterations
     unsigned int N = 10;
 
-    // The function to integrate
-    real(*f)(real) = th::sin;
-
-
-    // Print header
-    std::cout.precision(8);
-    std::cout << std::endl;
-    std::cout << " N\tErr. HOM\tErr. Crude\tErr. q. HOM\tErr. q. Crude\n ";
-
-    for (int i = 0; i < 80; ++i)
-        std::cout << "-";
-    
-    std::cout << std::endl;
-
+    // For pretty printing the results
+    data_table table = data_table(
+        0, {"N", "MC Error", "QMC Error"}
+    );
 
     // Repeat the integration for different N (exponentially growing)
-    for (; N <= 100000; N *= 10) {
-
-        // Hit-or-Miss Monte Carlo
-        real hom = integral_hom(f, 0, PI/2, 1, g, N);
+    for (; N <= 10'000'000; N *= 10) {
 
         // Crude Monte-Carlo
-        real crude = integral_crude(f, 0, PI/2, g, N);
-
-        // Hit-or-Miss Quasi-Monte Carlo
-        real q_hom = integral_quasi_hom(f, 0, PI/2, 1, N);
+        auto crude = random::integral_mc(f, 0, PI/2, g, N);
 
         // Crude Quasi-Monte Carlo
-        real q_crude = integral_quasi_crude(f, 0, PI/2, N);
+        auto q_crude = random::integral_qmc(f, 0, PI/2, g, N);
 
-        // Print absolute error
-        std::cout << " "  << N << "\t"
-                << th::abs(1 - hom) << "\t"
-                << th::abs(1 - crude) << "\t"
-                << th::abs(1 - q_hom) << "\t"
-                << th::abs(1 - q_crude) << std::endl;
+        // The result, by default, is a stoch_result<real> object,
+        // containing the estimate <value> and its <stdev>.
+        // You can cast it to real, discarding additional information,
+        // but this is not generally recommended for robust code.
+
+        table["N"].append(N);
+        table["MC Error"].append(crude.stdev);
+        table["QMC Error"].append(q_crude.stdev);
     }
 
-    std::cout << std::endl;
- 
-    return 0;
+    io::println(table);
+
+    // Integrate a multivariate function
+    vec<vec2> domain = {{0, PI/2}, {0, PI/2}};
+    io::println(random::integral_mc(F, domain, g));
 }

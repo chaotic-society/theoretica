@@ -40,7 +40,7 @@
 #include "core/special.h"
 
 // Vectorized functions
-#include "algebra/parallel.h"
+#include "algebra/vec_functions.h"
 
 // Ratio
 #include "core/ratio.h"
@@ -61,6 +61,7 @@
 #include "statistics/errorprop.h"
 #include "statistics/histogram.h"
 #include "statistics/regression.h"
+#include "statistics/running.h"
 
 // Roots and extrema approximation of real functions
 #include "optimization/roots.h"
@@ -93,12 +94,12 @@
 #include "autodiff/autodiff.h"
 
 // Pseudorandom number generation
-#include "pseudorandom/pseudorandom.h"
-#include "pseudorandom/prng.h"
-#include "pseudorandom/sampling.h"
+#include "random/random.h"
+#include "random/random.h"
+#include "random/sampling.h"
 
 // Monte Carlo methods
-#include "pseudorandom/montecarlo.h"
+#include "random/montecarlo.h"
 
 // Fast Fourier transform
 #include "signal/fft.h"

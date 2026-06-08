@@ -5,15 +5,6 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
-template<typename Function>
-auto wrap(Function f) {
-
-	return [f](const vec<real>& v) {
-		return f(v)[0];
-	};
-}
-
-
 // Compare to standard for loop
 template<typename Function>
 auto wrap_base(Function f) {
@@ -44,9 +35,9 @@ int main(int argc, char const *argv[]) {
 
 	ctx.output->settings.outputFiles = { "test/benchmark/benchmark_parallel.csv" };
 	ctx.settings.defaultRuns = 10;
-
-	PRNG g = PRNG::xoshiro(time(nullptr));
-	pdf_sampler unif = pdf_sampler::uniform(0.0, 10.0, g);
+	
+	th::random::XoshiroPrng g (time(nullptr));
+	auto unif = th::random::PdfSampler<th::random::XoshiroPrng>::uniform(0.0, 10.0, g);
 
 	// Generate a uniform sample
 	std::vector<vec<real>> data (M, vec<real>(N));
@@ -67,13 +58,7 @@ int main(int argc, char const *argv[]) {
 
 	ctx.benchmark(
 		"parallel::sqrt",
-		wrap(parallel::sqrt<vec<real>>),
-		data
-	);
-
-	ctx.benchmark(
-		"parallel::square",
-		wrap(parallel::square<vec<real>>),
+		[](const vec<real>& v){ return th::sqrt(v)[0]; },
 		data
 	);
 
@@ -85,7 +70,7 @@ int main(int argc, char const *argv[]) {
 	
 	ctx.benchmark(
 		"parallel::exp",
-		wrap(parallel::exp<vec<real>>),
+		[](const vec<real>& v){ return th::exp(v)[0]; },
 		data
 	);
 
@@ -97,7 +82,7 @@ int main(int argc, char const *argv[]) {
 
 	ctx.benchmark(
 		"parallel::atan", 
-		wrap(parallel::atan<vec<real>>),
+		[](const vec<real>& v){ return th::atan(v)[0]; },
 		data
 	);
 }

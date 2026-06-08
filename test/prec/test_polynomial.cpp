@@ -11,7 +11,7 @@ using namespace chebyshev;
 using namespace theoretica;
 
 
-polynomial<real> rand_polyn(random::random_source& rnd, unsigned int degree, real stdev = 1E+06) {
+polynomial<real> rand_polyn(ch::random::random_source& rnd, unsigned int degree, real stdev = 1E+06) {
 
 	std::vector<real> coeffs (degree + 1);
 	for (unsigned int i = 0; i <= degree; ++i)
@@ -34,7 +34,7 @@ long double distance_polyn(const polynomial<real>& p1, const polynomial<real>& p
 }
 
 
-auto estimate_polyn(random::random_context& rctx, unsigned int degree, real stdev = 1E+06) {
+auto estimate_polyn(ch::random::random_context& rctx, unsigned int degree, real stdev = 1E+06) {
 
 	return [&rctx, degree, stdev](
 		std::function<real(polynomial<real>)> f, std::function<real(polynomial<real>)> f_exact,
@@ -67,7 +67,7 @@ auto estimate_polyn(random::random_context& rctx, unsigned int degree, real stde
 }
 
 
-auto make_options(random::random_context& rctx, unsigned int degree, real stdev = 1E+06) {
+auto make_options(ch::random::random_context& rctx, unsigned int degree, real stdev = 1E+06) {
 
 	return prec::estimate_options<real, polynomial<real>>(
 		prec::interval(-stdev, +stdev),
@@ -84,7 +84,7 @@ int main(int argc, char const *argv[]) {
 	ctx.settings.defaultIterations = 1000;
 	ctx.output->settings.outputFiles = { "test/prec/prec_polynomial.csv" };
 	
-	random::random_source rnd = ctx.random->get_rnd();
+	ch::random::random_source rnd = ctx.random->get_rnd();
 	const real MAX = 1E+06;
 	auto zero = [](polynomial<real> p) -> real { return 0.0; };
 

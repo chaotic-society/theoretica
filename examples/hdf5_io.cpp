@@ -23,14 +23,14 @@ int main() {
 
 		io::println("Writing vector to file...");
 		vec<real> v (10000);
-		PRNG g (151315991);
+		random::XoshiroPrng g (151315991);
 		for (real& x : v)
-			x = rand_gaussian(0, 1, g);
+			x = random::gaussian(0, 1, g);
 		file.write_vec("/group/vec", v);
 
 		mat<real> A (1000, 1000);
 		for (real& x : A)
-			x = rand_gaussian(0, 1, g);
+			x = random::gaussian(0, 1, g);
 		file.write_mat("/group/mat", A);
 
 		file.write_attribute("/group/vec", "author", std::string("Albert Einstein"));

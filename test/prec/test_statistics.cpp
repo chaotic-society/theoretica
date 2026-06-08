@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]) {
 	auto ctx = prec::make_context("statistics");
 	ctx.settings.outputFiles = { "test/prec/prec_statistics.csv" };
 
-	PRNG g = PRNG::xoshiro(time(nullptr));
+	th::random::XoshiroPrng g (time(nullptr));
 
 	// Distributions
 

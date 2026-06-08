@@ -147,7 +147,7 @@
 
 #ifndef THEORETICA_PSEUDORANDOM_PREC
 
-/// Default precision for random number generation using rand_uniform()
+/// Default precision for random number generation using random::uniform()
 #ifdef THEORETICA_FLOAT_PREC
 #define THEORETICA_PSEUDORANDOM_PREC (uint64_t(1) << 23)
 #else
@@ -335,7 +335,7 @@ namespace theoretica {
 	/// Maximum number of iterations for gradient descent minimization
 	constexpr unsigned int OPTIMIZATION_MINGRAD_ITER = THEORETICA_OPTIMIZATION_MINGRAD_ITER;
 
-	/// Default precision for random number generation using rand_uniform()
+	/// Default precision for random number generation using random::uniform()
 	constexpr uint64_t PSEUDORANDOM_PREC = THEORETICA_PSEUDORANDOM_PREC;
 
 	/// Default depth of the Metropolis algorithm

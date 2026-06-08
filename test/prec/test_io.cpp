@@ -70,7 +70,7 @@ int main(int argc, char const *argv[]) {
 	
 	auto ctx = prec::make_context("io");
 	ctx.settings.outputFiles = { "test/prec/prec_io.csv" };
-	random::random_source rnd = ctx.random->get_rnd();
+	ch::random::random_source rnd = ctx.random->get_rnd();
 
 	// io.h
 	

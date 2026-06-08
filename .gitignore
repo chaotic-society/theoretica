@@ -12,7 +12,7 @@ theoretica-cppcheck-build-dir/*
 **/test_core
 **/test_optimization
 **/test_polynomial
-**/test_pseudorandom
+**/test_random
 
 **/attractor
 **/automatic_differentiation

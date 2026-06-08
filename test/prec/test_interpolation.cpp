@@ -26,7 +26,7 @@ real cubic(real x) {
 
 
 // Generate a random vector with gaussian elements
-vec2 rand_vec2(random::random_source& rnd) {
+vec2 rand_vec2(ch::random::random_source& rnd) {
 	return vec2({
 		rnd.gaussian(0, VARIANCE), rnd.gaussian(0, VARIANCE)
 	});
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[]) {
 	auto ctx = prec::make_context("interpolation", argc, argv);
 	ctx.output->settings.outputFiles = { "test/prec/prec_interpolation.csv" };
 	
-	random::random_source rnd = ctx.random->get_rnd();
+	ch::random::random_source rnd = ctx.random->get_rnd();
 
 	auto polyn_opt = prec::equation_options<polynomial<real>>(
 		1E-08,

@@ -26,7 +26,7 @@ int main() {
     std::ofstream file("examples/random_walk.dat");
 
     // Random number generator
-    PRNG g = PRNG::xoshiro(time(nullptr));
+    random::XoshiroPrng g (time(nullptr));
 
     // Trajectory
     std::vector<vec3> pos(N);
@@ -39,10 +39,10 @@ int main() {
 
         // Generate a random vector with fixed length
         // You can change the generation of r to test
-        // different distributions (e.g. rand_gaussian(0, 1, g))
+        // different distributions (e.g. random::gaussian(0, 1, g))
         const real r = 1;
-        const real theta = rand_uniform(0, PI, g);
-        const real phi = rand_uniform(0, TAU, g);
+        const real theta = random::uniform(0, PI, g);
+        const real phi = random::uniform(0, TAU, g);
 
         // Update the trajectory
         pos[i] = pos[i - 1] + vec3({

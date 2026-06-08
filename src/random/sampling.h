@@ -4,19 +4,12 @@
 #ifndef THEORETICA_SAMPLING_H
 #define THEORETICA_SAMPLING_H
 
-
 #include "../core/function.h"
-#include "./prng.h"
+#include "./random.h"
 
 
 namespace theoretica {
-
-
-	/// A p.d.f sampling function taking as input
-	/// the parameters of the distribution and
-	/// a pseudorandom number generator.
-	using pdf_sampling_function = real(*)(const std::vector<real>&, PRNG&);
-
+namespace random {
 
 	/// Generate a pseudorandom real number in [a, b] using a
 	/// preexisting generator.
@@ -31,7 +24,8 @@ namespace theoretica {
 	/// its modulus and divides it by prec:
 	/// \f$x = \frac{(n mod p)}{2^p}\f$, where n is the random integer
 	/// and p is the prec parameter
-	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = PSEUDORANDOM_PREC) {
+	template<typename PRNG>
+	inline real uniform(real a, real b, PRNG& g, uint64_t prec = PSEUDORANDOM_PREC) {
 
 		// Generate a uniform random real number in [0, 1]
 		real x = (g() % prec) / static_cast<real>(prec);
@@ -41,73 +35,33 @@ namespace theoretica {
 	}
 
 
-	/// Wrapper for rand_uniform(real, real, PRNG)
+	/// Wrapper for random::uniform(real, real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_uniform(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real uniform(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_uniform", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::uniform", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_uniform(theta[0], theta[1], g);
+		return uniform(theta[0], theta[1], g);
 	}
 
 
-	/// Coin toss random generator.
-	/// Extracts 1 or -1 with equal probability.
+	/// Fill an already initialized vector with uniformly distributed random numbers in [a, b].
 	///
-	/// @param g An already initialized PRNG
-	inline real rand_cointoss(PRNG& g) {
-
-		return (g() % 2 == 0) ? 1 : -1;
-	}
-
-
-	/// Wrapper for rand_cointoss(PRNG)
-	///
-	/// @param theta The parameters of the distribution
-	/// @param g An already initialized PRNG
-	inline real rand_cointoss(const std::vector<real>& theta, PRNG& g) {
-		return rand_cointoss(g);
-	}
-
-
-	/// Dice roll random generator.
-	/// Extracts a random natural number in [1, faces]
-	/// with equal probability.
-	///
-	/// @param faces The number of faces of the dice
-	inline real rand_diceroll(unsigned int faces, PRNG& g) {
-
-		if(faces == 0) {
-			TH_MATH_ERROR("rand_diceroll", faces, MathError::InvalidArgument);
-			return nan();
-		}
-
-		return (g() % faces) + 1;
-	}
-
-
-	/// Wrapper for rand_diceroll(PRNG)
-	///
-	/// @param theta The parameters of the distribution
-	/// @param g An already initialized PRNG
-	inline real rand_diceroll(const std::vector<real>& theta, PRNG& g) {
-
-		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_diceroll", theta.size(), MathError::InvalidArgument);
-			return nan();
-		}
-
-		if(theta[0] < 0) {
-			TH_MATH_ERROR("rand_diceroll", theta[0], MathError::InvalidArgument);
-			return nan();
-		}
-
-		return rand_diceroll(theta[0], g);
+	/// @param x The vector to fill with random numbers
+	/// @param a The lower extreme of the interval
+	/// @param b The higher extreme of the interval
+	/// @param g An already initialized pseudorandom number generator
+	template<typename Vector, typename PRNG>
+	inline void uniform(Vector& x, real a, real b, PRNG& g) {
+		
+		for (auto& x_i : x)
+			x_i = uniform(a, b, g);
 	}
 
 
@@ -131,11 +85,14 @@ namespace theoretica {
 	/// Random real numbers are generated inside a rectangle
 	/// defined by x1, x2, y1 and y2 following a uniform distribution.
 	/// Only numbers below the pdf are returned.
-	inline real rand_trycatch(stat_function f,
+	template<typename PRNG>
+	inline real trycatch(
+		stat_function f,
 		const vec<real>& theta,
 		real x1, real x2,
 		real y1, real y2, PRNG& g,
-		unsigned int max_iter = STATISTICS_TRYANDCATCH_ITER) {
+		unsigned int max_iter = STATISTICS_TRYANDCATCH_ITER
+	) {
 
 		real x;
 		real y;
@@ -143,13 +100,13 @@ namespace theoretica {
 		unsigned int iter = 0;
 
 		do {
-			x = rand_uniform(x1, x2, g);
-			y = rand_uniform(y1, y2, g);
+			x = random::uniform(x1, x2, g);
+			y = random::uniform(y1, y2, g);
 			iter++;
 		} while(y > f(x, theta) && iter <= max_iter);
 
 		if(iter > max_iter) {
-			TH_MATH_ERROR("rand_dist_tac", iter, MathError::NoConvergence);
+			TH_MATH_ERROR("random::trycatch", iter, MathError::NoConvergence);
 			return nan();
 		}
 
@@ -167,7 +124,8 @@ namespace theoretica {
 	/// @param g An already initialized PRNG
 	/// @param max_tries Maximum number of tries before
 	/// stopping execution.
-	inline real rand_rejectsamp(
+	template<typename PRNG>
+	inline real rejectsamp(
 		stat_function f, const vec<real>& theta,
 		real_function p, real_function Pinv,
 		PRNG& g, unsigned int max_tries = 100) {
@@ -177,17 +135,17 @@ namespace theoretica {
 			// Generate a random number following
 			// the p(x) probability distribution
 			// by the inverse cumulative distribution function
-			const real u_1 = rand_uniform(0, 1, g);
+			const real u_1 = random::uniform(0, 1, g);
 			const real x_p = Pinv(u_1);
 
-			const real u_2 = rand_uniform(0, 1, g);
+			const real u_2 = random::uniform(0, 1, g);
 
 			// Accept the sample if f(x_p)/g(x_p) > u_2
 			if(u_2 * p(x_p) < f(x_p, theta))
 				return x_p;
 		}
 
-		TH_MATH_ERROR("rand_reject_sample", max_tries, MathError::NoConvergence);
+		TH_MATH_ERROR("random::rejectsamp", max_tries, MathError::NoConvergence);
 		return nan();
 	}
 
@@ -197,7 +155,8 @@ namespace theoretica {
 	///
 	/// @note This function may not be thread-safe as it uses
 	/// static variables to keep track of spare generated values.
-	inline real rand_gaussian_polar(real mean, real sigma, PRNG& g) {
+	template<typename PRNG>
+	inline real gaussian_polar(real mean, real sigma, PRNG& g) {
 
 		static real spare;
 		static bool has_spare = false;
@@ -212,8 +171,8 @@ namespace theoretica {
 		// Generate a random point inside the unit circle
 		do {
 
-			x = rand_uniform(-1, 1, g);
-			y = rand_uniform(-1, 1, g);
+			x = random::uniform(-1, 1, g);
+			y = random::uniform(-1, 1, g);
 			s = square(x) + square(y);
 
 		} while(s >= 1 || s <= MACH_EPSILON);
@@ -234,7 +193,8 @@ namespace theoretica {
 	///
 	/// @note This function may not be thread-safe as it uses
 	/// static variables to keep track of spare generated values.
-	inline real rand_gaussian_boxmuller(real mean, real sigma, PRNG& g) {
+	template<typename PRNG>
+	inline real gaussian_boxmuller(real mean, real sigma, PRNG& g) {
 
 		static real spare;
 		static bool has_spare = false;
@@ -246,8 +206,8 @@ namespace theoretica {
 
 		// Generate a random point inside the unit circle
 		
-		const real x = rand_uniform(0, 1, g);
-		const real y = rand_uniform(0, 1, g);
+		const real x = random::uniform(0, 1, g);
+		const real y = random::uniform(0, 1, g);
 
 		const real x_transf = sqrt(-2 * ln(x));
 
@@ -272,14 +232,15 @@ namespace theoretica {
 	/// and the mean is computed to get a single
 	/// real number following (asymptotically) a
 	/// Gaussian distribution.
-	inline real rand_gaussian_clt(real mean, real sigma, PRNG& g) {
+	template<typename PRNG>
+	inline real gaussian_clt(real mean, real sigma, PRNG& g) {
 
 		// Fixed N = 12
 		constexpr unsigned int N = 12;
 
 		real s = 0;
 		for (unsigned int i = 0; i < N; ++i)
-			s += rand_uniform(-1, 1, g);
+			s += random::uniform(-1, 1, g);
 
 		// f(u) = 1/2 (in [-1, 1])
 		// E[u] = 0
@@ -305,13 +266,15 @@ namespace theoretica {
 	/// @note This function uses a square root (th::sqrt)
 	/// to rescale the output for variable N,
 	/// the constant N implementation has better performance.
-	inline real rand_gaussian_clt(
+	template<typename PRNG>
+	inline real gaussian_clt(
 		real mean, real sigma,
-		PRNG& g, unsigned int N) {
+		PRNG& g, unsigned int N
+	) {
 
 		real s = 0;
 		for (unsigned int i = 0; i < N; ++i)
-			s += rand_uniform(-1, 1, g);
+			s += random::uniform(-1, 1, g);
 
 		// f(u) = 1/2 (in [-1, 1])
 		// E[u] = 0
@@ -323,142 +286,154 @@ namespace theoretica {
 
 	/// Generate a random number following a Gaussian
 	/// distribution using the best available algorithm.
-	inline real rand_gaussian(real mean, real sigma, PRNG& g) {
-		return rand_gaussian_polar(mean, sigma, g);
+	template<typename PRNG>
+	inline real gaussian(real mean, real sigma, PRNG& g) {
+		return random::gaussian_polar(mean, sigma, g);
 	}
 
 
-	/// Wrapper for rand_gaussian(real, real, PRNG)
+	/// Wrapper for random::gaussian(real, real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_gaussian(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real gaussian(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_gaussian", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::gaussian", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_gaussian(theta[0], theta[1], g);
+		return random::gaussian(theta[0], theta[1], g);
 	}
 
 
 	/// Generate a random number following an exponential
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_exponential(real lambda, PRNG& g) {
+	template<typename PRNG>
+	inline real exponential(real lambda, PRNG& g) {
 
 		if(abs(lambda) < MACH_EPSILON) {
-			TH_MATH_ERROR("rand_exponential", lambda, MathError::DivByZero);
+			TH_MATH_ERROR("random::exponential", lambda, MathError::DivByZero);
 			return nan();
 		}
 
-		return -ln(1 - rand_uniform(0, 1, g)) / lambda;
+		return -ln(1 - random::uniform(0, 1, g)) / lambda;
 	}
 
 
-	/// Wrapper for rand_exponential(real, PRNG)
+	/// Wrapper for random::exponential(real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_exponential(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real exponential(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_exponential", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::exponential", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_exponential(theta[0], g);
+		return random::exponential(theta[0], g);
 	}
 
 
 	/// Generate a random number following a Rayleigh
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_rayleigh(real sigma, PRNG& g) {
+	template<typename PRNG>
+	inline real rayleigh(real sigma, PRNG& g) {
 
-		return sigma * sqrt(-2 * ln(1 - rand_uniform(0, 1, g)));
+		return sigma * sqrt(-2 * ln(1 - random::uniform(0, 1, g)));
 	}
 
 
-	/// Wrapper for rand_rayleigh(real, PRNG)
+	/// Wrapper for random::rayleigh(real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_rayleigh(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real rayleigh(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 1) {
-			TH_MATH_ERROR("rand_rayleigh", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::rayleigh", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_rayleigh(theta[0], g);
+		return random::rayleigh(theta[0], g);
 	}
 
 
 	/// Generate a random number following a Cauchy
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_cauchy(real mu, real alpha, PRNG& g) {
+	template<typename PRNG>
+	inline real cauchy(real mu, real alpha, PRNG& g) {
 
-		return alpha * tan(PI * (rand_uniform(0, 1, g) - 0.5)) + mu;
+		return alpha * tan(PI * (random::uniform(0, 1, g) - 0.5)) + mu;
 	}
 
 
-	/// Wrapper for rand_cauchy(real, real, PRNG)
+	/// Wrapper for random::cauchy(real, real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_cauchy(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real cauchy(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_cauchy", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::cauchy", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_cauchy(theta[0], theta[1], g);
+		return random::cauchy(theta[0], theta[1], g);
 	}
 
 
 	/// Generate a random number following a Laplace
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_laplace(real mu, real b, PRNG& g) {
+	template<typename PRNG>
+	inline real laplace(real mu, real b, PRNG& g) {
 
-		const real u = rand_uniform(0, 0.5, g);
+		const real u = random::uniform(0, 0.5, g);
 		return mu - b * rand_cointoss(g) * ln(1 - 2 * abs(u));
 	}
 
 
 	/// Generate a random number following a Laplace
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_laplace(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real laplace(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_laplace", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::laplace", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 		
-		return rand_laplace(theta[0], theta[1], g);
+		return random::laplace(theta[0], theta[1], g);
 	}
 
 
 	/// Generate a random number following a Pareto
 	/// distribution using the quantile (inverse) function method.
-	inline real rand_pareto(real x_m, real alpha, PRNG& g) {
+	template<typename PRNG>
+	inline real pareto(real x_m, real alpha, PRNG& g) {
 
-		return x_m / powf(1 - rand_uniform(0, 1, g), 1.0 / alpha);
+		return x_m / powf(1 - random::uniform(0, 1, g), 1.0 / alpha);
 	}
 
 
-	/// Wrapper for rand_pareto(real, real, PRNG)
+	/// Wrapper for random::pareto(real, real, PRNG)
 	///
 	/// @param theta The parameters of the distribution
 	/// @param g An already initialized PRNG
-	inline real rand_pareto(const std::vector<real>& theta, PRNG& g) {
+	template<typename PRNG>
+	inline real pareto(const std::vector<real>& theta, PRNG& g) {
 
 		if(theta.size() != 2) {
-			TH_MATH_ERROR("rand_pareto", theta.size(), MathError::InvalidArgument);
+			TH_MATH_ERROR("random::pareto", theta.size(), MathError::InvalidArgument);
 			return nan();
 		}
 
-		return rand_pareto(theta[0], theta[1], g);
+		return random::pareto(theta[0], theta[1], g);
 	}
 
 
@@ -466,10 +441,11 @@ namespace theoretica {
 	/// generates pseudorandom numbers following
 	/// asymptotically a given distribution
 	/// \f$f(x; \vec \theta)\f$.
-	struct pdf_sampler {
+	template<typename PRNG>
+	struct PdfSampler {
 
 		/// A p.d.f sampling function
-		pdf_sampling_function pdf;
+		real(*pdf)(const std::vector<real>&, PRNG&);
 
 		/// The parameters of the target distribution
 		std::vector<real> theta;
@@ -479,8 +455,8 @@ namespace theoretica {
 
 
 		/// Initialize the sampler with the given parameters
-		pdf_sampler(
-			pdf_sampling_function pdf,
+		PdfSampler(
+			real(*pdf)(const std::vector<real>&, PRNG&),
 			const std::vector<real>& theta,
 			PRNG& generator) : pdf(pdf), theta(theta), generator(generator) {}
 
@@ -505,7 +481,7 @@ namespace theoretica {
 				x.resize(N);
 
 				if (x.size() < N) {
-					TH_MATH_ERROR("pdf_sampler::fill", N, MathError::InvalidArgument);
+					TH_MATH_ERROR("PdfSampler::fill", N, MathError::InvalidArgument);
 					algebra::vec_error(x);
 					return;
 				}
@@ -526,51 +502,51 @@ namespace theoretica {
 
 
 		/// Stream the next generated number
-		inline pdf_sampler& operator>>(real& x) {
+		inline PdfSampler& operator>>(real& x) {
 			x = next();
 			return *this;
 		}
 
 
 		/// Returns a uniform distribution sampler
-		static pdf_sampler uniform(real a, real b, PRNG& generator) {
-			return pdf_sampler(rand_uniform, {a, b}, generator);
+		static PdfSampler uniform(real a, real b, PRNG& generator) {
+			return PdfSampler(random::uniform, {a, b}, generator);
 		}
 
 
 		/// Returns a Gaussian distribution sampler
-		static pdf_sampler gaussian(real mean, real sigma, PRNG& generator) {
-			return pdf_sampler(rand_gaussian, {mean, sigma}, generator);
+		static PdfSampler gaussian(real mean, real sigma, PRNG& generator) {
+			return PdfSampler(random::gaussian, {mean, sigma}, generator);
 		}
 
 
 		/// Returns an exponential distribution sampler
-		static pdf_sampler exponential(real lambda, PRNG& generator) {
-			return pdf_sampler(rand_exponential, {lambda}, generator);
+		static PdfSampler exponential(real lambda, PRNG& generator) {
+			return PdfSampler(random::exponential, {lambda}, generator);
 		}
 
 
 		/// Returns a Cauchy distribution sampler
-		static pdf_sampler cauchy(real mu, real alpha, PRNG& generator) {
-			return pdf_sampler(rand_cauchy, {mu, alpha}, generator);
+		static PdfSampler cauchy(real mu, real alpha, PRNG& generator) {
+			return PdfSampler(random::cauchy, {mu, alpha}, generator);
 		}
 
 
 		/// Returns a Rayleigh distribution sampler
-		static pdf_sampler rayleigh(real sigma, PRNG& generator) {
-			return pdf_sampler(rand_rayleigh, {sigma}, generator);
+		static PdfSampler rayleigh(real sigma, PRNG& generator) {
+			return PdfSampler(random::rayleigh, {sigma}, generator);
 		}
 
 
 		/// Returns a Pareto distribution sampler
-		static pdf_sampler pareto(real x_m, real alpha, PRNG& generator) {
-			return pdf_sampler(rand_pareto, {x_m, alpha}, generator);
+		static PdfSampler pareto(real x_m, real alpha, PRNG& generator) {
+			return PdfSampler(random::pareto, {x_m, alpha}, generator);
 		}
 
 
 		/// Returns a Laplace distribution sampler
-		static pdf_sampler laplace(real mu, real b, PRNG& generator) {
-			return pdf_sampler(rand_laplace, {mu, b}, generator);
+		static PdfSampler laplace(real mu, real b, PRNG& generator) {
+			return PdfSampler(random::laplace, {mu, b}, generator);
 		}
 
 	};
@@ -579,14 +555,19 @@ namespace theoretica {
 	/// using a symmetric proposal distribution.
 	///
 	/// @param pdf The target distribution
-	/// @param g A pdf_sampler already initialized to sample
+	/// @param g A PdfSampler already initialized to sample
 	/// from the proposal distribution
 	/// @param rnd An already initialized PRNG
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
+	template <
+		typename RealFunction,
+		typename PRNG1,
+		typename PRNG2
+	>
 	inline real metropolis(
-		real_function pdf, pdf_sampler& g,
-		real x0, PRNG& rnd, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
+		RealFunction pdf, PdfSampler<PRNG1>& g,
+		real x0, PRNG2& rnd, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
 
 		real current = x0, next;
 
@@ -596,7 +577,7 @@ namespace theoretica {
 			next = current + g();
 
 			// Checks acceptance rate
-			if(rand_uniform(0, 1, rnd) * pdf(current) <= pdf(next))
+			if(random::uniform(0, 1, rnd) * pdf(current) <= pdf(next))
 				current = next;
 		}
 
@@ -610,15 +591,20 @@ namespace theoretica {
 	/// distribution sampler to generate uniform samples.
 	///
 	/// @param pdf The target distribution
-	/// @param g A pdf_sampler already initialized to sample
+	/// @param g A PdfSampler already initialized to sample
 	/// from the proposal distribution
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
-	inline real metropolis(real_function pdf, pdf_sampler& g,
+	template <
+		typename RealFunction,
+		typename PRNG
+	>
+	inline real metropolis(RealFunction pdf, PdfSampler<PRNG>& g,
 		real x0, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
+
 		return metropolis(pdf, g, x0, g.generator, depth);
 	}
 
-}
+}}
 
 #endif

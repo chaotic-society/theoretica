@@ -13,7 +13,7 @@ constexpr unsigned int DEFAULT_ITER = 10;
 
 
 // Source of random numbers
-random::random_source rnd {0};
+ch::random::random_source rnd {0};
 
 
 // Compute the L_inf norm of any iterable structure, such as vectors or matrices.

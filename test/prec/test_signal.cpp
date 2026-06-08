@@ -49,8 +49,8 @@ int main(int argc, char const *argv[]) {
 	}
 
 	{
-		PRNG g = PRNG::xoshiro(time(nullptr));
-		pdf_sampler gauss = pdf_sampler::gaussian(0, 1E+03, g);
+		th::random::XoshiroPrng g (time(nullptr));
+		auto gauss = th::random::PdfSampler<th::random::XoshiroPrng>::gaussian(0, 1E+03, g);
 
 
 		unsigned int N = (1 << 16);

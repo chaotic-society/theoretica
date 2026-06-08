@@ -16,17 +16,17 @@ const real VARIANCE = 1E+04;
 
 
 // Generate a random complex number
-complex<real> rand_complex(random::random_source rnd, real variance = VARIANCE) {
+complex<real> rand_complex(ch::random::random_source rnd, real variance = VARIANCE) {
 	return complex<>(rnd.gaussian(0, variance), rnd.gaussian(0, variance));
 }
 
 // Generate a random phasor
-phasor<real> rand_phasor(random::random_source rnd, real variance = VARIANCE) {
+phasor<real> rand_phasor(ch::random::random_source rnd, real variance = VARIANCE) {
 	return phasor<>(std::abs(rnd.gaussian(0, variance)), rnd.uniform(0, 2 * PI));
 }
 
 // Generate a random quaternion
-quat<real> rand_quat(random::random_source rnd, real variance = VARIANCE) {
+quat<real> rand_quat(ch::random::random_source rnd, real variance = VARIANCE) {
 	return quat<>(rnd.gaussian(0, variance), rnd.gaussian(0, variance), rnd.gaussian(0, variance), rnd.gaussian(0, variance));
 }
 
@@ -78,7 +78,7 @@ int main(int argc, char const *argv[]) {
 	auto ctx = prec::make_context("complex", argc, argv);
 	ctx.output->settings.outputFiles = { "test/prec/prec_complex.csv" };
 	ctx.settings.estimateColumns = { "name", "meanErr", "rmsErr", "maxErr", "tolerance", "failed" };
-	random::random_source rnd = ctx.random->get_rnd();
+	ch::random::random_source rnd = ctx.random->get_rnd();
 
 	auto eq_opt = prec::equation_options<complex<>>(
 		ctx.settings.defaultTolerance,

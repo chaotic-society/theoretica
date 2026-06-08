@@ -5,7 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/chaotic-society/theoretica) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f4ae5dc6e1140ad855a3d6325d44b35)](https://app.codacy.com/gh/chaotic-society/theoretica/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaotic-society/theoretica&amp;utm_campaign=Badge_Grade) [![C++](https://img.shields.io/badge/C%2B%2B-modern-blue.svg)](https://isocpp.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](https://github.com/chaotic-society/theoretica/fork)
 
-> **A C++ math library for scientific computing with a simple and elegant interface.**
+> **Scientific computing with a simple and elegant interface.**
 
 Written in modern C++, Theoretica is a comprehensive suite of numerical methods designed for **high-performance scientific computing**, focusing on **elegance** and **simplicity**, lowering the learning curve typically associated with such software.
 

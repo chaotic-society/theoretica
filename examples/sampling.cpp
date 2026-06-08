@@ -24,29 +24,25 @@ int main() {
 	std::ofstream f_cauchy = std::ofstream("./examples/cauchy.csv");
 
 	// Pseudorandom Number Generator using Xoshiro256++
-	PRNG g = PRNG::xoshiro(time(nullptr));
-
-	// Discard the first 10000 values
-	// to get better results from the PRNG
-	g.discard(10000);
+	random::XoshiroPrng g (time(nullptr));
 
 	// Generate N values
 	for (unsigned int i = 0; i < N; ++i) {
 
 		// Generate a random variable following a uniform distribution
 		// in the interval [0, 1]
-		f_uniform << rand_uniform(0, 1, g) << ",\n";
+		f_uniform << random::uniform(0, 1, g) << ",\n";
 		
 		// Generate a random variable following a Gaussian distribution
 		// with mean = 0 and standard deviation = 1
-		f_gaussian << rand_gaussian(0, 1, g) << ",\n";
+		f_gaussian << random::gaussian(0, 1, g) << ",\n";
 
 		// Generate a random variable following an exponential distribution
 		// with rate = 1
-		f_exponential << rand_exponential(1, g) << ",\n";
+		f_exponential << random::exponential(1, g) << ",\n";
 
 		// Generate a random variable following a Cauchy distribution
 		// with location 0 and scale 1
-		f_cauchy << rand_cauchy(0, 1, g) << ",\n";
+		f_cauchy << random::cauchy(0, 1, g) << ",\n";
 	}
 }
