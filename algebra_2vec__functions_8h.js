@@ -1,0 +1,28 @@
+var algebra_2vec__functions_8h =
+[
+    [ "abs", "algebra_2vec__functions_8h.html#ab6796c6cb22d74134db2e187cbab4f7a", null ],
+    [ "acos", "algebra_2vec__functions_8h.html#ac034e5f31e4781c1d80c749e31b2b2d3", null ],
+    [ "asin", "algebra_2vec__functions_8h.html#ab967a37ac604a574d22449fcf96aad8c", null ],
+    [ "atan", "algebra_2vec__functions_8h.html#afefdb3ac80ec0fc255db0ebcce82717a", null ],
+    [ "cbrt", "algebra_2vec__functions_8h.html#adfb3b44d075f781d46fd8f31fc49a6a0", null ],
+    [ "cos", "algebra_2vec__functions_8h.html#aa427f248596b2c553627e56bf1ea3362", null ],
+    [ "cosh", "algebra_2vec__functions_8h.html#a9901d9033b66ae7f8c075efeea0cd883", null ],
+    [ "cot", "algebra_2vec__functions_8h.html#a06d4a47eb1adee92b15ae04232c7497c", null ],
+    [ "coth", "algebra_2vec__functions_8h.html#a76a361799f2b4bcbeceeecf77e73bbcf", null ],
+    [ "cube", "algebra_2vec__functions_8h.html#a734083123a6f75f5a463aa558663faa1", null ],
+    [ "exp", "algebra_2vec__functions_8h.html#a83b3895626635eac903ae0b3c6c35689", null ],
+    [ "ln", "algebra_2vec__functions_8h.html#ab76a2f64ffda5d0ca3c5276701cde0e7", null ],
+    [ "log10", "algebra_2vec__functions_8h.html#a0f2624454d589495961e99b2f049b372", null ],
+    [ "log2", "algebra_2vec__functions_8h.html#a1b322694370a3560601adea6383fe8b8", null ],
+    [ "map", "algebra_2vec__functions_8h.html#a598b3d7b1814b3dd0de275d774b828c3", null ],
+    [ "map", "algebra_2vec__functions_8h.html#a7dfb25bee83e7494c5cf905f58874a38", null ],
+    [ "pow", "algebra_2vec__functions_8h.html#af0c3c132d87dd8e40292a9a8929b5dcb", null ],
+    [ "powf", "algebra_2vec__functions_8h.html#a1f7a294437f71c137c529ea6fc9549c2", null ],
+    [ "sin", "algebra_2vec__functions_8h.html#af023caed26c4cb892c364092ba7bde10", null ],
+    [ "sinh", "algebra_2vec__functions_8h.html#aad5121e43829ce821c12a2b3e4865f60", null ],
+    [ "sqrt", "algebra_2vec__functions_8h.html#a70fe3cac6f2ae57d5be9961b75d40d59", null ],
+    [ "square", "algebra_2vec__functions_8h.html#a0314da30e3e8779841af726cba012bd0", null ],
+    [ "tan", "algebra_2vec__functions_8h.html#afa6c5f17e11f9c812a1130cd152e251f", null ],
+    [ "tanh", "algebra_2vec__functions_8h.html#ac0c8b7cb480679145833f1ca95aa925a", null ],
+    [ "transform", "algebra_2vec__functions_8h.html#a844c68921d940a7a8ae311039bfb7a0e", null ]
+];

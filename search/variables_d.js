@@ -2,10 +2,12 @@ var searchData=
 [
   ['sigma_5fa_0',['sigma_A',['../structtheoretica_1_1regression_1_1linear__model.html#a68b30368f310f356354dc039b9aa096f',1,'theoretica::regression::linear_model']]],
   ['sigma_5fb_1',['sigma_B',['../structtheoretica_1_1regression_1_1linear__model.html#a86b4a72cd91b1839ad510932c6234c36',1,'theoretica::regression::linear_model']]],
-  ['sqrt2_2',['SQRT2',['../namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8',1,'theoretica']]],
-  ['sqrt3_3',['SQRT3',['../namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d',1,'theoretica']]],
-  ['sqrtpi_4',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]],
-  ['statistics_5fmetropolis_5fdepth_5',['STATISTICS_METROPOLIS_DEPTH',['../namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83',1,'theoretica']]],
-  ['statistics_5ftryandcatch_5fiter_6',['STATISTICS_TRYANDCATCH_ITER',['../namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde',1,'theoretica']]],
-  ['status_7',['status',['../structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb',1,'theoretica::iter_result']]]
+  ['size_2',['size',['../structtheoretica_1_1stoch__result.html#a98e83ed41ba3e408de520a3267ef9967',1,'theoretica::stoch_result']]],
+  ['sqrt2_3',['SQRT2',['../namespacetheoretica.html#ae3be7f003670e91509c8f2fac523fab8',1,'theoretica']]],
+  ['sqrt3_4',['SQRT3',['../namespacetheoretica.html#adb3b1fe5337a2dcbdbbeb278cfd7c71d',1,'theoretica']]],
+  ['sqrtpi_5',['SQRTPI',['../namespacetheoretica.html#a37fb7f2271fa0e9cd55b47cf4641ca45',1,'theoretica']]],
+  ['statistics_5fmetropolis_5fdepth_6',['STATISTICS_METROPOLIS_DEPTH',['../namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83',1,'theoretica']]],
+  ['statistics_5ftryandcatch_5fiter_7',['STATISTICS_TRYANDCATCH_ITER',['../namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde',1,'theoretica']]],
+  ['status_8',['status',['../structtheoretica_1_1iter__result.html#ad38b3bcc68d4b2a7946d4e7d5eaf6ecb',1,'theoretica::iter_result']]],
+  ['stdev_9',['stdev',['../structtheoretica_1_1stoch__result.html#ab88ecba16c2b04bedfcde0475ed4cc8b',1,'theoretica::stoch_result']]]
 ];

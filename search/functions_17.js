@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xoshiro_0',['xoshiro',['../classtheoretica_1_1_p_r_n_g.html#abdcf91616ade8defd982469aaf91ca0e',1,'theoretica::PRNG::xoshiro(const std::vector&lt; uint64_t &gt; &amp;p)'],['../classtheoretica_1_1_p_r_n_g.html#a9d80280c21da2cfb849f4fc1a63f18c9',1,'theoretica::PRNG::xoshiro(uint64_t seed=1)']]]
+  ['xoshiroprng_0',['xoshiroprng',['../structtheoretica_1_1random_1_1_xoshiro_prng.html#a7f524c4b4c5446f12510f1a899e15a28',1,'theoretica::random::XoshiroPrng::XoshiroPrng(uint64_t seed=0)'],['../structtheoretica_1_1random_1_1_xoshiro_prng.html#a8e0773376ce2bdf112f51d5f3d305ab1',1,'theoretica::random::XoshiroPrng::XoshiroPrng(const std::array&lt; uint64_t, 4 &gt; &amp;s)']]]
 ];

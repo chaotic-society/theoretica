@@ -2,7 +2,7 @@ var searchData=
 [
   ['p_5fvalue_0',['p_value',['../structtheoretica_1_1regression_1_1linear__model.html#aa62f9b0eadb97799acecd111d90f9670',1,'theoretica::regression::linear_model']]],
   ['path_1',['path',['../structtheoretica_1_1io_1_1hdf5__node.html#afe0969b0a57dff943a153ccb59527f59',1,'theoretica::io::hdf5_node']]],
-  ['pdf_2',['pdf',['../structtheoretica_1_1pdf__sampler.html#aafbc9ded7aa00c8492433cf57f32813e',1,'theoretica::pdf_sampler']]],
+  ['pdf_2',['pdf',['../structtheoretica_1_1random_1_1_pdf_sampler.html#a9a953c94898569dbb2ceaf4abde29214',1,'theoretica::random::PdfSampler']]],
   ['phase_3',['phase',['../classtheoretica_1_1phasor.html#a76f4b104c4183888db02705ac8e11f52',1,'theoretica::phasor']]],
   ['phi_4',['PHI',['../namespacetheoretica.html#ace8245ba56baa7620ff9d0d9ccfbc53f',1,'theoretica']]],
   ['pi_5',['PI',['../namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9',1,'theoretica']]],

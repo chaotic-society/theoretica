@@ -4,5 +4,6 @@ var searchData=
   ['special_2eh_1',['special.h',['../special_8h.html',1,'']]],
   ['splines_2eh_2',['splines.h',['../splines_8h.html',1,'']]],
   ['statistics_2eh_3',['statistics.h',['../statistics_8h.html',1,'']]],
-  ['strings_2eh_4',['strings.h',['../strings_8h.html',1,'']]]
+  ['stoch_5fresult_2eh_4',['stoch_result.h',['../stoch__result_8h.html',1,'']]],
+  ['strings_2eh_5',['strings.h',['../strings_8h.html',1,'']]]
 ];

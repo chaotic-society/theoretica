@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Theoretica: pseudorandom/sampling.h File Reference</title>
+<title>Theoretica: random/sampling.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,7 +103,6 @@ $(document).ready(function(){initNavTree('sampling_8h.html',''); initResizable()
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sampling.h File Reference</div></div>
 </div><!--header-->
@@ -112,14 +111,14 @@ $(document).ready(function(){initNavTree('sampling_8h.html',''); initResizable()
 <p>Sampling from probability distributions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="function_8h_source.html">../core/function.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="prng_8h_source.html">./prng.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="random_8h_source.html">./random.h</a>&quot;</code><br />
 </div>
 <p><a href="sampling_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1pdf__sampler.html">theoretica::pdf_sampler</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution \(f(x; \vec \theta)\).  <a href="structtheoretica_1_1pdf__sampler.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtheoretica_1_1random_1_1_pdf_sampler.html">theoretica::random::PdfSampler&lt; PRNG &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A probability density function sampler which generates pseudorandom numbers following asymptotically a given distribution \(f(x; \vec \theta)\).  <a href="structtheoretica_1_1random_1_1_pdf_sampler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -128,110 +127,1029 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacetheoretica"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace of the library which contains all functions and objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a17352cbe273b80ae0f08eac818eba84e" id="r_a17352cbe273b80ae0f08eac818eba84e"><td class="memItemLeft" align="right" valign="top"><a id="a17352cbe273b80ae0f08eac818eba84e" name="a17352cbe273b80ae0f08eac818eba84e"></a>
-<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::pdf_sampling_function</b> = <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>(*)(<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;)</td></tr>
-<tr class="memdesc:a17352cbe273b80ae0f08eac818eba84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A p.d.f sampling function taking as input the parameters of the distribution and a pseudorandom number generator. <br /></td></tr>
-<tr class="separator:a17352cbe273b80ae0f08eac818eba84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af96fa0c57e1c2f7513d53bc2ff3b4a2c" id="r_af96fa0c57e1c2f7513d53bc2ff3b4a2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af96fa0c57e1c2f7513d53bc2ff3b4a2c">theoretica::rand_uniform</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">uint64_t</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">prec</a>=<a class="el" href="namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2">PSEUDORANDOM_PREC</a>)</td></tr>
-<tr class="memdesc:af96fa0c57e1c2f7513d53bc2ff3b4a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom real number in [a, b] using a preexisting generator.  <br /></td></tr>
-<tr class="separator:af96fa0c57e1c2f7513d53bc2ff3b4a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7e77a1836e1b966cdbb0934d5ebbbf2" id="r_ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ad7e77a1836e1b966cdbb0934d5ebbbf2">theoretica::rand_uniform</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_uniform(real, real, PRNG)  <br /></td></tr>
-<tr class="separator:ad7e77a1836e1b966cdbb0934d5ebbbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99ddd9fc13f4c8b28ea4025640cbadf4" id="r_a99ddd9fc13f4c8b28ea4025640cbadf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a99ddd9fc13f4c8b28ea4025640cbadf4">theoretica::rand_cointoss</a> (<a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a99ddd9fc13f4c8b28ea4025640cbadf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coin toss random generator.  <br /></td></tr>
-<tr class="separator:a99ddd9fc13f4c8b28ea4025640cbadf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada12d3bc9842b85e97e14f0eb975e132" id="r_ada12d3bc9842b85e97e14f0eb975e132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ada12d3bc9842b85e97e14f0eb975e132">theoretica::rand_cointoss</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:ada12d3bc9842b85e97e14f0eb975e132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_cointoss(PRNG)  <br /></td></tr>
-<tr class="separator:ada12d3bc9842b85e97e14f0eb975e132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968bc8465bcb421983d457b96469e9ef" id="r_a968bc8465bcb421983d457b96469e9ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a968bc8465bcb421983d457b96469e9ef">theoretica::rand_diceroll</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">faces</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a968bc8465bcb421983d457b96469e9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dice roll random generator.  <br /></td></tr>
-<tr class="separator:a968bc8465bcb421983d457b96469e9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a709a55686cbd545429284beb16eef7b7" id="r_a709a55686cbd545429284beb16eef7b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a709a55686cbd545429284beb16eef7b7">theoretica::rand_diceroll</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a709a55686cbd545429284beb16eef7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_diceroll(PRNG)  <br /></td></tr>
-<tr class="separator:a709a55686cbd545429284beb16eef7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accbe6df09ae3883660614f02f70a2ade" id="r_accbe6df09ae3883660614f02f70a2ade"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#accbe6df09ae3883660614f02f70a2ade">theoretica::rand_trycatch</a> (<a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> f, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x1</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x2</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">y1</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">y2</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">max_iter</a>=<a class="el" href="namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde">STATISTICS_TRYANDCATCH_ITER</a>)</td></tr>
-<tr class="memdesc:accbe6df09ae3883660614f02f70a2ade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <br /></td></tr>
-<tr class="separator:accbe6df09ae3883660614f02f70a2ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e708ed0859828011f0d262c93274ec3" id="r_a7e708ed0859828011f0d262c93274ec3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a7e708ed0859828011f0d262c93274ec3">theoretica::rand_rejectsamp</a> (<a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> f, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">p</a>, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">Pinv</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">max_tries</a>=100)</td></tr>
-<tr class="memdesc:a7e708ed0859828011f0d262c93274ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following any given distribution using rejection sampling.  <br /></td></tr>
-<tr class="separator:a7e708ed0859828011f0d262c93274ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bdf0dc89459fedaf6950c0f9b96df5" id="r_ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac8bdf0dc89459fedaf6950c0f9b96df5">theoretica::rand_gaussian_polar</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using Marsaglia's polar method.  <br /></td></tr>
-<tr class="separator:ac8bdf0dc89459fedaf6950c0f9b96df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d0c9531b268c00e759cb571422e01f" id="r_a91d0c9531b268c00e759cb571422e01f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a91d0c9531b268c00e759cb571422e01f">theoretica::rand_gaussian_boxmuller</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a91d0c9531b268c00e759cb571422e01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the Box-Muller method.  <br /></td></tr>
-<tr class="separator:a91d0c9531b268c00e759cb571422e01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c36b22d9b1f9f2beeab1c7be35fe8b3" id="r_a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a8c36b22d9b1f9f2beeab1c7be35fe8b3">theoretica::rand_gaussian_clt</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <br /></td></tr>
-<tr class="separator:a8c36b22d9b1f9f2beeab1c7be35fe8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b8d1fc98c8429d4b342e860cab6ed1" id="r_af2b8d1fc98c8429d4b342e860cab6ed1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#af2b8d1fc98c8429d4b342e860cab6ed1">theoretica::rand_gaussian_clt</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> N)</td></tr>
-<tr class="memdesc:af2b8d1fc98c8429d4b342e860cab6ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <br /></td></tr>
-<tr class="separator:af2b8d1fc98c8429d4b342e860cab6ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a856e584fd661d664a36cb185c8abd6ba" id="r_a856e584fd661d664a36cb185c8abd6ba"><td class="memItemLeft" align="right" valign="top"><a id="a856e584fd661d664a36cb185c8abd6ba" name="a856e584fd661d664a36cb185c8abd6ba"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_gaussian</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a856e584fd661d664a36cb185c8abd6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the best available algorithm. <br /></td></tr>
-<tr class="separator:a856e584fd661d664a36cb185c8abd6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2c1865b7a5639ed82643a069554e3d" id="r_aad2c1865b7a5639ed82643a069554e3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aad2c1865b7a5639ed82643a069554e3d">theoretica::rand_gaussian</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:aad2c1865b7a5639ed82643a069554e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_gaussian(real, real, PRNG)  <br /></td></tr>
-<tr class="separator:aad2c1865b7a5639ed82643a069554e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40fc6d88e78808dfe4a4bbb03798a754" id="r_a40fc6d88e78808dfe4a4bbb03798a754"><td class="memItemLeft" align="right" valign="top"><a id="a40fc6d88e78808dfe4a4bbb03798a754" name="a40fc6d88e78808dfe4a4bbb03798a754"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_exponential</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">lambda</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a40fc6d88e78808dfe4a4bbb03798a754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following an exponential distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:a40fc6d88e78808dfe4a4bbb03798a754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e6165f6c783179d1b3c2e321b3e7d4" id="r_aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#aa2e6165f6c783179d1b3c2e321b3e7d4">theoretica::rand_exponential</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_exponential(real, PRNG)  <br /></td></tr>
-<tr class="separator:aa2e6165f6c783179d1b3c2e321b3e7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c93a1f60698d75caa21a305e2ba107" id="r_a55c93a1f60698d75caa21a305e2ba107"><td class="memItemLeft" align="right" valign="top"><a id="a55c93a1f60698d75caa21a305e2ba107" name="a55c93a1f60698d75caa21a305e2ba107"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_rayleigh</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a55c93a1f60698d75caa21a305e2ba107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Rayleigh distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:a55c93a1f60698d75caa21a305e2ba107"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012d14c9ef85d6f3028bf8ceb1008787" id="r_a012d14c9ef85d6f3028bf8ceb1008787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a012d14c9ef85d6f3028bf8ceb1008787">theoretica::rand_rayleigh</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a012d14c9ef85d6f3028bf8ceb1008787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_rayleigh(real, PRNG)  <br /></td></tr>
-<tr class="separator:a012d14c9ef85d6f3028bf8ceb1008787"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34a4b6660c0287dc6dfa979a2f83002" id="r_ac34a4b6660c0287dc6dfa979a2f83002"><td class="memItemLeft" align="right" valign="top"><a id="ac34a4b6660c0287dc6dfa979a2f83002" name="ac34a4b6660c0287dc6dfa979a2f83002"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_cauchy</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">mu</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">alpha</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:ac34a4b6660c0287dc6dfa979a2f83002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Cauchy distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:ac34a4b6660c0287dc6dfa979a2f83002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a473df88a9edd9ccc8dcf03665591575b" id="r_a473df88a9edd9ccc8dcf03665591575b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a473df88a9edd9ccc8dcf03665591575b">theoretica::rand_cauchy</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a473df88a9edd9ccc8dcf03665591575b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_cauchy(real, real, PRNG)  <br /></td></tr>
-<tr class="separator:a473df88a9edd9ccc8dcf03665591575b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01522152b1ccfd9a7db77654b6d8c12a" id="r_a01522152b1ccfd9a7db77654b6d8c12a"><td class="memItemLeft" align="right" valign="top"><a id="a01522152b1ccfd9a7db77654b6d8c12a" name="a01522152b1ccfd9a7db77654b6d8c12a"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_laplace</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">mu</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a01522152b1ccfd9a7db77654b6d8c12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:a01522152b1ccfd9a7db77654b6d8c12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a441cea1ebea409b2deb0ba387febc626" id="r_a441cea1ebea409b2deb0ba387febc626"><td class="memItemLeft" align="right" valign="top"><a id="a441cea1ebea409b2deb0ba387febc626" name="a441cea1ebea409b2deb0ba387febc626"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_laplace</b> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a441cea1ebea409b2deb0ba387febc626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:a441cea1ebea409b2deb0ba387febc626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b34801047d52afccf3b4120c3d2d74e" id="r_a2b34801047d52afccf3b4120c3d2d74e"><td class="memItemLeft" align="right" valign="top"><a id="a2b34801047d52afccf3b4120c3d2d74e" name="a2b34801047d52afccf3b4120c3d2d74e"></a>
-<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><b>theoretica::rand_pareto</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x_m</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">alpha</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:a2b34801047d52afccf3b4120c3d2d74e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Pareto distribution using the quantile (inverse) function method. <br /></td></tr>
-<tr class="separator:a2b34801047d52afccf3b4120c3d2d74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66a655f57ef0f6e436dfc03e800585b" id="r_ae66a655f57ef0f6e436dfc03e800585b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ae66a655f57ef0f6e436dfc03e800585b">theoretica::rand_pareto</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
-<tr class="memdesc:ae66a655f57ef0f6e436dfc03e800585b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for rand_pareto(real, real, PRNG)  <br /></td></tr>
-<tr class="separator:ae66a655f57ef0f6e436dfc03e800585b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66a8fc915915b6eff35dbf94c74b13bd" id="r_a66a8fc915915b6eff35dbf94c74b13bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#a66a8fc915915b6eff35dbf94c74b13bd">theoretica::metropolis</a> (<a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> pdf, <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x0</a>, <a class="el" href="classtheoretica_1_1_p_r_n_g.html">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">rnd</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">depth</a>=<a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a>)</td></tr>
-<tr class="memdesc:a66a8fc915915b6eff35dbf94c74b13bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis algorithm for distribution sampling using a symmetric proposal distribution.  <br /></td></tr>
-<tr class="separator:a66a8fc915915b6eff35dbf94c74b13bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac91dfc5efe4fa412bd7ef46f142f7045" id="r_ac91dfc5efe4fa412bd7ef46f142f7045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetheoretica.html#ac91dfc5efe4fa412bd7ef46f142f7045">theoretica::metropolis</a> (<a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> pdf, <a class="el" href="structtheoretica_1_1pdf__sampler.html">pdf_sampler</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x0</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">depth</a>=<a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a>)</td></tr>
-<tr class="memdesc:ac91dfc5efe4fa412bd7ef46f142f7045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis algorithm for distribution sampling using a symmetric proposal distribution.  <br /></td></tr>
-<tr class="separator:ac91dfc5efe4fa412bd7ef46f142f7045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae79736a584a743c136f75461868472be" id="r_ae79736a584a743c136f75461868472be"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:ae79736a584a743c136f75461868472be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#ae79736a584a743c136f75461868472be">theoretica::random::uniform</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">uint64_t</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">prec</a>=<a class="el" href="namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2">PSEUDORANDOM_PREC</a>)</td></tr>
+<tr class="memdesc:ae79736a584a743c136f75461868472be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom real number in [a, b] using a preexisting generator.  <br /></td></tr>
+<tr class="separator:ae79736a584a743c136f75461868472be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f61e2eaf56b9a6883d08284e4bbe36d" id="r_a2f61e2eaf56b9a6883d08284e4bbe36d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a2f61e2eaf56b9a6883d08284e4bbe36d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a2f61e2eaf56b9a6883d08284e4bbe36d">theoretica::random::uniform</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a2f61e2eaf56b9a6883d08284e4bbe36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::uniform(real, real, PRNG)  <br /></td></tr>
+<tr class="separator:a2f61e2eaf56b9a6883d08284e4bbe36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46fe313ccb9d45b808d7083dc332cfc" id="r_af46fe313ccb9d45b808d7083dc332cfc"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">Vector</a> , <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:af46fe313ccb9d45b808d7083dc332cfc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#af46fe313ccb9d45b808d7083dc332cfc">theoretica::random::uniform</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">Vector</a> &amp;x, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> a, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:af46fe313ccb9d45b808d7083dc332cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill an already initialized vector with uniformly distributed random numbers in [a, b].  <br /></td></tr>
+<tr class="separator:af46fe313ccb9d45b808d7083dc332cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd17f4e750de5557db56e513cf615407" id="r_afd17f4e750de5557db56e513cf615407"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:afd17f4e750de5557db56e513cf615407"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#afd17f4e750de5557db56e513cf615407">theoretica::random::trycatch</a> (<a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">f</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x1</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x2</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">y1</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">y2</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">max_iter</a>=<a class="el" href="namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde">STATISTICS_TRYANDCATCH_ITER</a>)</td></tr>
+<tr class="memdesc:afd17f4e750de5557db56e513cf615407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm.  <br /></td></tr>
+<tr class="separator:afd17f4e750de5557db56e513cf615407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5649729f225133f402a6ad805e0f51" id="r_aff5649729f225133f402a6ad805e0f51"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:aff5649729f225133f402a6ad805e0f51"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#aff5649729f225133f402a6ad805e0f51">theoretica::random::rejectsamp</a> (<a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">f</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">p</a>, <a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">Pinv</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">max_tries</a>=100)</td></tr>
+<tr class="memdesc:aff5649729f225133f402a6ad805e0f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following any given distribution using rejection sampling.  <br /></td></tr>
+<tr class="separator:aff5649729f225133f402a6ad805e0f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7480c83610668b0d4451b81789910416" id="r_a7480c83610668b0d4451b81789910416"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a7480c83610668b0d4451b81789910416"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a7480c83610668b0d4451b81789910416">theoretica::random::gaussian_polar</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a7480c83610668b0d4451b81789910416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using Marsaglia's polar method.  <br /></td></tr>
+<tr class="separator:a7480c83610668b0d4451b81789910416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c604469470829cf3eaaba8b0a748c66" id="r_a6c604469470829cf3eaaba8b0a748c66"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a6c604469470829cf3eaaba8b0a748c66"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a6c604469470829cf3eaaba8b0a748c66">theoretica::random::gaussian_boxmuller</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a6c604469470829cf3eaaba8b0a748c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the Box-Muller method.  <br /></td></tr>
+<tr class="separator:a6c604469470829cf3eaaba8b0a748c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985f890464b338dd1f2b44962adad2ba" id="r_a985f890464b338dd1f2b44962adad2ba"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a985f890464b338dd1f2b44962adad2ba"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a985f890464b338dd1f2b44962adad2ba">theoretica::random::gaussian_clt</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a985f890464b338dd1f2b44962adad2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <br /></td></tr>
+<tr class="separator:a985f890464b338dd1f2b44962adad2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e1aeb7741e535eb69ed615a54751fd0" id="r_a8e1aeb7741e535eb69ed615a54751fd0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a8e1aeb7741e535eb69ed615a54751fd0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a8e1aeb7741e535eb69ed615a54751fd0">theoretica::random::gaussian_clt</a> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> N)</td></tr>
+<tr class="memdesc:a8e1aeb7741e535eb69ed615a54751fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem.  <br /></td></tr>
+<tr class="separator:a8e1aeb7741e535eb69ed615a54751fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5096f8329b18a6c80a9e9e669d0462ef" id="r_a5096f8329b18a6c80a9e9e669d0462ef"><td class="memTemplParams" colspan="2"><a id="a5096f8329b18a6c80a9e9e669d0462ef" name="a5096f8329b18a6c80a9e9e669d0462ef"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a5096f8329b18a6c80a9e9e669d0462ef"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::gaussian</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> mean, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a5096f8329b18a6c80a9e9e669d0462ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Gaussian distribution using the best available algorithm. <br /></td></tr>
+<tr class="separator:a5096f8329b18a6c80a9e9e669d0462ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea7fa15999a40c70091c7e26e9d0394" id="r_abea7fa15999a40c70091c7e26e9d0394"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:abea7fa15999a40c70091c7e26e9d0394"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#abea7fa15999a40c70091c7e26e9d0394">theoretica::random::gaussian</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:abea7fa15999a40c70091c7e26e9d0394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::gaussian(real, real, PRNG)  <br /></td></tr>
+<tr class="separator:abea7fa15999a40c70091c7e26e9d0394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e91b4b8654792bdb2d54031e70c4e2" id="r_a05e91b4b8654792bdb2d54031e70c4e2"><td class="memTemplParams" colspan="2"><a id="a05e91b4b8654792bdb2d54031e70c4e2" name="a05e91b4b8654792bdb2d54031e70c4e2"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a05e91b4b8654792bdb2d54031e70c4e2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::exponential</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">lambda</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a05e91b4b8654792bdb2d54031e70c4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following an exponential distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a05e91b4b8654792bdb2d54031e70c4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f22bb6bc2731eb324956799261b375" id="r_a69f22bb6bc2731eb324956799261b375"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a69f22bb6bc2731eb324956799261b375"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a69f22bb6bc2731eb324956799261b375">theoretica::random::exponential</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a69f22bb6bc2731eb324956799261b375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::exponential(real, PRNG)  <br /></td></tr>
+<tr class="separator:a69f22bb6bc2731eb324956799261b375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e33b1234813877179475d6c2498be58" id="r_a0e33b1234813877179475d6c2498be58"><td class="memTemplParams" colspan="2"><a id="a0e33b1234813877179475d6c2498be58" name="a0e33b1234813877179475d6c2498be58"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a0e33b1234813877179475d6c2498be58"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::rayleigh</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">sigma</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a0e33b1234813877179475d6c2498be58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Rayleigh distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a0e33b1234813877179475d6c2498be58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace47d2449f33c0324fcb6548f048a00d" id="r_ace47d2449f33c0324fcb6548f048a00d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:ace47d2449f33c0324fcb6548f048a00d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#ace47d2449f33c0324fcb6548f048a00d">theoretica::random::rayleigh</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:ace47d2449f33c0324fcb6548f048a00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::rayleigh(real, PRNG)  <br /></td></tr>
+<tr class="separator:ace47d2449f33c0324fcb6548f048a00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed021f5b3124affe5d6e81e23c9505a7" id="r_aed021f5b3124affe5d6e81e23c9505a7"><td class="memTemplParams" colspan="2"><a id="aed021f5b3124affe5d6e81e23c9505a7" name="aed021f5b3124affe5d6e81e23c9505a7"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:aed021f5b3124affe5d6e81e23c9505a7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::cauchy</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">mu</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">alpha</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:aed021f5b3124affe5d6e81e23c9505a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Cauchy distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:aed021f5b3124affe5d6e81e23c9505a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee5e22015707886f1cb29415bb34796" id="r_adee5e22015707886f1cb29415bb34796"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:adee5e22015707886f1cb29415bb34796"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#adee5e22015707886f1cb29415bb34796">theoretica::random::cauchy</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:adee5e22015707886f1cb29415bb34796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::cauchy(real, real, PRNG)  <br /></td></tr>
+<tr class="separator:adee5e22015707886f1cb29415bb34796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2604c3b8b52494c0e126955e3f3bc34" id="r_ab2604c3b8b52494c0e126955e3f3bc34"><td class="memTemplParams" colspan="2"><a id="ab2604c3b8b52494c0e126955e3f3bc34" name="ab2604c3b8b52494c0e126955e3f3bc34"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:ab2604c3b8b52494c0e126955e3f3bc34"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::laplace</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">mu</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> b, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:ab2604c3b8b52494c0e126955e3f3bc34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:ab2604c3b8b52494c0e126955e3f3bc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cffa3b22a941d292b970a3b17c1b879" id="r_a1cffa3b22a941d292b970a3b17c1b879"><td class="memTemplParams" colspan="2"><a id="a1cffa3b22a941d292b970a3b17c1b879" name="a1cffa3b22a941d292b970a3b17c1b879"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a1cffa3b22a941d292b970a3b17c1b879"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::laplace</b> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a1cffa3b22a941d292b970a3b17c1b879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Laplace distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a1cffa3b22a941d292b970a3b17c1b879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15005647e5ba2dfa55cfa14f17030390" id="r_a15005647e5ba2dfa55cfa14f17030390"><td class="memTemplParams" colspan="2"><a id="a15005647e5ba2dfa55cfa14f17030390" name="a15005647e5ba2dfa55cfa14f17030390"></a>
+template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a15005647e5ba2dfa55cfa14f17030390"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>theoretica::random::pareto</b> (<a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x_m</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">alpha</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a15005647e5ba2dfa55cfa14f17030390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number following a Pareto distribution using the quantile (inverse) function method. <br /></td></tr>
+<tr class="separator:a15005647e5ba2dfa55cfa14f17030390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42d9c23169de8cd3a7dca41f623227c7" id="r_a42d9c23169de8cd3a7dca41f623227c7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a42d9c23169de8cd3a7dca41f623227c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a42d9c23169de8cd3a7dca41f623227c7">theoretica::random::pareto</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;theta, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>)</td></tr>
+<tr class="memdesc:a42d9c23169de8cd3a7dca41f623227c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for random::pareto(real, real, PRNG)  <br /></td></tr>
+<tr class="separator:a42d9c23169de8cd3a7dca41f623227c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29466605e376c673b48a33745ae30632" id="r_a29466605e376c673b48a33745ae30632"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a> , <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG1</a> , <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG2</a> &gt; </td></tr>
+<tr class="memitem:a29466605e376c673b48a33745ae30632"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a29466605e376c673b48a33745ae30632">theoretica::random::metropolis</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a> pdf, <a class="el" href="structtheoretica_1_1random_1_1_pdf_sampler.html">PdfSampler</a>&lt; <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG1</a> &gt; &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x0</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG2</a> &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">rnd</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">depth</a>=<a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a>)</td></tr>
+<tr class="memdesc:a29466605e376c673b48a33745ae30632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis algorithm for distribution sampling using a symmetric proposal distribution.  <br /></td></tr>
+<tr class="separator:a29466605e376c673b48a33745ae30632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b1887fc1b0e29e867075b5459cc9f9" id="r_a63b1887fc1b0e29e867075b5459cc9f9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a> , <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">typename</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; </td></tr>
+<tr class="memitem:a63b1887fc1b0e29e867075b5459cc9f9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sampling_8h.html#a63b1887fc1b0e29e867075b5459cc9f9">theoretica::random::metropolis</a> (<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a> pdf, <a class="el" href="structtheoretica_1_1random_1_1_pdf_sampler.html">PdfSampler</a>&lt; <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; &amp;<a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">g</a>, <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">x0</a>, <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">depth</a>=<a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a>)</td></tr>
+<tr class="memdesc:a63b1887fc1b0e29e867075b5459cc9f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis algorithm for distribution sampling using a symmetric proposal distribution.  <br /></td></tr>
+<tr class="separator:a63b1887fc1b0e29e867075b5459cc9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sampling from probability distributions. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="adee5e22015707886f1cb29415bb34796" name="adee5e22015707886f1cb29415bb34796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee5e22015707886f1cb29415bb34796">&#9670;&#160;</a></span>cauchy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::cauchy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::cauchy(real, real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a69f22bb6bc2731eb324956799261b375" name="a69f22bb6bc2731eb324956799261b375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f22bb6bc2731eb324956799261b375">&#9670;&#160;</a></span>exponential()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::exponential </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::exponential(real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abea7fa15999a40c70091c7e26e9d0394" name="abea7fa15999a40c70091c7e26e9d0394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abea7fa15999a40c70091c7e26e9d0394">&#9670;&#160;</a></span>gaussian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::gaussian </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::gaussian(real, real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6c604469470829cf3eaaba8b0a748c66" name="a6c604469470829cf3eaaba8b0a748c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c604469470829cf3eaaba8b0a748c66">&#9670;&#160;</a></span>gaussian_boxmuller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::gaussian_boxmuller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>sigma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random number following a Gaussian distribution using the Box-Muller method. </p>
+<dl class="section note"><dt>Note</dt><dd>This function may not be thread-safe as it uses static variables to keep track of spare generated values. </dd></dl>
+
+</div>
+</div>
+<a id="a985f890464b338dd1f2b44962adad2ba" name="a985f890464b338dd1f2b44962adad2ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985f890464b338dd1f2b44962adad2ba">&#9670;&#160;</a></span>gaussian_clt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::gaussian_clt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>sigma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mean</td><td>The mean of the target distribution </td></tr>
+    <tr><td class="paramname">sigma</td><td>The sigma of the target distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Exactly 12 real numbers in a range are generated and the mean is computed to get a single real number following (asymptotically) a Gaussian distribution. </p>
+
+</div>
+</div>
+<a id="a8e1aeb7741e535eb69ed615a54751fd0" name="a8e1aeb7741e535eb69ed615a54751fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1aeb7741e535eb69ed615a54751fd0">&#9670;&#160;</a></span>gaussian_clt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::gaussian_clt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>sigma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a>&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random number in a range following a Gaussian distribution by exploiting the Central Limit Theorem. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mean</td><td>The mean of the target distribution </td></tr>
+    <tr><td class="paramname">sigma</td><td>The sigma of the target distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+    <tr><td class="paramname">N</td><td>The number of random numbers to generate</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Many real numbers in a range are generated and the mean is computed to get a single real number following (asymptotically) a Gaussian distribution.</p>
+<dl class="section note"><dt>Note</dt><dd>This function uses a square root (<a class="el" href="namespacetheoretica.html#a70fe3cac6f2ae57d5be9961b75d40d59" title="Parallel element-wise evaluation of the sqrt function.">th::sqrt</a>) to rescale the output for variable N, the constant N implementation has better performance. </dd></dl>
+
+</div>
+</div>
+<a id="a7480c83610668b0d4451b81789910416" name="a7480c83610668b0d4451b81789910416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7480c83610668b0d4451b81789910416">&#9670;&#160;</a></span>gaussian_polar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::gaussian_polar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>sigma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random number following a Gaussian distribution using Marsaglia's polar method. </p>
+<dl class="section note"><dt>Note</dt><dd>This function may not be thread-safe as it uses static variables to keep track of spare generated values. </dd></dl>
+
+</div>
+</div>
+<a id="a63b1887fc1b0e29e867075b5459cc9f9" name="a63b1887fc1b0e29e867075b5459cc9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b1887fc1b0e29e867075b5459cc9f9">&#9670;&#160;</a></span>metropolis() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RealFunction , typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::metropolis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a>&#160;</td>
+          <td class="paramname"><em>pdf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtheoretica_1_1random_1_1_pdf_sampler.html">PdfSampler</a>&lt; <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a>&#160;</td>
+          <td class="paramname"><em>depth</em> = <code><a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Metropolis algorithm for distribution sampling using a symmetric proposal distribution. </p>
+<p>This function uses the same PRNG as the proposal distribution sampler to generate uniform samples.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdf</td><td>The target distribution </td></tr>
+    <tr><td class="paramname">g</td><td>A PdfSampler already initialized to sample from the proposal distribution </td></tr>
+    <tr><td class="paramname">depth</td><td>The number of iterations of the algorithm (defaults to STATISTICS_METROPOLIS_DEPTH) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a29466605e376c673b48a33745ae30632" name="a29466605e376c673b48a33745ae30632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29466605e376c673b48a33745ae30632">&#9670;&#160;</a></span>metropolis() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RealFunction , typename PRNG1 , typename PRNG2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::metropolis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">RealFunction</a>&#160;</td>
+          <td class="paramname"><em>pdf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtheoretica_1_1random_1_1_pdf_sampler.html">PdfSampler</a>&lt; <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG1</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG2</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a>&#160;</td>
+          <td class="paramname"><em>depth</em> = <code><a class="el" href="namespacetheoretica.html#a1a92480c95125647eabea5f15aa26f83">STATISTICS_METROPOLIS_DEPTH</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Metropolis algorithm for distribution sampling using a symmetric proposal distribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdf</td><td>The target distribution </td></tr>
+    <tr><td class="paramname">g</td><td>A PdfSampler already initialized to sample from the proposal distribution </td></tr>
+    <tr><td class="paramname">rnd</td><td>An already initialized PRNG </td></tr>
+    <tr><td class="paramname">depth</td><td>The number of iterations of the algorithm (defaults to STATISTICS_METROPOLIS_DEPTH) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a42d9c23169de8cd3a7dca41f623227c7" name="a42d9c23169de8cd3a7dca41f623227c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42d9c23169de8cd3a7dca41f623227c7">&#9670;&#160;</a></span>pareto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::pareto </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::pareto(real, real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace47d2449f33c0324fcb6548f048a00d" name="ace47d2449f33c0324fcb6548f048a00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace47d2449f33c0324fcb6548f048a00d">&#9670;&#160;</a></span>rayleigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::rayleigh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::rayleigh(real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aff5649729f225133f402a6ad805e0f51" name="aff5649729f225133f402a6ad805e0f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5649729f225133f402a6ad805e0f51">&#9670;&#160;</a></span>rejectsamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::rejectsamp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ad60d62492ac4137c837c50b1fdc8a904">real_function</a>&#160;</td>
+          <td class="paramname"><em>Pinv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a>&#160;</td>
+          <td class="paramname"><em>max_tries</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random number following any given distribution using rejection sampling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Target distribution </td></tr>
+    <tr><td class="paramname">theta</td><td>The parameters of the target distribution </td></tr>
+    <tr><td class="paramname">p</td><td>Proposal distribution </td></tr>
+    <tr><td class="paramname">Pinv</td><td>Inverse cumulative function of the proposal distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+    <tr><td class="paramname">max_tries</td><td>Maximum number of tries before stopping execution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd17f4e750de5557db56e513cf615407" name="afd17f4e750de5557db56e513cf615407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd17f4e750de5557db56e513cf615407">&#9670;&#160;</a></span>trycatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::trycatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#ac7a0bafb035970e4921b84f75661e2b1">stat_function</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> <a class="el" href="classtheoretica_1_1vec.html">vec</a>&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">unsigned</a> <a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">int</a>&#160;</td>
+          <td class="paramname"><em>max_iter</em> = <code><a class="el" href="namespacetheoretica.html#a69a848b21acb5341a013db4baa629bde">STATISTICS_TRYANDCATCH_ITER</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a pseudorandom value following any probability distribution function using the Try-and-Catch (rejection) algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A probability distribution function </td></tr>
+    <tr><td class="paramname">theta</td><td>The parameters of the pdf </td></tr>
+    <tr><td class="paramname">x1</td><td>The left extreme of the rectangle </td></tr>
+    <tr><td class="paramname">x2</td><td>The right extreme of the rectangle </td></tr>
+    <tr><td class="paramname">y1</td><td>The lower extreme of the rectangle </td></tr>
+    <tr><td class="paramname">y2</td><td>The upper extreme of the rectangle </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG to use for number generation </td></tr>
+    <tr><td class="paramname">max_iter</td><td>The maximum number of failed generations before stopping execution (defaults to STATISTICS_TRYANDCATCH_ITER) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A real number following the given pdf</dd></dl>
+<p>Random real numbers are generated inside a rectangle defined by x1, x2, y1 and y2 following a uniform distribution. Only numbers below the pdf are returned. </p>
+
+</div>
+</div>
+<a id="a2f61e2eaf56b9a6883d08284e4bbe36d" name="a2f61e2eaf56b9a6883d08284e4bbe36d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f61e2eaf56b9a6883d08284e4bbe36d">&#9670;&#160;</a></span>uniform() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::uniform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">const</a> std::vector&lt; <a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper for random::uniform(real, real, PRNG) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>The parameters of the distribution </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized PRNG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae79736a584a743c136f75461868472be" name="ae79736a584a743c136f75461868472be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae79736a584a743c136f75461868472be">&#9670;&#160;</a></span>uniform() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real theoretica::random::uniform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">uint64_t</a>&#160;</td>
+          <td class="paramname"><em>prec</em> = <code><a class="el" href="namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2">PSEUDORANDOM_PREC</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a pseudorandom real number in [a, b] using a preexisting generator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>The lower extreme of the interval </td></tr>
+    <tr><td class="paramname">b</td><td>The higher extreme of the interval </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized pseudorandom number generator </td></tr>
+    <tr><td class="paramname">prec</td><td>Precision parameters for the normalization, defaults to PSEUDORANDOM_PREC.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The algorithm generates a random integer number, computes its modulus and divides it by prec: \(x = \frac{(n mod p)}{2^p}\), where n is the random integer and p is the prec parameter </p>
+
+</div>
+</div>
+<a id="af46fe313ccb9d45b808d7083dc332cfc" name="af46fe313ccb9d45b808d7083dc332cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46fe313ccb9d45b808d7083dc332cfc">&#9670;&#160;</a></span>uniform() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Vector , typename PRNG &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void theoretica::random::uniform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a049966946220f1f7e5eae57293703066">real</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetheoretica.html#a718483d128705dd92a0576a87ed33471">PRNG</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fill an already initialized vector with uniformly distributed random numbers in [a, b]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The vector to fill with random numbers </td></tr>
+    <tr><td class="paramname">a</td><td>The lower extreme of the interval </td></tr>
+    <tr><td class="paramname">b</td><td>The higher extreme of the interval </td></tr>
+    <tr><td class="paramname">g</td><td>An already initialized pseudorandom number generator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_7abfcc991e7b5ee9bf0b7bf536481a35.html">pseudorandom</a></li><li class="navelem"><a class="el" href="sampling_8h.html">sampling.h</a></li>
-    <li class="footer">Generated on Thu Jun 4 2026 15:43:13 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="dir_dc7627fbbe08a8ed57b33ba8aaf634d0.html">random</a></li><li class="navelem"><a class="el" href="sampling_8h.html">sampling.h</a></li>
+    <li class="footer">Generated on Mon Jun 8 2026 11:04:27 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
