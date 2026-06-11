@@ -256,7 +256,9 @@ namespace random {
 
 
 	/// Approximate an integral using Crude Monte Carlo integration with
-	/// importance sampling.
+	/// importance sampling. The function may take a real number or a 
+	/// vector of coordinates as input, in accordance with the output of the sampler.
+	/// The importance function g is expected to be normalized.
 	///
 	/// @param f The function to integrate
 	/// @param g The importance function (normalized)

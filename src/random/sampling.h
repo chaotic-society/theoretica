@@ -190,32 +190,15 @@ namespace random {
 
 	/// Generate a random number following a Gaussian distribution
 	/// using the Box-Muller method.
-	///
-	/// @note This function may not be thread-safe as it uses
-	/// static variables to keep track of spare generated values.
 	template<typename PRNG>
 	inline real gaussian_boxmuller(real mean, real sigma, PRNG& g) {
 
-		static real spare;
-		static bool has_spare = false;
-
-		if(has_spare) {
-			has_spare = false;
-			return mean + spare * sigma;
-		}
-
 		// Generate a random point inside the unit circle
-		
 		const real x = random::uniform(0, 1, g);
 		const real y = random::uniform(0, 1, g);
 
 		const real x_transf = sqrt(-2 * ln(x));
-
 		const real u = x_transf * cos(TAU * y);
-		const real v = x_transf * sin(TAU * y);
-
-		spare = v;
-		has_spare = true;
 
 		return mean + sigma * u;
 	}
@@ -507,74 +490,85 @@ namespace random {
 			return *this;
 		}
 
-
-		/// Returns a uniform distribution sampler
-		static PdfSampler uniform(real a, real b, PRNG& generator) {
-			return PdfSampler(random::uniform, {a, b}, generator);
-		}
-
-
-		/// Returns a Gaussian distribution sampler
-		static PdfSampler gaussian(real mean, real sigma, PRNG& generator) {
-			return PdfSampler(random::gaussian, {mean, sigma}, generator);
-		}
-
-
-		/// Returns an exponential distribution sampler
-		static PdfSampler exponential(real lambda, PRNG& generator) {
-			return PdfSampler(random::exponential, {lambda}, generator);
-		}
-
-
-		/// Returns a Cauchy distribution sampler
-		static PdfSampler cauchy(real mu, real alpha, PRNG& generator) {
-			return PdfSampler(random::cauchy, {mu, alpha}, generator);
-		}
-
-
-		/// Returns a Rayleigh distribution sampler
-		static PdfSampler rayleigh(real sigma, PRNG& generator) {
-			return PdfSampler(random::rayleigh, {sigma}, generator);
-		}
-
-
-		/// Returns a Pareto distribution sampler
-		static PdfSampler pareto(real x_m, real alpha, PRNG& generator) {
-			return PdfSampler(random::pareto, {x_m, alpha}, generator);
-		}
-
-
-		/// Returns a Laplace distribution sampler
-		static PdfSampler laplace(real mu, real b, PRNG& generator) {
-			return PdfSampler(random::laplace, {mu, b}, generator);
-		}
-
 	};
+
+
+	/// Constructs a uniform distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> uniform_sampler(real a, real b, PRNG& generator) {
+		return PdfSampler<PRNG>(random::uniform, {a, b}, generator);
+	}
+
+
+	/// Constructs a Gaussian distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> gaussian_sampler(real mean, real sigma, PRNG& generator) {
+		return PdfSampler<PRNG>(random::gaussian, {mean, sigma}, generator);
+	}
+
+
+	/// Constructs an exponential distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> exponential_sampler(real lambda, PRNG& generator) {
+		return PdfSampler<PRNG>(random::exponential, {lambda}, generator);
+	}
+
+
+	/// Constructs a Cauchy distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> cauchy_sampler(real mu, real alpha, PRNG& generator) {
+		return PdfSampler<PRNG>(random::cauchy, {mu, alpha}, generator);
+	}
+
+
+	/// Constructs a Rayleigh distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> rayleigh_sampler(real sigma, PRNG& generator) {
+		return PdfSampler<PRNG>(random::rayleigh, {sigma}, generator);
+	}
+
+
+	/// Constructs a Pareto distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> pareto_sampler(real x_m, real alpha, PRNG& generator) {
+		return PdfSampler<PRNG>(random::pareto, {x_m, alpha}, generator);
+	}
+
+
+	/// Constructs a Laplace distribution sampler
+	template<typename PRNG>
+	PdfSampler<PRNG> laplace_sampler(real mu, real b, PRNG& generator) {
+		return PdfSampler<PRNG>(random::laplace, {mu, b}, generator);
+	}
+
 
 	/// Metropolis algorithm for distribution sampling
 	/// using a symmetric proposal distribution.
 	///
 	/// @param pdf The target distribution
-	/// @param g A PdfSampler already initialized to sample
+	/// @param proposal A PdfSampler already initialized to sample
 	/// from the proposal distribution
 	/// @param rnd An already initialized PRNG
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
 	template <
-		typename RealFunction,
+		typename PdfFunction,
+		typename ArgType,
 		typename PRNG1,
 		typename PRNG2
 	>
-	inline real metropolis(
-		RealFunction pdf, PdfSampler<PRNG1>& g,
-		real x0, PRNG2& rnd, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
+	inline ArgType metropolis(
+		PdfFunction pdf, PdfSampler<PRNG1>& proposal,
+		const ArgType& x0, PRNG2& rnd,
+		unsigned int depth = STATISTICS_METROPOLIS_DEPTH
+	) {
 
-		real current = x0, next;
+		ArgType current = x0, next;
 
 		for(unsigned int i = 0; i < depth; i++) {
 			
 			// Computes the next step
-			next = current + g();
+			next = current + proposal();
 
 			// Checks acceptance rate
 			if(random::uniform(0, 1, rnd) * pdf(current) <= pdf(next))
@@ -591,18 +585,18 @@ namespace random {
 	/// distribution sampler to generate uniform samples.
 	///
 	/// @param pdf The target distribution
-	/// @param g A PdfSampler already initialized to sample
+	/// @param proposal A PdfSampler already initialized to sample
 	/// from the proposal distribution
 	/// @param depth The number of iterations of the algorithm
 	/// (defaults to STATISTICS_METROPOLIS_DEPTH)
 	template <
-		typename RealFunction,
+		typename PdfFunction,
 		typename PRNG
 	>
-	inline real metropolis(RealFunction pdf, PdfSampler<PRNG>& g,
+	inline real metropolis(PdfFunction pdf, PdfSampler<PRNG>& proposal,
 		real x0, unsigned int depth = STATISTICS_METROPOLIS_DEPTH) {
 
-		return metropolis(pdf, g, x0, g.generator, depth);
+		return metropolis(pdf, proposal, x0, proposal.generator, depth);
 	}
 
 }}
