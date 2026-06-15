@@ -3,6 +3,7 @@
 #include "chebyshev.h"
 using namespace chebyshev;
 using namespace theoretica;
+using namespace th::random;
 
 
 real f(vec<real, 2> x) {
@@ -21,7 +22,7 @@ int main(int argc, char const *argv[]) {
 	ctx.settings.defaultRuns = 4;
 	ctx.settings.multithreading = false;
 
-	th::random::XoshiroPrng g (time(nullptr));
+	XoshiroPrng g (time(nullptr));
 
 	vec<vec2> domain (10, vec2({0.0, 1.0}));
 	vec<size_t> Npoints = {1'000, 10'000, 100'000, 1'000'000, 10'000'000};
@@ -33,6 +34,14 @@ int main(int argc, char const *argv[]) {
 			"integral_mc (" + std::to_string(sz) + " points)",
 			[&](real x) {
 				return integral_mc(f, domain, g, sz).value;
+			},
+			std::vector<real>(1)
+		);
+
+		ctx.benchmark(
+			"integral_qmc (" + std::to_string(sz) + " points)",
+			[&](real x) {
+				return integral_qmc(f, domain, g, sz).value;
 			},
 			std::vector<real>(1)
 		);

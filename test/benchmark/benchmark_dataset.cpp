@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
 	auto opt = benchmark::benchmark_options<real>(10, 10);
 
 	th::random::XoshiroPrng g (time(nullptr));
-	auto gauss = th::random::PdfSampler<th::random::XoshiroPrng>::gaussian(0, 1'000'000, g);
+	auto gauss = th::random::gaussian_sampler(0, 1'000'000, g);
 
 	// Generate a gaussian sample
 	vec<real> v = vec<real>(N);

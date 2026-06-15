@@ -35,9 +35,9 @@ int main() {
 
 	// Random generators
 	random::XoshiroPrng g (time(nullptr));
-	auto gauss1 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu1, stdev1, g);
-	auto gauss2 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu2, stdev2, g);
-	auto gauss3 = random::PdfSampler<random::XoshiroPrng>::gaussian(mu3, stdev3, g);
+	auto gauss1 = random::gaussian_sampler(mu1, stdev1, g);
+	auto gauss2 = random::gaussian_sampler(mu2, stdev2, g);
+	auto gauss3 = random::gaussian_sampler(mu3, stdev3, g);
 
 
 	// Allocate space for 3 datasets of size N
