@@ -40,7 +40,7 @@ var algebra_8h =
     [ "mat_diff", "algebra_8h.html#af995b3382cb47c72000b14755d3eba76", null ],
     [ "mat_equals", "algebra_8h.html#aeb4da6b8de5771e4d44d30b330396b57", null ],
     [ "mat_error", "algebra_8h.html#a70f8a0fa365f11722ac6ca9d0086d8ba", null ],
-    [ "mat_lincomb", "algebra_8h.html#a9da43216b89e292e7e09248a5a64bbc7", null ],
+    [ "mat_lincomb", "algebra_8h.html#aa9ee1d734498a6fd4d1d7227a997b6ba", null ],
     [ "mat_lincomb", "algebra_8h.html#ac341a35e84e0817e9996cb1f68dc1d92", null ],
     [ "mat_mul", "algebra_8h.html#a78fe225d79cff4f7b5b8edbdae04dd50", null ],
     [ "mat_mul", "algebra_8h.html#a47ee34d97b633e5075732524a85d0ce0", null ],
