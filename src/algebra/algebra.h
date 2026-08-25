@@ -2177,7 +2177,7 @@ namespace theoretica {
 				return vector_element_t<Vector>(nan());
 			}
 
-			return dot(x, transform(A, x)) / p;
+			return dot(x, algebra::transform(A, x)) / p;
 		}
 
 

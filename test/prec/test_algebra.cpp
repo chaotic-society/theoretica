@@ -229,6 +229,11 @@ int main(int argc, char const *argv[]) {
 	ctx.settings.outputFiles = { "test/prec/test_algebra.csv" };
 	ctx.settings.multithreading = false;
 	rnd = ctx.random->get_rnd();
+
+
+	// Equation options for vector comparison
+	prec::equation_options<vec4> vec4_opt { 1E-08, prec::distance::euclidean<vec4> };
+	prec::equation_options<vec3> vec3_opt { 1E-08, prec::distance::euclidean<vec3> };
 	
 	
 	// algebra.h
@@ -592,7 +597,7 @@ int main(int argc, char const *argv[]) {
 
 	// TO-DO: Implement random orthogonal matrices for testing eigensolvers
 
-	test_residual(ctx, "eigenvalue_power", []() {
+	{
 
 		mat3 A = {
 			{1.0, 0.0, 0.0},
@@ -603,11 +608,12 @@ int main(int argc, char const *argv[]) {
 		vec3 x = {0.0, 0.0, 1.0};
 
 		auto lambda = algebra::eigenvalue_power(A, x, 1E-08);
-		return std::abs(lambda - 5.0);
-	});
+
+		ctx.equals("eigenvalue_power", lambda, 5.0, 1E-08);
+	}
 
 
-	test_residual(ctx, "eigenpair_power", []() {
+	{
 
 		mat3 A = {
 			{1.0, 0.0, 0.0},
@@ -616,15 +622,14 @@ int main(int argc, char const *argv[]) {
 		};
 
 		vec3 x = {0.0, 0.0, 1.0};
-
 		vec3 v;
-		v.resize(3);
+		
 		auto lambda = algebra::eigenpair_power(A, x, v, 1E-08);
-		return linf_norm(mat_vec_mul(A, v) - v * lambda);
-	});
+		ctx.equals("eigenpair_power", mat_vec_mul(A, v), v * lambda, vec3_opt);
+	}
 
 
-	test_residual(ctx, "eigenvalue_inverse", []() {
+	{
 
 		mat3 A = {
 			{1.0, 0.0, 0.0},
@@ -634,11 +639,12 @@ int main(int argc, char const *argv[]) {
 
 		vec3 x = {1.0, 0.0, 0.0};
 		auto lambda = algebra::eigenvalue_inverse(A, x, 1E-08);
-		return std::abs(lambda - 1.0);
-	});
+		
+		ctx.equals("eigenvalue_inverse", lambda, 1.0, 1E-08);
+	}
 
 
-	test_residual(ctx, "eigenpair_inverse", []() {
+	{
 
 		mat3 A = {
 			{1.0, 0.0, 0.0},
@@ -648,14 +654,14 @@ int main(int argc, char const *argv[]) {
 
 		vec3 x = {1.0, 0.0, 0.0};
 		vec3 v;
-		v.resize(3);
 
 		auto lambda = algebra::eigenpair_inverse(A, x, v, 1E-08);
-		return linf_norm(mat_vec_mul(A, v) - v * lambda);
-	});
+		
+		ctx.equals("eigenpair_inverse", mat_vec_mul(A, v), v * lambda, vec3_opt);
+	}
 
 
-	test_residual(ctx, "eigenvalue_rayleigh", []() {
+	{
 
 		mat3 A = {
 			{1.0, 0.0, 0.0},
@@ -665,9 +671,10 @@ int main(int argc, char const *argv[]) {
 
 		vec3 x = {0.0, 1.0, 0.0};
 		
-		auto lambda = algebra::eigenvalue_rayleigh(A, 1.01, x, 1E-08, 1000);
-		return std::abs(lambda - 1.0);
-	});
+		auto lambda = algebra::eigenvalue_rayleigh(A, 1.2, x, 1E-08, 1000);
+		
+		ctx.equals("eigenvalue_rayleigh", lambda, 2.0, 1E-08);
+	}
 
 
 	{
@@ -712,11 +719,11 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("vec_zeroes", linf_norm(z), 0.0);
 		ctx.equals("vec_copy", linf_norm(v - w), 0.0);
 
-		ctx.equals("vec::operator+", v + w,  vec4{2.0, -4.0, 6.0, -8.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("vec::operator-", v - w, vec4{0.0, 0.0, 0.0, 0.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("vec::operator* scalar", v * 2.0, vec4{2.0, -4.0, 6.0, -8.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("vec::operator/ scalar", v / 2.0, vec4{0.5, -1.0, 1.5, -2.0}, 1E-08, prec::distance::euclidean<vec4>);
-		
+		ctx.equals("vec::operator+", v + w,  vec4{2.0, -4.0, 6.0, -8.0}, vec4_opt);
+		ctx.equals("vec::operator-", v - w, vec4{0.0, 0.0, 0.0, 0.0}, vec4_opt);
+		ctx.equals("vec::operator* scalar", v * 2.0, vec4{2.0, -4.0, 6.0, -8.0}, vec4_opt);
+		ctx.equals("vec::operator/ scalar", v / 2.0, vec4{0.5, -1.0, 1.5, -2.0}, vec4_opt);
+
 		ctx.equals("vec::dot", v * w, 30.0, 1E-08);
 		ctx.equals("vec::norm", v.norm(), std::sqrt(30.0), 1E-08);
 		ctx.equals("vec::sqr_norm", v.sqr_norm(), 30.0, 1E-08);
@@ -873,14 +880,14 @@ int main(int argc, char const *argv[]) {
 
 		parallel::transform([](real x) { return x * 2.0; }, transformed);
 
-		ctx.equals("parallel::square", squared,  vec4{1.0, 4.0, 9.0, 16.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("parallel::sqrt", rooted, vec4{1.0, 2.0, 3.0, 4.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("parallel::map", mapped, vec4{2.0, -1.0, 4.0, -3.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("parallel::transform", transformed, vec4{2.0, -4.0, 6.0, -8.0}, 1E-08, prec::distance::euclidean<vec4>);
-		ctx.equals("parallel::pow", parallel::pow(vec3{1.0, 2.0, 3.0}, 2), vec3{1.0, 4.0, 9.0}, 1E-08, prec::distance::euclidean<vec3>);
-		ctx.equals("parallel::powf", parallel::powf(vec3{1.0, 2.0, 3.0}, 2.0), vec3{1.0, 4.0, 9.0}, 1E-08, prec::distance::euclidean<vec3>);
-		ctx.equals("parallel::exp", parallel::exp(vec3{0.0, 1.0, 2.0}), vec3{1.0, std::exp(1.0), std::exp(2.0)}, 1E-08, prec::distance::euclidean<vec3>);
-		ctx.equals("parallel::ln", parallel::ln(vec3{1.0, std::exp(1.0), std::exp(2.0)}), vec3{0.0, 1.0, 2.0}, 1E-08, prec::distance::euclidean<vec3>);
+		ctx.equals("parallel::square", squared,  vec4{1.0, 4.0, 9.0, 16.0}, vec4_opt);
+		ctx.equals("parallel::sqrt", rooted, vec4{1.0, 2.0, 3.0, 4.0}, vec4_opt);
+		ctx.equals("parallel::map", mapped, vec4{2.0, -1.0, 4.0, -3.0}, vec4_opt);
+		ctx.equals("parallel::transform", transformed, vec4{2.0, -4.0, 6.0, -8.0}, vec4_opt);
+		ctx.equals("parallel::pow", parallel::pow(vec3{1.0, 2.0, 3.0}, 2), vec3{1.0, 4.0, 9.0}, vec3_opt);
+		ctx.equals("parallel::powf", parallel::powf(vec3{1.0, 2.0, 3.0}, 2.0), vec3{1.0, 4.0, 9.0}, vec3_opt);
+		ctx.equals("parallel::exp", parallel::exp(vec3{0.0, 1.0, 2.0}), vec3{1.0, std::exp(1.0), std::exp(2.0)}, vec3_opt);
+		ctx.equals("parallel::ln", parallel::ln(vec3{1.0, std::exp(1.0), std::exp(2.0)}), vec3{0.0, 1.0, 2.0}, vec3_opt);
 	}
 
 }
