@@ -153,8 +153,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">    <span class="keyword">auto</span> solution = ode::solve_rk4(f, v, 0.0, 50.0);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Write the solution directly to file</span></div>
-<div class="line">    std::ofstream file (<span class="stringliteral">&quot;attractor.csv&quot;</span>);</div>
-<div class="line">    file &lt;&lt; solution;</div>
+<div class="line">    io::write_csv(<span class="stringliteral">&quot;attractor.csv&quot;</span>, solution);</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespacetheoretica_html_ac512b7e62a96d6b2a94a64e642a34910"><div class="ttname"><a href="namespacetheoretica.html#ac512b7e62a96d6b2a94a64e642a34910">theoretica::vec3</a></div><div class="ttdeci">vec&lt; real, 3 &gt; vec3</div><div class="ttdoc">A 3-dimensional vector with real elements.</div><div class="ttdef"><b>Definition</b> algebra_types.h:42</div></div>
 </div><!-- fragment --><p>You can find many more examples in the <a href="https://github.com/chaotic-society/theoretica/tree/master/examples">examples</a> folder.</p>
@@ -186,7 +185,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Aug 25 2026 11:52:32 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Aug 27 2026 14:16:38 for Theoretica by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

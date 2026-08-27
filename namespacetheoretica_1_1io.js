@@ -46,6 +46,7 @@ var namespacetheoretica_1_1io =
     [ "read_csv", "namespacetheoretica_1_1io.html#a410521f4189fcc961c9ab34afb54839f", null ],
     [ "read_csv", "namespacetheoretica_1_1io.html#a8b78c022a697f805b8709360e1212859", null ],
     [ "read_csv", "namespacetheoretica_1_1io.html#a76eae9e30d075a3b53db8b8873aa60f9", null ],
+    [ "read_csv", "namespacetheoretica_1_1io.html#a844ec5775cae2c6ce0170aea276c2fe8", null ],
     [ "read_csv", "namespacetheoretica_1_1io.html#aba129ead28288a8069c5cedd68e07717", null ],
     [ "readln", "namespacetheoretica_1_1io.html#a9b754fbb34b6d7f98dd81f319e3e7a26", null ],
     [ "readln", "namespacetheoretica_1_1io.html#aff98f94f2d39b1425504f7d49ac73297", null ],
@@ -58,6 +59,7 @@ var namespacetheoretica_1_1io =
     [ "write_csv", "namespacetheoretica_1_1io.html#a8f5a2a00158fc606ada0c71088d84349", null ],
     [ "write_csv", "namespacetheoretica_1_1io.html#a759bd549ef64c253059814e54e5176de", null ],
     [ "write_csv", "namespacetheoretica_1_1io.html#afe92e9507fc5ea82a2ae6fa4e1d07304", null ],
+    [ "write_csv", "namespacetheoretica_1_1io.html#a12f1fa0d3ea9a39270a017cab5edba90", null ],
     [ "write_csv", "namespacetheoretica_1_1io.html#a65bc1a6db7f63110e69aa8f297bc1000", null ],
     [ "write_csv", "namespacetheoretica_1_1io.html#ac96b468feed39c10672e5cedb1648610", null ]
 ];
