@@ -62,8 +62,7 @@ int main() {
     auto solution = ode::solve_rk4(f, v, 0.0, 50.0);
 
     // Write the solution directly to file
-    std::ofstream file ("attractor.csv");
-    file << solution;
+    io::write_csv("attractor.csv", solution);
 }
 
 ```

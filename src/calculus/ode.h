@@ -6,7 +6,8 @@
 #ifndef THEORETICA_ODE_H
 #define THEORETICA_ODE_H
 
-#include "../algebra/vec.h"
+#include "../algebra/algebra_types.h"
+#include <functional>
 
 
 namespace theoretica {

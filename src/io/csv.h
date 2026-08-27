@@ -13,6 +13,7 @@
 #include "./error.h"
 #include "../algebra/vec.h"
 #include "../algebra/mat.h"
+#include "../calculus/ode.h"
 #include "../statistics/histogram.h"
 #include "./data_table.h"
 #include "./strings.h"
@@ -433,6 +434,155 @@ namespace io {
 	}
 
 
+	/// Write an ODE solution to file in the CSV format.
+	///
+	/// @param filename The name of the file
+	/// @param solution The ODE solution to write
+	/// @param interleave The number of data points to interleave (default is 1, meaning no interleaving)
+	/// @param delimiter The delimiter to use between columns (default is ", ")
+	/// @param precision The number of decimal places to use for floating-point values (default is 8)
+	template<typename Vector>
+	inline void write_csv(
+		const std::string& filename, const ode::ode_solution_t<Vector>& solution,
+		size_t interleave = 1, const std::string& delimiter = ", ", size_t precision = 8) {
+
+		std::ofstream file (filename);
+
+		if (!file.is_open()) {
+			TH_IO_ERROR("io::write_csv", filename, IoError::FileNotFound);
+			return;
+		}
+
+		if(solution.t.size() != solution.x.size()) {
+			TH_IO_ERROR("io::write_csv", filename, IoError::FormatError);
+			return;
+		}
+
+		for (size_t i = 0; i < solution.t.size(); ++i) {
+			
+			file << std::setprecision(precision) << solution.t[i];
+
+			for (size_t j = 0; j < solution.x[i].size(); ++j) {
+
+				if (j % interleave == 0)
+					file << delimiter << std::setprecision(precision) << solution.x[i][j];
+			}
+
+			file << std::endl;
+		}
+
+	}
+
+
+	/// Read an ODE solution from a file in the CSV format.
+	///
+	/// @param filename The name of the file
+	/// @param solution A reference to the ODE solution to overwrite
+	template<typename Vector>
+	inline void read_csv(const std::string& filename, ode::ode_solution_t<Vector>& solution) {
+
+		std::ifstream file (filename);
+		std::string line;
+
+		if (!file.is_open()) {
+			TH_IO_ERROR("io::read_csv", filename, IoError::FileNotFound);
+			return;
+		}
+
+		std::vector<real> t;
+		std::vector<Vector> x;
+		std::vector<std::string> cells;
+		Vector state;
+
+		// Read first line and check for header
+		if (std::getline(file, line)) {
+
+			cells = parse_csv(line);
+
+			bool has_header = false;
+			for (const auto& cell : cells) {
+
+				if (!io::is_number(cell)) {
+					has_header = true;
+					break;
+				}
+			}
+
+			if (!has_header) {
+
+				real val;
+				try {
+					val = std::stod(cells[0]);
+				} catch (const std::exception& e) {
+					val = nan();
+				}
+				t.emplace_back(val);
+
+				state.resize(cells.size() - 1);
+				if (state.size() + 1 != cells.size()) {
+					TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
+					return;
+				}
+
+				for (size_t j = 1; j < cells.size(); ++j) {
+
+					try {
+						val = std::stod(cells[j]);
+					} catch (const std::exception& e) {
+						val = nan();
+					}
+					state[j - 1] = val;
+				}
+
+				x.emplace_back(state);
+			}
+		}
+
+		while (std::getline(file, line)) {
+
+			if (line.empty())
+				continue;
+
+			cells = parse_csv(line);
+
+			if (cells.empty())
+				continue;
+
+			if (state.size() == 0)
+				state.resize(cells.size() - 1);
+
+			try {
+				t.emplace_back(std::stod(cells[0]));
+			} catch (const std::exception& e) {
+				t.emplace_back(nan());
+			}
+
+			if (state.size() + 1 != cells.size()) {
+				TH_IO_ERROR("io::read_csv", filename, IoError::FormatError);
+				return;
+			}
+
+			for (size_t j = 1; j < cells.size(); ++j) {
+
+				try {
+					state[j - 1] = std::stod(cells[j]);
+				} catch (const std::exception& e) {
+					state[j - 1] = nan();
+				}
+			}
+
+			x.emplace_back(state);
+		}
+
+		solution.t.resize(t.size());
+		algebra::vec_copy(solution.t, t);
+
+		solution.x.resize(x.size());
+		for (size_t i = 0; i < solution.x.size(); i++)
+			solution.x[i] = x[i];
+	}
+
+
 	/// Write a data_table to file in the CSV format.
 	///
 	/// @param filename The name of the file
@@ -448,7 +598,6 @@ namespace io {
 			return;
 		}
 
-		// Write header
 		bool first = true;
 		for (const std::string& name : table.header()) {
 
@@ -460,7 +609,6 @@ namespace io {
 		}
 		file << std::endl;
 
-		// Write data rows
 		size_t max_rows = table.rows();
 		for (size_t i = 0; i < max_rows; ++i) {
 
@@ -479,7 +627,6 @@ namespace io {
 			}
 			file << std::endl;
 		}
-
 	}
 
 

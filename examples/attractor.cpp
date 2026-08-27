@@ -3,9 +3,6 @@
 /// @file attractor.cpp Compute the orbit of a chaotic attractor
 ///
 
-#include <fstream>
-#include <iostream>
-
 #include "theoretica.h"
 using namespace th;
 
@@ -58,13 +55,5 @@ int main() {
         f, x0, t0, tf, timestep
     );
 
-    std::ofstream file (filename);
-    
-    if (!file.is_open()) {
-        std::cout << "Unable to open file: " << filename << std::endl;
-        return 1;
-    }
-
-    // Write the solution to file
-    file << solution;
+    io::write_csv(filename, solution);
 }

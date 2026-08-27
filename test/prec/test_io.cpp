@@ -189,6 +189,30 @@ int main(int argc, char const *argv[]) {
 	}
 
 
+	// ODE solution to CSV
+	{
+		ode::ode_solution2d sol = ode::solve_rk4([](real t, vec2 x) { return -x; }, vec2({1, 2}), 0.0, 0.1);
+
+		io::write_csv("./test/prec/test.csv", sol);
+
+		ode::ode_solution2d res;
+		io::read_csv("./test/prec/test.csv", res);
+
+		real residual = 0.0;
+		size_t size = min(sol.x.size(), res.x.size());
+		
+		for (size_t i = 0; i < size; i++) {
+			residual += prec::distance::euclidean(sol.x[i], res.x[i]) / size;
+		}
+		residual += prec::distance::euclidean(sol.t, res.t);
+
+		if (sol.x.size() != res.x.size() || sol.t.size() != res.t.size())
+			residual = inf();
+
+		ctx.equals("write_csv/read_csv(ode_solution2d)", residual, 0.0, 1E-07);
+	}
+
+
 	// Histogram to CSV
 	{
 		vec<real> v (1000);
