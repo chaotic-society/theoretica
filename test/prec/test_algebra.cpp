@@ -74,7 +74,7 @@ Matrix rand_mat_lower(real m, real s, unsigned int rows, unsigned int cols) {
 
 	for (unsigned int i = 0; i < L.rows(); ++i)
 		for (unsigned int j = 0; j < L.cols(); ++j)
-			if (i <= j)
+			if (i >= j)
 				L(i, j) = rnd.gaussian(m, s);
 
 	return L;
@@ -90,7 +90,7 @@ Matrix rand_mat_upper(real m, real s, unsigned int rows, unsigned int cols) {
 
 	for (unsigned int i = 0; i < U.rows(); ++i)
 		for (unsigned int j = 0; j < U.cols(); ++j)
-			if (i >= j)
+			if (i <= j)
 				U(i, j) = rnd.gaussian(m, s);
 
 	return U;

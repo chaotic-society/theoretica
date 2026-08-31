@@ -1705,10 +1705,10 @@ namespace theoretica {
 
 			// Solve using forward substitution
 			for (unsigned int i = 0; i < L.cols(); ++i) {
-				
-				Type sum = L(i, 0) * x[0];
 
-				for (unsigned int j = 1; j < i; ++j)
+				Type sum = Type(0.0);
+
+				for (unsigned int j = 0; j < i; ++j)
 					sum += L(i, j) * x[j];
 
 				if (abs(L(i, i)) < MACH_EPSILON) {
@@ -1751,11 +1751,11 @@ namespace theoretica {
 			}
 
 			// Solve using backward substitution
-			for (int i = U.rows() - 2; i >= 0; --i) {
-				
-				Type sum = U(i, i + 1) * x[i + 1];
+			for (int i = U.rows() - 1; i >= 0; --i) {
 
-				for (unsigned int j = i + 2; j < U.cols(); ++j)
+				Type sum = Type(0.0);
+
+				for (unsigned int j = i + 1; j < U.cols(); ++j)
 					sum += U(i, j) * x[j];
 
 				if (abs(U(i, i)) < MACH_EPSILON) {
@@ -1785,11 +1785,8 @@ namespace theoretica {
 				return solve_triangular_lower(T, b);
 			else if(is_upper_triangular(T))
 				return solve_triangular_upper(T, b);
-			else {
-				Vector err;
-				err.resize(b.size());
-				return vec_error(err);
-			}
+			else
+				return make_error<Vector>();
 		}
 
 
