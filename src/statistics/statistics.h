@@ -174,7 +174,7 @@ namespace theoretica {
 			real& out_variance, unsigned int constraints = 1) {
 
 			if(X.size() <= constraints) {
-				TH_MATH_ERROR("total_sum_squares", X.size(), MathError::InvalidArgument);
+				TH_MATH_ERROR("moments2", X.size(), MathError::InvalidArgument);
 				out_mean = nan();
 				out_variance = nan();
 				return;
