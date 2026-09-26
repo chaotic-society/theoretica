@@ -80,8 +80,8 @@ var NAVTREEINDEX =
 "namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53",
 "namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9",
 "namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa6adf97f83acf6453d4a6a4b1070f3754",
-"real__analysis_8h.html#a124297369ecba10c8516dc5a920aad1a",
-"structtheoretica_1_1iter__result.html#af00a5398c76bb61b2a52b0d8e851fe6e"
+"real__analysis_8h.html#a129bf1f1085a76b92999e0faeb30e831",
+"structtheoretica_1_1ode_1_1ode__solution__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

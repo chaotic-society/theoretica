@@ -23,5 +23,5 @@ var searchData=
   ['propagate_5fsum_20',['propagate_sum',['../namespacetheoretica_1_1stats.html#aa6a417ad461716d1c01910c2c683baeb',1,'theoretica::stats']]],
   ['propagerr_21',['propagerr',['../namespacetheoretica_1_1stats.html#a17b770f21d9a2dd2b19324db41b26466',1,'theoretica::stats::propagerr(MultiDualFunction f, const vec&lt; real, N &gt; &amp;x_best, const vec&lt; real, N &gt; &amp;delta_x)'],['../namespacetheoretica_1_1stats.html#add35567c560982230167f2dd8c49f5eb',1,'theoretica::stats::propagerr(MultiDualFunction f, const vec&lt; real, N &gt; &amp;x_best, const Matrix &amp;cm)'],['../namespacetheoretica_1_1stats.html#a7ff4a63bc94a4f78058e5c381bd8c67f',1,'theoretica::stats::propagerr(MultiDualFunction f, const std::vector&lt; Dataset &gt; &amp;v)']]],
   ['propagerr_5fmc_22',['propagerr_mc',['../namespacetheoretica_1_1stats.html#a4c22d1efa91769367afb5b9e9bd87152',1,'theoretica::stats']]],
-  ['pvalue_5fchi_5fsquared_23',['pvalue_chi_squared',['../namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d',1,'theoretica::stats']]]
+  ['pvalue_5fchi2_23',['pvalue_chi2',['../namespacetheoretica_1_1stats.html#a2d8a35db3333d4ca47ef0601948af2f7',1,'theoretica::stats']]]
 ];

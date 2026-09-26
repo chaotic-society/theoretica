@@ -42,5 +42,5 @@ var searchData=
   ['pseudorandom_2eh_39',['pseudorandom.h',['../pseudorandom_8h.html',1,'']]],
   ['pseudorandom_5ffunction_40',['pseudorandom_function',['../namespacetheoretica.html#a99f8bd44356f8184466e4cc0d6986fe5',1,'theoretica']]],
   ['pseudorandom_5fprec_41',['PSEUDORANDOM_PREC',['../namespacetheoretica.html#afeadfad8b6073194fc7a126464dcd3d2',1,'theoretica']]],
-  ['pvalue_5fchi_5fsquared_42',['pvalue_chi_squared',['../namespacetheoretica_1_1stats.html#a1454ce9037c0af9f6125c3f399302a4d',1,'theoretica::stats']]]
+  ['pvalue_5fchi2_42',['pvalue_chi2',['../namespacetheoretica_1_1stats.html#a2d8a35db3333d4ca47ef0601948af2f7',1,'theoretica::stats']]]
 ];

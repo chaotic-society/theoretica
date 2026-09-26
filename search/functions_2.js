@@ -12,7 +12,7 @@ var searchData=
   ['chebyshev_5fnodes_9',['chebyshev_nodes',['../namespacetheoretica.html#a348f61edeabdf1220a85a3747b26aee4',1,'theoretica']]],
   ['chebyshev_5fpolyn_5frecurr_10',['chebyshev_polyn_recurr',['../namespacetheoretica.html#ac8e77e33cee4661bf1a52bec32fa434c',1,'theoretica']]],
   ['chi_5fsquare_11',['chi_square',['../namespacetheoretica_1_1stats.html#acdf648810b2ca72fbd08106f5a410f15',1,'theoretica::stats']]],
-  ['chi_5fsquare_5flinear_12',['chi_square_linear',['../namespacetheoretica_1_1stats.html#a5339b599f3c4840887d36b3314ed79c5',1,'theoretica::stats']]],
+  ['chi_5fsquare_5flinear_12',['chi_square_linear',['../namespacetheoretica_1_1stats.html#a427266e30ef860bde375247a43fc3158',1,'theoretica::stats']]],
   ['chi_5fsquared_13',['chi_squared',['../namespacetheoretica_1_1distribution.html#a467f2fa339b4321afc01d0da1d3c2d9c',1,'theoretica::distribution::chi_squared(real x, unsigned int k)'],['../namespacetheoretica_1_1distribution.html#a23208b6184144c832d689295442599de',1,'theoretica::distribution::chi_squared(real x, const vec&lt; real &gt; &amp;theta)'],['../namespacetheoretica_1_1distribution.html#ab4e2d142bb6f0b85debd8728144d5788',1,'theoretica::distribution::chi_squared(real x, unsigned int k, real half_gamma_k)']]],
   ['clamp_14',['clamp',['../namespacetheoretica.html#acdf4d125306e3fffc7287aa42f9005a1',1,'theoretica::clamp(T x, T a, T b)'],['../namespacetheoretica.html#af1a4ad4c5446986fe2d255a03be337a1',1,'theoretica::clamp(real x, real a, real b)']]],
   ['clear_15',['clear',['../classtheoretica_1_1data__table.html#a1af0ed59529b4d3e0ecdd6fae309c87c',1,'theoretica::data_table']]],
