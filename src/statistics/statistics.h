@@ -167,7 +167,7 @@ namespace theoretica {
 		/// @param X The dataset
 		/// @param out_mean A reference to overwrite with the computed mean
 		/// @param out_variance A reference to overwrite with the computed variance
-		/// @param constraints The number of constraints (defaults to 1)
+		/// @param constraints The number of constraints (defaults to 1, use 0 for population variance)
 		template<typename Dataset>
 		inline void moments2(
 			const Dataset& X, real& out_mean,
@@ -206,7 +206,7 @@ namespace theoretica {
 		///
 		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
-		/// @param constraints The number of constraints, defaults to 1
+		/// @param constraints The number of constraints (defaults to 1, use 0 for population variance)
 		/// @return The standard deviation of the dataset
 		template<typename Dataset>
 		inline real stdev(const Dataset& data, unsigned int constraints = 1) {
@@ -233,7 +233,7 @@ namespace theoretica {
 		///
 		/// @tparam Dataset Any type representing a dataset as a vector of values
 		/// @param X The dataset
-		/// @param constraints The number of constraints for the estimators (defaults to 1)
+		/// @param constraints The number of constraints for the estimators (defaults to 1, use 0 for population)
 		/// @return The standard relative error on the dataset
 		template<typename Dataset>
 		inline real standard_relative_error(const Dataset& X) {
@@ -245,7 +245,7 @@ namespace theoretica {
 				return nan();
 			}
 
-			return stdom(X) / abs(x_mean);
+			return stdev(X) / abs(x_mean);
 		}
 
 
@@ -304,20 +304,22 @@ namespace theoretica {
 		template<typename Dataset>
 		inline real autocorrelation(const Dataset& X, unsigned int n = 1) {
 
-			if(X.size() < n) {
+			if(X.size() <= n) {
 				TH_MATH_ERROR("autocorrelation", X.size(), MathError::InvalidArgument);
 				return nan();
 			}
 
 			const real mu = mean(X);
 			real num = 0;
-			real den = square(X[0] - mu);
+			real den = 0;
+
+			for (unsigned int i = 0; i < X.size(); ++i)
+				den += square(X[i] - mu);
 
 			for (unsigned int i = n; i < X.size(); ++i) {
 
 				const real delta = X[i] - mu;
 				num += delta * (X[i - n] - mu);
-				den += delta * delta;
 			}
 
 			return num / den;
@@ -486,12 +488,15 @@ namespace theoretica {
 		/// @note The current implementation has reduced precision for 260 <= ndf < 1000
 		/// because for ndf >= 260 the Gaussian approximation is used, which becomes
 		/// more precise the higher the ndf.
-		inline real pvalue_chi_squared(real chi_sqr, unsigned int ndf) {
+		inline real pvalue_chi2(real chi_sqr, unsigned int ndf) {
 
 			if(ndf == 0) {
-				TH_MATH_ERROR("pvalue_chi_squared", ndf, MathError::InvalidArgument);
+				TH_MATH_ERROR("pvalue_chi2", ndf, MathError::InvalidArgument);
 				return nan();
 			}
+
+			if(chi_sqr < MACH_EPSILON)
+				return 1.0;
 
 			// For ndf >= 260 use the Gaussian approximation
 			// as the coefficients are not stable
@@ -562,10 +567,11 @@ namespace theoretica {
 		/// @param sigma The standard deviations of each point of the sample
 		/// @param intercept The intercept of the linear model
 		/// @param slope The slope of the linear model
+		/// @param reduced Whether to compute the reduced Chi-squared (divide by ndf)
 		template<typename Dataset1, typename Dataset2, typename Dataset3>
 		inline real chi_square_linear(
 			const Dataset1& X, const Dataset2& Y,
-			const Dataset3& sigma, real intercept, real slope) {
+			const Dataset3& sigma, real intercept, real slope, bool reduced = false) {
 
 			if(X.size() != Y.size() || X.size() != sigma.size()) {
 				TH_MATH_ERROR(
@@ -585,37 +591,10 @@ namespace theoretica {
 				chi_squared += square((Y[i] - intercept - slope * X[i]) / sigma[i]);
 			}
 
+			if(reduced)
+				chi_squared /= (X.size() - 2);
+
 			return chi_squared;
-		}
-
-
-		/// Compute the reduced chi-squared on a linear regression, computed as the usual
-		/// chi-square (computed by chi_square_linear) divided by the number of degrees
-		/// of freedom of the model (\f$N - 2\f$).
-		///
-		/// @tparam Dataset1 Any type representing a dataset as a vector of values
-		/// @tparam Dataset2 Any type representing a dataset as a vector of values
-		/// @tparam Dataset3 Any type representing a dataset as a vector of values
-		///
-		/// @param X A vector of the X values of the sample
-		/// @param Y A vector of the Y values of the sample
-		/// @param sigma The standard deviations of each point of the sample
-		/// @param intercept The intercept of the linear model
-		/// @param slope The slope of the linear model
-		template<typename Dataset1, typename Dataset2, typename Dataset3>
-		inline real reduced_chi_square_linear(
-			const Dataset1& X, const Dataset2& Y,
-			const Dataset3& sigma, real intercept, real slope) {
-
-			if(Y.size() <= 2) {
-				TH_MATH_ERROR("reduced_chi_square_linear",
-					Y.size(), MathError::InvalidArgument);
-				return nan();
-			}
-
-			// Divide by degrees of freedom (N - 2)
-			return chi_square_linear(X, Y, sigma, intercept, slope)
-				/ (real) (Y.size() - 2);
 		}
 	}
 }
