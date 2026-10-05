@@ -81,6 +81,7 @@ int main(int argc, char const *argv[]) {
 	ctx.settings.defaultIterations = 10'000;
 	ctx.settings.defaultTolerance = 1E-08;
 	ctx.output->settings.logLevel = output::LogLevel::DEBUG;
+	ctx.settings.multithreading = false;
 	
 	prec::equation_options<vec<real>> vec_opt (1E-08, prec::distance::euclidean<vec<real>>);
 
