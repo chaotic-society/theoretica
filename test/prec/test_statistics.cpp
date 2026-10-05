@@ -23,13 +23,15 @@ auto estimate_stat(
 	using Result = typename std::decay<decltype(stat(v))>::type;
 	using Options = prec::estimate_options<Result, Sample>;
 
+	uint64_t seed = ctx.random->get_rnd().get_seed();
+
 	// Construct estimator in-place.
-	auto estimator = [v, stat, shifted, &ctx, name](
+	auto estimator = [v, stat, shifted, seed, name](
 		std::function<Result(Sample)> statFunc,
 		std::function<Result(Sample)> expectedFunc,
 		Options opt) {
 
-		auto rnd = ctx.random->get_rnd();
+		random::random_source rnd (seed);
 		long double sum = 0.0;
 		long double sum2 = 0.0;
 		long double max = -std::numeric_limits<long double>::infinity();
@@ -78,6 +80,7 @@ int main(int argc, char const *argv[]) {
 	ctx.output->settings.outputFiles = {"test/prec/prec_statistics.csv"};
 	ctx.settings.defaultIterations = 10'000;
 	ctx.settings.defaultTolerance = 1E-08;
+	ctx.output->settings.logLevel = output::LogLevel::DEBUG;
 	
 	prec::equation_options<vec<real>> vec_opt (1E-08, prec::distance::euclidean<vec<real>>);
 
