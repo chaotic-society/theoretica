@@ -17,7 +17,7 @@ namespace theoretica {
 	/// using Newton's method with pure Jacobian.
 	///
 	/// @note For automatic differentiation, only vec<> types are supported
-	/// for vectors (either fixed or dynamic size).
+	/// for argument and return vectors in f (either fixed or dynamic size).
 	///
 	/// @param f The function to find the root of
 	/// @param guess The first guess (defaults to the origin)
@@ -26,14 +26,22 @@ namespace theoretica {
 	/// @param max_iter The maximum number of iterations before
 	/// stopping the algorithm
 	/// @result The computed vector at which f is approximately zero
+#ifdef THEORETICA_HAS_CPP20
+	template <
+		VectorType Vector,
+		VectorType ReturnVector = Vector,
+		autodiff::ADVectorField VectorField
+	>
+#else
 	template <
 		typename Vector = vec<real>,
 		typename ReturnVector = Vector,
-		typename DualObjectiveFunction,
-		autodiff::enable_vector_field<DualObjectiveFunction> = true
+		typename VectorField,
+		autodiff::enable_vector_field<VectorField> = true
 	>
+#endif
 	inline iter_result<ReturnVector> multiroot_newton(
-		DualObjectiveFunction f,
+		VectorField f,
 		Vector guess,
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER

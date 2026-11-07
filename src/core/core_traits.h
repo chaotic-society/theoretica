@@ -84,6 +84,20 @@ namespace theoretica {
 	> : std::true_type{};
 
 
+#ifdef THEORETICA_HAS_CPP20
+
+	// Concept of a vector-like structure,
+	// which supports random access with operator[]
+	// and has a size() method.
+	template<typename Structure>
+	concept VectorType = requires (Structure v) {
+		v[0];
+		v.size();
+	};
+
+#endif
+
+
 	// Check whether a structure is considerable a matrix,
 	// by checking that it has an operator(), a rows() method
 	// and a cols() method.
@@ -97,6 +111,21 @@ namespace theoretica {
 		decltype(std::declval<Structure>().rows()),
 		decltype(std::declval<Structure>().cols())>
 	> : std::true_type{};
+
+
+#ifdef THEORETICA_HAS_CPP20
+
+	// Concept of a matrix-like structure,
+	// which supports random access with operator(i, j)
+	// and has rows() and cols() methods.
+	template<typename Structure>
+	concept MatrixType = requires (Structure v) {
+		v(0, 0);
+		v.rows();
+		v.cols();
+	};
+
+#endif
 
 
 	namespace _internal {
@@ -252,6 +281,11 @@ namespace theoretica {
 	// pointer or lambda function.
 	template<typename Function>
 	using return_type_t = typename _internal::func_helper<Function>::return_type;
+
+	// Extract the type of the first argument of a Callable object, such as a function
+	// pointer or lambda function.
+	template<typename Function>
+	using first_arg_t = typename _internal::func_helper<Function>::first_arg_type;
 
 }
 

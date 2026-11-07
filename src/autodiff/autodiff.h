@@ -114,11 +114,15 @@ namespace theoretica {
 		/// and a multidual number as output.
 		/// @param x The point to compute the gradient at.
 		/// @return The gradient of f computed at x.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADScalarField Function, VectorType Vector>
+#else
 		template <
 			typename Function, typename Vector = vec<real>,
 			enable_scalar_field<Function> = true,
 			enable_vector<Vector> = true
 		>
+#endif
 		inline auto gradient(Function f, const Vector& x) {
 
 			// Extract the return type of the function
@@ -151,10 +155,14 @@ namespace theoretica {
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a multidual number as output.
 		/// @return A lambda function which computes the gradient of f.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADScalarField Function>
+#else
 		template <
 			typename Function,
 			enable_scalar_field<Function> = true
 		>
+#endif
 		inline auto gradient(Function f) {
 
 			constexpr size_t N = return_type_t<Function>::size_argument;
@@ -176,11 +184,15 @@ namespace theoretica {
 		/// and a vector of multidual numbers as output.
 		/// @param x The point to compute the divergence at.
 		/// @return The divergence of V at x.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField Function, VectorType Vector>
+#else
 		template <
 			typename Function, typename Vector = vec<real>,
 			enable_vector_field<Function> = true,
 			enable_vector<Vector> = true
 		>
+#endif
 		inline real divergence(Function V, const Vector& x) {
 
 			using MultidualT = return_type_t<Function>;
@@ -212,10 +224,14 @@ namespace theoretica {
 		/// @param V A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the divergence of V at x.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField Function>
+#else
 		template <
 			typename Function,
 			enable_scalar_field<Function> = true
 		>
+#endif
 		inline auto divergence(Function V) {
 
 			constexpr size_t N = return_type_t<Function>::size_argument;
@@ -234,18 +250,22 @@ namespace theoretica {
 		/// and a vector of multidual numbers as output.
 		/// @param x The point to compute the Jacobian at.
 		/// @return The Jacobian matrix of f at x.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField MultidualFunction, VectorType Vector>
+#else
 		template <
 			typename MultidualFunction, typename Vector,
 			enable_vector<Vector> = true,
 			enable_vector_field<MultidualFunction> = true
 		>
+#endif
 		inline auto jacobian(MultidualFunction f, const Vector& x) {
 
 			constexpr size_t M = return_type_t<MultidualFunction>::size_argument;
-			constexpr size_t N = _internal::func_helper<MultidualFunction>::first_arg_type::size_argument;
+			constexpr size_t N = first_arg_t<MultidualFunction>::size_argument;
 
 			const vec<multidual<N>, N> res = f(multidual<N>::make_argument(x));
-			
+
 			// Construct the jacobian matrix
 			mat<real, M, N> J;
 			J.resize(res.size(), x.size());
@@ -278,10 +298,14 @@ namespace theoretica {
 		/// @param f A function with a vector of multidual numbers as input
 		/// and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the Jacobian matrix of f.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField MultidualFunction>
+#else
 		template<
 			typename MultidualFunction,
 			enable_vector_field<MultidualFunction> = true
 		>
+#endif
 		inline auto jacobian(MultidualFunction f) {
 
 			constexpr size_t N = return_type_t<MultidualFunction>::size_argument;
@@ -301,11 +325,15 @@ namespace theoretica {
 		/// input and a vector of multidual numbers as output.
 		/// @param x The point to compute the curl at.
 		/// @return The curl of f at x.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField MultidualFunction, VectorType Vector>
+#else
 		template <
 			typename MultidualFunction, typename Vector,
 			enable_vector<Vector> = true,
 			enable_vector_field<MultidualFunction> = true
 		>
+#endif
 		inline auto curl(MultidualFunction f, const Vector& x) {
 
 			Vector res;
@@ -335,10 +363,14 @@ namespace theoretica {
 		/// @param f A function with a vector of multidual numbers as
 		/// input and a vector of multidual numbers as output.
 		/// @return A lambda function which computes the curl of f.
+#ifdef THEORETICA_HAS_CPP20
+		template<ADVectorField MultidualFunction>
+#else
 		template<
 			typename MultidualFunction,
 			enable_vector_field<MultidualFunction> = true
 		>
+#endif
 		inline auto curl(MultidualFunction f) {
 
 			constexpr size_t N = return_type_t<MultidualFunction>::size_argument;
@@ -365,8 +397,7 @@ namespace theoretica {
 		inline real laplacian(Dual2Function f, const Vector& x) {
 
 			// Extract size template argument of the input vector
-			constexpr size_t N = _internal::func_helper<Dual2Function>
-				::first_arg_type::size_argument;
+			constexpr size_t N = first_arg_t<Dual2Function>::size_argument;
 
 			vec<dual2, N> d;
 			d.resize(x.size());
@@ -397,8 +428,7 @@ namespace theoretica {
 		template <typename Dual2Function>
 		inline auto laplacian(Dual2Function f) {
 
-			constexpr size_t N = _internal::func_helper<Dual2Function>
-				::first_arg_type::size_argument;
+			constexpr size_t N = first_arg_t<Dual2Function>::size_argument;
 
 			return [f](const vec<real, N>& x) {
 				return laplacian(f, x);
