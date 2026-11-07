@@ -1,8 +1,8 @@
 var namespacetheoretica_1_1io =
 [
-    [ "hdf5_file", "classtheoretica_1_1io_1_1hdf5__file.html", "classtheoretica_1_1io_1_1hdf5__file" ],
-    [ "hdf5_handle", "structtheoretica_1_1io_1_1hdf5__handle.html", "structtheoretica_1_1io_1_1hdf5__handle" ],
     [ "hdf5_node", "structtheoretica_1_1io_1_1hdf5__node.html", "structtheoretica_1_1io_1_1hdf5__node" ],
+    [ "hdf5_handle", "structtheoretica_1_1io_1_1hdf5__handle.html", "structtheoretica_1_1io_1_1hdf5__handle" ],
+    [ "hdf5_file", "classtheoretica_1_1io_1_1hdf5__file.html", "classtheoretica_1_1io_1_1hdf5__file" ],
     [ "HDF5NodeType", "namespacetheoretica_1_1io.html#ab6a241960c2df26c00a071344ac6d3c7", [
       [ "UNKNOWN", "namespacetheoretica_1_1io.html#ab6a241960c2df26c00a071344ac6d3c7a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "GROUP", "namespacetheoretica_1_1io.html#ab6a241960c2df26c00a071344ac6d3c7a720909a4b948fc9e33633b61960d6b3c", null ],

@@ -11,5 +11,5 @@ var searchData=
   ['fract_8',['fract',['../namespacetheoretica.html#a85d079c3d95f2bc80c4619d13ff7263a',1,'theoretica']]],
   ['from_5fmatrix_9',['from_matrix',['../classtheoretica_1_1data__table.html#ada0eead1b7c810186c084900bce7a4c3',1,'theoretica::data_table']]],
   ['from_5froots_10',['from_roots',['../classtheoretica_1_1polynomial.html#ac79bd93173faa9f6ed38817d74851e42',1,'theoretica::polynomial']]],
-  ['from_5fvec_11',['from_vec',['../classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb',1,'theoretica::dual2::from_vec()'],['../classtheoretica_1_1dual.html#a8d557fd083d30bed1e77c611bf002b9e',1,'theoretica::dual::from_vec()']]]
+  ['from_5fvec_11',['from_vec',['../classtheoretica_1_1dual.html#a8d557fd083d30bed1e77c611bf002b9e',1,'theoretica::dual::from_vec()'],['../classtheoretica_1_1dual2.html#a996804540cb2b4c65f7816dc28966efb',1,'theoretica::dual2::from_vec()']]]
 ];

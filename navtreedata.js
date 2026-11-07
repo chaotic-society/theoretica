@@ -25,16 +25,7 @@
 var NAVTREE =
 [
   [ "Theoretica", "index.html", [
-    [ "Tutorials", "tutorials.html", [
-      [ "Getting Started", "tut_getting_started.html", null ],
-      [ "Linear Algebra", "tut_algebra.html", null ],
-      [ "Roots and Extrema", "tut_root_finding.html", null ],
-      [ "Statistics and Fits", "tut_statistics.html", null ],
-      [ "Automatic differentiation", "tut_autodiff.html", null ],
-      [ "Differential Equations", "tut_diffeq.html", null ],
-      [ "Integrals and Derivatives", "tut_calculus.html", null ],
-      [ "Polynomials and Interpolation", "tut_polynomials.html", null ]
-    ] ],
+    [ "Tutorials", "tutorials.html", "tutorials" ],
     [ "Bibliography", "md_theoretica_2txt_2_b_i_b_l_i_o_g_r_a_p_h_y.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -70,19 +61,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algebra_8h.html",
-"classtheoretica_1_1complex.html#adfa6e110991e7e538da117386d6d70ef",
-"classtheoretica_1_1histogram.html#a238be6d7b8c804d31b89fbc43fef5c34",
-"classtheoretica_1_1mat_3_01_type_00_010_00_010_01_4.html#a633391fc4b04ec8de3a389be4f2e66f2",
-"classtheoretica_1_1phasor.html#af4a77a861634e4efab52105080955f4a",
-"classtheoretica_1_1vec.html#a4f3ddd987fdea5ea38fd4c210cc0478d",
-"dir_a57e94efe769f9ed34acbb385fd2b2a4.html",
-"interpolation_2polynomial_8h.html",
-"namespacetheoretica.html#a4eb87636665493a0584655ad754e4c53",
-"namespacetheoretica.html#ae93349020a59cf77efcca5bb77c0e7f9",
-"namespacetheoretica_1_1io.html#a6d9a04b47b289b3f577d6b53cfa654ffa6adf97f83acf6453d4a6a4b1070f3754",
-"real__analysis_8h.html#a129bf1f1085a76b92999e0faeb30e831",
-"structtheoretica_1_1ode_1_1ode__solution__t.html"
+"classtheoretica_1_1dual.html#a8725a918e981a36e95cb52aa1ebbf0d5",
+"classtheoretica_1_1mat.html#a2e3c65bfa2b3a59935fc9a2b12ac37b2",
+"classtheoretica_1_1multidual.html#a37f8e6ebe4e422e4e98d4816e351caa8",
+"classtheoretica_1_1quat.html#a7988aba883f65781a8a441df1f03c3f6",
+"dir_80b12a04080342cac66dddc13ab3e1e7.html",
+"namespacetheoretica.html#a40aca2488b0466c4934fd050d3718760",
+"namespacetheoretica.html#adecb01797f9cac464a6dea02d5a73e34",
+"namespacetheoretica_1_1io.html#a16a3ccfe7add49bf6fd8f9db6789b6f1",
+"structtheoretica_1_1iter__result.html#a252dbda0be0677ec2801ccd5e0c97c8b"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

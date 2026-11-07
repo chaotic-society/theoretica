@@ -1,17 +1,17 @@
 var algebra__types_8h =
 [
-    [ "cmat", "algebra__types_8h.html#a6802641e18b86a3022282d01b1ce25de", null ],
-    [ "cmat2", "algebra__types_8h.html#a9c414bd3969089ec91fa95cfc94390cf", null ],
-    [ "cmat3", "algebra__types_8h.html#a2ec5ec1cfb9d9d79780881e02e5d11b0", null ],
-    [ "cmat4", "algebra__types_8h.html#ae1ec29d91ae6c6a21a09cdaf95a85045", null ],
-    [ "cvec", "algebra__types_8h.html#a83cf1314a448f23b10e74302550ed77f", null ],
-    [ "cvec2", "algebra__types_8h.html#a429fe8925be98f943d69ad693e24c1bb", null ],
-    [ "cvec3", "algebra__types_8h.html#a9bfc48b27b17470d8ac001a9f2008c4a", null ],
-    [ "cvec4", "algebra__types_8h.html#a0a30c2b68e61ebe0ede42b20f3354145", null ],
-    [ "mat2", "algebra__types_8h.html#a721dc79a0eca4b349c67a746c26b26a4", null ],
-    [ "mat3", "algebra__types_8h.html#afb7eff567887e9025d2edd9870a31311", null ],
-    [ "mat4", "algebra__types_8h.html#ac380be159592259cb223e6190e504197", null ],
-    [ "vec2", "algebra__types_8h.html#a1f21bd68ba64b172c29d9fce15c8712d", null ],
-    [ "vec3", "algebra__types_8h.html#ac512b7e62a96d6b2a94a64e642a34910", null ],
-    [ "vec4", "algebra__types_8h.html#a4c9f34d374aba86cc459926c45825030", null ]
+    [ "theoretica::cmat", "namespacetheoretica.html#a7f671b4b0c13caec7fbbf4ff38199dd4", null ],
+    [ "theoretica::cmat2", "namespacetheoretica.html#a652f3a7021fed821454b43f9c3751825", null ],
+    [ "theoretica::cmat3", "namespacetheoretica.html#acbad105728f237a32a3d32fd2eae4e53", null ],
+    [ "theoretica::cmat4", "namespacetheoretica.html#a7e1df91bca721fd4c120bf08089c9615", null ],
+    [ "theoretica::cvec", "namespacetheoretica.html#a9ec015fc4246519404f1947775efb76b", null ],
+    [ "theoretica::cvec2", "namespacetheoretica.html#a7670ed975182a86497e434e2a7b6d322", null ],
+    [ "theoretica::cvec3", "namespacetheoretica.html#a5823ab86bf310c475ba11f336a98aac1", null ],
+    [ "theoretica::cvec4", "namespacetheoretica.html#a4a52c680356f46070a78672dab1e37c0", null ],
+    [ "theoretica::mat2", "namespacetheoretica.html#a42c2cba813254179c9b342a34943e5af", null ],
+    [ "theoretica::mat3", "namespacetheoretica.html#abe2f392115c5ffafb2731a3d8998a9d9", null ],
+    [ "theoretica::mat4", "namespacetheoretica.html#ac7b5044ae8011ccd7820db54ffbe3dc1", null ],
+    [ "theoretica::vec2", "namespacetheoretica.html#acac1df3bac9047dd4d945388aef66068", null ],
+    [ "theoretica::vec3", "namespacetheoretica.html#a6a49c96e7a2151f3979fcabd2e7b45f0", null ],
+    [ "theoretica::vec4", "namespacetheoretica.html#a42fa9f59d5cf59815ce41be8c350b569", null ]
 ];

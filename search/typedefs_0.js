@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bicomplex_0',['bicomplex',['../namespacetheoretica.html#a23f1da297b159938c8b3fb2dc9121e0d',1,'theoretica']]]
+  ['bicomplex_0',['bicomplex',['../namespacetheoretica.html#a059f6ec24aaf5d4ae38b34ba3af7b161',1,'theoretica']]]
 ];
