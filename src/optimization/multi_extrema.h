@@ -63,6 +63,7 @@ namespace theoretica {
 		do {
 
 			grad = gradient(f, x);
+
 			x += gamma * grad;
 			iter++;
 
@@ -149,7 +150,6 @@ namespace theoretica {
 		ReturnVector x = guess;
 		ReturnVector grad;
 		unsigned int iter = 0;
-
 		constexpr size_t N = ReturnVector::size_argument;
 
 		do {
@@ -158,19 +158,20 @@ namespace theoretica {
 
 			// Minimize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = minimize_golden(
+			auto result = minimize_golden(
 				[f, x, grad](real gamma){
 					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
 				}, -1, 0);
-
+			
 			// Fallback value
-			if(-gamma <= MACH_EPSILON)
-				gamma = OPTIMIZATION_MINGRAD_GAMMA;
+			real gamma = OPTIMIZATION_MINGRAD_GAMMA;
+			if (result.converged())
+				gamma = result.value;
 
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.norm() > tolerance && iter <= max_iter);
+		} while(grad.norm() > tolerance && iter < max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_minimize_lingrad", iter, MathError::NoConvergence);
@@ -215,7 +216,6 @@ namespace theoretica {
 		ReturnVector x = guess;
 		ReturnVector grad;
 		unsigned int iter = 0;
-
 		constexpr size_t N = ReturnVector::size_argument;
 
 		do {
@@ -224,19 +224,20 @@ namespace theoretica {
 
 			// Maximize f(x + gamma * gradient) in [-1, 0]
 			// using Golden Section extrema search
-			real gamma = maximize_golden(
+			auto result = maximize_golden(
 				[f, x, grad](real gamma){
 					return f(multidual<N>::make_argument(x + gamma * grad)).Re();
 				}, -1, 0);
 
 			// Fallback value
-			if(-gamma <= MACH_EPSILON)
-				gamma = OPTIMIZATION_MINGRAD_GAMMA;
+			real gamma = OPTIMIZATION_MINGRAD_GAMMA;
+			if (result.converged())
+				gamma = result.value;
 
 			x += gamma * grad;
 			iter++;
 
-		} while(grad.norm() > tolerance && iter <= max_iter);
+		} while(grad.norm() > tolerance && iter < max_iter);
 
 		if(iter > max_iter) {
 			TH_MATH_ERROR("multi_maximize_lingrad", iter, MathError::NoConvergence);
