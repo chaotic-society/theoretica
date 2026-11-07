@@ -184,7 +184,7 @@ $(function(){initNavTree('multi__extrema_8h_source.html','',''); });
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = <a class="code hl_variable" href="namespacetheoretica.html#a86e5dd300ac007074bcf54bfc9e59c6d">OPTIMIZATION_MINGRAD_ITER</a></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    ) {</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">using </span>ArgType = <span class="keyword">typename</span> _internal::func_helper&lt;DualObjectiveFunction&gt;::first_arg_type;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">using </span>ArgType = <span class="keyword">typename</span> _internal::func_helper&lt;ObjectiveFunction&gt;::first_arg_type;</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a17c0199fdc8febbeabb9e48abdffc324">multi_minimize_grad</a>(</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            [f](ArgType x) { <span class="keywordflow">return</span> -f(x); },</div>
@@ -274,7 +274,7 @@ $(function(){initNavTree('multi__extrema_8h_source.html','',''); });
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <a class="code hl_typedef" href="namespacetheoretica.html#a3794829911de60fe9b9b98cbd81e165a">real</a> tolerance = <a class="code hl_variable" href="namespacetheoretica.html#a5a801e1df1e3281002e402a3f310bfb0">OPTIMIZATION_MINGRAD_TOLERANCE</a>,</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_iter = <a class="code hl_variable" href="namespacetheoretica.html#a86e5dd300ac007074bcf54bfc9e59c6d">OPTIMIZATION_MINGRAD_ITER</a>) {</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">using </span>ArgType = <span class="keyword">typename</span> _internal::func_helper&lt;DualObjectiveFunction&gt;::first_arg_type;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">using </span>ArgType = <span class="keyword">typename</span> _internal::func_helper&lt;ObjectiveFunction&gt;::first_arg_type;</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacetheoretica.html#a68a8f1c8cd2bc867b13e52baf2419cc4">multi_minimize_lingrad</a>(</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            [f](ArgType x) { <span class="keywordflow">return</span> -f(x); },</div>
