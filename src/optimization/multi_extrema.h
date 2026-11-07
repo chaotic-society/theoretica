@@ -111,7 +111,7 @@ namespace theoretica {
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER
 	) {
 
-		using ArgType = typename _internal::func_helper<DualObjectiveFunction>::first_arg_type;
+		using ArgType = typename _internal::func_helper<ObjectiveFunction>::first_arg_type;
 
 		return multi_minimize_grad(
 			[f](ArgType x) { return -f(x); },
@@ -219,7 +219,7 @@ namespace theoretica {
 		real tolerance = OPTIMIZATION_MINGRAD_TOLERANCE,
 		unsigned int max_iter = OPTIMIZATION_MINGRAD_ITER) {
 
-		using ArgType = typename _internal::func_helper<DualObjectiveFunction>::first_arg_type;
+		using ArgType = typename _internal::func_helper<ObjectiveFunction>::first_arg_type;
 
 		return multi_minimize_lingrad(
 			[f](ArgType x) { return -f(x); },

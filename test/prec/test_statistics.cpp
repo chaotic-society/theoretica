@@ -80,7 +80,6 @@ int main(int argc, char const *argv[]) {
 	ctx.output->settings.outputFiles = {"test/prec/prec_statistics.csv"};
 	ctx.settings.defaultIterations = 10'000;
 	ctx.settings.defaultTolerance = 1E-08;
-	ctx.output->settings.logLevel = output::LogLevel::DEBUG;
 	ctx.settings.multithreading = false;
 	
 	prec::equation_options<vec<real>> vec_opt (1E-08, prec::distance::euclidean<vec<real>>);
@@ -99,19 +98,19 @@ int main(int argc, char const *argv[]) {
 
 		// Test statistical functions with stochastic shifts on the sample.
 		estimate_stat(
-			ctx, "stats::mean", data,
+			ctx, "mean", data,
 			stats::mean<vec<real>>,
 			[&mean1](real shift) { return mean1 + shift; }
 		);
 
 		estimate_stat(
-			ctx, "stats::variance", data,
+			ctx, "variance", data,
 			[](const vec<real>& v) { return stats::variance(v); },
 			[&variance1](real shift) { return variance1; }
 		);
 
 		estimate_stat(
-			ctx, "stats::stdev", data,
+			ctx, "stdev", data,
 			[](const vec<real>& v) { return stats::stdev(v); },
 			[&variance1](real shift) { return std::sqrt(variance1); }
 		);
@@ -119,107 +118,107 @@ int main(int argc, char const *argv[]) {
 
 		// Evaluate statistics for a known, trivial sample, preventing regressions.
 
-		ctx.equals("stats::mean", stats::mean(data), mean1);
-		ctx.equals("stats::range", stats::range(data), 10.0);
-		ctx.equals("stats::semidispersion", stats::semidispersion(data), 5.0);
-		ctx.equals("stats::total_sum_squares", stats::total_sum_squares(data), 92.4);
-		ctx.equals("stats::variance", stats::variance(data), variance1);
-		ctx.equals("stats::variance (population)", stats::variance(data, 0), 9.24);
-		ctx.equals("stats::stdev", stats::stdev(data), th::sqrt(variance1));
-		ctx.equals("stats::stdom", stats::stdom(data), th::sqrt(154.0 / 15.0 / data.size()));
+		ctx.equals("mean", stats::mean(data), mean1);
+		ctx.equals("range", stats::range(data), 10.0);
+		ctx.equals("semidispersion", stats::semidispersion(data), 5.0);
+		ctx.equals("total_sum_squares", stats::total_sum_squares(data), 92.4);
+		ctx.equals("variance", stats::variance(data), variance1);
+		ctx.equals("variance (population)", stats::variance(data, 0), 9.24);
+		ctx.equals("stdev", stats::stdev(data), th::sqrt(variance1));
+		ctx.equals("stdom", stats::stdom(data), th::sqrt(154.0 / 15.0 / data.size()));
 
 		{
 			real moments_mean = 0;
 			real moments_variance = 0;
 			stats::moments2(data, moments_mean, moments_variance);
-			ctx.equals("stats::moments2 (mean)", moments_mean, mean1);
-			ctx.equals("stats::moments2 (variance)", moments_variance, variance1);
+			ctx.equals("moments2 (mean)", moments_mean, mean1);
+			ctx.equals("moments2 (variance)", moments_variance, variance1);
 		}
 
-		ctx.equals("stats::standard_relative_error",
+		ctx.equals("standard_relative_error",
 			stats::standard_relative_error(data), th::sqrt(variance1) / mean1
 		);
 
-		ctx.equals("stats::covariance",
+		ctx.equals("covariance",
 			stats::covariance(data, data2), covariance1
 		);
 
-		ctx.equals("stats::correlation_coefficient",
+		ctx.equals("correlation_coefficient",
 			stats::correlation_coefficient(data, data2), 0.9955833328
 		);
 		
-		ctx.equals("stats::autocorrelation", stats::autocorrelation(data), 0.5242424242);
-		ctx.equals("stats::autocorrelation (lag 0)", stats::autocorrelation(autocorrelation_data, 0), 1.0);
-		ctx.equals("stats::autocorrelation (lag 2)", stats::autocorrelation(autocorrelation_data, 2), -0.3);
-		ctx.equals("stats::autocorrelation (invalid lag)",
+		ctx.equals("autocorrelation", stats::autocorrelation(data), 0.5242424242);
+		ctx.equals("autocorrelation (lag 0)", stats::autocorrelation(autocorrelation_data, 0), 1.0);
+		ctx.equals("autocorrelation (lag 2)", stats::autocorrelation(autocorrelation_data, 2), -0.3);
+		ctx.equals("autocorrelation (invalid lag)",
 			std::isnan(stats::autocorrelation(autocorrelation_data, autocorrelation_data.size())), true
 		);
-		ctx.equals("stats::absolute_deviation", stats::absolute_deviation(data), 2.6);
-		ctx.equals("stats::skewness", stats::skewness(data), 0.1444548871);
-		ctx.equals("stats::kurtosis", stats::kurtosis(data), -1.3975324675);
+		ctx.equals("absolute_deviation", stats::absolute_deviation(data), 2.6);
+		ctx.equals("skewness", stats::skewness(data), 0.1444548871);
+		ctx.equals("kurtosis", stats::kurtosis(data), -1.3975324675);
 
 		ctx.equals(
-			"stats::propagate_sum",
+			"propagate_sum",
 			stats::propagate_sum(vec<real>{3, 4}), 5.0
 		);
 		
 		ctx.equals(
-			"stats::propagate_product",
+			"propagate_product",
 			stats::propagate_product(vec<real>{1, 2}, vec<real>{2, 4}),
 			th::sqrt(0.5)
 		);
 
 		ctx.equals(
-			"stats::gaussian_expectation",
+			"gaussian_expectation",
 			stats::gaussian_expectation([](real x) {return x * x * x;}, 0, 100),
 			0.0
 		);
 
 		ctx.equals(
-			"stats::gaussian_expectation",
+			"gaussian_expectation",
 			stats::gaussian_expectation([](real x) {return x * x;}, 2, 3),
 			13.0
 		);
 
-		ctx.equals("stats::z_score", stats::z_score(8, 5, 1.5), 2.0);
+		ctx.equals("z_score", stats::z_score(8, 5, 1.5), 2.0);
 
 		ctx.equals(
-			"stats::normalize_z_score",
+			"normalize_z_score",
 			stats::normalize_z_score(data),
 			vec<real>{-4.6, -3.6, -1.6, -2.6, 0.4, -0.6, 3.4, 1.4, 5.4, 2.4} / th::sqrt(variance1),
 			vec_opt
 		);
 
 		ctx.equals(
-			"stats::chi_square",
+			"chi_square",
 			stats::chi_square(vec<real>{10, 20}, vec<real>{8, 22}, vec<real>{1, 2}), 5.0
 		);
 
 		ctx.equals(
-			"stats::chi_square_linear",
+			"chi_square_linear",
 			stats::chi_square_linear(data, data2, vec<real>(10, 1.0), 0, 2),
 			6.0
 		);
 
-		ctx.equals("stats::total_sum_squares (empty)",
+		ctx.equals("total_sum_squares (empty)",
 			std::isnan(stats::total_sum_squares(vec<real>{})), true
 		);
-		ctx.equals("stats::variance (singleton)",
+		ctx.equals("variance (singleton)",
 			std::isnan(stats::variance(vec<real>{3})), true
 		);
-		ctx.equals("stats::covariance (mismatched)",
+		ctx.equals("covariance (mismatched)",
 			std::isnan(stats::covariance(data, vec<real>{1})), true
 		);
-		ctx.equals("stats::propagate_product (mismatched)",
+		ctx.equals("propagate_product (mismatched)",
 			std::isnan(stats::propagate_product(vec<real>{1}, vec<real>{1, 2})), true
 		);
-		ctx.equals("stats::propagate_product (zero mean)",
+		ctx.equals("propagate_product (zero mean)",
 			std::isnan(stats::propagate_product(vec<real>{1}, vec<real>{0})), true
 		);
-		ctx.equals("stats::chi_square (mismatched)",
+		ctx.equals("chi_square (mismatched)",
 			std::isnan(stats::chi_square(vec<real>{1}, vec<real>{1, 2}, vec<real>{1})), true
 		);
-		ctx.equals("stats::chi_square (zero uncertainty)",
+		ctx.equals("chi_square (zero uncertainty)",
 			std::isnan(stats::chi_square(vec<real>{1}, vec<real>{1}, vec<real>{0})), true
 		);
 
@@ -237,25 +236,25 @@ int main(int argc, char const *argv[]) {
 			* distribution::gaussian(10, 0, 1) * distribution::gaussian(8, 0, 1)
 			* distribution::gaussian(12, 0, 1) * distribution::gaussian(9, 0, 1);
 
-		ctx.equals("stats::likelihood",
+		ctx.equals("likelihood",
 			stats::likelihood(data, gaussian_parameters, gaussian_stat),
 			gaussian_likelihood
 		);
 
-		ctx.equals("stats::log_likelihood",
+		ctx.equals("log_likelihood",
 			stats::log_likelihood(data, gaussian_parameters, gaussian_stat),
 			th::ln(gaussian_likelihood)
 		);
 
 
 		// Check specific values of chi-squared p-value
-		ctx.equals("stats::pvalue_chi2 (invalid ndf)", std::isnan(stats::pvalue_chi2(0, 0)), true);
+		ctx.equals("pvalue_chi2 (invalid ndf)", std::isnan(stats::pvalue_chi2(0, 0)), true);
 
-		ctx.equals("stats::pvalue_chi2(0, 1)", stats::pvalue_chi2(0, 1), 1.0, 1E-8);
-		ctx.equals("stats::pvalue_chi2(0, 2)", stats::pvalue_chi2(0, 2), 1.0, 1E-8);
-		ctx.equals("stats::pvalue_chi2(2, 2)", stats::pvalue_chi2(2, 2), th::exp(-1.0), 1E-8);
-		ctx.equals("stats::pvalue_chi2(3.8414588207, 1)", stats::pvalue_chi2(3.8414588207, 1), 0.05, 1E-8);
-		ctx.equals("stats::pvalue_chi2(5.9914645471, 2)",stats::pvalue_chi2(5.9914645471, 2), 0.05, 1E-8);
+		ctx.equals("pvalue_chi2(0, 1)", stats::pvalue_chi2(0, 1), 1.0, 1E-8);
+		ctx.equals("pvalue_chi2(0, 2)", stats::pvalue_chi2(0, 2), 1.0, 1E-8);
+		ctx.equals("pvalue_chi2(2, 2)", stats::pvalue_chi2(2, 2), th::exp(-1.0), 1E-8);
+		ctx.equals("pvalue_chi2(3.8414588207, 1)", stats::pvalue_chi2(3.8414588207, 1), 0.05, 1E-8);
+		ctx.equals("pvalue_chi2(5.9914645471, 2)",stats::pvalue_chi2(5.9914645471, 2), 0.05, 1E-8);
 	}
 
 
@@ -380,10 +379,10 @@ int main(int argc, char const *argv[]) {
 		ctx.equals("histogram::operator[]", hist[1], 1);
 		ctx.equals("histogram::to_string", hist.to_string().empty(), false);
 
-		ctx.equals("stats::mean(histogram)", stats::mean(hist), 2.0);
-		ctx.equals("stats::tss(histogram)", stats::tss(hist), 2.0);
-		ctx.equals("stats::variance(histogram)", stats::variance(hist), 2.0);
-		ctx.equals("stats::stdev(histogram)", stats::stdev(hist), th::sqrt(2.0));
+		ctx.equals("mean(histogram)", stats::mean(hist), 2.0);
+		ctx.equals("tss(histogram)", stats::tss(hist), 2.0);
+		ctx.equals("variance(histogram)", stats::variance(hist), 2.0);
+		ctx.equals("stdev(histogram)", stats::stdev(hist), th::sqrt(2.0));
 
 		ctx.equals("max(histogram)", theoretica::max(hist), 3.0);
 		ctx.equals("min(histogram)", theoretica::min(hist), 1.0);
@@ -431,18 +430,18 @@ int main(int argc, char const *argv[]) {
 
 		const vec2 best = {2, 3};
 		const vec2 errors = {0.1, 0.2};
-		ctx.equals("stats::propagerr (independent)",
+		ctx.equals("propagerr (independent)",
 			stats::propagerr<2>(product, best, errors),
 			0.5
 		);
 
 		ctx.equals(
-			"stats::covar_mat",
+			"covar_mat",
 			stats::covar_mat<mat<real, 2, 2>>(std::vector<vec<real>>{data, data2})(0, 1),
 			covariance1
 		);
 
-		ctx.equals("stats::propagerr (covariance)",
+		ctx.equals("propagerr (covariance)",
 			stats::propagerr<2>(
 				product, best,
 				mat<real, 2, 2>(vec<real>{0.01, 0, 0, 0.04})
@@ -450,7 +449,7 @@ int main(int argc, char const *argv[]) {
 			0.5);
 
 		ctx.equals(
-			"stats::propagerr (datasets)",
+			"propagerr (datasets)",
 			stats::propagerr<2>(product, std::vector<vec2>{{2, 2}, {3, 3}}),
 			0.0, 1E-8
 		);
@@ -467,7 +466,7 @@ int main(int argc, char const *argv[]) {
 
 		auto sum = [](vec<real> values) {return values[0] + values[1];};
 
-		ctx.equals("stats::propagerr_mc", 
+		ctx.equals("propagerr_mc", 
 			stats::propagerr_mc(sum, samplers, 1E+06),
 			th::sqrt(2E-04), 1E-02
 		);
