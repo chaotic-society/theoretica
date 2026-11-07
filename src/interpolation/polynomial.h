@@ -9,7 +9,7 @@
 #include <vector>
 #include "../core/real_analysis.h"
 #include "../polynomial/polynomial.h"
-#include "../algebra/algebra_types.h"
+#include "../algebra/algebra.h"
 #include "../core/function.h"
 
 
@@ -36,12 +36,12 @@ namespace theoretica {
 
 		if(!x.size()) {
 			TH_MATH_ERROR("lagrange", x.size(), MathError::InvalidArgument);
-			return make_error<polynomial<Type>>(1);
+			return polynomial<Type>(make_error<Type>());
 		}
 
 		if(x.size() != y.size()) {
 			TH_MATH_ERROR("lagrange", y.size(), MathError::InvalidArgument);
-			return make_error<polynomial<Type>>(1);
+			return polynomial<Type>(make_error<Type>());
 		}
 
 		// Check that all x_i are different to prevent division by zero
@@ -49,7 +49,7 @@ namespace theoretica {
 
 			if(abs(x[i] - x[i + 1]) < MACH_EPSILON) {
 				TH_MATH_ERROR("lagrange", x[i], MathError::InvalidArgument);
-				return make_error<polynomial<Type>>(1);
+				return polynomial<Type>(make_error<Type>());
 			}
 		}
 

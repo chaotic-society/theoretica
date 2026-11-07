@@ -288,7 +288,7 @@ namespace theoretica {
 		return dual2(
 			atan(x.Re()),
 			x.Dual1() / (1 + square(x.Re())),
-			square(x.Dual1()) * 2 * x.Re() / square(1 + square(x.Re()))
+			-square(x.Dual1()) * 2 * x.Re() / square(1 + square(x.Re()))
 				+ x.Dual2() / (1 + square(x.Re()))
 		);
 	}

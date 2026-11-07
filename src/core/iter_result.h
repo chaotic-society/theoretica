@@ -117,6 +117,20 @@ namespace theoretica {
 			return converged();
 		}
 
+		/// Returns the computed value in a safe way,
+		/// checking for convergence and throwing an exception
+		/// if the algorithm did not converge successfully.
+		inline Type safe() const {
+
+			if(!converged()) {
+				throw math_exception(
+					MathError::NoConvergence, "iter_result::safe()", __FILE__, __LINE__, false
+				);
+			}
+
+			return value;
+		}
+
 
 		/// Get a human-readable string description of the status of convergence of an iterative algorithm.
 		inline std::string status_string() const {

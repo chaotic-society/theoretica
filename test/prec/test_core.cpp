@@ -399,12 +399,12 @@ int main(int argc, char const *argv[]) {
 
 
 	// Square a relatively small number and check that the high bits are zero
-	ctx.estimate("th::mul_uint128",
+	ctx.estimate("th::bits::mul_uint128",
 		[](real x) {
 
 			uint64_t i = (uint64_t) x;
 			uint64_t r1, r2;
-			mul_uint128(i, i, r1, r2);
+			bits::mul_uint128(i, i, r1, r2);
 			
 			return r2;
 
@@ -495,6 +495,30 @@ int main(int argc, char const *argv[]) {
 		[](uint32_t x) { return rising_fact(x, 3); },
 		[](uint32_t x) { return cube(x) + 3 * square(x) + 2 * x; },
 		fact_opt
+	);
+
+	ctx.equals(
+		"gcd(0, 0)",
+		gcd(0, 0),
+		0
+	);
+
+	ctx.equals(
+		"gcd(48, 18)",
+		gcd(48, 18),
+		6
+	);
+
+	ctx.equals(
+		"gcd(3, -12)",
+		gcd(3, -12),
+		3
+	);
+
+	ctx.equals(
+		"gcd(-6, -12)",
+		gcd(-6, -12),
+		6
 	);
 
 
@@ -628,7 +652,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 
-	// Test bit_op.h
+	// Test bits.h
 	
 
 	{
@@ -639,78 +663,78 @@ int main(int argc, char const *argv[]) {
 		uint64_t expected_low = 0xFFFFFFFFFFFFFFFE;
 		uint64_t expected_high = 0x1;
 
-		th::mul_uint128(a, b, c_low, c_high);
+		th::bits::mul_uint128(a, b, c_low, c_high);
 
-		ctx.equals("th::mul_uint128 (c_low)", c_low, expected_low);
-		ctx.equals("th::mul_uint128 (c_high)", c_high, expected_high);
+		ctx.equals("th::bits::mul_uint128 (c_low)", c_low, expected_low);
+		ctx.equals("th::bits::mul_uint128 (c_high)", c_high, expected_high);
 	}
 
 	{
 		uint64_t a = 0;
 		uint64_t b = 0;
 		
-		uint64_t result = th::mix_mum(a, b);
+		uint64_t result = th::bits::mix_mum(a, b);
 		
-		ctx.equals("th::mix_mum == 0", result, 0);
+		ctx.equals("th::bits::mix_mum == 0", result, 0);
 	}
 
 	{
 		uint64_t a = 0x12345678ABCDEF00;
 		uint64_t b = 0x0FEDCBA987654321;
 		
-		uint64_t result = th::mix_mum(a, b);
+		uint64_t result = th::bits::mix_mum(a, b);
 		
-		ctx.equals("th::mix_mum != 0", result != 0, true, 0);
+		ctx.equals("th::bits::mix_mum != 0", result != 0, true, 0);
 	}
 
 	{
 		uint64_t x = 0x12345678ABCDEF00;
 		unsigned int i = 8;
-		uint64_t rotated = th::bit_rotate(x, i);
+		uint64_t rotated = th::bits::bit_rotate(x, i);
 
 		uint64_t expected_rotated = 0x345678ABCDEF0012;
 
-		ctx.equals("th::bit_rotate (64-bit)", rotated, expected_rotated);
+		ctx.equals("th::bits::bit_rotate (64-bit)", rotated, expected_rotated);
 	}
 
 	{
 		uint32_t x = 0xABCDEF00;
 		unsigned int i = 4;
-		uint32_t rotated = th::bit_rotate(x, i);
+		uint32_t rotated = th::bits::bit_rotate(x, i);
 
 		uint32_t expected_rotated = 0xBCDEF00A;
 
-		ctx.equals("th::bit_rotate (32-bit)", rotated, expected_rotated);
+		ctx.equals("th::bits::bit_rotate (32-bit)", rotated, expected_rotated);
 	}
 
 	{
 		std::vector<uint8_t> v = {1};
 		
-		th::swap_bit_reverse(v, 0);
+		th::bits::swap_bit_reverse(v, 0);
 
 		std::vector<uint8_t> expected = {1};
 
-		ctx.equals("th::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
 	}
 
 	{
 		std::vector<uint8_t> v = {1, 2, 3, 4};
 		
-		th::swap_bit_reverse(v, 2);
+		th::bits::swap_bit_reverse(v, 2);
 
 		std::vector<uint8_t> expected = {1, 3, 2, 4};
 
-		ctx.equals("th::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
 	}
 
 	{
 		vec<uint8_t> v = {1, 2, 3, 4, 5, 6};
 		
-		th::swap_bit_reverse(v, 2);
+		th::bits::swap_bit_reverse(v, 2);
 
 		vec<uint8_t> expected = {1, 3, 2, 4, 5, 6};
 
-		ctx.equals("th::swap_bit_reverse", v == expected, true);
+		ctx.equals("th::bits::swap_bit_reverse", v == expected, true);
 	}
 
 

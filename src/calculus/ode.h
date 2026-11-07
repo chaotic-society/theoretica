@@ -6,7 +6,8 @@
 #ifndef THEORETICA_ODE_H
 #define THEORETICA_ODE_H
 
-#include "../algebra/vec.h"
+#include "../algebra/algebra_types.h"
+#include <functional>
 
 
 namespace theoretica {
@@ -171,10 +172,9 @@ namespace theoretica {
 		template<typename Vector, typename OdeFunction = ode_function<Vector>>
 		inline Vector step_heun(OdeFunction f, const Vector& x, real t, real h = 0.001) {
 			
-			const Vector x_p = x + h * f(t, x);
-			const real t_new = t + h;
+			const Vector k1 = f(t, x);
 
-			return x + (f(t, x) + f(t_new, x_p)) * (h / 2.0);
+			return x + (k1 + f(t + h, x + k1 * h)) * (h / 2.0);
 		}
 
 
@@ -238,49 +238,9 @@ namespace theoretica {
 			const Vector k1 = f(t, x);
 			const Vector k2 = f(t + (h / 3.0), x + k1 * (h / 3.0));
 			const Vector k3 = f(t + (h * 2.0 / 3.0), x + h * (-k1 / 3.0 + k2));
-			const Vector k4 = f(t + h, x + h * (k1 - k2 + k1));
+			const Vector k4 = f(t + h, x + h * (k1 - k2 + k3));
 
 			return x + (k1 + 3.0 * k2 + 3.0 * k3 + k4) * (h / 8.0);
-		}
-
-
-		/// Compute one step of the Adams-Bashforth linear multistep method of
-		/// 2nd order for ordinary differential equations.
-		/// This function is used in solvers to solve an ODE over a certain domain.
-		///
-		/// @param f A function representing the system of differential equations,
-		/// following the signature of ode_function.
-		/// @param x The starting vector of variables
-		/// @param t The starting value of the time (independent variable)
-		/// @param h The step size
-		/// @return The resulting vector of variables
-		template<typename Vector, typename OdeFunction = ode_function<Vector>>
-		inline Vector step_adams2(
-			OdeFunction f, const Vector& x0, real t0,
-			const Vector& x1, real t1, real h = 0.001) {
-
-			return x1 + h * ((3. / 2.) * f(t1, x1) - f(t0, x0) / 2.);
-		}
-
-
-		/// Compute one step of the Adams-Bashforth linear multistep method of
-		/// 3rd order for ordinary differential equations.
-		/// This function is used in solvers to solve an ODE over a certain domain.
-		///
-		/// @param f A function representing the system of differential equations,
-		/// following the signature of ode_function.
-		/// @param x The starting vector of variables
-		/// @param t The starting value of the time (independent variable)
-		/// @param h The step size
-		/// @return The resulting vector of variables
-		template<typename Vector, typename OdeFunction = ode_function<Vector>>
-		inline Vector step_adams3(
-			OdeFunction f, const Vector& x0, real t0, const Vector& x1, real t1,
-			const Vector& x2, real t2, real h = 0.001) {
-
-			return x2 + h *	(
-				(23. / 12.) * f(t2, x2) - (4. / 3.) * f(t1, x1) + (3. / 8.) * f(t0, x0)
-			);
 		}
 
 
@@ -306,7 +266,7 @@ namespace theoretica {
 		/// structure, holding a vector t of time values and a vector x of the variables.
 		template <
 			typename Vector, typename OdeFunction = ode_function<Vector>,
-			typename StepFunction = std::function<Vector(OdeFunction, real, const Vector&)>
+			typename StepFunction
 		>
 		inline ode_solution_t<Vector>
 		solve_fixstep(

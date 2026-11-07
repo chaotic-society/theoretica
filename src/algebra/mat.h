@@ -323,8 +323,8 @@ namespace theoretica {
 		/// @return The resulting vector after multiplication.
 		template<typename VecType, unsigned int M>
 		inline friend vec<VecType, K> operator*(
-			const vec<VecType, M>& a, const mat<Type, N, K>& B) {
-			return B * a;
+			const vec<VecType, M>& v, const mat<Type, N, K>& A) {
+			return algebra::vec_mat_mul<vec<VecType, K>>(v, A);
 		}
 
 
@@ -372,7 +372,9 @@ namespace theoretica {
 		/// @param v The vector to transform.
 		/// @return The transformed vector as a new `vec<Type, N>`.
 		inline vec<Type, N> transform(const vec<Type, K>& v) const {
-			return algebra::transform(*this, v);
+
+			vec<Type, N> res;
+			return algebra::transform(res, *this, v);
 		}
 
 
@@ -979,9 +981,9 @@ namespace theoretica {
 		/// @param a The vector.
 		/// @param B The matrix.
 		template<typename VecType, unsigned int M>
-		inline friend vec<VecType, 0> operator*(
-			const vec<VecType, M>& a, const mat<Type, 0, 0>& B) {
-			return B * a;
+		inline friend vec<VecType> operator*(
+			const vec<VecType, M>& v, const mat<Type, 0, 0>& A) {
+			return algebra::vec_mat_mul<vec<VecType>>(v, A);
 		}
 
 
@@ -1026,7 +1028,11 @@ namespace theoretica {
 		/// @param v The vector to transform.
 		template<unsigned int N = 0, unsigned int K = 0>
 		inline vec<Type, N> transform(const vec<Type, K>& v) const {
-			return algebra::transform(*this, v);
+
+			vec<Type, N> res;
+			res.resize(rows());
+			
+			return algebra::transform(res, *this, v);
 		}
 
 
@@ -1180,12 +1186,16 @@ namespace theoretica {
 
 		/// Transpose the current matrix in place.
 		/// @return A reference to the transposed matrix (current instance).
-		///
-		/// Modifies the matrix in place by transposing its elements. This operation
-		/// is only valid for square matrices. For non-square matrices, use `transposed()`
-		/// to obtain a new transposed matrix.
 		inline mat<Type>& transpose() {
-			return algebra::make_transposed(*this);
+
+			mat<Type> res;
+			res.resize(cols(), rows());
+
+			for (size_t i = 0; i < rows(); i++)
+				for (size_t j = 0; j < cols(); j++)
+					res(j, i) = get(i, j);
+
+			return (*this = res);
 		}
 
 

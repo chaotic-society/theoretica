@@ -128,25 +128,28 @@ namespace theoretica {
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
-	/// @param steps The number of steps
+	/// @param steps The number of steps (must be even)
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral_simpson(RealFunction f, real a, real b,
 		unsigned int steps = CALCULUS_INTEGRAL_STEPS) {
 
-		if(steps == 0) {
+		if (steps == 0) {
 			TH_MATH_ERROR("integral_simpson", steps, MathError::DivByZero);
 			return nan();
 		}
-		
-		const real dx = (b - a) / (real) steps;
-		real res = 0;
 
+		if (steps % 2 != 0) {
+			TH_MATH_ERROR("integral_simpson", steps, MathError::InvalidArgument);
+			return nan();
+		}
+	
 		// Sum terms by order of magnitude supposing that
 		// f stays at the same order inside the interval,
 		// to alleviate truncation errors
 
-		res += f(a) + f(b);
+		real res = f(a) + f(b);
+		const real dx = (b - a) / (real) steps;
 
 		for (unsigned int i = 2; i < steps; i += 2)
 			res += 2 * f(a + i * dx);
@@ -159,70 +162,38 @@ namespace theoretica {
 
 
 	/// Approximate the definite integral of an arbitrary function
-	/// using Romberg's method accurate to the given order.
-	/// The maximum number of iterations is 16.
-	///
-	/// @param f The function to integrate
-	/// @param a The lower extreme of integration
-	/// @param b The upper extreme of integration
-	/// @param iter The maximum number of iterations (accuracy order)
-	/// @return An approximation of the integral of f
-	template<typename RealFunction>
-	inline real integral_romberg(
-		RealFunction f,
-		real a, real b,
-		unsigned int iter = 8) {
-
-		const unsigned int MAX_ROMBERG_ITER = 16;
-		real T[MAX_ROMBERG_ITER][MAX_ROMBERG_ITER];
-
-		if (iter > MAX_ROMBERG_ITER) {
-			TH_MATH_ERROR("integral_romberg", iter, MathError::InvalidArgument);
-			return nan();
-		}
-
-		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
-
-		for (unsigned int j = 1; j < iter; ++j) {
-			
-			// Composite Trapezoidal Rule
-			T[j][0] = integral_trapezoid(f, a, b, 1 << j);
-
-			// Richardson extrapolation
-			for (unsigned int k = 1; k <= j; ++k) {
-				const uint64_t coeff = uint64_t(1) << (2 * k);
-				T[j][k] = (coeff * T[j][k - 1] - T[j - 1][k - 1]) / (coeff - 1);
-			}
-		}
-
-		// Return the best approximation
-		return T[iter - 1][iter - 1];
-	}
-
-
-	/// Approximate the definite integral of an arbitrary function
 	/// using Romberg's method to the given tolerance.
 	///
 	/// @param f The function to integrate
 	/// @param a The lower extreme of integration
 	/// @param b The upper extreme of integration
 	/// @param tolerance Convergence tolerance for the algorithm
+	/// @param max_iter Maximum number of iterations to perform (defaults to 16)
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
-	inline real integral_romberg_tol(
+	inline real integral_romberg(
 		RealFunction f,
 		real a, real b,
-		real tolerance = CALCULUS_INTEGRAL_TOL) {
+		real tolerance = CALCULUS_INTEGRAL_TOL,
+		size_t max_iter = 16
+	) {
 
-		const unsigned int MAX_ROMBERG_ITER = 16;
-		real T[MAX_ROMBERG_ITER][MAX_ROMBERG_ITER];
+		real T[max_iter][max_iter];
 
+		real h = (b - a);
 		T[0][0] = (f(a) + f(b)) * (b - a) / 2.0;
 
-		for (unsigned int j = 1; j < MAX_ROMBERG_ITER; ++j) {
+		for (unsigned int j = 1; j < max_iter; ++j) {
 			
-			// Composite Trapezoidal Rule
-			T[j][0] = integral_trapezoid(f, a, b, 1 << j);
+			h /= 2.0;
+			
+			// Reuse previous calculations
+			T[j][0] = T[j - 1][0] / 2.0;
+
+			for (unsigned int i = 0; i < (uint32_t(1) << (j - 1)); i++) {
+				const real x = a + (2 * i + 1) * h;
+				T[j][0] += f(x) * h;
+			}
 
 			// Richardson extrapolation
 			for (unsigned int k = 1; k <= j; ++k) {
@@ -236,7 +207,7 @@ namespace theoretica {
 		}
 
 		// Return the best approximation
-		return T[MAX_ROMBERG_ITER - 1][MAX_ROMBERG_ITER - 1];
+		return T[max_iter - 1][max_iter - 1];
 	}
 
 
@@ -523,7 +494,7 @@ namespace theoretica {
 		real x_n = a + step_sz;
 
 		// Total integral sum
-		real sum = integral_romberg_tol(f, a, x_n, tol);
+		real sum = integral_romberg(f, a, x_n, tol);
 		
 		// Variation between steps
 		real delta = inf();
@@ -533,7 +504,7 @@ namespace theoretica {
 
 		while(abs(delta) > tol && i <= max_iter) {
 
-			delta = integral_romberg_tol(f, x_n, x_n + step_sz, tol);
+			delta = integral_romberg(f, x_n, x_n + step_sz, tol);
 			sum += delta;
 			x_n += step_sz;
 			i++;
@@ -557,7 +528,7 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral(RealFunction f, real a, real b) {
-		return integral_romberg_tol(f, a, b);
+		return integral_romberg(f, a, b);
 	}
 
 
@@ -572,7 +543,7 @@ namespace theoretica {
 	/// @return An approximation of the integral of f
 	template<typename RealFunction>
 	inline real integral(RealFunction f, real a, real b, real tol) {
-		return integral_romberg_tol(f, a, b, tol);
+		return integral_romberg(f, a, b, tol);
 	}
 
 }

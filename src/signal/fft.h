@@ -6,7 +6,7 @@
 #ifndef THEORETICA_FFT_H
 #define THEORETICA_FFT_H
 
-#include "../core/bit_op.h"
+#include "../core/bits.h"
 #include "../algebra/algebra_types.h"
 #include "../algebra/algebra.h"
 #include "../complex/complex.h"
@@ -47,7 +47,7 @@ namespace theoretica {
 			}
 
 			// Bit reverse
-			swap_bit_reverse(k, log2N);
+			bits::swap_bit_reverse(k, log2N);
 
 			for (unsigned int p = 1; p <= log2N; p++) {
 

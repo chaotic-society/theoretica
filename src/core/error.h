@@ -6,14 +6,10 @@
 #ifndef THEORETICA_ERROR_H
 #define THEORETICA_ERROR_H
 
-#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
-
 #include <exception>
 
 #ifndef THEORETICA_NO_PRINT
 #include <sstream>
-#endif
-
 #endif
 
 #include <string>
@@ -108,9 +104,9 @@ namespace theoretica {
 	}
 
 
-#if defined(THEORETICA_THROW_EXCEPTIONS) || defined(THEORETICA_ONLY_EXCEPTIONS)
-
-	class math_exception : std::exception {
+	/// @class math_exception
+	/// A class for representing mathematical errors. 
+	class math_exception : public std::exception {
 
 	private:
 		MathError err;
@@ -174,7 +170,7 @@ namespace theoretica {
 
 			err_str << file_name << "(" << code_line << "):";
 			err_str << func_name << "(" << val << "): ";
-			err_str << to_string(err);
+			err_str << th::to_string(err);
 
 			return err_str.str();
 		}
@@ -195,8 +191,6 @@ namespace theoretica {
 #endif
 
 	};
-
-#endif
 
 }
 

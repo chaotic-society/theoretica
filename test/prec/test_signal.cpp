@@ -1,4 +1,6 @@
 
+/// @file test_signal.cpp Test cases for signal processing routines.
+
 #include "theoretica.h"
 #include "chebyshev.h"
 

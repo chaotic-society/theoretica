@@ -1,4 +1,8 @@
 
+///
+/// @file strings.h String manipulation functions.
+///
+
 #ifndef THEORETICA_IO_STRINGS_H
 #define THEORETICA_IO_STRINGS_H
 

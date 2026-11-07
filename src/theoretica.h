@@ -46,7 +46,7 @@
 #include "core/ratio.h"
 
 // Bit operations
-#include "core/bit_op.h"
+#include "core/bits.h"
 
 // Data sets
 #include "core/dataset.h"

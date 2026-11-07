@@ -109,7 +109,7 @@ namespace theoretica {
 					return dual2(nan(), nan(), nan());
 				}
 
-				return dual2(1.0 / a, -b / square(a), 2 * b / cube(a));
+				return dual2(1.0 / a, -b / square(a), 2.0 * square(b) / cube(a) - c / square(a));
 			}
 
 			/// Identity (for consistency)

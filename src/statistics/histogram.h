@@ -69,7 +69,7 @@ namespace theoretica {
 			/// @param range_min The lower bound of the range
 			/// @param range_max The upper bound of the range
 			histogram(unsigned int bin_count, real range_min, real range_max)
-				: N(0), value_max(-inf()), value_min(-inf()), run_average(0), run_tss(0) {
+				: N(0), value_max(-inf()), value_min(inf()), run_average(0), run_tss(0) {
 
 				bin_counts.resize(bin_count);
 				this->range_max = range_max;

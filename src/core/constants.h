@@ -136,7 +136,7 @@
 
 /// Default tolerance for gradient descent minimization
 #ifndef THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE
-#define THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE 1E-3
+#define THEORETICA_OPTIMIZATION_MINGRAD_TOLERANCE 1E-8
 #endif
 
 /// Maximum number of iterations for gradient descent minimization
@@ -145,13 +145,13 @@
 #endif
 
 
-#ifndef THEORETICA_STATISTICS_RAND_PREC
+#ifndef THEORETICA_PSEUDORANDOM_PREC
 
 /// Default precision for random number generation using rand_uniform()
 #ifdef THEORETICA_FLOAT_PREC
-#define THEORETICA_STATISTICS_RAND_PREC (uint64_t(1) << 23)
+#define THEORETICA_PSEUDORANDOM_PREC (uint64_t(1) << 23)
 #else
-#define THEORETICA_STATISTICS_RAND_PREC (uint64_t(1) << 31)
+#define THEORETICA_PSEUDORANDOM_PREC (uint64_t(1) << 31)
 #endif
 
 #endif
@@ -336,7 +336,7 @@ namespace theoretica {
 	constexpr unsigned int OPTIMIZATION_MINGRAD_ITER = THEORETICA_OPTIMIZATION_MINGRAD_ITER;
 
 	/// Default precision for random number generation using rand_uniform()
-	constexpr uint64_t STATISTICS_RAND_PREC = THEORETICA_STATISTICS_RAND_PREC;
+	constexpr uint64_t PSEUDORANDOM_PREC = THEORETICA_PSEUDORANDOM_PREC;
 
 	/// Default depth of the Metropolis algorithm
 	constexpr unsigned int STATISTICS_METROPOLIS_DEPTH = THEORETICA_STATISTICS_METROPOLIS_DEPTH;

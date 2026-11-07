@@ -293,13 +293,6 @@ int main(int argc, char const *argv[]) {
 		);
 
 
-		ctx.estimate("integral_romberg_tol",
-			[](real x) { return integral_romberg_tol(g, 1, x); },
-			[](real x) { return G(x) - G(1); },
-			integ_opt
-		);
-
-
 		ctx.estimate("integral_legendre",
 			[](real x) { return integral_legendre(g, 1, x, 16); },
 			[](real x) { return G(x) - G(1); },

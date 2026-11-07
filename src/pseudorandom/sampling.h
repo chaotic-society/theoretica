@@ -20,17 +20,18 @@ namespace theoretica {
 
 	/// Generate a pseudorandom real number in [a, b] using a
 	/// preexisting generator.
+	///
 	/// @param a The lower extreme of the interval
 	/// @param b The higher extreme of the interval
 	/// @param g An already initialized pseudorandom number generator
 	/// @param prec Precision parameters for the normalization, defaults
-	/// to STATISTICS_RAND_PREC.
+	/// to PSEUDORANDOM_PREC.
 	///
 	/// The algorithm generates a random integer number, computes
 	/// its modulus and divides it by prec:
 	/// \f$x = \frac{(n mod p)}{2^p}\f$, where n is the random integer
 	/// and p is the prec parameter
-	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = STATISTICS_RAND_PREC) {
+	inline real rand_uniform(real a, real b, PRNG& g, uint64_t prec = PSEUDORANDOM_PREC) {
 
 		// Generate a uniform random real number in [0, 1]
 		real x = (g() % prec) / static_cast<real>(prec);

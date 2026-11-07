@@ -1,8 +1,9 @@
 
 ///
-/// @file format_hdf5.h HDF5 file IO.
+/// @file hdf5.h HDF5 file IO.
+///
 /// @note Because of its complexity and dependencies,
-/// this module is not included automatically in the 'theoretica.h' header.
+/// this header is not included automatically in 'theoretica.h'.
 ///
 
 #ifndef THEORETICA_IO_HDF5_H

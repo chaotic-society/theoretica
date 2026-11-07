@@ -1,6 +1,7 @@
 
 ///
-/// @file core/dataset.h Operations on datasets
+/// @file core/dataset.h Operations on datasets and generic ordered sets of numbers.
+/// The Vector type must have size() and operator[]() methods (e.g. std::vector<real> and vec<real>)
 ///
 
 #ifndef THEORETICA_DATASET_H
@@ -17,11 +18,6 @@
 
 
 namespace theoretica {
-
-
-	// Operations on datasets and generic ordered sets of numbers
-	// The Vector type must have size() and operator[]() methods
-	// (e.g. std::vector<real> and vec<real>)
 
 
 	/// Compute the product of a set of values

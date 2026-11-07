@@ -9,7 +9,7 @@
 #include <vector>
 #include <cstdint>
 
-#include "../core/bit_op.h"
+#include "../core/bits.h"
 #include "../core/error.h"
 
 
@@ -86,7 +86,7 @@ namespace theoretica {
 	inline uint64_t randgen_xoshiro(uint64_t& a, uint64_t& b, uint64_t& c, uint64_t& d) {
 
 		// Add and rotate
-		const uint64_t result = bit_rotate(a + d, 23) + a;
+		const uint64_t result = bits::bit_rotate(a + d, 23) + a;
 		const uint64_t temp = b << 17;
 
 		// Shift operations
@@ -96,7 +96,7 @@ namespace theoretica {
 		a ^= d;
 
 		c ^= temp;
-		d = bit_rotate(d, 45);
+		d = bits::bit_rotate(d, 45);
 
 		return result;
 	}
@@ -159,7 +159,7 @@ namespace theoretica {
 	/// @return A 64-bit pseudorandom number
 	inline uint64_t randgen_wyrand(uint64_t& seed, uint64_t p1, uint64_t p2) {
 		seed += p1;
-		return mix_mum(seed ^ p2, seed);
+		return bits::mix_mum(seed ^ p2, seed);
 	}
 
 
@@ -195,7 +195,7 @@ namespace theoretica {
 
 		seed += offset;
 		uint64_t high, low;
-		mul_uint128(seed, seed, low, high);
+		bits::mul_uint128(seed, seed, low, high);
 
 		return (high << 32) | (low >> 32);
 	}

@@ -571,7 +571,7 @@ namespace theoretica {
 
 		/// Construct a vector with the given size
 		/// and all elements equal to zero.
-		vec(unsigned int n) {
+		explicit vec(unsigned int n) {
 			resize(n);
 			algebra::vec_zeroes(*this);
 		}

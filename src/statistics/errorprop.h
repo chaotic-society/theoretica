@@ -74,7 +74,8 @@ namespace theoretica {
 		/// Automatically propagate uncertainties under quadrature
 		/// on an arbitrary function given the uncertainties
 		/// on the variables, the mean values of the variables
-		/// and the function itself, by using automatic differentiation.
+		/// and the function itself, using automatic differentiation
+		/// to compute the gradient.
 		///
 		/// @param f The function to propagate error on
 		/// @param x Best values for the variables
@@ -116,7 +117,8 @@ namespace theoretica {
 
 		/// Automatically propagate uncertainties under quadrature
 		/// on an arbitrary function given the function and the
-		/// set of measured data. The covar_mat function is used
+		/// set of measured data. Automatic differentiation is
+		/// used to compute the gradient. The covar_mat function is used
 		/// to estimate the covariance matrix from the data sets.
 		/// For this to work, the data sets should have the same size,
 		/// so as to estimate their covariance.

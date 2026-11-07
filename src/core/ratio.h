@@ -11,6 +11,8 @@
 #include <ostream>
 #endif
 
+#include "real_analysis.h"
+
 
 namespace theoretica {
 
@@ -99,6 +101,31 @@ namespace theoretica {
 			/// @see eval
 			inline operator T2() {
 				return eval();
+			}
+
+
+			/// Reduces a fraction (ratio of integers) to lowest terms by dividing
+			/// numerator and denominator by their greatest common divisor,
+			/// modifying the ratio in place.
+			///
+			/// Requires that both T1 and T2 are integer types.
+			/// @return A reference to the modified ratio.
+			template <
+				typename = std::enable_if_t<std::is_integral<T1>::value>,
+				typename = std::enable_if_t<std::is_integral<T2>::value>
+			>
+			inline ratio<T1, T2>& reduce() {
+
+				if (num == 0) {
+					den = 1;
+					return *this;
+				}
+
+				const int g = gcd(num, den);
+				num /= g;
+				den /= g;
+
+				return *this;
 			}
 
 

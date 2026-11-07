@@ -1,15 +1,19 @@
 
 ///
-/// @file bit_op.h Operations on bits
+/// @file bits.h Operations on bits
 ///
 
-#ifndef THEORETICA_BIT_OP_H
-#define THEORETICA_BIT_OP_H
+#ifndef THEORETICA_BITS_H
+#define THEORETICA_BITS_H
 
 #include <cstdint>
+#include "./core_traits.h"
 
 
 namespace theoretica {
+
+/// @namespace theoretica::bits Operations on bits
+namespace bits {
 
 
 	/// Multiply two 64-bit unsigned integers and store the result
@@ -21,7 +25,7 @@ namespace theoretica {
 	/// of the result.
 	/// @param c_high The variable to store the highest 64 bits
 	/// of the result.
-	inline void mul_uint128(
+	inline constexpr void mul_uint128(
 		uint64_t a, uint64_t b,
 		uint64_t& c_low, uint64_t& c_high) {
 
@@ -32,16 +36,16 @@ namespace theoretica {
 		const uint64_t b_low = b & 0xffffffff;
 		const uint64_t b_high = b >> 32;
 
-		uint64_t m[4];
-
 		// Multiplication terms for (a_l + a_h) * (b_l + b_h)
-		m[0] = a_low * b_low;
-		m[1] = a_low * b_high;
-		m[2] = a_high * b_low;
-		m[3] = a_high * b_high;
+		const uint64_t m[4] = {
+			a_low * b_low,
+			a_low * b_high,
+			a_high * b_low,
+			a_high * b_high
+		};
 
 		// Multiplication carry for c_high
-		uint64_t carry = (
+		const uint64_t carry = (
 			(m[0] >> 32) +
 			(m[1] & 0xffffffff) +
 			(m[2] & 0xffffffff)) >> 32;
@@ -59,9 +63,10 @@ namespace theoretica {
 	/// @param b The second operand
 	/// @return The XOR of the high and low bits
 	/// of the 128-bit product of a and b.
-	inline uint64_t mix_mum(uint64_t a, uint64_t b) {
+	inline constexpr uint64_t mix_mum(uint64_t a, uint64_t b) {
 
-		uint64_t c_low, c_high;
+		uint64_t c_low = 0;
+		uint64_t c_high = 0;
 		mul_uint128(a, b, c_low, c_high);
 
 		return c_high ^ c_low;
@@ -74,7 +79,7 @@ namespace theoretica {
 	/// @param i The index of the rotated bits
 	/// @return The unsigned integer with the given bits rotated
 	template<typename UnsignedIntType>
-	inline TH_CONSTEXPR UnsignedIntType
+	inline constexpr UnsignedIntType
 	bit_rotate(UnsignedIntType x, unsigned int i) {
 
 		return (x << i) | (x >> ((sizeof(UnsignedIntType) * 8) - i));
@@ -86,8 +91,10 @@ namespace theoretica {
 	///
 	/// @param x The vector of elements to swap in-place
 	/// @param m The maximum bit to consider when computing bit reversion
-	template<typename Vector, enable_vector<Vector> = true>
-	inline void swap_bit_reverse(Vector& x, unsigned int m) {
+	template <
+		typename Vector, enable_vector<Vector> = true
+	>
+	inline constexpr void swap_bit_reverse(Vector& x, unsigned int m) {
 
 		if (x.size() < (uint64_t(1) << m)) {
 			TH_MATH_ERROR("swap_bit_reverse", x.size(), MathError::InvalidArgument);
@@ -105,7 +112,7 @@ namespace theoretica {
 				std::swap(x[i], x[j]);
 		}
 	}
-}
 
+}}
 
 #endif
