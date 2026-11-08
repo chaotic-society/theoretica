@@ -37,13 +37,12 @@ int main(int argc, char const *argv[]) {
 	ctx.settings.defaultRuns = 10;
 	
 	th::random::XoshiroPrng g (time(nullptr));
-	auto unif = th::random::uniform_sampler(0.0, 10.0, g);
 
 	// Generate a uniform sample
 	std::vector<vec<real>> data (M, vec<real>(N));
 
 	for (auto& v : data)
-		unif.fill(v);
+		stats::Uniform(0.0, 10.0).sample(g, v);
 
 	// To be compared to benchmark_real_analysis,
 	// with time multiplied by N.

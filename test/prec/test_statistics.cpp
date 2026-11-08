@@ -27,7 +27,7 @@ int main(int argc, char const *argv[]) {
 			"gamma (1)",
 			integral_gauss(
 				[alpha, beta](real x) {
-					return x * distribution::gamma(x, alpha, beta);
+					return x * stats::gamma(x, alpha, beta);
 				},
 				tables::laguerre_roots_16, tables::laguerre_weights_16,
 				16, [](real x) { return th::exp(x); }

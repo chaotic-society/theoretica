@@ -35,9 +35,9 @@ int main() {
 
 	// Random generators
 	random::XoshiroPrng g (time(nullptr));
-	auto gauss1 = random::gaussian_sampler(mu1, stdev1, g);
-	auto gauss2 = random::gaussian_sampler(mu2, stdev2, g);
-	auto gauss3 = random::gaussian_sampler(mu3, stdev3, g);
+	auto gauss1 = stats::Gaussian(mu1, stdev1);
+	auto gauss2 = stats::Gaussian(mu2, stdev2);
+	auto gauss3 = stats::Gaussian(mu3, stdev3);
 
 
 	// Allocate space for 3 datasets of size N
@@ -45,22 +45,21 @@ int main() {
 
 
 	// Simulate a toy experiment with Gaussian deviations
-	gauss1.fill(datasets[0]);
-	gauss2.fill(datasets[1]);
-	gauss3.fill(datasets[2]);
+	gauss1.sample(g, datasets[0]);
+	gauss2.sample(g, datasets[1]);
+	gauss3.sample(g, datasets[2]);
 
 
 	// Compute the covariance matrix
-	std::cout << stats::covar_mat(datasets) << std::endl;
+	io::println(stats::covar_mat(datasets));
 
-
-	std::cout << "Error:\n";
 
 	// Propagate using the covariance matrix
-	std::cout << stats::propagerr(f, datasets) << std::endl;
+	io::println("Error:\n");
+	io::println(stats::propagerr(f, datasets));
 
-	// Propagate using only the standard deviation
 
+	// Propagate using only the standard deviation (no covariance terms)
 	vec<real> means = {
 		stats::mean(datasets[0]),
 		stats::mean(datasets[1]),
