@@ -45,7 +45,7 @@ namespace random {
 		// Statistics are computed online using Welford's method.
 		stats::RunningMoments2<real> stats;
 		for (unsigned int i = 0; i < N; ++i) {
-			const real x = random::uniform(a, b, g);
+			const real x = random::uniform(g, a, b);
 			stats.insert(f(x));
 		}
 
@@ -96,7 +96,7 @@ namespace random {
 		for (unsigned int i = 0; i < N; ++i) {
 			
 			for (unsigned int k = 0; k < v.size(); ++k)
-				v[k] = random::uniform(extremes[k][0], extremes[k][1], g);
+				v[k] = random::uniform(g, extremes[k][0], extremes[k][1]);
 
 			stats.insert(f(v));
 		}
@@ -143,7 +143,7 @@ namespace random {
 		for (unsigned int run = 0; run < M; ++run) {
 
 			// Random shift for the Weyl sequence
-			const real shift = random::uniform(0, 1, g);
+			const real shift = random::uniform(g, 0, 1);
 
 			// Distribute points over shifts
 			const size_t size = N / M;
@@ -225,7 +225,7 @@ namespace random {
 			Vector shift;
 			shift.resize(dim);
 			for (unsigned int i = 0; i < shift.size(); ++i)
-				shift[i] = random::uniform(0, 1, g);
+				shift[i] = random::uniform(g, 0, 1);
 
 			// Distribute points over shifts
 			const size_t size = N / M;
@@ -261,23 +261,25 @@ namespace random {
 	/// The importance function g is expected to be normalized.
 	///
 	/// @param f The function to integrate
-	/// @param g The importance function (normalized)
-	/// @param g_sampler A functor which samples the importance
-	/// distribution (e.g. a PdfSampler<PRNG> object).
+	/// @param g A normalized probability density function,
+	/// as an object satisfying the Distribution concept,
+	/// such as stats::Gaussian.
+	/// @param prng An already initialized pseudorandom number generator.
 	/// @param N The number of points to generate
 	template <
 		typename RealFunction,
 		typename PdfFunction,
-		typename PdfSampler
+		typename Distribution,
+		typename PRNG
 	>
 	inline real integral_impsamp(
-		RealFunction f, PdfFunction g,
-		PdfSampler g_sampler, size_t N = 1'000'000) {
+		RealFunction f, Distribution g,
+		PRNG& prng, size_t N = 1'000'000) {
 
 		stats::RunningMoments2<real> stats;
 		for (unsigned int i = 0; i < N; ++i) {
-			const auto v = g_sampler();
-			stats.insert(f(v) / g(v));
+			const auto v = g.sample(prng);
+			stats.insert(f(v) / g.pdf(v));
 		}		
 
 		return stoch_result<real>{
@@ -295,22 +297,23 @@ namespace random {
 	/// @param N The size of the sample.
 	/// @param f The function to sample, taking as arguments the random variables,
 	/// in the same order as the samplers.
-	/// @param samplers A variadic list of random variable samplers, which are
-	/// functors that return a random value following the desired distribution
-	/// (e.g. a PdfSampler<PRNG> object).
+	/// @param pdfs A variadic template list of probability distributions as
+	/// objects that provide a sample(g) method for the given PRNG,
+	/// such as stats::Gaussian.
 	/// @return The sampled function values.
 	template <
+		typename PRNG,
 		typename SampleVector = vec<real>,
 		typename Function,
-		typename ...PdfSamplers
+		typename ...Distributions
 	>
-	SampleVector sample_function(size_t N, Function f, PdfSamplers... samplers) {
+	inline SampleVector sample_function(PRNG& g, size_t N, Function f, Distributions... pdfs) {
 
 		SampleVector sample;
 		sample.resize(N);
 
-		for (unsigned int i = 0; i < N; ++i)
-			sample[i] = f(samplers()...);
+		for (unsigned int i = 0; i < sample.size(); ++i)
+			sample[i] = f(pdfs.sample(g)...);
 
 		return sample;
 	}
@@ -320,23 +323,24 @@ namespace random {
 	/// of arbitrary variables following the given distributions,
 	/// overwriting every element of the given vector.
 	///
-	/// @tparam SampleVector The type of the vector to return (defaults to vec<real>)
+	/// @param g An already initialized pseudorandom number generator.
 	/// @param v The vector to overwrite with sampled values.
 	/// @param f The function to sample, taking as arguments the random variables,
 	/// in the same order as the samplers.
-	/// @param samplers A variadic list of random variable samplers, which are
-	/// functors that return a random value following the desired distribution
-	/// (e.g. a PdfSampler<PRNG> object).
-	/// @return The sampled function values.
+	/// @param pdfs A variadic template list of probability distributions as
+	/// objects that provide a sample(g) method for the given PRNG,
+	/// such as stats::Gaussian.
+	/// @return A reference to the overwritten vector.
 	template <
+		typename PRNG,
 		typename Vector,
 		typename Function,
-		typename ...PdfSamplers
+		typename ...Distributions
 	>
-	Vector& sample_function(Vector& v, Function f, PdfSamplers... samplers) {
+	inline Vector& sample_function(PRNG& g, Vector& v, Function f, Distributions... pdfs) {
 
 		for (unsigned int i = 0; i < v.size(); ++i)
-			v[i] = f(samplers()...);
+			v[i] = f(pdfs.sample(g)...);
 
 		return v;
 	}

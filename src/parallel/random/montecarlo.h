@@ -57,7 +57,7 @@ namespace parallel {
 
 			#pragma omp for nowait
 			for (unsigned int i = 0; i < N; ++i) {
-				const real x = random::uniform(a, b, local_g);
+				const real x = random::uniform(local_g, a, b);
 				local_stats.insert(f(x));
 			}
 
@@ -127,7 +127,7 @@ namespace parallel {
 			for (unsigned int i = 0; i < N; ++i) {
 				
 				for (unsigned int k = 0; k < v.size(); ++k)
-					v[k] = random::uniform(extremes[k][0], extremes[k][1], local_g);
+					v[k] = random::uniform(local_g, extremes[k][0], extremes[k][1]);
 
 				local_stats.insert(f(v));
 			}
@@ -172,7 +172,7 @@ namespace parallel {
 		// Pre-generate shifts to avoid contention during parallel region
 		vec<real> shifts (N_shift);
 		for (unsigned int i = 0; i < N_shift; ++i)
-			shifts[i] = random::uniform(0, 1, g);
+			shifts[i] = random::uniform(g, 0, 1);
 
         #pragma omp parallel for
 		for (unsigned int j = 0; j < N_shift; ++j) {

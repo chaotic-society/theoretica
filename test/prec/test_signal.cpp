@@ -49,13 +49,12 @@ int main(int argc, char const *argv[]) {
 	}
 
 	{
-		th::random::XoshiroPrng g (time(nullptr));
-		auto gauss = th::random::gaussian_sampler(0, 1E+03, g);
-
+		auto rnd = ctx.random->get_rnd();
 
 		unsigned int N = (1 << 16);
 		cvec x = cvec(N);
-		gauss.fill(x);
+		for (unsigned int i = 0; i < N; ++i)
+			x[i] = complex<>(rnd.gaussian(0, 1E+03), rnd.gaussian(0, 1E+03));
 
 		ctx.equals(
 			"ifft(fft(x)) = x",

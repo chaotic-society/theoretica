@@ -95,7 +95,7 @@
 
 // Pseudorandom number generation
 #include "random/random.h"
-#include "random/random.h"
+#include "random/quasirandom.h"
 #include "random/sampling.h"
 
 // Monte Carlo methods

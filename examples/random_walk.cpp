@@ -41,8 +41,8 @@ int main() {
         // You can change the generation of r to test
         // different distributions (e.g. random::gaussian(0, 1, g))
         const real r = 1;
-        const real theta = random::uniform(0, PI, g);
-        const real phi = random::uniform(0, TAU, g);
+        const real theta = random::uniform(g, 0, PI);
+        const real phi = random::uniform(g, 0, TAU);
 
         // Update the trajectory
         pos[i] = pos[i - 1] + vec3({

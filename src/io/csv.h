@@ -93,7 +93,7 @@ namespace io {
 		}
 
 		for (size_t i = 0; i < v.size(); ++i)
-			file << std::setprecision(precision) << v[i] << std::endl;
+			file << std::setprecision(precision) << v[i] << "\n";
 	}
 
 

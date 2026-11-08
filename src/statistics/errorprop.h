@@ -154,7 +154,7 @@ namespace stats {
 		/// generating a sample following the probability
 		/// distribution of the function and computing
 		/// its standard deviation. N sample vectors of size M are generated
-		/// by sampling the M different PdfSampler distributions which
+		/// by sampling the M different distributions which
 		/// correspond to the input variables of the function.
 		/// The resulting sample is used to estimate the standard deviation
 		/// over the result of the function.
@@ -165,10 +165,19 @@ namespace stats {
 		/// @param samplers A list of samplers for the input variables
 		/// of the function, as a variadic argument.
 		/// @return The standard deviation of the Monte Carlo sample
-		template<typename Function, typename ...PdfSamplers>
-		real propagerr_mc(unsigned int N, Function f, PdfSamplers... samplers) {
+		template <
+			typename PRNG,
+			typename Function,
+			typename ...Distributions
+		>
+		real propagerr_mc(PRNG& g, unsigned int N, Function f, Distributions... pdfs) {
 		
-			return stats::stdev(sample_function(N, f, samplers...));
+			RunningMoments2<real> mom2;
+
+			for (int i = 0; i < N; i++)
+				mom2.insert(f(pdfs.sample(g)...));
+
+			return sqrt(mom2.variance());
 		}
 	}
 }

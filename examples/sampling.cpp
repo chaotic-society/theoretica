@@ -31,18 +31,18 @@ int main() {
 
 		// Generate a random variable following a uniform distribution
 		// in the interval [0, 1]
-		f_uniform << random::uniform(0, 1, g) << ",\n";
+		f_uniform << random::uniform(g, 0, 1) << ",\n";
 		
 		// Generate a random variable following a Gaussian distribution
 		// with mean = 0 and standard deviation = 1
-		f_gaussian << random::gaussian(0, 1, g) << ",\n";
+		f_gaussian << random::gaussian(g, 0, 1) << ",\n";
 
 		// Generate a random variable following an exponential distribution
 		// with rate = 1
-		f_exponential << random::exponential(1, g) << ",\n";
+		f_exponential << random::exponential(g, 1) << ",\n";
 
 		// Generate a random variable following a Cauchy distribution
 		// with location 0 and scale 1
-		f_cauchy << random::cauchy(0, 1, g) << ",\n";
+		f_cauchy << random::cauchy(g, 0, 1) << ",\n";
 	}
 }

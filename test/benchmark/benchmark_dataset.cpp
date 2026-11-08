@@ -10,19 +10,15 @@ int main(int argc, char const *argv[]) {
 	auto ctx = benchmark::make_context("dataset", argc, argv);
 	ctx.output->settings.outputFiles = { "test/benchmark/benchmark_dataset.csv" };
 
-	// Disable multithreading because it would
-	// interfere with benchmarks
+	// Disable multithreading because it would interfere with benchmarks
 	ctx.settings.multithreading = false;
 
 	const size_t N = 1'000'000;
 	auto opt = benchmark::benchmark_options<real>(10, 10);
 
-	th::random::XoshiroPrng g (time(nullptr));
-	auto gauss = th::random::gaussian_sampler(0, 1'000'000, g);
-
 	// Generate a gaussian sample
 	vec<real> v = vec<real>(N);
-	gauss.fill(v);
+	ctx.random->get_rnd().gaussian(v, 0, 1);
 
 	ctx.benchmark(
 		"sum",
