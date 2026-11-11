@@ -446,13 +446,24 @@ namespace theoretica {
 		if (x < 1.0)
 			return -log2(1.0 / x);
 
+		if (x == inf())
+			return inf();
+
+		if (is_nan(x))
+			return nan();
+
 		// Compute the biggest power of 2 so that x <= 2^i
-		unsigned int i = 0;
-		while(x > (uint64_t(1) << i))
-			i++;
+		unsigned int exponent = 0;
+		while(x > (uint64_t(1) << exponent))
+			exponent++;
+
+		// If the exponent is bigger than 64, truncate the fractional part.
+		// On some architectures, the fractional computation may stall otherwise.
+		if (exponent > 64)
+			return real(exponent);
 
 		// Domain reduction to [1, 2]
-		x /= (uint64_t(1) << i);
+		x /= (uint64_t(1) << exponent);
 
 		// Use the Taylor expansion of the logarithm
 		// ln(1 + x) = \sum_k^n (-1)^(k+1) x^k / k
@@ -475,7 +486,7 @@ namespace theoretica {
 			}
 		}
 
-		return i + (log_z / LN2);
+		return exponent + (log_z / LN2);
 #endif
 	}
 
