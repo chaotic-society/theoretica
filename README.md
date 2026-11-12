@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<img src="build/icon.png" width="90" alt="Theoretica's logo, a stylized chaotic attractor">
+<img src="build/logo.png" width="90" alt="Theoretica's logo, a stylized chaotic attractor">
 
 # Theoretica
 
@@ -14,7 +14,7 @@
 
 </div>
 
-Written in modern C++, Theoretica is a lightweight library for scientific computing, providing some of the most widely used numerical methods in science, engineering and data analysis, with growing support for **high-performance computing**. Theoretica focuses on elegance and simplicity, lowering the learning curve typically associated with numerical software.
+Written in modern C++, Theoretica is a lightweight library for scientific computing, providing some of the most widely used numerical methods in science, engineering and data analysis, with growing support for **high-performance computing**. Theoretica focuses on **elegance and simplicity**, lowering the learning curve typically associated with numerical software.
 
 If you'd like to join us, to learn or to bring your expertise, make sure to read the [Onboarding Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/ONBOARDING.md) and the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md). Your help is valuable!
 
