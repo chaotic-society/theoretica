@@ -3,8 +3,6 @@
 
 <div align="center">
 
-<img src="build/logo.png" width="90" alt="Theoretica's logo, a stylized chaotic attractor">
-
 # Theoretica
 
 **Powerful scientific computing with a simple and elegant interface.**
@@ -20,11 +18,11 @@ If you'd like to join us, to learn or to bring your expertise, make sure to read
 
 ## Why Theoretica?
 
-- **🧠 Intuitive interface**: Numerical code should mirror mathematical expressions.
-- **⚡ Blazingly fast**: Zero-overhead abstractions make sure that resources are used for actual numerics.
-- **🔋 Batteries Included**: Out-of-the-box support for all algorithms, without dependencies.
-- **🖥️ HPC Support**: Growing support for hardware acceleration, making your simulations even faster.
-- **🎚️ Embedded Friendly**: Runs anywhere, even with low resources, making it a good choice for constrained systems.
+- **Intuitive interface**: Numerical code should mirror mathematical expressions.
+- **Blazingly fast**: Zero-overhead abstractions make sure that resources are used for actual numerics.
+- **Batteries Included**: Out-of-the-box support for all algorithms, without dependencies.
+- **HPC Support**: Growing support for hardware acceleration, making your simulations even faster.
+- **Embedded Friendly**: Runs anywhere, even with low resources, making it a good choice for constrained systems.
 
 Theoretica is constantly developed and improved with new ideas!
 
@@ -100,10 +98,10 @@ The documentation for the project is available [here](https://chaotic-society.gi
 Regardless of your background, your participation is valuable.
 
 **How you can make an impact:**
-* 🐛 **Report Bugs**: Found a bug? Open an [Issue](https://github.com/chaotic-society/theoretica/issues)!
-* 💡 **Suggest Features**: Need a specific numerical method or feature? Just let us know.
-* ⌨️ **Write Code**: Check out our `good first issue` labels. We are always looking for new solvers, optimizations and features!
-* 📖 **Improve Docs**: Help us make Theoretica accessible to scientists and students worldwide.
+- **Report Bugs**: Found a bug? Open an [Issue](https://github.com/chaotic-society/theoretica/issues)!
+- **Suggest Features**: Need a specific numerical method or feature? Just let us know.
+- **Write Code**: Check out our `good first issue` labels. We are always looking for new solvers, optimizations and features!
+- **Improve Docs**: Help us make Theoretica accessible to scientists and students worldwide.
 
 Have a look at the [Contributing Guide](https://github.com/chaotic-society/theoretica/blob/master/txt/CONTRIBUTING.md) to learn more!
 
