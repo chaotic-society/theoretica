@@ -104,11 +104,39 @@ $(function(){initNavTree('tut_getting_started.html','',''); });
 <div class="contents">
 <div class="textblock"><p>This tutorial shows a minimal setup and first program using Theoretica.</p>
 <h2>Prerequisites</h2>
+<p>To use Theoretica, you're going to need the same tools that you would use to program in C++:</p>
 <ul>
 <li>A C++ compiler, supporting at least C++14</li>
 <li>Access to the Theoretica headers in your include path</li>
 </ul>
-<p>We are building this page! </p>
+<h3>Getting the library</h3>
+<p>The easiest way to get Theoretica's source files is to download a ZIP archive of the code <a href="https://github.com/chaotic-society/theoretica/archive/refs/heads/master.zip">from the repo</a> and extract it in a convenient place, which can also be your project's folder. If you have a working Git installation, you can also clone the repo instead of downloading an archive:</p>
+<div class="fragment"><div class="line">git clone https://github.com/chaotic-society/theoretica.git</div>
+</div><!-- fragment --><h3>Including the library</h3>
+<p>The next step is to include the library's header files inside your project. To make sure your compiler finds the header files, you generally have to add an argument to your compiler or configure your IDE. On GCC, you can use the following argument:</p>
+<div class="fragment"><div class="line">-I/path/to/theoretica/src</div>
+</div><!-- fragment --><p>while on Visual C++ you can use:</p>
+<div class="fragment"><div class="line">/I&quot;C:\path\to\theoretica\src&quot;</div>
+</div><!-- fragment --><p>If you're using your IDE to compile your programs, you should look into the <b>build configuration</b> of your project. Note that if you placed Theoretica's source code inside your project's folder, you should be able to already include it with a relative path (e.g. <span class="tt">#include "../theoretica/src/theoretica.h"</span>), although an installation in another folder may be cleaner.</p>
+<h3>Check your installation</h3>
+<p>Once you can include the header files in your project, try to run the following example code to see if it compiles without errors:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="theoretica_8h.html">theoretica.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetheoretica.html">th</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    </div>
+<div class="line">    vec3 v = {1, 2, 3};</div>
+<div class="line"> </div>
+<div class="line">    io::println(v);</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespacetheoretica_html"><div class="ttname"><a href="namespacetheoretica.html">theoretica</a></div><div class="ttdoc">Main namespace of the library which contains all functions and objects.</div><div class="ttdef"><b>Definition</b> algebra.h:27</div></div>
+<div class="ttc" id="atheoretica_8h_html"><div class="ttname"><a href="theoretica_8h.html">theoretica.h</a></div><div class="ttdoc">Include file for all modules of the library.</div></div>
+</div><!-- fragment --><h2>Using specific modules</h2>
+<p>While the generic header <span class="tt"><a class="el" href="theoretica_8h.html" title="Include file for all modules of the library.">theoretica.h</a></span> can be useful, it can also slow down compilation time, especially if you only use a limited set of functionalities. If this is the case, you can simply include the specific modules that you need, for example <span class="tt">#include "<a class="el" href="ode_8h.html" title="Numerical methods for ordinary differential equations.">calculus/ode.h</a>"</span> if you need to solve ODEs.</p>
+<h2>OpenMP support</h2>
+<p>Theoretica automatically detects OpenMP when it is enabled, but you may want to enable it manually in your build configuration if it's not already on. OpenMP speeds up computation by parallelizing code, using automatic dispatch. If OpenMP interferes with your program, you can define <span class="tt">DISABLE_OPENMP</span> to disable it in Theoretica.</p>
+<h2>HDF5 support.</h2>
+<p>If you need to work on HDF5 files using Theoretica (with <span class="tt"><a class="el" href="hdf5_8h.html" title="HDF5 file IO.">io/hdf5.h</a></span>), you need to enable it in your build system or configuration. This is done by including and linking the HDF5 C library, which can be installed for example through <span class="tt">vcpkg</span>. HDF5 can be a heavy dependency and is recommended only if you plan on using this file format, but is absolutely not needed to use the rest of the library. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
